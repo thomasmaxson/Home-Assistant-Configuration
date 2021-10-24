@@ -31,10 +31,7 @@ views:
       grid-template-columns: 23% repeat( 2, 1fr ) 0
       grid-template-areas: |
         "sidebar  common  foyer    ."
-        "sidebar  common  foyer    ."
         "sidebar  bdr_1   bdr_3_4  ."
-        "sidebar  bdr_1   bdr_3_4  ."
-        "sidebar  other   misc     ."
         "sidebar  other   misc     ."
         "popups   popups  popups   ."
       mediaquery:
@@ -281,7 +278,7 @@ views:
         columns: 3
         cards:
           - type: "custom:button-card"
-            name: Thomas
+            name: Tom
             entity: person.thomas
             tap_action: !include popup/person-thomas.yaml
             double_tap_action: !include popup/person-thomas.yaml
@@ -290,7 +287,7 @@ views:
               - person
 
           - type: "custom:button-card"
-            name: Jessica
+            name: Jess
             entity: person.jessica
             tap_action: !include popup/person-jessica.yaml
             double_tap_action: !include popup/person-jessica.yaml
