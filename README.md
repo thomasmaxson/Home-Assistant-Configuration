@@ -8,25 +8,25 @@ This repo contains the constantly-in-progress [Home Assistant](https://home-assi
 Make sure that you :star: this repo, so that you can get updates right in your notification feed.
 
 ### Dashboard:
-![dashboard](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/master/www/images/dashboard/lovelace-dashboard.png)
+![dashboard](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/lovelace-dashboard.png)
 
 #### Information Popups:
-![houdehold](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/master/www/images/dashboard/popup-details-household.png)
+![houdehold](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-details-household.png)
 
-![temperature](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/master/www/images/dashboard/popup-details-temperature.png)
+![temperature](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-details-temperature.png)
 
-![settings](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/master/www/images/dashboard/popup-details-settings.png)
+![settings](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-details-settings.png)
 
-![systems](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/master/www/images/dashboard/popup-details-systems.png)
+![systems](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-details-systems.png)
 
 #### Control Popups:
-![dimmer1](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/master/www/images/dashboard/popup-light-dimmer-color.png)
+![dimmer1](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-light-dimmer-color.png)
 
-![dimmer2](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/master/www/images/dashboard/popup-light-dimmer.png)
+![dimmer2](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-light-dimmer.png)
 
-![switch](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/master/www/images/dashboard/popup-light-switch.png)
+![switch](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-light-switch.png)
 
-![sidebar](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/master/www/images/dashboard/popup-sidebar-customizer.png)
+![sidebar](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-sidebar-customizer.png)
 
 <hr>
 
