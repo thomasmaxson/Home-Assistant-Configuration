@@ -1,0 +1,145 @@
+################################################################################
+#
+# @author      : Thomas Maxson
+# @package     : Notify
+# @description : A collection of notification scripts and configurations
+#
+################################################################################
+#
+# TEXT TO SPEECH
+# --------------------------------------------------
+
+tts:
+  platform: google_translate
+
+#
+# NOTIFY GROUPS
+# --------------------------------------------------
+
+notify:
+  - platform: ios
+
+  - name: ios_tom
+    platform: group
+    services:
+      - service: mobile_app_ckretajints_iphone
+
+  - name: ios_jess
+    platform: group
+    services:
+      - service: mobile_app_jessica_maxson_s_iphone
+
+script:
+  app_notify_tom:
+    sequence:
+      - condition: state
+        entity_id: input_boolean.app_notify
+        state: "on"
+      - condition: state
+        entity_id: input_boolean.app_notify_tom
+        state: "on"
+      - service: notify.ios_tom
+        data_template:
+          message: >
+            {{ message }}
+
+  app_notify_jess:
+    sequence:
+      - condition: state
+        entity_id: input_boolean.app_notify
+        state: "on"
+      - condition: state
+        entity_id: input_boolean.app_notify_jess
+        state: "on"
+      - service: notify.ios_jess
+        data_template:
+          message: >
+            {{ message }}
+
+  johan_notify_house:
+    sequence:
+      - condition: state
+        entity_id: input_boolean.audible_notifications_johan
+        state: "on"
+      - service: notify.alexa_media
+        data_template:
+          target:
+            - media_player.echo_kitchen
+            - media_player.echo_dot_bedroom_1
+            #- media_player.echo_dot_bedroom_3
+            - media_player.echo_dot_bedroom_4
+          data:
+            type: announce
+          message: >
+            {{ message }}
+
+  johan_notify_offices:
+    sequence:
+      - condition: state
+        entity_id: input_boolean.audible_notifications_johan
+        state: "on"
+      - service: notify.alexa_media
+        data_template:
+          target:
+            - media_player.echo_dot_bedroom_3
+            - media_player.echo_dot_bedroom_4
+          data:
+            type: announce
+          message: >
+            {{ message }}
+
+  johan_notify_kitchen:
+    sequence:
+      - condition: state
+        entity_id: input_boolean.audible_notifications_johan
+        state: "on"
+      - service: notify.alexa_media
+        data_template:
+          target:
+            - media_player.echo_kitchen
+          data:
+            type: announce
+          message: >
+            {{ message }}
+
+  johan_notify_bedroom_1:
+    sequence:
+      - condition: state
+        entity_id: input_boolean.audible_notifications_johan
+        state: "on"
+      - service: notify.alexa_media
+        data_template:
+          target:
+            - media_player.echo_dot_bedroom_1
+          data:
+            type: announce
+          message: >
+            {{ message }}
+
+  johan_notify_bedroom_3:
+    sequence:
+      - condition: state
+        entity_id: input_boolean.audible_notifications_johan
+        state: "on"
+      - service: notify.alexa_media
+        data_template:
+          target:
+            - media_player.echo_dot_bedroom_3
+          data:
+            type: announce
+          message: >
+            {{ message }}
+
+  johan_notify_bedroom_4:
+    sequence:
+      - condition: state
+        entity_id: input_boolean.audible_notifications_johan
+        state: "on"
+      - service: notify.alexa_media
+        data_template:
+          target:
+            - media_player.echo_dot_bedroom_4
+          data:
+            type: announce
+          message: >
+            {{ message }}

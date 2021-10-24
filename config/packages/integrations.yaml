@@ -1,0 +1,34 @@
+################################################################################
+#
+# @author      : Thomas Maxson
+# @package     : Integrations
+# @description : Configuration for various integrations and addons
+#
+################################################################################
+#
+# MariaDB
+# ----------------------------------------
+
+recorder:
+  db_url: !secret recorder_db_url
+
+#
+# InfluxDB
+# ----------------------------------------
+
+influxdb:
+  host: !secret influxdb_host
+  port: !secret influxdb_port
+  database: !secret influxdb_database
+  username: !secret influxdb_username
+  password: !secret influxdb_password
+  max_retries: 3
+  default_measurement: state
+
+#
+# Google Calendar
+# ----------------------------------------
+
+google:
+  client_id: !secret google_client_id
+  client_secret: !secret google_client_secret

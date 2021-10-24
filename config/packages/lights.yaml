@@ -1,0 +1,66 @@
+################################################################################
+#
+# @author      : Thomas Maxson
+# @package     : Light Groups
+# @description :
+#
+################################################################################
+
+light:
+  - platform: group
+    name: Ceiling Lights
+    unique_id: kitchen_ceiling_lights
+    entities:
+      - light.kitchen_light_1
+      - light.kitchen_light_2
+      - light.kitchen_light_3
+      - light.kitchen_light_4
+      - light.kitchen_light_5
+      - light.kitchen_light_6
+
+  - platform: group
+    name: Bedside Lamps
+    unique_id: bedroom_1_bedside_lamps
+    entities:
+      - light.bedroom_1_lamp_j
+      - light.bedroom_1_lamp_t
+
+  - platform: group
+    name: Bedroom 1 Closet Lights
+    entities:
+      - light.closet_hallway_light_j
+      - light.closet_hallway_light_t
+
+  - platform: group
+    name: Bedroom 4 Lights
+    unique_id: bedroom_4_lights
+    entities:
+      - light.bedroom_4_desk_lamp
+      - light.bedroom_4_lightstrip
+
+  # - platform: group
+  #   name: Bedroom 3 Lights
+  #   unique_id: bedroom_3_lights
+  #   entities:
+  #     - light.bedroom_3_desk_lamp
+
+  - platform: template
+    lights:
+      tablet_brightness:
+        friendly_name: Tablet Brightness
+        value_template: "{{ states.sensor.tablet_screen_brightness.attributes['screenOn'] }}"
+        level_template: "{{ states.sensor.tablet_screen_brightness.attributes['screenBrightness'] }}"
+        turn_on:
+          service: rest_command.kiosk_command
+          data:
+            cmd: screenOn
+        turn_off:
+          service: rest_command.kiosk_command
+          data:
+            cmd: screenOff
+        set_level:
+          service: rest_command.kiosk_command
+          data_template:
+            cmd: setStringSetting
+            key: screenBrightness
+            value: "{{ brightness }}"

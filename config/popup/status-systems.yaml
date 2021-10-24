@@ -1,0 +1,330 @@
+action: fire-dom-event
+browser_mod:
+  command: popup
+  title: System Details
+  style:
+    $: |
+      @media screen and (max-width: 992px) { 
+        .mdc-dialog .mdc-dialog__container .mdc-dialog__surface { 
+          border-radius: 0 !important;
+        }
+      }
+    .: |
+      :host .content {
+        width: calc( 385px * 3 );
+        max-width: 90vw;
+      }
+
+      @media screen and (max-width: 992px) {
+        :host .content {
+          width: 100%;
+          max-width: none;
+        }
+      }
+    layout-card:
+      $grid-layout$:
+        .: |
+          :host {
+            padding: 0;
+          }
+
+        hui-entities-card:
+          $: |
+            .card-content {
+              padding: 1.5em 2.7em 2.3em 2em;
+            }
+            ha-card {
+              animation: border 1s forwards;
+              border-radius: 0;
+            }
+            @keyframes border {
+              0%, 100% {
+                border-right: 1px solid rgba(0, 0, 0, 0.3);
+              }
+            }
+            /* phone */
+            @media screen and (max-width: 992px) {
+              .card-content {
+                padding-right: 0;
+                padding-left: 0;
+              }
+              ha-card {
+                padding: 1.5em 1em 1em 1em;
+                animation: none !important;
+              }
+            }
+          $hui-horizontal-stack-card$: |
+            #root {
+              justify-content: space-evenly;
+              margin-top: 1.9em;
+              margin-left: 0.8em;
+            }
+  card:
+    type: custom:layout-card
+    layout_type: custom:grid-layout
+    layout:
+      grid-template-columns: repeat(3, 1fr)
+      grid-template-rows: 1fr
+      grid-template-areas: |
+        'homeassistant tablet network'
+      mediaquery:
+        # Tablet and down
+        "(max-width: 992px)":
+          grid-template-columns: 1fr
+          grid-template-rows: repeat(1, 1fr)
+          grid-template-areas: |
+            'homeassistant'
+            'tablet'
+            'network'
+    cards:
+      - type: entities
+        view_layout:
+          grid-area: homeassistant
+        title: Home Assistant
+        show_header_toggle: false
+        card_mod:
+          class: header
+          style: |
+            ha-card {
+              margin: 0px !important;
+              width: 100%;
+            }
+        entities:
+          - entity: sensor.ha_version
+          - entity: sensor.last_boot
+            #format: relative
+            #secondary_info: "Since: [[ sensor.last_boot ]]"
+          - entity: sensor.database
+          - entity: sensor.home_assistant_log
+          - entity: sensor.processor_temperature
+          - type: custom:bar-card
+            width: 55%
+            height: 2em
+            decimal: 0
+            unit_of_measurement: "%"
+            positions:
+              icon: outside
+              indicator: "off"
+              name: outside
+            severity:
+              - color: "#303435"
+                from: 0
+                to: 89
+              - color: "#6d2525"
+                from: 90
+                to: 100
+            entity_row: true
+            entities:
+              - entity: sensor.processor_use_percent
+
+        footer:
+          type: custom:hui-horizontal-stack-card
+          cards:
+            # Same service as: Configuration > Server Controls > Restart
+            - type: custom:button-card
+              template: icon_name
+              name: Restart System
+              icon: hass:reload
+              hold_action:
+                action: call-service
+                service: homeassistant.restart
+              card_mod:
+                style: |
+                  ha-card {
+                    margin-right: 0.25em;
+                    margin-bottom: 1em;
+                    margin-left: 0.25em;
+                  }
+
+            # Same service as: Supervisor > System > Reboot Host
+            # - type: custom:button-card
+            #   template: icon_name
+            #   name: Reboot Host
+            #   icon: hass:reload
+            #   hold_action:
+            #     action: call-service
+            #     service: hassio.host_reboot
+
+      - type: entities
+        view_layout:
+          grid-area: tablet
+        title: Amazon Fire HD Tablet
+        show_header_toggle: false
+        card_mod:
+          class: header
+          style: |
+            ha-card {
+              margin: 0px !important;
+              width: 100%;
+            }
+        entities:
+          - entity: light.fire_tablet_screen
+            name: Display
+            icon: hass:tablet
+          - entity: sensor.fire_tablet_last_app_start
+            name: Last Restart
+            icon: hass:update
+            format: relative
+
+          - type: custom:slider-entity-row
+            entity: light.fire_tablet_screen
+            name: Brightness
+            icon: mdi:brightness-6
+            hide_state: false
+
+          - entity: binary_sensor.fire_tablet_plugged_in
+            name: Power Supply
+          - type: custom:bar-card
+            width: 55%
+            height: 2em
+            decimal: 0
+            unit_of_measurement: "%"
+            positions:
+              icon: outside
+              indicator: "off"
+              name: outside
+            severity:
+              - color: "#6d2525"
+                from: 0
+                to: 25
+              - color: "#303435"
+                from: 26
+                to: 75
+              - color: "green"
+                from: 76
+                to: 100
+            entity_row: true
+            entities:
+              - entity: sensor.custom_fire_tablet_battery_level
+                name: Battery Level
+
+          - type: custom:bar-card
+            width: 55%
+            height: 2em
+            decimal: 0
+            unit_of_measurement: "%"
+            positions:
+              icon: outside
+              indicator: "off"
+              name: outside
+            severity:
+              - color: "#303435"
+                from: 0
+                to: 89
+              - color: "#6d2525"
+                from: 90
+                to: 100
+            entity_row: true
+            entities:
+              - entity: sensor.fire_tablet_ram_used_memory
+                name: Memory
+                icon: hass:memory
+              # - entity: sensor.fire_tablet_internal_storage_free_space
+              #   icon: hass:database
+
+        footer:
+          type: custom:hui-horizontal-stack-card
+          cards:
+            # - type: custom:button-card
+            #   name: Reload
+            #   icon: hass:reload
+            #   template: icon_name
+            #   hold_action:
+            #     action: call-service
+            #     service: fullykiosk.load_start_url
+            #   card_mod:
+            #     style: |
+            #       ha-card {
+            #         margin-right: 0.25em;
+            #         margin-bottom: 1em;
+            #         margin-left: 0.25em;
+            #       }
+
+            - type: custom:button-card
+              name: Restart Device
+              icon: hass:reload
+              template: icon_name
+              hold_action:
+                # action: call-service
+                # service: fullykiosk.reboot_device
+                # data:
+                #   entity_id: media_player.johan_the_tablet
+                services: |
+                  [[[
+                    hass.callService('fullykiosk', 'restart', {
+                      entity_id: 'media_player.johan_the_tablet'
+                    });
+                  ]]]
+              card_mod:
+                style: |
+                  ha-card {
+                    margin-right: 0.25em;
+                    margin-bottom: 1em;
+                    margin-left: 0.25em;
+                  }
+
+      - type: entities
+        view_layout:
+          grid-area: network
+        title: Network
+        show_header_toggle: false
+        card_mod:
+          class: header
+          style: |
+            ha-card {
+              margin: 0px !important;
+              width: 100%;
+            }
+        entities:
+          - entity: sensor.network_throughput_in_eth0
+            name: Throughput In
+          - entity: sensor.network_throughput_out_eth0
+            name: Throughput Out
+          - type: divider
+          # - entity: sensor.unifi_gateway_www_xput_up
+          #   name: Unifi, Upload Speed
+          # - entity: sensor.unifi_gateway_www_xput_down
+          #   name: Unifi, Download Speed
+          # - entity: sensor.unifi_gateway_www_speedtest_ping
+          #   name: Unifi, Ping
+          # - type: divider
+          # - entity: sensor.uptime
+          #   name: Dream Machine Pro Uptime
+          # SpeedTest
+          - entity: sensor.speedtest_ping
+          - entity: sensor.speedtest_upload
+            style: |
+              :host {
+                --paper-item-icon-color: #385581;
+              }
+          - entity: sensor.speedtest_download
+            style: |
+              :host {
+                --paper-item-icon-color: green;
+              }
+
+        footer:
+          type: custom:mini-graph-card
+          entities:
+            - entity: sensor.speedtest_upload
+              color: "#385581"
+            - entity: sensor.speedtest_download
+              color: green
+          align_state: left
+          group: false
+          points_per_hour: 15
+          line_width: 3
+          hour24: true
+          hours_to_show: 1.5
+          show:
+            {
+              fill: fade,
+              icon: false,
+              name: false,
+              state: false,
+              name_adaptive_color: true,
+              labels: hover,
+              legend: false,
+            }
+          tap_action:
+            action: none

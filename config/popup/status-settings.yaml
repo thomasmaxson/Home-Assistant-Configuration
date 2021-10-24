@@ -1,0 +1,137 @@
+action: fire-dom-event
+browser_mod:
+  command: popup
+  title: Settings
+  style:
+    $: |
+      @media screen and (max-width: 992px) { 
+        .mdc-dialog .mdc-dialog__container .mdc-dialog__surface { 
+          border-radius: 0 !important;
+        }
+      }
+    .: |
+      :host .content {
+        width: calc( 385px * 2 );
+        max-width: 90vw;
+      }
+
+      @media screen and (max-width: 992px) {
+        :host .content {
+          width: 100%;
+          max-width: none;
+        }
+      }
+    layout-card:
+      $grid-layout$:
+        .: |
+          :host {
+            padding: 0;
+          }
+
+        hui-entities-card:
+          $: |
+            .card-content {
+              padding: 1.5em 2.7em 2.3em 2em;
+            }
+            ha-card {
+              animation: border 1s forwards;
+              border-radius: 0;
+            }
+            @keyframes border {
+              0%, 100% {
+                border-right: 1px solid rgba(0, 0, 0, 0.3);
+              }
+            }
+            /* phone */
+            @media screen and (max-width: 992px) {
+              .card-content {
+                padding-right: 0;
+                padding-left: 0;
+              }
+              ha-card {
+                padding: 1.5em 1em 1em 1em;
+                animation: none !important;
+              }
+            }
+          $hui-horizontal-stack-card$: |
+            #root {
+              justify-content: space-evenly;
+              margin-top: 1.9em;
+              margin-left: 0.8em;
+            }
+  card:
+    type: custom:layout-card
+    layout_type: custom:grid-layout
+    layout:
+      grid-template-columns: repeat(1, 1fr)
+      grid-template-rows: 1fr
+      grid-template-areas: |
+        'general notifications'
+      mediaquery:
+        # Tablet and down
+        "(max-width: 992px)":
+          grid-template-columns: 1fr
+          grid-template-rows: repeat(1, 1fr)
+          grid-template-areas: |
+            'general'
+            'notifications'
+    cards:
+      - type: entities
+        view_layout:
+          grid-area: notifications
+        title: Notifications
+        show_header_toggle: false
+        card_mod:
+          class: header
+          style: |
+            ha-card {
+              margin: 0px !important;
+              width: 100%;
+            }
+        entities:
+          - entity: input_boolean.audible_notifications_johan
+            name: Household Audible Notifications
+          - entity: input_boolean.app_notify
+            name: All Can Recieve Push Notifications
+          - entity: input_boolean.app_notify_tom
+            name: He Can Recieve Push Notifications
+          - entity: input_boolean.app_notify_jess
+            name: She Can Recieve Push Notifications
+
+      - type: entities
+        view_layout:
+          grid-area: general
+        title: Settings
+        show_header_toggle: false
+        card_mod:
+          class: header
+          style: |
+            ha-card {
+              margin: 0px !important;
+              width: 100%;
+            }
+        entities:
+          - entity: input_boolean.gouda_home
+            name: Gouda is Home
+          - type: divider
+          - entity: input_boolean.vacation_mode
+            name: Household Vacation Mode
+          - type: divider
+          - entity: input_boolean.garbage_bins_out
+            name: Garbage Bins Taken Out
+          - entity: input_boolean.garbage_bins_in
+            name: Garbage Bins Brought In
+          # - entity: input_boolean.recycle_bins_out
+          #   name: Recycle Bins Taken Out
+          # - entity: input_boolean.recycle_bins_in
+          #   name: Recycle Bins Brought In
+
+          #- entity: input_boolean.automation_daily_sunset
+          #  name: Daily Sunset Automation Active
+
+          # - entity: input_select.day_pickup_trash_a
+          #   name: Trash Pickup, Day 1
+          # - entity: input_select.day_pickup_trash_b
+          #   name: Trash Pickup, Day 2
+          # - entity: input_select.day_pickup_bulk_trash
+          #   name: Bulk Trash Pickup

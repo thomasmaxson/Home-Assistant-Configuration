@@ -1,0 +1,50 @@
+vacation_lights:
+  alias: Vacation Lights
+  sequence:
+    - repeat:
+        until:
+          - condition: sun
+            after: sunrise
+        sequence:
+          - service: input_text.set_value
+            target:
+              entity_id: input_text.current_random_light
+            data:
+              value: "{{ state_attr( 'group.lights_vacation', 'entity_id' ) | random }}"
+          - service: homeassistant.turn_on
+            data:
+              entity_id: "{{ states( 'input_text.vacation_mode_current_light' ) }}"
+          - delay:
+              minutes: 00:{{ '%0.2d' % range( 5, 59 ) | random | int }}:00
+          - service: homeassistant.turn_off
+            data:
+              entity_id: "{{ states( 'input_text.vacation_mode_current_light' ) }}"
+          - service: input_text.set_value
+            data:
+              entity_id: input_text.vacation_mode_current_light
+              value: None
+  mode: single
+vacation_lights_demo:
+  alias: Vacation Lights, Demo
+  sequence:
+    - repeat:
+        count: 10
+        sequence:
+          - service: input_text.set_value
+            target:
+              entity_id: input_text.current_random_light
+            data:
+              value: "{{ state_attr( 'group.lights_vacation', 'entity_id' ) | random }}"
+          - service: homeassistant.turn_on
+            data:
+              entity_id: "{{ states( 'input_text.vacation_mode_current_light' ) }}"
+          - delay:
+              minutes: 00:00:{{ '%0.2d' % range( 2, 5 ) | random | int }}
+          - service: homeassistant.turn_off
+            data:
+              entity_id: "{{ states( 'input_text.vacation_mode_current_light' ) }}"
+          - service: input_text.set_value
+            data:
+              entity_id: input_text.vacation_mode_current_light
+              value: None
+  mode: single

@@ -1,0 +1,286 @@
+################################################################################
+#
+# @author      : Thomas Maxson
+# @package     : Lovelace UI
+# @description :
+#
+################################################################################
+
+button_card_templates: !include button_card_templates.yaml
+
+kiosk_mode:
+  # non_admin_settings:
+  #   hide_header: true
+  #   hide_sidebar: true
+  user_settings:
+    - users:
+        - "Johan"
+        - "Jessica"
+        - "Thomas"
+      hide_header: true
+      hide_sidebar: true
+
+views:
+  - type: custom:layout-card
+    layout_type: custom:grid-layout
+    title: Dashboard
+    path: dashboard
+    layout:
+      grid-gap: calc( var(--custom-layout-card-padding) / 1.2 ) calc( var(--custom-layout-card-padding) * 1.5 )
+      grid-template-rows: min-content
+      grid-template-columns: 23% repeat( 2, 1fr ) 0
+      grid-template-areas: |
+        "sidebar  common  foyer    ."
+        "sidebar  common  foyer    ."
+        "sidebar  bdr_1   bdr_3_4  ."
+        "sidebar  bdr_1   bdr_3_4  ."
+        "sidebar  other   misc     ."
+        "sidebar  other   misc     ."
+        "popups   popups  popups   ."
+      mediaquery:
+        # Tablet and down
+        "(max-width: 992px)":
+          grid-gap: var( --custom-layout-card-padding )
+          grid-template-rows: auto
+          grid-template-columns: 0 1fr 0
+          grid-template-areas: |
+            ".  sidebar  ."
+            ".  common   ."
+            ".  foyer    ."
+            ".  bdr_1    ."
+            ".  bdr_3_4  ."
+            ".  other    ."
+            ".  misc     ."
+            ".  popups   ."
+
+    cards:
+      # extra_styles fix
+      # https://github.com/custom-cards/button-card#injecting-css-with-extra_styles
+      - type: custom:button-card
+
+      #
+      # SIDEBAR
+      # --------------------------------------------------
+
+      - type: vertical-stack
+        view_layout:
+          grid-area: sidebar
+          hide:
+            mediaquery: "(max-width: 992px)"
+        cards:
+          - type: custom:button-card
+            entity: sensor.template_sidebar
+            template: sidebar_template
+            tap_action: none
+            double_tap_action: !include popup/layout-sidebar.yaml
+
+          # - type: custom:sun-card
+          #   darkMode: true
+          #   timeFormat: "12h"
+
+      #
+      # Popups
+      # --------------------------------------------------
+
+      - type: horizontal-stack
+        view_layout:
+          grid-area: popups
+        cards:
+          - type: custom:button-card
+            icon: hass:home-circle-outline
+            template:
+              - details
+            tap_action: !include popup/status-household.yaml
+            hold_action: !include popup/status-household.yaml
+            double_tap_action: !include popup/status-household.yaml
+
+          - type: custom:button-card
+            icon: hass:thermometer
+            template:
+              - details
+            tap_action: !include popup/status-temperatures.yaml
+            hold_action: !include popup/status-temperatures.yaml
+            double_tap_action: !include popup/status-temperatures.yaml
+
+          - type: custom:button-card
+            icon: hass:cog
+            template:
+              - details
+            tap_action: !include popup/status-settings.yaml
+            hold_action: !include popup/input-helpers.yaml
+            double_tap_action: !include popup/input-helpers.yaml
+
+          - type: custom:button-card
+            icon: hass:information-outline
+            template:
+              - details
+            tap_action: !include popup/status-systems.yaml
+            hold_action: !include popup/status-systems.yaml
+            double_tap_action: !include popup/status-systems.yaml
+
+      #
+      # COMMON AREAS
+      # --------------------------------------------------
+
+      - type: grid
+        title: Common Areas
+        view_layout:
+          grid-area: common
+        columns: 3
+        cards:
+          - type: custom:button-card
+            entity: light.kitchen_ceiling_lights
+            name: Kitchen
+            #icon: bha:ceiling-downlight
+            icon: hue:recessed-ceiling
+            template:
+              - popup_dimmer_colors
+
+          - type: custom:button-card
+            entity: light.living_room_corner_lamp
+            name: Corner Lamp
+            icon: bha:table-lamp-variant
+            template:
+              - popup_dimmer_colors
+
+          - type: custom:button-card
+            entity: light.dining_room_chandelier
+            name: Chandelier
+            icon: bha:chandelier
+            template:
+              - popup_dimmer
+
+      #
+      # FOYER
+      # --------------------------------------------------
+
+      - type: grid
+        title: Foyer
+        view_layout:
+          grid-area: foyer
+        columns: 3
+        cards:
+          - type: custom:button-card
+            entity: light.foyer_ceiling_ledge
+            name: Ceiling
+            template:
+              - popup_dimmer_colors
+
+          - type: custom:button-card
+            entity: light.foyer_under_table
+            name: Floor
+            template:
+              - popup_dimmer_colors
+
+      #
+      # BEDROOM 1
+      # --------------------------------------------------
+
+      - type: grid
+        title: Main Bedroom
+        view_layout:
+          grid-area: bdr_1
+        columns: 3
+        cards:
+          - type: custom:button-card
+            entity: light.bedroom_1_bedside_lamps
+            name: Bedside Lamps
+            template:
+              - popup_dimmer_colors
+
+          - type: custom:button-card
+            entity: light.closet_hallway_ceiling_light
+            name: Hallway
+            icon: bha:dome-light
+            template:
+              - popup_dimmer
+
+          - type: custom:button-card
+            entity: light.bedroom_1_closet_lights
+            name: Closets
+            icon: hass:lightbulb
+            template:
+              - popup_dimmer
+
+      #
+      # BEDROOM 3 AND 4
+      # --------------------------------------------------
+
+      - type: grid
+        title: Office's
+        view_layout:
+          grid-area: bdr_3_4
+        columns: 3
+        cards:
+          - type: custom:button-card
+            entity: light.bedroom_4_lights
+            name: His
+            icon: hue:room-office
+            template:
+              - popup_dimmer_colors
+
+      #
+      # OTHER
+      # --------------------------------------------------
+
+      - type: grid
+        title: Other
+        view_layout:
+          grid-area: other
+        columns: 3
+        cards:
+          - type: custom:button-card
+            entity: light.laundry_ceiling_light
+            name: Laundry Room
+            icon: bha:dome-light
+            template:
+              - popup_dimmer_colors
+
+          - type: custom:button-card
+            entity: switch.outdoor_string_lights
+            name: Outside
+            icon: bha:light-string
+            template:
+              - popup_switch
+
+          - type: custom:button-card
+            entity: media_player.sony_bravia_tv
+            name: Television
+            template:
+              - base
+
+      #
+      # MISC
+      # --------------------------------------------------
+
+      - type: grid
+        title: Resident Status
+        view_layout:
+          grid-area: misc
+        columns: 3
+        cards:
+          - type: "custom:button-card"
+            name: Him
+            entity: person.thomas
+            tap_action: !include popup/person-thomas.yaml
+            double_tap_action: !include popup/person-thomas.yaml
+            hold_action: !include popup/person-thomas.yaml
+            template:
+              - person
+
+          - type: "custom:button-card"
+            name: Her
+            entity: person.jessica
+            tap_action: !include popup/person-jessica.yaml
+            double_tap_action: !include popup/person-jessica.yaml
+            hold_action: !include popup/person-jessica.yaml
+            template:
+              - person
+
+          - type: "custom:button-card"
+            name: Gouda
+            entity: input_boolean.gouda_home
+            show_entity_picture: true
+            entity_picture: /local/uploads/avatar-gouda.png
+            template:
+              - pet

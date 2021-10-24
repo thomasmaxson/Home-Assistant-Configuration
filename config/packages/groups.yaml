@@ -1,0 +1,122 @@
+################################################################################
+#
+# @author      : Thomas Maxson
+# @package     : Group
+# @description :
+#
+################################################################################
+
+group:
+  residents:
+    name: Residents
+    entities:
+      - person.thomas
+      - person.jessica
+
+  pets:
+    name: Pets
+    entities:
+        - input_boolean.gouda_home
+
+  lights_all:
+    name: All Lights
+    entities:
+      #- light.kitchen_ceiling_lights
+      - light.kitchen_light_1
+      - light.kitchen_light_2
+      - light.kitchen_light_3
+      - light.kitchen_light_4
+      - light.kitchen_light_5
+      - light.kitchen_light_6
+      - light.dining_room_chandelier
+      - light.living_room_corner_lamp
+      - light.foyer_ceiling_ledge
+      - light.foyer_under_table
+      - light.laundry_ceiling_light
+      #- light.bedroom_1_bedside_lamps
+      - light.bedroom_1_lamp_j
+      - light.bedroom_1_lamp_t
+      - light.closet_hallway_ceiling_light
+      - light.closet_hallway_light_j
+      - light.closet_hallway_light_t
+      - light.bedroom_4_desk_lamp
+      - light.bedroom_4_lightstrip
+      - switch.outdoor_string_lights
+
+  lights_all_interior:
+    name: All Interior Lights
+    entities:
+      - light.kitchen_ceiling_lights
+      - light.dining_room_chandelier
+      - light.living_room_corner_lamp
+      - light.laundry_ceiling_light
+      - light.bedroom_1_bedside_lamps
+      - light.closet_hallway_ceiling_light
+      - light.closet_hallway_light_t
+      - light.closet_hallway_light_j
+      - light.bedroom_4_desk_lamp
+      - light.bedroom_4_lightstrip
+
+  lights_all_exterior:
+    name: All Exterior Lights
+    entities:
+      - switch.outdoor_string_lights
+
+  lights_vacation:
+    name: Vacation Lights
+    entities:
+      - light.kitchen_ceiling_lights
+      - light.dining_room_chandelier
+      - light.living_room_corner_lamp
+      - light.bedroom_1_bedside_lamps
+      - light.closet_hallway_ceiling_light
+
+  sensors_doors:
+    name: Doors
+    entities:
+      - binary_sensor.door_bedroom_1
+      - binary_sensor.door_bedroom_2
+      - binary_sensor.door_bedroom_3
+      - binary_sensor.door_bedroom_4
+      - binary_sensor.door_living
+      - binary_sensor.door_laundry
+      - binary_sensor.door_closet_hallway_j
+      - binary_sensor.door_closet_hallway_t
+
+  sensors_leak:
+    name: Leak Sensors
+    entities:
+      - binary_sensor.leak_air_conditioning
+      - binary_sensor.leak_laundry_room
+      - binary_sensor.leak_kitchen_sink
+      - binary_sensor.leak_guest_bathroom_sink
+      - binary_sensor.leak_half_bathroom_sink
+      - binary_sensor.leak_main_bathroom_sink_his
+      - binary_sensor.leak_main_bathroom_sink_hers
+
+  sensors_all_battery_levels:
+    name: Battery Levels
+    entities:
+      - lock.front_door
+      - binary_sensor.motion_laundry
+      # Aqara Door/Window Sensors
+      - sensor.door_bedroom_1
+      - sensor.door_bedroom_2
+      - sensor.door_bedroom_3
+      - sensor.door_bedroom_4
+      - sensor.door_laundry
+      - sensor.door_living
+      - sensor.door_closet_hallway_j
+      - sensor.door_closet_hallway_t
+      # Aqara Buttons
+      - sensor.switch_foyer
+      - sensor.switch_garage
+      - sensor.switch_office_tom
+      # Aqara Leak Sensors
+      - sensor.leak_air_conditioning
+      - sensor.leak_laundry_room
+      - sensor.leak_kitchen
+      - sensor.leak_main_bathroom_sink_hers
+      - sensor.leak_main_bathroom_sink_his
+      - sensor.leak_guest_bathroom_sink
+      - sensor.leak_half_bathroom_sink

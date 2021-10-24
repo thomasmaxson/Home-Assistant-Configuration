@@ -1,0 +1,98 @@
+################################################################################
+#
+# @author      : Thomas Maxson
+# @package     : Configuration
+# @description :
+#
+################################################################################
+
+homeassistant:
+  external_url: !secret homeassistant_external_url
+  internal_url: !secret homeassistant_internal_url
+
+  # Location required to calculate the time the sun rises and sets
+  latitude: !secret homeassistant_latitude
+  longitude: !secret homeassistant_longitude
+
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: !secret homeassistant_elevation
+
+  # metric for Metric, imperial for Imperial
+  unit_system: imperial
+
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: America/New_York
+
+  # Custom specific entities
+  packages: !include_dir_named packages
+
+  allowlist_external_dirs:
+    - /config
+
+automation: !include automations.yaml
+script: !include scripts.yaml
+
+default_config:
+
+http:
+  ssl_certificate: /ssl/fullchain.pem
+  ssl_key: /ssl/privkey.pem
+
+lovelace:
+  mode: yaml
+  resources:
+    - url: /hacsfiles/kiosk-mode/kiosk-mode.js
+      type: module
+    - url: /hacsfiles/button-card/button-card.js
+      type: module
+    - url: /hacsfiles/bar-card/bar-card.js
+      type: module
+    - url: /hacsfiles/lovelace-card-mod/card-mod.js
+      type: module
+    - url: /hacsfiles/lovelace-layout-card/layout-card.js
+      type: module
+    - url: /hacsfiles/light-entity-card/light-entity-card.js
+      type: module
+    - url: /hacsfiles/light-popup-card/light-popup-card.js
+      type: module
+    - url: /hacsfiles/lovelace-slider-entity-row/slider-entity-row.js
+      type: module
+    - url: /hacsfiles/thermostat-popup-card/thermostat-popup-card.js
+      type: module
+    - url: /hacsfiles/swipe-card/swipe-card.js
+      type: module
+    - url: /hacsfiles/mini-media-player/mini-media-player-bundle.js
+      type: module
+    - url: /hacsfiles/mini-graph-card/mini-graph-card-bundle.js
+      type: module
+    - url: /hacsfiles/home-assistant-sun-card/home-assistant-sun-card.js
+      type: module
+
+browser_mod:
+  disable:
+    - all
+
+# Media extractor is used for extracting audio from URLs
+# For more info ->https://www.home-assistant.io/integrations/media_extractor/
+media_extractor:
+
+device_tracker:
+  - platform: bluetooth_tracker
+
+  - platform: iphonedetect
+    consider_home: 60
+    new_device_defaults:
+      track_new_devices: true
+    hosts:
+      thomas_iphonedetect: !secret iphonedetect_thomas
+
+ios:
+  push:
+    categories:
+      - name: Close Garage Door
+        identifier: "close_garage_door"
+        actions:
+          - identifier: "GARAGE_DOOR_CLOSE"
+            title: "Close Garage Door"
+          - identifier: "GARAGE_DOOR_LATER"
+            title: "Remind Me Later"

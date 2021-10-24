@@ -1,0 +1,148 @@
+################################################################################
+#
+# @author      : Thomas Maxson
+# @package     : Input Helpers
+# @description : Manually added helper inputs
+#
+################################################################################
+#
+# INPUT, BOOLEAN
+# --------------------------------------------------
+
+input_boolean:
+  debug_texts:
+    name: Debug Texts
+    icon: mdi:test-tube
+
+  app_notify:
+    name: Send App Notifications
+    icon: mdi:cellphone-message
+
+  app_notify_tom:
+    name: Send App Notifications to Tom
+    icon: mdi:cellphone-message
+
+  app_notify_jess:
+    name: Send App Notifications to Jess
+    icon: mdi:cellphone-message
+
+  audible_notifications_johan:
+    name: Audible Notifications
+    icon: mdi:speaker-wireless
+
+  sidebar_display_holidays:
+    name: Display Upcoming Holidays
+    icon: mdi:eye-check
+
+  sidebar_display_celebrations:
+    name: Display Upcoming Celebrations
+    icon: mdi:eye-check
+
+  sidebar_display_weather_forecast:
+    name: Display Weather Forecast
+    icon: mdi:eye-check
+
+  sidebar_display_lights_on:
+    name: Display Lights On Reminder
+    icon: mdi:eye-check
+
+  sidebar_display_open_doors:
+    name: Display Open Door Reminder
+    icon: mdi:eye-check
+
+  sidebar_display_garbage_reminder:
+    name: Display Garbage Reminder
+    icon: mdi:eye-check
+
+  automation_daily_sunset:
+    name: Daily Sunset Automation
+    icon: mdi:home-automation
+
+  garbage_bins_out:
+    name: Garbage Bins Taken Out
+    icon: mdi:trash-can
+
+  garbage_bins_in:
+    name: Garbage Bins Brought In
+    icon: mdi:trash-can
+
+  recycle_bins_out:
+    name: Recycle Bins Taken Out
+    icon: mdi:trash-can
+
+  recycle_bins_in:
+    name: Recycle Bins Brought In
+    icon: mdi:trash-can
+
+  gouda_home:
+    name: Gouda is Home
+    icon: mdi:dog
+
+#
+# INPUT, TEXT
+# --------------------------------------------------
+
+input_text:
+  camera_doorbell_latest_snapshot_filename:
+    name: Doorbell Snapshot Filename
+
+  #
+# INPUT, SELECT
+# --------------------------------------------------
+
+input_select:
+  day_pickup_trash_a:
+    name: Trash Pickup Day of Week
+    icon: mdi:calendar-question
+    options:
+      - None
+      - Sunday
+      - Monday
+      - Tuesday
+      - Wednesday
+      - Thursday
+      - Friday
+      - Saturday
+    #initial: None
+
+  day_pickup_trash_b:
+    name: Trash Pickup Day of Week
+    icon: mdi:calendar-question
+    options:
+      - None
+      - Sunday
+      - Monday
+      - Tuesday
+      - Wednesday
+      - Thursday
+      - Friday
+      - Saturday
+    #initial: None
+
+  day_pickup_bulk_trash:
+    name: Bulk Trash Pickup Day of Week
+    icon: mdi:calendar-question
+    options:
+      - None
+      - Sunday
+      - Monday
+      - Tuesday
+      - Wednesday
+      - Thursday
+      - Friday
+      - Saturday
+    #initial: None
+
+  day_pickup_recycle:
+    name: Recycle Pickup Day of Week
+    icon: mdi:calendar-question
+    options:
+      - None
+      - Sunday
+      - Monday
+      - Tuesday
+      - Wednesday
+      - Thursday
+      - Friday
+      - Saturday
+    #initial: None

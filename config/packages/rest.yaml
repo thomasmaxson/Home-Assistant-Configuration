@@ -1,0 +1,11 @@
+################################################################################
+#
+# @author      : Thomas Maxson
+# @package     : Rest Commands
+# @description :
+#
+################################################################################
+
+rest_command:
+  kiosk_command:
+    url: !secret rest_url_kiosk_command

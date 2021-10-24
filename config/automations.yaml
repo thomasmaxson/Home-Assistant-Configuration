@@ -1,0 +1,1010 @@
+- id: "1631491172249"
+  alias: "_Check: Backups Gone Stale, Send Notification"
+  description:
+    When an error occurs when running backups, a notification should be
+    sent to announce that a problem has occurred.
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.backups_stale
+      from: "off"
+      to: "on"
+  condition: []
+  action:
+    - service: notify.persistent_notification
+      data:
+        title: Backups Stale
+        message:
+          An error occurred while running backups. This should be resolved as
+          soon as possible.
+    - service: notify.mobile_app_ckretajints_iphone
+      data:
+        title: Backups Stale
+        message: An error occurred while running backups.
+  mode: single
+- id: "1631796054422"
+  alias: "Light On: Home before sunset"
+  description: ""
+  trigger:
+    - platform: sun
+      event: sunset
+      offset: -00:45:00
+  condition:
+    - condition: device
+      type: is_off
+      device_id: 107d81092122dad183b4617fdb068131
+      entity_id: light.foyer_ceiling_ledge
+      domain: light
+    - condition: or
+      conditions:
+        - condition: state
+          entity_id: group.residents
+          state: home
+        - condition: state
+          entity_id: input_boolean.gouda_home
+          state: "on"
+  action:
+    - service: input_boolean.turn_on
+      target:
+        entity_id: input_boolean.automation_daily_sunset
+    - service: light.turn_on
+      target:
+        device_id: 107d81092122dad183b4617fdb068131
+      data:
+        color_temp: 200
+    - service: switch.turn_on
+      target:
+        device_id: d9dd27c3a15b86c6bf57eb33146f3408
+  mode: single
+- id: "1631796578898"
+  alias: "Light Off: Home in evening"
+  description: ""
+  trigger:
+    - platform: sun
+      event: sunset
+      offset: 03:15:00
+  condition:
+    - condition: state
+      entity_id: input_boolean.automation_daily_sunset
+      state: "on"
+  action:
+    - service: input_boolean.turn_off
+      target:
+        entity_id: input_boolean.automation_daily_sunset
+    - service: light.turn_off
+      target:
+        entity_id: light.foyer_ceiling_ledge
+    - service: switch.turn_off
+      target:
+        entity_id: switch.outdoor_string_lights
+  mode: single
+- id: "1631884366864"
+  alias: "Button Press: in Bedroom 4 for Bedroom 4"
+  description: ""
+  trigger:
+    - device_id: 6e0d3bc392786ae305590c266ad4545a
+      domain: deconz
+      platform: device
+      type: remote_button_short_press
+      subtype: turn_on
+      id: button_single
+    - device_id: 6e0d3bc392786ae305590c266ad4545a
+      domain: deconz
+      platform: device
+      type: remote_button_double_press
+      subtype: turn_on
+      id: button_double
+  condition: []
+  action:
+    - choose:
+        - conditions:
+            - condition: trigger
+              id: button_single
+          sequence:
+            - service: light.toggle
+              target:
+                entity_id: light.bedroom_4_desk_lamp
+        - conditions:
+            - condition: trigger
+              id: button_double
+          sequence:
+            - service: light.toggle
+              target:
+                entity_id: light.bedroom_4_lightstrip
+      default: []
+  mode: single
+- id: "1631884605783"
+  alias: "Button Press: in Kitchen for Garage"
+  description: ""
+  trigger:
+    - device_id: 58c0784c57aa8985f53c66f355f6902f
+      domain: deconz
+      platform: device
+      type: remote_button_short_press
+      subtype: turn_on
+      id: button_single
+    - device_id: 58c0784c57aa8985f53c66f355f6902f
+      domain: deconz
+      platform: device
+      type: remote_button_double_press
+      subtype: turn_on
+      id: button_double
+  condition: []
+  action:
+    - choose:
+        - conditions:
+            - condition: trigger
+              id: button_single
+          sequence:
+            - service: cover.open_cover
+              target:
+                entity_id: cover.garage_door
+        - conditions:
+            - condition: trigger
+              id: button_double
+          sequence:
+            - service: cover.close_cover
+              target:
+                entity_id: cover.garage_door
+      default: []
+  mode: single
+- id: "1631884919373"
+  alias: "Button Press: in Foyer for Foyer"
+  description: ""
+  trigger:
+    - device_id: 77041364a8b0840358010d8d5cc562f4
+      domain: deconz
+      platform: device
+      type: remote_button_short_press
+      subtype: turn_on
+      id: button_single
+    - device_id: 77041364a8b0840358010d8d5cc562f4
+      domain: deconz
+      platform: device
+      type: remote_button_double_press
+      subtype: turn_on
+      id: button_double
+  condition: []
+  action:
+    - choose:
+        - conditions:
+            - condition: trigger
+              id: button_single
+          sequence:
+            - service: light.toggle
+              target:
+                entity_id: light.foyer_ceiling_ledge
+        - conditions:
+            - condition: trigger
+              id: button_double
+          sequence:
+            - service: light.toggle
+              target:
+                entity_id: light.foyer_under_table
+      default: []
+  mode: single
+- id: "1631908499946"
+  alias: "_Check: Front Door Batteries Low, Send Notification"
+  description: ""
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.front_door_battery_2
+      above: "9"
+      below: "11"
+    - platform: numeric_state
+      entity_id: sensor.front_door_battery_2
+      above: "4"
+      below: "6"
+  condition: []
+  action:
+    - service: script.app_notify_tom
+      data:
+        title: Batteries Low
+        message:
+          "{{ state_attr( 'lock.front_door', 'friendly_name' ) }} batteries
+          are at {{ states('sensor.front_door_battery_2') }}%. Replace them as soon
+          as possible."
+  mode: single
+- id: "1631918200412"
+  alias: "_Check: Garage Left Open At Night, Send Repeating Notification"
+  description: ""
+  trigger:
+    - platform: time_pattern
+      id: "platform: time"
+      minutes: /20
+  condition:
+    - condition: state
+      state: open
+      entity_id: cover.garage_door
+    - condition: time
+      after: "20:00:00"
+      before: "23:59:00"
+  action:
+    - service: notify.mobile_app_ckretajints_iphone
+      data:
+        message: The garage door is still open. Do you want to close it?
+        data:
+          push:
+            category: close_garage_door
+  mode: single
+  max: 3
+- id: "1631921493802"
+  alias: "_Action iOS: Garage Door - Close"
+  description: ""
+  trigger:
+    - platform: event
+      event_type: ios.notification_action_fired
+      event_data:
+        actionName: GARAGE_DOOR_CLOSE
+  condition: []
+  action:
+    - service: cover.close_cover
+      target:
+        device_id: 27a134b3f245ef1255260521ada586b1
+    - service: notify.mobile_app_ckretajints_iphone
+      data:
+        message: Ok, closing the garage door.
+  mode: single
+- id: "1631921569850"
+  alias: "_Action iOS: Garage Door - Open"
+  description: ""
+  trigger:
+    - platform: event
+      event_type: ios.notification_action_fired
+      event_data:
+        actionName: GARAGE_DOOR_OPEN
+  condition: []
+  action:
+    - service: cover.open_cover
+      target:
+        device_id: 27a134b3f245ef1255260521ada586b1
+    - service: notify.mobile_app_ckretajints_iphone
+      data:
+        message: Garage door is open.
+  mode: single
+- id: "1631921605452"
+  alias: "_Action iOS: Garage Door - Remind Later"
+  description: ""
+  trigger:
+    - platform: event
+      event_type: ios.notification_action_fired
+      event_data:
+        actionName: GARAGE_DOOR_LATER
+  condition: []
+  action:
+    - service: notify.mobile_app_ckretajints_iphone
+      data:
+        message: Ok. I will remind you again later.
+  mode: single
+- id: "1631969969347"
+  alias: "Button Press: in Hue Tap for House"
+  description: ""
+  trigger:
+    - device_id: f468ea76ca37aef28fa03280566dc37d
+      domain: hue
+      platform: device
+      type: remote_button_short_press
+      subtype: button_1
+      id: button_01
+    - device_id: f468ea76ca37aef28fa03280566dc37d
+      domain: hue
+      platform: device
+      type: remote_button_short_press
+      subtype: button_2
+      id: button_02
+    - device_id: f468ea76ca37aef28fa03280566dc37d
+      domain: hue
+      platform: device
+      type: remote_button_short_press
+      subtype: button_3
+      id: button_03
+    - device_id: f468ea76ca37aef28fa03280566dc37d
+      domain: hue
+      platform: device
+      type: remote_button_short_press
+      subtype: button_4
+      id: button_04
+  condition: []
+  action:
+    - choose:
+        - conditions:
+            - condition: trigger
+              id: button_01
+          sequence:
+            - service: light.toggle
+              target:
+                entity_id:
+                  - light.bedroom_1_bedside_lamps
+        - conditions:
+            - condition: trigger
+              id: button_02
+          sequence:
+            - service: light.toggle
+              target:
+                entity_id: light.living_room_corner_lamp
+        - conditions:
+            - condition: trigger
+              id: button_03
+          sequence:
+            - service: light.toggle
+              target:
+                entity_id: light.foyer_ceiling_ledge
+        - conditions:
+            - condition: trigger
+              id: button_04
+          sequence:
+            - service: switch.toggle
+              target:
+                entity_id: switch.outdoor_string_lights
+      default: []
+  mode: single
+- id: "1632070065448"
+  alias: Refresh Deconz on Boot
+  description:
+    This is needed if deconz is running on the same host and certain devices
+    are not visible after reboot because deconz needs some more time initializing
+    them
+  trigger:
+    - event: start
+      platform: homeassistant
+  condition: []
+  action:
+    - wait_template: ""
+      timeout: "60"
+    - service: deconz.device_refresh
+  mode: single
+- id: "1632150205421"
+  alias: "Motion Detected: in the Laundry Room"
+  description: When motion is being detected in the laundry room
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.motion_laundry
+      from: "off"
+      to: "on"
+      id: Turn on Lights
+    - platform: state
+      entity_id: binary_sensor.motion_laundry
+      from: "on"
+      to: "off"
+      id: Turn off Lights
+      for:
+        hours: 0
+        minutes: 0
+        seconds: 30
+        milliseconds: 0
+  condition: []
+  action:
+    - choose:
+        - conditions:
+            - condition: trigger
+              id: Turn on Lights
+          sequence:
+            - type: turn_on
+              device_id: 8c406fcbd9d5b2fc177e7b96aa72efe6
+              entity_id: light.laundry_ceiling_light
+              domain: light
+        - conditions:
+            - condition: trigger
+              id: Turn off Lights
+          sequence:
+            - type: turn_off
+              device_id: 8c406fcbd9d5b2fc177e7b96aa72efe6
+              entity_id: light.laundry_ceiling_light
+              domain: light
+      default: []
+  mode: single
+- id: "1632277288633"
+  alias: "Set Default: Theme on Load"
+  description: ""
+  trigger:
+    - platform: homeassistant
+      event: start
+  condition: []
+  action:
+    - service: frontend.set_theme
+      data:
+        name: Custom Dashboard
+  mode: single
+- id: "1632334113780"
+  alias: "Notification: Garage door opening or closing"
+  description: ""
+  trigger:
+    - platform: state
+      entity_id: cover.garage_door
+      to: opening
+      id: door_opening
+    - platform: state
+      entity_id: cover.garage_door
+      to: closing
+      id: door_closing
+  condition: []
+  action:
+    - service: script.app_notify_tom
+      data:
+        message:
+          The {{ trigger.to_state.name }} is {{ 'opening' if states.cover.garage_door.state
+          == 'opening' else 'closing' }}.
+  mode: single
+- id: "1632334952541"
+  alias: "Notification: Door opened or closed"
+  description: ""
+  trigger:
+    - platform: state
+      entity_id:
+        - binary_sensor.door_bedroom_1
+        - binary_sensor.door_bedroom_2
+        - binary_sensor.door_bedroom_3
+        - binary_sensor.door_bedroom_4
+        - binary_sensor.door_laundry
+        - binary_sensor.door_living
+      from: "off"
+      to: "on"
+    - platform: state
+      entity_id:
+        - binary_sensor.door_bedroom_1
+        - binary_sensor.door_bedroom_2
+        - binary_sensor.door_bedroom_3
+        - binary_sensor.door_bedroom_4
+        - binary_sensor.door_laundry
+        - binary_sensor.door_living
+      from: "on"
+      to: "off"
+  condition: []
+  action:
+    - service: script.app_notify_tom
+      data:
+        message:
+          "{{ trigger.to_state.name }} has been {{ 'opened' if trigger.to_state.state
+          == 'on' else 'closed' }}."
+  mode: single
+- id: "1632336090558"
+  alias: "Light Toggle: His and Her Closets"
+  description: ""
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.door_closet_hallway_j
+      from: "on"
+      to: "off"
+      id: close_hers
+    - platform: state
+      entity_id: binary_sensor.door_closet_hallway_j
+      from: "off"
+      to: "on"
+      id: open_hers
+    - platform: state
+      entity_id: binary_sensor.door_closet_hallway_t
+      from: "on"
+      to: "off"
+      id: close_his
+    - platform: state
+      entity_id: binary_sensor.door_closet_hallway_t
+      from: "off"
+      to: "on"
+      id: open_his
+  condition: []
+  action:
+    - choose:
+        - conditions:
+            - condition: trigger
+              id: close_hers
+          sequence:
+            - service: light.turn_off
+              target:
+                entity_id: light.closet_hallway_light_j
+        - conditions:
+            - condition: trigger
+              id: open_hers
+          sequence:
+            - service: light.turn_on
+              target:
+                entity_id: light.closet_hallway_light_j
+        - conditions:
+            - condition: trigger
+              id: close_his
+          sequence:
+            - service: light.turn_off
+              target:
+                entity_id: light.closet_hallway_light_t
+        - conditions:
+            - condition: trigger
+              id: open_his
+          sequence:
+            - service: light.turn_on
+              target:
+                entity_id: light.closet_hallway_light_t
+      default: []
+  mode: single
+- id: "1632338443827"
+  alias: "Light Toggle: Laundry Room"
+  description: ""
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.door_laundry
+      id: Turn on lights
+      from: "off"
+      to: "on"
+    - platform: state
+      entity_id: binary_sensor.door_laundry
+      id: Turn off lights
+      from: "on"
+      to: "off"
+  condition: []
+  action:
+    - choose:
+        - conditions:
+            - condition: trigger
+              id: Turn on lights
+          sequence:
+            - service: light.turn_on
+              target:
+                entity_id: light.laundry_ceiling_light
+              data: {}
+        - conditions:
+            - condition: trigger
+              id: Turn off lights
+          sequence:
+            - delay:
+                hours: 0
+                minutes: 0
+                seconds: 3
+                milliseconds: 0
+            - service: light.turn_off
+              target:
+                entity_id: light.laundry_ceiling_light
+      default: []
+  mode: single
+- id: "1632338648294"
+  alias: "Light Toggle: Bedroom 4"
+  description: ""
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.door_bedroom_4
+      id: door_open
+      from: "off"
+      to: "on"
+    - platform: state
+      entity_id: binary_sensor.door_bedroom_4
+      id: door_close
+      from: "on"
+      to: "off"
+  condition: []
+  action:
+    - choose:
+        - conditions:
+            - condition: trigger
+              id: door_open
+          sequence:
+            - service: light.turn_on
+              data:
+                color_temp: 200
+              target:
+                entity_id:
+                  - light.bedroom_4_desk_lamp
+                  - light.bedroom_4_lightstrip
+        - conditions:
+            - condition: trigger
+              id: door_close
+          sequence:
+            - service: light.turn_off
+              target:
+                entity_id:
+                  - light.bedroom_4_desk_lamp
+                  - light.bedroom_4_lightstrip
+      default: []
+  mode: single
+- id: "1632660799383"
+  alias: "Set Default: Light Brightness to 100%"
+  description: ""
+  use_blueprint:
+    path: Noblewolf/default-turn-on-brightness-for-lights.yaml
+    input:
+      target_lights:
+        light.kitchen_ceiling_lights, light.closet_hallway_ceiling_light,
+        light.closet_hallway_light_j, light.closet_hallway_light_t
+- id: "1632660879668"
+  alias: "Set Default: Color Temperature"
+  description: ""
+  use_blueprint:
+    path: Noblewolf/default-turn-on-color-temperature-for-lights.yaml
+    input:
+      light_color_temperature: 200
+      target_lights:
+        light.kitchen_ceiling_lights, light.living_room_corner_lamp,
+        light.foyer_ceiling_ledge, light.foyer_under_table, light.laundry_ceiling_light,
+        light.bedroom_1_bedside_lamps, light.bedroom_1_lamp_j, light.bedroom_1_lamp_t,
+        light.bedroom_4_desk_lamp, light.bedroom_4_lightstrip
+- id: "1632861705786"
+  alias: "__DELETE: Motion Detected: At Front Door, Save Snapshot, Send Notification"
+  description: ""
+  use_blueprint:
+    path: maxson/send-camera-snapshot-when-event-type-detected.yaml
+    input:
+      notification_message: "{{ motion_sensor_name }} detected movement!"
+      motion_sensor: binary_sensor.doorbell_motion
+      camera: camera.doorbell
+      notify_device: ad591cd69acfbed02a10c90b733819b6
+      is_ios: true
+      notification_title: Motion detected!
+      delay: 3
+- id: "1633006154206"
+  alias: "Service: Delete old Snapshots"
+  description: ""
+  trigger:
+    - platform: time
+      at: 02:00:00
+  condition: []
+  action:
+    - service: delete.files_in_folder
+      data:
+        folder: /config/www/snapshots/
+        time: 604800
+  mode: single
+- id: "1633090134167"
+  alias: "Notification: Leak Detected"
+  description: ""
+  trigger:
+    - platform: state
+      entity_id: group.sensors_leak
+      to: "on"
+      from: "off"
+  condition: []
+  action:
+    - service: notify.persistent_notification
+      data:
+        title: Leak Detected
+        message:
+          "{% for entity in trigger.to_state.attributes.entity_id %}\n  {% if\
+          \ is_state( entity, 'on' ) %}\n    The {{ state_attr( entity, 'friendly_name'\
+          \ ) }} has detected the presence of water!\n  {% endif %}\n{% endfor %}\n"
+    - service: notify.ios_tom
+      data:
+        title: Leak Detected
+        message:
+          "{% for entity in trigger.to_state.attributes.entity_id %}\n  {% if\
+          \ is_state( entity, 'on' ) %}\n    The {{ state_attr( entity, 'friendly_name'\
+          \ ) }} has detected the presence of water!\n  {% endif %}\n{% endfor %}\n"
+        data:
+          push:
+            sound:
+              name: US-EN-Alexa-Water-Detected-Generic.wav
+              critical: 1
+              volume: 1
+    - service: script.app_notify_jess
+      data:
+        title: Leak Detected
+        message:
+          "{% for entity in trigger.to_state.attributes.entity_id %}\n  {% if\
+          \ is_state( entity, 'on' ) %}\n    The {{ state_attr( entity, 'friendly_name'\
+          \ ) }} has detected the presence of water!\n  {% endif %}\n{% endfor %}\n"
+    - service: script.johan_notify_house
+      data:
+        message:
+          "{% for entity in trigger.to_state.attributes.entity_id %}\n  {% if\
+          \ is_state( entity, 'on' ) %}\n    Warning! The {{ state_attr( entity, 'friendly_name'\
+          \ ) }} has detected the presence of water!\n  {% endif %}\n{% endfor %}\n"
+  mode: single
+- id: "1633128462256"
+  alias: Run Vacation Lights
+  description: ""
+  trigger:
+    - platform: sun
+      event: sunset
+      id: sundown
+    - platform: sun
+      event: sunrise
+      id: sunup
+    - platform: state
+      entity_id: input_boolean.vacation_mode
+      id: cancel
+      from: "on"
+      to: "off"
+  condition: []
+  action:
+    - choose:
+        - conditions:
+            - condition: trigger
+              id: sundown
+            - condition: state
+              entity_id: input_boolean.vacation_mode
+              state: "on"
+          sequence:
+            - service: script.turn_on
+              target:
+                entity_id: script.vacation_lights
+        - conditions:
+            - condition: or
+              conditions:
+                - condition: trigger
+                  id: sunup
+                - condition: trigger
+                  id: cancel
+            - condition: state
+              entity_id: script.vacation_lights
+              state: "on"
+          sequence:
+            - service: script.turn_off
+              target:
+                entity_id: script.vacation_lights
+      default: []
+  mode: single
+- id: "1633211755783"
+  alias: "Set Default: Light Brightness to 40%"
+  description: ""
+  use_blueprint:
+    path: Noblewolf/default-turn-on-brightness-for-lights.yaml
+    input:
+      target_lights: light.bedroom_4_desk_lamp, light.bedroom_4_lightstrip, light.foyer_ceiling_ledge
+      light_brightness: 102
+- id: "1633214170110"
+  alias: "Set Default: Light Brightness to 80%"
+  description: ""
+  use_blueprint:
+    path: Noblewolf/default-turn-on-brightness-for-lights.yaml
+    input:
+      target_lights: light.laundry_ceiling_light
+      light_brightness: 204
+- id: "1633380411888"
+  alias: "Light Toggle: Living Room Sliding Glass Door"
+  description: ""
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.door_living
+  condition:
+    - condition: sun
+      before: sunrise
+      after: sunset
+    - condition: state
+      entity_id: input_boolean.automation_daily_sunset
+      state: "off"
+  action:
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: binary_sensor.door_living
+              state: "on"
+          sequence:
+            - service: switch.turn_on
+              target:
+                entity_id: switch.outdoor_string_lights
+        - conditions:
+            - condition: state
+              entity_id: binary_sensor.door_living
+              state: "off"
+          sequence:
+            - service: switch.turn_off
+              target:
+                entity_id: switch.outdoor_string_lights
+      default: []
+  mode: single
+- id: "1633435851341"
+  alias: "Light Toggle: Outside String Light"
+  description: ""
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.door_living
+      id: door_open
+      from: "off"
+      to: "on"
+    - platform: state
+      entity_id: binary_sensor.door_living
+      id: door_close
+      from: "on"
+      to: "off"
+  condition:
+    - condition: sun
+      before: sunrise
+      after: sunset
+      before_offset: 00:30:00
+    - condition: state
+      entity_id: input_boolean.automation_daily_sunset
+      state: "off"
+  action:
+    - choose:
+        - conditions:
+            - condition: trigger
+              id: door_open
+          sequence:
+            - service: switch.turn_on
+              target:
+                entity_id: switch.outdoor_string_lights
+        - conditions:
+            - condition: trigger
+              id: door_close
+          sequence:
+            - service: switch.turn_off
+              target:
+                entity_id: switch.outdoor_string_lights
+      default: []
+  mode: single
+- id: "1633463928454"
+  alias: "Motion Detected: At Front Door"
+  description: ""
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.doorbell_motion
+      from: "off"
+      to: "on"
+      for:
+        hours: 0
+        minutes: 0
+        seconds: 0
+        milliseconds: 0
+  condition:
+    - condition: state
+      entity_id: input_text.camera_doorbell_latest_snapshot_filename
+      state: "null"
+  action:
+    - service: input_text.set_value
+      target:
+        entity_id: input_text.camera_doorbell_latest_snapshot_filename
+      data:
+        value:
+          snapshot-camera-frontdoor-motion-{{ now().strftime( '%Y-%m-%d--%H-%M-%S'
+          ) }}
+    - delay:
+        hours: 0
+        minutes: 0
+        seconds: 7
+        milliseconds: 0
+    - service: camera.snapshot
+      target:
+        entity_id: camera.doorbell
+      data:
+        filename:
+          /config/www/snapshots/{{ states( 'input_text.camera_doorbell_latest_snapshot_filename'
+          ) }}.jpg
+    - service: notify.ios_tom
+      data:
+        message: A motion has been detected at the front door.
+        title: Motion Alert
+        data:
+          image:
+            /local/snapshots/{{ states( 'input_text.camera_doorbell_latest_snapshot_filename'
+            ) }}.jpg
+    - delay:
+        hours: 0
+        minutes: 0
+        seconds: 15
+        milliseconds: 0
+    - service: input_text.set_value
+      target:
+        entity_id: input_text.camera_doorbell_latest_snapshot_filename
+      data:
+        value: "null"
+  mode: single
+- id: "1633547063988"
+  alias: "Set Default: Light Brightness to 20%"
+  description: ""
+  use_blueprint:
+    path: Noblewolf/default-turn-on-brightness-for-lights.yaml
+    input:
+      target_lights: light.foyer_under_table
+      light_brightness: 51
+- id: "1633824625185"
+  alias: Tablet Battery Charge Monitor
+  description: ""
+  trigger:
+    - platform: state
+      entity_id: sensor.custom_fire_tablet_battery_level
+      from: "79"
+      to: "80"
+      id: battery_full
+    - platform: state
+      entity_id: sensor.custom_fire_tablet_battery_level
+      id: battery_empty
+      from: "21"
+      to: "20"
+  condition: []
+  action:
+    - choose:
+        - conditions:
+            - condition: trigger
+              id: battery_full
+          sequence:
+            - type: turn_off
+              device_id: c1764a30418524c8c761269e8fe2bdbf
+              entity_id: light.tablet_plug
+              domain: light
+        - conditions:
+            - condition: trigger
+              id: battery_empty
+          sequence:
+            - type: turn_on
+              device_id: c1764a30418524c8c761269e8fe2bdbf
+              entity_id: light.tablet_plug
+              domain: light
+      default: []
+  mode: single
+- id: "1634064600801"
+  alias: "Service: Reset Garbage Daily Actions"
+  description: ""
+  trigger:
+    - platform: time
+      at: 00:00:00
+  condition: []
+  action:
+    - service: input_boolean.turn_off
+      target:
+        entity_id:
+          - input_boolean.garbage_bins_in
+          - input_boolean.garbage_bins_out
+  mode: single
+- id: "1634564069517"
+  alias: "Button Press: Doorbell"
+  description: ""
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.doorbell_ding
+      from: "off"
+      to: "on"
+      for:
+        hours: 0
+        minutes: 0
+        seconds: 0
+        milliseconds: 0
+  condition:
+    - condition: state
+      entity_id: input_text.camera_doorbell_ding_snapshot_filename
+      state: "null"
+  action:
+    - service: input_text.set_value
+      target:
+        entity_id: input_text.camera_doorbell_ding_snapshot_filename
+      data:
+        value:
+          snapshot-camera-frontdoor-ding-{{ now().strftime( '%Y-%m-%d--%H-%M-%S'
+          ) }}
+    - delay:
+        hours: 0
+        minutes: 0
+        seconds: 2
+        milliseconds: 0
+    - service: camera.snapshot
+      target:
+        entity_id: camera.doorbell
+      data:
+        filename:
+          /config/www/snapshots/{{ states( 'input_text.camera_doorbell_ding_snapshot_filename'
+          ) }}.jpg
+    - service: notify.ios_tom
+      data:
+        message: >
+          {{ [
+            "Please check the Front Door. Someone Pressed the Doorbell.",
+            "Quick! Hide! Someone just pressed the Doorbell!",
+            "Someone answer my door. Someone just pressed the doorbell.",
+            "Ding Dong, get to the door before they run away!",
+            "Did anyone else hear that? Time to go check the door.",
+            "Knock, Knock. Someone just rang the doorbell."
+          ] | random }}
+        title: Guests are Here
+        data:
+          image:
+            /local/snapshots/{{ states( 'input_text.camera_doorbell_ding_snapshot_filename'
+            ) }}.jpg
+    - service: input_text.set_value
+      target:
+        entity_id: input_text.camera_doorbell_ding_snapshot_filename
+      data:
+        value: "null"
+  mode: single
+- id: "1634575624020"
+  alias: "Notification: Front Door Left Unlocked"
+  description: ""
+  trigger:
+    - platform: state
+      entity_id: lock.front_door
+      id: door_unlocked
+      to: unlocked
+      for:
+        hours: 0
+        minutes: 10
+        seconds: 0
+        milliseconds: 0
+  condition: []
+  action:
+    - service: script.app_notify_tom
+      data:
+        message:
+          The {{ trigger.to_state.name }} has been {{ trigger.to_state.state
+          }} for 10 minutes.
+  mode: single

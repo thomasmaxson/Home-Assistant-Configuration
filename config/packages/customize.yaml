@@ -1,0 +1,326 @@
+################################################################################
+#
+# @author      : Thomas Maxson
+# @package     : Customize
+# @description : Modify existing components
+#
+################################################################################
+
+homeassistant:
+  customize:
+    #
+    # LIGHTS
+    # --------------------------------------------------
+
+    light.kitchen_ceiling_lights:
+      friendly_name: Kitchen Ceiling Lights
+      icon: hue:recessed-ceiling
+
+    light.kitchen_light_1:
+      friendly_name: Kitchen Ceiling Light, 01
+      icon: bha:ceiling-downlight
+
+    light.kitchen_light_2:
+      friendly_name: Kitchen Ceiling Light, 02
+      icon: bha:ceiling-downlight
+
+    light.kitchen_light_3:
+      friendly_name: Kitchen Ceiling Light, 03
+      icon: bha:ceiling-downlight
+
+    light.kitchen_light_4:
+      friendly_name: Kitchen Ceiling Light, 04
+      icon: bha:ceiling-downlight
+
+    light.kitchen_light_5:
+      friendly_name: Kitchen Ceiling Light, 05
+      icon: bha:ceiling-downlight
+
+    light.kitchen_light_6:
+      friendly_name: Kitchen Ceiling Light, 06
+      icon: bha:ceiling-downlight
+
+    light.dining_room_chandelier:
+      friendly_name: Dining Room Chandelier
+      icon: bha:chandelier
+
+    light.living_room_corner_lamp:
+      friendly_name: Living Room Corner Lamp
+      icon: bha:table-lamp-variant
+
+    light.foyer_ceiling_ledge:
+      friendly_name: Light, Ceiling Ledge
+      icon: mdi:led-strip-variant
+
+    light.foyer_under_table:
+      friendly_name: Light, Under Table
+      icon: mdi:led-strip-variant
+
+    light.bedroom_1_bedside_lights:
+      friendly_name: Bedside Lamps
+      icon: mdi:lamps
+
+    light.bedroom_1_lamp_j:
+      friendly_name: Her Bedside Lamp
+      icon: mdi:lamp
+
+    light.bedroom_1_lamp_t:
+      friendly_name: His Bedside Lamp
+      icon: mdi:lamp
+
+    # light.bedroom_3_lights:
+    #   friendly_name: Her Office Lights
+    #   icon: mdi:lightbulb-group
+
+    light.bedroom_4_lights:
+      friendly_name: His Office Lights
+      icon: mdi:lightbulb-group
+
+    light.bedroom_4_desk_lamp:
+      friendly_name: His Office Desk Lamp
+      icon: mdi:lightbulb
+
+    light.bedroom_4_lightstrip:
+      friendly_name: His Office Lightstrip
+      icon: mdi:led-strip-variant
+
+    light.closet_hallway_ceiling_light:
+      friendly_name: Closet Hallway
+      icon: bha:dome-light
+
+    light.bedroom_1_closet_lights:
+      friendly_name: Closet Lights
+      icon: mdi:lightbulb
+
+    light.closet_hallway_light_j:
+      friendly_name: Her Closet Light
+      icon: mdi:lightbulb
+
+    light.closet_hallway_light_t:
+      friendly_name: His Closet Light
+      icon: mdi:lightbulb
+
+    light.laundry_ceiling_light:
+      friendly_name: Laundry Ceiling Light
+      icon: bha:dome-light
+      # templates:
+      #   theme: >
+      #     icon: {{ 'mdi:ceiling-light' if is_state('binary_sensor.laundry_light', 'on') else 'mdi:ceiling-light-outline' }}
+      #     icon_color: {{ 'yellow' if is_state('binary_sensor.laundry_light', 'on') else 'white' }}
+
+    #
+    # SWITCHES
+    # --------------------------------------------------
+
+    switch.outdoor_string_lights:
+      friendly_name: Outdoor String Lights
+      icon: bha:light-string
+
+    #
+    # DOORS
+    # --------------------------------------------------
+
+    cover.garage_door:
+      device_class: garage
+      friendly_name: Garage Door
+      homebridge_cover_type: garage_door
+
+    binary_sensor.door_bedroom_1:
+      device_class: door
+      friendly_name: Main Bedroom Door
+      icon_template: >
+        icon: {{ 'mdi:door-open' if is_state( 'binary_sensor.door_laundry', 'open' ) else 'mdi:door' }}
+
+    binary_sensor.door_bedroom_2:
+      device_class: door
+      friendly_name: Guest Bedroom Door
+      icon_template: >
+        icon: {{ 'mdi:door-open' if is_state( 'binary_sensor.door_laundry', 'open' ) else 'mdi:door' }}
+
+    binary_sensor.door_bedroom_3:
+      device_class: door
+      friendly_name: Jess' Office Door
+      icon_template: >
+        icon: {{ 'mdi:door-open' if is_state( 'binary_sensor.door_laundry', 'open' ) else 'mdi:door' }}
+
+    binary_sensor.door_bedroom_4:
+      device_class: door
+      friendly_name: Tom's Office door
+      icon_template: >
+        icon: {{ 'mdi:door-open' if is_state( 'binary_sensor.door_laundry', 'open' ) else 'mdi:door' }}
+
+    binary_sensor.door_living:
+      device_class: door
+      friendly_name: Living Room Sliding Glass Door
+      icon_template: >
+        icon: {{ 'mdi:door-open' if is_state( 'binary_sensor.door_laundry', 'open' ) else 'mdi:door' }}
+
+    binary_sensor.door_laundry:
+      device_class: door
+      friendly_name: Laundry Room Door
+      icon_template: >
+        icon: {{ 'mdi:door-open' if is_state( 'binary_sensor.door_laundry', 'open' ) else 'mdi:door' }}
+
+    binary_sensor.door_closet_hallway_j:
+      device_class: door
+      friendly_name: Jess' Closet Door
+      icon_template: >
+        icon: {{ 'mdi:door-open' if is_state( 'binary_sensor.door_laundry', 'open' ) else 'mdi:door' }}
+      # icon_template: >
+      #   icon: {{ 'mdi:door-sliding-open' if is_state( 'binary_sensor.door_closet_hallway_j', 'open' ) else 'mdi:door-sliding' }}
+
+    binary_sensor.door_closet_hallway_t:
+      device_class: door
+      friendly_name: Tom's Closet Door
+      icon_template: >
+        icon: {{ 'mdi:door-open' if is_state( 'binary_sensor.door_laundry', 'open' ) else 'mdi:door' }}
+      # icon_template: >
+      #   icon: {{ 'mdi:door-sliding-open' if is_state( 'binary_sensor.door_closet_hallway_t', 'open' ) else 'mdi:door-sliding' }}
+
+    #
+    # OCCUPANCY
+    # --------------------------------------------------
+
+    binary_sensor.bedroom_1_occupancy:
+      device_class: occupancy
+      friendly_name: Main Bedroom Occupancy
+
+    binary_sensor.bedroom_4_occupancy:
+      device_class: occupancy
+      friendly_name: Tom's Office Occupancy
+
+    binary_sensor.foyer_occupancy:
+      device_class: occupancy
+      friendly_name: Foyer Occupancy
+
+    binary_sensor.living_room_occupancy:
+      device_class: occupancy
+      friendly_name: Living Room Occupancy
+
+    #
+    # LEAK
+    # --------------------------------------------------
+
+    binary_sensor.leak_air_conditioning:
+      device_class: moisture
+      friendly_name: Air Conditioning Leak Sensor
+
+    binary_sensor.leak_laundry_room:
+      device_class: moisture
+      friendly_name: Laundry Room Leak Sensor
+
+    binary_sensor.leak_kitchen_sink:
+      device_class: moisture
+      friendly_name: Kitchen Sink Leak Sensor
+
+    binary_sensor.leak_guest_bathroom_sink:
+      device_class: moisture
+      friendly_name: Guest Bathroom Sink Leak Sensor
+
+    binary_sensor.leak_half_bathroom_sink:
+      device_class: moisture
+      friendly_name: Half Bathroom Sink Leak Sensor
+
+    binary_sensor.leak_main_bathroom_sink_his:
+      device_class: moisture
+      friendly_name: Main Bathroom Sink (His) Leak Sensor
+
+    binary_sensor.leak_main_bathroom_sink_hers:
+      device_class: moisture
+      friendly_name: Main Bathroom Sink (Hers) Leak Sensor
+
+    #
+    # MEDIA
+    # --------------------------------------------------
+
+    media_player.sony_bravia_tv:
+      device_class: tv
+      friendly_name: Television
+      source_list: ["Nintendo Switch", "Nintendo Console", "AppleTV"]
+
+    #
+    # TECHNOLOGY
+    # --------------------------------------------------
+    #
+    # HOME ASSISTANT
+    # ----------------------------------------
+
+    sensor.ha_uptime:
+      friendly_name: HA Uptime
+      icon: mdi:clock-start
+
+    sensor.last_boot:
+      friendly_name: Last Restart
+      icon: mdi:update
+
+    sensor.processor_use_percent:
+      friendly_name: Processor
+      icon: mdi:chip
+
+    sensor.processor_temperature:
+      friendly_name: Temperature
+      icon: mdi:thermometer
+
+    sensor.database:
+      friendly_name: Database Size
+      icon: mdi:database
+
+    sensor.home_assistant_log:
+      friendly_name: Log File Size
+      icon: mdi:file-document
+
+    #
+    # MISC
+    # --------------------------------------------------
+    #
+    # SPEEDTEST
+    # ----------------------------------------
+
+    sensor.speedtest_ping:
+      friendly_name: Ping
+      icon: mdi:speedometer
+
+    sensor.speedtest_download:
+      friendly_name: Download Speed
+      icon: mdi:download
+      #unit_of_measurement: "MB/s"
+
+    sensor.speedtest_upload:
+      friendly_name: Upload Speed
+      icon: mdi:upload
+      #unit_of_measurement: "MB/s"
+
+    #
+    # INPUTS
+    # --------------------------------------------------
+    #
+    # INPUT SELECT
+    # ----------------------------------------
+
+    # input_select.trash_pickup_1:
+    #   name: Trash Pickup, Day 1
+    #   icon: mdi:delete-variant
+
+    # input_select.trash_pickup_2:
+    #   name: Trash Pickup, Day 2
+    #   icon: mdi:delete-variant
+
+    # input_select.bulk_pickup:
+    #   name: Bulk Pickup
+    #   icon: mdi:delete-variant
+
+    # input_select.recycle_pickup:
+    #   name: Recycle Pickup
+    #   icon: mdi:delete-variant
+
+    #
+    # INPUT BOOLEAN
+    # ----------------------------------------
+
+    input_boolean.automation_daily_sunset:
+      name: Daily Sunset Automation
+      icon: mdi:home-automation
+
+    input_boolean.gouda_home:
+      name: Gouda is Home
+      icon: mdi:dog

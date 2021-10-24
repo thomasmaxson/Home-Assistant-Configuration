@@ -1,0 +1,25 @@
+action: fire-dom-event
+browser_mod:
+  command: popup
+  title: >
+    [[[ return entity.attributes.friendly_name; ]]]
+  card:
+    type: entities
+    entities:
+      - type: custom:light-popup-card
+        entity: >
+          [[[ return entity.entity_id ]]]
+        icon: none
+        hideIcon: true
+        fullscreen: false
+        brightnessWidth: 130px
+        brightnessHeight: 360px
+        borderRadius: 1.7em
+        sliderColor: "#c7c7c7"
+        sliderTrackColor: rgba(25, 25, 25, 0.9)
+        displayType: slider
+        style: >
+          #popup { 
+            margin-top: 30px;
+            margin-bottom: 30px;
+          }

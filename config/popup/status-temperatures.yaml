@@ -1,0 +1,84 @@
+action: fire-dom-event
+browser_mod:
+  command: popup
+  title: Temperature
+  style:
+    $: |
+      @media screen and (max-width: 992px) { 
+        .mdc-dialog .mdc-dialog__container .mdc-dialog__surface { 
+          border-radius: 0 !important;
+        }
+      }
+    hui-vertical-stack-card:
+      $hui-entities-card$: |
+        #states {
+          padding-top: 0.5em;
+          padding-bottom: 1.2em;
+        }
+  card:
+    type: vertical-stack
+    cards:
+      - type: thermostat
+        entity: climate.ecobee
+
+      - type: entities
+        card_mod:
+          class: content
+        entities:
+          - entity: sensor.foyer_temperature
+            name: Foyer Temperature
+            style: |
+              :host {
+                --paper-item-icon-color: #458138;
+              }
+          - entity: sensor.living_room_temperature
+            name: Living Room Temperature
+            style: |
+              :host {
+                --paper-item-icon-color: #385581;
+              }
+          - entity: sensor.bedroom_1_temperature
+            name: Main Bedroom Temperature
+            style: |
+              :host {
+                --paper-item-icon-color: #385581;
+              }
+          - entity: sensor.bedroom_4_temperature
+            name: His Office Temperature
+            style: |
+              :host {
+                --paper-item-icon-color: #813872;
+              }
+          - type: divider
+          - entity: sensor.foyer_humidity
+            name: Humidity
+
+        footer:
+          type: custom:mini-graph-card
+          entities:
+            - entity: sensor.foyer_temperature
+              color: green
+            - entity: sensor.living_room_temperature
+              color: "#385581"
+            - entity: sensor.bedroom_1_temperature
+              color: "#385581"
+            - entity: sensor.bedroom_4_temperature
+              name: His Office
+              color: "#813872"
+          line_width: 3
+          hour24: true
+          group: false
+          align_state: left
+          hours_to_show: 24
+          show:
+            {
+              fill: fade,
+              icon: false,
+              name: false,
+              state: false,
+              name_adaptive_color: false,
+              labels: hover,
+              legend: false,
+            }
+          tap_action:
+            action: none

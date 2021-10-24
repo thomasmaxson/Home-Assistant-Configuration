@@ -1,0 +1,51 @@
+action: fire-dom-event
+browser_mod:
+  command: popup
+  title: Layout
+  style:
+    $: |
+      @media screen and (max-width: 992px) { 
+        .mdc-dialog .mdc-dialog__container .mdc-dialog__surface { 
+          border-radius: 0 !important;
+        }
+      }
+    hui-vertical-stack-card:
+      $hui-entities-card$: |
+        #states {
+          padding-top: 0.5em;
+          padding-bottom: 1.2em;
+        }
+  card:
+    type: custom:layout-card
+    layout_type: custom:grid-layout
+    layout:
+      grid-template-columns: repeat(1, 1fr)
+      grid-template-rows: 1fr
+      grid-template-areas: |
+        'layout'
+    cards:
+      - type: entities
+        view_layout:
+          grid-area: sidebar_layout
+        #title: Sidebar Items
+        show_header_toggle: false
+        card_mod:
+          class: header
+          style: |
+            ha-card {
+              margin: 0px !important;
+              width: 100%;
+            }
+        entities:
+          - entity: input_boolean.sidebar_display_holidays
+            name: Display Upcoming Holidays
+          - entity: input_boolean.sidebar_display_celebrations
+            name: Display Upcoming Celebrations
+          - entity: input_boolean.sidebar_display_weather_forecast
+            name: Display Weather Forecast
+          - entity: input_boolean.sidebar_display_lights_on
+            name: Display Lights On
+          - entity: input_boolean.sidebar_display_open_doors
+            name: Display Open Doors
+          - entity: input_boolean.sidebar_display_garbage_reminder
+            name: Display Garbage Reminders

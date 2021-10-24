@@ -1,0 +1,280 @@
+################################################################################
+#
+# @author      : Thomas Maxson
+# @package     : Sensors
+# @description :
+#
+################################################################################
+
+sensor:
+  - platform: version
+    name: ha_version_installed
+    source: local
+
+  - platform: version
+    name: ha_version_latest
+    source: container
+
+  - platform: version
+    name: ha_version_latest_beta
+    source: container
+    beta: true
+
+  - platform: filesize
+    file_paths:
+      - /config/home-assistant.log
+
+  - platform: sql
+    db_url: !secret recorder_db_url
+    queries:
+      - name: Database
+        query: >
+          SELECT table_schema "database", Round( Sum( data_length + index_length ) / POWER( 1024, 2 ), 1 ) 
+          "value" FROM information_schema.tables WHERE table_schema="homeassistant" GROUP BY table_schema;
+        column: value
+        unit_of_measurement: MB
+
+  - platform: systemmonitor
+    resources:
+      - type: last_boot
+      - type: ipv4_address
+        arg: eth0
+      - type: ipv6_address
+        arg: eth0
+      - type: processor_use
+      - type: processor_temperature
+      - type: memory_free
+      - type: memory_use_percent
+      - type: disk_use_percent
+        arg: /
+      - type: disk_use
+      - type: disk_free
+      - type: throughput_network_in
+        arg: eth0
+      - type: throughput_network_out
+        arg: eth0
+
+  - platform: version
+    name: ha_version_installed
+    source: local
+
+  - platform: version
+    name: ha_version_latest
+    source: container
+
+  - platform: version
+    name: ha_version_latest_beta
+    source: container
+    beta: true
+
+  - platform: template
+    sensors:
+      custom_fire_tablet_battery_level:
+        #device_class: battery
+        friendly_name: Battery Level
+        unit_of_measurement: "%"
+        value_template: >
+          {{ states( 'sensor.fire_tablet_battery_level' ) | int( 'unknown' ) }}
+        icon_template: >
+          {%- set battery_level = states( 'sensor.fire_tablet_battery_level' ) | int( 'unknown' ) -%}
+          {%- set battery_round = ( battery_level | int / 10 ) | int * 10 -%}
+
+          {%- if battery_level == 'unknown' -%}
+            mdi:battery-unknown
+
+          {%- else -%}
+            {%- if battery_round >= 80 -%}
+              mdi:battery
+
+            {%- elif battery_round <= 20 -%}
+              mdi:battery-outline
+
+            {%- elif battery_round > 0 -%}
+              mdi:battery-{{ battery_round }}
+
+            {%- else -%}
+              mdi:battery-alert
+
+            {%- endif -%}
+          {%- endif -%}
+
+  - platform: template
+    sensors:
+      # Home Assistant System Entity Item
+      ha_version:
+        icon_template: mdi:home-assistant
+        friendly_name_template: >
+          Installed {{ states( 'sensor.ha_version_installed' ) }}
+        value_template: >
+          {{ 'Latest' if states( 'sensor.ha_version_installed' ) == 
+          states( 'sensor.ha_version_latest' ) else states( 'sensor.ha_version_latest' ) }}
+
+      fire_tablet_last_app_start_formatted:
+        device_class: timestamp
+        friendly_name: Last App Restart
+        icon_template: mdi:clock-outline
+        value_template: >
+          {{ states( 'sensor.fire_tablet_last_app_start' ) }}
+
+      fire_tablet_ram_used_memory:
+        icon_template: mdi:memory
+        unit_of_measurement: GB
+        value_template: >
+          {%- set total_memory = states( 'sensor.fire_tablet_ram_total_memory' ) | int -%}
+          {%- set free_memory = states( 'sensor.fire_tablet_ram_free_memory' ) | int -%}
+          {%- set used_memory = ( total_memory - free_memory ) -%}
+
+          {{ used_memory / total_memory * 100 }}
+
+      # Count interior lights switched ON
+      total_lights_on:
+        friendly_name: Total Lights On
+        icon_template: mdi:lightbulb
+        value_template: >
+          {% set state = 'on' %}
+          {% set ns = namespace( count = 0 ) %}
+
+          {% for light in state_attr( 'group.lights_all', 'entity_id' ) if is_state( light, state ) %}
+            {% set ns.count = ns.count + 1 %}
+          {% endfor %}
+
+          {{ ns.count | int }}
+
+        # attribute_templates:
+        #   entities: >
+        #     {% set state = 'on' %}
+        #     {%- set ignore_entities = [
+        #       'light.bedroom_4_media_plug'
+        #     ] -%}
+        #     {{ states.light
+        #       | rejectattr( 'domain', 'eq', 'group' )
+        #       | rejectattr( 'entity_id', 'in', ignore_entities )
+        #       | selectattr( 'state', 'eq', state )
+        #       | map( attribute = 'entity_id' )
+        #       | list }}
+
+      # Count Doors that are OPEN
+      total_doors_open:
+        friendly_name: Total Doors Open
+        icon_template: mdi:door-open
+        value_template: >
+          {% set state = 'on' %}
+          {% set device = 'door' %}
+          {{ states.binary_sensor 
+            | selectattr( 'attributes.device_class', 'eq', device ) 
+            | selectattr( 'state', 'eq', state ) 
+            | list | length }}
+
+      # low_battery:
+      #   friendly_name: Low Battery
+      #   value_template: >
+      #     {%- set threshold = 50 -%}
+      #     {%- set domains = ['light', 'switch', 'sensor', 'zwave', 'lock', 'binary_sensor'] -%}
+      #     {%- for domain in domains -%}
+      #       {%- for item in states[domain] if ((item.attributes.battery_level is defined and item.attributes['battery_level'] | int < threshold) or ("battery" in item.name | lower and ((item.state | int < threshold and item.state|int != 0) or item.state | lower == "low" or item.state | lower == "unknown"))) -%}
+      #         {{ item.attributes.friendly_name }} (
+      #         {%- if item.attributes.battery_level is defined -%}
+      #           {{ item.attributes.battery_level}}
+      #         {%- else -%}
+      #           {{item.state}}
+      #         {%- endif -%}%)
+      #         {%- if not loop.last -%}
+      #           {{', '}}
+      #         {%- endif -%}
+      #       {%- endfor -%}
+      #     {%- endfor -%}
+
+  - platform: rest
+    name: Kiosk Screen Brightness
+    resource: !secret rest_url_kiosk_device_info
+    json_attributes:
+      - screenBrightness
+      - screenOn
+    value_template: "OK"
+
+  - platform: rest
+    name: Countdown to Wedding Anniversary
+    resource: !secret wolframalpha_api_countdown_wedding_anniversary
+    value_template: "{{ (value|replace(' days', '')) | int }}"
+    unit_of_measurement: Days
+    scan_interval: 43200
+
+  - platform: rest
+    name: Countdown to Mothers Day
+    resource: !secret wolframalpha_api_countdown_mothersday
+    value_template: "{{ (value|replace(' days', '')) | int }}"
+    unit_of_measurement: Days
+    scan_interval: 43200
+
+  - platform: rest
+    name: Countdown to Fathers day
+    resource: !secret wolframalpha_api_countdown_fathersday
+    value_template: "{{ (value|replace(' days', '')) | int }}"
+    unit_of_measurement: Days
+    scan_interval: 43200
+
+  - platform: rest
+    name: Countdown to Easter
+    resource: !secret wolframalpha_api_countdown_easter
+    value_template: "{{ (value|replace(' days', '')) | int }}"
+    unit_of_measurement: Days
+    scan_interval: 43200
+
+  - platform: rest
+    name: Countdown to Halloween
+    resource: !secret wolframalpha_api_countdown_halloween
+    value_template: "{{ (value|replace(' days', '')) | int }}"
+    unit_of_measurement: Days
+    scan_interval: 43200
+
+  - platform: rest
+    name: Countdown to Thanksgiving
+    resource: !secret wolframalpha_api_countdown_thanksgiving
+    value_template: "{{ (value|replace(' days', '')) | int }}"
+    unit_of_measurement: Days
+    scan_interval: 43200
+
+  - platform: rest
+    name: Countdown to Christmas
+    resource: !secret wolframalpha_api_countdown_christmas
+    value_template: "{{ (value|replace(' days', '')) | int }}"
+    unit_of_measurement: Days
+    scan_interval: 43200
+
+  # - platform: ring
+  #   monitored_conditions:
+  #     - battery
+  #     - last_activity
+  #     - last_ding
+  #     - last_motion
+  #     - volume
+
+  # - platform: my_unifi
+  #   name: unifi
+  #   region: default
+  #   username: !secret unifi_username
+  #   password: !secret unifi_password
+  #   url: !secret unifi_url_port
+
+  # - platform: unifigateway
+  #   host: !secret unifi_host
+  #   username: !secret unifi_username
+  #   password: !secret unifi_password
+  #   monitored_conditions:
+  #     - vpn
+  #     - lan
+  #     - wan
+  #     - www
+  #     - wlan
+  #     - alerts
+  #     - firmware
+
+  # - platform: template
+  #   sensors:
+  #     ha_version:
+  #       icon_template: mdi:home-assistant
+  #       friendly_name_template: >
+  #         Installed {{ states('sensor.ha_version_installed') }}
+  #       value_template: >
+  #         {{ 'Latest' if states('sensor.ha_version_installed') ==
+  #         states('sensor.ha_version_latest') else states('sensor.ha_version_latest') }}
