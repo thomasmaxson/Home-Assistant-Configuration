@@ -121,17 +121,3 @@ browser_mod:
             name: Garbage Bins Taken Out
           - entity: input_boolean.garbage_bins_in
             name: Garbage Bins Brought In
-          # - entity: input_boolean.recycle_bins_out
-          #   name: Recycle Bins Taken Out
-          # - entity: input_boolean.recycle_bins_in
-          #   name: Recycle Bins Brought In
-
-          #- entity: input_boolean.automation_daily_sunset
-          #  name: Daily Sunset Automation Active
-
-          # - entity: input_select.day_pickup_trash_a
-          #   name: Trash Pickup, Day 1
-          # - entity: input_select.day_pickup_trash_b
-          #   name: Trash Pickup, Day 2
-          # - entity: input_select.day_pickup_bulk_trash
-          #   name: Bulk Trash Pickup
