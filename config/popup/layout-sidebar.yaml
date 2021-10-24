@@ -9,33 +9,12 @@ browser_mod:
           border-radius: 0 !important;
         }
       }
-    hui-vertical-stack-card:
-      $hui-entities-card$: |
-        #states {
-          padding-top: 0.5em;
-          padding-bottom: 1.2em;
-        }
   card:
-    type: custom:layout-card
-    layout_type: custom:grid-layout
-    layout:
-      grid-template-columns: repeat(1, 1fr)
-      grid-template-rows: 1fr
-      grid-template-areas: |
-        'layout'
+    type: vertical-stack
     cards:
       - type: entities
-        view_layout:
-          grid-area: sidebar_layout
         #title: Sidebar Items
         show_header_toggle: false
-        card_mod:
-          class: header
-          style: |
-            ha-card {
-              margin: 0px !important;
-              width: 100%;
-            }
         entities:
           - entity: input_boolean.sidebar_display_holidays
             name: Display Upcoming Holidays

@@ -4,6 +4,9 @@ browser_mod:
   title: Settings
   style:
     $: |
+      .mdc-dialog .mdc-dialog__content { 
+        padding: 0 !important;
+      }
       @media screen and (max-width: 992px) { 
         .mdc-dialog .mdc-dialog__container .mdc-dialog__surface { 
           border-radius: 0 !important;
@@ -11,6 +14,7 @@ browser_mod:
       }
     .: |
       :host .content {
+        margin: 0 !important;
         width: calc( 385px * 2 );
         max-width: 90vw;
       }
@@ -28,36 +32,33 @@ browser_mod:
             padding: 0;
           }
 
+          #root { 
+            margin: -1px !important;
+          }
+
+          hui-entities-card { border-left: 1px solid rgba(0, 0, 0, 0.3);}
+
+          @media screen and (max-width: 992px) {
+            hui-entities-card { 
+              border-top: 1px solid rgba(0, 0, 0, 0.3);
+              border-left: 0;
+            }
+          }
+
         hui-entities-card:
           $: |
-            .card-content {
-              padding: 1.5em 2.7em 2.3em 2em;
-            }
             ha-card {
-              animation: border 1s forwards;
+              padding: 0 !important;
               border-radius: 0;
+              margin: 0;
             }
-            @keyframes border {
-              0%, 100% {
-                border-right: 1px solid rgba(0, 0, 0, 0.3);
-              }
+            .card-header,
+            .card-content { 
+              padding: 1.5em 1em 0 1em !important;
+              margin: 0 !important;
             }
-            /* phone */
-            @media screen and (max-width: 992px) {
-              .card-content {
-                padding-right: 0;
-                padding-left: 0;
-              }
-              ha-card {
-                padding: 1.5em 1em 1em 1em;
-                animation: none !important;
-              }
-            }
-          $hui-horizontal-stack-card$: |
-            #root {
-              justify-content: space-evenly;
-              margin-top: 1.9em;
-              margin-left: 0.8em;
+            .card-content {
+              padding-bottom: 1.5em !important;
             }
   card:
     type: custom:layout-card

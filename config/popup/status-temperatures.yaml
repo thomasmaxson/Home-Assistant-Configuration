@@ -9,12 +9,6 @@ browser_mod:
           border-radius: 0 !important;
         }
       }
-    hui-vertical-stack-card:
-      $hui-entities-card$: |
-        #states {
-          padding-top: 0.5em;
-          padding-bottom: 1.2em;
-        }
   card:
     type: vertical-stack
     cards:
