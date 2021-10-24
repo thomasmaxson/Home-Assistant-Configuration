@@ -231,8 +231,9 @@ views:
         cards:
           - type: custom:button-card
             entity: light.bedroom_4_lights
-            name: His
-            icon: hue:room-office
+            name: Tom
+            #icon: hue:room-office
+            icon: hue:desk-lamp
             template:
               - popup_dimmer_colors
 
