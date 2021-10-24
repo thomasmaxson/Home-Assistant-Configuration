@@ -281,15 +281,6 @@ browser_mod:
           - entity: sensor.network_throughput_out_eth0
             name: Throughput Out
           - type: divider
-          # - entity: sensor.unifi_gateway_www_xput_up
-          #   name: Unifi, Upload Speed
-          # - entity: sensor.unifi_gateway_www_xput_down
-          #   name: Unifi, Download Speed
-          # - entity: sensor.unifi_gateway_www_speedtest_ping
-          #   name: Unifi, Ping
-          # - type: divider
-          # - entity: sensor.uptime
-          #   name: Dream Machine Pro Uptime
           # SpeedTest
           - entity: sensor.speedtest_ping
           - entity: sensor.speedtest_upload
