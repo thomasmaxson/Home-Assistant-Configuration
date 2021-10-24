@@ -6,7 +6,7 @@
 /config/.cloud
 /config/.google.token
 
-# ignore some directories.
+# ignore various directories
 /config/blueprints/
 /config/custom_components/
 /config/deps/
@@ -15,7 +15,8 @@
 /config/image/
 /config/themes/
 /config/tts/
-/config/www/
+/config/www/community/
+/config/www/snapshots/
 
 # ignore any of these files no matter where they are using double *
 **.DS_Store
