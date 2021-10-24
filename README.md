@@ -21,7 +21,7 @@ Make sure that you :star: this repo, so that you can get updates right in your n
 ![settings](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-details-settings.png)
 
 ##### Household Systems Popup:
-![systems](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-details-systems.png)
+![systems](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-details-system.png)
 
 #### Control Popups:
 ##### Light Dimmer with Colors:
