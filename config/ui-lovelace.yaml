@@ -160,6 +160,24 @@ views:
           grid-area: foyer
         columns: 3
         cards:
+          # - type: custom:button-card
+          #   entity: climate.ecobee
+          #   name: Air Conditioner
+          #   double_tap_action: !include popup/status-temperatures.yaml
+          #   hold_action: !include popup/status-temperatures.yaml
+          #   template:
+          #     - base
+          #     - climate
+          #   variables:
+          #     circle_input: >
+          #       [[[
+          #         if (entity) {
+          #           return entity.state == 'cool' ?
+          #             entity.attributes.temperature :
+          #             entity.attributes.current_temperature;
+          #         }
+          #       ]]]
+
           - type: custom:button-card
             entity: light.foyer_ceiling_ledge
             name: Ceiling
@@ -197,6 +215,8 @@ views:
 
           - type: custom:button-card
             entity: light.bedroom_1_closet_lights
+            # entity: light.closet_hallway_light_j
+            # entity: light.closet_hallway_light_t
             name: Closets
             icon: hass:lightbulb
             template:
@@ -246,6 +266,7 @@ views:
           - type: custom:button-card
             entity: media_player.sony_bravia_tv
             name: Television
+            #hold_action: !include popup/status-television.yaml
             template:
               - base
 
@@ -260,7 +281,7 @@ views:
         columns: 3
         cards:
           - type: "custom:button-card"
-            name: Him
+            name: Thomas
             entity: person.thomas
             tap_action: !include popup/person-thomas.yaml
             double_tap_action: !include popup/person-thomas.yaml
@@ -269,7 +290,7 @@ views:
               - person
 
           - type: "custom:button-card"
-            name: Her
+            name: Jessica
             entity: person.jessica
             tap_action: !include popup/person-jessica.yaml
             double_tap_action: !include popup/person-jessica.yaml
@@ -280,6 +301,7 @@ views:
           - type: "custom:button-card"
             name: Gouda
             entity: input_boolean.gouda_home
+            #image: local/uploads/avatar-gouda.png
             show_entity_picture: true
             entity_picture: /local/uploads/avatar-gouda.png
             template:
