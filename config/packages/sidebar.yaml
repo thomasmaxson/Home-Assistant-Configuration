@@ -46,22 +46,22 @@ template:
 
         holiday: |
           {% if is_state( 'input_boolean.sidebar_display_holidays', 'on' ) %}
-            {% if is_state( 'sensor.countdown_to_halloween', '1' ) %}
+            {% if is_state( 'sensor.countdown_to_halloween', 1 ) %}
               Tomorrow is Halloween.
 
-            {% elif is_state( 'sensor.countdown_to_halloween', '0' ) %}
+            {% elif is_state( 'sensor.countdown_to_halloween', 0 ) %}
               Happy Halloween!
 
-            {% elif is_state( 'sensor.countdown_to_thanksgiving', '1' ) %}
+            {% elif is_state( 'sensor.countdown_to_thanksgiving', 1 ) %}
               Tomorrow is Thanksgiving!
 
-            {% elif is_state( 'sensor.countdown_to_thanksgiving', '0' ) %}
+            {% elif is_state( 'sensor.countdown_to_thanksgiving', 0 ) %}
               Happy Thanksgiving!
 
-            {% elif is_state( 'sensor.countdown_to_christmas', '1' ) %}
+            {% elif is_state( 'sensor.countdown_to_christmas', 1 ) %}
               Tomorrow is Christmas!
 
-            {% elif is_state( 'sensor.countdown_to_christmas', '0' ) %}
+            {% elif is_state( 'sensor.countdown_to_christmas', 0 ) %}
               Merry Christmas Everyone!
 
             {% elif states.calendar.holidays_in_united_states.state == 'on' %}
