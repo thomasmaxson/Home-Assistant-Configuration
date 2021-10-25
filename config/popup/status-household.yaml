@@ -1,3 +1,11 @@
+################################################################################
+#
+# @author      : Thomas Maxson
+# @package     : Popup, Household
+# @description :
+#
+################################################################################
+
 action: fire-dom-event
 browser_mod:
   command: popup
@@ -34,6 +42,7 @@ browser_mod:
 
           #root { 
             margin: -1px !important;
+
           }
 
           hui-entities-card { border-left: 1px solid rgba(0, 0, 0, 0.3);}
@@ -59,6 +68,13 @@ browser_mod:
             }
             .card-content {
               padding-bottom: 1.5em !important;
+            }
+
+            @media screen and (max-width: 992px) {
+              ha-card { 
+                width: 100%;
+                width: 100vw;
+              }
             }
   card:
     type: custom:layout-card
@@ -110,8 +126,14 @@ browser_mod:
           - entity: light.foyer_under_table
             name: Foyer, Under Table
             secondary_info: brightness
-          - entity: light.bedroom_1_bedside_lamps
-            name: Main Bedroom, Bedside Lamps
+          #- entity: light.bedroom_1_bedside_lamps
+          #  name: Main Bedroom, Bedside Lamps
+          #  secondary_info: brightness
+          - entity: light.bedroom_1_lamp_j
+            name: Main Bedroom, Her Bedside Lamp
+            secondary_info: brightness
+          - entity: light.bedroom_1_lamp_t
+            name: Main Bedroom, His Bedside Lamp
             secondary_info: brightness
           - entity: light.closet_hallway_ceiling_light
             name: Closet Hallway, Ceiling Light

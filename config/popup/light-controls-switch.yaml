@@ -1,3 +1,11 @@
+################################################################################
+#
+# @author      : Thomas Maxson
+# @package     : Popup, Light Switch
+# @description :
+#
+################################################################################
+
 action: fire-dom-event
 browser_mod:
   command: popup

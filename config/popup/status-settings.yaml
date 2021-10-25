@@ -1,3 +1,11 @@
+################################################################################
+#
+# @author      : Thomas Maxson
+# @package     : 
+# @description :
+#
+################################################################################
+
 action: fire-dom-event
 browser_mod:
   command: popup
@@ -59,6 +67,13 @@ browser_mod:
             }
             .card-content {
               padding-bottom: 1.5em !important;
+            }
+
+            @media screen and (max-width: 992px) {
+              ha-card { 
+                width: 100%;
+                width: 100vw;
+              }
             }
   card:
     type: custom:layout-card

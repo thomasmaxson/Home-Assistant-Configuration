@@ -1,3 +1,11 @@
+################################################################################
+#
+# @author      : Thomas Maxson
+# @package     : Popup, Person (Jessica)
+# @description :
+#
+################################################################################
+
 action: fire-dom-event
 browser_mod:
   command: popup
