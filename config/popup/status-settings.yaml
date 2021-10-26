@@ -94,6 +94,27 @@ browser_mod:
     cards:
       - type: entities
         view_layout:
+          grid-area: general
+        title: Settings
+        show_header_toggle: false
+        card_mod:
+          class: header
+          style: |
+            ha-card {
+              margin: 0px !important;
+              width: 100%;
+            }
+        entities:
+          - entity: input_boolean.vacation_mode
+            name: Household Vacation Mode
+          - type: divider
+          - entity: input_boolean.garbage_bins_out
+            name: Garbage Bins Taken Out
+          - entity: input_boolean.garbage_bins_in
+            name: Garbage Bins Brought In
+
+      - type: entities
+        view_layout:
           grid-area: notifications
         title: Notifications
         show_header_toggle: false
@@ -113,27 +134,3 @@ browser_mod:
             name: He Can Recieve Push Notifications
           - entity: input_boolean.app_notify_jess
             name: She Can Recieve Push Notifications
-
-      - type: entities
-        view_layout:
-          grid-area: general
-        title: Settings
-        show_header_toggle: false
-        card_mod:
-          class: header
-          style: |
-            ha-card {
-              margin: 0px !important;
-              width: 100%;
-            }
-        entities:
-          - entity: input_boolean.gouda_home
-            name: Gouda is Home
-          - type: divider
-          - entity: input_boolean.vacation_mode
-            name: Household Vacation Mode
-          - type: divider
-          - entity: input_boolean.garbage_bins_out
-            name: Garbage Bins Taken Out
-          - entity: input_boolean.garbage_bins_in
-            name: Garbage Bins Brought In
