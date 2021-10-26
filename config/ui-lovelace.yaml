@@ -123,20 +123,13 @@ views:
         title: Common Areas
         view_layout:
           grid-area: common
+        square: false
         columns: 3
         cards:
           - type: custom:button-card
             entity: light.kitchen_ceiling_lights
             name: Kitchen
-            #icon: bha:ceiling-downlight
             icon: hue:recessed-ceiling
-            template:
-              - popup_dimmer_colors
-
-          - type: custom:button-card
-            entity: light.living_room_corner_lamp
-            name: Corner Lamp
-            icon: bha:table-lamp-variant
             template:
               - popup_dimmer_colors
 
@@ -147,6 +140,13 @@ views:
             template:
               - popup_dimmer
 
+          - type: custom:button-card
+            entity: light.living_room_corner_lamp
+            name: Corner Lamp
+            icon: bha:table-lamp-variant
+            template:
+              - popup_dimmer_colors
+
       #
       # FOYER
       # --------------------------------------------------
@@ -155,6 +155,7 @@ views:
         title: Foyer
         view_layout:
           grid-area: foyer
+        square: false
         columns: 3
         cards:
           # - type: custom:button-card
@@ -178,12 +179,14 @@ views:
           - type: custom:button-card
             entity: light.foyer_ceiling_ledge
             name: Ceiling
+            icon: mdi:led-strip-variant
             template:
               - popup_dimmer_colors
 
           - type: custom:button-card
             entity: light.foyer_under_table
             name: Floor
+            icon: mdi:led-strip-variant
             template:
               - popup_dimmer_colors
 
@@ -195,29 +198,74 @@ views:
         title: Main Bedroom
         view_layout:
           grid-area: bdr_1
-        columns: 3
+        square: false
+        columns: 1
         cards:
-          - type: custom:button-card
-            entity: light.bedroom_1_bedside_lamps
-            name: Bedside Lamps
-            template:
-              - popup_dimmer_colors
+          - type: custom:swipe-card
+            #slidesPerView: 1
+            parameters:
+              autoHeight: true
+              roundLengths: true
+              effect: coverflow
+              speed: 650
+              spaceBetween: 20
+              threshold: 7
+              coverflowEffect:
+                rotate: 80
+                depth: 300
+            cards:
+              - type: grid
+                columns: 3
+                cards:
+                  - type: custom:button-card
+                    entity: light.bedroom_1_bedside_lamps
+                    name: Bedside Lamps
+                    template:
+                      - popup_dimmer_colors
 
-          - type: custom:button-card
-            entity: light.closet_hallway_ceiling_light
-            name: Hallway
-            icon: bha:dome-light
-            template:
-              - popup_dimmer
+                  - type: custom:button-card
+                    entity: light.closet_hallway_ceiling_light
+                    name: Hallway
+                    icon: bha:dome-light
+                    template:
+                      - popup_dimmer
 
-          - type: custom:button-card
-            entity: light.bedroom_1_closet_lights
-            # entity: light.closet_hallway_light_j
-            # entity: light.closet_hallway_light_t
-            name: Closets
-            icon: hass:lightbulb
-            template:
-              - popup_dimmer
+                  - type: custom:button-card
+                    entity: light.bedroom_1_closet_lights
+                    name: Closets
+                    icon: hass:lightbulb
+                    template:
+                      - popup_dimmer
+
+              - type: grid
+                columns: 3
+                cards:
+                  - type: custom:button-card
+                    entity: light.bedroom_1_lamp_j
+                    name: Her Bedside Lamp
+                    template:
+                      - popup_dimmer_colors
+
+                  - type: custom:button-card
+                    entity: light.bedroom_1_lamp_t
+                    name: His Bedside Lamp
+                    template:
+                      - popup_dimmer_colors
+
+              - type: grid
+                columns: 3
+                cards:
+                  - type: custom:button-card
+                    entity: light.closet_hallway_light_j
+                    name: Her Closet Light
+                    template:
+                      - popup_dimmer_colors
+
+                  - type: custom:button-card
+                    entity: light.closet_hallway_light_t
+                    name: His Closet Light
+                    template:
+                      - popup_dimmer_colors
 
       #
       # BEDROOM 3 AND 4
@@ -227,6 +275,7 @@ views:
         title: Office's
         view_layout:
           grid-area: bdr_3_4
+        square: false
         columns: 3
         cards:
           - type: custom:button-card
@@ -237,6 +286,14 @@ views:
             template:
               - popup_dimmer_colors
 
+          - type: custom:button-card
+            entity: light.closet_hallway_ceiling_light
+            name: Jess
+            #icon: hue:desk-lamp
+            icon: hue:room-office
+            template:
+              - popup_dimmer
+
       #
       # OTHER
       # --------------------------------------------------
@@ -245,6 +302,7 @@ views:
         title: Other
         view_layout:
           grid-area: other
+        square: false
         columns: 3
         cards:
           - type: custom:button-card
@@ -276,6 +334,7 @@ views:
         title: Resident Status
         view_layout:
           grid-area: misc
+        square: false
         columns: 3
         cards:
           - type: "custom:button-card"
