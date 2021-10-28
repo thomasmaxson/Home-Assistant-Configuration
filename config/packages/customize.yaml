@@ -49,11 +49,11 @@ homeassistant:
       icon: bha:table-lamp-variant
 
     light.foyer_ceiling_ledge:
-      friendly_name: Light, Ceiling Ledge
+      friendly_name: Upper Ledge Lightstrip
       icon: mdi:led-strip-variant
 
     light.foyer_under_table:
-      friendly_name: Light, Under Table
+      friendly_name: Entry Table Lightstrip
       icon: mdi:led-strip-variant
 
     light.bedroom_1_bedside_lights:
@@ -112,8 +112,8 @@ homeassistant:
     # SWITCHES
     # --------------------------------------------------
 
-    switch.outdoor_string_lights:
-      friendly_name: Outdoor String Lights
+    switch.backyard_string_lights:
+      friendly_name: Backyard String Lights
       icon: bha:light-string
 
     #

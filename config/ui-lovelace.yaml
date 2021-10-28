@@ -178,7 +178,7 @@ views:
 
           - type: custom:button-card
             entity: light.foyer_ceiling_ledge
-            name: Ceiling
+            name: Ledge
             icon: mdi:led-strip-variant
             template:
               - popup_dimmer_colors
