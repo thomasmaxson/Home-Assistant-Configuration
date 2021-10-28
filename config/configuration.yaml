@@ -79,12 +79,12 @@ media_extractor:
 device_tracker:
   - platform: bluetooth_tracker
 
-  - platform: iphonedetect
-    consider_home: 60
-    new_device_defaults:
-      track_new_devices: true
-    hosts:
-      thomas_iphonedetect: !secret iphonedetect_thomas
+  # - platform: iphonedetect
+  #   consider_home: 60
+  #   new_device_defaults:
+  #     track_new_devices: true
+  #   hosts:
+  #     thomas_iphonedetect: !secret iphonedetect_thomas
 
 ios:
   push:
