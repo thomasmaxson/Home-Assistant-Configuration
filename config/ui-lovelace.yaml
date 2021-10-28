@@ -30,10 +30,10 @@ views:
       grid-template-rows: min-content
       grid-template-columns: 23% repeat( 2, 1fr ) 0
       grid-template-areas: |
-        "sidebar  common  foyer    ."
-        "sidebar  bdr_1   bdr_3_4  ."
-        "sidebar  other   misc     ."
-        "popups   popups  popups   ."
+        "sidebar  common  foyer     ."
+        "sidebar  bdr_1   bdr_3_4   ."
+        "sidebar  other   resident  ."
+        "popups   popups  popups    ."
       mediaquery:
         # Tablet and down
         "(max-width: 992px)":
@@ -41,14 +41,14 @@ views:
           grid-template-rows: auto
           grid-template-columns: 0 1fr 0
           grid-template-areas: |
-            ".  sidebar  ."
-            ".  common   ."
-            ".  foyer    ."
-            ".  bdr_1    ."
-            ".  bdr_3_4  ."
-            ".  other    ."
-            ".  misc     ."
-            ".  popups   ."
+            ".  sidebar   ."
+            ".  common    ."
+            ".  foyer     ."
+            ".  bdr_1     ."
+            ".  bdr_3_4   ."
+            ".  other     ."
+            ".  resident  ."
+            ".  popups    ."
 
     cards:
       # extra_styles fix
@@ -303,37 +303,64 @@ views:
         view_layout:
           grid-area: other
         square: false
-        columns: 3
+        columns: 1
         cards:
-          - type: custom:button-card
-            entity: light.laundry_ceiling_light
-            name: Laundry Room
-            icon: bha:dome-light
-            template:
-              - popup_dimmer_colors
+          - type: grid
+            columns: 3
+            cards:
+              - type: custom:button-card
+                entity: light.laundry_ceiling_light
+                name: Laundry Room
+                icon: bha:dome-light
+                template:
+                  - popup_dimmer_colors
 
-          - type: custom:button-card
-            entity: switch.outdoor_string_lights
-            name: Outside
-            icon: bha:light-string
-            template:
-              - popup_switch
+              - type: custom:button-card
+                entity: switch.backyard_string_lights
+                name: Backyard
+                icon: bha:light-string
+                template:
+                  - popup_switch
 
-          - type: custom:button-card
-            entity: media_player.sony_bravia_tv
-            name: Television
-            #hold_action: !include popup/status-television.yaml
-            template:
-              - base
+              - type: custom:button-card
+                entity: media_player.sony_bravia_tv
+                name: Television
+                #hold_action: !include popup/status-television.yaml
+                template:
+                  - base
+
+              # - type: grid
+              #   columns: 1
+              #   square: false
+              #   cards:
+              #     - type: media-control
+              #       entity: media_player.simplified_living_room
+              #       name: Living Room
+
+              # - type: grid
+              #   columns: 1
+              #   square: false
+              #   cards:
+              #     - type: media-control
+              #       entity: media_player.bedroom_1
+              #       name: Main Bedroom
+
+              # - type: grid
+              #   columns: 1
+              #   square: false
+              #   cards:
+              #     - type: media-control
+              #       entity: media_player.bedroom_4
+              #       name: Tom's Office
 
       #
-      # MISC
+      # RESIDENT
       # --------------------------------------------------
 
       - type: grid
         title: Resident Status
         view_layout:
-          grid-area: misc
+          grid-area: resident
         square: false
         columns: 3
         cards:
