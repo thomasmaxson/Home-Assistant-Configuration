@@ -11,6 +11,13 @@ browser_mod:
   command: popup
   title: >
     [[[ return entity.attributes.friendly_name; ]]]
+  style:
+    $: |
+      @media screen and (max-width: 992px) { 
+        .mdc-dialog .mdc-dialog__container .mdc-dialog__surface { 
+          border-radius: 0 !important;
+        }
+      }
   card:
     type: entities
     entities:

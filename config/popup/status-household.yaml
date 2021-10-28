@@ -42,7 +42,7 @@ browser_mod:
 
           #root { 
             margin: -1px !important;
-
+            overflow-x: hidden;
           }
 
           hui-entities-card { border-left: 1px solid rgba(0, 0, 0, 0.3);}
@@ -155,7 +155,7 @@ browser_mod:
             name: Laundry Room, Ceiling Light
             icon: bha:dome-light
             secondary_info: brightness
-          - entity: switch.outdoor_string_lights
+          - entity: switch.backyard_string_lights
             name: Outside, String Lights
             icon: bha:light-string
 

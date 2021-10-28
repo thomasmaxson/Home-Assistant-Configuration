@@ -11,6 +11,12 @@ browser_mod:
   command: popup
   title: Thomas' Details
   style:
+    $: |
+      @media screen and (max-width: 992px) { 
+        .mdc-dialog .mdc-dialog__container .mdc-dialog__surface { 
+          border-radius: 0 !important;
+        }
+      }
     hui-vertical-stack-card:
       # $hui-history-graph-card$: |
       #   .content {
