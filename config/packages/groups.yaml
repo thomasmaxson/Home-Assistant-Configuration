@@ -16,7 +16,7 @@ group:
   pets:
     name: Pets
     entities:
-        - input_boolean.gouda_home
+      - input_boolean.gouda_home
 
   lights_all:
     name: All Lights
@@ -41,7 +41,7 @@ group:
       - light.closet_hallway_light_t
       - light.bedroom_4_desk_lamp
       - light.bedroom_4_lightstrip
-      - switch.outdoor_string_lights
+      - switch.backyard_string_lights
 
   lights_all_interior:
     name: All Interior Lights
@@ -60,7 +60,7 @@ group:
   lights_all_exterior:
     name: All Exterior Lights
     entities:
-      - switch.outdoor_string_lights
+      - switch.backyard_string_lights
 
   lights_vacation:
     name: Vacation Lights
@@ -104,8 +104,8 @@ group:
       - sensor.door_bedroom_2
       - sensor.door_bedroom_3
       - sensor.door_bedroom_4
-      - sensor.door_laundry
       - sensor.door_living
+      - sensor.door_laundry
       - sensor.door_closet_hallway_j
       - sensor.door_closet_hallway_t
       # Aqara Buttons
