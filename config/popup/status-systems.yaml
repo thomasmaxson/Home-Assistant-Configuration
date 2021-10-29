@@ -42,6 +42,7 @@ browser_mod:
 
           #root { 
             margin: -1px !important;
+            overflow-x: hidden;
           }
 
           hui-entities-card { border-left: 1px solid rgba(0, 0, 0, 0.3);}
@@ -60,13 +61,15 @@ browser_mod:
               border-radius: 0;
               margin: 0;
             }
+
             .card-header,
             .card-content { 
-              padding: 1.5em 1em 0 1em !important;
+              padding: 1.5em 1.5em !important;
               margin: 0 !important;
             }
-            .card-content {
-              padding-bottom: 1.5em !important;
+
+            .card-header {
+              padding-bottom: 0 !important;
             }
 
             @media screen and (max-width: 992px) {
@@ -74,6 +77,13 @@ browser_mod:
                 width: 100%;
                 width: 100vw;
               }
+            }
+
+          $hui-horizontal-stack-card$: |
+            #root {
+              justify-content: space-evenly;
+              margin-top: 1.5em;
+              margin-bottom: 1em;
             }
   card:
     type: custom:layout-card
