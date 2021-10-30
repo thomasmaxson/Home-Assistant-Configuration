@@ -39,7 +39,7 @@ Make sure that you :star: this repo, so that you can get updates right in your n
 <hr>
 
 ### Hardware:
-* [Raspberry Pi 4](https://www.amazon.com/dp/B07TTN1M7G/)
+* [Raspberry Pi 4](https://www.amazon.com/dp/B0897XZDF2/)
 * [Kingston A400 Internal SSD M.2](https://www.amazon.com/dp/B07P22RK1G/)
 * [Argon ONE M.2 Case for Raspberry Pi 4](https://www.amazon.com/dp/B08MJ3CSW7/)
 * [ConBee II, Universal Zigbee USB Gateway](https://www.amazon.com/dp/B07PZ7ZHG5/)
@@ -69,6 +69,7 @@ Make sure that you :star: this repo, so that you can get updates right in your n
 ##### Sensors
 * [Aqara Door and Window Sensor](https://www.amazon.com/gp/product/B07D37VDM3/)
 * [Aqara Leak Sensor](https://www.amazon.com/gp/product/B07D39MSZS/)
+* [Philips Hue Indoor Motion Sensor](https://www.amazon.com/gp/product/B076MGK22M/)
 
 ##### Climate
 * [Ecobee Thermostat](https://www.amazon.com/gp/product/B07NQT85FC/)
