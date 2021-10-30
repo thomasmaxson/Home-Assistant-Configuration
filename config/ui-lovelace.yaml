@@ -69,10 +69,6 @@ views:
             tap_action: none
             double_tap_action: !include popup/layout-sidebar.yaml
 
-          # - type: custom:sun-card
-          #   darkMode: true
-          #   timeFormat: "12h"
-
       #
       # Popups
       # --------------------------------------------------
@@ -200,7 +196,6 @@ views:
         columns: 1
         cards:
           - type: custom:swipe-card
-            #slidesPerView: 1
             parameters:
               autoHeight: true
               roundLengths: true
@@ -323,7 +318,6 @@ views:
               - type: custom:button-card
                 entity: media_player.sony_bravia_tv
                 name: Television
-                #hold_action: !include popup/status-television.yaml
                 template:
                   - base
 
