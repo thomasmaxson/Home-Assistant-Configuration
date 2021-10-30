@@ -38,6 +38,14 @@ Make sure that you :star: this repo, so that you can get updates right in your n
 
 <hr>
 
+### Hardware:
+* [Raspberry Pi 4](https://www.amazon.com/dp/B07TTN1M7G/)
+* [Kingston A400 Internal SSD M.2](https://www.amazon.com/dp/B07P22RK1G/)
+* [Argon ONE M.2 Case for Raspberry Pi 4](https://www.amazon.com/dp/B08MJ3CSW7/)
+* [ConBee II, Universal Zigbee USB Gateway](https://www.amazon.com/dp/B07PZ7ZHG5/)
+
+<hr>
+
 ### Devices:
 * Various Apple Devices (Macbooks, iPhones and iPads)
 * Fire Tablet HD10
@@ -49,8 +57,8 @@ Make sure that you :star: this repo, so that you can get updates right in your n
 
 ##### Switches / Plugs
 * [Lutron Caseta Lightswitch](https://www.amazon.com/gp/product/B07SJJBTYY/)
+* [Lutron Caseta Outdoor Smart Plug](https://www.amazon.com/gp/product/B08YPFFM58/)
 * [Philips Hue Smart Plug](https://www.amazon.com/gp/product/B07XD578LD/)
-* [Enbrighten Outside Smart Plug (Zigbee)](https://www.amazon.com/gp/product/B0842B57S3/)
 * [MyQ Garage Door Hub](https://www.amazon.com/gp/product/B075RQVSY7/)
 
 ##### Lights
@@ -71,5 +79,5 @@ Make sure that you :star: this repo, so that you can get updates right in your n
 ### Inspiration:
 Below are a few of my most used resources. If you like what you see here, please check them out as well! 
 
-* [Matt8707](https://github.com/matt8707/hass-config)
-* [Slacker Labs/Jeffery Stone](https://github.com/thejeffreystone/home-assistant-configuration/)
+* [Matt8707 (Mattias Persson)](https://github.com/matt8707/hass-config)
+* [Slacker Labs (Jeffery Stone)](https://github.com/thejeffreystone/home-assistant-configuration/)
