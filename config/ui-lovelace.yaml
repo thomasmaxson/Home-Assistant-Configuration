@@ -62,8 +62,6 @@ views:
       - type: vertical-stack
         view_layout:
           grid-area: sidebar
-          hide:
-            mediaquery: "(max-width: 992px)"
         cards:
           - type: custom:button-card
             entity: sensor.template_sidebar
