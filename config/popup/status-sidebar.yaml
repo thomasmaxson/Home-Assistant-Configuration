@@ -1,7 +1,7 @@
 ################################################################################
 #
 # @author      : Thomas Maxson
-# @package     : Popup, Settings
+# @package     : Popup, Sidebar Controls
 # @description :
 #
 ################################################################################
@@ -9,7 +9,7 @@
 action: fire-dom-event
 browser_mod:
   command: popup
-  title: Settings
+  title: Sidebar
   style:
     $: |
       .mdc-dialog .mdc-dialog__content { 
@@ -86,36 +86,42 @@ browser_mod:
       grid-template-columns: repeat(1, 1fr)
       grid-template-rows: 1fr
       grid-template-areas: |
-        'general notifications'
+        'status display'
       mediaquery:
         # Tablet and down
         "(max-width: 992px)":
           grid-template-columns: 1fr
           grid-template-rows: repeat(1, 1fr)
           grid-template-areas: |
-            'general'
-            'notifications'
+            'status'
+            'display'
     cards:
       - type: entities
         view_layout:
-          grid-area: general
-        title: Settings
+          grid-area: status
+        title: Status
         show_header_toggle: false
         entities:
-          - entity: input_boolean.vacation_mode
-            name: Household Vacation Mode
+          - entity: input_boolean.garbage_bins_out
+            name: Garbage Bins Taken Out
+          - entity: input_boolean.garbage_bins_in
+            name: Garbage Bins Brought In
 
       - type: entities
         view_layout:
-          grid-area: notifications
-        title: Notifications
+          grid-area: display
+        title: Display
         show_header_toggle: false
         entities:
-          - entity: input_boolean.audible_notifications_johan
-            name: Household Audible Notifications
-          - entity: input_boolean.app_notify
-            name: All Can Recieve Push Notifications
-          - entity: input_boolean.app_notify_tom
-            name: He Can Recieve Push Notifications
-          - entity: input_boolean.app_notify_jess
-            name: She Can Recieve Push Notifications
+          - entity: input_boolean.sidebar_display_holidays
+            name: Display Upcoming Holidays
+          - entity: input_boolean.sidebar_display_celebrations
+            name: Display Upcoming Celebrations
+          - entity: input_boolean.sidebar_display_weather_forecast
+            name: Display Weather Forecast
+          - entity: input_boolean.sidebar_display_lights_on
+            name: Display Lights On
+          - entity: input_boolean.sidebar_display_open_doors
+            name: Display Open Doors
+          - entity: input_boolean.sidebar_display_garbage_reminder
+            name: Display Garbage Reminders

@@ -69,6 +69,7 @@ browser_mod:
             }
 
             .card-header {
+              padding-top: 1em !important;
               padding-bottom: 0 !important;
             }
 
@@ -108,13 +109,6 @@ browser_mod:
           grid-area: homeassistant
         title: Home Assistant
         show_header_toggle: false
-        card_mod:
-          class: header
-          style: |
-            ha-card {
-              margin: 0px !important;
-              width: 100%;
-            }
         entities:
           - entity: sensor.ha_version
           - entity: sensor.last_boot
@@ -176,13 +170,6 @@ browser_mod:
           grid-area: tablet
         title: Amazon Fire HD Tablet
         show_header_toggle: false
-        card_mod:
-          class: header
-          style: |
-            ha-card {
-              margin: 0px !important;
-              width: 100%;
-            }
         entities:
           - entity: light.fire_tablet_screen
             name: Display
@@ -258,13 +245,6 @@ browser_mod:
             #   hold_action:
             #     action: call-service
             #     service: fullykiosk.load_start_url
-            #   card_mod:
-            #     style: |
-            #       ha-card {
-            #         margin-right: 0.25em;
-            #         margin-bottom: 1em;
-            #         margin-left: 0.25em;
-            #       }
 
             - type: custom:button-card
               name: Restart Device
@@ -294,13 +274,6 @@ browser_mod:
           grid-area: network
         title: Network
         show_header_toggle: false
-        card_mod:
-          class: header
-          style: |
-            ha-card {
-              margin: 0px !important;
-              width: 100%;
-            }
         entities:
           - entity: sensor.network_throughput_in_eth0
             name: Throughput In

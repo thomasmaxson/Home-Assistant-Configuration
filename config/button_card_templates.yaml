@@ -198,7 +198,7 @@ sidebar_template:
       display: flex !important;
     }
 
-    #name {
+    #name { 
       padding: 1.8vw 2.5vw 0 var(--custom-layout-card-padding);
       color: #6a7377;
       text-align: left;
@@ -208,7 +208,7 @@ sidebar_template:
     p {
       margin-top: 1em;
       font-size: calc( var( --sidebar-font-size ) * 1.4 );
-      line-height: var(--sidebar-line-height);
+      line-height: calc( var(--sidebar-line-height) + 1.2 );
       font-weight: 300;
       letter-spacing: 0.06vw;
     }

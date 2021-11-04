@@ -61,13 +61,16 @@ browser_mod:
               border-radius: 0;
               margin: 0;
             }
+
             .card-header,
             .card-content { 
-              padding: 1.5em 1em 0 1em !important;
+              padding: 1.5em 1.5em !important;
               margin: 0 !important;
             }
-            .card-content {
-              padding-bottom: 1.5em !important;
+
+            .card-header {
+              padding-top: 1em !important;
+              padding-bottom: 0 !important;
             }
 
             @media screen and (max-width: 992px) {
@@ -190,9 +193,9 @@ browser_mod:
           - entity: binary_sensor.door_laundry
             name: Laundry Room
           - type: divider
-          - entity: binary_sensor.door_closet_hallway_j
+          - entity: sensor.custom_door_closet_hallway_j
             name: Her Closet
-          - entity: binary_sensor.door_closet_hallway_t
+          - entity: sensor.custom_door_closet_hallway_t
             name: His Closet
 
       # - type: entities
