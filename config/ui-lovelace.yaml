@@ -66,8 +66,9 @@ views:
           - type: custom:button-card
             entity: sensor.template_sidebar
             template: sidebar_template
-            tap_action: none
-            double_tap_action: !include popup/layout-sidebar.yaml
+            tap_action: !include popup/status-sidebar.yaml
+            hold_action: !include popup/status-sidebar.yaml
+            double_tap_action: !include popup/status-sidebar.yaml
 
       #
       # Popups
@@ -189,13 +190,14 @@ views:
       # --------------------------------------------------
 
       - type: grid
-        title: Main Bedroom
+        #title: Main Bedroom
         view_layout:
           grid-area: bdr_1
         square: false
         columns: 1
         cards:
           - type: custom:swipe-card
+            square: false
             parameters:
               autoHeight: true
               roundLengths: true
@@ -208,6 +210,7 @@ views:
                 depth: 300
             cards:
               - type: grid
+                title: Main Bedroom
                 columns: 3
                 cards:
                   - type: custom:button-card
@@ -231,32 +234,34 @@ views:
                       - popup_dimmer
 
               - type: grid
+                title: Bedside Lamps
                 columns: 3
                 cards:
                   - type: custom:button-card
                     entity: light.bedroom_1_lamp_j
-                    name: Her Bedside Lamp
+                    name: Her Bedside
                     template:
                       - popup_dimmer_colors
 
                   - type: custom:button-card
                     entity: light.bedroom_1_lamp_t
-                    name: His Bedside Lamp
+                    name: His Bedside
                     template:
                       - popup_dimmer_colors
 
               - type: grid
+                title: Closet Lights
                 columns: 3
                 cards:
                   - type: custom:button-card
                     entity: light.closet_hallway_light_j
-                    name: Her Closet Light
+                    name: Her Closet
                     template:
                       - popup_dimmer_colors
 
                   - type: custom:button-card
                     entity: light.closet_hallway_light_t
-                    name: His Closet Light
+                    name: His Closet
                     template:
                       - popup_dimmer_colors
 
