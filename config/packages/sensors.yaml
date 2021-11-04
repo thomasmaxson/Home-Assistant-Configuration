@@ -73,9 +73,9 @@ sensor:
         #device_class: battery
         friendly_name: Battery Level
         unit_of_measurement: "%"
-        value_template: >
+        value_template: >-
           {{ states( 'sensor.fire_tablet_battery_level' ) | int( 'unknown' ) }}
-        icon_template: >
+        icon_template: >-
           {%- set battery_level = states( 'sensor.fire_tablet_battery_level' ) | int( 'unknown' ) -%}
           {%- set battery_round = ( battery_level | int / 10 ) | int * 10 -%}
 
@@ -103,9 +103,9 @@ sensor:
       # Home Assistant System Entity Item
       ha_version:
         icon_template: mdi:home-assistant
-        friendly_name_template: >
+        friendly_name_template: >-
           Installed {{ states( 'sensor.ha_version_installed' ) }}
-        value_template: >
+        value_template: >-
           {{ 'Latest' if states( 'sensor.ha_version_installed' ) == 
           states( 'sensor.ha_version_latest' ) else states( 'sensor.ha_version_latest' ) }}
 
@@ -119,7 +119,7 @@ sensor:
       fire_tablet_ram_used_memory:
         icon_template: mdi:memory
         unit_of_measurement: GB
-        value_template: >
+        value_template: >-
           {%- set total_memory = states( 'sensor.fire_tablet_ram_total_memory' ) | int -%}
           {%- set free_memory = states( 'sensor.fire_tablet_ram_free_memory' ) | int -%}
           {%- set used_memory = ( total_memory - free_memory ) -%}
@@ -130,7 +130,7 @@ sensor:
       total_lights_on:
         friendly_name: Total Lights On
         icon_template: mdi:lightbulb
-        value_template: >
+        value_template: >-
           {% set state = 'on' %}
           {% set ns = namespace( count = 0 ) %}
 
@@ -157,7 +157,7 @@ sensor:
       total_doors_open:
         friendly_name: Total Doors Open
         icon_template: mdi:door-open
-        value_template: >
+        value_template: >-
           {% set state = 'on' %}
           {% set device = 'door' %}
           {{ states.binary_sensor 
@@ -278,3 +278,43 @@ sensor:
   #       value_template: >
   #         {{ 'Latest' if states('sensor.ha_version_installed') ==
   #         states('sensor.ha_version_latest') else states('sensor.ha_version_latest') }}
+
+  - platform: template
+    sensors:
+      custom_door_closet_hallway_j:
+        friendly_name: "Jess' Closet Door"
+        value_template: >-
+          {%- if is_state( 'binary_sensor.door_closet_hallway_j', 'on' ) -%}
+            Open
+          {%- elif is_state( 'binary_sensor.door_closet_hallway_j', 'off' ) -%}
+            Closed
+          {%- else -%}
+            Unknown
+          {%- endif -%}
+        icon_template: >-
+          {%- if is_state( 'binary_sensor.door_closet_hallway_j', 'on' ) -%}
+          mdi:door-sliding-open
+          {%- elif is_state( 'binary_sensor.door_closet_hallway_j', 'off' ) -%}
+          mdi:door-sliding
+          {%- else -%}
+          mdi:cloud-question
+          {%- endif -%}
+
+      custom_door_closet_hallway_t:
+        friendly_name: "Tom's Closet Door"
+        value_template: >-
+          {%- if is_state( 'binary_sensor.door_closet_hallway_t', 'on' ) -%}
+            Open
+          {%- elif is_state( 'binary_sensor.door_closet_hallway_t', 'off' ) -%}
+            Closed
+          {%- else -%}
+            Unknown
+          {%- endif -%}
+        icon_template: >-
+          {%- if is_state( 'binary_sensor.door_closet_hallway_t', 'on' ) -%}
+          mdi:door-sliding-open
+          {%- elif is_state( 'binary_sensor.door_closet_hallway_t', 'off' ) -%}
+          mdi:door-sliding
+          {%- else -%}
+          mdi:cloud-question
+          {%- endif -%}
