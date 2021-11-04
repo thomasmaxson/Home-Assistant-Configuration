@@ -128,54 +128,34 @@ homeassistant:
     binary_sensor.door_bedroom_1:
       device_class: door
       friendly_name: Main Bedroom Door
-      icon_template: >
-        icon: {{ 'mdi:door-open' if is_state( 'binary_sensor.door_laundry', 'open' ) else 'mdi:door' }}
 
     binary_sensor.door_bedroom_2:
       device_class: door
       friendly_name: Guest Bedroom Door
-      icon_template: >
-        icon: {{ 'mdi:door-open' if is_state( 'binary_sensor.door_laundry', 'open' ) else 'mdi:door' }}
 
     binary_sensor.door_bedroom_3:
       device_class: door
       friendly_name: Jess' Office Door
-      icon_template: >
-        icon: {{ 'mdi:door-open' if is_state( 'binary_sensor.door_laundry', 'open' ) else 'mdi:door' }}
 
     binary_sensor.door_bedroom_4:
       device_class: door
       friendly_name: Tom's Office door
-      icon_template: >
-        icon: {{ 'mdi:door-open' if is_state( 'binary_sensor.door_laundry', 'open' ) else 'mdi:door' }}
 
     binary_sensor.door_living:
       device_class: door
       friendly_name: Living Room Sliding Glass Door
-      icon_template: >
-        icon: {{ 'mdi:door-open' if is_state( 'binary_sensor.door_laundry', 'open' ) else 'mdi:door' }}
 
     binary_sensor.door_laundry:
       device_class: door
       friendly_name: Laundry Room Door
-      icon_template: >
-        icon: {{ 'mdi:door-open' if is_state( 'binary_sensor.door_laundry', 'open' ) else 'mdi:door' }}
 
     binary_sensor.door_closet_hallway_j:
       device_class: door
       friendly_name: Jess' Closet Door
-      icon_template: >
-        icon: {{ 'mdi:door-open' if is_state( 'binary_sensor.door_laundry', 'open' ) else 'mdi:door' }}
-      # icon_template: >
-      #   icon: {{ 'mdi:door-sliding-open' if is_state( 'binary_sensor.door_closet_hallway_j', 'open' ) else 'mdi:door-sliding' }}
 
     binary_sensor.door_closet_hallway_t:
       device_class: door
       friendly_name: Tom's Closet Door
-      icon_template: >
-        icon: {{ 'mdi:door-open' if is_state( 'binary_sensor.door_laundry', 'open' ) else 'mdi:door' }}
-      # icon_template: >
-      #   icon: {{ 'mdi:door-sliding-open' if is_state( 'binary_sensor.door_closet_hallway_t', 'open' ) else 'mdi:door-sliding' }}
 
     #
     # OCCUPANCY
