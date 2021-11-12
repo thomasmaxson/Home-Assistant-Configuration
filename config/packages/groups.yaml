@@ -88,7 +88,7 @@ group:
     entities:
       - binary_sensor.leak_air_conditioner
       - binary_sensor.leak_sink_guest_bathroom
-      - sensor.leak_sink_half_bathroom
+      - binary_sensor.leak_sink_half_bathroom
       - binary_sensor.leak_sink_kitchen
       - binary_sensor.leak_sink_main_bathroom_hers
       - binary_sensor.leak_sink_main_bathroom_his
