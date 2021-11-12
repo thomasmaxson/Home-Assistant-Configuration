@@ -112,6 +112,14 @@ homeassistant:
       friendly_name: Backyard String Lights
       icon: bha:light-string
 
+    sensor.switch_bedroom_4_for_bedroom_4:
+      device_class: light
+      friendly_name: Bedroom 4 for Bedroom 4 Remote
+
+    sensor.switch_kitchen_for_garage:
+      device_class: light
+      friendly_name: Kitchen for Garage Remote
+
     #
     # DOORS
     # --------------------------------------------------
@@ -135,7 +143,7 @@ homeassistant:
 
     binary_sensor.door_bedroom_4:
       device_class: door
-      friendly_name: Tom's Office door
+      friendly_name: Tom's Office Door
 
     binary_sensor.door_living:
       device_class: door
@@ -177,33 +185,97 @@ homeassistant:
     # LEAK
     # --------------------------------------------------
 
-    binary_sensor.leak_air_conditioning:
+    binary_sensor.leak_air_conditioner:
       device_class: moisture
       friendly_name: Air Conditioning Leak Sensor
 
-    binary_sensor.leak_laundry_room:
-      device_class: moisture
-      friendly_name: Laundry Room Leak Sensor
-
-    binary_sensor.leak_kitchen_sink:
-      device_class: moisture
-      friendly_name: Kitchen Sink Leak Sensor
-
-    binary_sensor.leak_guest_bathroom_sink:
+    binary_sensor.leak_sink_guest_bathroom:
       device_class: moisture
       friendly_name: Guest Bathroom Sink Leak Sensor
 
-    binary_sensor.leak_half_bathroom_sink:
+    binary_sensor.leak_sink_half_bathroom:
       device_class: moisture
       friendly_name: Half Bathroom Sink Leak Sensor
 
-    binary_sensor.leak_main_bathroom_sink_his:
+    binary_sensor.leak_sink_kitchen:
+      device_class: moisture
+      friendly_name: Kitchen Sink Leak Sensor
+
+    binary_sensor.leak_sink_main_bathroom_hers:
+      device_class: moisture
+      friendly_name: Main Bathroom Sink (Hers) Leak Sensor
+
+    binary_sensor.leak_sink_main_bathroom_his:
       device_class: moisture
       friendly_name: Main Bathroom Sink (His) Leak Sensor
 
-    binary_sensor.leak_main_bathroom_sink_hers:
+    binary_sensor.leak_washing_machine_laundry:
       device_class: moisture
-      friendly_name: Main Bathroom Sink (Hers) Leak Sensor
+      friendly_name: Laundry Room Leak Sensor
+
+    #
+    # BATTERY
+    # --------------------------------------------------
+
+    sensor.door_bedroom_1_battery_level:
+      device_class: battery
+      friendly_name: Bedroom 1 Door Battery
+
+    sensor.door_bedroom_2_battery_level:
+      device_class: battery
+      friendly_name: Bedroom 2 Door Battery
+
+    sensor.door_bedroom_3_battery_level:
+      device_class: battery
+      friendly_name: Bedroom 3 Door Battery
+
+    sensor.door_bedroom_4_battery_level:
+      device_class: battery
+      friendly_name: Bedroom 4 Door Battery
+
+    sensor.door_living_battery_level:
+      device_class: battery
+      friendly_name: Living Room Sliding Glass Door Battery
+
+    sensor.door_laundry_battery_level:
+      device_class: battery
+      friendly_name: Laundry Room Door Battery
+
+    sensor.door_closet_hallway_j_battery_level:
+      device_class: battery
+      friendly_name: Jess' Closet Door Battery
+
+    sensor.door_closet_hallway_t_battery_level:
+      device_class: battery
+      friendly_name: Tom's Closet Door Battery
+
+    sensor.leak_air_conditioner_battery_level:
+      device_class: battery
+      friendly_name: Air Conditioner Sink Leak Battery
+
+    sensor.leak_sink_guest_bathroom_battery_level:
+      device_class: battery
+      friendly_name: Guest Bathroom Sink Leak Sensor Battery
+
+    sensor.leak_sink_half_bathroom_battery_level:
+      device_class: battery
+      friendly_name: Half Bathroom Sink Leak Sensor Battery
+
+    sensor.leak_sink_kitchen_battery_level:
+      device_class: battery
+      friendly_name: Kitchen Sink Leak Sensor Battery
+
+    sensor.leak_sink_main_bathroom_hers_battery_level:
+      device_class: battery
+      friendly_name: Main Bathroom Sink (Hers) Leak Sensor Battery
+
+    sensor.leak_sink_main_bathroom_his_battery_level:
+      device_class: battery
+      friendly_name: Main Bathroom Sink (His) Leak Sensor Battery
+
+    sensor.leak_washing_machine_laundry_battery_level:
+      device_class: battery
+      friendly_name: Laundry Room Leak Sensor Battery
 
     #
     # MEDIA

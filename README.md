@@ -42,7 +42,7 @@ Make sure that you :star: this repo, so that you can get updates right in your n
 * [Raspberry Pi 4](https://www.amazon.com/dp/B0897XZDF2/)
 * [Kingston A400 Internal SSD M.2](https://www.amazon.com/dp/B07P22RK1G/)
 * [Argon ONE M.2 Case for Raspberry Pi 4](https://www.amazon.com/dp/B08MJ3CSW7/)
-* [ConBee II, Universal Zigbee USB Gateway](https://www.amazon.com/dp/B07PZ7ZHG5/)
+* [Nortec GoControl HUSBZB-1 USB Hub, Universal Zigbee & Z-Wave USB Gateway](https://www.amazon.com/dp/B01GJ826F8/)
 
 <hr>
 

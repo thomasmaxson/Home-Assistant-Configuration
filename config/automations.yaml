@@ -79,16 +79,16 @@
   description: ''
   trigger:
   - device_id: 6e0d3bc392786ae305590c266ad4545a
-    domain: deconz
+    domain: zha
     platform: device
     type: remote_button_short_press
-    subtype: turn_on
+    subtype: remote_button_short_press
     id: button_single
   - device_id: 6e0d3bc392786ae305590c266ad4545a
-    domain: deconz
+    domain: zha
     platform: device
     type: remote_button_double_press
-    subtype: turn_on
+    subtype: remote_button_double_press
     id: button_double
   condition: []
   action:
@@ -114,16 +114,16 @@
   description: ''
   trigger:
   - device_id: 58c0784c57aa8985f53c66f355f6902f
-    domain: deconz
+    domain: zha
     platform: device
     type: remote_button_short_press
-    subtype: turn_on
+    subtype: remote_button_short_press
     id: button_single
   - device_id: 58c0784c57aa8985f53c66f355f6902f
-    domain: deconz
+    domain: zha
     platform: device
     type: remote_button_double_press
-    subtype: turn_on
+    subtype: remote_button_double_press
     id: button_double
   condition: []
   action:
@@ -332,20 +332,6 @@
         target:
           entity_id: switch.backyard_string_lights
     default: []
-  mode: single
-- id: '1632070065448'
-  alias: Refresh Deconz on Boot
-  description: This is needed if deconz is running on the same host and certain devices
-    are not visible after reboot because deconz needs some more time initializing
-    them
-  trigger:
-  - event: start
-    platform: homeassistant
-  condition: []
-  action:
-  - wait_template: ''
-    timeout: '60'
-  - service: deconz.device_refresh
   mode: single
 - id: '1632150205421'
   alias: 'Motion Detected: in the Laundry Room'
