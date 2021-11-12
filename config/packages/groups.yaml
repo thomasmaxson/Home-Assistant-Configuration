@@ -86,13 +86,13 @@ group:
   sensors_leak:
     name: Leak Sensors
     entities:
-      - binary_sensor.leak_air_conditioning
-      - binary_sensor.leak_laundry_room
-      - binary_sensor.leak_kitchen_sink
-      - binary_sensor.leak_guest_bathroom_sink
-      - binary_sensor.leak_half_bathroom_sink
-      - binary_sensor.leak_main_bathroom_sink_his
-      - binary_sensor.leak_main_bathroom_sink_hers
+      - binary_sensor.leak_air_conditioner
+      - binary_sensor.leak_sink_guest_bathroom
+      - sensor.leak_sink_half_bathroom
+      - binary_sensor.leak_sink_kitchen
+      - binary_sensor.leak_sink_main_bathroom_hers
+      - binary_sensor.leak_sink_main_bathroom_his
+      - binary_sensor.leak_washing_machine_laundry
 
   sensors_all_battery_levels:
     name: Battery Levels
@@ -100,23 +100,23 @@ group:
       - lock.front_door
       - binary_sensor.motion_laundry
       # Aqara Door/Window Sensors
-      - sensor.door_bedroom_1
-      - sensor.door_bedroom_2
-      - sensor.door_bedroom_3
-      - sensor.door_bedroom_4
-      - sensor.door_living
-      - sensor.door_laundry
-      - sensor.door_closet_hallway_j
-      - sensor.door_closet_hallway_t
+      - sensor.door_bedroom_1_battery_level
+      - sensor.door_bedroom_2_battery_level
+      - sensor.door_bedroom_3_battery_level
+      - sensor.door_bedroom_4_battery_level
+      - sensor.door_living_battery_level
+      - sensor.door_laundry_battery_level
+      - sensor.door_closet_hallway_j_battery_level
+      - sensor.door_closet_hallway_t_battery_level
       # Aqara Buttons
       - sensor.switch_foyer
       - sensor.switch_garage
       - sensor.switch_office_tom
       # Aqara Leak Sensors
-      - sensor.leak_air_conditioning
-      - sensor.leak_laundry_room
-      - sensor.leak_kitchen
-      - sensor.leak_main_bathroom_sink_hers
-      - sensor.leak_main_bathroom_sink_his
-      - sensor.leak_guest_bathroom_sink
-      - sensor.leak_half_bathroom_sink
+      - sensor.leak_air_conditioner_battery_level
+      - sensor.leak_sink_guest_bathroom_battery_level
+      - sensor.leak_sink_half_bathroom_battery_level
+      - binary_sensor.leak_sink_kitchen_battery_level
+      - binary_sensor.leak_sink_main_bathroom_hers_battery_level
+      - binary_sensor.leak_sink_main_bathroom_his_battery_level
+      - binary_sensor.leak_washing_machine_laundry_battery_level
