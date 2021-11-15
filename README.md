@@ -77,8 +77,28 @@ Make sure that you :star: this repo, so that you can get updates right in your n
 
 <hr>
 
+### Integrations:
+Below are a few of the integrations that I use
+
+* [Alexa Media Player](https://github.com/custom-components/alexa_media_player/wiki)
+* [Apple TV](https://www.home-assistant.io/integrations/apple_tv)
+* [August](https://www.home-assistant.io/integrations/august)
+* [Browser Mod](https://github.com/thomasloven/hass-browser_mod/blob/master/README.md)
+* [Ecobee](https://www.home-assistant.io/integrations/ecobee)
+* [Fully Kiosk](https://github.com/cgarwood/homeassistant-fullykiosk)
+* [HACS](https://hacs.xyz/docs/configuration/start)
+* [Philips Hue](https://www.home-assistant.io/integrations/hue)
+* [Home Assistant iOS](https://www.home-assistant.io/integrations/ios)
+* [Lutron Caséta](https://www.home-assistant.io/integrations/lutron_caseta)
+* [MyQ](https://www.home-assistant.io/integrations/myq)
+* [Rachio](https://www.home-assistant.io/integrations/rachio)
+* [Ring](https://www.home-assistant.io/integrations/ring)
+* [Zigbee Home Automation](https://www.home-assistant.io/integrations/zha)
+
+<hr>
+
 ### Inspiration:
-Below are a few of my most used resources. If you like what you see here, please check them out as well! 
+Below are a few of my most used resources. If you like what you see here, please check them out as well!
 
 * [Matt8707 (Mattias Persson)](https://github.com/matt8707/hass-config)
 * [Slacker Labs (Jeffery Stone)](https://github.com/thejeffreystone/home-assistant-configuration/)
