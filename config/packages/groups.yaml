@@ -94,11 +94,10 @@ group:
       - binary_sensor.leak_sink_main_bathroom_his
       - binary_sensor.leak_washing_machine_laundry
 
-  sensors_all_battery_levels:
+  sensors_battery_levels:
     name: Battery Levels
     entities:
-      - lock.front_door
-      - binary_sensor.motion_laundry
+      - sensor.front_door_battery_level
       # Aqara Door/Window Sensors
       - sensor.door_bedroom_1_battery_level
       - sensor.door_bedroom_2_battery_level
@@ -108,10 +107,6 @@ group:
       - sensor.door_laundry_battery_level
       - sensor.door_closet_hallway_j_battery_level
       - sensor.door_closet_hallway_t_battery_level
-      # Aqara Buttons
-      - sensor.switch_foyer
-      - sensor.switch_garage
-      - sensor.switch_office_tom
       # Aqara Leak Sensors
       - sensor.leak_air_conditioner_battery_level
       - sensor.leak_sink_guest_bathroom_battery_level
@@ -120,3 +115,7 @@ group:
       - binary_sensor.leak_sink_main_bathroom_hers_battery_level
       - binary_sensor.leak_sink_main_bathroom_his_battery_level
       - binary_sensor.leak_washing_machine_laundry_battery_level
+      # Aqara Buttons
+      #- sensor.switch_foyer
+      #- sensor.switch_garage
+      #- sensor.switch_office_tom

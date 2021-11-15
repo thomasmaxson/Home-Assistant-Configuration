@@ -140,19 +140,6 @@ sensor:
 
           {{ ns.count | int }}
 
-        # attribute_templates:
-        #   entities: >
-        #     {% set state = 'on' %}
-        #     {%- set ignore_entities = [
-        #       'light.bedroom_4_media_plug'
-        #     ] -%}
-        #     {{ states.light
-        #       | rejectattr( 'domain', 'eq', 'group' )
-        #       | rejectattr( 'entity_id', 'in', ignore_entities )
-        #       | selectattr( 'state', 'eq', state )
-        #       | map( attribute = 'entity_id' )
-        #       | list }}
-
       # Count Doors that are OPEN
       total_doors_open:
         friendly_name: Total Doors Open
@@ -165,25 +152,6 @@ sensor:
             | selectattr( 'state', 'eq', state ) 
             | list | length }}
 
-      # low_battery:
-      #   friendly_name: Low Battery
-      #   value_template: >
-      #     {%- set threshold = 50 -%}
-      #     {%- set domains = ['light', 'switch', 'sensor', 'zwave', 'lock', 'binary_sensor'] -%}
-      #     {%- for domain in domains -%}
-      #       {%- for item in states[domain] if ((item.attributes.battery_level is defined and item.attributes['battery_level'] | int < threshold) or ("battery" in item.name | lower and ((item.state | int < threshold and item.state|int != 0) or item.state | lower == "low" or item.state | lower == "unknown"))) -%}
-      #         {{ item.attributes.friendly_name }} (
-      #         {%- if item.attributes.battery_level is defined -%}
-      #           {{ item.attributes.battery_level}}
-      #         {%- else -%}
-      #           {{item.state}}
-      #         {%- endif -%}%)
-      #         {%- if not loop.last -%}
-      #           {{', '}}
-      #         {%- endif -%}
-      #       {%- endfor -%}
-      #     {%- endfor -%}
-
   - platform: rest
     name: Kiosk Screen Brightness
     resource: !secret rest_url_kiosk_device_info
@@ -195,7 +163,7 @@ sensor:
   - platform: rest
     name: Countdown to Wedding Anniversary
     resource: !secret wolframalpha_api_countdown_wedding_anniversary
-    value_template: "{{ (value|replace(' days', '')) | int }}"
+    value_template: "{{ (value|replace(' days', '')) }}"
     unit_of_measurement: Days
     scan_interval: 43200
 

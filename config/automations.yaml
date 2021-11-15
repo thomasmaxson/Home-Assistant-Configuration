@@ -149,13 +149,13 @@
   description: ''
   trigger:
   - device_id: 77041364a8b0840358010d8d5cc562f4
-    domain: deconz
+    domain: zha
     platform: device
     type: remote_button_short_press
     subtype: turn_on
     id: button_single
   - device_id: 77041364a8b0840358010d8d5cc562f4
-    domain: deconz
+    domain: zha
     platform: device
     type: remote_button_double_press
     subtype: turn_on
@@ -798,12 +798,17 @@
     for:
       hours: 0
       minutes: 0
-      seconds: 0
+      seconds: 5
       milliseconds: 0
   condition:
   - condition: state
     entity_id: input_text.camera_doorbell_latest_snapshot_filename
     state: 'null'
+    for:
+      hours: 0
+      minutes: 1
+      seconds: 0
+      milliseconds: 0
   action:
   - service: input_text.set_value
     target:
@@ -811,11 +816,6 @@
     data:
       value: snapshot-camera-frontdoor-motion-{{ now().strftime( '%Y-%m-%d--%H-%M-%S'
         ) }}
-  - delay:
-      hours: 0
-      minutes: 0
-      seconds: 7
-      milliseconds: 0
   - service: camera.snapshot
     target:
       entity_id: camera.doorbell
@@ -849,7 +849,7 @@
       target_lights: light.foyer_under_table
       light_brightness: 51
 - id: '1633824625185'
-  alias: Tablet Battery Charge Monitor
+  alias: 'Service: Tablet Battery Charge Monitor'
   description: ''
   trigger:
   - platform: state
@@ -969,4 +969,56 @@
     data:
       message: The {{ trigger.to_state.name }} has been {{ trigger.to_state.state
         }} for 10 minutes.
+  mode: single
+- id: '1636921302315'
+  alias: 'Notification: Low Battery Level'
+  description: ''
+  use_blueprint:
+    path: jazakrzewski/send-notification-for-battery-level.yaml
+    input:
+      message: ' {{ entity_name }} battery has dropped to {{ battery_level }}% '
+      battery_entity: sensor.front_door_battery_level, sensor.door_bedroom_1_battery_level,
+        sensor.door_bedroom_2_battery_level, sensor.door_bedroom_3_battery_level,
+        sensor.door_bedroom_4_battery_level, sensor.door_living_battery_level, sensor.door_laundry_battery_level,
+        sensor.door_closet_hallway_j_battery_level, sensor.door_closet_hallway_t_battery_level,
+        sensor.leak_air_conditioner_battery_level, sensor.leak_sink_guest_bathroom_battery_level,
+        sensor.leak_sink_half_bathroom_battery_level, sensor.leak_sink_kitchen_battery_level,
+        sensor.leak_sink_main_bathroom_hers_battery_level, sensor.leak_sink_main_bathroom_his_battery_level,
+        sensor.leak_washing_machine_laundry_battery_level
+      battery_level: 20
+      notify_device: ad591cd69acfbed02a10c90b733819b6
+- id: '1636941612085'
+  alias: 'Button Press: in Foyer for Foyer'
+  description: ''
+  trigger:
+  - device_id: 77041364a8b0840358010d8d5cc562f4
+    domain: zha
+    platform: device
+    type: remote_button_short_press
+    subtype: remote_button_short_press
+    id: button_single
+  - device_id: 77041364a8b0840358010d8d5cc562f4
+    domain: zha
+    platform: device
+    type: remote_button_double_press
+    subtype: remote_button_double_press
+    id: button_double
+  condition: []
+  action:
+  - choose:
+    - conditions:
+      - condition: trigger
+        id: button_single
+      sequence:
+      - service: light.toggle
+        target:
+          entity_id: light.foyer_ceiling_ledge
+    - conditions:
+      - condition: trigger
+        id: button_double
+      sequence:
+      - service: light.toggle
+        target:
+          entity_id: light.foyer_under_table
+    default: []
   mode: single
