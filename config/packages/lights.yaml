@@ -44,23 +44,23 @@ light:
   #   entities:
   #     - light.bedroom_3_desk_lamp
 
-  - platform: template
-    lights:
-      tablet_brightness:
-        friendly_name: Tablet Brightness
-        value_template: "{{ states.sensor.tablet_screen_brightness.attributes['screenOn'] }}"
-        level_template: "{{ states.sensor.tablet_screen_brightness.attributes['screenBrightness'] }}"
-        turn_on:
-          service: rest_command.kiosk_command
-          data:
-            cmd: screenOn
-        turn_off:
-          service: rest_command.kiosk_command
-          data:
-            cmd: screenOff
-        set_level:
-          service: rest_command.kiosk_command
-          data_template:
-            cmd: setStringSetting
-            key: screenBrightness
-            value: "{{ brightness }}"
+  # - platform: template
+  #   lights:
+  #     tablet_screen:
+  #       friendly_name: Tablet Brightness
+  #       value_template: "{{ states.sensor.kitchen_tablet.attributes['screenOn'] }}"
+  #       level_template: "{{ states.sensor.kitchen_tablet.attributes['screenBrightness'] }}"
+  #       turn_on:
+  #         service: rest_command.kiosk_command
+  #         data:
+  #           cmd: screenOn
+  #       turn_off:
+  #         service: rest_command.kiosk_command
+  #         data:
+  #           cmd: screenOff
+  #       set_level:
+  #         service: rest_command.kiosk_command
+  #         data_template:
+  #           cmd: setStringSetting
+  #           key: screenBrightness
+  #           value: "{{ brightness }}"
