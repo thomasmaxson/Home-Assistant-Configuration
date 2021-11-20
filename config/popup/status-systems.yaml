@@ -174,10 +174,11 @@ browser_mod:
           - entity: light.fire_tablet_screen
             name: Display
             icon: hass:tablet
-          - entity: sensor.fire_tablet_last_app_start
+
+          - entity: sensor.fire_tablet_last_app_start_formatted
             name: Last Restart
             icon: hass:update
-            format: relative
+            #format: relative
 
           - type: custom:slider-entity-row
             entity: light.fire_tablet_screen

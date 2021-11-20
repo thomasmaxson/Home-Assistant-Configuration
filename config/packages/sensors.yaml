@@ -114,7 +114,7 @@ sensor:
         friendly_name: Last App Restart
         icon_template: mdi:clock-outline
         value_template: >
-          {{ states( 'sensor.fire_tablet_last_app_start' ) }}
+          {{ relative_time( states.sensor.fire_tablet_last_app_start.last_updated ) }}
 
       fire_tablet_ram_used_memory:
         icon_template: mdi:memory
@@ -152,13 +152,46 @@ sensor:
             | selectattr( 'state', 'eq', state ) 
             | list | length }}
 
+  # https://www.egglec.com.au/post/fully-kiosk-browser-and-home-assistant
   - platform: rest
-    name: Kiosk Screen Brightness
+    name: Kitchen Tablet
     resource: !secret rest_url_kiosk_device_info
     json_attributes:
-      - screenBrightness
       - screenOn
-    value_template: "OK"
+      - batteryLevel
+      - kioskMode
+      - screenBrightness
+      - motionDetectorState
+      - maintenanceMode
+      - appFreeMemory
+      - appUsedMemory
+      - totalFreeMemory
+      - totalUsedMemory
+      - hostname4
+      - ip4
+      - mac
+      - locationLatitude
+      - locationLongitude
+      - locationAltitude
+      - startUrl
+      - currentPage
+    value_template: "{{ value_json.isScreenOn }}"
+    scan_interval: 10
+
+  - platform: rest
+    name: Kitchen Tablet Settings
+    json_attributes:
+      - timeToScreenOffV2
+      - screenBrightness
+      - motionSensitivity
+      - motionDection
+      - motionDetectionAcoustic
+      - motionSensitivityAcoustic
+      - screenOffInDarkness
+      - darknessLevel
+    resource: !secret rest_url_kiosk_device_settings
+    value_template: "{{ value_json.motionSensitivity }}"
+    scan_interval: 10
 
   - platform: rest
     name: Countdown to Wedding Anniversary
