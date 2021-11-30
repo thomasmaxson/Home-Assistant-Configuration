@@ -115,82 +115,134 @@ views:
       # --------------------------------------------------
 
       - type: grid
-        title: Common Areas
         view_layout:
           grid-area: common
         square: false
-        columns: 3
+        columns: 1
         cards:
-          - type: custom:button-card
-            entity: light.kitchen_ceiling_lights
-            name: Kitchen
-            icon: hue:recessed-ceiling
-            template:
-              - popup_dimmer_colors
+          - type: custom:swipe-card
+            square: false
+            parameters:
+              autoHeight: true
+              roundLengths: true
+              effect: coverflow
+              speed: 650
+              spaceBetween: 20
+              threshold: 7
+              coverflowEffect:
+                rotate: 80
+                depth: 300
+            cards:
+              - type: grid
+                title: Common Areas
+                columns: 3
+                cards:
+                  - type: custom:button-card
+                    entity: light.kitchen_ceiling_lights
+                    name: Kitchen
+                    icon: hue:recessed-ceiling
+                    template:
+                      - popup_dimmer_colors
 
-          - type: custom:button-card
-            entity: light.dining_room_chandelier
-            name: Chandelier
-            icon: bha:chandelier
-            template:
-              - popup_dimmer
+                  - type: custom:button-card
+                    entity: light.dining_room_chandelier
+                    name: Chandelier
+                    icon: bha:chandelier
+                    template:
+                      - popup_dimmer
 
-          - type: custom:button-card
-            entity: light.living_room_corner_lamp
-            name: Corner Lamp
-            icon: bha:table-lamp-variant
-            template:
-              - popup_dimmer_colors
+                  - type: custom:button-card
+                    entity: light.living_room_corner_lamp
+                    name: Corner Lamp
+                    icon: bha:table-lamp-variant
+                    template:
+                      - popup_dimmer_colors
+
+              - type: grid
+                title: Living Room Media
+                columns: 3
+                cards:
+                  - type: custom:button-card
+                    entity: media_player.appletv_living_room
+                    name: AppleTV
+                    icon: hass:apple
+                    template:
+                      - media
+
+                  - type: custom:button-card
+                    entity: media_player.sony_bravia_tv
+                    name: Television
+                    template:
+                      - base
 
       #
       # FOYER
       # --------------------------------------------------
 
       - type: grid
-        title: Foyer
         view_layout:
           grid-area: foyer
         square: false
-        columns: 3
+        columns: 1
         cards:
-          # - type: custom:button-card
-          #   entity: climate.ecobee
-          #   name: Air Conditioner
-          #   double_tap_action: !include popup/status-temperatures.yaml
-          #   hold_action: !include popup/status-temperatures.yaml
-          #   template:
-          #     - base
-          #     - climate
-          #   variables:
-          #     circle_input: >
-          #       [[[
-          #         if (entity) {
-          #           return entity.state == 'cool' ?
-          #             entity.attributes.temperature :
-          #             entity.attributes.current_temperature;
-          #         }
-          #       ]]]
+          - type: custom:swipe-card
+            square: false
+            parameters:
+              autoHeight: true
+              roundLengths: true
+              effect: coverflow
+              speed: 650
+              spaceBetween: 20
+              threshold: 7
+              coverflowEffect:
+                rotate: 80
+                depth: 300
+            cards:
+              - type: grid
+                title: Foyer
+                columns: 3
+                cards:
+                  - type: custom:button-card
+                    entity: light.foyer_ceiling_ledge
+                    name: Ledge
+                    icon: mdi:led-strip-variant
+                    template:
+                      - popup_dimmer_colors
 
-          - type: custom:button-card
-            entity: light.foyer_ceiling_ledge
-            name: Ledge
-            icon: mdi:led-strip-variant
-            template:
-              - popup_dimmer_colors
+                  # - type: custom:button-card
+                  #   entity: climate.ecobee
+                  #   name: Air Conditioner
+                  #   double_tap_action: !include popup/status-temperatures.yaml
+                  #   hold_action: !include popup/status-temperatures.yaml
+                  #   template:
+                  #     - base
+                  #     - climate
+                  #   variables:
+                  #     circle_input: >
+                  #       [[[
+                  #         if (entity) {
+                  #           return entity.state == 'cool' ?
+                  #             entity.attributes.temperature :
+                  #             entity.attributes.current_temperature;
+                  #         }
+                  #       ]]]
 
-          - type: custom:button-card
-            entity: light.foyer_under_table
-            name: Floor
-            icon: mdi:led-strip-variant
-            template:
-              - popup_dimmer_colors
+              - type: grid
+                title: Foyer
+                columns: 3
+                cards:
+                  - type: custom:button-card
+                    entity: light.foyer_under_table
+                    name: Floor
+                    icon: mdi:led-strip-variant
+                    template:
+                      - popup_dimmer_colors
 
       #
       # BEDROOM 1
       # --------------------------------------------------
 
       - type: grid
-        #title: Main Bedroom
         view_layout:
           grid-area: bdr_1
         square: false
@@ -234,6 +286,25 @@ views:
                       - popup_dimmer
 
               - type: grid
+                title: Main Bedroom Media
+                columns: 3
+                cards:
+                  - type: custom:button-card
+                    entity: media_player.appletv_bedroom_1
+                    name: AppleTV
+                    icon: hass:apple
+                    template:
+                      - media
+                  # - type: custom:mini-media-player
+                  #   entity: media_player.bedroom_1
+                  #   icon: hass:apple
+                  #   artwork: cover
+                  #   hide:
+                  #     volume: true
+                  #     source: true
+                  #     power_state: false
+
+              - type: grid
                 title: Bedside Lamps
                 columns: 3
                 cards:
@@ -270,85 +341,99 @@ views:
       # --------------------------------------------------
 
       - type: grid
-        title: Office's
         view_layout:
           grid-area: bdr_3_4
         square: false
-        columns: 3
+        columns: 1
         cards:
-          - type: custom:button-card
-            entity: light.bedroom_4_lights
-            name: Tom
-            #icon: hue:room-office
-            icon: hue:desk-lamp
-            template:
-              - popup_dimmer_colors
+          - type: custom:swipe-card
+            square: false
+            parameters:
+              autoHeight: true
+              roundLengths: true
+              effect: coverflow
+              speed: 650
+              spaceBetween: 20
+              threshold: 7
+              coverflowEffect:
+                rotate: 80
+                depth: 300
+            cards:
+              - type: grid
+                title: Office's
+                columns: 3
+                cards:
+                  - type: custom:button-card
+                    entity: light.bedroom_4_lights
+                    name: Tom
+                    #icon: hue:room-office
+                    icon: hue:desk-lamp
+                    template:
+                      - popup_dimmer_colors
 
-          - type: custom:button-card
-            entity: light.closet_hallway_ceiling_light
-            name: Jess
-            #icon: hue:desk-lamp
-            icon: hue:room-office
-            template:
-              - popup_dimmer
+                  - type: custom:button-card
+                    entity: light.closet_hallway_ceiling_light
+                    name: Jess
+                    #icon: hue:desk-lamp
+                    icon: hue:room-office
+                    template:
+                      - popup_dimmer
+
+              # - type: grid
+              #   title: Office Media
+              #   columns: 3
+              #   cards:
+              #     - type: custom:button-card
+              #       entity: media_player.appletv_bedroom_4
+              #       name: AppleTV
+              #       icon: hass:apple
+              #       template:
+              #         - media
 
       #
       # OTHER
       # --------------------------------------------------
 
       - type: grid
-        title: Other
         view_layout:
           grid-area: other
         square: false
         columns: 1
         cards:
-          - type: grid
-            columns: 3
+          - type: custom:swipe-card
+            square: false
+            parameters:
+              autoHeight: true
+              roundLengths: true
+              effect: coverflow
+              speed: 650
+              spaceBetween: 20
+              threshold: 7
+              coverflowEffect:
+                rotate: 80
+                depth: 300
             cards:
-              - type: custom:button-card
-                entity: light.laundry_ceiling_light
-                name: Laundry Room
-                icon: bha:dome-light
-                template:
-                  - popup_dimmer_colors
+              - type: grid
+                title: Exterior
+                columns: 3
+                cards:
+                  - type: custom:button-card
+                    entity: switch.backyard_string_lights
+                    name: Backyard
+                    icon: bha:light-string
+                    template:
+                      - popup_switch
 
-              - type: custom:button-card
-                entity: switch.backyard_string_lights
-                name: Backyard
-                icon: bha:light-string
-                template:
-                  - popup_switch
-
-              - type: custom:button-card
-                entity: media_player.sony_bravia_tv
-                name: Television
-                template:
-                  - base
-
-              # - type: grid
-              #   columns: 1
-              #   square: false
-              #   cards:
-              #     - type: media-control
-              #       entity: media_player.simplified_living_room
-              #       name: Living Room
-
-              # - type: grid
-              #   columns: 1
-              #   square: false
-              #   cards:
-              #     - type: media-control
-              #       entity: media_player.bedroom_1
-              #       name: Main Bedroom
-
-              # - type: grid
-              #   columns: 1
-              #   square: false
-              #   cards:
-              #     - type: media-control
-              #       entity: media_player.bedroom_4
-              #       name: Tom's Office
+              - type: grid
+                title: Other
+                columns: 3
+                cards:
+                  - type: custom:button-card
+                    entity: light.laundry_ceiling_light
+                    name: Laundry Room
+                    icon: bha:dome-light
+                    template:
+                      - popup_dimmer_colors
 
       #
       # RESIDENT
