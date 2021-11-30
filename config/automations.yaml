@@ -58,7 +58,7 @@
   trigger:
   - platform: sun
     event: sunset
-    offset: 03:15:00
+    offset: 04:15:00
   condition:
   - condition: state
     entity_id: input_boolean.automation_daily_sunset
@@ -178,27 +178,6 @@
         target:
           entity_id: light.foyer_under_table
     default: []
-  mode: single
-- id: '1631908499946'
-  alias: '_Check: Front Door Batteries Low, Send Notification'
-  description: ''
-  trigger:
-  - platform: numeric_state
-    entity_id: sensor.front_door_battery_2
-    above: '9'
-    below: '11'
-  - platform: numeric_state
-    entity_id: sensor.front_door_battery_2
-    above: '4'
-    below: '6'
-  condition: []
-  action:
-  - service: script.app_notify_tom
-    data:
-      title: Batteries Low
-      message: '{{ state_attr( ''lock.front_door'', ''friendly_name'' ) }} batteries
-        are at {{ states(''sensor.front_door_battery_2'') }}%. Replace them as soon
-        as possible.'
   mode: single
 - id: '1631918200412'
   alias: '_Check: Garage Left Open At Night, Send Repeating Notification'
@@ -493,7 +472,7 @@
     default: []
   mode: single
 - id: '1632338443827'
-  alias: 'Light Toggle: Laundry Room'
+  alias: 'Light Toggle: Laundry Room via Door Sensor'
   description: ''
   trigger:
   - platform: state
@@ -1021,4 +1000,53 @@
         target:
           entity_id: light.foyer_under_table
     default: []
+  mode: single
+- id: '1637242159787'
+  alias: 'Light Toggle: Turn on Lights When Arriving Home at Night'
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: group.residents
+    from: not_home
+    to: home
+  condition:
+  - condition: or
+    conditions:
+    - condition: sun
+      before: sunrise
+    - condition: sun
+      after: sunset
+  action:
+  - type: turn_on
+    device_id: 107d81092122dad183b4617fdb068131
+    entity_id: light.foyer_ceiling_ledge
+    domain: light
+  - type: turn_off
+    device_id: 8c406fcbd9d5b2fc177e7b96aa72efe6
+    entity_id: light.laundry_ceiling_light
+    domain: light
+  - type: turn_on
+    device_id: a2b197868468e78aa5d720f54bf5f9cd
+    entity_id: light.bedroom_1_lamp_j
+    domain: light
+  - type: turn_on
+    device_id: f558b1e6f079ca42c08747cb4d699375
+    entity_id: light.bedroom_1_lamp_t
+    domain: light
+  mode: single
+- id: '1637329228652'
+  alias: '_Check: Front Door Left Unlocked at Night, Lock Front Door'
+  description: ''
+  trigger:
+  - platform: time
+    at: '22:00:00'
+  condition:
+  - condition: state
+    entity_id: group.residents
+    state: home
+  action:
+  - device_id: 8c04597c8cdc9c1070410279058f82bb
+    domain: lock
+    entity_id: lock.front_door
+    type: lock
   mode: single
