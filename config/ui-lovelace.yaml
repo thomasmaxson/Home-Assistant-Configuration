@@ -30,8 +30,8 @@ views:
       grid-template-rows: min-content
       grid-template-columns: 23% repeat( 2, 1fr ) 0
       grid-template-areas: |
-        "sidebar  common  foyer     ."
-        "sidebar  bdr_1   bdr_3_4   ."
+        "sidebar  common  bdr_1     ."
+        "sidebar  foyer   bdr_3_4   ."
         "sidebar  other   resident  ."
         "popups   popups  popups    ."
       mediaquery:
@@ -175,6 +175,13 @@ views:
                     template:
                       - base
 
+                  - type: custom:button-card
+                    entity: media_player.echo_kitchen
+                    name: Echo
+                    icon: hass:cast-audio-variant
+                    template:
+                      - media
+
       #
       # FOYER
       # --------------------------------------------------
@@ -209,6 +216,31 @@ views:
                     template:
                       - popup_dimmer_colors
 
+                  - type: custom:button-card
+                    entity: light.foyer_hallway_ceiling
+                    name: Ceiling
+                    icon: bha:dome-light
+                    template:
+                      - popup_dimmer
+
+                  - type: custom:button-card
+                    entity: light.foyer_interior_entryway
+                    name: Entryway
+                    icon: mdi:chandelier
+                    template:
+                      - popup_dimmer
+
+              - type: grid
+                title: Foyer
+                columns: 3
+                cards:
+                  - type: custom:button-card
+                    entity: light.foyer_under_table
+                    name: Floor
+                    icon: mdi:led-strip-variant
+                    template:
+                      - popup_dimmer_colors
+
                   # - type: custom:button-card
                   #   entity: climate.ecobee
                   #   name: Air Conditioner
@@ -226,17 +258,6 @@ views:
                   #             entity.attributes.current_temperature;
                   #         }
                   #       ]]]
-
-              - type: grid
-                title: Foyer
-                columns: 3
-                cards:
-                  - type: custom:button-card
-                    entity: light.foyer_under_table
-                    name: Floor
-                    icon: mdi:led-strip-variant
-                    template:
-                      - popup_dimmer_colors
 
       #
       # BEDROOM 1
@@ -295,14 +316,13 @@ views:
                     icon: hass:apple
                     template:
                       - media
-                  # - type: custom:mini-media-player
-                  #   entity: media_player.bedroom_1
-                  #   icon: hass:apple
-                  #   artwork: cover
-                  #   hide:
-                  #     volume: true
-                  #     source: true
-                  #     power_state: false
+
+                  - type: custom:button-card
+                    entity: media_player.echo_dot_bedroom_1
+                    name: Echo Dot
+                    icon: hass:cast-audio-variant
+                    template:
+                      - media
 
               - type: grid
                 title: Bedside Lamps
@@ -379,16 +399,37 @@ views:
                     template:
                       - popup_dimmer
 
-              # - type: grid
-              #   title: Office Media
-              #   columns: 3
-              #   cards:
-              #     - type: custom:button-card
-              #       entity: media_player.appletv_bedroom_4
-              #       name: AppleTV
-              #       icon: hass:apple
-              #       template:
-              #         - media
+              - type: grid
+                title: Office Media
+                columns: 3
+                cards:
+                  - type: custom:button-card
+                    entity: media_player.appletv_bedroom_4
+                    name: Tom's AppleTV
+                    icon: hass:apple
+                    template:
+                      - media
+
+                  # - type: custom:button-card
+                  #   entity: media_player.appletv_bedroom_3
+                  #   name: Jess' AppleTV
+                  #   icon: hass:apple
+                  #   template:
+                  #     - media
+
+                  - type: custom:button-card
+                    entity: media_player.echo_dot_bedroom_4
+                    name: Tom's Echo Dot
+                    icon: hass:cast-audio-variant
+                    template:
+                      - media
+
+                  - type: custom:button-card
+                    entity: media_player.echo_dot_bedroom_3
+                    name: Jess' Echo Dot
+                    icon: hass:cast-audio-variant
+                    template:
+                      - media
 
       #
       # OTHER
@@ -424,6 +465,20 @@ views:
                     template:
                       - popup_switch
 
+                  - type: custom:button-card
+                    entity: light.foyer_exterior_entryway
+                    name: Entryway
+                    icon: hass:globe-light
+                    template:
+                      - popup_dimmer
+
+                  - type: custom:button-card
+                    entity: light.garage_exterior
+                    name: Garage
+                    icon: bha:outdoor-lamp-variant
+                    template:
+                      - popup_dimmer
+
               - type: grid
                 title: Other
                 columns: 3
@@ -431,7 +486,8 @@ views:
                   - type: custom:button-card
                     entity: light.laundry_ceiling_light
                     name: Laundry Room
-                    icon: bha:dome-light
+                    #icon: bha:dome-light
+                    icon: hass:lightbulb
                     template:
                       - popup_dimmer_colors
 
@@ -440,35 +496,51 @@ views:
       # --------------------------------------------------
 
       - type: grid
-        title: Resident Status
         view_layout:
           grid-area: resident
         square: false
-        columns: 3
+        columns: 1
         cards:
-          - type: "custom:button-card"
-            name: Tom
-            entity: person.thomas
-            tap_action: !include popup/person-thomas.yaml
-            double_tap_action: !include popup/person-thomas.yaml
-            hold_action: !include popup/person-thomas.yaml
-            template:
-              - person
+          - type: custom:swipe-card
+            square: false
+            parameters:
+              autoHeight: true
+              roundLengths: true
+              effect: coverflow
+              speed: 650
+              spaceBetween: 20
+              threshold: 7
+              coverflowEffect:
+                rotate: 80
+                depth: 300
+            cards:
+              - type: grid
+                title: Resident Status
+                columns: 3
+                cards:
+                  - type: custom:button-card
+                    name: Tom
+                    entity: person.thomas
+                    tap_action: !include popup/person-thomas.yaml
+                    double_tap_action: !include popup/person-thomas.yaml
+                    hold_action: !include popup/person-thomas.yaml
+                    template:
+                      - person
 
-          - type: "custom:button-card"
-            name: Jess
-            entity: person.jessica
-            tap_action: !include popup/person-jessica.yaml
-            double_tap_action: !include popup/person-jessica.yaml
-            hold_action: !include popup/person-jessica.yaml
-            template:
-              - person
+                  - type: custom:button-card
+                    name: Jess
+                    entity: person.jessica
+                    tap_action: !include popup/person-jessica.yaml
+                    double_tap_action: !include popup/person-jessica.yaml
+                    hold_action: !include popup/person-jessica.yaml
+                    template:
+                      - person
 
-          - type: "custom:button-card"
-            name: Gouda
-            entity: input_boolean.gouda_home
-            #image: local/uploads/avatar-gouda.png
-            show_entity_picture: true
-            entity_picture: /local/uploads/avatar-gouda.png
-            template:
-              - pet
+                  - type: custom:button-card
+                    name: Gouda
+                    entity: input_boolean.gouda_home
+                    #image: local/uploads/avatar-gouda.png
+                    show_entity_picture: true
+                    entity_picture: /local/uploads/avatar-gouda.png
+                    template:
+                      - pet

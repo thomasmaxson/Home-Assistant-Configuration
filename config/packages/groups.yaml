@@ -32,6 +32,8 @@ group:
       - light.living_room_corner_lamp
       - light.foyer_ceiling_ledge
       - light.foyer_under_table
+      - light.foyer_interior_entryway
+      - light.foyer_hallway_ceiling
       - light.laundry_ceiling_light
       #- light.bedroom_1_bedside_lamps
       - light.bedroom_1_lamp_j
@@ -41,6 +43,8 @@ group:
       - light.closet_hallway_light_t
       - light.bedroom_4_desk_lamp
       - light.bedroom_4_lightstrip
+      - light.foyer_exterior_entryway
+      - light.garage_exterior
       - switch.backyard_string_lights
 
   lights_all_interior:
@@ -49,6 +53,8 @@ group:
       - light.kitchen_ceiling_lights
       - light.dining_room_chandelier
       - light.living_room_corner_lamp
+      - light.foyer_interior_entryway
+      - light.foyer_hallway_ceiling
       - light.laundry_ceiling_light
       - light.bedroom_1_bedside_lamps
       - light.closet_hallway_ceiling_light
@@ -60,6 +66,8 @@ group:
   lights_all_exterior:
     name: All Exterior Lights
     entities:
+      - light.foyer_exterior_entryway
+      - light.garage_exterior
       - switch.backyard_string_lights
 
   lights_vacation:
@@ -111,10 +119,12 @@ group:
       - sensor.leak_air_conditioner_battery_level
       - sensor.leak_sink_guest_bathroom_battery_level
       - sensor.leak_sink_half_bathroom_battery_level
-      - binary_sensor.leak_sink_kitchen_battery_level
-      - binary_sensor.leak_sink_main_bathroom_hers_battery_level
-      - binary_sensor.leak_sink_main_bathroom_his_battery_level
-      - binary_sensor.leak_washing_machine_laundry_battery_level
+      - sensor.leak_sink_kitchen_battery_level
+      - sensor.leak_sink_main_bathroom_hers_battery_level
+      - sensor.leak_sink_main_bathroom_his_battery_level
+      - sensor.leak_washing_machine_laundry_battery_level
+      # Aqara Motion Sensors
+      - sensor.motion_laundry_battery_level
       # Aqara Buttons
       #- sensor.switch_foyer
       #- sensor.switch_garage

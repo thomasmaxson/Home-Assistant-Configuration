@@ -20,12 +20,12 @@
       message: An error occurred while running backups.
   mode: single
 - id: '1631796054422'
-  alias: 'Light On: Home before sunset'
+  alias: 'Light On: Home Before Sunset (Conditional)'
   description: ''
   trigger:
   - platform: sun
     event: sunset
-    offset: -00:45:00
+    offset: -00:30:00
   condition:
   - condition: device
     type: is_off
@@ -46,19 +46,22 @@
       entity_id: input_boolean.automation_daily_sunset
   - service: light.turn_on
     target:
-      entity_id: light.foyer_ceiling_ledge
+      entity_id:
+      - light.foyer_ceiling_ledge
+      - light.garage_exterior
+      - light.foyer_exterior_entryway
     data: {}
   - service: switch.turn_on
     target:
       entity_id: switch.backyard_string_lights
   mode: single
 - id: '1631796578898'
-  alias: 'Light Off: Home in evening'
+  alias: 'Light Off: Home in Evening (Conditional)'
   description: ''
   trigger:
   - platform: sun
     event: sunset
-    offset: 04:15:00
+    offset: 04:30:00
   condition:
   - condition: state
     entity_id: input_boolean.automation_daily_sunset
@@ -69,7 +72,8 @@
       entity_id: input_boolean.automation_daily_sunset
   - service: light.turn_off
     target:
-      entity_id: light.foyer_ceiling_ledge
+      entity_id:
+      - light.foyer_ceiling_ledge
   - service: switch.turn_off
     target:
       entity_id: switch.backyard_string_lights
@@ -555,7 +559,8 @@
     path: Noblewolf/default-turn-on-brightness-for-lights.yaml
     input:
       target_lights: light.kitchen_ceiling_lights, light.closet_hallway_ceiling_light,
-        light.closet_hallway_light_j, light.closet_hallway_light_t
+        light.closet_hallway_light_j, light.closet_hallway_light_t, light.entryway_foyer,
+        light.garage_exterior
 - id: '1632660879668'
   alias: 'Set Default: Color Temperature'
   description: ''
@@ -1050,3 +1055,104 @@
     entity_id: lock.front_door
     type: lock
   mode: single
+- id: '1638468809734'
+  alias: 'Light Off: Home at Midnight (Permenant)'
+  description: ''
+  trigger:
+  - platform: time
+    at: 00:00:00
+  condition: []
+  action:
+  - service: light.turn_off
+    target:
+      entity_id: light.garage_exterior
+  mode: single
+- id: '1638478167021'
+  alias: 'Light On: Home Before Sunset (Permenant)'
+  description: ''
+  trigger:
+  - platform: sun
+    event: sunset
+    offset: -00:30:00
+  condition: []
+  action:
+  - service: light.turn_on
+    target:
+      entity_id:
+      - light.garage_exterior
+      - light.foyer_exterior_entryway
+    data: {}
+  mode: single
+- id: '1638478222239'
+  alias: 'Light Off: Home in Evening (Permenant)'
+  description: ''
+  trigger:
+  - platform: sun
+    event: sunset
+    offset: 04:30:00
+  condition: []
+  action:
+  - service: light.turn_off
+    target:
+      entity_id:
+      - light.foyer_exterior_entryway
+  mode: single
+- id: '1638480667270'
+  alias: 'Light Toggle: Sync Foyer Lights'
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: light.foyer_interior_entryway
+    from: 'on'
+    to: 'off'
+    id: Entryway Off
+  - platform: state
+    entity_id: light.foyer_interior_entryway
+    from: 'off'
+    to: 'on'
+    id: Entryway On
+  - platform: state
+    entity_id: light.foyer_hallway_ceiling
+    from: 'on'
+    to: 'off'
+    id: Hallway Off
+  - platform: state
+    entity_id: light.foyer_hallway_ceiling
+    from: 'off'
+    to: 'on'
+    id: Hallway On
+  condition:
+  - condition: state
+    entity_id: input_boolean.sync_foyer_lights
+    state: 'on'
+  action:
+  - choose:
+    - conditions:
+      - condition: trigger
+        id: Entryway Off
+      sequence:
+      - service: light.turn_off
+        target:
+          entity_id: light.foyer_hallway_ceiling
+    - conditions:
+      - condition: trigger
+        id: Entryway On
+      sequence:
+      - service: light.turn_on
+        target:
+          entity_id: light.foyer_hallway_ceiling
+    - conditions:
+      - condition: trigger
+        id: Hallway Off
+      sequence:
+      - service: light.turn_off
+        target:
+          entity_id: light.foyer_interior_entryway
+    - conditions:
+      - condition: trigger
+        id: Hallway On
+      sequence:
+      - service: light.turn_on
+        target:
+          entity_id: light.foyer_interior_entryway
+    default: []
