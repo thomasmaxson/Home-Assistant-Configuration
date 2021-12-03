@@ -76,6 +76,8 @@ group:
       - light.kitchen_ceiling_lights
       - light.dining_room_chandelier
       - light.living_room_corner_lamp
+      - light.foyer_interior_entryway
+      - light.foyer_hallway_ceiling
       - light.bedroom_1_bedside_lamps
       - light.closet_hallway_ceiling_light
 
