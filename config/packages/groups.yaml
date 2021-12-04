@@ -104,6 +104,9 @@ group:
       - binary_sensor.leak_sink_main_bathroom_his
       - binary_sensor.leak_washing_machine_laundry
 
+  # DELVELOPER NOTE:
+  # Low Battery Level Notification Group is managed within an automation.
+  # Manage monitored entities within that automation.
   sensors_battery_levels:
     name: Battery Levels
     entities:

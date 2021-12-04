@@ -81,7 +81,7 @@ script:
       - service: notify.alexa_media
         data_template:
           target:
-            - media_player.echo_dot_bedroom_3
+            #- media_player.echo_dot_bedroom_3
             - media_player.echo_dot_bedroom_4
           data:
             type: announce

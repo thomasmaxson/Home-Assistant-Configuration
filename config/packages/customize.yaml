@@ -104,6 +104,22 @@ homeassistant:
       friendly_name: Laundry Ceiling Light
       icon: bha:dome-light
 
+    light.foyer_hallway_ceiling:
+      friendly_name: Foyer Ceiling Light
+      icon: bha:dome-light
+
+    light.foyer_interior_entryway:
+      friendly_name: Foyer Entryway Light
+      icon: hass:chandelier
+
+    light.foyer_exterior_entryway:
+      friendly_name: Entryway
+      icon: hass:globe-light
+
+    light.garage_exterior:
+      friendly_name: Garage Exterior Lights
+      icon: bha:outdoor-lamp-variant
+
     #
     # SWITCHES
     # --------------------------------------------------

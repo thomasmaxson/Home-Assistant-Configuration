@@ -12,107 +12,27 @@ browser_mod:
   title: Sidebar
   style:
     $: |
-      .mdc-dialog .mdc-dialog__content { 
-        padding: 0 !important;
-      }
       @media screen and (max-width: 992px) { 
         .mdc-dialog .mdc-dialog__container .mdc-dialog__surface { 
           border-radius: 0 !important;
         }
       }
-    .: |
-      :host .content {
-        margin: 0 !important;
-        width: calc( 385px * 2 );
-        max-width: 90vw;
-      }
-
-      @media screen and (max-width: 992px) {
-        :host .content {
-          width: 100%;
-          max-width: none;
-        }
-      }
-    layout-card:
-      $grid-layout$:
-        .: |
-          :host {
-            padding: 0;
-          }
-
-          #root { 
-            margin: -1px !important;
-            overflow-x: hidden;
-          }
-
-          hui-entities-card { border-left: 1px solid rgba(0, 0, 0, 0.3);}
-
-          @media screen and (max-width: 992px) {
-            hui-entities-card { 
-              border-top: 1px solid rgba(0, 0, 0, 0.3);
-              border-left: 0;
-            }
-          }
-
-        hui-entities-card:
-          $: |
-            ha-card {
-              padding: 0 !important;
-              border-radius: 0;
-              margin: 0;
-            }
-
-            .card-header,
-            .card-content { 
-              padding: 1.5em 1.5em !important;
-              margin: 0 !important;
-            }
-
-            .card-header {
-              padding-top: 1em !important;
-              padding-bottom: 0 !important;
-            }
-
-            @media screen and (max-width: 992px) {
-              ha-card { 
-                width: 100%;
-                width: 100vw;
-              }
-            }
   card:
-    type: custom:layout-card
-    layout_type: custom:grid-layout
-    layout:
-      grid-template-columns: repeat(1, 1fr)
-      grid-template-rows: 1fr
-      grid-template-areas: |
-        'status display'
-      mediaquery:
-        # Tablet and down
-        "(max-width: 992px)":
-          grid-template-columns: 1fr
-          grid-template-rows: repeat(1, 1fr)
-          grid-template-areas: |
-            'status'
-            'display'
+    type: vertical-stack
     cards:
       - type: entities
-        view_layout:
-          grid-area: status
-        title: Status
-        show_header_toggle: false
         entities:
+          - type: section
+            label: Garbage
+
           - entity: input_boolean.garbage_bins_out
             name: Garbage Bins Taken Out
           - entity: input_boolean.garbage_bins_in
             name: Garbage Bins Brought In
 
-      - type: entities
-        view_layout:
-          grid-area: display
-        title: Display
-        show_header_toggle: false
-        entities:
+          - type: section
+            label: Sidebar Display
+
           - entity: input_boolean.sidebar_display_holidays
             name: Display Upcoming Holidays
           - entity: input_boolean.sidebar_display_celebrations

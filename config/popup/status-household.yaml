@@ -86,22 +86,19 @@ browser_mod:
       grid-template-columns: repeat(2, 1fr)
       grid-template-rows: 1fr
       grid-template-areas: |
-        'lights doors'
-        'lights other'
+        'column_a column_b'
       mediaquery:
         # Tablet and down
         "(max-width: 992px)":
           grid-template-columns: 1fr
           grid-template-rows: repeat(1, 1fr)
           grid-template-areas: |
-            'lights'
-            'other'
-            'doors'
+            'column_a'
+            'column_b'
     cards:
       - type: entities
         view_layout:
-          grid-area: lights
-        title: Lights
+          grid-area: column_a
         show_header_toggle: false
         card_mod:
           class: header
@@ -111,6 +108,9 @@ browser_mod:
               width: 100%;
             }
         entities:
+          #- type: section
+          #  label: Lights
+
           - entity: light.kitchen_ceiling_lights
             name: Kitchen, Ceiling
             #icon: bha:ceiling-downlight
@@ -123,8 +123,15 @@ browser_mod:
             name: Living Room, Corner Lamp
             icon: bha:table-lamp-variant
             secondary_info: brightness
-          - entity: light.foyer_ceiling_ledge
+
+          - entity: light.foyer_hallway_ceiling
             name: Foyer, Ceiling
+            secondary_info: brightness
+          - entity: light.foyer_interior_entryway
+            name: Foyer, Entryway
+            secondary_info: brightness
+          - entity: light.foyer_ceiling_ledge
+            name: Foyer, Ledge
             secondary_info: brightness
           - entity: light.foyer_under_table
             name: Foyer, Under Table
@@ -158,14 +165,29 @@ browser_mod:
             name: Laundry Room, Ceiling Light
             icon: bha:dome-light
             secondary_info: brightness
+          - entity: light.foyer_exterior_entryway
+            name: Outside, Entryway
+            icon: hass:globe-light
+            secondary_info: brightness
+          - entity: light.garage_exterior
+            name: Outside, Garage
+            icon: bha:outdoor-lamp-variant
+            secondary_info: brightness
           - entity: switch.backyard_string_lights
             name: Outside, String Lights
             icon: bha:light-string
 
+          - type: section
+            label: Motion
+
+          - entity: binary_sensor.motion_laundry
+            name: Laundry Room
+            icon: hass:motion-sensor
+
       - type: entities
         view_layout:
-          grid-area: doors
-        title: Doors
+          grid-area: column_b
+        #title: Doors
         show_header_toggle: false
         card_mod:
           class: header
@@ -175,6 +197,9 @@ browser_mod:
               width: 100%;
             }
         entities:
+          #- type: section
+          #  label: Doors
+
           - entity: cover.garage_door
             name: Garage Door
           - entity: lock.front_door
@@ -192,43 +217,25 @@ browser_mod:
             name: Living Room Sliding Glass
           - entity: binary_sensor.door_laundry
             name: Laundry Room
-          - type: divider
+          #- type: divider
           - entity: sensor.custom_door_closet_hallway_j
+            #- entity: binary_sensor.door_closet_hallway_j
             name: Her Closet
           - entity: sensor.custom_door_closet_hallway_t
+            #- entity: binary_sensor.door_closet_hallway_t
             name: His Closet
 
-      # - type: entities
-      #   view_layout:
-      #     grid-area: occupancy
-      #   title: Occupancy
-      #   show_header_toggle: false
-      #   card_mod:
-      #     class: header
-      #     style: |
-      #       ha-card {
-      #         margin: 0px !important;
-      #         width: 100%;
-      #       }
-      #   entities:
-      #     - binary_sensor.foyer_occupancy
-      #     - binary_sensor.bedroom_1_occupancy
-      #     - binary_sensor.bedroom_4_occupancy
-      #     - binary_sensor.living_room_occupancy
+          # - type: section
+          #   label: Occupany
 
-      - type: entities
-        view_layout:
-          grid-area: other
-        title: Other
-        show_header_toggle: false
-        card_mod:
-          class: header
-          style: |
-            ha-card {
-              margin: 0px !important;
-              width: 100%;
-            }
-        entities:
+          # - entity: binary_sensor.foyer_occupancy
+          # - entity: binary_sensor.bedroom_1_occupancy
+          # - entity: binary_sensor.bedroom_4_occupancy
+          # - entity: binary_sensor.living_room_occupancy
+
+          - type: section
+            label: Other
+
           - entity: media_player.sony_bravia_tv
           - entity: light.tablet_plug
             name: Kitchen, Tablet Plug
