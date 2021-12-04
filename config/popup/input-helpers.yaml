@@ -51,9 +51,6 @@ browser_mod:
         title: Settings
         show_header_toggle: false
         entities:
-          - entity: input_boolean.sync_foyer_lights
-            name: Sync Foyer Ceiling Lights
-          - type: divider
           - entity: input_select.day_pickup_trash_a
             name: Trash Pickup, Day 1
           - entity: input_select.day_pickup_trash_b

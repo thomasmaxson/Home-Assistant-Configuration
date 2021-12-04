@@ -102,6 +102,8 @@ browser_mod:
         title: Settings
         show_header_toggle: false
         entities:
+          - entity: input_boolean.sync_foyer_lights
+            name: Sync Foyer Ceiling Lights
           - entity: input_boolean.vacation_mode
             name: Household Vacation Mode
 
