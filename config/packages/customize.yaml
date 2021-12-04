@@ -48,6 +48,14 @@ homeassistant:
       friendly_name: Living Room Corner Lamp
       icon: bha:table-lamp-variant
 
+    light.foyer_hallway_ceiling:
+      friendly_name: Foyer Hallway Light
+      icon: bha:dome-light
+
+    light.foyer_entryway_ceiling:
+      friendly_name: Foyer Entryway Light
+      icon: hass:chandelier
+
     light.foyer_ceiling_ledge:
       friendly_name: Upper Ledge Lightstrip
       icon: mdi:led-strip-variant
@@ -55,6 +63,10 @@ homeassistant:
     light.foyer_under_table:
       friendly_name: Entry Table Lightstrip
       icon: mdi:led-strip-variant
+
+    light.laundry_ceiling_light:
+      friendly_name: Laundry Ceiling Light
+      icon: bha:dome-light
 
     light.bedroom_1_bedside_lights:
       friendly_name: Bedside Lamps
@@ -99,18 +111,6 @@ homeassistant:
     light.closet_hallway_light_t:
       friendly_name: His Closet Light
       icon: mdi:lightbulb
-
-    light.laundry_ceiling_light:
-      friendly_name: Laundry Ceiling Light
-      icon: bha:dome-light
-
-    light.foyer_hallway_ceiling:
-      friendly_name: Foyer Ceiling Light
-      icon: bha:dome-light
-
-    light.foyer_interior_entryway:
-      friendly_name: Foyer Entryway Light
-      icon: hass:chandelier
 
     light.foyer_exterior_entryway:
       friendly_name: Entryway

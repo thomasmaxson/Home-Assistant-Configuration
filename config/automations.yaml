@@ -148,41 +148,6 @@
           entity_id: cover.garage_door
     default: []
   mode: single
-- id: '1631884919373'
-  alias: 'Button Press: in Foyer for Foyer'
-  description: ''
-  trigger:
-  - device_id: 77041364a8b0840358010d8d5cc562f4
-    domain: zha
-    platform: device
-    type: remote_button_short_press
-    subtype: turn_on
-    id: button_single
-  - device_id: 77041364a8b0840358010d8d5cc562f4
-    domain: zha
-    platform: device
-    type: remote_button_double_press
-    subtype: turn_on
-    id: button_double
-  condition: []
-  action:
-  - choose:
-    - conditions:
-      - condition: trigger
-        id: button_single
-      sequence:
-      - service: light.toggle
-        target:
-          entity_id: light.foyer_ceiling_ledge
-    - conditions:
-      - condition: trigger
-        id: button_double
-      sequence:
-      - service: light.toggle
-        target:
-          entity_id: light.foyer_under_table
-    default: []
-  mode: single
 - id: '1631918200412'
   alias: '_Check: Garage Left Open At Night, Send Repeating Notification'
   description: ''
@@ -317,7 +282,7 @@
     default: []
   mode: single
 - id: '1632150205421'
-  alias: 'Motion Detected: in the Laundry Room'
+  alias: 'Motion Detected: In Laundry Room, Turn Light On'
   description: When motion is being detected in the laundry room
   trigger:
   - platform: state
@@ -772,7 +737,7 @@
     default: []
   mode: single
 - id: '1633463928454'
-  alias: 'Motion Detected: At Front Door'
+  alias: 'Motion Detected: At Front Door, Send Notification with Screenshot'
   description: ''
   trigger:
   - platform: state
@@ -782,17 +747,12 @@
     for:
       hours: 0
       minutes: 0
-      seconds: 5
+      seconds: 0
       milliseconds: 0
   condition:
   - condition: state
     entity_id: input_text.camera_doorbell_latest_snapshot_filename
     state: 'null'
-    for:
-      hours: 0
-      minutes: 1
-      seconds: 0
-      milliseconds: 0
   action:
   - service: input_text.set_value
     target:
@@ -800,6 +760,11 @@
     data:
       value: snapshot-camera-frontdoor-motion-{{ now().strftime( '%Y-%m-%d--%H-%M-%S'
         ) }}
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 4
+      milliseconds: 0
   - service: camera.snapshot
     target:
       entity_id: camera.doorbell
@@ -815,8 +780,8 @@
           ) }}.jpg
   - delay:
       hours: 0
-      minutes: 0
-      seconds: 15
+      minutes: 1
+      seconds: 0
       milliseconds: 0
   - service: input_text.set_value
     target:
@@ -889,11 +854,6 @@
     entity_id: binary_sensor.doorbell_ding
     from: 'off'
     to: 'on'
-    for:
-      hours: 0
-      minutes: 0
-      seconds: 0
-      milliseconds: 0
   condition:
   - condition: state
     entity_id: input_text.camera_doorbell_ding_snapshot_filename
@@ -908,7 +868,7 @@
   - delay:
       hours: 0
       minutes: 0
-      seconds: 2
+      seconds: 4
       milliseconds: 0
   - service: camera.snapshot
     target:
@@ -1102,12 +1062,12 @@
   description: ''
   trigger:
   - platform: state
-    entity_id: light.foyer_interior_entryway
+    entity_id: light.foyer_entryway_ceiling
     from: 'on'
     to: 'off'
     id: Entryway Off
   - platform: state
-    entity_id: light.foyer_interior_entryway
+    entity_id: light.foyer_entryway_ceiling
     from: 'off'
     to: 'on'
     id: Entryway On
@@ -1147,12 +1107,48 @@
       sequence:
       - service: light.turn_off
         target:
-          entity_id: light.foyer_interior_entryway
+          entity_id: light.foyer_entryway_ceiling
     - conditions:
       - condition: trigger
         id: Hallway On
       sequence:
       - service: light.turn_on
         target:
-          entity_id: light.foyer_interior_entryway
+          entity_id: light.foyer_entryway_ceiling
     default: []
+- id: '1638537167454'
+  alias: 'Motion Detected: At Front Door, Turn on Light'
+  description: When motion is being detected at the front door
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.doorbell_motion
+    from: 'off'
+    to: 'on'
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 2
+      milliseconds: 0
+  condition:
+  - condition: state
+    entity_id: light.foyer_exterior_entryway
+    state: 'off'
+  - condition: or
+    conditions:
+    - condition: sun
+      after: sunset
+    - condition: sun
+      before: sunrise
+  action:
+  - service: light.turn_on
+    target:
+      entity_id: light.foyer_exterior_entryway
+  - delay:
+      hours: 0
+      minutes: 2
+      seconds: 30
+      milliseconds: 0
+  - service: light.turn_off
+    target:
+      entity_id: light.foyer_exterior_entryway
+  mode: single

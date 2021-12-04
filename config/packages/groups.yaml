@@ -32,7 +32,7 @@ group:
       - light.living_room_corner_lamp
       - light.foyer_ceiling_ledge
       - light.foyer_under_table
-      - light.foyer_interior_entryway
+      - light.foyer_entryway_ceiling
       - light.foyer_hallway_ceiling
       - light.laundry_ceiling_light
       #- light.bedroom_1_bedside_lamps
@@ -53,7 +53,7 @@ group:
       - light.kitchen_ceiling_lights
       - light.dining_room_chandelier
       - light.living_room_corner_lamp
-      - light.foyer_interior_entryway
+      - light.foyer_entryway_ceiling
       - light.foyer_hallway_ceiling
       - light.laundry_ceiling_light
       - light.bedroom_1_bedside_lamps
@@ -76,7 +76,7 @@ group:
       - light.kitchen_ceiling_lights
       - light.dining_room_chandelier
       - light.living_room_corner_lamp
-      - light.foyer_interior_entryway
+      - light.foyer_entryway_ceiling
       - light.foyer_hallway_ceiling
       - light.bedroom_1_bedside_lamps
       - light.closet_hallway_ceiling_light

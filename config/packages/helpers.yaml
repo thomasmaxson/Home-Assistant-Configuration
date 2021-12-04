@@ -12,71 +12,75 @@
 input_boolean:
   debug_texts:
     name: Debug Texts
-    icon: mdi:test-tube
+    icon: hass:test-tube
 
   app_notify:
     name: Send App Notifications
-    icon: mdi:cellphone-message
+    icon: hass:cellphone-message
 
   app_notify_tom:
     name: Send App Notifications to Tom
-    icon: mdi:cellphone-message
+    icon: hass:cellphone-message
 
   app_notify_jess:
     name: Send App Notifications to Jess
-    icon: mdi:cellphone-message
+    icon: hass:cellphone-message
 
   audible_notifications_johan:
     name: Audible Notifications
-    icon: mdi:speaker-wireless
+    icon: hass:speaker-wireless
 
   sidebar_display_holidays:
     name: Display Upcoming Holidays
-    icon: mdi:eye-check
+    icon: hass:eye-check
 
   sidebar_display_celebrations:
     name: Display Upcoming Celebrations
-    icon: mdi:eye-check
+    icon: hass:eye-check
 
   sidebar_display_weather_forecast:
     name: Display Weather Forecast
-    icon: mdi:eye-check
+    icon: hass:eye-check
 
   sidebar_display_lights_on:
     name: Display Lights On Reminder
-    icon: mdi:eye-check
+    icon: hass:eye-check
 
   sidebar_display_open_doors:
     name: Display Open Door Reminder
-    icon: mdi:eye-check
+    icon: hass:eye-check
 
   sidebar_display_garbage_reminder:
     name: Display Garbage Reminder
-    icon: mdi:eye-check
+    icon: hass:eye-check
 
   automation_daily_sunset:
     name: Daily Sunset Automation
-    icon: mdi:home-automation
+    icon: hass:home-automation
 
   garbage_bins_out:
     name: Garbage Bins Taken Out
-    icon: mdi:trash-can
+    icon: hass:trash-can
 
   garbage_bins_in:
     name: Garbage Bins Brought In
-    icon: mdi:trash-can
+    icon: hass:trash-can
 
   recycle_bins_out:
     name: Recycle Bins Taken Out
-    icon: mdi:trash-can
+    icon: hass:trash-can
 
   recycle_bins_in:
     name: Recycle Bins Brought In
-    icon: mdi:trash-can
+    icon: hass:trash-can
 
   gouda_home:
     name: Gouda is Home
-    icon: mdi:dog
+    icon: hass:dog
+
+  sync_foyer_lights:
+    name: Sync Foyer Lights
+    icon: hass:sync-circle
 
 #
 # INPUT, TEXT
@@ -93,7 +97,7 @@ input_text:
 input_select:
   day_pickup_trash_a:
     name: Trash Pickup Day of Week
-    icon: mdi:calendar-question
+    icon: hass:calendar-question
     options:
       - None
       - Sunday
@@ -107,7 +111,7 @@ input_select:
 
   day_pickup_trash_b:
     name: Trash Pickup Day of Week
-    icon: mdi:calendar-question
+    icon: hass:calendar-question
     options:
       - None
       - Sunday
@@ -121,7 +125,7 @@ input_select:
 
   day_pickup_bulk_trash:
     name: Bulk Trash Pickup Day of Week
-    icon: mdi:calendar-question
+    icon: hass:calendar-question
     options:
       - None
       - Sunday
@@ -135,7 +139,7 @@ input_select:
 
   day_pickup_recycle:
     name: Recycle Pickup Day of Week
-    icon: mdi:calendar-question
+    icon: hass:calendar-question
     options:
       - None
       - Sunday

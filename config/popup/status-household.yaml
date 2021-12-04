@@ -125,9 +125,9 @@ browser_mod:
             secondary_info: brightness
 
           - entity: light.foyer_hallway_ceiling
-            name: Foyer, Ceiling
+            name: Foyer, Hallway
             secondary_info: brightness
-          - entity: light.foyer_interior_entryway
+          - entity: light.foyer_entryway_ceiling
             name: Foyer, Entryway
             secondary_info: brightness
           - entity: light.foyer_ceiling_ledge

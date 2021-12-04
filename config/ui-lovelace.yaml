@@ -212,7 +212,7 @@ views:
                   - type: custom:button-card
                     entity: light.foyer_ceiling_ledge
                     name: Ledge
-                    icon: mdi:led-strip-variant
+                    icon: hass:led-strip-variant
                     template:
                       - popup_dimmer_colors
 
@@ -224,9 +224,9 @@ views:
                       - popup_dimmer
 
                   - type: custom:button-card
-                    entity: light.foyer_interior_entryway
+                    entity: light.foyer_entryway_ceiling
                     name: Entryway
-                    icon: mdi:chandelier
+                    icon: hass:chandelier
                     template:
                       - popup_dimmer
 
@@ -237,7 +237,7 @@ views:
                   - type: custom:button-card
                     entity: light.foyer_under_table
                     name: Floor
-                    icon: mdi:led-strip-variant
+                    icon: hass:led-strip-variant
                     template:
                       - popup_dimmer_colors
 
