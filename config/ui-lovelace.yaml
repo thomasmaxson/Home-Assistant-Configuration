@@ -218,7 +218,7 @@ views:
 
                   - type: custom:button-card
                     entity: light.foyer_hallway_ceiling
-                    name: Ceiling
+                    name: Hallway
                     icon: bha:dome-light
                     template:
                       - popup_dimmer
