@@ -833,18 +833,19 @@
     default: []
   mode: single
 - id: '1634064600801'
-  alias: 'Service: Reset Garbage Daily Actions'
+  alias: 'Service: Reset Garbage Reminder'
   description: ''
   trigger:
   - platform: time
     at: 00:00:00
-  condition: []
+  condition:
+  - condition: state
+    entity_id: input_boolean.sidebar_display_garbage_reminder
+    state: 'off'
   action:
-  - service: input_boolean.turn_off
+  - service: input_boolean.turn_on
     target:
-      entity_id:
-      - input_boolean.garbage_bins_in
-      - input_boolean.garbage_bins_out
+      entity_id: input_boolean.sidebar_display_garbage_reminder
   mode: single
 - id: '1634564069517'
   alias: 'Button Press: Doorbell'

@@ -24,15 +24,32 @@ sensor:
     file_paths:
       - /config/home-assistant.log
 
+  # MariaDB recorder DB size sensor
   - platform: sql
     db_url: !secret recorder_db_url
     queries:
-      - name: Database
+      - name: MariaDB Database Size
         query: >
           SELECT table_schema "database", Round( Sum( data_length + index_length ) / POWER( 1024, 2 ), 1 ) 
           "value" FROM information_schema.tables WHERE table_schema="homeassistant" GROUP BY table_schema;
         column: value
         unit_of_measurement: MB
+
+  # InfluxDB DB size sensor
+  - platform: influxdb
+    host: !secret influxdb_host
+    port: !secret influxdb_port
+    username: !secret influxdb_username
+    password: !secret influxdb_password
+    queries:
+      - name: InfluxDB Database Size
+        unit_of_measurement: MB
+        value_template: "{{ (value | float / 1024 /1024) | round(1) }}"
+        group_function: sum
+        measurement: '"monitor"."shard"'
+        database: _internal
+        where: "time > now() - 10s"
+        field: diskBytes
 
   - platform: systemmonitor
     resources:
@@ -110,11 +127,13 @@ sensor:
           states( 'sensor.ha_version_latest' ) else states( 'sensor.ha_version_latest' ) }}
 
       fire_tablet_last_app_start_formatted:
-        device_class: timestamp
+        #device_class: timestamp
         friendly_name: Last App Restart
         icon_template: mdi:clock-outline
         value_template: >
-          {{ relative_time( states.sensor.fire_tablet_last_app_start.last_updated ) }}
+          {% set timestamp = states.sensor.fire_tablet_last_app_start.last_updated %}
+
+          {{ relative_time( timestamp ) }}
 
       fire_tablet_ram_used_memory:
         icon_template: mdi:memory
@@ -157,24 +176,65 @@ sensor:
     name: Kitchen Tablet
     resource: !secret rest_url_kiosk_device_info
     json_attributes:
-      - screenOn
-      - batteryLevel
-      - kioskMode
-      - screenBrightness
-      - motionDetectorState
-      - maintenanceMode
+      # - screenOn
+      # - batteryLevel
+      # - kioskMode
+      # - screenBrightness
+      # - motionDetectorState
+      # - maintenanceMode
+      # - appFreeMemory
+      # - appUsedMemory
+      # - totalFreeMemory
+      # - totalUsedMemory
+      # - hostname4
+      # - ip4
+      # - mac
+      # - locationLatitude
+      # - locationLongitude
+      # - locationAltitude
+      # - startUrl
+      # - currentPage
+      - androidSdk
+      - androidVersion
       - appFreeMemory
       - appUsedMemory
+      - appVersionCode
+      - appVersionName
+      - batteryLevel
+      - currentFragment
+      - currentPage
+      - currentTabIndex
+      - deviceID
+      - deviceManufacturer
+      - deviceModel
+      - deviceName
+      - displayHeightPixels
+      - displayWidthPixels
+      - foregroundApp
+      - hostname4
+      - hostname6
+      - ip4
+      - ip6
+      - isDeviceAdmin
+      - isDeviceOwner
+      - isLicensed
+      - isScreenOn
+      - keyguardLocked
+      - kioskLocked
+      - kioskMode
+      - lastAppStart
+      - mac
+      - maintenanceMode
+      - motionDetectorState
+      - plugged
+      - screenBrightness
+      - screenOrientation
+      - ssid
+      - startUrl
       - totalFreeMemory
       - totalUsedMemory
-      - hostname4
-      - ip4
-      - mac
-      - locationLatitude
-      - locationLongitude
-      - locationAltitude
-      - startUrl
-      - currentPage
+      - webviewUa
+      - wifiSignalLevel
     value_template: "{{ value_json.isScreenOn }}"
     scan_interval: 10
 

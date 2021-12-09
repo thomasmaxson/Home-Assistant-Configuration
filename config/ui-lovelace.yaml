@@ -226,7 +226,7 @@ views:
                   - type: custom:button-card
                     entity: light.foyer_entryway_ceiling
                     name: Entryway
-                    icon: hass:chandelier
+                    icon: bha:chandelier
                     template:
                       - popup_dimmer
 

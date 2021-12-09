@@ -108,8 +108,8 @@ browser_mod:
               width: 100%;
             }
         entities:
-          #- type: section
-          #  label: Lights
+          - type: section
+            label: Lights, Interior
 
           - entity: light.kitchen_ceiling_lights
             name: Kitchen, Ceiling
@@ -165,24 +165,21 @@ browser_mod:
             name: Laundry Room, Ceiling Light
             icon: bha:dome-light
             secondary_info: brightness
+
+          - type: section
+            label: Lights, Exterior
+
           - entity: light.foyer_exterior_entryway
-            name: Outside, Entryway
+            name: Front Door Entry
             icon: hass:globe-light
             secondary_info: brightness
           - entity: light.garage_exterior
-            name: Outside, Garage
+            name: Garage Exterior
             icon: bha:outdoor-lamp-variant
             secondary_info: brightness
           - entity: switch.backyard_string_lights
-            name: Outside, String Lights
+            name: Backyard String Lights
             icon: bha:light-string
-
-          - type: section
-            label: Motion
-
-          - entity: binary_sensor.motion_laundry
-            name: Laundry Room
-            icon: hass:motion-sensor
 
       - type: entities
         view_layout:
@@ -197,8 +194,8 @@ browser_mod:
               width: 100%;
             }
         entities:
-          #- type: section
-          #  label: Doors
+          - type: section
+            label: Doors
 
           - entity: cover.garage_door
             name: Garage Door
@@ -232,6 +229,13 @@ browser_mod:
           # - entity: binary_sensor.bedroom_1_occupancy
           # - entity: binary_sensor.bedroom_4_occupancy
           # - entity: binary_sensor.living_room_occupancy
+
+          - type: section
+            label: Motion Sensors
+
+          - entity: binary_sensor.motion_laundry
+            name: Laundry Room
+            icon: hass:motion-sensor
 
           - type: section
             label: Other

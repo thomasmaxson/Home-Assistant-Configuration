@@ -58,13 +58,13 @@ input_boolean:
     name: Daily Sunset Automation
     icon: hass:home-automation
 
-  garbage_bins_out:
-    name: Garbage Bins Taken Out
-    icon: hass:trash-can
+  # garbage_bins_out:
+  #   name: Garbage Bins Taken Out
+  #   icon: hass:trash-can
 
-  garbage_bins_in:
-    name: Garbage Bins Brought In
-    icon: hass:trash-can
+  # garbage_bins_in:
+  #   name: Garbage Bins Brought In
+  #   icon: hass:trash-can
 
   recycle_bins_out:
     name: Recycle Bins Taken Out

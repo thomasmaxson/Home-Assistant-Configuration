@@ -178,7 +178,7 @@ media:
     custom_fields:
       icon:
         - width: 70%
-        - fill: '#9da0a2'
+        - fill: "#9da0a2"
         - opacity: >
             [[[
               let entity_picture = entity === undefined ? null : entity.attributes.entity_picture;
@@ -198,11 +198,6 @@ media:
               'linear-gradient(0deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.8) 100%)' : 
               'linear-gradient(0deg, rgba(0,0,0,.8) 0%, rgba(0,0,0,0) 100%), url(' + entity_picture + ')';
           ]]]
-
-
-
-
-
 
 #
 # CIRCLE
@@ -283,6 +278,7 @@ sidebar_template:
 
     p {
       margin-top: 1em;
+      margin-bottom: 0;
       font-size: calc( var( --sidebar-font-size ) * 1.4 );
       line-height: calc( var(--sidebar-line-height) + 1.2 );
       font-weight: 300;
@@ -295,7 +291,6 @@ sidebar_template:
 
     p.time {
       margin-top: 0;
-      margin-bottom: 0;
       margin-left: -0.3vw;
       line-height: 1 !important;
       font-size: calc( var(--sidebar-time-font-size ) * 1.5 );

@@ -205,41 +205,37 @@ template:
             {%- set day_remind_trash_b = get_previous_dayofweek( day_action_trash_b ) -%}
             {%- set day_remind_bulk_trash = get_previous_dayofweek( day_action_bulk_trash ) -%}
 
-            {%- if is_state( 'binary_sensor.garbage_reminder_tod', 'on' ) and is_state( 'input_boolean.garbage_bins_out', 'off' ) -%}
-              {%- if ( day_current == day_remind_trash_a or day_current == day_remind_trash_b ) and day_current == day_remind_bulk_trash -%}
-                {{ [ 
-                  'Tomorrow is the big day, trash and bulk trash day! ',
-                  'Trash and bulk trash should go out before tomorrow morning. ',
-                  'Do not forget to take the trash and bulk trash out. '
-                ] | random }}
+            {%- if ( day_current == day_remind_trash_a or day_current == day_remind_trash_b ) and day_current == day_remind_bulk_trash -%}
+              {{ [ 
+                'Tomorrow is the big day, trash and bulk trash day! ',
+                'Trash and bulk trash should go out before tomorrow morning. ',
+                'Do not forget to take the trash and bulk trash out. '
+              ] | random }}
 
-              {%- elif day_current == day_remind_trash_a or day_current == day_remind_trash_b -%}
-                {{ [ 
-                  'Tomorrow is the big day, trash day! ',
-                  'Trash should go out before tomorrow morning. ',
-                  'Do not forget to take the trash out. '
-                ] | random }}
+            {%- elif day_current == day_remind_trash_a or day_current == day_remind_trash_b -%}
+              {{ [ 
+                'Tomorrow is the big day, trash day! ',
+                'Trash should go out before tomorrow morning. ',
+                'Do not forget to take the trash out. '
+              ] | random }}
 
-              {%- elif day_current == day_remind_bulk_trash -%}
-                {{ [ 
-                  'Tomorrow is the big day, bulk trash day! ',
-                  'Bulk trash should go out before tomorrow morning. ',
-                  'Do not forget to take the bulk trash out. '
-                ] | random }}
+            {%- elif day_current == day_remind_bulk_trash -%}
+              {{ [ 
+                'Tomorrow is the big day, bulk trash day! ',
+                'Bulk trash should go out before tomorrow morning. ',
+                'Do not forget to take the bulk trash out. '
+              ] | random }}
 
-              {%- endif -%}
             {%- endif -%}
 
 
-            {%- if is_state( 'binary_sensor.garbage_action_tod', 'on' ) and is_state( 'input_boolean.garbage_bins_in', 'off' ) -%}
-              {%- if day_current == day_action_trash_a or day_current == day_action_trash_b -%}
-                {{ [ 
-                  'Do not forget to bring the trash cans in.',
-                  'Trash cans will feel lonely if you leave them outside.',
-                  'The HOA will get mad if you leave those trash cans out on the street.'
-                ] | random }}
+            {%- if day_current == day_action_trash_a or day_current == day_action_trash_b -%}
+              {{ [ 
+                'Do not forget to bring the trash cans in.',
+                'Trash cans will feel lonely if you leave them outside.',
+                'The HOA will get mad if you leave those trash cans out on the street.'
+              ] | random }}
 
-              {%- endif -%}
             {%- endif -%}
           {%- endif -%}
 

@@ -31,6 +31,7 @@ notify:
 
 script:
   app_notify_tom:
+    alias: Notify Tom, if Permitted
     sequence:
       - condition: state
         entity_id: input_boolean.app_notify
@@ -44,6 +45,7 @@ script:
             {{ message }}
 
   app_notify_jess:
+    alias: Notify Jess, if Permitted
     sequence:
       - condition: state
         entity_id: input_boolean.app_notify
@@ -57,6 +59,7 @@ script:
             {{ message }}
 
   johan_notify_house:
+    alias: Notify House, if Permitted
     sequence:
       - condition: state
         entity_id: input_boolean.audible_notifications_johan
@@ -74,6 +77,7 @@ script:
             {{ message }}
 
   johan_notify_offices:
+    alias: Notify Offices, if Permitted
     sequence:
       - condition: state
         entity_id: input_boolean.audible_notifications_johan
@@ -89,6 +93,7 @@ script:
             {{ message }}
 
   johan_notify_kitchen:
+    alias: Notify Kitchen, if Permitted
     sequence:
       - condition: state
         entity_id: input_boolean.audible_notifications_johan
@@ -103,6 +108,7 @@ script:
             {{ message }}
 
   johan_notify_bedroom_1:
+    alias: Notify Bedroom 1, if Permitted
     sequence:
       - condition: state
         entity_id: input_boolean.audible_notifications_johan
@@ -117,6 +123,7 @@ script:
             {{ message }}
 
   johan_notify_bedroom_3:
+    alias: Notify Bedroom 3, if Permitted
     sequence:
       - condition: state
         entity_id: input_boolean.audible_notifications_johan
@@ -131,6 +138,7 @@ script:
             {{ message }}
 
   johan_notify_bedroom_4:
+    alias: Notify Bedroom 4, if Permitted
     sequence:
       - condition: state
         entity_id: input_boolean.audible_notifications_johan

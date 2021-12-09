@@ -114,7 +114,8 @@ browser_mod:
           - entity: sensor.last_boot
             #format: relative
             #secondary_info: "Since: [[ sensor.last_boot ]]"
-          - entity: sensor.database
+          - entity: sensor.mariadb_database_size
+          - entity: sensor.influxdb_database_size
           - entity: sensor.home_assistant_log
           - entity: sensor.processor_temperature
           - type: custom:bar-card
@@ -175,10 +176,9 @@ browser_mod:
             name: Display
             icon: hass:tablet
 
-          - entity: sensor.fire_tablet_last_app_start_formatted
-            name: Last Restart
-            icon: hass:update
-            #format: relative
+          # - entity: sensor.fire_tablet_last_app_start_formatted
+          #   name: Last Restart
+          #   icon: hass:update
 
           - type: custom:slider-entity-row
             entity: light.fire_tablet_screen
@@ -186,8 +186,11 @@ browser_mod:
             icon: mdi:brightness-6
             hide_state: false
 
+          - type: divider
+
           - entity: binary_sensor.fire_tablet_plugged_in
             name: Power Supply
+
           - type: custom:bar-card
             width: 55%
             height: 2em
