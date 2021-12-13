@@ -173,7 +173,7 @@ template:
             {% endif %}
           {% endif %}
 
-        garbage: |
+        waste: |
           {%- macro get_previous_dayofweek(dayofweek) -%}
             {%- if dayofweek == 'Sunday' or dayofweek == 'Sun' -%}
               Saturday
@@ -194,7 +194,7 @@ template:
             {%- endif -%}
           {%- endmacro -%}
 
-          {%- if is_state( 'input_boolean.sidebar_display_garbage_reminder', 'on' ) -%}
+          {%- if is_state( 'input_boolean.sidebar_display_waste_reminder', 'on' ) -%}
             {%- set day_current = now().strftime( '%A' ) -%}
 
             {%- set day_action_trash_a = states( 'input_select.day_pickup_trash_a' ) -%}
@@ -205,36 +205,59 @@ template:
             {%- set day_remind_trash_b = get_previous_dayofweek( day_action_trash_b ) -%}
             {%- set day_remind_bulk_trash = get_previous_dayofweek( day_action_bulk_trash ) -%}
 
+            {%- set time_waste_start_take_out = states( 'input_datetime.waste_trash_reminder_take_out_start_time' ) -%}
+            {%- set time_waste_end_take_out = states( 'input_datetime.waste_trash_reminder_take_out_end_time' ) -%}
+
+            {%- set time_waste_start_bring_in = states( 'input_datetime.waste_trash_reminder_bring_in_start_time' ) -%}
+            {%- set time_waste_end_bring_in = states( 'input_datetime.waste_trash_reminder_bring_in_end_time' ) -%}
+
+
+            {% set ts_time_now = now().strftime( '%Y-%m-%d %H:%M:%S' ) %}
+            {% set ts_waste_time_start_take_out = as_timestamp( now() ) | timestamp_custom( '%Y-%m-%d' ) + ' ' + time_waste_start_take_out %}
+            {% set ts_waste_time_end_take_out = as_timestamp( now() ) | timestamp_custom( '%Y-%m-%d' ) + ' ' + time_waste_end_take_out %}
+
+            {% set ts_waste_time_start_bring_in = as_timestamp( now() ) | timestamp_custom( '%Y-%m-%d' ) + ' ' + time_waste_start_bring_in %}
+            {% set ts_waste_time_end_bring_in = as_timestamp( now() ) | timestamp_custom( '%Y-%m-%d' ) + ' ' + time_waste_end_bring_in %}
+
+
             {%- if ( day_current == day_remind_trash_a or day_current == day_remind_trash_b ) and day_current == day_remind_bulk_trash -%}
-              {{ [ 
-                'Tomorrow is the big day, trash and bulk trash day! ',
-                'Trash and bulk trash should go out before tomorrow morning. ',
-                'Do not forget to take the trash and bulk trash out. '
-              ] | random }}
+              {%- if ( ( ts_time_now > ts_waste_time_start_take_out ) and ( ts_time_now < ts_waste_time_end_take_out ) ) %}
+                {{ [ 
+                  'Tomorrow is the big day, trash and bulk trash day! ',
+                  'Trash and bulk trash should go out before tomorrow morning. ',
+                  'Do not forget to take the trash and bulk trash out. '
+                ] | random }}
+              {%- endif -%}
 
             {%- elif day_current == day_remind_trash_a or day_current == day_remind_trash_b -%}
-              {{ [ 
-                'Tomorrow is the big day, trash day! ',
-                'Trash should go out before tomorrow morning. ',
-                'Do not forget to take the trash out. '
-              ] | random }}
+              {%- if ( ( ts_time_now > ts_waste_time_start_take_out ) and ( ts_time_now < ts_waste_time_end_take_out ) ) %}
+                {{ [ 
+                  'Tomorrow is the big day, trash day! ',
+                  'Trash should go out before tomorrow morning. ',
+                  'Do not forget to take the trash out. '
+                ] | random }}
+              {%- endif -%}
 
             {%- elif day_current == day_remind_bulk_trash -%}
-              {{ [ 
-                'Tomorrow is the big day, bulk trash day! ',
-                'Bulk trash should go out before tomorrow morning. ',
-                'Do not forget to take the bulk trash out. '
-              ] | random }}
+              {%- if ( ( ts_time_now > ts_waste_time_start_take_out ) and ( ts_time_now < ts_waste_time_end_take_out ) ) %}
+                {{ [ 
+                  'Tomorrow is the big day, bulk trash day! ',
+                  'Bulk trash should go out before tomorrow morning. ',
+                  'Do not forget to take the bulk trash out. '
+                ] | random }}
+              {%- endif -%}
 
             {%- endif -%}
 
 
             {%- if day_current == day_action_trash_a or day_current == day_action_trash_b -%}
-              {{ [ 
-                'Do not forget to bring the trash cans in.',
-                'Trash cans will feel lonely if you leave them outside.',
-                'The HOA will get mad if you leave those trash cans out on the street.'
-              ] | random }}
+              {%- if ( ( ts_time_now > ts_waste_time_start_bring_in ) and ( ts_time_now < ts_waste_time_end_bring_in ) ) %}
+                {{ [ 
+                  'Do not forget to bring the trash cans in.',
+                  'Trash cans will feel lonely if you leave them outside.',
+                  'The HOA will get mad if you leave those trash cans out on the street.'
+                ] | random }}
+              {%- endif -%}
 
             {%- endif -%}
           {%- endif -%}
