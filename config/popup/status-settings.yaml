@@ -115,9 +115,11 @@ browser_mod:
         entities:
           - entity: input_boolean.audible_notifications_johan
             name: Household Audible Notifications
+          - type: section
+            label: Recieve Push Notifications
           - entity: input_boolean.app_notify
-            name: All Can Recieve Push Notifications
+            name: All Can Recieve
           - entity: input_boolean.app_notify_tom
-            name: He Can Recieve Push Notifications
+            name: Tom Can Recieve
           - entity: input_boolean.app_notify_jess
-            name: She Can Recieve Push Notifications
+            name: Jess Can Recieve

@@ -54,7 +54,7 @@ homeassistant:
 
     light.foyer_entryway_ceiling:
       friendly_name: Foyer Entryway Light
-      icon: hass:chandelier
+      icon: bha:chandelier
 
     light.foyer_ceiling_ledge:
       friendly_name: Upper Ledge Lightstrip
@@ -353,38 +353,3 @@ homeassistant:
       friendly_name: Upload Speed
       icon: mdi:upload
       #unit_of_measurement: "MB/s"
-
-    #
-    # INPUTS
-    # --------------------------------------------------
-    #
-    # INPUT SELECT
-    # ----------------------------------------
-
-    # input_select.trash_pickup_1:
-    #   name: Trash Pickup, Day 1
-    #   icon: mdi:delete-variant
-
-    # input_select.trash_pickup_2:
-    #   name: Trash Pickup, Day 2
-    #   icon: mdi:delete-variant
-
-    # input_select.bulk_pickup:
-    #   name: Bulk Pickup
-    #   icon: mdi:delete-variant
-
-    # input_select.recycle_pickup:
-    #   name: Recycle Pickup
-    #   icon: mdi:delete-variant
-
-    #
-    # INPUT BOOLEAN
-    # ----------------------------------------
-
-    input_boolean.automation_daily_sunset:
-      name: Daily Sunset Automation
-      icon: mdi:home-automation
-
-    input_boolean.gouda_home:
-      name: Gouda is Home
-      icon: mdi:dog

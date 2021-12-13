@@ -181,6 +181,19 @@ browser_mod:
             name: Backyard String Lights
             icon: bha:light-string
 
+          - type: section
+            label: Other
+
+          - entity: media_player.sony_bravia_tv
+          - entity: light.tablet_plug
+            name: Kitchen, Tablet Plug
+            #icon: bha:apple-tv
+            icon: hass:tablet
+          - entity: light.bedroom_4_media_plug
+            name: His Office, Media Plug
+            #icon: bha:apple-tv
+            icon: hass:apple
+
       - type: entities
         view_layout:
           grid-area: column_b
@@ -222,6 +235,24 @@ browser_mod:
             #- entity: binary_sensor.door_closet_hallway_t
             name: His Closet
 
+          - type: section
+            label: Leak Sensors
+
+          - entity: binary_sensor.leak_air_conditioner
+            name: Air Conditioner
+          - entity: binary_sensor.leak_washing_machine_laundry
+            name: Washing Machine
+          - entity: binary_sensor.leak_sink_guest_bathroom
+            name: Guest Bathroom, Sink
+          - entity: binary_sensor.leak_sink_half_bathroom
+            name: Half Bathroom, Sink
+          - entity: binary_sensor.leak_sink_kitchen
+            name: Kitchen, Sink
+          - entity: binary_sensor.leak_sink_main_bathroom_hers
+            name: Main Bathroom, Sink (Hers)
+          - entity: binary_sensor.leak_sink_main_bathroom_his
+            name: Main Bathroom, Sink (His)
+
           # - type: section
           #   label: Occupany
 
@@ -236,16 +267,3 @@ browser_mod:
           - entity: binary_sensor.motion_laundry
             name: Laundry Room
             icon: hass:motion-sensor
-
-          - type: section
-            label: Other
-
-          - entity: media_player.sony_bravia_tv
-          - entity: light.tablet_plug
-            name: Kitchen, Tablet Plug
-            #icon: bha:apple-tv
-            icon: hass:tablet
-          - entity: light.bedroom_4_media_plug
-            name: His Office, Media Plug
-            #icon: bha:apple-tv
-            icon: hass:apple

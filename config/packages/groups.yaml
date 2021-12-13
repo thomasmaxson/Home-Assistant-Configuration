@@ -107,30 +107,30 @@ group:
   # DELVELOPER NOTE:
   # Low Battery Level Notification Group is managed within an automation.
   # Manage monitored entities within that automation.
-  sensors_battery_levels:
-    name: Battery Levels
-    entities:
-      - sensor.front_door_battery_level
-      # Aqara Door/Window Sensors
-      - sensor.door_bedroom_1_battery_level
-      - sensor.door_bedroom_2_battery_level
-      - sensor.door_bedroom_3_battery_level
-      - sensor.door_bedroom_4_battery_level
-      - sensor.door_living_battery_level
-      - sensor.door_laundry_battery_level
-      - sensor.door_closet_hallway_j_battery_level
-      - sensor.door_closet_hallway_t_battery_level
-      # Aqara Leak Sensors
-      - sensor.leak_air_conditioner_battery_level
-      - sensor.leak_sink_guest_bathroom_battery_level
-      - sensor.leak_sink_half_bathroom_battery_level
-      - sensor.leak_sink_kitchen_battery_level
-      - sensor.leak_sink_main_bathroom_hers_battery_level
-      - sensor.leak_sink_main_bathroom_his_battery_level
-      - sensor.leak_washing_machine_laundry_battery_level
-      # Aqara Motion Sensors
-      - sensor.motion_laundry_battery_level
-      # Aqara Buttons
-      #- sensor.switch_foyer
-      #- sensor.switch_garage
-      #- sensor.switch_office_tom
+  # sensors_battery_levels:
+  #   name: Battery Levels
+  #   entities:
+  #     - sensor.front_door_battery_level
+  #     # Aqara Door/Window Sensors
+  #     - sensor.door_bedroom_1_battery_level
+  #     - sensor.door_bedroom_2_battery_level
+  #     - sensor.door_bedroom_3_battery_level
+  #     - sensor.door_bedroom_4_battery_level
+  #     - sensor.door_living_battery_level
+  #     - sensor.door_laundry_battery_level
+  #     - sensor.door_closet_hallway_j_battery_level
+  #     - sensor.door_closet_hallway_t_battery_level
+  #     # Aqara Leak Sensors
+  #     - sensor.leak_air_conditioner_battery_level
+  #     - sensor.leak_sink_guest_bathroom_battery_level
+  #     - sensor.leak_sink_half_bathroom_battery_level
+  #     - sensor.leak_sink_kitchen_battery_level
+  #     - sensor.leak_sink_main_bathroom_hers_battery_level
+  #     - sensor.leak_sink_main_bathroom_his_battery_level
+  #     - sensor.leak_washing_machine_laundry_battery_level
+  #     # Aqara Motion Sensors
+  #     - sensor.motion_laundry_battery_level
+  #     # Aqara Buttons
+  #     #- sensor.switch_foyer
+  #     #- sensor.switch_garage
+  #     #- sensor.switch_office_tom
