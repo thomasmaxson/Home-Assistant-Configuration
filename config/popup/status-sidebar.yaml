@@ -19,20 +19,10 @@ browser_mod:
       }
   card:
     type: vertical-stack
+    title: Sidebar Display
     cards:
       - type: entities
         entities:
-          - type: section
-            label: Garbage
-
-          - entity: input_boolean.garbage_bins_out
-            name: Garbage Bins Taken Out
-          - entity: input_boolean.garbage_bins_in
-            name: Garbage Bins Brought In
-
-          - type: section
-            label: Sidebar Display
-
           - entity: input_boolean.sidebar_display_holidays
             name: Display Upcoming Holidays
           - entity: input_boolean.sidebar_display_celebrations
@@ -43,5 +33,5 @@ browser_mod:
             name: Display Lights On
           - entity: input_boolean.sidebar_display_open_doors
             name: Display Open Doors
-          - entity: input_boolean.sidebar_display_garbage_reminder
-            name: Display Garbage Reminders
+          - entity: input_boolean.sidebar_display_waste_reminder
+            name: Display Waste Reminders
