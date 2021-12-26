@@ -12,145 +12,48 @@ browser_mod:
   title: Input Helpers
   style:
     $: |
-      .mdc-dialog .mdc-dialog__content { 
-        padding: 0 !important;
-      }
       @media screen and (max-width: 992px) { 
         .mdc-dialog .mdc-dialog__container .mdc-dialog__surface { 
           border-radius: 0 !important;
         }
       }
-    .: |
-      :host .content {
-        margin: 0 !important;
-        width: calc( 385px * 2 );
-        max-width: 90vw;
-      }
-
-      @media screen and (max-width: 992px) {
-        :host .content {
-          width: 100%;
-          max-width: none;
-        }
-      }
-    layout-card:
-      $grid-layout$:
-        .: |
-          :host {
-            padding: 0;
-          }
-
-          #root { 
-            margin: -1px !important;
-            overflow-x: hidden;
-          }
-
-          hui-entities-card { border-left: 1px solid rgba(0, 0, 0, 0.3);}
-
-          @media screen and (max-width: 992px) {
-            hui-entities-card { 
-              border-top: 1px solid rgba(0, 0, 0, 0.3);
-              border-left: 0;
-            }
-          }
-
-        hui-entities-card:
-          $: |
-            ha-card {
-              padding: 0 !important;
-              border-radius: 0;
-              margin: 0;
-            }
-
-            .card-header,
-            .card-content { 
-              padding: 1.5em 1.5em !important;
-              margin: 0 !important;
-            }
-
-            .card-header {
-              padding-top: 1em !important;
-              padding-bottom: 0 !important;
-            }
-
-            @media screen and (max-width: 992px) {
-              ha-card { 
-                width: 100%;
-                width: 100vw;
-              }
-            }
   card:
-    type: custom:layout-card
-    layout_type: custom:grid-layout
-    layout:
-      grid-template-columns: repeat(1, 1fr)
-      grid-template-rows: 1fr
-      grid-template-areas: |
-        'waste recycling'
-      mediaquery:
-        # Tablet and down
-        "(max-width: 992px)":
-          grid-template-columns: 1fr
-          grid-template-rows: repeat(1, 1fr)
-          grid-template-areas: |
-            'waste'
-            'recycling'
+    type: vertical-stack
     cards:
       - type: entities
-        view_layout:
-          grid-area: waste
-        title: Waste Pickup
         show_header_toggle: false
         entities:
           - type: section
-            label: Days
-
+            label: Trash Day(s) of the Week
           - entity: input_select.waste_trash_day_a
-            name: Trash Pickup, A
+            name: Day A
           - entity: input_select.waste_trash_day_b
-            name: Trash Pickup, B
+            name: Day B
 
           - type: section
-            label: Reminder Times
-
-          - entity: input_datetime.waste_trash_reminder_take_out_start_time
-            name: Take Out, Start Time
-          - entity: input_datetime.waste_trash_reminder_take_out_end_time
-            name: Take Out, End Time
-
-          - entity: input_datetime.waste_trash_reminder_bring_in_start_time
-            name: Bring In, Start Time
-          - entity: input_datetime.waste_trash_reminder_bring_in_end_time
-            name: Bring In, End Time
-
-          - type: section
-
+            label: Bulk Trash Day(s) of the Week
           - entity: input_select.waste_bulk_day_a
-            name: Bulk Pickup
+            name: Day A
+          #- entity: input_select.waste_bulk_day_b
+          #  name: Day B
 
-      - type: entities
-        view_layout:
-          grid-area: recycling
-        title: Recycling Pickup
-        show_header_toggle: false
-        entities:
           - type: section
-            label: Days
-
+            label: Recycling Day(s) of the Week
           - entity: input_select.waste_recycle_day_a
-            name: Recycle Pickup, A
+            name: Day A
           - entity: input_select.waste_recycle_day_b
-            name: Recycle Pickup, B
+            name: Day B
 
           - type: section
-            label: Reminder Times
+            label: Take Out Reminder Window
+          - entity: input_datetime.waste_reminder_take_out_time_start
+            name: Start Time
+          - entity: input_datetime.waste_reminder_take_out_time_end
+            name: End Time
 
-          - entity: input_datetime.waste_recycle_reminder_take_out_start_time
-            name: Take Out, Start Time
-          - entity: input_datetime.waste_recycle_reminder_take_out_end_time
-            name: Take Out, End Time
-
-          - entity: input_datetime.waste_recycle_reminder_bring_in_start_time
-            name: Bring In, Start Time
-          - entity: input_datetime.waste_recycle_reminder_bring_in_end_time
-            name: Bring In, End Time
+          - type: section
+            label: Bring In Reminder Window
+          - entity: input_datetime.waste_reminder_bring_in_time_start
+            name: Start Time
+          - entity: input_datetime.waste_reminder_bring_in_time_end
+            name: End Time
