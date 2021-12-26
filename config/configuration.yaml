@@ -78,21 +78,3 @@ media_extractor:
 
 device_tracker:
   - platform: bluetooth_tracker
-
-  # - platform: iphonedetect
-  #   consider_home: 60
-  #   new_device_defaults:
-  #     track_new_devices: true
-  #   hosts:
-  #     thomas_iphonedetect: !secret iphonedetect_thomas
-
-ios:
-  push:
-    categories:
-      - name: Close Garage Door
-        identifier: "close_garage_door"
-        actions:
-          - identifier: "GARAGE_DOOR_CLOSE"
-            title: "Close Garage Door"
-          - identifier: "GARAGE_DOOR_LATER"
-            title: "Remind Me Later"

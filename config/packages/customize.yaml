@@ -13,47 +13,47 @@ homeassistant:
     # --------------------------------------------------
 
     light.kitchen_ceiling_lights:
-      friendly_name: Kitchen Ceiling Lights
+      friendly_name: Ceiling Lights
       icon: hue:recessed-ceiling
 
     light.kitchen_light_1:
-      friendly_name: Kitchen Ceiling Light, 01
+      friendly_name: Ceiling Light, 01
       icon: bha:ceiling-downlight
 
     light.kitchen_light_2:
-      friendly_name: Kitchen Ceiling Light, 02
+      friendly_name: Ceiling Light, 02
       icon: bha:ceiling-downlight
 
     light.kitchen_light_3:
-      friendly_name: Kitchen Ceiling Light, 03
+      friendly_name: Ceiling Light, 03
       icon: bha:ceiling-downlight
 
     light.kitchen_light_4:
-      friendly_name: Kitchen Ceiling Light, 04
+      friendly_name: Ceiling Light, 04
       icon: bha:ceiling-downlight
 
     light.kitchen_light_5:
-      friendly_name: Kitchen Ceiling Light, 05
+      friendly_name: Ceiling Light, 05
       icon: bha:ceiling-downlight
 
     light.kitchen_light_6:
-      friendly_name: Kitchen Ceiling Light, 06
+      friendly_name: Ceiling Light, 06
       icon: bha:ceiling-downlight
 
     light.dining_room_chandelier:
-      friendly_name: Dining Room Chandelier
+      friendly_name: Chandelier
       icon: bha:chandelier
 
     light.living_room_corner_lamp:
-      friendly_name: Living Room Corner Lamp
+      friendly_name: Corner Lamp
       icon: bha:table-lamp-variant
 
     light.foyer_hallway_ceiling:
-      friendly_name: Foyer Hallway Light
+      friendly_name: Hallway Light
       icon: bha:dome-light
 
     light.foyer_entryway_ceiling:
-      friendly_name: Foyer Entryway Light
+      friendly_name: Entryway Light
       icon: bha:chandelier
 
     light.foyer_ceiling_ledge:
@@ -61,11 +61,11 @@ homeassistant:
       icon: mdi:led-strip-variant
 
     light.foyer_under_table:
-      friendly_name: Entry Table Lightstrip
+      friendly_name: Entryway Table Lightstrip
       icon: mdi:led-strip-variant
 
     light.laundry_ceiling_light:
-      friendly_name: Laundry Ceiling Light
+      friendly_name: Ceiling Light
       icon: bha:dome-light
 
     light.bedroom_1_bedside_lights:
@@ -73,11 +73,11 @@ homeassistant:
       icon: mdi:lamps
 
     light.bedroom_1_lamp_j:
-      friendly_name: Her Bedside Lamp
+      friendly_name: Bedside Lamp
       icon: mdi:lamp
 
     light.bedroom_1_lamp_t:
-      friendly_name: His Bedside Lamp
+      friendly_name: Bedside Lamp
       icon: mdi:lamp
 
     # light.bedroom_3_lights:
@@ -85,15 +85,15 @@ homeassistant:
     #   icon: mdi:lightbulb-group
 
     light.bedroom_4_lights:
-      friendly_name: His Office Lights
+      friendly_name: Office Lights
       icon: mdi:lightbulb-group
 
     light.bedroom_4_desk_lamp:
-      friendly_name: His Office Desk Lamp
+      friendly_name: Desk Lamp
       icon: mdi:lightbulb
 
     light.bedroom_4_lightstrip:
-      friendly_name: His Office Lightstrip
+      friendly_name: Lightstrip
       icon: mdi:led-strip-variant
 
     light.closet_hallway_ceiling_light:
