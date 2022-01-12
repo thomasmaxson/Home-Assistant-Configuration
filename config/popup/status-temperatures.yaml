@@ -51,6 +51,13 @@ browser_mod:
               :host {
                 --paper-item-icon-color: #813872;
               }
+          - entity: sensor.temp_attic_temperature
+            name: Attic Temperature
+            style: |
+              :host {
+                --paper-item-icon-color: #ff9900;
+              }
+
           - type: divider
           - entity: sensor.foyer_humidity
             name: Humidity
@@ -64,9 +71,9 @@ browser_mod:
               color: "#385581"
             - entity: sensor.bedroom_1_temperature
               color: "#385581"
-            - entity: sensor.bedroom_4_temperature
-              name: His Office
-              color: "#813872"
+            #- entity: sensor.bedroom_4_temperature
+            #  name: His Office
+            #  color: "#813872"
           line_width: 3
           hour24: true
           group: false

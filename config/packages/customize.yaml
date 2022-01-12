@@ -155,11 +155,11 @@ homeassistant:
 
     binary_sensor.door_bedroom_3:
       device_class: door
-      friendly_name: Jess' Office Door
+      friendly_name: "Jess' Office Door"
 
     binary_sensor.door_bedroom_4:
       device_class: door
-      friendly_name: Tom's Office Door
+      friendly_name: "Tom's Office Door"
 
     binary_sensor.door_living:
       device_class: door
@@ -171,11 +171,11 @@ homeassistant:
 
     binary_sensor.door_closet_hallway_j:
       device_class: door
-      friendly_name: Jess' Closet Door
+      friendly_name: "Jess' Closet Door"
 
     binary_sensor.door_closet_hallway_t:
       device_class: door
-      friendly_name: Tom's Closet Door
+      friendly_name: "Tom's Closet Door"
 
     #
     # OCCUPANCY
@@ -187,7 +187,7 @@ homeassistant:
 
     binary_sensor.bedroom_4_occupancy:
       device_class: occupancy
-      friendly_name: Tom's Office Occupancy
+      friendly_name: "Tom's Office Occupancy"
 
     binary_sensor.foyer_occupancy:
       device_class: occupancy
@@ -229,6 +229,10 @@ homeassistant:
       device_class: moisture
       friendly_name: Laundry Room Leak Sensor
 
+    binary_sensor.leak_wine_cooler_bar:
+      device_class: moisture
+      friendly_name: Wine Cooler Leak Sensor
+
     #
     # BATTERY
     # --------------------------------------------------
@@ -259,11 +263,11 @@ homeassistant:
 
     sensor.door_closet_hallway_j_battery_level:
       device_class: battery
-      friendly_name: Jess' Closet Door Battery
+      friendly_name: "Jess' Closet Door Battery"
 
     sensor.door_closet_hallway_t_battery_level:
       device_class: battery
-      friendly_name: Tom's Closet Door Battery
+      friendly_name: "Tom's Closet Door Battery"
 
     sensor.leak_air_conditioner_battery_level:
       device_class: battery
@@ -292,6 +296,14 @@ homeassistant:
     sensor.leak_washing_machine_laundry_battery_level:
       device_class: battery
       friendly_name: Laundry Room Leak Sensor Battery
+
+    sensor.leak_wine_cooler_bar_battery_level:
+      device_class: battery
+      friendly_name: Wine Cooler Leak Sensor Battery
+
+    sensor.temp_attic_battery_level:
+      device_class: battery
+      friendly_name: Attic Temperature Sensor Battery
 
     #
     # MEDIA
