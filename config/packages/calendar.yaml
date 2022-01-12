@@ -24,30 +24,111 @@ binary_sensor:
 
   - platform: tod
     name: Quiet time
-    after: '21:00'
-    before: '06:00'
+    after: "21:00"
+    before: "06:00"
 
   - platform: tod
     name: Morning
-    after: '06:00'
-    before: '08:30'
+    after: "06:00"
+    before: "08:30"
 
   - platform: tod
     name: Midday
-    after: '08:30'
-    before: '17:00'
+    after: "08:30"
+    before: "17:00"
 
   - platform: tod
     name: Evening
-    after: '17:00'
-    before: '21:00'
+    after: "17:00"
+    before: "21:00"
+
+  - platform: workday
+    name: Waste Take Out, Day, Solid
+    country: US
+    workdays: [tue, fri]
+    excludes: [mon, wed, thu, sat, sun]
+    days_offset: 1
+    remove_holidays:
+      - "New Year's Day"
+      - "Memorial Day"
+      - "Independence Day"
+      - "Labor Day"
+      - "Thanksgiving"
+      - "Christmas Day"
+
+  - platform: workday
+    name: Waste Take Out, Day, Bulk
+    country: US
+    workdays: [tue]
+    excludes: [mon, wed, thu, fri, sat, sun]
+    days_offset: 1
+    remove_holidays:
+      - "New Year's Day"
+      - "Memorial Day"
+      - "Independence Day"
+      - "Labor Day"
+      - "Thanksgiving"
+      - "Christmas Day"
+
+  - platform: workday
+    name: Waste Take Out, Day, Recycling
+    country: US
+    workdays: []
+    excludes: [mon, tue, wed, thu, fri, sat, sun]
+    days_offset: 1
+    remove_holidays:
+      - "New Year's Day"
+      - "Memorial Day"
+      - "Independence Day"
+      - "Labor Day"
+      - "Thanksgiving"
+      - "Christmas Day"
+
+  - platform: workday
+    name: Waste Bring in, Day, Solid
+    country: US
+    workdays: [tue, fri]
+    excludes: [mon, wed, thu, sat, sun]
+    remove_holidays:
+      - "New Year's Day"
+      - "Memorial Day"
+      - "Independence Day"
+      - "Labor Day"
+      - "Thanksgiving"
+      - "Christmas Day"
+
+  # - platform: workday
+  #   name: Waste Bring in, Day, Bulk
+  #   country: US
+  #   workdays: [tue]
+  #   excludes: [mon, wed, thu, fri, sat, sun]
+  #   remove_holidays:
+  #     - "New Year's Day"
+  #     - "Memorial Day"
+  #     - "Independence Day"
+  #     - "Labor Day"
+  #     - "Thanksgiving"
+  #     - "Christmas Day"
+
+  - platform: workday
+    name: Waste Bring in, Day, Recycling
+    country: US
+    workdays: []
+    excludes: [mon, tue, wed, thu, fri, sat, sun]
+    remove_holidays:
+      - "New Year's Day"
+      - "Memorial Day"
+      - "Independence Day"
+      - "Labor Day"
+      - "Thanksgiving"
+      - "Christmas Day"
 
   - platform: tod
-    name: Garbage Reminder TOD
-    after: '16:00'
-    before: '23:59'
+    name: Waste Take Out, Time
+    after: "16:00"
+    before: "22:00"
 
   - platform: tod
-    name: Garbage Action TOD
-    after: '07:00'
-    before: '16:00'
+    name: Waste Bring In, Time
+    after: "06:00"
+    before: "16:00"
