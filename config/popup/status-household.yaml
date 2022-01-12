@@ -12,9 +12,6 @@ browser_mod:
   title: Household Details
   style:
     $: |
-      .mdc-dialog .mdc-dialog__content { 
-        padding: 0 !important;
-      }
       @media screen and (max-width: 992px) { 
         .mdc-dialog .mdc-dialog__container .mdc-dialog__surface { 
           border-radius: 0 !important;
@@ -22,8 +19,7 @@ browser_mod:
       }
     .: |
       :host .content {
-        margin: 0 !important;
-        width: calc( 385px * 2 );
+        width: calc(385px + 385px);
         max-width: 90vw;
       }
 
@@ -35,49 +31,31 @@ browser_mod:
       }
     layout-card:
       $grid-layout$:
-        .: |
-          :host {
-            padding: 0;
-          }
-
-          #root { 
-            margin: -1px !important;
-            overflow-x: hidden;
-          }
-
-          hui-entities-card { border-left: 1px solid rgba(0, 0, 0, 0.3);}
-
-          @media screen and (max-width: 992px) {
-            hui-entities-card { 
-              border-top: 1px solid rgba(0, 0, 0, 0.3);
-              border-left: 0;
-            }
-          }
-
         hui-entities-card:
           $: |
+            .card-content {
+              padding: 1.5em 2.7em 2.3em 2em;
+            }
             ha-card {
-              padding: 0 !important;
+              animation: border 1s forwards;
               border-radius: 0;
-              margin: 0;
             }
-
-            .card-header,
-            .card-content { 
-              padding: 1.5em 1.5em !important;
-              margin: 0 !important;
-            }
-
-            .card-header {
-              padding-top: 1em !important;
-              padding-bottom: 0 !important;
-            }
-
-            @media screen and (max-width: 992px) {
-              ha-card { 
-                width: 100%;
-                width: 100vw;
+            @keyframes border {
+              0%, 100% {
+                border-right: 1px solid rgba(0, 0, 0, 0.3);
               }
+            }
+            /* phone */
+            @media screen and (max-width: 992px) {
+              ha-card {
+                animation: none;
+              }
+            }
+          $hui-horizontal-stack-card$: |
+            #root {
+              justify-content: space-evenly;
+              margin-top: 1.9em;
+              margin-left: 0.8em;
             }
   card:
     type: custom:layout-card
@@ -120,7 +98,7 @@ browser_mod:
             icon: bha:chandelier
             secondary_info: brightness
           - entity: light.living_room_corner_lamp
-            name: Living Room, Corner Lamp
+            name: Living Room, Corner
             icon: bha:table-lamp-variant
             secondary_info: brightness
 
@@ -136,33 +114,33 @@ browser_mod:
           - entity: light.foyer_under_table
             name: Foyer, Under Table
             secondary_info: brightness
-          #- entity: light.bedroom_1_bedside_lamps
-          #  name: Main Bedroom, Bedside Lamps
-          #  secondary_info: brightness
-          - entity: light.bedroom_1_lamp_j
-            name: Main Bedroom, Her Bedside Lamp
+          - entity: light.bedroom_1_bedside_lamps
+            name: Main Bedroom, Bedside
             secondary_info: brightness
-          - entity: light.bedroom_1_lamp_t
-            name: Main Bedroom, His Bedside Lamp
-            secondary_info: brightness
+          # - entity: light.bedroom_1_lamp_j
+          #   name: Main Bedroom, Bedside (Hers)
+          #   secondary_info: brightness
+          # - entity: light.bedroom_1_lamp_t
+          #   name: Main Bedroom, Bedside (His)
+          #   secondary_info: brightness
           - entity: light.closet_hallway_ceiling_light
-            name: Closet Hallway, Ceiling Light
+            name: Closet Hallway, Ceiling
             icon: bha:dome-light
             secondary_info: brightness
           - entity: light.closet_hallway_light_j
-            name: Closet, Her Side
+            name: Closet, Ceiling (Hers)
             secondary_info: brightness
           - entity: light.closet_hallway_light_t
-            name: Closet, His Side
+            name: Closet, Ceiling (His)
             secondary_info: brightness
           - entity: light.bedroom_4_desk_lamp
             name: His Office, Desk Lamp
             secondary_info: brightness
           - entity: light.bedroom_4_lightstrip
-            name: His Office, Light Strip
+            name: His Office, Lightstrip
             secondary_info: brightness
           - entity: light.laundry_ceiling_light
-            name: Laundry Room, Ceiling Light
+            name: Laundry Room, Ceiling
             icon: bha:dome-light
             secondary_info: brightness
 
@@ -193,6 +171,8 @@ browser_mod:
             name: His Office, Media Plug
             #icon: bha:apple-tv
             icon: hass:apple
+          - entity: vacuum.rosie
+            name: Vacuum (Rosie)
 
       - type: entities
         view_layout:
@@ -210,11 +190,13 @@ browser_mod:
           - type: section
             label: Doors
 
-          - entity: cover.garage_door
-            name: Garage Door
           - entity: lock.front_door
             name: Front Door
+          - entity: cover.garage_door
+            name: Garage Door
           - type: divider
+          - entity: binary_sensor.door_living
+            name: Living Room Sliding Glass
           - entity: binary_sensor.door_bedroom_1
             name: Main Bedroom
           - entity: binary_sensor.door_bedroom_2
@@ -223,8 +205,6 @@ browser_mod:
             name: Her Office
           - entity: binary_sensor.door_bedroom_4
             name: His Office
-          - entity: binary_sensor.door_living
-            name: Living Room Sliding Glass
           - entity: binary_sensor.door_laundry
             name: Laundry Room
           #- type: divider
@@ -242,6 +222,8 @@ browser_mod:
             name: Air Conditioner
           - entity: binary_sensor.leak_washing_machine_laundry
             name: Washing Machine
+          - entity: binary_sensor.leak_wine_cooler_bar
+            name: Wine Cooler
           - entity: binary_sensor.leak_sink_guest_bathroom
             name: Guest Bathroom, Sink
           - entity: binary_sensor.leak_sink_half_bathroom

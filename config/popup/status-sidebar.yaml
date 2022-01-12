@@ -30,8 +30,11 @@ browser_mod:
           - entity: input_boolean.sidebar_display_weather_forecast
             name: Display Weather Forecast
           - entity: input_boolean.sidebar_display_lights_on
-            name: Display Lights On
-          - entity: input_boolean.sidebar_display_open_doors
-            name: Display Open Doors
+            name: Display Total Lights On
+          - entity: input_boolean.sidebar_display_exterior_door_status
+            name: Display Exterior Door Status
+          - entity: input_boolean.sidebar_display_sunrise_sunset
+            name: Next Sunrise/Sunset
+          - type: divider
           - entity: input_boolean.sidebar_display_waste_reminder
             name: Display Waste Reminders

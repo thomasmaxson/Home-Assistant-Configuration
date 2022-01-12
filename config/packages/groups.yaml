@@ -81,6 +81,14 @@ group:
       - light.bedroom_1_bedside_lamps
       - light.closet_hallway_ceiling_light
 
+  lights_vacation_demo:
+    name: Vacation Lights
+    entities:
+      #- light.foyer_entryway_ceiling
+      #- light.foyer_hallway_ceiling
+      - light.bedroom_4_desk_lamp
+      - light.bedroom_4_lightstrip
+
   sensors_doors:
     name: Doors
     entities:
@@ -92,6 +100,16 @@ group:
       - binary_sensor.door_laundry
       - binary_sensor.door_closet_hallway_j
       - binary_sensor.door_closet_hallway_t
+
+  sensors_doors_notify:
+    name: Notfiy Door Actions
+    entities:
+      - binary_sensor.door_bedroom_1
+      - binary_sensor.door_bedroom_2
+      - binary_sensor.door_bedroom_3
+      - binary_sensor.door_bedroom_4
+      - binary_sensor.door_living
+      - binary_sensor.door_laundry
 
   sensors_leak:
     name: Leak Sensors

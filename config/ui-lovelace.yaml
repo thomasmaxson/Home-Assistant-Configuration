@@ -400,33 +400,37 @@ views:
                       - popup_dimmer
 
               - type: grid
-                title: Office Media
+                title: Tom's Office Media
                 columns: 3
                 cards:
                   - type: custom:button-card
                     entity: media_player.appletv_bedroom_4
-                    name: Tom's AppleTV
+                    name: AppleTV
                     icon: hass:apple
                     template:
                       - media
 
+                  - type: custom:button-card
+                    entity: media_player.echo_dot_bedroom_4
+                    name: Echo Dot
+                    icon: hass:cast-audio-variant
+                    template:
+                      - media
+
+              - type: grid
+                title: Jess' Office Media
+                columns: 3
+                cards:
                   # - type: custom:button-card
                   #   entity: media_player.appletv_bedroom_3
-                  #   name: Jess' AppleTV
+                  #   name: AppleTV
                   #   icon: hass:apple
                   #   template:
                   #     - media
 
                   - type: custom:button-card
-                    entity: media_player.echo_dot_bedroom_4
-                    name: Tom's Echo Dot
-                    icon: hass:cast-audio-variant
-                    template:
-                      - media
-
-                  - type: custom:button-card
                     entity: media_player.echo_dot_bedroom_3
-                    name: Jess' Echo Dot
+                    name: Echo Dot
                     icon: hass:cast-audio-variant
                     template:
                       - media
@@ -491,6 +495,17 @@ views:
                     template:
                       - popup_dimmer_colors
 
+              - type: grid
+                title: Guest Bedroom
+                columns: 3
+                cards:
+                  - type: custom:button-card
+                    entity: media_player.appletv_bedroom_2
+                    name: AppleTV
+                    icon: hass:apple
+                    template:
+                      - media
+
       #
       # RESIDENT
       # --------------------------------------------------
@@ -539,8 +554,19 @@ views:
                   - type: custom:button-card
                     name: Gouda
                     entity: input_boolean.gouda_home
-                    #image: local/uploads/avatar-gouda.png
                     show_entity_picture: true
                     entity_picture: /local/uploads/avatar-gouda.png
                     template:
-                      - pet
+                      - person_boolean
+
+              - type: grid
+                title: Resident Status
+                columns: 3
+                cards:
+                  - type: custom:button-card
+                    name: Guests
+                    entity: input_boolean.guests_home
+                    show_entity_picture: true
+                    entity_picture: /local/uploads/avatar-guest-dino.png
+                    template:
+                      - person_boolean

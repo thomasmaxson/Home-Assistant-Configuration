@@ -12,9 +12,6 @@ browser_mod:
   title: System Details
   style:
     $: |
-      .mdc-dialog .mdc-dialog__content { 
-        padding: 0 !important;
-      }
       @media screen and (max-width: 992px) { 
         .mdc-dialog .mdc-dialog__container .mdc-dialog__surface { 
           border-radius: 0 !important;
@@ -22,8 +19,7 @@ browser_mod:
       }
     .: |
       :host .content {
-        margin: 0 !important;
-        width: calc( 385px * 3 );
+        width: calc(385px + 385px + 385px);
         max-width: 90vw;
       }
 
@@ -35,56 +31,31 @@ browser_mod:
       }
     layout-card:
       $grid-layout$:
-        .: |
-          :host {
-            padding: 0;
-          }
-
-          #root { 
-            margin: -1px !important;
-            overflow-x: hidden;
-          }
-
-          hui-entities-card { border-left: 1px solid rgba(0, 0, 0, 0.3);}
-
-          @media screen and (max-width: 992px) {
-            hui-entities-card { 
-              border-top: 1px solid rgba(0, 0, 0, 0.3);
-              border-left: 0;
-            }
-          }
-
         hui-entities-card:
           $: |
+            .card-content {
+              padding: 1.5em 2.7em 2.3em 2em;
+            }
             ha-card {
-              padding: 0 !important;
+              animation: border 1s forwards;
               border-radius: 0;
-              margin: 0;
             }
-
-            .card-header,
-            .card-content { 
-              padding: 1.5em 1.5em !important;
-              margin: 0 !important;
-            }
-
-            .card-header {
-              padding-top: 1em !important;
-              padding-bottom: 0 !important;
-            }
-
-            @media screen and (max-width: 992px) {
-              ha-card { 
-                width: 100%;
-                width: 100vw;
+            @keyframes border {
+              0%, 100% {
+                border-right: 1px solid rgba(0, 0, 0, 0.3);
               }
             }
-
+            /* phone */
+            @media screen and (max-width: 992px) {
+              ha-card {
+                animation: none;
+              }
+            }
           $hui-horizontal-stack-card$: |
             #root {
               justify-content: space-evenly;
-              margin-top: 1.5em;
-              margin-bottom: 1em;
+              margin-top: 1.9em;
+              margin-left: 0.8em;
             }
   card:
     type: custom:layout-card

@@ -24,36 +24,18 @@ browser_mod:
         show_header_toggle: false
         entities:
           - type: section
-            label: Trash Day(s) of the Week
-          - entity: input_select.waste_trash_day_a
-            name: Day A
-          - entity: input_select.waste_trash_day_b
-            name: Day B
+            label: Automation Flags
+          - entity: input_boolean.automation_daily_sunset
+            name: Evening Automations
 
           - type: section
-            label: Bulk Trash Day(s) of the Week
-          - entity: input_select.waste_bulk_day_a
-            name: Day A
-          #- entity: input_select.waste_bulk_day_b
-          #  name: Day B
-
-          - type: section
-            label: Recycling Day(s) of the Week
-          - entity: input_select.waste_recycle_day_a
-            name: Day A
-          - entity: input_select.waste_recycle_day_b
-            name: Day B
-
-          - type: section
-            label: Take Out Reminder Window
-          - entity: input_datetime.waste_reminder_take_out_time_start
-            name: Start Time
-          - entity: input_datetime.waste_reminder_take_out_time_end
-            name: End Time
-
-          - type: section
-            label: Bring In Reminder Window
-          - entity: input_datetime.waste_reminder_bring_in_time_start
-            name: Start Time
-          - entity: input_datetime.waste_reminder_bring_in_time_end
-            name: End Time
+            label: Doorbell Notifications
+          - entity: timer.doorbell_motion_snooze
+            name: Snooze Duration
+          - type: conditional
+            conditions:
+              - entity: timer.doorbell_motion_snooze
+                state: "active"
+            row:
+              entity: sensor.doorbell_motion_snooze_countdown
+              name: Snooze Countdown

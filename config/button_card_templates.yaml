@@ -551,10 +551,10 @@ person:
       ]]]
 
 #
-# PET
+# PERSON (BOOLEAN)
 # --------------------------------------------------
 
-pet:
+person_boolean:
   template:
     - base
     - circle
