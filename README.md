@@ -69,7 +69,9 @@ Make sure that you :star: this repo, so that you can get updates right in your n
 ##### Sensors
 * [Aqara Door and Window Sensor](https://www.amazon.com/gp/product/B07D37VDM3/)
 * [Aqara Leak Sensor](https://www.amazon.com/gp/product/B07D39MSZS/)
-* [Philips Hue Indoor Motion Sensor](https://www.amazon.com/gp/product/B076MGK22M/)
+* [Aqara Motion Sensor](https://www.amazon.com/gp/product/B07D1CRRVF/)
+* [Aqara Temperature Sensor](https://www.amazon.com/gp/product/B07D37FKGY/)
+* [SONOFF SNZB-02 Temperature and Humidity Sensor](https://www.amazon.com/gp/product/B08BCJNDYQ/)
 
 ##### Climate
 * [Ecobee Thermostat](https://www.amazon.com/gp/product/B07NQT85FC/)
@@ -80,6 +82,7 @@ Make sure that you :star: this repo, so that you can get updates right in your n
 ### Integrations:
 Below are a few of the integrations that I use
 
+* Node RED
 * [Alexa Media Player](https://github.com/custom-components/alexa_media_player/wiki)
 * [Apple TV](https://www.home-assistant.io/integrations/apple_tv)
 * [August](https://www.home-assistant.io/integrations/august)
