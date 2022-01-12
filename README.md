@@ -8,17 +8,17 @@ This repo contains the constantly-in-progress [Home Assistant](https://home-assi
 Make sure that you :star: this repo, so that you can get updates right in your notification feed.
 
 ### Dashboard:
-![dashboard](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/lovelace-dashboard.png)
+![dashboard](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/lovelace-dashboard-1.png)
 
 #### Information Popups:
 ##### Household Entities Popup:
-![houdehold](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-details-household.png)
+![houdehold](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-details-household-1.png)
 
 ##### Household Temperature Popup:
 ![temperature](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-details-temperature.png)
 
 ##### Household Settings Popup:
-![settings](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-details-settings.png)
+![settings](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-details-settings-1.png)
 
 ##### Household Systems Popup:
 ![systems](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-details-system.png)
@@ -34,7 +34,7 @@ Make sure that you :star: this repo, so that you can get updates right in your n
 ![switch](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-light-switch.png)
 
 ##### Sidebar Visibility Controls:
-![sidebar](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-sidebar-customizer.png)
+![sidebar](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-sidebar-customizer-1.png)
 
 <hr>
 
