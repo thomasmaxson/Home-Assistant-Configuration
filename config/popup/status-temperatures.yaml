@@ -4,6 +4,8 @@
 # @package     : Popup, Temperature
 # @description :
 #
+# Color Tool   : https://material.io/resources/color/#!/?view.left=0&view.right=0
+#
 ################################################################################
 
 action: fire-dom-event
@@ -17,64 +19,135 @@ browser_mod:
           border-radius: 0 !important;
         }
       }
+    .: |
+      :host .content {
+        width: calc(385px + 385px);
+        max-width: 90vw;
+      }
+
+      @media screen and (max-width: 992px) {
+        :host .content {
+          width: 100%;
+          max-width: none;
+        }
+      }
+    layout-card:
+      $grid-layout$:
+        hui-entities-card:
+          $: |
+            .card-content {
+              padding: 1.5em 2.7em 2.3em 2em;
+            }
+            ha-card {
+              animation: border 1s forwards;
+              border-radius: 0;
+            }
+            @keyframes border {
+              0%, 100% {
+                border-right: 1px solid rgba(0, 0, 0, 0.3);
+              }
+            }
+            /* phone */
+            @media screen and (max-width: 992px) {
+              ha-card {
+                animation: none;
+              }
+            }
+          $hui-horizontal-stack-card$: |
+            #root {
+              justify-content: space-evenly;
+              margin-top: 1.9em;
+              margin-left: 0.8em;
+            }
   card:
-    type: vertical-stack
+    type: custom:layout-card
+    layout_type: custom:grid-layout
+    layout:
+      grid-template-columns: repeat(2, 1fr)
+      grid-template-rows: 1fr
+      grid-template-areas: |
+        'column_a column_b'
+        'column_c column_c'
+      mediaquery:
+        # Tablet and down
+        "(max-width: 992px)":
+          grid-template-columns: 1fr
+          grid-template-rows: repeat(1, 1fr)
+          grid-template-areas: |
+            'column_a'
+            'column_b'
+            'column_c'
+
     cards:
       - type: thermostat
         entity: climate.ecobee
+        view_layout:
+          grid-area: column_a
+        show_header_toggle: false
 
       - type: entities
-        card_mod:
-          class: content
+        view_layout:
+          grid-area: column_b
+        show_header_toggle: false
         entities:
-          - entity: sensor.foyer_temperature
-            name: Foyer Temperature
-            style: |
-              :host {
-                --paper-item-icon-color: #458138;
-              }
-          - entity: sensor.living_room_temperature
-            name: Living Room Temperature
-            style: |
-              :host {
-                --paper-item-icon-color: #385581;
-              }
-          - entity: sensor.bedroom_1_temperature
-            name: Main Bedroom Temperature
-            style: |
-              :host {
-                --paper-item-icon-color: #385581;
-              }
-          - entity: sensor.bedroom_4_temperature
-            name: His Office Temperature
-            style: |
-              :host {
-                --paper-item-icon-color: #813872;
-              }
-          - entity: sensor.temp_attic_temperature
-            name: Attic Temperature
-            style: |
-              :host {
-                --paper-item-icon-color: #ff9900;
-              }
-
-          - type: divider
           - entity: sensor.foyer_humidity
             name: Humidity
 
+          - type: divider
+
+          - entity: sensor.foyer_temperature
+            name: Foyer
+            style: |
+              :host {
+                --paper-item-icon-color: #e53935;
+              }
+          - entity: sensor.living_room_temperature
+            name: Living Room
+            style: |
+              :host {
+                --paper-item-icon-color: #fb8c00;
+              }
+          - entity: sensor.bedroom_1_temperature
+            name: Main Bedroom
+            style: |
+              :host {
+                --paper-item-icon-color: #fdd835;
+              }
+          - entity: sensor.bedroom_4_temperature
+            name: Office, His
+            style: |
+              :host {
+                --paper-item-icon-color: #4caf50;
+              }
+          - entity: sensor.temp_attic_temperature
+            name: Attic
+            style: |
+              :host {
+                --paper-item-icon-color: #757575;
+              }
+
+      - type: entities
+        view_layout:
+          grid-area: column_c
+        show_header_toggle: false
+        entities:
+          - type: divider
         footer:
           type: custom:mini-graph-card
           entities:
-            - entity: sensor.foyer_temperature
-              color: green
-            - entity: sensor.living_room_temperature
-              color: "#385581"
+            - entity: sensor.bedroom_4_temperature
+              color: "#4caf50"
+              name: Office, His
             - entity: sensor.bedroom_1_temperature
-              color: "#385581"
-            #- entity: sensor.bedroom_4_temperature
-            #  name: His Office
-            #  color: "#813872"
-          line_width: 3
+              color: "#fdd835"
+              name: Main Bedroom
+            - entity: sensor.living_room_temperature
+              color: "#fb8c00"
+              name: Living Room
+            - entity: sensor.foyer_temperature
+              color: "#e53935"
+              name: Foyer
+          line_width: 2
           hour24: true
           group: false
           align_state: left
@@ -82,11 +155,9 @@ browser_mod:
           show:
             {
               fill: fade,
-              icon: false,
               name: false,
+              icon: false,
               state: false,
-              name_adaptive_color: false,
-              labels: hover,
               legend: false,
             }
           tap_action:
