@@ -81,7 +81,7 @@ browser_mod:
         show_header_toggle: false
         entities:
           - type: section
-            label: Waste Pickup
+            label: Waste Collection
           - entity: sensor.days_until_waste_solid
             name: Solid Waste
           - entity: sensor.days_until_waste_bulk

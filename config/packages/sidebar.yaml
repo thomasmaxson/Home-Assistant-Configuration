@@ -232,12 +232,12 @@ template:
             {%- set count_days_waste_bulk    = states( 'sensor.days_until_waste_bulk' ) | regex_replace( find = '\D', replace = '' ) %}
             {%- set count_days_waste_recycle = states( 'sensor.days_until_waste_recycling' ) | regex_replace( find = '\D', replace = '' ) %}
 
-            {%- set is_day_out_waste_solid   = ( count_days_waste_solid == '1' and count_days_waste_solid != 'Never' ) %}
-            {%- set is_day_out_waste_bulk    = ( count_days_waste_bulk == '1' and count_days_waste_bulk != 'Never' ) %}
-            {%- set is_day_out_waste_recycle = ( count_days_waste_recycle == '1' and count_days_waste_recycle != 'Never' ) %}
+            {%- set is_day_out_waste_solid   = ( count_days_waste_solid == '1' and count_days_waste_solid != '' ) %}
+            {%- set is_day_out_waste_bulk    = ( count_days_waste_bulk == '1' and count_days_waste_bulk != '' ) %}
+            {%- set is_day_out_waste_recycle = ( count_days_waste_recycle == '1' and count_days_waste_recycle != '' ) %}
 
-            {%- set is_day_in_waste_solid   = ( count_days_waste_solid == '0' and count_days_waste_solid != 'Never' ) %}
-            {%- set is_day_in_waste_recycle = ( count_days_waste_recycle == '0' and count_days_waste_recycle != 'Never' ) %}
+            {%- set is_day_in_waste_solid   = ( count_days_waste_solid == '0' and count_days_waste_solid != '' ) %}
+            {%- set is_day_in_waste_recycle = ( count_days_waste_recycle == '0' and count_days_waste_recycle != '' ) %}
 
             {%- set is_time_out = is_state( 'binary_sensor.waste_out_time', 'on' ) %}
             {%- set is_time_in = is_state( 'binary_sensor.waste_in_time', 'on' ) %}

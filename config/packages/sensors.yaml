@@ -435,7 +435,7 @@ sensor:
               {%- set ns.days = ns.days + [0] %}
 
             {%- else -%}
-              {%- for i in range( 1, 6, 1 ) %}
+              {%- for i in range( 1, 7, 1 ) %}
                 {%- set dow = ( now() + timedelta( days = i ) ).strftime( '%a' ) | lower %}
 
                 {%- if dow in wd %}
@@ -467,7 +467,7 @@ sensor:
               {%- set ns.days = ns.days + [0] %}
 
             {%- else -%}
-              {%- for i in range( 1, 6, 1 ) %}
+              {%- for i in range( 1, 7, 1 ) %}
                 {%- set dow = ( now() + timedelta( days = i ) ).strftime( '%a' ) | lower %}
 
                 {%- if dow in wd %}
