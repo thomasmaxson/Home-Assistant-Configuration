@@ -43,11 +43,10 @@ binary_sensor:
     before: "21:00"
 
   - platform: workday
-    name: Waste Take Out, Day, Solid
+    name: Waste Day, Solid
     country: US
     workdays: [tue, fri]
     excludes: [mon, wed, thu, sat, sun]
-    days_offset: 1
     remove_holidays:
       - "New Year's Day"
       - "Memorial Day"
@@ -57,11 +56,10 @@ binary_sensor:
       - "Christmas Day"
 
   - platform: workday
-    name: Waste Take Out, Day, Bulk
+    name: Waste Day, Bulk
     country: US
     workdays: [tue]
     excludes: [mon, wed, thu, fri, sat, sun]
-    days_offset: 1
     remove_holidays:
       - "New Year's Day"
       - "Memorial Day"
@@ -71,47 +69,7 @@ binary_sensor:
       - "Christmas Day"
 
   - platform: workday
-    name: Waste Take Out, Day, Recycling
-    country: US
-    workdays: []
-    excludes: [mon, tue, wed, thu, fri, sat, sun]
-    days_offset: 1
-    remove_holidays:
-      - "New Year's Day"
-      - "Memorial Day"
-      - "Independence Day"
-      - "Labor Day"
-      - "Thanksgiving"
-      - "Christmas Day"
-
-  - platform: workday
-    name: Waste Bring in, Day, Solid
-    country: US
-    workdays: [tue, fri]
-    excludes: [mon, wed, thu, sat, sun]
-    remove_holidays:
-      - "New Year's Day"
-      - "Memorial Day"
-      - "Independence Day"
-      - "Labor Day"
-      - "Thanksgiving"
-      - "Christmas Day"
-
-  # - platform: workday
-  #   name: Waste Bring in, Day, Bulk
-  #   country: US
-  #   workdays: [tue]
-  #   excludes: [mon, wed, thu, fri, sat, sun]
-  #   remove_holidays:
-  #     - "New Year's Day"
-  #     - "Memorial Day"
-  #     - "Independence Day"
-  #     - "Labor Day"
-  #     - "Thanksgiving"
-  #     - "Christmas Day"
-
-  - platform: workday
-    name: Waste Bring in, Day, Recycling
+    name: Waste Day, Recycling
     country: US
     workdays: []
     excludes: [mon, tue, wed, thu, fri, sat, sun]

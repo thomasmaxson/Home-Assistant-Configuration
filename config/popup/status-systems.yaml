@@ -17,18 +17,7 @@ browser_mod:
           border-radius: 0 !important;
         }
       }
-    .: |
-      :host .content {
-        width: calc(385px + 385px + 385px);
-        max-width: 90vw;
-      }
 
-      @media screen and (max-width: 992px) {
-        :host .content {
-          width: 100%;
-          max-width: none;
-        }
-      }
     layout-card:
       $grid-layout$:
         hui-entities-card:

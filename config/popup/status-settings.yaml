@@ -12,9 +12,6 @@ browser_mod:
   title: Settings
   style:
     $: |
-      .mdc-dialog .mdc-dialog__content { 
-        padding: 0 !important;
-      }
       @media screen and (max-width: 992px) { 
         .mdc-dialog .mdc-dialog__container .mdc-dialog__surface { 
           border-radius: 0 !important;
@@ -22,8 +19,7 @@ browser_mod:
       }
     .: |
       :host .content {
-        margin: 0 !important;
-        width: calc( 385px * 2 );
+        width: calc(385px + 385px);
         max-width: 90vw;
       }
 
@@ -35,86 +31,99 @@ browser_mod:
       }
     layout-card:
       $grid-layout$:
-        .: |
-          :host {
-            padding: 0;
-          }
-
-          #root { 
-            margin: -1px !important;
-            overflow-x: hidden;
-          }
-
-          hui-entities-card { border-left: 1px solid rgba(0, 0, 0, 0.3);}
-
-          @media screen and (max-width: 992px) {
-            hui-entities-card { 
-              border-top: 1px solid rgba(0, 0, 0, 0.3);
-              border-left: 0;
-            }
-          }
-
         hui-entities-card:
           $: |
+            .card-content {
+              padding: 1.5em 2.7em 2.3em 2em;
+            }
             ha-card {
-              padding: 0 !important;
+              animation: border 1s forwards;
               border-radius: 0;
-              margin: 0;
             }
-
-            .card-header,
-            .card-content { 
-              padding: 1.5em 1.5em !important;
-              margin: 0 !important;
-            }
-
-            .card-header {
-              padding-top: 1em !important;
-              padding-bottom: 0 !important;
-            }
-
-            @media screen and (max-width: 992px) {
-              ha-card { 
-                width: 100%;
-                width: 100vw;
+            @keyframes border {
+              0%, 100% {
+                border-right: 1px solid rgba(0, 0, 0, 0.3);
               }
+            }
+            /* phone */
+            @media screen and (max-width: 992px) {
+              ha-card {
+                animation: none;
+              }
+            }
+          $hui-horizontal-stack-card$: |
+            #root {
+              justify-content: space-evenly;
+              margin-top: 1.9em;
+              margin-left: 0.8em;
             }
   card:
     type: custom:layout-card
     layout_type: custom:grid-layout
     layout:
-      grid-template-columns: repeat(1, 1fr)
+      grid-template-columns: repeat(2, 1fr)
       grid-template-rows: 1fr
       grid-template-areas: |
-        'general notifications'
+        'column_a column_b'
       mediaquery:
         # Tablet and down
         "(max-width: 992px)":
           grid-template-columns: 1fr
           grid-template-rows: repeat(1, 1fr)
           grid-template-areas: |
-            'general'
-            'notifications'
+            'column_a'
+            'column_b'
     cards:
       - type: entities
         view_layout:
-          grid-area: general
-        title: Settings
+          grid-area: column_a
+        #title: Settings
         show_header_toggle: false
         entities:
+          - type: section
+            label: Waste Pickup
+          - entity: sensor.days_until_waste_solid
+            name: Solid Waste
+          - entity: sensor.days_until_waste_bulk
+            name: Bulk Waste
+          - entity: sensor.days_until_waste_recycling
+            name: Recycling
+
+          - type: section
+            label: Sync Lights
           - entity: input_boolean.sync_foyer_lights
-            name: Sync Foyer Ceiling Lights
+            name: Foyer, Entryway & Hallway
+
+          - type: conditional
+            conditions:
+              - entity: input_boolean.automation_daily_sunset
+                state: "on"
+            row:
+              entity: input_boolean.automation_daily_sunset
+              name: Daily Automations Ran
+
+          - type: section
+            label: Vacation Mode
           - entity: input_boolean.vacation_mode
-            name: Household Vacation Mode
+            name: Activate
+          - type: conditional
+            conditions:
+              - entity: input_boolean.vacation_mode
+                state: "on"
+            row:
+              entity: input_boolean.vacation_mode_running
+              name: Light Is On
 
       - type: entities
         view_layout:
-          grid-area: notifications
-        title: Notifications
+          grid-area: column_b
+        #title: Notifications
         show_header_toggle: false
         entities:
-          - entity: input_boolean.audible_notifications_johan
-            name: Household Audible Notifications
+          - type: section
+            label: Auditory Notifications
+          - entity: input_boolean.household_notify
+            name: Household Can Speak
           - type: section
             label: Recieve Push Notifications
           - entity: input_boolean.app_notify
