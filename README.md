@@ -10,31 +10,17 @@ Make sure that you :star: this repo, so that you can get updates right in your n
 ### Dashboard:
 ![dashboard](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/lovelace-dashboard-1.png)
 
-#### Information Popups:
-##### Household Entities Popup:
-![houdehold](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-details-household-1.png)
 
-##### Household Temperature Popup:
-![temperature](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-details-temperature.png)
+#### Household Information Popups:
+| [![household](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-details-household-1.png)](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-details-household-1.png)<br>Entities Popup | [![temperature](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-details-temperature.png)](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-details-temperature.png)<br>Temperature Popup |
+|:---:|:---:|
+| [![settings](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-details-settings-1.png)](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-details-settings-1.png)<br>Settings Popup | [![systems](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-details-system.png)](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-details-system.png)<br>Systems Popup |
 
-##### Household Settings Popup:
-![settings](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-details-settings-1.png)
-
-##### Household Systems Popup:
-![systems](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-details-system.png)
 
 #### Control Popups:
-##### Light Dimmer with Colors:
-![dimmer1](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-light-dimmer-color.png)
-
-##### Light Dimmer:
-![dimmer2](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-light-dimmer.png)
-
-##### Light Switch:
-![switch](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-light-switch.png)
-
-##### Sidebar Visibility Controls:
-![sidebar](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-sidebar-customizer-1.png)
+| [![dimmer1](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-light-dimmer-color.png)](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-light-dimmer-color.png)<br>Light Dimmer with Colors | [![dimmer2](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-light-dimmer-color.png)](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-light-dimmer-color.png)<br>Light Dimmer |
+|:---:|:---:|
+| [![switch](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-light-switch.png)](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-light-switch.png)<br>Light Switch | [![sidebar](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-sidebar-customizer-1.png)](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-sidebar-customizer-1.png)<br>Sidebar Visibility Controls |
 
 <hr>
 
@@ -51,7 +37,7 @@ Make sure that you :star: this repo, so that you can get updates right in your n
 * Fire Tablet HD10
 
 ##### Media
-* AppleTv
+* AppleTV
 * [Amazon Echo Dot](https://www.amazon.com/gp/product/B07FZ8S74R/)
 * [Amazon Echo](https://www.amazon.com/gp/product/B084J4KNDS/)
 
@@ -79,10 +65,12 @@ Make sure that you :star: this repo, so that you can get updates right in your n
 
 <hr>
 
-### Integrations:
-Below are a few of the integrations that I use
+### Integrations
 
-* Node RED
+<details>
+<summary>Click to Expand</summary>
+
+* Node RED | Router, controller, switch and access point |
 * [Alexa Media Player](https://github.com/custom-components/alexa_media_player/wiki)
 * [Apple TV](https://www.home-assistant.io/integrations/apple_tv)
 * [August](https://www.home-assistant.io/integrations/august)
@@ -96,12 +84,20 @@ Below are a few of the integrations that I use
 * [MyQ](https://www.home-assistant.io/integrations/myq)
 * [Rachio](https://www.home-assistant.io/integrations/rachio)
 * [Ring](https://www.home-assistant.io/integrations/ring)
-* [Zigbee Home Automation](https://www.home-assistant.io/integrations/zha)
+* [Zigbee Home Automation](https://www.home-assistant.io/integrations/zha)  
+
+</details>
 
 <hr>
 
 ### Inspiration:
+
+<details>
+<summary>Click to Expand</summary>
+
 Below are a few of my most used resources. If you like what you see here, please check them out as well!
 
 * [Matt8707 (Mattias Persson)](https://github.com/matt8707/hass-config)
 * [Slacker Labs (Jeffery Stone)](https://github.com/thejeffreystone/home-assistant-configuration/)
+
+</details>
