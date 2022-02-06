@@ -1,0 +1,213 @@
+################################################################################
+#
+# @author      : Thomas Maxson
+# @package     : Template
+# @description :
+#
+################################################################################
+
+template:
+  - trigger:
+      # Update on Home Assistant startup
+      - platform: homeassistant
+        event: start
+      # Update daily at midnight
+      - platform: time_pattern
+        hours: "00"
+        minutes: "00"
+        seconds: "00"
+    sensor:
+      - name: "Waste Day, Solid"
+        icon: mdi:trash-can-outline
+        state: >-
+          {%- set ns = namespace( days = [] ) %}
+          {%- set wd = state_attr( 'binary_sensor.waste_day_solid', 'workdays' ) %}
+          {%- set today = now().strftime( '%a' ) | lower %}
+
+          {%- if wd %}
+            {%- if today in wd %}
+              {%- set ns.days = ns.days + [0] %}
+
+            {%- else -%}
+              {%- for i in range( 1, 7, 1 ) %}
+                {%- set dow = ( now() + timedelta( days = i ) ).strftime( '%a' ) | lower %}
+
+                {%- if dow in wd %}
+                  {%- set ns.days = ns.days + [i] %}
+                {%- endif %}
+              {%- endfor %}
+            {%- endif %}
+
+            {% set value = ns.days | min %}
+
+            {%- if 0 == value %}
+              Today
+
+            {%- elif 1 == value %}
+              Tomorrow
+
+            {%- else %}
+              {{value}} days away
+
+            {%- endif %}
+          {%- else -%}
+            Never
+
+          {%- endif %}
+
+        attributes:
+          days_until: >-
+            {%- set ns = namespace( days = [] ) %}
+            {%- set wd = state_attr( 'binary_sensor.waste_day_solid', 'workdays' ) %}
+            {%- set today = now().strftime( '%a' ) | lower %}
+
+            {%- if wd %}
+              {%- if today in wd %}
+                {%- set ns.days = ns.days + [0] %}
+
+              {%- else -%}
+                {%- for i in range( 1, 7, 1 ) %}
+                  {%- set dow = ( now() + timedelta( days = i ) ).strftime( '%a' ) | lower %}
+
+                  {%- if dow in wd %}
+                    {%- set ns.days = ns.days + [i] %}
+                  {%- endif %}
+                {%- endfor %}
+              {%- endif %}
+
+              {{ ns.days | min | int }}
+
+            {%- else -%}
+              {{ '-1' | int }}
+
+            {%- endif %}
+
+      - name: "Waste Day, Bulk"
+        icon: mdi:washing-machine
+        state: >-
+          {%- set ns = namespace( days = [] ) %}
+          {%- set wd = state_attr( 'binary_sensor.waste_day_bulk', 'workdays' ) %}
+          {%- set today = now().strftime( '%a' ) | lower %}
+
+          {%- if wd %}
+            {%- if today in wd %}
+              {%- set ns.days = ns.days + [0] %}
+
+            {%- else -%}
+              {%- for i in range( 1, 7, 1 ) %}
+                {%- set dow = ( now() + timedelta( days = i ) ).strftime( '%a' ) | lower %}
+
+                {%- if dow in wd %}
+                  {%- set ns.days = ns.days + [i] %}
+                {%- endif %}
+              {%- endfor %}
+            {%- endif %}
+
+            {% set value = ns.days | min %}
+
+            {%- if 0 == value %}
+              Today
+
+            {%- elif 1 == value %}
+              Tomorrow
+
+            {%- else %}
+              {{value}} days away
+
+            {%- endif %}
+          {%- else -%}
+            Never
+
+          {%- endif %}
+
+        attributes:
+          days_until: >-
+            {%- set ns = namespace( days = [] ) %}
+            {%- set wd = state_attr( 'binary_sensor.waste_day_bulk', 'workdays' ) %}
+            {%- set today = now().strftime( '%a' ) | lower %}
+
+            {%- if wd %}
+              {%- if today in wd %}
+                {%- set ns.days = ns.days + [0] %}
+
+              {%- else -%}
+                {%- for i in range( 1, 7, 1 ) %}
+                  {%- set dow = ( now() + timedelta( days = i ) ).strftime( '%a' ) | lower %}
+
+                  {%- if dow in wd %}
+                    {%- set ns.days = ns.days + [i] %}
+                  {%- endif %}
+                {%- endfor %}
+              {%- endif %}
+
+              {{ ns.days | min | int }}
+
+            {%- else -%}
+              {{ '-1' | int }}
+
+            {%- endif %}
+
+      - name: "Waste Day, Recycling"
+        icon: mdi:recycle
+        state: >-
+          {%- set ns = namespace( days = [] ) %}
+          {%- set wd = state_attr( 'binary_sensor.waste_day_recycling', 'workdays' ) %}
+          {%- set today = now().strftime( '%a' ) | lower %}
+
+          {%- if wd %}
+            {%- if today in wd %}
+              {%- set ns.days = ns.days + [0] %}
+
+            {%- else -%}
+              {%- for i in range( 1, 7, 1 ) %}
+                {%- set dow = ( now() + timedelta( days = i ) ).strftime( '%a' ) | lower %}
+
+                {%- if dow in wd %}
+                  {%- set ns.days = ns.days + [i] %}
+                {%- endif %}
+              {%- endfor %}
+            {%- endif %}
+
+            {% set value = ns.days | min %}
+
+            {%- if 0 == value %}
+              Today
+
+            {%- elif 1 == value %}
+              Tomorrow
+
+            {%- else %}
+              {{value}} days away
+
+            {%- endif %}
+          {%- else -%}
+            Never
+
+          {%- endif %}
+
+        attributes:
+          days_until: >-
+            {%- set ns = namespace( days = [] ) %}
+            {%- set wd = state_attr( 'binary_sensor.waste_day_recycling', 'workdays' ) %}
+            {%- set today = now().strftime( '%a' ) | lower %}
+
+            {%- if wd %}
+              {%- if today in wd %}
+                {%- set ns.days = ns.days + [0] %}
+
+              {%- else -%}
+                {%- for i in range( 1, 7, 1 ) %}
+                  {%- set dow = ( now() + timedelta( days = i ) ).strftime( '%a' ) | lower %}
+
+                  {%- if dow in wd %}
+                    {%- set ns.days = ns.days + [i] %}
+                  {%- endif %}
+                {%- endfor %}
+              {%- endif %}
+
+              {{ ns.days | min | int }}
+
+            {%- else -%}
+              {{ '-1' | int }}
+
+            {%- endif %}

@@ -84,9 +84,9 @@ binary_sensor:
   - platform: tod
     name: Waste Take Out, Time
     after: "16:00"
-    before: "22:00"
+    before: "22:30"
 
   - platform: tod
     name: Waste Bring In, Time
     after: "06:00"
-    before: "16:00"
+    before: "18:00"

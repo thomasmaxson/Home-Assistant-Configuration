@@ -76,5 +76,7 @@ browser_mod:
 # For more info ->https://www.home-assistant.io/integrations/media_extractor/
 media_extractor:
 
+stream:
+
 device_tracker:
   - platform: bluetooth_tracker
