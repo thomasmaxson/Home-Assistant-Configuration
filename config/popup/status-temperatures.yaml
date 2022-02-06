@@ -14,60 +14,64 @@ browser_mod:
   title: Temperature
   style:
     $: |
+      /* Mobile Devices */
       @media screen and (max-width: 992px) { 
         .mdc-dialog .mdc-dialog__container .mdc-dialog__surface { 
           border-radius: 0 !important;
         }
       }
+
     .: |
-      :host .content {
-        width: calc(385px + 385px);
+      :host .content { 
+        width: calc(350px + 300px + 300px);
         max-width: 90vw;
       }
 
-      @media screen and (max-width: 992px) {
+      /* Mobile Devices */
+      @media screen and (max-width: 992px) { 
         :host .content {
           width: 100%;
           max-width: none;
         }
       }
+
     layout-card:
       $grid-layout$:
+        hui-thermostat-card:
+          $: |
+            ha-card { 
+              border-radius: 0;
+              width: 350px;
+            }
+
         hui-entities-card:
           $: |
-            .card-content {
-              padding: 1.5em 2.7em 2.3em 2em;
-            }
-            ha-card {
-              animation: border 1s forwards;
+            ha-card { 
               border-radius: 0;
+              animation: border 1s forwards;
             }
+
             @keyframes border {
               0%, 100% {
-                border-right: 1px solid rgba(0, 0, 0, 0.3);
+                border-left: 1px solid rgba(0, 0, 0, 0.3);
               }
             }
-            /* phone */
-            @media screen and (max-width: 992px) {
+
+            /* Mobile Devices */
+            @media screen and (max-width: 992px) { 
               ha-card {
                 animation: none;
               }
-            }
-          $hui-horizontal-stack-card$: |
-            #root {
-              justify-content: space-evenly;
-              margin-top: 1.9em;
-              margin-left: 0.8em;
             }
   card:
     type: custom:layout-card
     layout_type: custom:grid-layout
     layout:
-      grid-template-columns: repeat(2, 1fr)
+      grid-template-columns: repeat(3, 1fr)
       grid-template-rows: 1fr
       grid-template-areas: |
-        'column_a column_b'
-        'column_c column_c'
+        'column_a column_b column_c'
+        'column_d column_d column_d'
       mediaquery:
         # Tablet and down
         "(max-width: 992px)":
@@ -77,6 +81,7 @@ browser_mod:
             'column_a'
             'column_b'
             'column_c'
+            'column_d'
 
     cards:
       - type: thermostat
@@ -90,75 +95,62 @@ browser_mod:
           grid-area: column_b
         show_header_toggle: false
         entities:
-          - entity: sensor.foyer_humidity
-            name: Humidity
-
-          - type: divider
-
           - entity: sensor.foyer_temperature
             name: Foyer
-            style: |
-              :host {
-                --paper-item-icon-color: #e53935;
-              }
+
           - entity: sensor.living_room_temperature
             name: Living Room
-            style: |
-              :host {
-                --paper-item-icon-color: #fb8c00;
-              }
+
           - entity: sensor.bedroom_1_temperature
             name: Main Bedroom
-            style: |
-              :host {
-                --paper-item-icon-color: #fdd835;
-              }
+
           - entity: sensor.bedroom_4_temperature
-            name: Office, His
-            style: |
-              :host {
-                --paper-item-icon-color: #4caf50;
-              }
-          - entity: sensor.temp_attic_temperature
-            name: Attic
-            style: |
-              :host {
-                --paper-item-icon-color: #757575;
-              }
+            name: His Office
 
       - type: entities
         view_layout:
           grid-area: column_c
         show_header_toggle: false
         entities:
+          - type: conditional
+            conditions:
+              - entity: sensor.temp_freezer_temperature
+                state_not: "unavailable"
+            row:
+              entity: sensor.temp_freezer_temperature
+              name: Freezer
+            style: |
+              :host {
+                --paper-item-icon-color: #7c4dff;
+              }
+
+          - type: conditional
+            conditions:
+              - entity: sensor.temp_refrigerator_temperature
+                state_not: "unavailable"
+            row:
+              entity: sensor.temp_refrigerator_temperature
+              name: Refrigerator
+
+          - type: conditional
+            conditions:
+              - entity: sensor.temp_wine_cooler_temperature
+                state_not: "unavailable"
+            row:
+              entity: sensor.temp_wine_cooler_temperature
+              name: Wine Cooler
+
+          #- type: divider
+
+          - type: conditional
+            conditions:
+              - entity: sensor.temp_attic_temperature
+                state_not: "unavailable"
+            row:
+              entity: sensor.temp_attic_temperature
+              name: Attic
+
           - type: divider
-        footer:
-          type: custom:mini-graph-card
-          entities:
-            - entity: sensor.bedroom_4_temperature
-              color: "#4caf50"
-              name: Office, His
-            - entity: sensor.bedroom_1_temperature
-              color: "#fdd835"
-              name: Main Bedroom
-            - entity: sensor.living_room_temperature
-              color: "#fb8c00"
-              name: Living Room
-            - entity: sensor.foyer_temperature
-              color: "#e53935"
-              name: Foyer
-          line_width: 2
-          hour24: true
-          group: false
-          align_state: left
-          hours_to_show: 24
-          show:
-            {
-              fill: fade,
-              name: false,
-              icon: false,
-              state: false,
-              legend: false,
-            }
-          tap_action:
-            action: none
+
+          - entity: sensor.foyer_humidity
+            name: Humidity
