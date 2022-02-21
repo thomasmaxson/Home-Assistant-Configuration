@@ -82,9 +82,9 @@ views:
             icon: hass:home-circle-outline
             template:
               - details
-            tap_action: !include popup/status-household.yaml
-            hold_action: !include popup/status-household.yaml
-            double_tap_action: !include popup/status-household.yaml
+            tap_action: !include popup/status-household-overview.yaml
+            hold_action: !include popup/status-household-overview.yaml
+            double_tap_action: !include popup/status-household-details.yaml
 
           - type: custom:button-card
             icon: hass:thermometer
@@ -95,20 +95,20 @@ views:
             double_tap_action: !include popup/status-temperatures.yaml
 
           - type: custom:button-card
-            icon: hass:cog
-            template:
-              - details
-            tap_action: !include popup/status-settings.yaml
-            hold_action: !include popup/input-helpers.yaml
-            double_tap_action: !include popup/input-helpers.yaml
-
-          - type: custom:button-card
             icon: hass:information-outline
             template:
               - details
             tap_action: !include popup/status-systems.yaml
             hold_action: !include popup/status-systems.yaml
             double_tap_action: !include popup/status-systems.yaml
+
+          - type: custom:button-card
+            icon: hass:cog
+            template:
+              - details
+            tap_action: !include popup/status-settings.yaml
+            hold_action: !include popup/status-settings.yaml
+            double_tap_action: !include popup/input-helpers.yaml
 
       #
       # COMMON AREAS
@@ -155,6 +155,17 @@ views:
                     entity: light.living_room_corner_lamp
                     name: Corner Lamp
                     icon: bha:table-lamp-variant
+                    template:
+                      - popup_dimmer_colors
+
+              - type: grid
+                title: Kitchen Cabinets
+                columns: 3
+                cards:
+                  - type: custom:button-card
+                    entity: light.kitchen_cabinet_upper_coffee_bar
+                    name: Upper
+                    icon: hass:led-strip-variant
                     template:
                       - popup_dimmer_colors
 

@@ -19,6 +19,12 @@ light:
       - light.kitchen_light_6
 
   - platform: group
+    name: Upper Cabinet Lights
+    unique_id: kitchen_cabinet_upper_lights
+    entities:
+      - light.kitchen_cabinet_upper_coffee_bar
+
+  - platform: group
     name: Bedside Lamps
     unique_id: bedroom_1_bedside_lamps
     entities:
