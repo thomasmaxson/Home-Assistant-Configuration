@@ -90,3 +90,16 @@ binary_sensor:
     name: Waste Bring In, Time
     after: "06:00"
     before: "18:00"
+
+  - platform: workday
+    name: Cleaning Day
+    country: US
+    workdays: [thu]
+    excludes: [mon, tue, wed, fri, sat, sun]
+    remove_holidays:
+      - "New Year's Day"
+      - "Memorial Day"
+      - "Independence Day"
+      - "Labor Day"
+      - "Thanksgiving"
+      - "Christmas Day"

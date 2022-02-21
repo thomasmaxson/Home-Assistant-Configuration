@@ -28,6 +28,7 @@ group:
       - light.kitchen_light_4
       - light.kitchen_light_5
       - light.kitchen_light_6
+      - light.kitchen_cabinet_upper_coffee_bar
       - light.dining_room_chandelier
       - light.living_room_corner_lamp
       - light.foyer_ceiling_ledge
@@ -51,6 +52,7 @@ group:
     name: All Interior Lights
     entities:
       - light.kitchen_ceiling_lights
+      - light.kitchen_cabinet_upper_coffee_bar
       - light.dining_room_chandelier
       - light.living_room_corner_lamp
       - light.foyer_entryway_ceiling
@@ -69,25 +71,6 @@ group:
       - light.foyer_exterior_entryway
       - light.garage_exterior
       - switch.backyard_string_lights
-
-  lights_vacation:
-    name: Vacation Lights
-    entities:
-      - light.kitchen_ceiling_lights
-      - light.dining_room_chandelier
-      - light.living_room_corner_lamp
-      - light.foyer_entryway_ceiling
-      - light.foyer_hallway_ceiling
-      - light.bedroom_1_bedside_lamps
-      - light.closet_hallway_ceiling_light
-
-  lights_vacation_demo:
-    name: Vacation Lights
-    entities:
-      #- light.foyer_entryway_ceiling
-      #- light.foyer_hallway_ceiling
-      - light.bedroom_4_desk_lamp
-      - light.bedroom_4_lightstrip
 
   sensors_doors:
     name: Doors

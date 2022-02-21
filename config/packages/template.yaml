@@ -11,6 +11,9 @@ template:
       # Update on Home Assistant startup
       - platform: homeassistant
         event: start
+      # Update on Template reload
+      - platform: event
+        event_type: event_template_reloaded
       # Update daily at midnight
       - platform: time_pattern
         hours: "00"
@@ -211,3 +214,143 @@ template:
               {{ '-1' | int }}
 
             {%- endif %}
+
+  - trigger:
+      # Update on Home Assistant startup
+      - platform: homeassistant
+        event: start
+      # Update on Template reload
+      - platform: event
+        event_type: event_template_reloaded
+      # Update daily at midnight
+      - platform: time_pattern
+        hours: "00"
+        minutes: "00"
+        seconds: "00"
+      # Update daily at noon
+      - platform: time_pattern
+        hours: "12"
+        minutes: "00"
+        seconds: "00"
+    sensor:
+      - name: "Cleaning Day"
+        icon: mdi:spray-bottle
+        state: >-
+          {%- set ns = namespace( days = [] ) %}
+          {%- set wd = state_attr( 'binary_sensor.cleaning_day', 'workdays' ) %}
+          {%- set today = now().strftime( '%a' ) | lower %}
+          {%- set isWeekEven = is_state( 'sensor.is_week_even', 'on' ) %}
+
+          {%- if wd %}
+            {%- if today in wd %}
+              {%- set ns.days = ns.days + [0] %}
+
+            {%- else -%}
+              {%- for i in range( 1, 7, 1 ) %}
+                {%- set dow = ( now() + timedelta( days = i ) ).strftime( '%a' ) | lower %}
+
+                {%- if dow in wd %}
+                  {%- set ns.days = ns.days + [i] %}
+                {%- endif %}
+              {%- endfor %}
+            {%- endif %}
+
+            {% set value = ns.days | min %}
+
+            {%- if isWeekEven %}
+              {%- if ( 0 == value ) %}
+                Today
+
+              {%- elif ( 1 == value ) %}
+                Tomorrow
+
+              {%- else %}
+                in {{ value }} days
+
+              {%- endif %}
+            {%- else %}
+              in {{ value + 7 }} days
+
+            {%- endif %}
+          {%- else -%}
+            Never
+
+          {%- endif %}
+
+        attributes:
+          days_until: >-
+            {%- set ns = namespace( days = [] ) %}
+            {%- set wd = state_attr( 'binary_sensor.cleaning_day', 'workdays' ) %}
+            {%- set today = now().strftime( '%a' ) | lower %}
+            {%- set isWeekEven = is_state( 'sensor.is_week_even', 'on' ) %}
+
+            {%- if wd %}
+              {%- if today in wd %}
+                {%- set ns.days = ns.days + [0] %}
+
+              {%- else -%}
+                {%- for i in range( 1, 7, 1 ) %}
+                  {%- set dow = ( now() + timedelta( days = i ) ).strftime( '%a' ) | lower %}
+
+                  {%- if dow in wd %}
+                    {%- set ns.days = ns.days + [i] %}
+                  {%- endif %}
+                {%- endfor %}
+              {%- endif %}
+
+              {% set value = ns.days | min %}
+
+              {%- if isWeekEven %}
+                {{value}}
+
+              {%- else %}
+                {{ value + 7 }}
+
+              {%- endif %}
+            {%- else -%}
+              {{ '-1' | int }}
+
+            {%- endif %}
+
+  - trigger:
+      # Update on Home Assistant startup
+      - platform: homeassistant
+        event: start
+      # Update on Template reload
+      - platform: event
+        event_type: event_template_reloaded
+      # Update every minute
+      - platform: time_pattern
+        hours: "00"
+        minutes: "/01"
+        seconds: "00"
+    sensor:
+      - name: "Automation Daily Status"
+        state: >-
+          {%- set offset = ( 30 * 60 ) %}
+          {%- set next_sunset     = as_timestamp( states.sun.sun.attributes.next_setting ) %}
+          {%- set modified_sunset = ( next_sunset - offset ) | int %}
+          {%- set ts_next_sunset  = modified_sunset | timestamp_custom( '%H%M%S' ) | int %}
+          {%- set ts_current      = as_timestamp( now() ) | timestamp_custom( '%H%M%S' ) | int %}
+
+          {%- if( is_state( 'input_boolean.automation_daily_sunset', 'on' ) ) %}
+            Active
+          {%- elif( ts_current > ts_next_sunset ) %}
+            Complete
+          {%- else %}
+            Runs at {{ modified_sunset | timestamp_custom( '%I:%M %p' ) }}
+          {%- endif %}
+        icon: >-
+          {%- set offset = ( 30 * 60 ) %}
+          {%- set next_sunset     = as_timestamp( states.sun.sun.attributes.next_setting ) %}
+          {%- set modified_sunset = ( next_sunset - offset ) | int %}
+          {%- set ts_next_sunset  = modified_sunset | timestamp_custom( '%H%M%S' ) | int %}
+          {%- set ts_current      = as_timestamp( now() ) | timestamp_custom( '%H%M%S' ) | int %}
+
+          {%- if( is_state( 'input_boolean.automation_daily_sunset', 'on' ) ) %}
+          mdi:clock-alert-outline
+          {%- elif( ts_current > ts_next_sunset ) %}
+          mdi:clock-check-outline
+          {%- else %}
+          mdi:clock-outline
+          {%- endif %}

@@ -12,20 +12,17 @@ template:
       state: template
       attributes:
         time: >
-          {% set hours = now().strftime('%I') %}
-          {% set minutes = now().strftime('%M') %}
+          {%- set hours = now().strftime('%I') %}
+          {%- set minutes = now().strftime('%M') %}
 
           {{ hours }}<span class="time-colon">:</span>{{ minutes }}
 
         date: |
-          {%- set dayShortNames = ['Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat', 'Sun'] %}
-          {%- set monthShortNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',  'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'] %}
+          {%- set weekday = now().strftime( '%A' ) %}
+          {%- set month = now().strftime( '%B' ) %}
 
-          {%- set dayNames = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'] %}
-          {%- set monthNames = ['January', 'February', 'March', 'April', 'May', 'June',  'July', 'August', 'September', 'October', 'November', 'December'] %}
-
-          {{ dayNames[now().weekday()] }},<br>
-          {{ monthNames[now().month-1] }} {{ now().day }}
+          {{ weekday }},<br>
+          {{ month }} {{ now().day }}
 
         greeting: |
           {%- set time = now().hour %}
@@ -44,94 +41,132 @@ template:
 
           {%- endif -%}
 
+        # date_greeting: |
+        #   {%- set weekday_full_name = now().strftime( '%A' ) %}
+        #   {%- set month_full_name = now().strftime( '%B' ) %}
+
+        #   {%- set day = now().strftime( '%-d' ) %}
+        #   {%- set weekday = now().strftime( '%w' ) %}
+
+        #   Good morning. Today is {{ weekday_full_name }}, {{ month_full_name }} the
+        #   {% if day | int == 1 or day | int == 21 or day | int == 31 %}
+        #     {{ day }}st
+        #   {% elif day | int == 2 or day | int == 22 %}
+        #     {{ day }}nd
+        #   {% elif day | int == 3 or day | int == 23 %}
+        #     {{ day }}rd
+        #   {% else %}
+        #     {{ day }}th
+        #   {% endif %}.
+
         holiday: |
-          {% if is_state( 'input_boolean.sidebar_display_holidays', 'on' ) %}
-            {% if is_state( 'sensor.countdown_to_halloween', '1' ) %}
+          {%- if is_state( 'input_boolean.sidebar_display_holidays', 'on' ) %}
+            {%- if is_state( 'sensor.countdown_to_halloween', '1' ) %}
               Tomorrow is Halloween.
 
-            {% elif is_state( 'sensor.countdown_to_halloween', '0' ) %}
+            {%- elif is_state( 'sensor.countdown_to_halloween', '0' ) %}
               Happy Halloween!
 
-            {% elif is_state( 'sensor.countdown_to_thanksgiving', '1' ) %}
+            {%- elif is_state( 'sensor.countdown_to_thanksgiving', '1' ) %}
               Tomorrow is Thanksgiving!
 
-            {% elif is_state( 'sensor.countdown_to_thanksgiving', '0' ) %}
+            {%- elif is_state( 'sensor.countdown_to_thanksgiving', '0' ) %}
               Happy Thanksgiving!
 
-            {% elif is_state( 'sensor.countdown_to_christmas', '1' ) %}
+            {%- elif is_state( 'sensor.countdown_to_christmas', '1' ) %}
               Today is Christmas Eve. Tomorrow is Christmas!
 
-            {% elif is_state( 'sensor.countdown_to_christmas', '0' ) %}
+            {%- elif is_state( 'sensor.countdown_to_christmas', '0' ) %}
               Merry Christmas Everyone!
 
-            {% elif states.calendar.holidays_in_united_states.state == 'on' %}
+            {%- elif states.calendar.holidays_in_united_states.state == 'on' %}
               Today is {{ states.calendar.holidays_in_united_states.attributes.message }}.
 
-            {% endif %}
-          {% endif %}
+            {%- endif %}
+          {%- endif %}
 
         anniversary: |
-          {% if is_state( 'input_boolean.sidebar_display_celebrations', 'on' ) %}
-            {% if states.calendar.anniverseries.state == 'on' %}
+          {%- if is_state( 'input_boolean.sidebar_display_celebrations', 'on' ) %}
+            {%- if states.calendar.anniverseries.state == 'on' %}
               Today is {{ states.calendar.anniverseries.attributes.message }}.
 
-            {% endif %}
-          {% endif %}
+            {%- endif %}
+          {%- endif %}
 
         birthday: |
-          {% if is_state( 'input_boolean.sidebar_display_celebrations', 'on' ) %}
-            {% if states.calendar.birthdays.state == 'on' %}
+          {%- if is_state( 'input_boolean.sidebar_display_celebrations', 'on' ) %}
+            {%- if states.calendar.birthdays.state == 'on' %}
               Today is {{ states.calendar.birthdays.attributes.message }}. {{ [
                 'Ready for another lap around the sun?',
                 'They can cry if they want to.',
                 'The confetti cannon is ready.',
                 'I hope the cake is tasty.'
               ] | random }}
-            {% endif %}
-          {% endif %}
+            {%- endif %}
+          {%- endif %}
+
+        neighborhood: |
+          {%- if is_state( 'input_boolean.sidebar_display_neighborhood', 'on' ) %}
+            {%- if states.calendar.regency_lakes.state == 'on' %}
+              {%- set message = states.calendar.regency_lakes.attributes.message %}
+              {%- set description = states.calendar.regency_lakes.attributes.description %}
+
+              {%- if description != '' %}
+                {{ description }}
+
+              {%- elif message != '' %}
+                {{ message }} in {{ [
+                  'your neighborhood', 
+                  'Regency Lakes', 
+                  'Osprey Point'
+                ] | random }} today.
+
+              {%- endif %}
+            {%- endif %}
+          {%- endif %}
 
         weather: |
-          {% if is_state( 'input_boolean.sidebar_display_weather_forecast', 'on' ) %}
+          {%- if is_state( 'input_boolean.sidebar_display_weather_forecast', 'on' ) %}
             {%- set temperature = states( 'sensor.openweathermap_temperature' ) | round %}
             {%- set forecast = states( 'sensor.openweathermap_forecast_condition' ) %}
 
-            {% if not is_state( 'sensor.openweathermap_temperature', 'unavailable' ) %}
+            {%- if not is_state( 'sensor.openweathermap_temperature', 'unavailable' ) %}
               It's currently {{ temperature }}°
 
-              {% if is_state( 'sensor.openweathermap_forecast_condition', 'rainy' ) %}
+              {%- if is_state( 'sensor.openweathermap_forecast_condition', 'rainy' ) %}
                 {%- set precip = states( 'sensor.openweathermap_forecast_precipitation_probability' ) | round %}
                 {{ [
                   'with expected rain.', 
                   'with expected showers.'
                 ] | random }}
 
-              {% elif is_state( 'sensor.openweathermap_forecast_condition', 'cloudy' ) %}
+              {%- elif is_state( 'sensor.openweathermap_forecast_condition', 'cloudy' ) %}
                 {{ [
                   'with clouds.', 
                   'with cloudy skies.'
                 ] | random }}
 
-              {% elif is_state( 'sensor.openweathermap_forecast_condition', 'partlycloudy' ) %}
+              {%- elif is_state( 'sensor.openweathermap_forecast_condition', 'partlycloudy' ) %}
                 {{ [
                   'with some clouds.', 
                   'with partly cloudy skies.',
                   'with scattered clouds'
                 ] | random }}
 
-              {% elif is_state('weather.home', 'sunny') %}
-                {% if is_state('sun.sun', 'above_horizon') %}
+              {%- elif is_state('weather.home', 'sunny') %}
+                {%- if is_state('sun.sun', 'above_horizon') %}
                   {{ [
                     'and sunny.', 
                     'with sun.'
                   ] | random }}
 
-                {% else %}
+                {%- else %}
                   {{ [
                     'and clear.', 
                     'with clear skies.'
                   ] | random }}
 
-                {% endif %}
+                {%- endif %}
               {%- endif %}
 
             {%- else %}
@@ -141,23 +176,33 @@ template:
           {%- endif %}
 
         lights_on: |
-          {% set count = states( 'sensor.total_lights_on' ) | int %}
+          {%- set count = states( 'sensor.total_lights_on' ) | int %}
 
-          {% if is_state( 'input_boolean.sidebar_display_lights_on', 'on' ) and count != 'unknown' %}
-            {% if count == 1 %}
+          {%- if is_state( 'input_boolean.sidebar_display_lights_on', 'on' ) and count != 'unknown' %}
+            {%- if count == 1 %}
               {{ count }} light is on.
 
-            {% elif count >= 2 %}
+            {%- elif count >= 2 %}
               {{ count }} lights are on.
 
-            {% endif %}
-          {% endif %}
+            {%- endif %}
+          {%- endif %}
+
+        doors_open: |
+          {%- set count = states( 'sensor.total_doors_open' ) | int %}
+
+          {%- if is_state( 'input_boolean.sidebar_display_doors_open', 'on' ) and count != 'unknown' %}
+            {%- if count == 1 %}
+              {{ count }} door is open.
+
+            {%- elif count >= 2 %}
+              {{ count }} doors are open.
+
+            {%- endif %}
+          {%- endif %}
 
         exterior_open_doors: |
-          {% if is_state( 'input_boolean.sidebar_display_exterior_door_status', 'on' ) %}
-            {%- set weekIsEven = ( as_timestamp( now() ) | timestamp_custom( '%U' ) | int % 2 ) == 0 %}
-            {%- set weekIsOdd  = ( as_timestamp( now() ) | timestamp_custom( '%U' ) | int % 2 ) == 1 %}
-
+          {%- if is_state( 'input_boolean.sidebar_display_exterior_door_status', 'on' ) %}
             {%- set state_door_front  = states( 'lock.front_door' ) %}
             {%- set state_door_garage = states( 'cover.garage_door' ) %}
 
@@ -169,122 +214,127 @@ template:
             {%- set status_door_front   = "front door is " + state_door_front %}
             {%- set status_door_sliding = "sliding glass door is open" %}
 
-            {% if ( ( open_door_garage ) and ( open_door_sliding ) and ( open_door_front ) ) %}
+            {%- if ( ( open_door_garage ) and ( open_door_sliding ) and ( open_door_front ) ) %}
               The {{ status_door_garage }}, the {{ status_door_sliding }}, and the {{ status_door_front }}.
 
-            {% elif ( ( open_door_garage ) and ( open_door_front ) ) %}
+            {%- elif ( ( open_door_garage ) and ( open_door_front ) ) %}
               The {{ status_door_garage }}, and the {{ status_door_front }}.
 
-            {% elif ( ( open_door_sliding ) and ( open_door_front ) ) %}
+            {%- elif ( ( open_door_sliding ) and ( open_door_front ) ) %}
               The {{ status_door_sliding }}, and the {{ status_door_front }}.
 
-            {% elif ( ( open_door_sliding ) and ( open_door_garage ) ) %}
+            {%- elif ( ( open_door_sliding ) and ( open_door_garage ) ) %}
               The {{ status_door_sliding }}, and the {{ status_door_garage }}.
 
-            {% elif ( open_door_garage ) %}
+            {%- elif ( open_door_garage ) %}
               The {{ status_door_garage }}.
 
-            {% elif ( open_door_front ) %}
+            {%- elif ( open_door_front ) %}
               The {{ status_door_front }}.
 
-            {% elif ( open_door_sliding ) %}
+            {%- elif ( open_door_sliding ) %}
               The {{ status_door_sliding }}.
 
-            {% endif %}
-          {% endif %}
+            {%- endif %}
+          {%- endif %}
 
         sunrise_sunset: |
           {%- if is_state( 'input_boolean.sidebar_display_sunrise_sunset', 'on' ) -%}
             {% if is_state( 'sun.sun', 'below_horizon' ) %}
               You have
-              {% set seconds = as_timestamp( states.sun.sun.attributes.next_rising ) - now().timestamp() %}
-              {% set hours = seconds / 60 %}
-              {% if seconds / ( 60 * 60 ) > 1 %}
-                {{ (seconds //  ( 60 * 60 )) | int }} hours
-              {% else %}
-                {{ (seconds // 60) | int }} minutes
-              {% endif %}
+              {%- set seconds = ( as_timestamp( states.sun.sun.attributes.next_rising ) - now().timestamp() ) %}
+              {%- set minutes = ( seconds / 60 ) | int %}
+              {%- set hours   = ( seconds / ( 60 * 60 ) ) | int %}
+
+              {%- if hours > 1 %}
+                {{ hours }} {{ iif( ( hours == 1 ), 'hour', 'hours') }}
+              {%- else %}
+                {{ minutes }} {{ iif( ( minutes == 1 ), 'minute', 'minutes') }}
+              {%- endif %}
               {{ [
-                'until the sun rises.',
-                'until the sun is up.',
-                'before the sun officially rises. '
+                ' until the sun rises.',
+                ' until the sun is up.',
+                ' before the sun officially rises. '
               ] | random }}
-            {% else %}
+            {%- else %}
               You have
               {% set seconds = as_timestamp( states.sun.sun.attributes.next_setting ) - now().timestamp() %}
-              {% set hours = seconds / 60 %}
-              {% if seconds / ( 60 * 60 ) > 1 %}
-                {{ (seconds //  ( 60 * 60 )) | int }} hours
-              {% else %}
-                {{ (seconds // 60) | int }} minutes
-              {% endif %}
+              {%- set minutes = ( seconds / 60 ) | int %}
+              {%- set hours   = ( seconds / ( 60 * 60 ) ) | int %}
+
+              {%- if hours > 1 %}
+                {{ hours }} {{ iif( ( hours == 1 ), 'hour', 'hours') }}
+              {%- else %}
+                {{ minutes }} {{ iif( ( minutes == 1 ), 'minute', 'minutes') }}
+              {%- endif %}
+
               {{ [
-                'until the sun sets for the day.',
-                'until the sun slips below the horizon.',
-                'before the sun officially sets.'
+                ' until the sun sets for the day.',
+                ' until the sun slips below the horizon.',
+                ' before the sun officially sets.'
               ] | random }}
-            {% endif %}
-          {% endif %}
+            {%- endif %}
+          {%- endif %}
 
         waste: |
           {%- if is_state( 'input_boolean.sidebar_display_waste_reminder', 'on' ) -%}
-            {%- set count_days_waste_solid   = states( 'sensor.days_until_waste_solid' ) | regex_replace( find = '\D', replace = '' ) %}
-            {%- set count_days_waste_bulk    = states( 'sensor.days_until_waste_bulk' ) | regex_replace( find = '\D', replace = '' ) %}
-            {%- set count_days_waste_recycle = states( 'sensor.days_until_waste_recycling' ) | regex_replace( find = '\D', replace = '' ) %}
+            {%- set days_until_waste_solid   = state_attr( 'sensor.waste_day_solid', 'days_until' ) %}
+            {%- set days_until_waste_bulk    = state_attr( 'sensor.waste_day_bulk', 'days_until' ) %}
+            {%- set days_until_waste_recycle = state_attr( 'sensor.waste_day_recycling', 'days_until' ) %}
 
-            {%- set is_day_out_waste_solid   = ( count_days_waste_solid == '1' and count_days_waste_solid != '' ) %}
-            {%- set is_day_out_waste_bulk    = ( count_days_waste_bulk == '1' and count_days_waste_bulk != '' ) %}
-            {%- set is_day_out_waste_recycle = ( count_days_waste_recycle == '1' and count_days_waste_recycle != '' ) %}
+            {%- set is_take_out_day_waste_solid   = ( days_until_waste_solid == 1 ) %}
+            {%- set is_take_out_day_waste_bulk    = ( days_until_waste_bulk == 1 ) %}
+            {%- set is_take_out_day_waste_recycle = ( days_until_waste_recycle == 1 ) %}
 
-            {%- set is_day_in_waste_solid   = ( count_days_waste_solid == '0' and count_days_waste_solid != '' ) %}
-            {%- set is_day_in_waste_recycle = ( count_days_waste_recycle == '0' and count_days_waste_recycle != '' ) %}
+            {%- set is_bring_in_day_waste_solid   = ( days_until_waste_solid == 0 ) %}
+            {%- set is_bring_in_day_waste_recycle = ( days_until_waste_recycle == 0 ) %}
 
-            {%- set is_time_out = is_state( 'binary_sensor.waste_out_time', 'on' ) %}
-            {%- set is_time_in = is_state( 'binary_sensor.waste_in_time', 'on' ) %}
+            {%- set is_time_out = is_state( 'binary_sensor.waste_take_out_time', 'on' ) %}
+            {%- set is_time_in = is_state( 'binary_sensor.waste_bring_in_time', 'on' ) %}
 
-            {%- if ( ( is_time_out ) and ( is_day_out_waste_solid ) and ( is_day_out_waste_bulk ) and ( is_day_out_waste_recycle ) ) -%}
+            {%- if ( ( is_time_out ) and ( is_take_out_day_waste_solid ) and ( is_take_out_day_waste_bulk ) and ( is_take_out_day_waste_recycle ) ) -%}
               {{ [ 
                 'Tomorrow is the big day: trash, recycling and bulk trash day! ',
                 'Trash, recycling and bulk trash should go out before tomorrow morning. ',
                 'Do not forget to take the trash, recycling and bulk trash out. '
               ] | random }}
 
-            {%- elif ( ( is_time_out ) and ( is_day_out_waste_solid ) and ( is_day_out_waste_recycle ) ) -%}
+            {%- elif ( ( is_time_out ) and ( is_take_out_day_waste_solid ) and ( is_take_out_day_waste_recycle ) ) -%}
               {{ [ 
                 'Tomorrow is the big day: trash and recycling day! ',
                 'Trash and recycling bins should go out before tomorrow morning. ',
                 'Do not forget to take the trash and recycling bins out. '
               ] | random }}
 
-            {%- elif ( ( is_time_out ) and ( is_day_out_waste_solid ) and ( is_day_out_waste_bulk ) ) -%}
+            {%- elif ( ( is_time_out ) and ( is_take_out_day_waste_solid ) and ( is_take_out_day_waste_bulk ) ) -%}
               {{ [ 
                 'Tomorrow is the big day: trash and bulk trash day! ',
                 'Trash and bulk trash should go out before tomorrow morning. ',
                 'Do not forget to take the trash and bulk trash out. '
               ] | random }}
 
-            {%- elif ( ( is_time_out ) and ( is_day_out_waste_solid ) and ( is_day_out_waste_recycle ) ) -%}
+            {%- elif ( ( is_time_out ) and ( is_take_out_day_waste_solid ) and ( is_take_out_day_waste_recycle ) ) -%}
               {{ [ 
                 'Tomorrow is the big day: recycling and bulk trash day! ',
                 'Recycling and bulk trash should go out before tomorrow morning. ',
                 'Do not forget to take the recycling and bulk trash out. '
               ] | random }}
 
-            {%- elif ( ( is_time_out ) and ( is_day_out_waste_solid ) ) -%}
+            {%- elif ( ( is_time_out ) and ( is_take_out_day_waste_solid ) ) -%}
               {{ [ 
                 'Tomorrow is the big day, trash day! ',
                 'Trash should go out before tomorrow morning. ',
                 'Do not forget to take the trash out. '
               ] | random }}
 
-            {%- elif ( ( is_time_out ) and ( is_day_out_waste_recycle ) ) -%}
+            {%- elif ( ( is_time_out ) and ( is_take_out_day_waste_recycle ) ) -%}
               {{ [ 
                 'Tomorrow is the big day, recycling day! ',
                 'Recycling should go out before tomorrow morning. ',
                 'Do not forget to take the recylcing out. '
               ] | random }}
 
-            {%- elif ( ( is_time_out ) and ( is_day_out_waste_bulk ) ) -%}
+            {%- elif ( ( is_time_out ) and ( is_take_out_day_waste_bulk ) ) -%}
               {{ [ 
                 'Tomorrow is the big day, bulk trash day! ',
                 'Bulk trash should go out before tomorrow morning. ',
@@ -294,21 +344,21 @@ template:
             {%- endif -%}
 
 
-            {%- if ( ( is_time_in ) and ( is_day_in_waste_solid ) and ( is_day_in_waste_recycle ) ) -%}
+            {%- if ( ( is_time_in ) and ( is_bring_in_day_waste_solid ) and ( is_bring_in_day_waste_recycle ) ) -%}
               {{ [ 
                 'Do not forget to bring the trash and recycling bins in.',
                 'The trash and recycling bins will feel lonely if you leave them outside.',
                 'The HOA will get mad if you leave the trash and recycling bins out on the street.'
               ] | random }}
 
-            {%- elif ( ( is_time_in ) and ( is_day_in_waste_solid ) ) -%}
+            {%- elif ( ( is_time_in ) and ( is_bring_in_day_waste_solid ) ) -%}
               {{ [ 
                 'Do not forget to bring the trash bins in.',
                 'The trash bins will feel lonely if you leave them outside.',
                 'The HOA will get mad if you leave the trash bins out on the street.'
               ] | random }}
 
-            {%- elif ( ( is_time_in ) and ( is_day_in_waste_recycle ) ) -%}
+            {%- elif ( ( is_time_in ) and ( is_bring_in_day_waste_recycle ) ) -%}
               {{ [ 
                 'Do not forget to bring the recycling bins in.',
                 'The recycling bins will feel lonely if you leave them outside.',

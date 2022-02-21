@@ -314,6 +314,40 @@ sensor:
 
   - platform: template
     sensors:
+      is_week_even:
+        friendly_name: "Is Week Even"
+        value_template: >-
+          {%- set output = ( ( ( now().strftime( '%W' ) ) | int ) % 2 ) == 0 %}
+
+          {{ iif( ( True == output ), 'on', 'off' ) }}
+        icon_template: >-
+          {%- set output = ( ( ( now().strftime( '%W' ) ) | int ) % 2 ) == 0 %}
+
+          {{ iif( ( True == output ), 'mdi:calendar-check', 'mdi:calendar-remove' ) }}
+
+      is_week_odd:
+        friendly_name: "Is Week Odd"
+        value_template: >-
+          {%- set output = ( ( ( now().strftime( '%W' ) ) | int ) % 2 ) == 1 %}
+
+          {{ iif( ( True == output ), 'on', 'off' ) }}
+        icon_template: >-
+          {%- set output = ( ( ( now().strftime( '%W' ) ) | int ) % 2 ) == 1 %}
+
+          {{ iif( ( True == output ), 'mdi:calendar-check', 'mdi:calendar-remove' ) }}
+
+      # fourth_wednesday:
+      #   friendly_name:"Is Fourth Wednesday"
+      #   value_template: >
+      #     {% set nth = 4 %}
+      #     {% set month = now().month %}
+      #     {% set isoweekday = 3 %}
+      #     {% set d = now().date().replace( month = month ).replace( day = 1 ) %}
+      #     {% set adj = ( isoweekday - d.isoweekday() ) % 7 %}
+
+      #     {{ d + timedelta( days = adj ) + timedelta( weeks = nth - 1 ) }}
+      #   icon_template: mdi:calendar-question
+
       custom_door_closet_hallway_j:
         friendly_name: "Jess' Closet Door"
         value_template: >-
