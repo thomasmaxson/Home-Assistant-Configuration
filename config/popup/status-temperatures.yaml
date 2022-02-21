@@ -4,14 +4,13 @@
 # @package     : Popup, Temperature
 # @description :
 #
-# Color Tool   : https://material.io/resources/color/#!/?view.left=0&view.right=0
-#
 ################################################################################
 
 action: fire-dom-event
 browser_mod:
   command: popup
   title: Temperature
+  large: false
   style:
     $: |
       /* Mobile Devices */
@@ -23,20 +22,26 @@ browser_mod:
 
     .: |
       :host .content { 
-        width: calc(350px + 300px + 300px);
+        width: calc(385px + 385px + 385px);
         max-width: 90vw;
       }
 
       /* Mobile Devices */
       @media screen and (max-width: 992px) { 
         :host .content {
-          width: 100%;
+          width: 100vw;
           max-width: none;
+          overflow-x: hidden;
         }
       }
 
     layout-card:
       $grid-layout$:
+        $: |
+          #root {
+            margin-right: 0;
+            margin-left: 0;
+          }
         hui-thermostat-card:
           $: |
             ha-card { 
@@ -53,13 +58,14 @@ browser_mod:
 
             @keyframes border {
               0%, 100% {
-                border-left: 1px solid rgba(0, 0, 0, 0.3);
+                border-left: 1px solid var(--entities-divider-color, var(--divider-color));
               }
             }
 
             /* Mobile Devices */
             @media screen and (max-width: 992px) { 
               ha-card {
+                width: 100vw;
                 animation: none;
               }
             }
@@ -71,7 +77,6 @@ browser_mod:
       grid-template-rows: 1fr
       grid-template-areas: |
         'column_a column_b column_c'
-        'column_d column_d column_d'
       mediaquery:
         # Tablet and down
         "(max-width: 992px)":
@@ -81,7 +86,6 @@ browser_mod:
             'column_a'
             'column_b'
             'column_c'
-            'column_d'
 
     cards:
       - type: thermostat
@@ -89,15 +93,29 @@ browser_mod:
         view_layout:
           grid-area: column_a
         show_header_toggle: false
+        card_mod:
+          class: header
+          style: |
+            ha-card {
+              margin: 0 !important;
+              width: 100%;
+            }
+            .name { margin: 0 0 1em !important;}
 
       - type: entities
         view_layout:
           grid-area: column_b
         show_header_toggle: false
+        title: Rooms
+        card_mod:
+          class: header
+          style: |
+            ha-card {
+              margin: 0 !important;
+              width: 100%;
+            }
+            .name { margin: 0 0 1em !important;}
         entities:
-          - type: section
-            label: Areas
-
           - entity: sensor.foyer_temperature
             name: Foyer
 
@@ -122,10 +140,16 @@ browser_mod:
         view_layout:
           grid-area: column_c
         show_header_toggle: false
+        title: Appliances
+        card_mod:
+          class: header
+          style: |
+            ha-card {
+              margin: 0 !important;
+              width: 100%;
+            }
+            .name { margin: 0 0 1em !important;}
         entities:
-          - type: section
-            label: Appliances
-
           - type: conditional
             conditions:
               - entity: sensor.temp_freezer_temperature

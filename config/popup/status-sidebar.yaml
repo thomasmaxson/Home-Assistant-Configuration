@@ -19,22 +19,25 @@ browser_mod:
       }
   card:
     type: vertical-stack
-    title: Sidebar Display
     cards:
       - type: entities
         entities:
           - entity: input_boolean.sidebar_display_holidays
-            name: Display Upcoming Holidays
+            name: Upcoming Holidays
           - entity: input_boolean.sidebar_display_celebrations
-            name: Display Upcoming Celebrations
+            name: Upcoming Celebrations
+          - entity: input_boolean.sidebar_display_neighborhood
+            name: Display Neighborhood Events
           - entity: input_boolean.sidebar_display_weather_forecast
-            name: Display Weather Forecast
+            name: Weather Forecast
           - entity: input_boolean.sidebar_display_lights_on
-            name: Display Total Lights On
+            name: Total Lights On
+          - entity: input_boolean.sidebar_display_doors_open
+            name: Total Doors Open
           - entity: input_boolean.sidebar_display_exterior_door_status
-            name: Display Exterior Door Status
+            name: Exterior Door Status
           - entity: input_boolean.sidebar_display_sunrise_sunset
             name: Next Sunrise/Sunset
           - type: divider
           - entity: input_boolean.sidebar_display_waste_reminder
-            name: Display Waste Reminders
+            name: Waste Reminders

@@ -1,0 +1,275 @@
+################################################################################
+#
+# @author      : Thomas Maxson
+# @package     : Popup, Household Details
+# @description :
+#
+################################################################################
+
+action: fire-dom-event
+browser_mod:
+  command: popup
+  title: Household Details
+  large: false
+  style:
+    $: |
+      /* Mobile Devices */
+      @media screen and (max-width: 992px) { 
+        .mdc-dialog .mdc-dialog__container .mdc-dialog__surface { 
+          border-radius: 0 !important;
+        }
+      }
+
+    .: |
+      :host .content { 
+        width: calc(385px + 385px);
+        max-width: 90vw;
+      }
+
+      /* Mobile Devices */
+      @media screen and (max-width: 992px) { 
+        :host .content {
+          width: 100vw;
+          max-width: none;
+          overflow-x: hidden;
+        }
+      }
+
+    layout-card:
+      $grid-layout$:
+        $: |
+          #root {
+            margin-right: 0;
+            margin-left: 0;
+          }
+
+        hui-entities-card:
+          $: |
+            ha-card { 
+              border-radius: 0;
+              animation: border 1s forwards;
+            }
+
+            @keyframes border {
+              0%, 100% {
+                border-left: 1px solid var(--entities-divider-color, var(--divider-color));
+              }
+            }
+
+            /* Mobile Devices */
+            @media screen and (max-width: 992px) { 
+              ha-card {
+                width: 100vw;
+                animation: none;
+              }
+            }
+  card:
+    type: custom:layout-card
+    layout_type: custom:grid-layout
+    layout:
+      grid-template-columns: repeat(2, 1fr)
+      grid-template-rows: 1fr
+      grid-template-areas: |
+        'column_a column_b'
+      mediaquery:
+        # Tablet and down
+        "(max-width: 992px)":
+          grid-template-columns: 1fr
+          grid-template-rows: repeat(1, 1fr)
+          grid-template-areas: |
+            'column_a'
+            'column_b'
+    cards:
+      - type: entities
+        view_layout:
+          grid-area: column_a
+        show_header_toggle: false
+        #title: Lights
+        card_mod:
+          class: header
+          style: |
+            ha-card {
+              margin: 0 !important;
+              width: 100%;
+            }
+            .name { margin: 0 0 1em !important;}
+        entities:
+          - type: section
+            label: Doors
+
+          - entity: lock.front_door
+            name: Front Door
+          - entity: cover.garage_door
+            name: Garage Door
+          - type: divider
+          - entity: binary_sensor.door_living
+            name: Living Room Sliding Glass
+          - entity: binary_sensor.door_bedroom_1
+            name: Main Bedroom
+          - entity: binary_sensor.door_bedroom_2
+            name: Guest Bedroom
+          - entity: binary_sensor.door_bedroom_3
+            name: Her Office
+          - entity: binary_sensor.door_bedroom_4
+            name: His Office
+          - entity: binary_sensor.door_laundry
+            name: Laundry Room
+          #- type: divider
+          - entity: sensor.custom_door_closet_hallway_j
+            #- entity: binary_sensor.door_closet_hallway_j
+            name: Her Closet
+          - entity: sensor.custom_door_closet_hallway_t
+            #- entity: binary_sensor.door_closet_hallway_t
+            name: His Closet
+
+          - type: section
+            label: Leak Sensors
+
+          - entity: binary_sensor.leak_air_conditioner
+            name: Air Conditioner
+          - entity: binary_sensor.leak_washing_machine_laundry
+            name: Washing Machine
+          - entity: binary_sensor.leak_wine_cooler_bar
+            name: Wine Cooler
+          - entity: binary_sensor.leak_sink_guest_bathroom
+            name: Guest Bathroom, Sink
+          - entity: binary_sensor.leak_sink_half_bathroom
+            name: Half Bathroom, Sink
+          - entity: binary_sensor.leak_sink_kitchen
+            name: Kitchen, Sink
+          - entity: binary_sensor.leak_sink_main_bathroom_hers
+            name: Main Bathroom, Sink (Hers)
+          - entity: binary_sensor.leak_sink_main_bathroom_his
+            name: Main Bathroom, Sink (His)
+
+          # - type: section
+          #   label: Occupany
+
+          # - entity: binary_sensor.foyer_occupancy
+          # - entity: binary_sensor.bedroom_1_occupancy
+          # - entity: binary_sensor.bedroom_4_occupancy
+          # - entity: binary_sensor.living_room_occupancy
+
+          - type: section
+            label: Motion Sensors
+
+          - entity: binary_sensor.foyer_doorbell_motion
+            name: Front Door Doorbell
+            icon: hass:motion-sensor
+          - entity: binary_sensor.motion_laundry
+            name: Laundry Room
+            icon: hass:motion-sensor
+
+          - type: section
+            label: Other
+
+          - entity: light.tablet_plug
+            name: Kitchen, Tablet Plug
+            icon: hass:tablet
+          - entity: light.bedroom_4_media_plug
+            name: His Office, Media Plug
+          - entity: media_player.sony_bravia_tv
+
+      - type: entities
+        view_layout:
+          grid-area: column_b
+        show_header_toggle: false
+        #title: Batteries
+        card_mod:
+          class: header
+          style: |
+            ha-card {
+              margin: 0 !important;
+              width: 100%;
+            }
+            .name { margin: 0 0 1em !important;}
+        entities:
+          - type: section
+            label: Batteries
+          - entity: sensor.door_bedroom_1_battery_level
+            name: Bedroom 1 (Main)
+          - entity: sensor.door_bedroom_2_battery_level
+            name: Bedroom 2 (Guest)
+          - entity: sensor.door_bedroom_3_battery_level
+            name: Bedroom 3 (Office, Hers)
+          - entity: sensor.door_bedroom_4_battery_level
+            name: Bedroom 4 (Office, His)
+          - entity: sensor.door_closet_hallway_j_battery_level
+            name: Closet Hallway (Hers)
+          - entity: sensor.door_closet_hallway_t_battery_level
+            name: Closet Hallway (His)
+          - entity: sensor.door_laundry_battery_level
+            name: Laundry Room
+          - entity: sensor.door_living_battery_level
+            name: Living Room Sliding Door
+
+          - type: section
+
+          - entity: sensor.leak_air_conditioner_battery_level
+            name: Air Conditioner
+          - entity: sensor.leak_sink_kitchen_battery_level
+            name: Kitchen Sink
+          - entity: sensor.leak_sink_guest_bathroom_battery_level
+            name: Bathroom Sink (Guest)
+          - entity: sensor.leak_sink_half_bathroom_battery_level
+            name: Bathroom Sink (Half)
+          - entity: sensor.leak_sink_main_bathroom_hers_battery_level
+            name: Bathroom Sink (Main, Hers)
+          - entity: sensor.leak_sink_main_bathroom_his_battery_level
+            name: Bathroom Sink (Main, His)
+          - entity: sensor.leak_washing_machine_laundry_battery_level
+            name: Washing Machine
+          - entity: sensor.leak_wine_cooler_bar_battery_level
+            name: Wine Cooler
+
+          - type: section
+
+          - entity: sensor.temp_attic_battery_level
+            name: Attic
+
+          - type: conditional
+            conditions:
+              - entity: sensor.temp_freezer_battery_level
+                state_not: "unavailable"
+            row:
+              entity: sensor.temp_freezer_battery_level
+              name: Freezer
+
+          - type: conditional
+            conditions:
+              - entity: sensor.temp_refrigerator_battery_level
+                state_not: "unavailable"
+            row:
+              entity: sensor.temp_refrigerator_battery_level
+              name: Refrigerator
+
+          - type: conditional
+            conditions:
+              - entity: sensor.temp_wine_cooler_battery_level
+                state_not: "unavailable"
+            row:
+              entity: sensor.temp_wine_cooler_battery_level
+              name: Wine Cooler
+
+          - type: section
+
+          #- entity: sensor.switch_kitchen_for_garage
+          #  nameL: In Kitchen, for Garage
+          - entity: sensor.switch_bedroom_1_for_bedroom_1_battery_level
+            name: In Bedroom 1, for Bedroom 1
+          - entity: sensor.switch_living_room_for_living_room_battery_level
+            name: In Living Room, for Living Room
+          #- entity: sensor.switch_bedroom_4_for_bedroom_4
+          #  name: In Bedroom 4, for Bedroom 4
+          #- entity: sensor.switch_foyer_for_foyer
+          #  name: In Foyer, for Foyer
+
+          - type: section
+            label: Motion Sensors
+          - entity: sensor.motion_laundry_battery_level
+            name: Laundry Room
+
+          - type: section
+            label: Other
+          - entity: sensor.front_door_battery_level
+            name: Front Door Lock

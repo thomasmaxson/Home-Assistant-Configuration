@@ -1,7 +1,7 @@
 ################################################################################
 #
 # @author      : Thomas Maxson
-# @package     : Popup, Household
+# @package     : Popup, Household Overview
 # @description :
 #
 ################################################################################
@@ -9,48 +9,60 @@
 action: fire-dom-event
 browser_mod:
   command: popup
-  title: Household Details
+  title: Household Overview
+  large: false
   style:
     $: |
+      /* Mobile Devices */
       @media screen and (max-width: 992px) { 
         .mdc-dialog .mdc-dialog__container .mdc-dialog__surface { 
           border-radius: 0 !important;
         }
       }
+
     .: |
-      :host .content {
-        width: calc(385px + 385px);
+      :host .content { 
+        width: calc(385px + 385px + 385px);
         max-width: 90vw;
       }
 
-      @media screen and (max-width: 992px) {
+      /* Mobile Devices */
+      @media screen and (max-width: 992px) { 
         :host .content {
-          width: 100%;
+          width: 100vw;
           max-width: none;
+          overflow-x: hidden;
         }
       }
+
     layout-card:
       $grid-layout$:
+        $: |
+          #root {
+            margin-right: 0;
+            margin-left: 0;
+          }
         hui-entities-card:
           $: |
-            .card-content {
-              padding: 1.5em 2.7em 2.3em 2em;
-            }
-            ha-card {
-              animation: border 1s forwards;
+            ha-card { 
               border-radius: 0;
+              animation: border 1s forwards;
             }
+
             @keyframes border {
               0%, 100% {
-                border-right: 1px solid rgba(0, 0, 0, 0.3);
+                border-left: 1px solid var(--entities-divider-color, var(--divider-color));
               }
             }
-            /* phone */
-            @media screen and (max-width: 992px) {
+
+            /* Mobile Devices */
+            @media screen and (max-width: 992px) { 
               ha-card {
+                width: 100vw;
                 animation: none;
               }
             }
+
           $hui-horizontal-stack-card$: |
             #root {
               justify-content: space-evenly;
@@ -61,37 +73,41 @@ browser_mod:
     type: custom:layout-card
     layout_type: custom:grid-layout
     layout:
-      grid-template-columns: repeat(2, 1fr)
+      grid-template-columns: repeat(3, 1fr)
       grid-template-rows: 1fr
       grid-template-areas: |
-        'column_a column_b'
+        'group_a group_b group_c'
+        'group_a group_b group_d'
       mediaquery:
         # Tablet and down
         "(max-width: 992px)":
           grid-template-columns: 1fr
           grid-template-rows: repeat(1, 1fr)
           grid-template-areas: |
-            'column_a'
-            'column_b'
+            'group_a'
+            'group_b'
+            'group_c'
+            'group_d'
     cards:
       - type: entities
         view_layout:
-          grid-area: column_a
+          grid-area: group_a
+        #title: Home Assistant
         show_header_toggle: false
         card_mod:
           class: header
           style: |
             ha-card {
-              margin: 0px !important;
+              margin: 0 !important;
               width: 100%;
             }
+            .name { margin: 0 0 1em !important;}
         entities:
           - type: section
-            label: Lights, Interior
+            label: Common Areas
 
           - entity: light.kitchen_ceiling_lights
             name: Kitchen, Ceiling
-            #icon: bha:ceiling-downlight
             secondary_info: brightness
           - entity: light.dining_room_chandelier
             name: Dining Room, Chandelier
@@ -114,15 +130,27 @@ browser_mod:
           - entity: light.foyer_under_table
             name: Foyer, Under Table
             secondary_info: brightness
+
+      - type: entities
+        view_layout:
+          grid-area: group_b
+        #title: Home Assistant
+        show_header_toggle: false
+        card_mod:
+          class: header
+          style: |
+            ha-card {
+              margin: 0 !important;
+              width: 100%;
+            }
+            .name { margin: 0 0 1em !important;}
+        entities:
+          - type: section
+            label: Bedrooms, Offices, and Other
+
           - entity: light.bedroom_1_bedside_lamps
             name: Main Bedroom, Bedside
             secondary_info: brightness
-          # - entity: light.bedroom_1_lamp_j
-          #   name: Main Bedroom, Bedside (Hers)
-          #   secondary_info: brightness
-          # - entity: light.bedroom_1_lamp_t
-          #   name: Main Bedroom, Bedside (His)
-          #   secondary_info: brightness
           - entity: light.closet_hallway_ceiling_light
             name: Closet Hallway, Ceiling
             icon: bha:dome-light
@@ -144,6 +172,20 @@ browser_mod:
             icon: bha:dome-light
             secondary_info: brightness
 
+      - type: entities
+        view_layout:
+          grid-area: group_c
+        #title: Home Assistant
+        show_header_toggle: false
+        card_mod:
+          class: header
+          style: |
+            ha-card {
+              margin: 0 !important;
+              width: 100%;
+            }
+            .name { margin: 0 0 1em !important;}
+        entities:
           - type: section
             label: Lights, Exterior
 
@@ -159,93 +201,26 @@ browser_mod:
             name: Backyard String Lights
             icon: bha:light-string
 
-          - type: section
-            label: Other
-
-          - entity: media_player.sony_bravia_tv
-          - entity: light.tablet_plug
-            name: Kitchen, Tablet Plug
-            #icon: bha:apple-tv
-            icon: hass:tablet
-          - entity: light.bedroom_4_media_plug
-            name: His Office, Media Plug
-            #icon: bha:apple-tv
-            icon: hass:apple
-          - entity: vacuum.rosie
-            name: Vacuum (Rosie)
-
       - type: entities
         view_layout:
-          grid-area: column_b
-        #title: Doors
+          grid-area: group_d
+        #title: Home Assistant
         show_header_toggle: false
         card_mod:
           class: header
           style: |
             ha-card {
-              margin: 0px !important;
+              margin: 0 !important;
               width: 100%;
             }
+            .name { margin: 0 0 1em !important;}
         entities:
           - type: section
-            label: Doors
+            label: Exterior Doors
 
           - entity: lock.front_door
             name: Front Door
           - entity: cover.garage_door
             name: Garage Door
-          - type: divider
           - entity: binary_sensor.door_living
             name: Living Room Sliding Glass
-          - entity: binary_sensor.door_bedroom_1
-            name: Main Bedroom
-          - entity: binary_sensor.door_bedroom_2
-            name: Guest Bedroom
-          - entity: binary_sensor.door_bedroom_3
-            name: Her Office
-          - entity: binary_sensor.door_bedroom_4
-            name: His Office
-          - entity: binary_sensor.door_laundry
-            name: Laundry Room
-          #- type: divider
-          - entity: sensor.custom_door_closet_hallway_j
-            #- entity: binary_sensor.door_closet_hallway_j
-            name: Her Closet
-          - entity: sensor.custom_door_closet_hallway_t
-            #- entity: binary_sensor.door_closet_hallway_t
-            name: His Closet
-
-          - type: section
-            label: Leak Sensors
-
-          - entity: binary_sensor.leak_air_conditioner
-            name: Air Conditioner
-          - entity: binary_sensor.leak_washing_machine_laundry
-            name: Washing Machine
-          - entity: binary_sensor.leak_wine_cooler_bar
-            name: Wine Cooler
-          - entity: binary_sensor.leak_sink_guest_bathroom
-            name: Guest Bathroom, Sink
-          - entity: binary_sensor.leak_sink_half_bathroom
-            name: Half Bathroom, Sink
-          - entity: binary_sensor.leak_sink_kitchen
-            name: Kitchen, Sink
-          - entity: binary_sensor.leak_sink_main_bathroom_hers
-            name: Main Bathroom, Sink (Hers)
-          - entity: binary_sensor.leak_sink_main_bathroom_his
-            name: Main Bathroom, Sink (His)
-
-          # - type: section
-          #   label: Occupany
-
-          # - entity: binary_sensor.foyer_occupancy
-          # - entity: binary_sensor.bedroom_1_occupancy
-          # - entity: binary_sensor.bedroom_4_occupancy
-          # - entity: binary_sensor.living_room_occupancy
-
-          - type: section
-            label: Motion Sensors
-
-          - entity: binary_sensor.motion_laundry
-            name: Laundry Room
-            icon: hass:motion-sensor
