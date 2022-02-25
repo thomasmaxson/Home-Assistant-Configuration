@@ -227,7 +227,7 @@ homeassistant:
 
     binary_sensor.leak_washing_machine_laundry:
       device_class: moisture
-      friendly_name: Laundry Room Leak Sensor
+      friendly_name: Laundry Washing Machine Leak Sensor
 
     binary_sensor.leak_wine_cooler_bar:
       device_class: moisture
@@ -239,19 +239,19 @@ homeassistant:
 
     sensor.door_bedroom_1_battery_level:
       device_class: battery
-      friendly_name: Bedroom 1 Door Battery
+      friendly_name: Main Bedroom Door Battery
 
     sensor.door_bedroom_2_battery_level:
       device_class: battery
-      friendly_name: Bedroom 2 Door Battery
+      friendly_name: Guest Bedroom Door Battery
 
     sensor.door_bedroom_3_battery_level:
       device_class: battery
-      friendly_name: Bedroom 3 Door Battery
+      friendly_name: "Jess' Office Door Battery"
 
     sensor.door_bedroom_4_battery_level:
       device_class: battery
-      friendly_name: Bedroom 4 Door Battery
+      friendly_name: "Tom's Office Door Battery"
 
     sensor.door_living_battery_level:
       device_class: battery
@@ -271,7 +271,7 @@ homeassistant:
 
     sensor.leak_air_conditioner_battery_level:
       device_class: battery
-      friendly_name: Air Conditioner Sink Leak Battery
+      friendly_name: Air Conditioner Leak Battery
 
     sensor.leak_sink_guest_bathroom_battery_level:
       device_class: battery
@@ -295,7 +295,7 @@ homeassistant:
 
     sensor.leak_washing_machine_laundry_battery_level:
       device_class: battery
-      friendly_name: Laundry Room Leak Sensor Battery
+      friendly_name: Laundry Washing Machine Leak Sensor Battery
 
     sensor.leak_wine_cooler_bar_battery_level:
       device_class: battery

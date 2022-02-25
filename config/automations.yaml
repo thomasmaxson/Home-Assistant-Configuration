@@ -10,3 +10,16 @@
     data:
       name: Custom Dashboard
   mode: single
+- id: '1644423744149'
+  alias: Cleanup Old Screenshots
+  description: Delete all files in folder path that are older than 7 days
+  trigger:
+  - platform: time
+    at: 03:00:00
+  condition: []
+  action:
+  - service: delete.files_in_folder
+    data:
+      folder: /config/www/snapshots/
+      time: 604800
+  mode: single

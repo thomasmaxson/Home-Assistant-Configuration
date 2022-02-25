@@ -77,7 +77,6 @@ browser_mod:
       grid-template-rows: 1fr
       grid-template-areas: |
         'group_a group_b group_c'
-        'group_a group_b group_d'
       mediaquery:
         # Tablet and down
         "(max-width: 992px)":
@@ -87,7 +86,6 @@ browser_mod:
             'group_a'
             'group_b'
             'group_c'
-            'group_d'
     cards:
       - type: entities
         view_layout:
@@ -104,11 +102,51 @@ browser_mod:
             .name { margin: 0 0 1em !important;}
         entities:
           - type: section
-            label: Common Areas
-
+            label: Kitchen
           - entity: light.kitchen_ceiling_lights
-            name: Kitchen, Ceiling
+            name: Ceiling
             secondary_info: brightness
+
+          - type: conditional
+            conditions:
+              - entity: light.kitchen_cabinet_upper_coffee_bar
+                state_not: "unavailable"
+              - entity: light.kitchen_cabinet_upper_range
+                state_not: "unavailable"
+              - entity: input_boolean.sync_cabinet_above_lights
+                state: "on"
+            row:
+              entity: light.kitchen_cabinet_upper_coffee_bar
+              name: Above Cabinets
+              icon: hass:led-strip-variant
+              secondary_info: brightness
+
+          - type: conditional
+            conditions:
+              - entity: light.kitchen_cabinet_upper_range
+                state_not: "unavailable"
+              - entity: input_boolean.sync_cabinet_above_lights
+                state: "off"
+            row:
+              entity: light.kitchen_cabinet_upper_range
+              name: Above Cabinets, Range
+              icon: hass:led-strip-variant
+              secondary_info: brightness
+
+          - type: conditional
+            conditions:
+              - entity: light.kitchen_cabinet_upper_coffee_bar
+                state_not: "unavailable"
+              - entity: input_boolean.sync_cabinet_above_lights
+                state: "off"
+            row:
+              entity: light.kitchen_cabinet_upper_coffee_bar
+              name: Above Cabinets, Coffee Bar
+              icon: hass:led-strip-variant
+              secondary_info: brightness
+
+          - type: section
+            label: Common Areas
           - entity: light.dining_room_chandelier
             name: Dining Room, Chandelier
             icon: bha:chandelier
@@ -118,17 +156,48 @@ browser_mod:
             icon: bha:table-lamp-variant
             secondary_info: brightness
 
-          - entity: light.foyer_hallway_ceiling
-            name: Foyer, Hallway
-            secondary_info: brightness
-          - entity: light.foyer_entryway_ceiling
-            name: Foyer, Entryway
+          - type: section
+            label: Foyer
+          - type: conditional
+            conditions:
+              - entity: light.foyer_ceiling_lights
+                state_not: "unavailable"
+              - entity: input_boolean.sync_foyer_lights
+                state: "on"
+            row:
+              entity: light.foyer_ceiling_lights
+              name: Ceiling Lights
+              icon: bha:dome-light
+              secondary_info: brightness
+
+          - type: conditional
+            conditions:
+              - entity: light.foyer_entryway_ceiling
+                state_not: "unavailable"
+              - entity: input_boolean.sync_foyer_lights
+                state: "off"
+            row:
+              entity: light.foyer_entryway_ceiling
+              name: Entryway
+              secondary_info: brightness
+
+          - type: conditional
+            conditions:
+              - entity: light.foyer_hallway_ceiling
+                state_not: "unavailable"
+              - entity: input_boolean.sync_foyer_lights
+                state: "off"
+            row:
+              entity: light.foyer_hallway_ceiling
+              name: Hallway
+              secondary_info: brightness
+
             secondary_info: brightness
           - entity: light.foyer_ceiling_ledge
-            name: Foyer, Ledge
+            name: Ledge
             secondary_info: brightness
           - entity: light.foyer_under_table
-            name: Foyer, Under Table
+            name: Under Table
             secondary_info: brightness
 
       - type: entities
@@ -146,27 +215,59 @@ browser_mod:
             .name { margin: 0 0 1em !important;}
         entities:
           - type: section
-            label: Bedrooms, Offices, and Other
-
+            label: Main Bedroom
           - entity: light.bedroom_1_bedside_lamps
-            name: Main Bedroom, Bedside
+            name: Bedside Lamps
             secondary_info: brightness
           - entity: light.closet_hallway_ceiling_light
             name: Closet Hallway, Ceiling
             icon: bha:dome-light
             secondary_info: brightness
           - entity: light.closet_hallway_light_j
-            name: Closet, Ceiling (Hers)
+            name: Closet (Hers)
             secondary_info: brightness
           - entity: light.closet_hallway_light_t
-            name: Closet, Ceiling (His)
+            name: Closet (His)
             secondary_info: brightness
-          - entity: light.bedroom_4_desk_lamp
-            name: His Office, Desk Lamp
-            secondary_info: brightness
-          - entity: light.bedroom_4_lightstrip
-            name: His Office, Lightstrip
-            secondary_info: brightness
+
+          - type: section
+            label: Offices
+          - type: conditional
+            conditions:
+              - entity: light.bedroom_4_lights
+                state_not: "unavailable"
+              - entity: input_boolean.sync_bedroom_4_lights
+                state: "on"
+            row:
+              entity: light.bedroom_4_lights
+              name: His Office, Lights
+              icon: hue:desk-lamp
+              secondary_info: brightness
+
+          - type: conditional
+            conditions:
+              - entity: light.bedroom_4_desk_lamp
+                state_not: "unavailable"
+              - entity: input_boolean.sync_bedroom_4_lights
+                state: "off"
+            row:
+              entity: light.bedroom_4_desk_lamp
+              name: His Office, Desk Lamp
+              secondary_info: brightness
+
+          - type: conditional
+            conditions:
+              - entity: light.bedroom_4_lightstrip
+                state_not: "unavailable"
+              - entity: input_boolean.sync_bedroom_4_lights
+                state: "off"
+            row:
+              entity: light.bedroom_4_lightstrip
+              name: His Office, Lightstrip
+              secondary_info: brightness
+
+          - type: section
+            label: Other
           - entity: light.laundry_ceiling_light
             name: Laundry Room, Ceiling
             icon: bha:dome-light
@@ -188,7 +289,6 @@ browser_mod:
         entities:
           - type: section
             label: Lights, Exterior
-
           - entity: light.foyer_exterior_entryway
             name: Front Door Entry
             icon: hass:globe-light
@@ -201,23 +301,8 @@ browser_mod:
             name: Backyard String Lights
             icon: bha:light-string
 
-      - type: entities
-        view_layout:
-          grid-area: group_d
-        #title: Home Assistant
-        show_header_toggle: false
-        card_mod:
-          class: header
-          style: |
-            ha-card {
-              margin: 0 !important;
-              width: 100%;
-            }
-            .name { margin: 0 0 1em !important;}
-        entities:
           - type: section
             label: Exterior Doors
-
           - entity: lock.front_door
             name: Front Door
           - entity: cover.garage_door

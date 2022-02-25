@@ -1,14 +1,14 @@
 ################################################################################
 #
 # @author      : Thomas Maxson
-# @package     : Light Groups
+# @package     : Group, Lights
 # @description :
 #
 ################################################################################
 
 light:
   - platform: group
-    name: Ceiling Lights
+    name: Kitchen Ceiling Lights
     unique_id: kitchen_ceiling_lights
     entities:
       - light.kitchen_light_1
@@ -18,14 +18,25 @@ light:
       - light.kitchen_light_5
       - light.kitchen_light_6
 
-  - platform: group
-    name: Upper Cabinet Lights
-    unique_id: kitchen_cabinet_upper_lights
-    entities:
-      - light.kitchen_cabinet_upper_coffee_bar
+  # NOTE: This does NOT work with current button card setup
+  # NOTE: Shows "NaN" for light brightness value
+  # NOTE: Syncing of lights occurs in Node RED
+  # - platform: group
+  #   name: Kitchen Cabinet Upper Lights
+  #   unique_id: kitchen_cabinet_upper_lights
+  #   entities:
+  #     - light.kitchen_cabinet_upper_coffee_bar
+  #     - light.kitchen_cabinet_upper_range
 
   - platform: group
-    name: Bedside Lamps
+    name: Foyer Ceiling Lights
+    unique_id: foyer_ceiling_lights
+    entities:
+      - light.foyer_entryway_ceiling
+      - light.foyer_hallway_ceiling
+
+  - platform: group
+    name: Bedroom 1 Bedside Lamps
     unique_id: bedroom_1_bedside_lamps
     entities:
       - light.bedroom_1_lamp_j
@@ -33,6 +44,7 @@ light:
 
   - platform: group
     name: Bedroom 1 Closet Lights
+    unique_id: bedroom_1_closet_lights
     entities:
       - light.closet_hallway_light_j
       - light.closet_hallway_light_t
@@ -43,30 +55,3 @@ light:
     entities:
       - light.bedroom_4_desk_lamp
       - light.bedroom_4_lightstrip
-
-  # - platform: group
-  #   name: Bedroom 3 Lights
-  #   unique_id: bedroom_3_lights
-  #   entities:
-  #     - light.bedroom_3_desk_lamp
-
-  # - platform: template
-  #   lights:
-  #     tablet_screen:
-  #       friendly_name: Tablet Brightness
-  #       value_template: "{{ states.sensor.kitchen_tablet.attributes['screenOn'] }}"
-  #       level_template: "{{ states.sensor.kitchen_tablet.attributes['screenBrightness'] }}"
-  #       turn_on:
-  #         service: rest_command.kiosk_command
-  #         data:
-  #           cmd: screenOn
-  #       turn_off:
-  #         service: rest_command.kiosk_command
-  #         data:
-  #           cmd: screenOff
-  #       set_level:
-  #         service: rest_command.kiosk_command
-  #         data_template:
-  #           cmd: setStringSetting
-  #           key: screenBrightness
-  #           value: "{{ brightness }}"

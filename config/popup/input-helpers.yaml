@@ -29,7 +29,14 @@ browser_mod:
             name: Evening Automations
 
           - type: section
-            label: Doorbell Notifications
+            label: Reminder Notifications
+
+          - entity: input_boolean.garage_open_snooze_today
+            name: Garage Door Open Snoozed Today
+          - entity: input_boolean.front_door_unlocked_snooze_today
+            name: Front Door Snoozed Today
+          - entity: input_boolean.doorbell_motion_snooze_today
+            name: Doorbell Motion Snoozed Today
           - entity: timer.doorbell_motion_snooze
             name: Snooze Duration
           - type: conditional

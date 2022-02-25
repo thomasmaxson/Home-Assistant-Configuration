@@ -122,6 +122,24 @@ browser_mod:
             #- entity: binary_sensor.door_closet_hallway_t
             name: His Closet
 
+          # - type: section
+          #   label: Occupany
+
+          # - entity: binary_sensor.foyer_occupancy
+          # - entity: binary_sensor.bedroom_1_occupancy
+          # - entity: binary_sensor.bedroom_4_occupancy
+          # - entity: binary_sensor.living_room_occupancy
+
+          - type: section
+            label: Motion Sensors
+
+          - entity: binary_sensor.foyer_doorbell_motion
+            name: Front Door Doorbell
+            icon: hass:motion-sensor
+          - entity: binary_sensor.motion_laundry
+            name: Laundry Room
+            icon: hass:motion-sensor
+
           - type: section
             label: Leak Sensors
 
@@ -141,24 +159,6 @@ browser_mod:
             name: Main Bathroom, Sink (Hers)
           - entity: binary_sensor.leak_sink_main_bathroom_his
             name: Main Bathroom, Sink (His)
-
-          # - type: section
-          #   label: Occupany
-
-          # - entity: binary_sensor.foyer_occupancy
-          # - entity: binary_sensor.bedroom_1_occupancy
-          # - entity: binary_sensor.bedroom_4_occupancy
-          # - entity: binary_sensor.living_room_occupancy
-
-          - type: section
-            label: Motion Sensors
-
-          - entity: binary_sensor.foyer_doorbell_motion
-            name: Front Door Doorbell
-            icon: hass:motion-sensor
-          - entity: binary_sensor.motion_laundry
-            name: Laundry Room
-            icon: hass:motion-sensor
 
           - type: section
             label: Other

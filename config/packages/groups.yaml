@@ -18,6 +18,12 @@ group:
     entities:
       - input_boolean.gouda_home
 
+  kitchen_cabinet_upper_lights:
+    name: Cabinet Upper Lights
+    entities:
+      - light.kitchen_cabinet_upper_range
+      - light.kitchen_cabinet_upper_coffee_bar
+
   lights_all:
     name: All Lights
     entities:
@@ -28,6 +34,7 @@ group:
       - light.kitchen_light_4
       - light.kitchen_light_5
       - light.kitchen_light_6
+      - light.kitchen_cabinet_upper_range
       - light.kitchen_cabinet_upper_coffee_bar
       - light.dining_room_chandelier
       - light.living_room_corner_lamp
@@ -52,6 +59,7 @@ group:
     name: All Interior Lights
     entities:
       - light.kitchen_ceiling_lights
+      - light.kitchen_cabinet_upper_range
       - light.kitchen_cabinet_upper_coffee_bar
       - light.dining_room_chandelier
       - light.living_room_corner_lamp

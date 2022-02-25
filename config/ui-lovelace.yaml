@@ -162,12 +162,53 @@ views:
                 title: Kitchen Cabinets
                 columns: 3
                 cards:
-                  - type: custom:button-card
-                    entity: light.kitchen_cabinet_upper_coffee_bar
-                    name: Upper
-                    icon: hass:led-strip-variant
-                    template:
-                      - popup_dimmer_colors
+                  - type: conditional
+                    conditions:
+                      #- entity: group.kitchen_cabinet_upper_lights
+                      - entity: light.kitchen_cabinet_upper_coffee_bar
+                        state_not: "unavailable"
+                      - entity: light.kitchen_cabinet_upper_range
+                        state_not: "unavailable"
+                      - entity: input_boolean.sync_cabinet_above_lights
+                        state_not: "unavailable"
+                      - entity: input_boolean.sync_cabinet_above_lights
+                        state: "on"
+                    card:
+                      type: custom:button-card
+                      #entity: group.kitchen_cabinet_upper_lights
+                      entity: light.kitchen_cabinet_upper_coffee_bar
+                      name: Above
+                      icon: hass:led-strip-variant
+                      template:
+                        - popup_dimmer_colors
+
+                  - type: conditional
+                    conditions:
+                      - entity: light.kitchen_cabinet_upper_coffee_bar
+                        state_not: "unavailable"
+                      - entity: input_boolean.sync_cabinet_above_lights
+                        state: "off"
+                    card:
+                      type: custom:button-card
+                      entity: light.kitchen_cabinet_upper_coffee_bar
+                      name: Above Coffee Bar
+                      icon: hass:led-strip-variant
+                      template:
+                        - popup_dimmer_colors
+
+                  - type: conditional
+                    conditions:
+                      - entity: light.kitchen_cabinet_upper_range
+                        state_not: "unavailable"
+                      - entity: input_boolean.sync_cabinet_above_lights
+                        state: "off"
+                    card:
+                      type: custom:button-card
+                      entity: light.kitchen_cabinet_upper_range
+                      name: Above Range
+                      icon: hass:led-strip-variant
+                      template:
+                        - popup_dimmer_colors
 
               - type: grid
                 title: Living Room Media
@@ -227,19 +268,47 @@ views:
                     template:
                       - popup_dimmer_colors
 
-                  - type: custom:button-card
-                    entity: light.foyer_hallway_ceiling
-                    name: Hallway
-                    icon: bha:dome-light
-                    template:
-                      - popup_dimmer
+                  - type: conditional
+                    conditions:
+                      - entity: light.foyer_ceiling_lights
+                        state_not: "unavailable"
+                      - entity: input_boolean.sync_foyer_lights
+                        state: "on"
+                    card:
+                      type: custom:button-card
+                      entity: light.foyer_ceiling_lights
+                      name: Ceiling
+                      icon: bha:dome-light
+                      template:
+                        - popup_dimmer
 
-                  - type: custom:button-card
-                    entity: light.foyer_entryway_ceiling
-                    name: Entryway
-                    icon: bha:chandelier
-                    template:
-                      - popup_dimmer
+                  - type: conditional
+                    conditions:
+                      - entity: light.foyer_hallway_ceiling
+                        state_not: "unavailable"
+                      - entity: input_boolean.sync_foyer_lights
+                        state: "off"
+                    card:
+                      type: custom:button-card
+                      entity: light.foyer_hallway_ceiling
+                      name: Hallway
+                      icon: bha:dome-light
+                      template:
+                        - popup_dimmer
+
+                  - type: conditional
+                    conditions:
+                      - entity: light.foyer_entryway_ceiling
+                        state_not: "unavailable"
+                      - entity: input_boolean.sync_foyer_lights
+                        state: "off"
+                    card:
+                      type: custom:button-card
+                      entity: light.foyer_entryway_ceiling
+                      name: Entryway
+                      icon: bha:chandelier
+                      template:
+                        - popup_dimmer
 
               - type: grid
                 title: Foyer
@@ -394,13 +463,55 @@ views:
                 title: Office's
                 columns: 3
                 cards:
-                  - type: custom:button-card
-                    entity: light.bedroom_4_lights
-                    name: Tom
-                    #icon: hue:room-office
-                    icon: hue:desk-lamp
-                    template:
-                      - popup_dimmer_colors
+                  - type: conditional
+                    conditions:
+                      - entity: light.bedroom_4_lights
+                        state_not: "unavailable"
+                      - entity: input_boolean.sync_bedroom_4_lights
+                        state: "on"
+                    card:
+                      type: custom:button-card
+                      entity: light.bedroom_4_lights
+                      name: Tom
+                      icon: hue:desk-lamp
+                      template:
+                        - popup_dimmer_colors
+
+                  - type: conditional
+                    conditions:
+                      - entity: light.bedroom_4_desk_lamp
+                        state_not: "unavailable"
+                      - entity: input_boolean.sync_bedroom_4_lights
+                        state: "off"
+                    card:
+                      type: custom:button-card
+                      entity: light.bedroom_4_desk_lamp
+                      name: Tom, Desk Lamp
+                      icon: hue:desk-lamp
+                      template:
+                        - popup_dimmer_colors
+
+                  - type: conditional
+                    conditions:
+                      - entity: light.bedroom_4_lightstrip
+                        state_not: "unavailable"
+                      - entity: input_boolean.sync_bedroom_4_lights
+                        state: "off"
+                    card:
+                      type: custom:button-card
+                      entity: light.bedroom_4_lightstrip
+                      name: Tom, Lightstrip
+                      icon: hass:led-strip-variant
+                      template:
+                        - popup_dimmer_colors
+
+                  # - type: custom:button-card
+                  #   entity: light.bedroom_4_lights
+                  #   name: Tom
+                  #   #icon: hue:room-office
+                  #   icon: hue:desk-lamp
+                  #   template:
+                  #     - popup_dimmer_colors
 
                   - type: custom:button-card
                     entity: light.closet_hallway_ceiling_light
