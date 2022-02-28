@@ -194,7 +194,7 @@ browser_mod:
 
             secondary_info: brightness
           - entity: light.foyer_ceiling_ledge
-            name: Ledge
+            name: Upper Ledge
             secondary_info: brightness
           - entity: light.foyer_under_table
             name: Under Table
@@ -220,7 +220,7 @@ browser_mod:
             name: Bedside Lamps
             secondary_info: brightness
           - entity: light.closet_hallway_ceiling_light
-            name: Closet Hallway, Ceiling
+            name: Closet Hallway
             icon: bha:dome-light
             secondary_info: brightness
           - entity: light.closet_hallway_light_j
@@ -269,7 +269,7 @@ browser_mod:
           - type: section
             label: Other
           - entity: light.laundry_ceiling_light
-            name: Laundry Room, Ceiling
+            name: Laundry Room
             icon: bha:dome-light
             secondary_info: brightness
 
