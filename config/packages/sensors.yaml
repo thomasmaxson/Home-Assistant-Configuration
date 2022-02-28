@@ -117,16 +117,35 @@ sensor:
         value_template: >-
           {%- set state = states( 'timer.household_activity_snooze' ) %}
           {%- set duration = state_attr( 'timer.household_activity_snooze', 'duration' ) %}
-          {% set h = '00' | int %}
-          {% set m = '00' | int %}
-          {% set s = '00' | int %}
+          {%- set n = now().timestamp() %}
+          {%- set h = '00' | int %}
+          {%- set m = '00' | int %}
+          {%- set s = '00' | int %}
 
           {%- if state != 'idle' %}
-            {% set h, m, s = duration.split( ':' ) | list | map( 'int' ) %}
+            {%- set h, m, s = duration.split( ':' ) | list | map( 'int' ) %}
 
           {%- endif %}
 
-          {% set n = now().timestamp() %}
+          {{ ( n + h * 60 * 60 + m * 60 + s ) | timestamp_custom( '%Y-%m-%dT%H:%M:%S-00:00', false ) }}
+
+  - platform: template
+    sensors:
+      garage_door_open_snooze_countdown:
+        device_class: timestamp
+        value_template: >-
+          {%- set state = states( 'timer.garage_open_snooze' ) %}
+          {%- set duration = state_attr( 'timer.garage_open_snooze', 'duration' ) %}
+          {%- set n = now().timestamp() %}
+          {%- set h = '00' | int %}
+          {%- set m = '00' | int %}
+          {%- set s = '00' | int %}
+
+          {%- if state != 'idle' %}
+            {%- set h, m, s = duration.split( ':' ) | list | map( 'int' ) %}
+
+          {%- endif %}
+
           {{ ( n + h * 60 * 60 + m * 60 + s ) | timestamp_custom( '%Y-%m-%dT%H:%M:%S-00:00', false ) }}
 
   - platform: template
@@ -136,16 +155,16 @@ sensor:
         value_template: >-
           {%- set state = states( 'timer.doorbell_motion_snooze' ) %}
           {%- set duration = state_attr( 'timer.doorbell_motion_snooze', 'duration' ) %}
-          {% set h = '00' | int %}
-          {% set m = '00' | int %}
-          {% set s = '00' | int %}
+          {%- set n = now().timestamp() %}
+          {%- set h = '00' | int %}
+          {%- set m = '00' | int %}
+          {%- set s = '00' | int %}
 
           {%- if state != 'idle' %}
-            {% set h, m, s = duration.split( ':' ) | list | map( 'int' ) %}
+            {%- set h, m, s = duration.split( ':' ) | list | map( 'int' ) %}
 
           {%- endif %}
 
-          {% set n = now().timestamp() %}
           {{ ( n + h * 60 * 60 + m * 60 + s ) | timestamp_custom( '%Y-%m-%dT%H:%M:%S-00:00', false ) }}
 
   - platform: template
@@ -155,27 +174,17 @@ sensor:
         value_template: >-
           {%- set state = states( 'timer.front_door_unlocked_snooze' ) %}
           {%- set duration = state_attr( 'timer.front_door_unlocked_snooze', 'duration' ) %}
-          {% set h = '00' | int %}
-          {% set m = '00' | int %}
-          {% set s = '00' | int %}
+          {%- set n = now().timestamp() %}
+          {%- set h = '00' | int %}
+          {%- set m = '00' | int %}
+          {%- set s = '00' | int %}
 
           {%- if state != 'idle' %}
-            {% set h, m, s = duration.split( ':' ) | list | map( 'int' ) %}
+            {%- set h, m, s = duration.split( ':' ) | list | map( 'int' ) %}
 
           {%- endif %}
 
-          {% set n = now().timestamp() %}
           {{ ( n + h * 60 * 60 + m * 60 + s ) | timestamp_custom( '%Y-%m-%dT%H:%M:%S-00:00', false ) }}
-
-  - platform: template
-    sensors:
-      garage_door_open_snooze_countdown:
-        device_class: timestamp
-        value_template: >-
-          {%- set duration = state_attr( 'timer.garage_open_snooze', 'duration' ) %}
-          {% set h, m, s = duration.split(':') | list | map('int') %}
-          {% set n = now().timestamp()  %}
-          {{ (n + h * 60 * 60 + m * 60 + s) | timestamp_custom('%Y-%m-%dT%H:%M:%S-00:00', False) }}
 
   - platform: template
     sensors:
