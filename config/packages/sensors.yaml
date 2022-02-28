@@ -91,36 +91,88 @@ sensor:
         friendly_name: Battery Level
         unit_of_measurement: "%"
         value_template: >-
-          {{ states( 'sensor.fire_tablet_battery_level' ) | int( 'unknown' ) }}
+          {{ states( 'sensor.fire_tablet_battery_level' ) }}
         icon_template: >-
-          {%- set battery_level = states( 'sensor.fire_tablet_battery_level' ) | int( 'unknown' ) -%}
-          {%- set battery_round = ( battery_level | int / 10 ) | int * 10 -%}
+          {%- set battery_level = states( 'sensor.fire_tablet_battery_level' ) -%}
+          {%- set battery_round = ( battery_level | int(0) / 10 ) | int(0) * 10 -%}
 
-          {%- if battery_level == 'unknown' -%}
-            mdi:battery-unknown
+          {%- if battery_level == 0 -%}
+            mdi:battery-alert
+
+          {%- elif battery_round >= 80 -%}
+            mdi:battery
+
+          {%- elif battery_round <= 20 -%}
+            mdi:battery-outline
 
           {%- else -%}
-            {%- if battery_round >= 80 -%}
-              mdi:battery
+            mdi:battery-{{ battery_round }}
 
-            {%- elif battery_round <= 20 -%}
-              mdi:battery-outline
-
-            {%- elif battery_round > 0 -%}
-              mdi:battery-{{ battery_round }}
-
-            {%- else -%}
-              mdi:battery-alert
-
-            {%- endif -%}
           {%- endif -%}
+
+  - platform: template
+    sensors:
+      household_notifications_snooze_countdown:
+        device_class: timestamp
+        value_template: >-
+          {%- set state = states( 'timer.household_activity_snooze' ) %}
+          {%- set duration = state_attr( 'timer.household_activity_snooze', 'duration' ) %}
+          {% set h = '00' | int %}
+          {% set m = '00' | int %}
+          {% set s = '00' | int %}
+
+          {%- if state != 'idle' %}
+            {% set h, m, s = duration.split( ':' ) | list | map( 'int' ) %}
+
+          {%- endif %}
+
+          {% set n = now().timestamp() %}
+          {{ ( n + h * 60 * 60 + m * 60 + s ) | timestamp_custom( '%Y-%m-%dT%H:%M:%S-00:00', false ) }}
 
   - platform: template
     sensors:
       doorbell_motion_snooze_countdown:
         device_class: timestamp
         value_template: >-
+          {%- set state = states( 'timer.doorbell_motion_snooze' ) %}
           {%- set duration = state_attr( 'timer.doorbell_motion_snooze', 'duration' ) %}
+          {% set h = '00' | int %}
+          {% set m = '00' | int %}
+          {% set s = '00' | int %}
+
+          {%- if state != 'idle' %}
+            {% set h, m, s = duration.split( ':' ) | list | map( 'int' ) %}
+
+          {%- endif %}
+
+          {% set n = now().timestamp() %}
+          {{ ( n + h * 60 * 60 + m * 60 + s ) | timestamp_custom( '%Y-%m-%dT%H:%M:%S-00:00', false ) }}
+
+  - platform: template
+    sensors:
+      front_door_unlocked_snooze_countdown:
+        device_class: timestamp
+        value_template: >-
+          {%- set state = states( 'timer.front_door_unlocked_snooze' ) %}
+          {%- set duration = state_attr( 'timer.front_door_unlocked_snooze', 'duration' ) %}
+          {% set h = '00' | int %}
+          {% set m = '00' | int %}
+          {% set s = '00' | int %}
+
+          {%- if state != 'idle' %}
+            {% set h, m, s = duration.split( ':' ) | list | map( 'int' ) %}
+
+          {%- endif %}
+
+          {% set n = now().timestamp() %}
+          {{ ( n + h * 60 * 60 + m * 60 + s ) | timestamp_custom( '%Y-%m-%dT%H:%M:%S-00:00', false ) }}
+
+  - platform: template
+    sensors:
+      garage_door_open_snooze_countdown:
+        device_class: timestamp
+        value_template: >-
+          {%- set duration = state_attr( 'timer.garage_open_snooze', 'duration' ) %}
           {% set h, m, s = duration.split(':') | list | map('int') %}
           {% set n = now().timestamp()  %}
           {{ (n + h * 60 * 60 + m * 60 + s) | timestamp_custom('%Y-%m-%dT%H:%M:%S-00:00', False) }}
@@ -149,8 +201,8 @@ sensor:
         icon_template: mdi:memory
         unit_of_measurement: GB
         value_template: >-
-          {%- set total_memory = states( 'sensor.fire_tablet_ram_total_memory' ) | int -%}
-          {%- set free_memory = states( 'sensor.fire_tablet_ram_free_memory' ) | int -%}
+          {%- set total_memory = states( 'sensor.fire_tablet_ram_total_memory' ) | int(0) -%}
+          {%- set free_memory = states( 'sensor.fire_tablet_ram_free_memory' ) | int(0) -%}
           {%- set used_memory = ( total_memory - free_memory ) -%}
 
           {{ used_memory / total_memory * 100 }}

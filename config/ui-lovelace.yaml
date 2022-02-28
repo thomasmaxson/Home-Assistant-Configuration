@@ -108,7 +108,7 @@ views:
               - details
             tap_action: !include popup/status-settings.yaml
             hold_action: !include popup/status-settings.yaml
-            double_tap_action: !include popup/input-helpers.yaml
+            double_tap_action: !include popup/helpers.yaml
 
       #
       # COMMON AREAS
@@ -177,7 +177,7 @@ views:
                       type: custom:button-card
                       #entity: group.kitchen_cabinet_upper_lights
                       entity: light.kitchen_cabinet_upper_coffee_bar
-                      name: Above
+                      name: Up Lighting
                       icon: hass:led-strip-variant
                       template:
                         - popup_dimmer_colors

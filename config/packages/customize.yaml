@@ -11,6 +11,9 @@ homeassistant:
     #
     # LIGHTS
     # --------------------------------------------------
+    #
+    # INTERIOR
+    # ----------------------------------------
 
     light.kitchen_ceiling_lights:
       friendly_name: Ceiling Lights
@@ -39,6 +42,14 @@ homeassistant:
     light.kitchen_light_6:
       friendly_name: Ceiling Light, 06
       icon: bha:ceiling-downlight
+
+    light.kitchen_cabinet_upper_coffee_bar:
+      friendly_name: Upper Cabinets, Coffee Bar
+      icon: mdi:led-strip-variant
+
+    light.kitchen_cabinet_upper_range:
+      friendly_name: Upper Cabinets, Range
+      icon: mdi:led-strip-variant
 
     light.dining_room_chandelier:
       friendly_name: Chandelier
@@ -112,21 +123,29 @@ homeassistant:
       friendly_name: His Closet Light
       icon: mdi:lightbulb
 
-    light.foyer_exterior_entryway:
-      friendly_name: Entryway
-      icon: hass:globe-light
+    #
+    # EXTERIOR
+    # ----------------------------------------
 
     light.garage_exterior:
       friendly_name: Garage Exterior Lights
       icon: bha:outdoor-lamp-variant
 
-    #
-    # SWITCHES
-    # --------------------------------------------------
+    light.foyer_exterior_entryway:
+      friendly_name: Entryway
+      icon: hass:globe-light
 
     switch.backyard_string_lights:
       friendly_name: Backyard String Lights
       icon: bha:light-string
+
+    #
+    # REMOTES
+    # --------------------------------------------------
+
+    sensor.switch_foyer_for_foyer:
+      device_class: light
+      friendly_name: Foyer for Foyer Remote
 
     sensor.switch_bedroom_4_for_bedroom_4:
       device_class: light
@@ -304,6 +323,18 @@ homeassistant:
     sensor.temp_attic_battery_level:
       device_class: battery
       friendly_name: Attic Temperature Sensor Battery
+
+    sensor.temp_freezer_battery_level:
+      device_class: battery
+      friendly_name: Freezer Temperature Sensor Battery
+
+    sensor.temp_refrigerator_battery_level:
+      device_class: battery
+      friendly_name: Refrigerator Temperature Sensor Battery
+
+    sensor.temp_wine_cooler_battery_level:
+      device_class: battery
+      friendly_name: Wine Cooler Temperature Sensor Battery
 
     #
     # MEDIA
