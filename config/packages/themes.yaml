@@ -31,15 +31,15 @@ frontend:
       ha-card-background: none
       grid-card-gap: 5%
       masonry-view-card-margin: 0px
-      state-icon-color: "#9da0a2"
-      state-icon-active-color: "#3182b7"
+      state-icon-color: '#9da0a2'
+      state-icon-active-color: '#3182b7'
       switch-checked-color: "#7a7d7f"
       switch-unchecked-button-color: "#3b4041"
       switch-unchecked-track-color: "#0c0d0d"
       paper-slider-knob-color: "#a4abb1"
       paper-slider-knob-start-color: "#a4abb1"
       paper-slider-pin-color: "#626a6f"
-      paper-slider-active-color: "#626a6f"
+      #paper-slider-active-color: '#626a6f'
       paper-slider-container-color: "#202020"
       mdc-dialog-scrim-color: rgba(0, 0, 0, 0.5)
       paper-toast-color: var(--primary-text-color)
@@ -49,13 +49,14 @@ frontend:
       #custom variables
       ha-card-background-color: rgba(34,38,39,0.9)
       ha-card-header-background-color: rgba(48,52,52,0.8)
+      card-content-padding: 1.4em 2.2em 1.6em 1.5em
+
       custom-layout-card-padding: 3.3vw
       custom-button-card-border-radius: 8%
       sidebar-time-font-size: 5vw
-      sidebar-time-line-height: 4vw
       sidebar-font-size: 1.5vw
       sidebar-line-height: 2.1vw
-      card-content-padding: 1.8em 2.2em 1.8em 2em
+      bar-card-color: "#303435"
 
       ####################################################
       #                                                  #
@@ -85,6 +86,7 @@ frontend:
               h1 {
                 font-size: 2.4vw !important;
                 line-height: 0 !important;
+                font-family: SF Text, Roboto !important;
                 font-weight: 500 !important;
                 color: rgba(255, 255, 255, 0.8) !important;
                 padding: 1vw 0 2vw 0 !important;
@@ -97,7 +99,7 @@ frontend:
                 }
               }
               /* phone */
-              @media screen and (max-width: 992px) {
+              @media screen and (max-width: 800px) {
                 h1 {
                   font-size: 5.5vw !important;
                   line-height: 6vw !important;
@@ -107,16 +109,18 @@ frontend:
 
       card-mod-card: |
         .header .card-header {
+          font-family: SF Text, Roboto;
           letter-spacing: 0.005em;
           font-size: 1.6em;
           font-weight: 500;
-          padding: 1em 0 0 1.68em;
+          padding: 1em 0 0 1.38em;
           line-height: initial;
           cursor: default;
         }
-
         .content .card-content {
           padding: var(--card-content-padding);
+          font-family: SF Text, Roboto;
+          letter-spacing: normal;
         }
 
         /* * * * * * * * * * * * * * * * * *
