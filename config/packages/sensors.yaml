@@ -71,19 +71,6 @@ sensor:
       - type: throughput_network_out
         arg: eth0
 
-  - platform: version
-    name: ha_version_installed
-    source: local
-
-  - platform: version
-    name: ha_version_latest
-    source: container
-
-  - platform: version
-    name: ha_version_latest_beta
-    source: container
-    beta: true
-
   - platform: template
     sensors:
       custom_fire_tablet_battery_level:
