@@ -30,7 +30,7 @@ light:
 
   - platform: group
     name: Foyer Ceiling Lights
-    unique_id: foyer_ceiling_lights
+    #  unique_id: foyer_ceiling_lights
     entities:
       - light.foyer_entryway_ceiling
       - light.foyer_hallway_ceiling

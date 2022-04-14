@@ -12,62 +12,50 @@ browser_mod:
   title: Household Overview
   large: false
   style:
-    $: |
-      /* Mobile Devices */
-      @media screen and (max-width: 992px) { 
-        .mdc-dialog .mdc-dialog__container .mdc-dialog__surface { 
-          border-radius: 0 !important;
-        }
-      }
-
     .: |
-      :host .content { 
-        width: calc(385px + 385px + 385px);
-        max-width: 90vw;
+      :host .content {
+        overflow-x: hidden;
       }
 
-      /* Mobile Devices */
-      @media screen and (max-width: 992px) { 
-        :host .content {
-          width: 100vw;
-          max-width: none;
-          overflow-x: hidden;
+      /* Desktop */
+      @media screen and (min-width: 992px) { 
+        :host .content { 
+          width: calc(385px + 385px + 385px);
+          max-width: 90vw;
         }
       }
 
     layout-card:
       $grid-layout$:
-        $: |
-          #root {
-            margin-right: 0;
-            margin-left: 0;
+        .: |
+          @media screen and (min-width: 992px) { 
+            #root {
+              margin-top: 0 !important;
+              margin-right: 0 !important;
+              margin-left: 0 !important;
+            }
           }
+
         hui-entities-card:
           $: |
-            ha-card { 
-              border-radius: 0;
-              animation: border 1s forwards;
+            ha-card .card-content { 
+              padding-top: 0 !important;
+              margin-top: -16px;
             }
 
-            @keyframes border {
-              0%, 100% {
+            /* Mobile */
+            @media screen and (max-width: 992px) { 
+              ha-card .card-content { 
+                width: 90vw;
+              }
+            }
+
+            /* Desktop */
+            @media screen and (min-width: 992px) { 
+              ha-card .card-content { 
+                border-right: 1px solid var(--entities-divider-color, var(--divider-color));
                 border-left: 1px solid var(--entities-divider-color, var(--divider-color));
               }
-            }
-
-            /* Mobile Devices */
-            @media screen and (max-width: 992px) { 
-              ha-card {
-                width: 100vw;
-                animation: none;
-              }
-            }
-
-          $hui-horizontal-stack-card$: |
-            #root {
-              justify-content: space-evenly;
-              margin-top: 1.9em;
-              margin-left: 0.8em;
             }
   card:
     type: custom:layout-card
@@ -90,7 +78,7 @@ browser_mod:
       - type: entities
         view_layout:
           grid-area: group_a
-        #title: Home Assistant
+        #title: Column A Title
         show_header_toggle: false
         card_mod:
           class: header
@@ -203,7 +191,7 @@ browser_mod:
       - type: entities
         view_layout:
           grid-area: group_b
-        #title: Home Assistant
+        #title: Column B Title
         show_header_toggle: false
         card_mod:
           class: header
@@ -269,14 +257,21 @@ browser_mod:
           - type: section
             label: Other
           - entity: light.laundry_ceiling_light
-            name: Laundry Room
+            name: Laundry Room Ceiling
             icon: bha:dome-light
             secondary_info: brightness
+          - entity: light.laundry_hallway_light
+            name: Laundry Room Hallway
+            icon: bha:dome-light
+            secondary_info: brightness
+          - entity: switch.garage_light
+            name: Garage Ceiling
+            icon: hass:lightbulb
 
       - type: entities
         view_layout:
           grid-area: group_c
-        #title: Home Assistant
+        #title: Column C Title
         show_header_toggle: false
         card_mod:
           class: header
@@ -288,9 +283,9 @@ browser_mod:
             .name { margin: 0 0 1em !important;}
         entities:
           - type: section
-            label: Lights, Exterior
+            label: Exterior
           - entity: light.foyer_exterior_entryway
-            name: Front Door Entry
+            name: Front Door Entryway
             icon: hass:globe-light
             secondary_info: brightness
           - entity: light.garage_exterior

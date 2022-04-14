@@ -21,27 +21,29 @@ browser_mod:
       }
 
     .: |
-      :host .content { 
-        width: calc(385px + 385px + 385px);
-        max-width: 90vw;
+      :host .content {
+        overflow-x: hidden;
       }
 
-      /* Mobile Devices */
-      @media screen and (max-width: 992px) { 
-        :host .content {
-          width: 100vw;
-          max-width: none;
-          overflow-x: hidden;
+      /* Desktop */
+      @media screen and (min-width: 992px) { 
+        :host .content { 
+          width: calc(385px + 385px + 385px);
+          max-width: 90vw;
         }
       }
 
     layout-card:
       $grid-layout$:
-        $: |
-          #root {
-            margin-right: 0;
-            margin-left: 0;
+        .: |
+          @media screen and (min-width: 992px) { 
+            #root {
+              margin-top: 0 !important;
+              margin-right: 0 !important;
+              margin-left: 0 !important;
+            }
           }
+
         hui-thermostat-card:
           $: |
             ha-card { 
@@ -51,22 +53,23 @@ browser_mod:
 
         hui-entities-card:
           $: |
-            ha-card { 
-              border-radius: 0;
-              animation: border 1s forwards;
+            ha-card .card-content { 
+              padding-top: 0 !important;
+              margin-top: -16px;
             }
 
-            @keyframes border {
-              0%, 100% {
-                border-left: 1px solid var(--entities-divider-color, var(--divider-color));
+            /* Mobile */
+            @media screen and (max-width: 992px) { 
+              ha-card .card-content { 
+                width: 90vw;
               }
             }
 
-            /* Mobile Devices */
-            @media screen and (max-width: 992px) { 
-              ha-card {
-                width: 100vw;
-                animation: none;
+            /* Desktop */
+            @media screen and (min-width: 992px) { 
+              ha-card .card-content { 
+                border-right: 1px solid var(--entities-divider-color, var(--divider-color));
+                border-left: 1px solid var(--entities-divider-color, var(--divider-color));
               }
             }
   card:

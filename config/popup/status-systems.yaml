@@ -21,45 +21,48 @@ browser_mod:
       }
 
     .: |
-      :host .content { 
-        width: calc(385px + 385px + 385px);
-        max-width: 90vw;
+      :host .content {
+        overflow-x: hidden;
       }
 
-      /* Mobile Devices */
-      @media screen and (max-width: 992px) { 
-        :host .content {
-          width: 100vw;
-          max-width: none;
-          overflow-x: hidden;
+      /* Desktop */
+      @media screen and (min-width: 992px) { 
+        :host .content { 
+          width: calc(385px + 385px + 385px);
+          max-width: 90vw;
         }
       }
 
     layout-card:
       $grid-layout$:
-        $: |
-          #root {
-            margin-right: 0;
-            margin-left: 0;
+        .: |
+          @media screen and (min-width: 992px) { 
+            #root {
+              margin-top: 0 !important;
+              margin-right: 0 !important;
+              margin-left: 0 !important;
+            }
           }
+
         hui-entities-card:
           $: |
-            ha-card { 
-              border-radius: 0;
-              animation: border 1s forwards;
+            ha-card .card-content { 
+              padding-top: 0 !important;
+              margin-top: -16px;
             }
 
-            @keyframes border {
-              0%, 100% {
-                border-left: 1px solid var(--entities-divider-color, var(--divider-color));
+            /* Mobile */
+            @media screen and (max-width: 992px) { 
+              ha-card .card-content { 
+                width: 90vw;
               }
             }
 
-            /* Mobile Devices */
-            @media screen and (max-width: 992px) { 
-              ha-card {
-                width: 100vw;
-                animation: none;
+            /* Desktop */
+            @media screen and (min-width: 992px) { 
+              ha-card .card-content { 
+                border-right: 1px solid var(--entities-divider-color, var(--divider-color));
+                border-left: 1px solid var(--entities-divider-color, var(--divider-color));
               }
             }
 
@@ -90,7 +93,7 @@ browser_mod:
       - type: entities
         view_layout:
           grid-area: homeassistant
-        title: Home Assistant
+        #title: Home Assistant
         show_header_toggle: false
         card_mod:
           class: header
@@ -101,13 +104,9 @@ browser_mod:
             }
             .name { margin: 0 0 1em !important;}
         entities:
-          - entity: sensor.ha_version
-          - entity: sensor.last_boot
-            #format: relative
-            #secondary_info: "Since: [[ sensor.last_boot ]]"
-          - entity: sensor.mariadb_database_size
-          - entity: sensor.influxdb_database_size
-          - entity: sensor.home_assistant_log
+          - type: section
+            label: Home Assistant
+
           - entity: sensor.processor_temperature
           - type: custom:bar-card
             width: 55%
@@ -129,17 +128,35 @@ browser_mod:
             entities:
               - entity: sensor.processor_use_percent
 
+          - type: divider
+
+          - entity: sensor.home_assistant_log_size
+          - entity: sensor.mariadb_database_size
+            icon: mdi:database
+          - entity: sensor.influxdb_database_size
+            icon: mdi:database
+
+          - type: divider
+
+          - entity: input_button.home_assistant_restart
+            icon: mdi:restart
+            name: Restart System
+            tap_action:
+              action: call-service
+              service: homeassistant.restart
+
         # footer:
         #   type: custom:hui-horizontal-stack-card
         #   cards:
-        #     # Same service as: Configuration > Server Controls > Restart
         #     - type: custom:button-card
+        #       icon: mdi:restart-alert
+        #       name: Reboot System
         #       template: icon_name
-        #       name: Restart System
-        #       icon: hass:reload
-        #       hold_action:
+        #       tap_action:
         #         action: call-service
         #         service: homeassistant.restart
+        #         confirmation:
+        #           text: Are you sure you want to restart Home Assistant?
         #       card_mod:
         #         style: |
         #           ha-card {
@@ -148,20 +165,11 @@ browser_mod:
         #             margin-left: 0.25em;
         #           }
 
-        #     # Same service as: Supervisor > System > Reboot Host
-        #     # - type: custom:button-card
-        #     #   template: icon_name
-        #     #   name: Reboot Host
-        #     #   icon: hass:reload
-        #     #   hold_action:
-        #     #     action: call-service
-        #     #     service: hassio.host_reboot
-
       - type: entities
         view_layout:
           grid-area: tablet
         show_header_toggle: false
-        title: Amazon Fire HD Tablet
+        #title: Amazon Fire HD Tablet
         card_mod:
           class: header
           style: |
@@ -171,19 +179,23 @@ browser_mod:
             }
             .name { margin: 0 0 1em !important;}
         entities:
+          - type: section
+            label: Amazon Fire HD Tablet
+
           - entity: light.fire_tablet_screen
             name: Display
             icon: hass:tablet
 
-          # - entity: sensor.fire_tablet_last_app_start_formatted
-          #   name: Last Restart
-          #   icon: hass:update
-
-          - type: custom:slider-entity-row
-            entity: light.fire_tablet_screen
-            name: Brightness
-            icon: mdi:brightness-6
-            hide_state: false
+          - type: conditional
+            conditions:
+              - entity: light.fire_tablet_screen
+                state: "on"
+            row:
+              type: custom:slider-entity-row
+              entity: light.fire_tablet_screen
+              name: Brightness
+              icon: mdi:brightness-6
+              hide_state: false
 
           - type: divider
 
@@ -238,24 +250,28 @@ browser_mod:
               # - entity: sensor.fire_tablet_internal_storage_free_space
               #   icon: hass:database
 
+          - type: divider
+
+          # - entity: button.fire_tablet_reboot_device
+          #   icon: mdi:restart
+          #   name: Restart Device
+
+          - entity: button.fire_tablet_restart_browser
+            icon: mdi:restart
+            name: Restart Browser
+
         # footer:
         #   type: custom:hui-horizontal-stack-card
         #   cards:
         #     - type: custom:button-card
-        #       name: Restart Device
-        #       icon: hass:reload
+        #       icon: mdi:restart
+        #       name: Reboot Device
         #       template: icon_name
-        #       hold_action:
-        #         # action: call-service
-        #         # service: fullykiosk.reboot_device
-        #         # data:
-        #         #   entity_id: media_player.johan_the_tablet
-        #         services: |
-        #           [[[
-        #             hass.callService('fullykiosk', 'restart', {
-        #               entity_id: 'media_player.johan_the_tablet'
-        #             });
-        #           ]]]
+        #       tap_action:
+        #         action: call-service
+        #         service: button.press
+        #         target:
+        #           entity_id: button.fire_tablet_reboot_device
         #       card_mod:
         #         style: |
         #           ha-card {
@@ -264,11 +280,38 @@ browser_mod:
         #             margin-left: 0.25em;
         #           }
 
+        #     - type: custom:button-card
+        #       icon: mdi:restart
+        #       name: Reload Browser
+        #       template: icon_name
+        #       tap_action:
+        #         entity_id: button.fire_tablet_restart_browser
+        #         action: call-service
+        #         service: button.press
+        #         confirmation:
+        #           text: Are you sure you want to reload the browser?
+        #       card_mod:
+        #         style: |
+        #           ha-card {
+        #             margin-right: 0.25em;
+        #             margin-bottom: 1em;
+        #             margin-left: 0.25em;
+        #           }
+
+        # footer:
+        #   cards:
+        #     - type: entities
+        #       entities:
+        #         - entity: button.fire_tablet_reboot_device
+        #           icon: mdi:restart
+        #           name: Restart Device
+        #           template: icon_name
+
       - type: entities
         view_layout:
           grid-area: network
         show_header_toggle: false
-        title: Network
+        #title: Network
         card_mod:
           class: header
           style: |
@@ -278,6 +321,9 @@ browser_mod:
             }
             .name { margin: 0 0 1em !important;}
         entities:
+          - type: section
+            label: Network
+
           - entity: sensor.network_throughput_in_eth0
             name: Throughput In
           - entity: sensor.network_throughput_out_eth0

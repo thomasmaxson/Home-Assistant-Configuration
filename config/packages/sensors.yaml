@@ -7,22 +7,9 @@
 ################################################################################
 
 sensor:
-  - platform: version
-    name: ha_version_installed
-    source: local
-
-  - platform: version
-    name: ha_version_latest
-    source: container
-
-  - platform: version
-    name: ha_version_latest_beta
-    source: container
-    beta: true
-
-  - platform: filesize
-    file_paths:
-      - /config/home-assistant.log
+  # - platform: filesize
+  #   file_paths:
+  #     - /config/home-assistant.log
 
   # MariaDB recorder DB size sensor
   - platform: sql
@@ -318,47 +305,47 @@ sensor:
     unit_of_measurement: Days
     scan_interval: 43200
 
-  - platform: rest
-    name: Countdown to Mothers Day
-    resource: !secret wolframalpha_api_countdown_mothersday
-    value_template: "{{ (value|replace(' days', '')) | int }}"
-    unit_of_measurement: Days
-    scan_interval: 43200
+  # - platform: rest
+  #   name: Countdown to Mothers Day
+  #   resource: !secret wolframalpha_api_countdown_mothersday
+  #   value_template: "{{ (value|replace(' days', '')) | int }}"
+  #   unit_of_measurement: Days
+  #   scan_interval: 43200
 
-  - platform: rest
-    name: Countdown to Fathers day
-    resource: !secret wolframalpha_api_countdown_fathersday
-    value_template: "{{ (value|replace(' days', '')) | int }}"
-    unit_of_measurement: Days
-    scan_interval: 43200
+  # - platform: rest
+  #   name: Countdown to Fathers day
+  #   resource: !secret wolframalpha_api_countdown_fathersday
+  #   value_template: "{{ (value|replace(' days', '')) | int }}"
+  #   unit_of_measurement: Days
+  #   scan_interval: 43200
 
-  - platform: rest
-    name: Countdown to Easter
-    resource: !secret wolframalpha_api_countdown_easter
-    value_template: "{{ (value|replace(' days', '')) | int }}"
-    unit_of_measurement: Days
-    scan_interval: 43200
+  # - platform: rest
+  #   name: Countdown to Easter
+  #   resource: !secret wolframalpha_api_countdown_easter
+  #   value_template: "{{ (value|replace(' days', '')) | int }}"
+  #   unit_of_measurement: Days
+  #   scan_interval: 43200
 
-  - platform: rest
-    name: Countdown to Halloween
-    resource: !secret wolframalpha_api_countdown_halloween
-    value_template: "{{ (value|replace(' days', '')) | int }}"
-    unit_of_measurement: Days
-    scan_interval: 43200
+  # - platform: rest
+  #   name: Countdown to Halloween
+  #   resource: !secret wolframalpha_api_countdown_halloween
+  #   value_template: "{{ (value|replace(' days', '')) | int }}"
+  #   unit_of_measurement: Days
+  #   scan_interval: 43200
 
-  - platform: rest
-    name: Countdown to Thanksgiving
-    resource: !secret wolframalpha_api_countdown_thanksgiving
-    value_template: "{{ (value|replace(' days', '')) | int }}"
-    unit_of_measurement: Days
-    scan_interval: 43200
+  # - platform: rest
+  #   name: Countdown to Thanksgiving
+  #   resource: !secret wolframalpha_api_countdown_thanksgiving
+  #   value_template: "{{ (value|replace(' days', '')) | int }}"
+  #   unit_of_measurement: Days
+  #   scan_interval: 43200
 
-  - platform: rest
-    name: Countdown to Christmas
-    resource: !secret wolframalpha_api_countdown_christmas
-    value_template: "{{ (value|replace(' days', '')) | int }}"
-    unit_of_measurement: Days
-    scan_interval: 43200
+  # - platform: rest
+  #   name: Countdown to Christmas
+  #   resource: !secret wolframalpha_api_countdown_christmas
+  #   value_template: "{{ (value|replace(' days', '')) | int }}"
+  #   unit_of_measurement: Days
+  #   scan_interval: 43200
 
   - platform: template
     sensors:
