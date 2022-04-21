@@ -53,7 +53,7 @@ group:
       - light.bedroom_4_lightstrip
       - light.foyer_exterior_entryway
       - light.garage_exterior
-      - switch.backyard_string_lights
+      - light.backyard_string_lights
 
   lights_all_interior:
     name: All Interior Lights
@@ -78,7 +78,7 @@ group:
     entities:
       - light.foyer_exterior_entryway
       - light.garage_exterior
-      - switch.backyard_string_lights
+      - light.backyard_string_lights
 
   sensors_doors:
     name: Doors
