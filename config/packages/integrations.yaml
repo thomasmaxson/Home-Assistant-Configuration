@@ -32,3 +32,43 @@ influxdb:
 google:
   client_id: !secret google_client_id
   client_secret: !secret google_client_secret
+
+#
+# Switchbot
+# ----------------------------------------
+
+rest_command:
+  switchbot_device_command:
+    url: "https://api.switch-bot.com/v1.0/devices/{{ deviceId }}/commands"
+    method: post
+    content_type: "application/json"
+    headers:
+      Authorization: !secret switchbot_api
+    payload: '{"command": "{{ command }}","parameter": "{{ parameter }}"}'
+
+sensor:
+  - platform: rest
+    name: "Bedroom 1 Large Window Curtain Position"
+    resource: !secret switchbot_bedroom_1_large_status_url
+    method: GET
+    scan_interval: 15
+    headers:
+      Authorization: !secret switchbot_api
+      Content-Type: "application/json"
+    value_template: >-
+      {% if value_json.body.slidePosition > 95 %}
+        0
+      {% elif value_json.body.slidePosition < 5 %}
+        100
+      {% else %}
+        {{ 100 - value_json.body.slidePosition }}
+      {%- endif -%}
+    json_attributes_path: "$.body"
+    json_attributes:
+      - deviceId
+      - deviceType
+      - hubDeviceId
+      - calibrate
+      - group
+      - moving
+      - slidePosition
