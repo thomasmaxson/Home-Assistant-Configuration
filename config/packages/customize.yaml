@@ -79,7 +79,7 @@ homeassistant:
       friendly_name: Ceiling Light
       icon: bha:dome-light
 
-    light.bedroom_1_bedside_lights:
+    light.bedroom_1_bedside_lamps:
       friendly_name: Bedside Lamps
       icon: mdi:lamps
 
@@ -135,7 +135,7 @@ homeassistant:
       friendly_name: Entryway
       icon: hass:globe-light
 
-    switch.backyard_string_lights:
+    light.backyard_string_lights:
       friendly_name: Backyard String Lights
       icon: bha:light-string
 
@@ -203,6 +203,14 @@ homeassistant:
     binary_sensor.bedroom_1_occupancy:
       device_class: occupancy
       friendly_name: Main Bedroom Occupancy
+
+    binary_sensor.bedroom_2_occupancy:
+      device_class: occupancy
+      friendly_name: Guest Bedroom Occupancy
+
+    binary_sensor.bedroom_3_occupancy:
+      device_class: occupancy
+      friendly_name: "Jess' Office Occupancy"
 
     binary_sensor.bedroom_4_occupancy:
       device_class: occupancy
@@ -352,13 +360,13 @@ homeassistant:
     # HOME ASSISTANT
     # ----------------------------------------
 
-    sensor.ha_uptime:
-      friendly_name: HA Uptime
-      icon: mdi:clock-start
+    # sensor.ha_uptime:
+    #   friendly_name: HA Uptime
+    #   icon: mdi:clock-start
 
-    sensor.last_boot:
-      friendly_name: Last Restart
-      icon: mdi:update
+    # sensor.last_boot:
+    #   friendly_name: Last Restart
+    #   icon: mdi:update
 
     sensor.processor_use_percent:
       friendly_name: Processor
@@ -368,13 +376,13 @@ homeassistant:
       friendly_name: Temperature
       icon: mdi:thermometer
 
-    sensor.database:
-      friendly_name: Database Size
-      icon: mdi:database
+    # sensor.database:
+    #   friendly_name: Database Size
+    #   icon: mdi:database
 
-    sensor.home_assistant_log:
-      friendly_name: Log File Size
-      icon: mdi:file-document
+    # sensor.home_assistant_log:
+    #   friendly_name: Log File Size
+    #   icon: mdi:file-document
 
     #
     # MISC
