@@ -245,13 +245,13 @@ browser_mod:
               entity: sensor.temp_refrigerator_battery_level
               name: Refrigerator
 
-          - type: conditional
-            conditions:
-              - entity: sensor.temp_wine_cooler_battery_level
-                state_not: "unavailable"
-            row:
-              entity: sensor.temp_wine_cooler_battery_level
-              name: Wine Cooler
+          # - type: conditional
+          #   conditions:
+          #     - entity: sensor.temp_wine_cooler_battery_level
+          #       state_not: "unavailable"
+          #   row:
+          #     entity: sensor.temp_wine_cooler_battery_level
+          #     name: Wine Cooler
 
           - type: section
 

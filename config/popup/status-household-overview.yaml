@@ -292,7 +292,7 @@ browser_mod:
             name: Garage Exterior
             icon: bha:outdoor-lamp-variant
             secondary_info: brightness
-          - entity: switch.backyard_string_lights
+          - entity: light.backyard_string_lights
             name: Backyard String Lights
             icon: bha:light-string
 

@@ -145,26 +145,6 @@ browser_mod:
               action: call-service
               service: homeassistant.restart
 
-        # footer:
-        #   type: custom:hui-horizontal-stack-card
-        #   cards:
-        #     - type: custom:button-card
-        #       icon: mdi:restart-alert
-        #       name: Reboot System
-        #       template: icon_name
-        #       tap_action:
-        #         action: call-service
-        #         service: homeassistant.restart
-        #         confirmation:
-        #           text: Are you sure you want to restart Home Assistant?
-        #       card_mod:
-        #         style: |
-        #           ha-card {
-        #             margin-right: 0.25em;
-        #             margin-bottom: 1em;
-        #             margin-left: 0.25em;
-        #           }
-
       - type: entities
         view_layout:
           grid-area: tablet
@@ -252,66 +232,18 @@ browser_mod:
 
           - type: divider
 
-          # - entity: button.fire_tablet_reboot_device
-          #   icon: mdi:restart
-          #   name: Restart Device
+          - entity: button.fire_tablet_reboot_device
+            icon: mdi:restart
+            name: Restart Device
 
           - entity: button.fire_tablet_restart_browser
             icon: mdi:restart
             name: Restart Browser
 
-        # footer:
-        #   type: custom:hui-horizontal-stack-card
-        #   cards:
-        #     - type: custom:button-card
-        #       icon: mdi:restart
-        #       name: Reboot Device
-        #       template: icon_name
-        #       tap_action:
-        #         action: call-service
-        #         service: button.press
-        #         target:
-        #           entity_id: button.fire_tablet_reboot_device
-        #       card_mod:
-        #         style: |
-        #           ha-card {
-        #             margin-right: 0.25em;
-        #             margin-bottom: 1em;
-        #             margin-left: 0.25em;
-        #           }
-
-        #     - type: custom:button-card
-        #       icon: mdi:restart
-        #       name: Reload Browser
-        #       template: icon_name
-        #       tap_action:
-        #         entity_id: button.fire_tablet_restart_browser
-        #         action: call-service
-        #         service: button.press
-        #         confirmation:
-        #           text: Are you sure you want to reload the browser?
-        #       card_mod:
-        #         style: |
-        #           ha-card {
-        #             margin-right: 0.25em;
-        #             margin-bottom: 1em;
-        #             margin-left: 0.25em;
-        #           }
-
-        # footer:
-        #   cards:
-        #     - type: entities
-        #       entities:
-        #         - entity: button.fire_tablet_reboot_device
-        #           icon: mdi:restart
-        #           name: Restart Device
-        #           template: icon_name
-
       - type: entities
         view_layout:
           grid-area: network
         show_header_toggle: false
-        #title: Network
         card_mod:
           class: header
           style: |
@@ -328,17 +260,9 @@ browser_mod:
             name: Throughput In
           - entity: sensor.network_throughput_out_eth0
             name: Throughput Out
+
           - type: divider
-          # - entity: sensor.unifi_gateway_www_xput_up
-          #   name: Unifi, Upload Speed
-          # - entity: sensor.unifi_gateway_www_xput_down
-          #   name: Unifi, Download Speed
-          # - entity: sensor.unifi_gateway_www_speedtest_ping
-          #   name: Unifi, Ping
-          # - type: divider
-          # - entity: sensor.uptime
-          #   name: Dream Machine Pro Uptime
-          # SpeedTest
+
           - entity: sensor.speedtest_ping
           - entity: sensor.speedtest_upload
             style: |

@@ -24,6 +24,7 @@ browser_mod:
       :host .content { 
         width: calc(385px + 385px);
         max-width: 90vw;
+        transition: none;
       }
 
       /* Mobile Devices */
@@ -84,7 +85,7 @@ browser_mod:
         view_layout:
           grid-area: column_a
         show_header_toggle: false
-        #title: Lights
+        #title: Column A Title
         card_mod:
           class: header
           style: |
@@ -116,7 +117,7 @@ browser_mod:
         view_layout:
           grid-area: column_b
         show_header_toggle: false
-        #title: Batteries
+        title: Snoozed Notifications
         card_mod:
           class: header
           style: |
@@ -127,7 +128,7 @@ browser_mod:
             .name { margin: 0 0 1em !important;}
         entities:
           - type: section
-            label: Household Activity Notifications
+            label: Household Activity
 
           - type: conditional
             conditions:
@@ -155,11 +156,11 @@ browser_mod:
               - entity: timer.household_activity_snooze
                 state_not: "idle"
             row:
-              entity: sensor.household_activity_snooze_countdown
+              entity: timer.household_activity_snooze_countdown
               name: Snooze Countdown
 
           - type: section
-            label: Garage Door Left Open Notifications
+            label: Garage Door Left Open
           - type: conditional
             conditions:
               - entity: input_boolean.garage_open_snooze_indefinite
@@ -186,11 +187,11 @@ browser_mod:
               - entity: timer.garage_open_snooze
                 state_not: "idle"
             row:
-              entity: sensor.garage_open_snooze_countdown
+              entity: timer.garage_open_snooze_countdown
               name: Snooze Countdown
 
           - type: section
-            label: Front Door Unlocked Notifications
+            label: Front Door Unlocked
           - type: conditional
             conditions:
               - entity: input_boolean.front_door_unlocked_snooze_indefinite
@@ -221,7 +222,7 @@ browser_mod:
               name: Snooze Countdown
 
           - type: section
-            label: Doorbell Motion Detected Notifications
+            label: Doorbell Motion Detected
           - type: conditional
             conditions:
               - entity: input_boolean.doorbell_motion_snooze_indefinite

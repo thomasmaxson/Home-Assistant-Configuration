@@ -48,7 +48,7 @@ browser_mod:
           $: |
             ha-card { 
               border-radius: 0;
-              width: 350px;
+              margin: 0 auto !important;
             }
 
         hui-entities-card:
@@ -128,6 +128,12 @@ browser_mod:
           - entity: sensor.bedroom_1_temperature
             name: Main Bedroom
 
+          - entity: sensor.bedroom_2_temperature
+            name: Guest Bedroom
+
+          - entity: sensor.bedroom_3_temperature
+            name: Her Office
+
           - entity: sensor.bedroom_4_temperature
             name: His Office
 
@@ -173,15 +179,10 @@ browser_mod:
               entity: sensor.temp_refrigerator_temperature
               name: Refrigerator
 
-          - type: conditional
-            conditions:
-              - entity: sensor.temp_wine_cooler_temperature
-                state_not: "unavailable"
-            row:
-              entity: sensor.temp_wine_cooler_temperature
-              name: Wine Cooler
-
-          # - type: divider
-
-          # - entity: sensor.foyer_humidity
-          #   name: Humidity
+          # - type: conditional
+          #   conditions:
+          #     - entity: sensor.temp_wine_cooler_temperature
+          #       state_not: "unavailable"
+          #   row:
+          #     entity: sensor.temp_wine_cooler_temperature
+          #     name: Wine Cooler
