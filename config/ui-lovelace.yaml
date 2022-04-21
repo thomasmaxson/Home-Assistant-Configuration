@@ -30,8 +30,8 @@ views:
       grid-template-rows: min-content
       grid-template-columns: 23% repeat( 2, 1fr ) 0
       grid-template-areas: |
-        "sidebar  common  bdr_1     ."
-        "sidebar  foyer   bdr_3_4   ."
+        "sidebar  common  foyer     ."
+        "sidebar  bdr_1   bdr_3_4   ."
         "sidebar  other   resident  ."
         "popups   popups  popups    ."
       mediaquery:
@@ -373,16 +373,15 @@ views:
                       - popup_dimmer_colors
 
                   - type: custom:button-card
+                    entity: cover.bedroom_1_large_curtains
+                    name: Curtains
+                    template:
+                      - cover
+
+                  - type: custom:button-card
                     entity: light.closet_hallway_ceiling_light
                     name: Hallway
                     icon: bha:dome-light
-                    template:
-                      - popup_dimmer
-
-                  - type: custom:button-card
-                    entity: light.bedroom_1_closet_lights
-                    name: Closets
-                    icon: hass:lightbulb
                     template:
                       - popup_dimmer
 
@@ -409,6 +408,12 @@ views:
                 columns: 3
                 cards:
                   - type: custom:button-card
+                    entity: light.bedroom_1_bedside_lamps
+                    name: Bedside Lamps
+                    template:
+                      - popup_dimmer_colors
+
+                  - type: custom:button-card
                     entity: light.bedroom_1_lamp_j
                     name: Her Bedside
                     template:
@@ -424,6 +429,13 @@ views:
                 title: Closet Lights
                 columns: 3
                 cards:
+                  - type: custom:button-card
+                    entity: light.closet_hallway_ceiling_light
+                    name: Hallway
+                    icon: bha:dome-light
+                    template:
+                      - popup_dimmer
+
                   - type: custom:button-card
                     entity: light.closet_hallway_light_j
                     name: Her Closet
@@ -543,12 +555,12 @@ views:
                 title: Jess' Office Media
                 columns: 3
                 cards:
-                  # - type: custom:button-card
-                  #   entity: media_player.appletv_bedroom_3
-                  #   name: AppleTV
-                  #   icon: hass:apple
-                  #   template:
-                  #     - media
+                  - type: custom:button-card
+                    entity: media_player.appletv_bedroom_3
+                    name: AppleTV
+                    icon: hass:apple
+                    template:
+                      - media
 
                   - type: custom:button-card
                     entity: media_player.echo_dot_bedroom_3
@@ -585,7 +597,7 @@ views:
                 columns: 3
                 cards:
                   - type: custom:button-card
-                    entity: switch.backyard_string_lights
+                    entity: light.backyard_string_lights
                     name: Backyard
                     icon: bha:light-string
                     template:
@@ -606,27 +618,44 @@ views:
                       - popup_dimmer
 
               - type: grid
-                title: Other
+                title: Laundry Room
                 columns: 3
                 cards:
                   - type: custom:button-card
                     entity: light.laundry_ceiling_light
-                    name: Laundry Room
-                    #icon: bha:dome-light
-                    icon: hass:lightbulb
+                    name: Ceiling
+                    icon: bha:dome-light
+                    template:
+                      - popup_dimmer_colors
+
+                  - type: custom:button-card
+                    entity: light.laundry_hallway_light
+                    name: Hallway
+                    icon: bha:dome-light
                     template:
                       - popup_dimmer_colors
 
               - type: grid
-                title: Guest Bedroom
+                title: Other
                 columns: 3
                 cards:
                   - type: custom:button-card
-                    entity: media_player.appletv_bedroom_2
-                    name: AppleTV
-                    icon: hass:apple
+                    entity: switch.garage_light
+                    name: Garage
+                    icon: hass:lightbulb
                     template:
-                      - media
+                      - popup_switch
+
+              # - type: grid
+              #   title: Guest Bedroom
+              #   columns: 3
+              #   cards:
+              #     - type: custom:button-card
+              #       entity: media_player.appletv_bedroom_2
+              #       name: AppleTV
+              #       icon: hass:apple
+              #       template:
+              #         - media
 
       #
       # RESIDENT

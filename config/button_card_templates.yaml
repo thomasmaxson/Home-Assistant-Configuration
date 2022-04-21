@@ -129,6 +129,26 @@ base:
     }
 
 #
+# BASE COVER
+# --------------------------------------------------
+
+base_cover:
+  tap_action:
+    action: call-service
+    service: >
+      [[[ return variables.state === 'closed' ? 'cover.open_cover' : 'cover.close_cover'; ]]]
+    service_data:
+      entity_id: >
+        [[[ return entity === undefined || entity.entity_id; ]]]
+  double_tap_action:
+    action: call-service
+    service: >
+      [[[ return variables.state === 'closed' ? 'cover.open_cover' : 'cover.close_cover'; ]]]
+    service_data:
+      entity_id: >
+        [[[ return entity === undefined || entity.entity_id; ]]]
+
+#
 # BASE MEDIA
 # --------------------------------------------------
 
@@ -198,6 +218,15 @@ media:
               'linear-gradient(0deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.8) 100%)' : 
               'linear-gradient(0deg, rgba(0,0,0,.8) 0%, rgba(0,0,0,0) 100%), url(' + entity_picture + ')';
           ]]]
+
+#
+# COVER
+# --------------------------------------------------
+
+cover:
+  template:
+    - base
+    - base_cover
 
 #
 # CIRCLE
@@ -493,7 +522,6 @@ person:
   state_display: >
     [[[ return ( variables.state === 'home' || variables.state === 'Home' ) ? 'Home' : 'Away'; ]]]
 
-  triggers_update: sensor.time
   styles:
     card:
       - color: rgba(255, 255, 255, 0.3)
