@@ -205,6 +205,13 @@ browser_mod:
 
           - type: section
 
+          - entity: sensor.bedroom_1_large_window_left_battery
+            name: Bedroom 1 Curtain, Large (L)
+          - entity: sensor.bedroom_1_large_window_right_battery
+            name: Bedroom 1 Curtain, Large (R)
+
+          - type: section
+
           - entity: sensor.leak_air_conditioner_battery_level
             name: Air Conditioner
           - entity: sensor.leak_sink_kitchen_battery_level
