@@ -179,10 +179,18 @@ browser_mod:
               entity: sensor.temp_refrigerator_temperature
               name: Refrigerator
 
-          # - type: conditional
-          #   conditions:
-          #     - entity: sensor.temp_wine_cooler_temperature
-          #       state_not: "unavailable"
-          #   row:
-          #     entity: sensor.temp_wine_cooler_temperature
-          #     name: Wine Cooler
+          - type: conditional
+            conditions:
+              - entity: sensor.temp_wine_cooler_top_temperature
+                state_not: "unavailable"
+            row:
+              entity: sensor.temp_wine_cooler_top_temperature
+              name: Wine Cooler, Upper
+
+          - type: conditional
+            conditions:
+              - entity: sensor.temp_wine_cooler_bottom_temperature
+                state_not: "unavailable"
+            row:
+              entity: sensor.temp_wine_cooler_bottom_temperature
+              name: Wine Cooler, Lower

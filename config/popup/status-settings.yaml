@@ -136,38 +136,6 @@ browser_mod:
           - entity: sensor.cleaning_day
             name: Frances Comes
 
-          # - type: conditional
-          #   conditions:
-          #     - entity: timer.doorbell_motion_snooze
-          #       state_not: "idle"
-          #   row:
-          #     entity: timer.doorbell_motion_snooze
-          #     name: Doorbell Snoozed
-
-          - type: conditional
-            conditions:
-              - entity: timer.doorbell_motion_snooze
-                state: "active"
-            row:
-              entity: sensor.doorbell_motion_snooze_countdown
-              name: Doorbell Snoozed Until
-
-          - type: conditional
-            conditions:
-              - entity: input_boolean.doorbell_motion_snooze_today
-                state_not: "off"
-            row:
-              entity: input_boolean.doorbell_motion_snooze_today
-              name: Doorbell Snoozed, Today
-
-          - type: conditional
-            conditions:
-              - entity: input_boolean.doorbell_motion_snooze_indefinite
-                state_not: "off"
-            row:
-              entity: input_boolean.doorbell_motion_snooze_indefinite
-              name: Doorbell Snoozed, Indefinite
-
       - type: entities
         view_layout:
           grid-area: column_b

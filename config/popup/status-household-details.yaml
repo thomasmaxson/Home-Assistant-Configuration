@@ -185,102 +185,131 @@ browser_mod:
             .name { margin: 0 0 1em !important;}
         entities:
           - type: section
-            label: Batteries
-          - entity: sensor.door_bedroom_1_battery_level
+            label: Door Batteries
+          - entity: sensor.door_bedroom_1_battery
             name: Bedroom 1 (Main)
-          - entity: sensor.door_bedroom_2_battery_level
+          - entity: sensor.door_bedroom_2_battery
             name: Bedroom 2 (Guest)
-          - entity: sensor.door_bedroom_3_battery_level
+          - entity: sensor.door_bedroom_3_battery
             name: Bedroom 3 (Office, Hers)
-          - entity: sensor.door_bedroom_4_battery_level
+          - entity: sensor.door_bedroom_4_battery
             name: Bedroom 4 (Office, His)
-          - entity: sensor.door_closet_hallway_j_battery_level
+          - entity: sensor.door_closet_hallway_j_battery
             name: Closet Hallway (Hers)
-          - entity: sensor.door_closet_hallway_t_battery_level
+          - entity: sensor.door_closet_hallway_t_battery
             name: Closet Hallway (His)
-          - entity: sensor.door_laundry_battery_level
+          - entity: sensor.door_laundry_battery
             name: Laundry Room
-          - entity: sensor.door_living_battery_level
+          - entity: sensor.door_living_battery
             name: Living Room Sliding Door
 
+          # - type: conditional
+          #   condition:
+          #     condition: or
+          #     conditions:
+          #       - condition: state
+          #         entity: sensor.bedroom_1_large_window_left_battery
+          #         state_not: "unavailable"
+          #       - condition: state
+          #         entity: sensor.bedroom_1_large_window_right_battery
+          #         state_not: "unavailable"
+          #   row:
+          #     type: section
+          #     label: Curtain Batteries
+
+          # - type: conditional
+          #   conditions:
+          #     - entity: sensor.bedroom_1_large_window_left_battery
+          #       state_not: "unavailable"
+          #   row:
+          #     entity: sensor.bedroom_1_large_window_left_battery
+          #     name: Bedroom 1 Curtain, Large (L)
+          # - type: conditional
+          #   conditions:
+          #     - entity: sensor.bedroom_1_large_window_right_battery
+          #       state_not: "unavailable"
+          #   row:
+          #     entity: sensor.bedroom_1_large_window_right_battery
+          #     name: Bedroom 1 Curtain, Large (R)
+
           - type: section
-
-          - entity: sensor.bedroom_1_large_window_left_battery
-            name: Bedroom 1 Curtain, Large (L)
-          - entity: sensor.bedroom_1_large_window_right_battery
-            name: Bedroom 1 Curtain, Large (R)
-
-          - type: section
-
-          - entity: sensor.leak_air_conditioner_battery_level
+            label: Water Leak Batteries
+          - entity: sensor.leak_air_conditioner_battery
             name: Air Conditioner
-          - entity: sensor.leak_sink_kitchen_battery_level
+          - entity: sensor.leak_sink_kitchen_battery
             name: Kitchen Sink
-          - entity: sensor.leak_sink_guest_bathroom_battery_level
+          - entity: sensor.leak_sink_guest_bathroom_battery
             name: Bathroom Sink (Guest)
-          - entity: sensor.leak_sink_half_bathroom_battery_level
+          - entity: sensor.leak_sink_half_bathroom_battery
             name: Bathroom Sink (Half)
-          - entity: sensor.leak_sink_main_bathroom_hers_battery_level
+          - entity: sensor.leak_sink_main_bathroom_hers_battery
             name: Bathroom Sink (Main, Hers)
-          - entity: sensor.leak_sink_main_bathroom_his_battery_level
+          - entity: sensor.leak_sink_main_bathroom_his_battery
             name: Bathroom Sink (Main, His)
-          - entity: sensor.leak_washing_machine_laundry_battery_level
+          - entity: sensor.leak_washing_machine_laundry_battery
             name: Washing Machine
-          - entity: sensor.leak_wine_cooler_bar_battery_level
-            name: Wine Cooler
+          - entity: sensor.leak_wine_cooler_bar_battery
+            name: Wine Cooler (Top)
 
           - type: section
+            label: Temperature Batteries
 
-          - entity: sensor.temp_attic_battery_level
+          - entity: sensor.temp_attic_battery
             name: Attic
-
-          - type: section
-
           - type: conditional
             conditions:
-              - entity: sensor.temp_freezer_battery_level
+              - entity: sensor.temp_freezer_battery
                 state_not: "unavailable"
             row:
-              entity: sensor.temp_freezer_battery_level
+              entity: sensor.temp_freezer_battery
               name: Freezer
 
           - type: conditional
             conditions:
-              - entity: sensor.temp_refrigerator_battery_level
+              - entity: sensor.temp_refrigerator_battery
                 state_not: "unavailable"
             row:
-              entity: sensor.temp_refrigerator_battery_level
+              entity: sensor.temp_refrigerator_battery
               name: Refrigerator
 
-          # - type: conditional
-          #   conditions:
-          #     - entity: sensor.temp_wine_cooler_battery_level
-          #       state_not: "unavailable"
-          #   row:
-          #     entity: sensor.temp_wine_cooler_battery_level
-          #     name: Wine Cooler
+          - type: conditional
+            conditions:
+              - entity: sensor.temp_wine_cooler_top_battery
+                state_not: "unavailable"
+            row:
+              entity: sensor.temp_wine_cooler_top_battery
+              name: Wine Cooler (Top)
+
+          - type: conditional
+            conditions:
+              - entity: sensor.temp_wine_cooler_bottom_battery
+                state_not: "unavailable"
+            row:
+              entity: sensor.temp_wine_cooler_bottom_battery
+              name: Wine Cooler (Bottom)
 
           - type: section
+            label: Remote Batteries
 
-          #- entity: sensor.switch_kitchen_for_garage
-          #  nameL: In Kitchen, for Garage
-          - entity: sensor.switch_bedroom_1_for_bedroom_1_battery_level
+          - entity: sensor.switch_bedroom_1_for_bedroom_1_battery
             name: In Bedroom 1, for Bedroom 1
-          - entity: sensor.switch_living_room_for_living_room_battery_level
+          - entity: sensor.switch_living_room_for_living_room_battery
             name: In Living Room, for Living Room
-          #- entity: sensor.switch_bedroom_4_for_bedroom_4
-          #  name: In Bedroom 4, for Bedroom 4
-          #- entity: sensor.switch_foyer_for_foyer
-          #  name: In Foyer, for Foyer
+          - entity: sensor.switch_bedroom_4_for_bedroom_4_battery
+            name: In Bedroom 4, for Bedroom 4
+          - entity: sensor.switch_kitchen_for_garage_battery
+            name: In Kitchen, for Garage
+          - entity: sensor.switch_foyer_for_foyer_battery
+            name: In Foyer, for Foyer
 
           - type: section
-            label: Motion Sensors
-          - entity: sensor.motion_laundry_battery_level
+            label: Motion Sensor Batteries
+          - entity: sensor.motion_laundry_battery
             name: Laundry Room
 
           - type: section
-            label: Other
-          - entity: sensor.front_door_battery_level
+            label: Other Batteries
+          - entity: sensor.front_door_battery
             name: Front Door Lock
 
       - type: entities
@@ -306,10 +335,10 @@ browser_mod:
           - entity: light.bedroom_4_media_plug
             icon: mdi:power-socket-us
             name: His Office, Media Outlet
-          - entity: switch.outlet_router_a
+          - entity: switch.outlet_kitchen_a
             icon: mdi:power-socket-us
             name: Kitchen, Above Range, Outlet
-          - entity: switch.outlet_router_b
+          - entity: switch.outlet_kitchen_b
             icon: mdi:power-socket-us
             name: Kitchen, Above Coffee Bar, Outlet
 

@@ -80,3 +80,26 @@ stream:
 
 device_tracker:
   - platform: bluetooth_tracker
+
+#
+# Shell Commands
+# ----------------------------------------
+
+# shell_command:
+#   removesnapshots: 'find /config/www/snapshots/* -mtime 7 -exec rm {} \;'
+
+#
+# Watchman Config
+# ----------------------------------------
+
+watchman:
+  ignored_files:
+    - ".storage/*"
+    - "custom_components/*"
+    - "blueprints/*"
+
+#
+# CUSTOM: Delete integration
+# ----------------------------------------
+
+delete:

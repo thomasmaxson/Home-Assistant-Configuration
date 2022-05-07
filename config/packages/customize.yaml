@@ -264,83 +264,83 @@ homeassistant:
     # BATTERY
     # --------------------------------------------------
 
-    sensor.door_bedroom_1_battery_level:
+    sensor.door_bedroom_1_battery:
       device_class: battery
       friendly_name: Main Bedroom Door Battery
 
-    sensor.door_bedroom_2_battery_level:
+    sensor.door_bedroom_2_battery:
       device_class: battery
       friendly_name: Guest Bedroom Door Battery
 
-    sensor.door_bedroom_3_battery_level:
+    sensor.door_bedroom_3_battery:
       device_class: battery
       friendly_name: "Jess' Office Door Battery"
 
-    sensor.door_bedroom_4_battery_level:
+    sensor.door_bedroom_4_battery:
       device_class: battery
       friendly_name: "Tom's Office Door Battery"
 
-    sensor.door_living_battery_level:
+    sensor.door_living_battery:
       device_class: battery
       friendly_name: Living Room Sliding Glass Door Battery
 
-    sensor.door_laundry_battery_level:
+    sensor.door_laundry_battery:
       device_class: battery
       friendly_name: Laundry Room Door Battery
 
-    sensor.door_closet_hallway_j_battery_level:
+    sensor.door_closet_hallway_j_battery:
       device_class: battery
       friendly_name: "Jess' Closet Door Battery"
 
-    sensor.door_closet_hallway_t_battery_level:
+    sensor.door_closet_hallway_t_battery:
       device_class: battery
       friendly_name: "Tom's Closet Door Battery"
 
-    sensor.leak_air_conditioner_battery_level:
+    sensor.leak_air_conditioner_battery:
       device_class: battery
       friendly_name: Air Conditioner Leak Battery
 
-    sensor.leak_sink_guest_bathroom_battery_level:
+    sensor.leak_sink_guest_bathroom_battery:
       device_class: battery
       friendly_name: Guest Bathroom Sink Leak Sensor Battery
 
-    sensor.leak_sink_half_bathroom_battery_level:
+    sensor.leak_sink_half_bathroom_battery:
       device_class: battery
       friendly_name: Half Bathroom Sink Leak Sensor Battery
 
-    sensor.leak_sink_kitchen_battery_level:
+    sensor.leak_sink_kitchen_battery:
       device_class: battery
       friendly_name: Kitchen Sink Leak Sensor Battery
 
-    sensor.leak_sink_main_bathroom_hers_battery_level:
+    sensor.leak_sink_main_bathroom_hers_battery:
       device_class: battery
       friendly_name: Main Bathroom Sink (Hers) Leak Sensor Battery
 
-    sensor.leak_sink_main_bathroom_his_battery_level:
+    sensor.leak_sink_main_bathroom_his_battery:
       device_class: battery
       friendly_name: Main Bathroom Sink (His) Leak Sensor Battery
 
-    sensor.leak_washing_machine_laundry_battery_level:
+    sensor.leak_washing_machine_laundry_battery:
       device_class: battery
       friendly_name: Laundry Washing Machine Leak Sensor Battery
 
-    sensor.leak_wine_cooler_bar_battery_level:
+    sensor.leak_wine_cooler_bar_battery:
       device_class: battery
       friendly_name: Wine Cooler Leak Sensor Battery
 
-    sensor.temp_attic_battery_level:
+    sensor.temp_attic_battery:
       device_class: battery
       friendly_name: Attic Temperature Sensor Battery
 
-    sensor.temp_freezer_battery_level:
+    sensor.temp_freezer_battery:
       device_class: battery
       friendly_name: Freezer Temperature Sensor Battery
 
-    sensor.temp_refrigerator_battery_level:
+    sensor.temp_refrigerator_battery:
       device_class: battery
       friendly_name: Refrigerator Temperature Sensor Battery
 
-    sensor.temp_wine_cooler_battery_level:
+    sensor.temp_wine_cooler_battery:
       device_class: battery
       friendly_name: Wine Cooler Temperature Sensor Battery
 

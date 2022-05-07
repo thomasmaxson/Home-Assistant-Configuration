@@ -12,15 +12,16 @@ sensor:
   #     - /config/home-assistant.log
 
   # MariaDB recorder DB size sensor
-  - platform: sql
-    db_url: !secret recorder_db_url
-    queries:
-      - name: MariaDB Database Size
-        query: >
-          SELECT table_schema "database", Round( Sum( data_length + index_length ) / POWER( 1024, 2 ), 1 ) 
-          "value" FROM information_schema.tables WHERE table_schema="homeassistant" GROUP BY table_schema;
-        column: value
-        unit_of_measurement: MB
+  # DEPRECATED IN 2022.6
+  # - platform: sql
+  #   db_url: !secret recorder_db_url
+  #   queries:
+  #     - name: MariaDB Database Size
+  #       query: >
+  #         SELECT table_schema "database", Round( Sum( data_length + index_length ) / POWER( 1024, 2 ), 1 ) 
+  #         "value" FROM information_schema.tables WHERE table_schema="homeassistant" GROUP BY table_schema;
+  #       column: value
+  #       unit_of_measurement: MB
 
   # InfluxDB DB size sensor
   - platform: influxdb
@@ -163,13 +164,13 @@ sensor:
   - platform: template
     sensors:
       # Home Assistant System Entity Item
-      ha_version:
-        icon_template: mdi:home-assistant
-        friendly_name_template: >-
-          Installed {{ states( 'sensor.ha_version_installed' ) }}
-        value_template: >-
-          {{ 'Latest' if states( 'sensor.ha_version_installed' ) == 
-          states( 'sensor.ha_version_latest' ) else states( 'sensor.ha_version_latest' ) }}
+      # ha_version:
+      #   icon_template: mdi:home-assistant
+      #   friendly_name_template: >-
+      #     Installed {{ states( 'sensor.ha_version' ) }}
+      #   value_template: >-
+      #     {{ 'Latest' if states( 'sensor.ha_version' ) ==
+      #     states( 'sensor.ha_version_latest' ) else states( 'sensor.ha_version_latest' ) }}
 
       fire_tablet_last_app_start_formatted:
         #device_class: timestamp
@@ -188,7 +189,11 @@ sensor:
           {%- set free_memory = states( 'sensor.fire_tablet_ram_free_memory' ) | int(0) -%}
           {%- set used_memory = ( total_memory - free_memory ) -%}
 
-          {{ used_memory / total_memory * 100 }}
+          {%- if used_memory > 0 and total_memory > 0 %}
+            {{ used_memory / total_memory * 100 }}
+          {%- else %}
+            Unknown
+          {%- endif %}
 
       # Count interior lights switched ON
       total_lights_on:

@@ -366,6 +366,19 @@ views:
                 title: Main Bedroom
                 columns: 3
                 cards:
+                  - type: conditional
+                    conditions:
+                      - entity: cover.bedroom_1_large_window_left
+                        state_not: "unavailable"
+                      - entity: cover.bedroom_1_large_window_right
+                        state_not: "unavailable"
+                    card:
+                      type: custom:button-card
+                      entity: light.bedroom_1_large_curtains
+                      name: Curtains
+                      template:
+                        - cover
+
                   - type: custom:button-card
                     entity: light.bedroom_1_bedside_lamps
                     name: Bedside Lamps
@@ -373,17 +386,24 @@ views:
                       - popup_dimmer_colors
 
                   - type: custom:button-card
-                    entity: cover.bedroom_1_large_curtains
-                    name: Curtains
-                    template:
-                      - cover
-
-                  - type: custom:button-card
                     entity: light.closet_hallway_ceiling_light
                     name: Hallway
                     icon: bha:dome-light
                     template:
                       - popup_dimmer
+
+                  - type: conditional
+                    conditions:
+                      - entity: cover.bedroom_1_large_window_left
+                        state: "unavailable"
+                      - entity: cover.bedroom_1_large_window_right
+                        state: "unavailable"
+                    card:
+                      type: custom:button-card
+                      entity: light.bedroom_1_closet_lights
+                      name: Closets
+                      template:
+                        - popup_dimmer
 
               - type: grid
                 title: Main Bedroom Media

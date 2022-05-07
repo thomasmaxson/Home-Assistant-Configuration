@@ -177,6 +177,9 @@ browser_mod:
               icon: mdi:brightness-6
               hide_state: false
 
+          - entity: light.tablet_plug
+            name: Charger
+
           - type: divider
 
           - entity: binary_sensor.fire_tablet_plugged_in
@@ -232,9 +235,10 @@ browser_mod:
 
           - type: divider
 
-          - entity: button.fire_tablet_reboot_device
-            icon: mdi:restart
-            name: Restart Device
+          # ERROR: Missing root level permissions
+          # - entity: button.fire_tablet_reboot_device
+          #   icon: mdi:restart
+          #   name: Restart Device
 
           - entity: button.fire_tablet_restart_browser
             icon: mdi:restart

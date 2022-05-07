@@ -37,6 +37,14 @@ google:
 # Switchbot
 # ----------------------------------------
 
+# switch:
+#   - platform: switchbot
+#     mac: "EF:BD:30:E1:94:15"
+#     name: Bedroom 1, Large Window Left
+#   - platform: switchbot
+#     mac: "C7:69:2D:3E:FD:50"
+#     name: Bedroom 1, Large Window Right
+
 rest_command:
   switchbot_device_command:
     url: "https://api.switch-bot.com/v1.0/devices/{{ deviceId }}/commands"
@@ -56,12 +64,16 @@ sensor:
       Authorization: !secret switchbot_api
       Content-Type: "application/json"
     value_template: >-
-      {% if value_json.body.slidePosition > 95 %}
+      {% if 'unknown' != value_json.body.slidePosition %}
+        {% if value_json.body.slidePosition > 95 %}
+          0
+        {% elif value_json.body.slidePosition < 5 %}
+          100
+        {% else %}
+          {{ 100 - value_json.body.slidePosition }}
+        {%- endif -%}
+      {%- else -%}
         0
-      {% elif value_json.body.slidePosition < 5 %}
-        100
-      {% else %}
-        {{ 100 - value_json.body.slidePosition }}
       {%- endif -%}
     json_attributes_path: "$.body"
     json_attributes:

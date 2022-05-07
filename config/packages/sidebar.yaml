@@ -135,8 +135,8 @@ template:
                     'with scattered clouds'
                   ] | random }}
 
-                {%- elif is_state('weather.home', 'sunny') %}
-                  {%- if is_state('sun.sun', 'above_horizon') %}
+                {%- else %}
+                  {%- if is_state( 'sun.sun', 'above_horizon' ) %}
                     {{ [
                       'and sunny.', 
                       'with sun.'
