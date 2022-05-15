@@ -261,6 +261,73 @@ homeassistant:
       friendly_name: Wine Cooler Leak Sensor
 
     #
+    # TEMPERATURE
+    # --------------------------------------------------
+
+    sensor.door_bedroom_1_temperature:
+      state_class: measurement
+      device_class: temperature
+      #friendly_name: Main Bedroom Door Temperature
+
+    sensor.door_bedroom_2_temperature:
+      state_class: measurement
+      device_class: temperature
+      #friendly_name: Guest Bedroom Door Temperature
+
+    sensor.door_bedroom_3_temperature:
+      state_class: measurement
+      device_class: temperature
+      #friendly_name: "Jess' Office Door Temperature"
+
+    sensor.door_bedroom_4_temperature:
+      state_class: measurement
+      device_class: temperature
+      #friendly_name: "Tom's Office Door Temperature"
+
+    sensor.door_living_temperature:
+      state_class: measurement
+      device_class: temperature
+      #friendly_name: Living Room Door Temperature
+
+    sensor.door_laundry_temperature:
+      state_class: measurement
+      device_class: temperature
+      #friendly_name: Laundry Room Door Temperature
+
+    sensor.door_closet_hallway_j_temperature:
+      state_class: measurement
+      device_class: battery
+      #friendly_name: "Jess' Closet Door Temperature"
+
+    sensor.door_closet_hallway_t_temperature:
+      state_class: measurement
+      device_class: battery
+      #friendly_name: "Tom's Closet Door Temperature"
+
+    sensor.motion_laundry_temperature:
+      state_class: measurement
+      device_class: battery
+      #friendly_name: Laundry Room Motion Temperature
+
+    #
+    # HUMIDITY
+    # --------------------------------------------------
+
+    sensor.temp_attic_humidity:
+      state_class: measurement
+      device_class: humidity
+      #friendly_name: Attic Humidity
+
+    #
+    # PRESSURE
+    # --------------------------------------------------
+
+    sensor.temp_attic_pressure:
+      state_class: measurement
+      device_class: pressure
+      #friendly_name: Attic Pressure
+
+    #
     # BATTERY
     # --------------------------------------------------
 
