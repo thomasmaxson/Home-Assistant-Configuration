@@ -633,7 +633,8 @@ views:
                   - type: custom:button-card
                     entity: light.garage_exterior
                     name: Garage
-                    icon: bha:outdoor-lamp-variant
+                    #icon: bha:outdoor-lamp-variant
+                    icon: hue:wall-lantern
                     template:
                       - popup_dimmer
 
