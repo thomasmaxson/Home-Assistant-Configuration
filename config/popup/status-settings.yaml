@@ -1,7 +1,7 @@
 ################################################################################
 #
 # @author      : Thomas Maxson
-# @package     : Popup, Settings
+# @package     : Popup, Sidebar Controls
 # @description :
 #
 ################################################################################
@@ -9,192 +9,35 @@
 action: fire-dom-event
 browser_mod:
   command: popup
-  title: Settings
-  large: false
+  title: Sidebar
   style:
     $: |
-      /* Mobile Devices */
       @media screen and (max-width: 992px) { 
         .mdc-dialog .mdc-dialog__container .mdc-dialog__surface { 
           border-radius: 0 !important;
         }
       }
-
-    .: |
-      :host .content {
-        overflow-x: hidden;
-      }
-
-      /* Desktop */
-      @media screen and (min-width: 992px) { 
-        :host .content { 
-          width: calc(385px + 385px + 385px);
-          max-width: 90vw;
-        }
-      }
-
-    layout-card:
-      $grid-layout$:
-        .: |
-          @media screen and (min-width: 992px) { 
-            #root {
-              margin-top: 0 !important;
-              margin-right: 0 !important;
-              margin-left: 0 !important;
-            }
-          }
-
-        hui-entities-card:
-          $: |
-            ha-card .card-content { 
-              padding-top: 0 !important;
-              margin-top: -16px;
-            }
-
-            /* Mobile */
-            @media screen and (max-width: 992px) { 
-              ha-card .card-content { 
-                width: 90vw;
-              }
-            }
-
-            /* Desktop */
-            @media screen and (min-width: 992px) { 
-              ha-card .card-content { 
-                border-right: 1px solid var(--entities-divider-color, var(--divider-color));
-                border-left: 1px solid var(--entities-divider-color, var(--divider-color));
-              }
-            }
-
-          $hui-horizontal-stack-card$: |
-            #root {
-              justify-content: space-evenly;
-              margin-top: 1.9em;
-              margin-left: 0.8em;
-            }
   card:
-    type: custom:layout-card
-    layout_type: custom:grid-layout
-    layout:
-      grid-template-columns: repeat(3, 1fr)
-      grid-template-rows: 1fr
-      grid-template-areas: |
-        'column_a column_b column_c'
-      mediaquery:
-        # Tablet and down
-        "(max-width: 992px)":
-          grid-template-columns: 1fr
-          grid-template-rows: repeat(1, 1fr)
-          grid-template-areas: |
-            'column_a'
-            'column_c'
-            'column_b'
+    type: vertical-stack
     cards:
       - type: entities
-        view_layout:
-          grid-area: column_a
-        show_header_toggle: false
-        #title: Status
-        card_mod:
-          class: header
-          style: |
-            ha-card {
-              margin: 0 !important;
-              width: 100%;
-            }
-            .name { margin: 0 0 1em !important;}
         entities:
-          - type: section
-            label: Waste Collection
-
-          - type: conditional
-            conditions:
-              - entity: sensor.waste_day_solid
-                state_not: "Never"
-            row:
-              entity: sensor.waste_day_solid
-              name: Solid Waste
-
-          - type: conditional
-            conditions:
-              - entity: sensor.waste_day_bulk
-                state_not: "Never"
-            row:
-              entity: sensor.waste_day_bulk
-              name: Bulk Waste
-
-          - type: conditional
-            conditions:
-              - entity: sensor.waste_day_recycling
-                state_not: "Never"
-            row:
-              entity: sensor.waste_day_recycling
-              name: Recycling
-
-          - type: section
-            label: Clean Household
-          - entity: sensor.cleaning_day
-            name: Frances Comes
-
-      - type: entities
-        view_layout:
-          grid-area: column_b
-        show_header_toggle: false
-        #title: Notifications
-        card_mod:
-          class: header
-          style: |
-            ha-card {
-              margin: 0 !important;
-              width: 100%;
-            }
-            .name { margin: 0 0 1em !important;}
-        entities:
-          - type: section
-            label: House Notifications
-          - entity: input_boolean.household_notify
-            name: Alexa Announcements
-
-          - type: section
-            label: Mobile Notifications
-          - entity: input_boolean.app_notify
-            name: All Devices Can Recieve
-          - entity: input_boolean.app_notify_tom
-            name: His Phone Can Recieve
-          - entity: input_boolean.app_notify_jess
-            name: Her Phone Can Recieve
-
-      - type: entities
-        view_layout:
-          grid-area: column_c
-        $title: Sync Devices
-        show_header_toggle: false
-        entities:
-          - type: section
-            label: Sync Lights
-
-          - type: conditional
-            conditions:
-              - entity: light.kitchen_cabinet_upper_coffee_bar
-                state_not: "unavailable"
-              - entity: light.kitchen_cabinet_upper_range
-                state_not: "unavailable"
-            row:
-              entity: input_boolean.sync_cabinet_above_lights
-              name: Kitchen, Above Cabinets
-
-          - type: conditional
-            conditions:
-              - entity: light.foyer_ceiling_lights
-                state_not: "unavailable"
-            row:
-              entity: input_boolean.sync_foyer_lights
-              name: Foyer, Entryway & Hallway
-
-          - type: conditional
-            conditions:
-              - entity: light.bedroom_4_lights
-                state_not: "unavailable"
-            row:
-              entity: input_boolean.sync_bedroom_4_lights
-              name: Tom's Office
+          - entity: input_boolean.sidebar_display_holidays
+            name: Upcoming Holidays
+          - entity: input_boolean.sidebar_display_celebrations
+            name: Upcoming Celebrations
+          - entity: input_boolean.sidebar_display_neighborhood
+            name: Display Neighborhood Events
+          - entity: input_boolean.sidebar_display_weather_forecast
+            name: Weather Forecast
+          - entity: input_boolean.sidebar_display_lights_on
+            name: Total Lights On
+          - entity: input_boolean.sidebar_display_doors_open
+            name: Total Doors Open
+          - entity: input_boolean.sidebar_display_exterior_door_status
+            name: Exterior Door Status
+          - entity: input_boolean.sidebar_display_sunrise_sunset
+            name: Next Sunrise/Sunset
+          - type: divider
+          - entity: input_boolean.sidebar_display_waste_reminder
+            name: Waste Reminders

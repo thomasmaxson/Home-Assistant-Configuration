@@ -59,7 +59,7 @@ sensor:
     name: "Bedroom 1 Large Window Curtain Position"
     resource: !secret switchbot_bedroom_1_large_status_url
     method: GET
-    scan_interval: 15
+    scan_interval: 30
     headers:
       Authorization: !secret switchbot_api
       Content-Type: "application/json"

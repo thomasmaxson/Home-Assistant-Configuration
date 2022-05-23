@@ -140,7 +140,8 @@ views:
                   - type: custom:button-card
                     entity: light.kitchen_ceiling_lights
                     name: Kitchen
-                    icon: hue:recessed-ceiling
+                    #icon: hue:recessed-ceiling
+                    icon: hue:bulb-group-ceiling-round
                     template:
                       - popup_dimmer_colors
 
@@ -292,7 +293,8 @@ views:
                       type: custom:button-card
                       entity: light.foyer_hallway_ceiling
                       name: Hallway
-                      icon: bha:dome-light
+                      #icon: bha:dome-light
+                      icon: hue:recessed-ceiling
                       template:
                         - popup_dimmer
 
@@ -374,7 +376,7 @@ views:
                         state_not: "unavailable"
                     card:
                       type: custom:button-card
-                      entity: light.bedroom_1_large_curtains
+                      entity: cover.bedroom_1_large_curtains
                       name: Curtains
                       template:
                         - cover
@@ -388,7 +390,8 @@ views:
                   - type: custom:button-card
                     entity: light.closet_hallway_ceiling_light
                     name: Hallway
-                    icon: bha:dome-light
+                    #icon: bha:dome-light
+                    icon: hue:recessed-ceiling
                     template:
                       - popup_dimmer
 
@@ -452,7 +455,8 @@ views:
                   - type: custom:button-card
                     entity: light.closet_hallway_ceiling_light
                     name: Hallway
-                    icon: bha:dome-light
+                    #icon: bha:dome-light
+                    icon: hue:recessed-ceiling
                     template:
                       - popup_dimmer
 
@@ -645,14 +649,16 @@ views:
                   - type: custom:button-card
                     entity: light.laundry_ceiling_light
                     name: Ceiling
-                    icon: bha:dome-light
+                    #icon: bha:dome-light
+                    icon: hue:recessed-ceiling
                     template:
                       - popup_dimmer_colors
 
                   - type: custom:button-card
                     entity: light.laundry_hallway_light
                     name: Hallway
-                    icon: bha:dome-light
+                    #icon: bha:dome-light
+                    icon: hue:recessed-ceiling
                     template:
                       - popup_dimmer_colors
 

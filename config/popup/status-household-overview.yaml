@@ -204,8 +204,8 @@ browser_mod:
         entities:
           - type: section
             label: Main Bedroom
-          # - entity: cover.bedroom_1_large_window_left
-          #   name: Large Window
+          - entity: cover.bedroom_1_large_curtains
+            name: Large Window
           - entity: light.bedroom_1_bedside_lamps
             name: Bedside Lamps
             secondary_info: brightness

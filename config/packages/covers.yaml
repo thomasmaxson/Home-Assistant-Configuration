@@ -16,7 +16,7 @@ cover:
         icon_template: >-
           {%- set position = states( 'sensor.bedroom_1_large_window_curtain_position' ) | round(default=0) | int(0) %}
 
-          {%- if position > 5 -%}
+          {%- if position <= 5 -%}
           mdi:curtains-closed
           {%- else -%}
           mdi:curtains
@@ -24,7 +24,7 @@ cover:
         value_template: >-
           {%- set position = states( 'sensor.bedroom_1_large_window_curtain_position' ) | round(default=0) | int(0) %}
 
-          {%- if position > 5 -%}
+          {%- if position <= 5 -%}
             Closed
           {%- else -%}
             Open
