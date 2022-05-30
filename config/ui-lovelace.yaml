@@ -381,32 +381,50 @@ views:
                       template:
                         - cover
 
-                  - type: custom:button-card
-                    entity: light.bedroom_1_bedside_lamps
-                    name: Bedside Lamps
-                    template:
-                      - popup_dimmer_colors
-
-                  - type: custom:button-card
-                    entity: light.closet_hallway_ceiling_light
-                    name: Hallway
-                    #icon: bha:dome-light
-                    icon: hue:recessed-ceiling
-                    template:
-                      - popup_dimmer
+                  # - type: custom:button-card
+                  #   entity: light.bedroom_1_bedside_lamps
+                  #   name: Bedside Lamps
+                  #   template:
+                  #     - popup_dimmer_colors
 
                   - type: conditional
                     conditions:
-                      - entity: cover.bedroom_1_large_window_left
-                        state: "unavailable"
-                      - entity: cover.bedroom_1_large_window_right
-                        state: "unavailable"
+                      - entity: light.bedroom_1_bedside_lamps
+                        state_not: "unavailable"
+                      - entity: input_boolean.sync_bedroom_1_bedside_lamps
+                        state: "on"
                     card:
                       type: custom:button-card
-                      entity: light.bedroom_1_closet_lights
-                      name: Closets
+                      entity: light.bedroom_1_bedside_lamps
+                      name: Bedside Lamps
                       template:
-                        - popup_dimmer
+                        - popup_dimmer_colors
+
+                  - type: conditional
+                    conditions:
+                      - entity: light.bedroom_1_lamp_j
+                        state_not: "unavailable"
+                      - entity: input_boolean.sync_bedroom_1_bedside_lamps
+                        state: "off"
+                    card:
+                      type: custom:button-card
+                      entity: light.bedroom_1_lamp_j
+                      name: Her Bedside
+                      template:
+                        - popup_dimmer_colors
+
+                  - type: conditional
+                    conditions:
+                      - entity: light.bedroom_1_lamp_t
+                        state_not: "unavailable"
+                      - entity: input_boolean.sync_bedroom_1_bedside_lamps
+                        state: "off"
+                    card:
+                      type: custom:button-card
+                      entity: light.bedroom_1_lamp_t
+                      name: His Bedside
+                      template:
+                        - popup_dimmer_colors
 
               - type: grid
                 title: Main Bedroom Media
@@ -425,28 +443,6 @@ views:
                     icon: hass:cast-audio-variant
                     template:
                       - media
-
-              - type: grid
-                title: Bedside Lamps
-                columns: 3
-                cards:
-                  - type: custom:button-card
-                    entity: light.bedroom_1_bedside_lamps
-                    name: Bedside Lamps
-                    template:
-                      - popup_dimmer_colors
-
-                  - type: custom:button-card
-                    entity: light.bedroom_1_lamp_j
-                    name: Her Bedside
-                    template:
-                      - popup_dimmer_colors
-
-                  - type: custom:button-card
-                    entity: light.bedroom_1_lamp_t
-                    name: His Bedside
-                    template:
-                      - popup_dimmer_colors
 
               - type: grid
                 title: Closet Lights
