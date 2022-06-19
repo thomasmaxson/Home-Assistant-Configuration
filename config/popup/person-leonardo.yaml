@@ -1,7 +1,7 @@
 ################################################################################
 #
 # @author      : Thomas Maxson
-# @package     : Popup, Person (Jessica)
+# @package     : Popup, Person (Leonardo)
 # @description :
 #
 ################################################################################
@@ -9,7 +9,7 @@
 action: fire-dom-event
 browser_mod:
   command: popup
-  title: Jessica's Details
+  title: Leonardo's Details
   style:
     $: |
       @media screen and (max-width: 992px) { 
@@ -65,12 +65,12 @@ browser_mod:
         card_mod:
           class: content
         entities:
-          - entity: person.jessica
+          - entity: person.leo
             secondary_info: last-changed
 
       # - type: history-graph
       #   entities:
-      #     - entity: person.jessica
+      #     - entity: person.leonardo
 
       - type: custom:button-card
         name: Find this iPhone
@@ -80,7 +80,7 @@ browser_mod:
           confirmation:
             text: Are you sure you want to ping this device?
           action: call-service
-          service: notify.mobile_app_jess_iphone
+          service: notify.mobile_app_leoair
           service_data:
             title: Find my iPhone
             message: Here I am.
@@ -103,13 +103,13 @@ browser_mod:
             .name { margin: 0 0 1em !important;}
         entities:
           - type: section
-          - entity: input_boolean.app_notify_jess
+          - entity: input_boolean.app_notify_leo
             name: Recieve Standard Notifications
-          - entity: input_boolean.app_notify_jess_critical
+          - entity: input_boolean.app_notify_leo_critical
             name: Recieve Critical Notifications
 
       - type: map
         default_zoom: 16
         dark_mode: true
         entities:
-          - person.jessica
+          - person.leo

@@ -9,14 +9,13 @@
 button_card_templates: !include button_card_templates.yaml
 
 kiosk_mode:
-  # non_admin_settings:
-  #   hide_header: true
-  #   hide_sidebar: true
   user_settings:
     - users:
         - "Johan"
         - "Jessica"
         - "Thomas"
+        - "Leonardo"
+        - "Dolores"
       hide_header: true
       hide_sidebar: true
 
@@ -726,7 +725,7 @@ views:
                       - person
 
                   - type: custom:button-card
-                    name: Gouda
+                    name: Doggies
                     entity: input_boolean.gouda_home
                     show_entity_picture: true
                     entity_picture: /local/uploads/avatar-gouda.png
@@ -737,6 +736,24 @@ views:
                 title: Resident Status
                 columns: 3
                 cards:
+                  - type: custom:button-card
+                    name: Leo
+                    entity: person.leo
+                    tap_action: !include popup/person-leonardo.yaml
+                    double_tap_action: !include popup/person-leonardo.yaml
+                    hold_action: !include popup/person-leonardo.yaml
+                    template:
+                      - person
+
+                  - type: custom:button-card
+                    name: Dolores
+                    entity: person.dolores
+                    tap_action: !include popup/person-dolores.yaml
+                    double_tap_action: !include popup/person-dolores.yaml
+                    hold_action: !include popup/person-dolores.yaml
+                    template:
+                      - person
+
                   - type: custom:button-card
                     name: Guests
                     entity: input_boolean.guests_home

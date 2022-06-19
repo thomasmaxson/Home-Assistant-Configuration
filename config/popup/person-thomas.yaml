@@ -91,6 +91,23 @@ browser_mod:
                   critical: 1
                   volume: 1
 
+      - type: entities
+        show_header_toggle: false
+        card_mod:
+          class: header
+          style: |
+            ha-card {
+              margin: 0 !important;
+              width: 100%;
+            }
+            .name { margin: 0 0 1em !important;}
+        entities:
+          - type: section
+          - entity: input_boolean.app_notify_tom
+            name: Recieve Standard Notifications
+          - entity: input_boolean.app_notify_tom_critical
+            name: Recieve Critical Notifications
+
       - type: map
         default_zoom: 16
         dark_mode: true

@@ -158,11 +158,13 @@ browser_mod:
           - type: section
             label: Mobile Notifications
           - entity: input_boolean.app_notify
-            name: All Devices Can Recieve
-          - entity: input_boolean.app_notify_tom
-            name: His Phone Can Recieve
-          - entity: input_boolean.app_notify_jess
-            name: Her Phone Can Recieve
+            name: All Can Recieve
+          # - entity: input_boolean.app_notify_tom
+          #   name: Tom Can Recieve
+          # - entity: input_boolean.app_notify_jess
+          #   name: Jess Can Recieve
+          # - entity: input_boolean.app_notify_leo
+          #   name: Leo Can Recieve
 
       - type: entities
         view_layout:
