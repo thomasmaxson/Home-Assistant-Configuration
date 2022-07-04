@@ -12,6 +12,8 @@ group:
     entities:
       - person.thomas
       - person.jessica
+      - person.leo
+      - person.dolores
 
   pets:
     name: Pets
@@ -83,6 +85,8 @@ group:
   sensors_doors:
     name: Doors
     entities:
+      - binary_sensor.door_front_primary
+      - binary_sensor.door_garage
       - binary_sensor.door_bedroom_1
       - binary_sensor.door_bedroom_2
       - binary_sensor.door_bedroom_3
@@ -92,15 +96,35 @@ group:
       - binary_sensor.door_closet_hallway_j
       - binary_sensor.door_closet_hallway_t
 
-  sensors_doors_notify:
-    name: Notfiy Door Actions
+  sensors_doors_interior:
+    name: All Interior Doors
     entities:
+      - binary_sensor.door_garage
       - binary_sensor.door_bedroom_1
       - binary_sensor.door_bedroom_2
       - binary_sensor.door_bedroom_3
       - binary_sensor.door_bedroom_4
-      - binary_sensor.door_living
       - binary_sensor.door_laundry
+      - binary_sensor.door_closet_hallway_j
+      - binary_sensor.door_closet_hallway_t
+
+  sensors_doors_exterior:
+    name: All Exterior Doors
+    entities:
+      - binary_sensor.door_front_primary
+      - binary_sensor.door_garage
+      - binary_sensor.door_living
+
+  # sensors_doors_notify:
+  #   name: Notfiy Door Actions
+  #   entities:
+  #     - binary_sensor.door_bedroom_1
+  #     - binary_sensor.door_bedroom_2
+  #     - binary_sensor.door_bedroom_3
+  #     - binary_sensor.door_bedroom_4
+  #     - binary_sensor.door_living
+  #     - binary_sensor.door_laundry
+  #     - binary_sensor.door_front_primary
 
   sensors_leak:
     name: Leak Sensors

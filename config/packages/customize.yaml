@@ -133,7 +133,7 @@ homeassistant:
 
     light.foyer_exterior_entryway:
       friendly_name: Entryway
-      icon: hass:globe-light
+      icon: mdi:globe-light
 
     light.backyard_string_lights:
       friendly_name: Backyard String Lights
@@ -161,8 +161,20 @@ homeassistant:
 
     cover.garage_door:
       device_class: garage
-      friendly_name: Garage Door
+      friendly_name: Garage Door (Cover)
       homebridge_cover_type: garage_door
+
+    binary_sensor.door_garage:
+      device_class: door
+      friendly_name: Garage Door (Interior)
+
+    binary_sensor.door_front_primary:
+      device_class: door
+      friendly_name: Front Door
+
+    binary_sensor.door_living:
+      device_class: door
+      friendly_name: Living Room Sliding Glass Door
 
     binary_sensor.door_bedroom_1:
       device_class: door
@@ -179,10 +191,6 @@ homeassistant:
     binary_sensor.door_bedroom_4:
       device_class: door
       friendly_name: "Tom's Office Door"
-
-    binary_sensor.door_living:
-      device_class: door
-      friendly_name: Living Room Sliding Glass Door
 
     binary_sensor.door_laundry:
       device_class: door
@@ -331,6 +339,18 @@ homeassistant:
     # BATTERY
     # --------------------------------------------------
 
+    sensor.door_living_battery:
+      device_class: battery
+      friendly_name: Living Room Sliding Glass Door Battery
+
+    sensor.door_front_battery:
+      device_class: battery
+      friendly_name: Front Door Battery
+
+    sensor.door_garage_battery:
+      device_class: battery
+      friendly_name: Garage Interior Door Battery
+
     sensor.door_bedroom_1_battery:
       device_class: battery
       friendly_name: Main Bedroom Door Battery
@@ -346,10 +366,6 @@ homeassistant:
     sensor.door_bedroom_4_battery:
       device_class: battery
       friendly_name: "Tom's Office Door Battery"
-
-    sensor.door_living_battery:
-      device_class: battery
-      friendly_name: Living Room Sliding Glass Door Battery
 
     sensor.door_laundry_battery:
       device_class: battery
@@ -407,9 +423,13 @@ homeassistant:
       device_class: battery
       friendly_name: Refrigerator Temperature Sensor Battery
 
-    sensor.temp_wine_cooler_battery:
+    sensor.temp_wine_cooler_bottom_battery:
       device_class: battery
-      friendly_name: Wine Cooler Temperature Sensor Battery
+      friendly_name: Wine Cooler Bottom Temperature Sensor Battery
+
+    sensor.temp_wine_cooler_top_battery:
+      device_class: battery
+      friendly_name: Wine Cooler Top Temperature Sensor Battery
 
     #
     # MEDIA

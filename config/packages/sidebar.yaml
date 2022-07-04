@@ -158,69 +158,77 @@ template:
             {%- endif %}
 
           lights_on: |
+            {%- set ignore = [ 'unknown', 'unavailable' ] -%}
             {%- set count = states( 'sensor.total_lights_on' ) | int %}
 
-            {%- if is_state( 'input_boolean.sidebar_display_lights_on', 'on' ) and count != 'unknown' %}
-              {%- if count == 1 %}
-                {{ count }} light is on.
+            {%- if count not in ignore and is_state( 'input_boolean.sidebar_display_lights_on', 'on' ) %}
+              {{ iif( ( 1 == count ), count + ' light is on', count + ' lights are on' ) }}
 
-              {%- elif count >= 2 %}
-                {{ count }} lights are on.
-
-              {%- endif %}
             {%- endif %}
 
-          doors_open: |
+            doors_open: |
+            {%- set ignore = [ 'unknown', 'unavailable' ] -%}
             {%- set count = states( 'sensor.total_doors_open' ) | int %}
 
-            {%- if is_state( 'input_boolean.sidebar_display_doors_open', 'on' ) and count != 'unknown' %}
-              {%- if count == 1 %}
-                {{ count }} door is open.
+            {%- if count not in ignore and is_state( 'input_boolean.sidebar_display_doors_open', 'on' ) %}
+              {{ iif( ( 1 == count ), count + ' door is open', count + ' doors are open' ) }}
 
-              {%- elif count >= 2 %}
-                {{ count }} doors are open.
-
-              {%- endif %}
             {%- endif %}
 
-          exterior_open_doors: |
+          exterior_open_doors: >-
+            {%- set ignore = [ 'unknown', 'unavailable' ] -%}
+
             {%- if is_state( 'input_boolean.sidebar_display_exterior_door_status', 'on' ) %}
-              {%- set state_door_front  = states( 'lock.front_door' ) %}
-              {%- set state_door_garage = states( 'cover.garage_door' ) %}
+              {%- set ns = namespace( output = [] ) -%}
+              {%- set state_lock_front   = states( 'lock.front_door' ) -%}
+              {%- set state_cover_garage = states( 'cover.garage_door' ) -%}
+              {%- set state_door_front   = states( 'binary_sensor.door_front_primary' ) -%}
+              {%- set state_door_garage  = states( 'binary_sensor.door_garage' ) -%}
+              {%- set state_door_sliding = states( 'binary_sensor.door_living' ) -%}
 
-              {%- set open_door_front   = ( state_front != 'unknown' and state_door_front != 'locked' ) %}
-              {%- set open_door_garage  = ( state_garage != 'unknown' and state_door_garage != 'closed' ) %}
-              {%- set open_door_sliding = is_state( 'binary_sensor.door_living', 'on' ) %}
+              {%- set status_lock_front   = iif( ( state_lock_front not in ignore and state_lock_front != 'locked' ), true, false ) -%}
+              {%- set status_door_front   = iif( ( state_door_front not in ignore and state_door_front == 'on' ), true, false ) -%}
+              {%- set status_cover_garage = iif( ( state_cover_garage not in ignore and state_cover_garage != 'closed' ), true, false ) -%}
+              {%- set status_door_garage  = iif( ( state_door_garage not in ignore and state_door_garage == 'on' ), true, false ) -%}
+              {%- set status_door_sliding = iif( ( state_door_sliding not in ignore and state_door_sliding == 'on' ), true, false ) -%}
 
-              {%- set status_door_garage  = "garage door is " + state_door_garage %}
-              {%- set status_door_front   = "front door is " + state_door_front %}
-              {%- set status_door_sliding = "sliding glass door is open" %}
+              {%- if ( true == status_lock_front ) and ( true == status_door_front ) -%}
+                {%- set ns.output = ns.output + [ 'front door is ' + state_lock_front + ' and open' ] -%}
+              {%- elif true == status_lock_front -%}
+                {%- set ns.output = ns.output + [ 'front door is ' + state_lock_front ] -%}
+              {%- elif true == status_door_front -%}
+                {%- set ns.output = ns.output + [ 'front door is open' ] -%}
+              {%- endif -%}
 
-              {%- if ( ( open_door_garage ) and ( open_door_sliding ) and ( open_door_front ) ) %}
-                The {{ status_door_garage }}, the {{ status_door_sliding }}, and the {{ status_door_front }}.
+              {%- if true == status_cover_garage -%}
+                {%- set ns.output = ns.output + [ 'garage door is ' + state_cover_garage ] -%}
+              {%- endif -%}
 
-              {%- elif ( ( open_door_garage ) and ( open_door_front ) ) %}
-                The {{ status_door_garage }}, and the {{ status_door_front }}.
+              {%- if true == status_door_garage -%}
+                {%- set ns.output = ns.output + [ 'garage interior door is open' ] -%}
+              {%- endif -%}
 
-              {%- elif ( ( open_door_sliding ) and ( open_door_front ) ) %}
-                The {{ status_door_sliding }}, and the {{ status_door_front }}.
+              {%- if true == status_door_sliding -%}
+                {%- set ns.output = ns.output + [ 'sliding glass door is open' ] -%}
+              {%- endif -%}
 
-              {%- elif ( ( open_door_sliding ) and ( open_door_garage ) ) %}
-                The {{ status_door_sliding }}, and the {{ status_door_garage }}.
-
-              {%- elif ( open_door_garage ) %}
-                The {{ status_door_garage }}.
-
-              {%- elif ( open_door_front ) %}
-                The {{ status_door_front }}.
-
-              {%- elif ( open_door_sliding ) %}
-                The {{ status_door_sliding }}.
-
-              {%- endif %}
+              {%- if ns.output | length == 1 -%}
+                The {{ ns.output | join( '' ) }}.
+              {%- elif ns.output | length >= 2 -%}
+                {% for e in ns.output %}
+                  {% if loop.first %}
+                    The {{ e }},
+                  {% elif loop.last %}
+                    and the {{ e }}.
+                  {% else %}
+                    the {{ e }}, 
+                  {% endif %}
+                  
+                {% endfor %}
+              {%- endif -%}
             {%- endif %}
 
-          sunrise_sunset: |
+          sunrise_sunset: >-
             {%- if is_state( 'input_boolean.sidebar_display_sunrise_sunset', 'on' ) -%}
               {% if is_state( 'sun.sun', 'below_horizon' ) %}
                 You have

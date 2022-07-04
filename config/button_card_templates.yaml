@@ -520,7 +520,21 @@ person:
     - base
     - circle
   state_display: >
-    [[[ return ( variables.state === 'home' || variables.state === 'Home' ) ? 'Home' : 'Away'; ]]]
+    [[[
+      if( variables.state === 'home' || variables.state === 'Home' )
+      { 
+        return 'Home';
+
+      } else if( variables.state == 'not_home' )
+      { 
+        return 'Away';
+
+      } else
+      {
+        return variables.state;
+
+      }
+    ]]]
 
   styles:
     card:
