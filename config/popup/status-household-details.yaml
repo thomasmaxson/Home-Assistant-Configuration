@@ -108,10 +108,13 @@ browser_mod:
             label: Doors
 
           - entity: lock.front_door
+            name: Front Door Lock
+          - entity: binary_sensor.door_front_primary
             name: Front Door
           - entity: cover.garage_door
-            name: Garage Door
-          - type: divider
+            name: Garage Door (Cover)
+          - entity: binary_sensor.door_garage
+            name: Garage Door (Interior)
           - entity: binary_sensor.door_living
             name: Living Room Sliding Glass
           - entity: binary_sensor.door_bedroom_1
@@ -186,6 +189,12 @@ browser_mod:
         entities:
           - type: section
             label: Door Batteries
+          - entity: sensor.door_front_primary_battery
+            name: Front Door, Primary
+          - entity: sensor.door_garage_battery
+            name: Garage Door, Interior
+          - entity: sensor.door_living_battery
+            name: Living Room Sliding Door
           - entity: sensor.door_bedroom_1_battery
             name: Bedroom 1 (Main)
           - entity: sensor.door_bedroom_2_battery
@@ -200,8 +209,6 @@ browser_mod:
             name: Closet Hallway (His)
           - entity: sensor.door_laundry_battery
             name: Laundry Room
-          - entity: sensor.door_living_battery
-            name: Living Room Sliding Door
 
           # - type: conditional
           #   condition:
@@ -343,21 +350,25 @@ browser_mod:
             name: Kitchen, Above Coffee Bar, Outlet
 
           - type: section
-            label: Media Players
+            label: Television
 
           - entity: media_player.sony_bravia_tv
             name: Living Room, Television
 
+          - type: section
+            label: AppleTV
+
           - type: conditional
             conditions:
               - entity: media_player.appletv_living_room
                 state_not: "unavailable"
               - entity: media_player.appletv_living_room
                 state_not: "unknown"
-              - entity: media_player.appletv_living_room
-                state_not: "standby"
+              # - entity: media_player.appletv_living_room
+              #   state_not: "standby"
             row:
               entity: media_player.appletv_living_room
+              nme: Living Room
 
           - type: conditional
             conditions:
@@ -365,10 +376,11 @@ browser_mod:
                 state_not: "unavailable"
               - entity: media_player.appletv_bedroom_1
                 state_not: "unknown"
-              - entity: media_player.appletv_bedroom_1
-                state_not: "standby"
+              # - entity: media_player.appletv_bedroom_1
+              #   state_not: "standby"
             row:
               entity: media_player.appletv_bedroom_1
+              name: Bedroom (Main)
 
           - type: conditional
             conditions:
@@ -376,10 +388,11 @@ browser_mod:
                 state_not: "unavailable"
               - entity: media_player.appletv_bedroom_2
                 state_not: "unknown"
-              - entity: media_player.appletv_bedroom_2
-                state_not: "standby"
+              # - entity: media_player.appletv_bedroom_2
+              #   state_not: "standby"
             row:
               entity: media_player.appletv_bedroom_2
+              name: Bedroom (Guest)
 
           - type: conditional
             conditions:
@@ -387,10 +400,11 @@ browser_mod:
                 state_not: "unavailable"
               - entity: media_player.appletv_bedroom_3
                 state_not: "unknown"
-              - entity: media_player.appletv_bedroom_3
-                state_not: "standby"
+              # - entity: media_player.appletv_bedroom_3
+              #   state_not: "standby"
             row:
               entity: media_player.appletv_bedroom_3
+              name: Bedroom (Her Office)
 
           - type: conditional
             conditions:
@@ -398,7 +412,83 @@ browser_mod:
                 state_not: "unavailable"
               - entity: media_player.appletv_bedroom_4
                 state_not: "unknown"
-              - entity: media_player.appletv_bedroom_4
-                state_not: "standby"
+              # - entity: media_player.appletv_bedroom_4
+              #   state_not: "standby"
             row:
               entity: media_player.appletv_bedroom_4
+              name: Bedroom (His Office)
+
+          - type: section
+            label: Amazon Alexa
+
+          - type: conditional
+            conditions:
+              - entity: media_player.echo_kitchen
+                state_not: "unavailable"
+              - entity: media_player.echo_kitchen
+                state_not: "unknown"
+              # - entity: media_player.echo_kitchen
+              #   state_not: "standby"
+            row:
+              entity: media_player.echo_kitchen
+              name: Kitchen
+
+          - type: conditional
+            conditions:
+              - entity: media_player.echo_dot_dining_room
+                state_not: "unavailable"
+              - entity: media_player.echo_dot_dining_room
+                state_not: "unknown"
+              # - entity: media_player.echo_dot_dining_room
+              #   state_not: "standby"
+            row:
+              entity: media_player.echo_dot_dining_room
+              name: Dining Room
+
+          - type: conditional
+            conditions:
+              - entity: media_player.echo_dot_bedroom_1
+                state_not: "unavailable"
+              - entity: media_player.echo_dot_bedroom_1
+                state_not: "unknown"
+              # - entity: media_player.echo_dot_bedroom_1
+              #   state_not: "standby"
+            row:
+              entity: media_player.echo_dot_bedroom_1
+              name: Bedroom (Main)
+
+          - type: conditional
+            conditions:
+              - entity: media_player.echo_dot_bedroom_2
+                state_not: "unavailable"
+              - entity: media_player.echo_dot_bedroom_2
+                state_not: "unknown"
+              # - entity: media_player.echo_dot_bedroom_2
+              #   state_not: "standby"
+            row:
+              entity: media_player.echo_dot_bedroom_2
+              name: Bedroom (Guest)
+
+          - type: conditional
+            conditions:
+              - entity: media_player.echo_dot_bedroom_3
+                state_not: "unavailable"
+              - entity: media_player.echo_dot_bedroom_3
+                state_not: "unknown"
+              # - entity: media_player.echo_dot_bedroom_3
+              #   state_not: "standby"
+            row:
+              entity: media_player.echo_dot_bedroom_3
+              name: Bedroom (Her Office)
+
+          - type: conditional
+            conditions:
+              - entity: media_player.echo_dot_bedroom_4
+                state_not: "unavailable"
+              - entity: media_player.echo_dot_bedroom_4
+                state_not: "unknown"
+              # - entity: media_player.echo_dot_bedroom_4
+              #   state_not: "standby"
+            row:
+              entity: media_player.echo_dot_bedroom_4
+              name: Bedroom (His Office)

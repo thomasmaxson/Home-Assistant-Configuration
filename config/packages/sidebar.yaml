@@ -109,10 +109,11 @@ template:
 
           weather: |
             {%- if is_state( 'input_boolean.sidebar_display_weather_forecast', 'on' ) %}
+              {%- set ignore = [ 'unknown', 'unavailable' ] -%}
               {%- set temperature = states( 'sensor.openweathermap_temperature' ) | round %}
               {%- set forecast = states( 'sensor.openweathermap_forecast_condition' ) %}
 
-              {%- if not is_state( 'sensor.openweathermap_temperature', 'unavailable' ) %}
+              {%- if temperature not in ignore %}
                 It's currently {{ temperature }}°
 
                 {%- if is_state( 'sensor.openweathermap_forecast_condition', 'rainy' ) %}
@@ -158,20 +159,20 @@ template:
             {%- endif %}
 
           lights_on: |
-            {%- set ignore = [ 'unknown', 'unavailable' ] -%}
-            {%- set count = states( 'sensor.total_lights_on' ) | int %}
+            {%- set ignore = [ '0', 'unknown', 'unavailable' ] -%}
+            {%- set count = states( 'sensor.total_lights_on' ) %}
 
             {%- if count not in ignore and is_state( 'input_boolean.sidebar_display_lights_on', 'on' ) %}
-              {{ iif( ( 1 == count ), count + ' light is on', count + ' lights are on' ) }}
+              {{ iif( ( '1' == count ), count + ' light is on', count + ' lights are on' ) }}
 
             {%- endif %}
 
-            doors_open: |
-            {%- set ignore = [ 'unknown', 'unavailable' ] -%}
-            {%- set count = states( 'sensor.total_doors_open' ) | int %}
+          doors_open: |
+            {%- set ignore = [ '0', 'unknown', 'unavailable' ] -%}
+            {%- set count = states( 'sensor.total_doors_open' ) %}
 
             {%- if count not in ignore and is_state( 'input_boolean.sidebar_display_doors_open', 'on' ) %}
-              {{ iif( ( 1 == count ), count + ' door is open', count + ' doors are open' ) }}
+              {{ iif( ( '1' == count ), count + ' door is open', count + ' doors are open' ) }}
 
             {%- endif %}
 

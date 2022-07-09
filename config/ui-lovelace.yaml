@@ -234,6 +234,13 @@ views:
                     template:
                       - media
 
+                  # - type: custom:button-card
+                  #   entity: media_player.echo_dining_room
+                  #   name: Echo
+                  #   icon: hass:cast-audio-variant
+                  #   template:
+                  #     - media
+
       #
       # FOYER
       # --------------------------------------------------
@@ -667,6 +674,13 @@ views:
                     icon: hass:lightbulb
                     template:
                       - popup_switch
+
+                  - type: custom:button-card
+                    entity: media_player.echo_dot_bedroom_2
+                    name: Guest Echo Dot
+                    icon: hass:cast-audio-variant
+                    template:
+                      - media
 
               # - type: grid
               #   title: Guest Bedroom

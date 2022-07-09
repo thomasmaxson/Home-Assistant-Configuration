@@ -90,6 +90,19 @@ browser_mod:
             .name { margin: 0 0 1em !important;}
         entities:
           - type: section
+            label: Exterior Doors
+          - entity: lock.front_door
+            name: Front Door Lock
+          - entity: binary_sensor.door_front_primary
+            name: Front Door
+          - entity: cover.garage_door
+            name: Garage Door (Cover)
+          - entity: binary_sensor.door_garage
+            name: Garage Door (Interior)
+          - entity: binary_sensor.door_living
+            name: Living Room Sliding Glass
+
+          - type: section
             label: Kitchen
           - entity: light.kitchen_ceiling_lights
             name: Ceiling
@@ -144,6 +157,20 @@ browser_mod:
             icon: bha:table-lamp-variant
             secondary_info: brightness
 
+      - type: entities
+        view_layout:
+          grid-area: group_b
+        #title: Column B Title
+        show_header_toggle: false
+        card_mod:
+          class: header
+          style: |
+            ha-card {
+              margin: 0 !important;
+              width: 100%;
+            }
+            .name { margin: 0 0 1em !important;}
+        entities:
           - type: section
             label: Foyer
           - type: conditional
@@ -188,20 +215,6 @@ browser_mod:
             name: Under Table
             secondary_info: brightness
 
-      - type: entities
-        view_layout:
-          grid-area: group_b
-        #title: Column B Title
-        show_header_toggle: false
-        card_mod:
-          class: header
-          style: |
-            ha-card {
-              margin: 0 !important;
-              width: 100%;
-            }
-            .name { margin: 0 0 1em !important;}
-        entities:
           - type: section
             label: Main Bedroom
           - entity: cover.bedroom_1_large_curtains
@@ -220,6 +233,20 @@ browser_mod:
             name: Closet (His)
             secondary_info: brightness
 
+      - type: entities
+        view_layout:
+          grid-area: group_c
+        #title: Column C Title
+        show_header_toggle: false
+        card_mod:
+          class: header
+          style: |
+            ha-card {
+              margin: 0 !important;
+              width: 100%;
+            }
+            .name { margin: 0 0 1em !important;}
+        entities:
           - type: section
             label: Offices
           - type: conditional
@@ -270,20 +297,6 @@ browser_mod:
             name: Garage Ceiling
             icon: hass:lightbulb
 
-      - type: entities
-        view_layout:
-          grid-area: group_c
-        #title: Column C Title
-        show_header_toggle: false
-        card_mod:
-          class: header
-          style: |
-            ha-card {
-              margin: 0 !important;
-              width: 100%;
-            }
-            .name { margin: 0 0 1em !important;}
-        entities:
           - type: section
             label: Exterior
           - entity: light.foyer_exterior_entryway
@@ -297,12 +310,3 @@ browser_mod:
           - entity: light.backyard_string_lights
             name: Backyard String Lights
             icon: bha:light-string
-
-          - type: section
-            label: Exterior Doors
-          - entity: lock.front_door
-            name: Front Door
-          - entity: cover.garage_door
-            name: Garage Door
-          - entity: binary_sensor.door_living
-            name: Living Room Sliding Glass
