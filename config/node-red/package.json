@@ -1,0 +1,16 @@
+{
+    "name": "node-red-project",
+    "description": "A Node-RED Project",
+    "version": "0.0.1",
+    "private": true,
+    "dependencies": {
+        "node-red-contrib-actionflows": "~2.1.2",
+        "node-red-contrib-alexa-remote2": "~3.10.4",
+        "node-red-contrib-light-scheduler": "~0.0.18",
+        "node-red-contrib-spline-curve": "~1.1.8",
+        "node-red-contrib-stoptimer": "~0.0.7",
+        "node-red-contrib-sun-position": "~2.0.6",
+        "node-red-contrib-zigbee2mqtt": "~2.1.6",
+        "node-red-contrib-zigbee2mqtt-devices": "~0.19.5"
+    }
+}
