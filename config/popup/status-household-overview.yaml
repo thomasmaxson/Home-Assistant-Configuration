@@ -286,27 +286,27 @@ browser_mod:
           - type: section
             label: Other
           - entity: light.laundry_ceiling_light
-            name: Laundry Room Ceiling
+            name: Laundry Room, Ceiling
             icon: bha:dome-light
             secondary_info: brightness
           - entity: light.laundry_hallway_light
-            name: Laundry Room Hallway
+            name: Laundry Room, Hallway
             icon: bha:dome-light
             secondary_info: brightness
           - entity: switch.garage_light
-            name: Garage Ceiling
+            name: Garage, Ceiling
             icon: hass:lightbulb
 
           - type: section
             label: Exterior
           - entity: light.foyer_exterior_entryway
-            name: Front Door Entryway
+            name: Front Door, Entryway
             icon: hass:globe-light
             secondary_info: brightness
           - entity: light.garage_exterior
-            name: Garage Exterior
+            name: Garage, Exterior
             icon: bha:outdoor-lamp-variant
             secondary_info: brightness
           - entity: light.backyard_string_lights
-            name: Backyard String Lights
+            name: Backyard, String Lights
             icon: bha:light-string
