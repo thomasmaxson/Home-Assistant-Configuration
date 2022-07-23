@@ -740,9 +740,12 @@ views:
 
                   - type: custom:button-card
                     name: Doggies
-                    entity: input_boolean.gouda_home
+                    entity: group.pets
                     show_entity_picture: true
                     entity_picture: /local/uploads/avatar-gouda.png
+                    tap_action: !include popup/pets.yaml
+                    double_tap_action: !include popup/pets.yaml
+                    hold_action: !include popup/pets.yaml
                     template:
                       - person_boolean
 

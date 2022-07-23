@@ -18,4 +18,6 @@ group:
   pets:
     name: Pets
     entities:
-      - input_boolean.gouda_home
+      - input_boolean.dog_gouda_status
+      - input_boolean.dog_walrus_status
+      - input_boolean.dog_lady_mimi_status

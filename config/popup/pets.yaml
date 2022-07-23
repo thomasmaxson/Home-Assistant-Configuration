@@ -1,0 +1,47 @@
+################################################################################
+#
+# @author      : Thomas Maxson
+# @package     : Popup, Pets
+# @description :
+#
+################################################################################
+
+action: fire-dom-event
+browser_mod:
+  command: popup
+  title: Pet Details
+  style:
+    $: |
+      @media screen and (max-width: 992px) { 
+        .mdc-dialog .mdc-dialog__container .mdc-dialog__surface { 
+          border-radius: 0 !important;
+        }
+      }
+    hui-vertical-stack-card:
+      $: |
+        button-card {
+          align-self: center;
+          padding: 0.2em 0 2.3em 0;
+        }
+      $hui-entities-card$: |
+        #states {
+          padding-left: 2em;
+          padding-bottom: .9em;
+        }
+      $hui-glance-card$: |
+        .entities {
+          padding: 12px 29px 4px 26px !important;
+        }
+  card:
+    type: vertical-stack
+    cards:
+      - type: entities
+        card_mod:
+          class: content
+        entities:
+          - entity: input_boolean.dog_gouda_status
+            name: Gouda is Home
+          - entity: input_boolean.dog_walrus_status
+            name: Walrus is Home
+          - entity: input_boolean.dog_lady_mimi_status
+            name: Lady Mimi is Home
