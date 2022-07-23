@@ -191,13 +191,9 @@ sensor:
           {% set state = 'on' %}
           {% set ns = namespace( count = 0 ) %}
 
-          {% for light in state_attr( 'group.lights_all', 'entity_id' ) if is_state( light, state ) %}
+          {% for light in state_attr( 'light.lights_all', 'entity_id' ) if is_state( light, state ) %}
             {% set ns.count = ns.count + 1 %}
           {% endfor %}
-
-          {% if is_state( 'switch.garage_light', 'on' ) %}
-            {% set ns.count = ns.count + 1 %}
-          {% endif %}
 
           {{ ns.count | int }}
 
@@ -537,7 +533,7 @@ template:
     sensor:
       - name: "Automation Daily Status"
         state: >-
-          {%- set offset = ( 30 * 60 ) %}
+          {%- set offset = ( 45 * 60 ) %}
           {%- set next_sunset     = as_timestamp( states.sun.sun.attributes.next_setting ) %}
           {%- set modified_sunset = ( next_sunset - offset ) | int %}
           {%- set ts_next_sunset  = modified_sunset | timestamp_custom( '%H%M%S' ) | int %}
@@ -551,7 +547,7 @@ template:
             Runs at {{ modified_sunset | timestamp_custom( '%I:%M %p' ) }}
           {%- endif %}
         icon: >-
-          {%- set offset = ( 30 * 60 ) %}
+          {%- set offset = ( 45 * 60 ) %}
           {%- set next_sunset     = as_timestamp( states.sun.sun.attributes.next_setting ) %}
           {%- set modified_sunset = ( next_sunset - offset ) | int %}
           {%- set ts_next_sunset  = modified_sunset | timestamp_custom( '%H%M%S' ) | int %}
