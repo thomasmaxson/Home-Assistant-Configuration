@@ -29,6 +29,10 @@ browser_mod:
         }
       $hui-map-card:
         $: |
+          #root {
+            height: 27em;
+            padding-bottom: 0 !important;
+          }
           mwc-icon-button {
             color: var(--primary-color);
           }
@@ -104,9 +108,39 @@ browser_mod:
         entities:
           - type: section
           - entity: input_boolean.app_notify_jess
-            name: Recieve Standard Notifications
-          - entity: input_boolean.app_notify_jess_critical
-            name: Recieve Critical Notifications
+            name: Recieve Notifications
+
+          - type: conditional
+            conditions:
+              - entity: input_boolean.app_notify_jess
+                state: "on"
+            row:
+              entity: input_boolean.app_notify_jess_alert_info
+              name: Informational Notifications
+
+          - type: conditional
+            conditions:
+              - entity: input_boolean.app_notify_jess
+                state: "on"
+            row:
+              entity: input_boolean.app_notify_jess_alert_warning
+              name: Warning Notifications
+
+          - type: conditional
+            conditions:
+              - entity: input_boolean.app_notify_jess
+                state: "on"
+            row:
+              entity: input_boolean.app_notify_jess_alert_critical
+              name: Critical Notifications
+
+          - type: conditional
+            conditions:
+              - entity: input_boolean.app_notify_jess
+                state: "on"
+            row:
+              entity: input_boolean.app_notify_jess_person_location
+              name: Person Location Notifications
 
       - type: map
         default_zoom: 16

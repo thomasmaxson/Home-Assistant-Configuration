@@ -29,6 +29,10 @@ browser_mod:
         }
       $hui-map-card:
         $: |
+          #root {
+            height: 27em;
+            padding-bottom: 0 !important;
+          }
           mwc-icon-button {
             color: var(--primary-color);
           }
@@ -73,7 +77,26 @@ browser_mod:
       #     - entity: person.leonardo
 
       - type: custom:button-card
-        name: Find this iPhone
+        name: Find this iPhone (Personal)
+        icon: mdi:bell-ring
+        template: icon_name
+        tap_action:
+          confirmation:
+            text: Are you sure you want to ping this device?
+          action: call-service
+          service: notify.mobile_app_leonardos_iphone
+          service_data:
+            title: Find my iPhone
+            message: Here I am.
+            data:
+              push:
+                sound:
+                  name: alarm.caf
+                  critical: 1
+                  volume: 1
+
+      - type: custom:button-card
+        name: Find this iPhone (Work)
         icon: mdi:bell-ring
         template: icon_name
         tap_action:
@@ -104,9 +127,39 @@ browser_mod:
         entities:
           - type: section
           - entity: input_boolean.app_notify_leo
-            name: Recieve Standard Notifications
-          - entity: input_boolean.app_notify_leo_critical
-            name: Recieve Critical Notifications
+            name: Recieve Notifications
+
+          - type: conditional
+            conditions:
+              - entity: input_boolean.app_notify_leo
+                state: "on"
+            row:
+              entity: input_boolean.app_notify_leo_alert_info
+              name: Informational Notifications
+
+          - type: conditional
+            conditions:
+              - entity: input_boolean.app_notify_leo
+                state: "on"
+            row:
+              entity: input_boolean.app_notify_leo_alert_warning
+              name: Warning Notifications
+
+          - type: conditional
+            conditions:
+              - entity: input_boolean.app_notify_leo
+                state: "on"
+            row:
+              entity: input_boolean.app_notify_leo_alert_critical
+              name: Critical Notifications
+
+          - type: conditional
+            conditions:
+              - entity: input_boolean.app_notify_leo
+                state: "on"
+            row:
+              entity: input_boolean.app_notify_leo_person_location
+              name: Person Location Notifications
 
       - type: map
         default_zoom: 16
