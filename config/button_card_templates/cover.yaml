@@ -1,0 +1,28 @@
+################################################################################
+#
+# @author      : Thomas Maxson
+# @package     : Button Card Templates, Cover
+# @description :
+#
+################################################################################
+
+base_cover:
+  tap_action:
+    action: call-service
+    service: >
+      [[[ return variables.state === 'closed' ? 'cover.open_cover' : 'cover.close_cover'; ]]]
+    service_data:
+      entity_id: >
+        [[[ return entity === undefined || entity.entity_id; ]]]
+  double_tap_action:
+    action: call-service
+    service: >
+      [[[ return variables.state === 'closed' ? 'cover.open_cover' : 'cover.close_cover'; ]]]
+    service_data:
+      entity_id: >
+        [[[ return entity === undefined || entity.entity_id; ]]]
+
+cover:
+  template:
+    - base
+    - base_cover

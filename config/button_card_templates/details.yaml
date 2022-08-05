@@ -1,0 +1,50 @@
+################################################################################
+#
+# @author      : Thomas Maxson
+# @package     : Button Card Templates, Details
+# @description :
+#
+################################################################################
+
+details:
+  aspect_ratio: 2/1
+  show_state: false
+  show_icon: true
+  size: 40px
+
+  # Add space to bottom, on mobile devices
+  style: |
+    :host { 
+      padding: 0;
+      margin-bottom: 0 !important;
+      min-height: 40px;
+    }
+
+    @media screen and (max-width: 992px) {
+      :host {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        margin-bottom: 40px !important;
+        min-height: 80px;
+      }
+    }
+
+  styles:
+    card:
+      - border-radius: var(--custom-button-card-border-radius)
+      - margin: 0
+      - -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+      - transition: none
+    grid:
+      - grid-template-areas: |
+          "i"
+      - grid-template-columns: 1fr
+      - grid-template-rows: 1fr
+      - gap: 0
+      - justify-content: center
+      - align-items: center
+    icon:
+      - justify-self: center
+      - align-items: center
+      - height: auto
+      - color: rgba( 115, 115, 115, 0.8 )

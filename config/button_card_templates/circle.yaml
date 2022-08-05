@@ -1,0 +1,45 @@
+################################################################################
+#
+# @author      : Thomas Maxson
+# @package     : Button Card Templates, Circle
+# @description :
+#
+################################################################################
+
+circle:
+  custom_fields:
+    circle: >
+      [[[
+        if (variables.state == 'on') {
+          const input = variables.circle_input;
+          const radius = 20.5;
+          const circumference = radius * 2 * Math.PI;
+          return `
+            <svg viewBox="0 0 50 50">
+              <style>
+                circle {
+                  transform: rotate(-90deg);
+                  transform-origin: 50% 50%;
+                  stroke-dasharray: ${circumference};
+                  stroke-dashoffset: ${circumference - input / 100 * circumference};
+                }
+                tspan {
+                  font-size: 10px;
+                }
+              </style>
+              <circle cx="25" cy="25" r="${radius}" stroke="#b2b2b2" stroke-width="1.5" fill="none" />
+              <text x="50%" y="54%" fill="#8d8e90" font-size="14" text-anchor="middle" alignment-baseline="middle" dominant-baseline="middle">${input}<tspan font-size="10">%</tspan></text>
+            </svg>
+          `;
+        }
+      ]]]
+  styles:
+    custom_fields:
+      circle:
+        - display: initial
+        - width: 90%
+        - letter-spacing: 0.03vw
+        - margin: -6% -6% 0 0
+        - padding-top: 10%
+        - justify-self: end
+        - opacity: 1

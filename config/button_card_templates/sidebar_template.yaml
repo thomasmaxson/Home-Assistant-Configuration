@@ -1,0 +1,101 @@
+################################################################################
+#
+# @author      : Thomas Maxson
+# @package     : Button Card Templates, Sidebar Template
+# @description :
+#
+################################################################################
+
+sidebar_template:
+  show_state: false
+  show_icon: false
+  tap_action:
+    action: none
+  name: |
+    [[[
+      if (entity) {
+        let attributes = '';
+        for (const [key, value] of Object.entries(entity.attributes)) {
+          value != false ? attributes += `<p class="${key}">${value}</p>` : null;
+        }
+        return attributes;
+      }
+    ]]]
+  extra_styles: |
+    #card {
+      padding: 0;
+    }
+
+    #container {
+      display: flex !important;
+    }
+
+    #name { 
+      padding: 1.8vw 2.5vw 0 var(--custom-layout-card-padding);
+      color: #6a7377;
+      text-align: left;
+      white-space: normal;
+    }
+
+    p {
+      margin-top: 1em;
+      margin-bottom: 0;
+      font-size: calc( var( --sidebar-font-size ) * 1.4 );
+      line-height: calc( var(--sidebar-line-height) + 1.2 );
+      font-weight: 300;
+      letter-spacing: 0.06vw;
+    }
+
+    p.time,
+    p.date, 
+    p.greeting { color: rgba(255, 255, 255, 0.8);}
+
+    p.time {
+      margin-top: 0;
+      margin-left: -0.3vw;
+      line-height: 1 !important;
+      font-size: calc( var(--sidebar-time-font-size ) * 1.5 );
+      font-weight: 200;
+      letter-spacing: -0.05vw;
+    }
+
+    p.time .time-colon {
+      position: relative;
+      top: -.09em;
+    }
+
+    /* portrait */
+    @media screen and (max-width: 1200px) {
+      p {
+        font-size: calc(var(--sidebar-font-size) * 1.4 );
+        line-height: calc(var(--sidebar-line-height) * 1.4 );
+      }
+
+      p.time {
+        font-size: calc(var(--sidebar-time-font-size) * 1.4 );
+      }
+    }
+
+    /* phone */
+    @media screen and (max-width: 992px) {
+      #card {
+        padding-top: 4%;
+      }
+
+      #name {
+        padding: 0 0 0 1vw;
+      }
+
+      p {
+        font-size: calc(var(--sidebar-font-size) * 5 );
+        line-height: calc(var(--sidebar-line-height) * 5 );
+        letter-spacing: 0.16vw;
+      }
+
+      p.time {
+        display: none !important;
+        font-size: calc(var(--sidebar-time-font-size) * 2.6 );
+      }
+
+      p.greeting { display: none !important;}
+    }

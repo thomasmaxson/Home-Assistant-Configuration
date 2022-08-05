@@ -1,0 +1,70 @@
+################################################################################
+#
+# @author      : Thomas Maxson
+# @package     : Button Card Templates, Media
+# @description :
+#
+################################################################################
+
+base_media:
+  tap_action:
+    action: >
+      [[[
+        return !(variables.state === 'off' || variables.state === 'idle' || variables.state === 'standby') ? 'call-service' : 'none';
+      ]]]
+    service: media_player.media_play_pause
+    service_data:
+      entity_id: >
+        [[[ return entity === undefined || entity.entity_id; ]]]
+  double_tap_action:
+    action: call-service
+    service: >
+      [[[ return variables.state === 'off' || variables.state === 'idle' || variables.state === 'standby' ? 'media_player.turn_on' : 'media_player.turn_off'; ]]]
+    service_data:
+      entity_id: >
+        [[[ return entity === undefined || entity.entity_id; ]]]
+  styles:
+    card:
+      - color: >
+          [[[
+            let entity_picture = entity === undefined || entity.attributes.entity_picture;
+            if (variables.state === 'off' || variables.state === 'idle' || variables.state === 'standby' ||
+              variables.state === 'unknown' || variables.state === 'unavailable' || entity === undefined) {
+              return 'rgba(255, 255, 255, 0.3)';
+            }
+            return (variables.state != 'off' && variables.state != 'idle' && variables.state != 'standby') && (entity_picture == null) ? 'rgba(0, 0, 0, 0.6)' : '#efefef';
+          ]]]
+      - text-shadow: >
+          [[[
+            let entity_picture = entity === undefined ? null : entity.attributes.entity_picture;
+            return entity_picture == null ? 'none' : '1px 1px 5px rgba(18, 22, 23, 0.9)';
+          ]]]
+
+media:
+  template:
+    - base
+    - base_media
+  styles:
+    custom_fields:
+      icon:
+        - width: 70%
+        - fill: "#9da0a2"
+        - opacity: >
+            [[[
+              let entity_picture = entity === undefined ? null : entity.attributes.entity_picture;
+              return entity_picture == null ? 1 : 0;
+            ]]]
+    card:
+      - background-color: none
+      - background-size: cover
+      - background-image: >
+          [[[
+            let entity_picture = entity === undefined || entity.attributes.entity_picture;
+            if (variables.state === 'off' || variables.state === 'idle' || variables.state === 'standby' ||
+              variables.state === 'unknown' || variables.state === 'unavailable' || entity === undefined) {
+              return 'linear-gradient(0deg, rgba(115, 115, 115, 0.2) 0%, rgba(115, 115, 115, 0.2) 100%)';
+            }
+            return (variables.state != 'off' && variables.state != 'idle' && variables.state != 'standby') && (entity_picture == null) ? 
+              'linear-gradient(0deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.8) 100%)' : 
+              'linear-gradient(0deg, rgba(0,0,0,.8) 0%, rgba(0,0,0,0) 100%), url(' + entity_picture + ')';
+          ]]]
