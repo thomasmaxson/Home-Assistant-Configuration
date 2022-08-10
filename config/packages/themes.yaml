@@ -42,8 +42,8 @@ frontend:
       ha-card-background: none
       grid-card-gap: 5%
       masonry-view-card-margin: 0px
-      state-icon-color: '#9da0a2'
-      state-icon-active-color: '#3182b7'
+      state-icon-color: "#9da0a2"
+      state-icon-active-color: "#3182b7"
       switch-checked-color: "#7a7d7f"
       switch-unchecked-button-color: "#3b4041"
       switch-unchecked-track-color: "#0c0d0d"
@@ -57,17 +57,36 @@ frontend:
       paper-toast-background-color: "#1b1b1bf2"
       vertical-stack-card-margin: 0
 
+      #font
+      primary-font-family: SF Pro Text, Roboto, system-ui
+      paper-font-common-base_-_font-family: var(--primary-font-family)
+      paper-font-common-code_-_font-family: var(--primary-font-family)
+      paper-font-body1_-_font-family: var(--primary-font-family)
+      paper-font-subhead_-_font-family: var(--primary-font-family)
+      paper-font-headline_-_font-family: var(--primary-font-family)
+      paper-font-caption_-_font-family: var(--primary-font-family)
+      paper-font-title_-_font-family: var(--primary-font-family)
+      ha-card-header-font-family: var(--primary-font-family)
+      mdc-typography-body1-font-family: var(--primary-font-family)
+      mdc-typography-font-family: var(--primary-font-family)
+
       #custom variables
       ha-card-background-color: rgba(34,38,39,0.9)
       ha-card-header-background-color: rgba(48,52,52,0.8)
       card-content-padding: 1.4em 2.2em 1.6em 1.5em
 
       custom-layout-card-padding: 3.3vw
-      custom-button-card-border-radius: 8%
       sidebar-time-font-size: 5vw
       sidebar-font-size: 1.5vw
-      sidebar-line-height: 2.1vw
+      sidebar-line-height: 2vw
       bar-card-color: "#303435"
+
+      #button_card_templates
+      button-card-font-size: 1.35vw
+      button-card-font-weight: 500
+      button-card-letter-spacing: -0.03vw
+      button-card-border-radius: 10%
+      z-axis-adjustment: 0.05vw #tilt compensation
 
       ####################################################
       #                                                  #
