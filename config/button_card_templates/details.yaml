@@ -24,7 +24,6 @@ details:
       :host {
         padding-top: 20px;
         padding-bottom: 20px;
-        margin-bottom: 40px !important;
         min-height: 80px;
       }
     }

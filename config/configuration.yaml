@@ -43,9 +43,13 @@ lovelace:
   resources:
     - url: /hacsfiles/kiosk-mode/kiosk-mode.js
       type: module
+    - url: /hacsfiles/lovelace-mushroom/mushroom.js
+      type: module
     - url: /hacsfiles/button-card/button-card.js
       type: module
     - url: /hacsfiles/bar-card/bar-card.js
+      type: module
+    - url: /hacsfiles/decluttering-card/decluttering-card.js
       type: module
     - url: /hacsfiles/lovelace-card-mod/card-mod.js
       type: module

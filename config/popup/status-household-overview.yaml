@@ -91,71 +91,67 @@ browser_mod:
         entities:
           - type: section
             label: Exterior Doors
-          - entity: lock.front_door
+
+          - type: custom:mushroom-lock-card
+            entity: lock.front_door
             name: Front Door Lock
-          - entity: binary_sensor.door_front_primary
-            name: Front Door
-          - entity: cover.garage_door
+
+          - type: custom:decluttering-card
+            template: entity_light
+            variables:
+              - entity: binary_sensor.door_front_primary
+              - name: Front Door
+              - show_battery: "false"
+
+          - type: custom:mushroom-cover-card
+            entity: cover.garage_door
             name: Garage Door (Cover)
-          - entity: binary_sensor.door_garage
-            name: Garage Door (Interior)
-          - entity: binary_sensor.door_living
-            name: Living Room Sliding Glass
+            show_buttons_control: true
+            show_position_control: true
+
+          - type: custom:decluttering-card
+            template: entity_light
+            variables:
+              - entity: binary_sensor.door_garage
+              - name: Garage Door (Interior)
+              - show_battery: "false"
+
+          - type: custom:decluttering-card
+            template: entity_light
+            variables:
+              - entity: binary_sensor.door_living
+              - name: Living Room Sliding Glass
+              - show_battery: "false"
 
           - type: section
             label: Kitchen
-          - entity: light.kitchen_ceiling_lights
-            name: Ceiling
-            secondary_info: brightness
 
-          - type: conditional
-            conditions:
-              - entity: light.kitchen_cabinet_upper_coffee_bar
-                state_not: "unavailable"
-              - entity: light.kitchen_cabinet_upper_range
-                state_not: "unavailable"
-              - entity: input_boolean.sync_cabinet_above_lights
-                state: "on"
-            row:
-              entity: light.kitchen_cabinet_upper_coffee_bar
-              name: Above Cabinets
-              icon: hass:led-strip-variant
-              secondary_info: brightness
+          - type: custom:decluttering-card
+            template: entity_light
+            variables:
+              - entity: light.kitchen_ceiling_lights
+              - name: Ceiling
 
-          - type: conditional
-            conditions:
-              - entity: light.kitchen_cabinet_upper_range
-                state_not: "unavailable"
-              - entity: input_boolean.sync_cabinet_above_lights
-                state: "off"
-            row:
-              entity: light.kitchen_cabinet_upper_range
-              name: Above Cabinets, Range
-              icon: hass:led-strip-variant
-              secondary_info: brightness
-
-          - type: conditional
-            conditions:
-              - entity: light.kitchen_cabinet_upper_coffee_bar
-                state_not: "unavailable"
-              - entity: input_boolean.sync_cabinet_above_lights
-                state: "off"
-            row:
-              entity: light.kitchen_cabinet_upper_coffee_bar
-              name: Above Cabinets, Coffee Bar
-              icon: hass:led-strip-variant
-              secondary_info: brightness
+          - type: custom:decluttering-card
+            template: entity_light
+            variables:
+              - entity: light.cabinet_upper_lights
+              - name: Above Cabinets
 
           - type: section
             label: Common Areas
-          - entity: light.dining_room_chandelier
-            name: Dining Room, Chandelier
-            icon: bha:chandelier
-            secondary_info: brightness
-          - entity: light.living_room_corner_lamp
-            name: Living Room, Corner
-            icon: bha:table-lamp-variant
-            secondary_info: brightness
+
+          - type: custom:decluttering-card
+            template: entity_light
+            variables:
+              - entity: light.dining_room_chandelier
+              - name: Dining Room, Chandelier
+
+          - type: custom:decluttering-card
+            template: entity_light
+            variables:
+              - entity: light.living_room_corner_lamp
+              - name: Living Room, Corner Lamp
 
       - type: entities
         view_layout:
@@ -173,65 +169,69 @@ browser_mod:
         entities:
           - type: section
             label: Foyer
-          - type: conditional
-            conditions:
-              - entity: light.foyer_ceiling_lights
-                state_not: "unavailable"
-              - entity: input_boolean.sync_foyer_lights
-                state: "on"
-            row:
-              entity: light.foyer_ceiling_lights
-              name: Ceiling Lights
-              icon: bha:dome-light
-              secondary_info: brightness
 
-          - type: conditional
-            conditions:
+          - type: custom:decluttering-card
+            template: entity_light
+            variables:
               - entity: light.foyer_entryway_ceiling
-                state_not: "unavailable"
-              - entity: input_boolean.sync_foyer_lights
-                state: "off"
-            row:
-              entity: light.foyer_entryway_ceiling
-              name: Entryway
-              secondary_info: brightness
+              - name: Entryway
 
-          - type: conditional
-            conditions:
+          - type: custom:decluttering-card
+            template: entity_light
+            variables:
               - entity: light.foyer_hallway_ceiling
-                state_not: "unavailable"
-              - entity: input_boolean.sync_foyer_lights
-                state: "off"
-            row:
-              entity: light.foyer_hallway_ceiling
-              name: Hallway
-              secondary_info: brightness
+              - name: Hallway
 
-            secondary_info: brightness
-          - entity: light.foyer_ceiling_ledge
-            name: Upper Ledge
-            secondary_info: brightness
-          - entity: light.foyer_under_table
-            name: Under Table
-            secondary_info: brightness
+          - type: custom:decluttering-card
+            template: entity_light
+            variables:
+              - entity: light.foyer_ceiling_ledge
+              - name: Upper Ledge
+
+          - type: custom:decluttering-card
+            template: entity_light
+            variables:
+              - entity: light.foyer_under_table
+              - name: Under Table
 
           - type: section
             label: Main Bedroom
-          - entity: cover.bedroom_1_large_curtains
+
+          - type: custom:mushroom-cover-card
+            entity: cover.bedroom_1_large_curtains
             name: Large Window
-          - entity: light.bedroom_1_bedside_lamps
-            name: Bedside Lamps
-            secondary_info: brightness
-          - entity: light.closet_hallway_ceiling_light
-            name: Closet Hallway
-            icon: bha:dome-light
-            secondary_info: brightness
-          - entity: light.closet_hallway_light_j
-            name: Closet (Hers)
-            secondary_info: brightness
-          - entity: light.closet_hallway_light_t
-            name: Closet (His)
-            secondary_info: brightness
+            show_buttons_control: true
+            show_position_control: true
+
+          - type: custom:decluttering-card
+            template: entity_light
+            variables:
+              - entity: light.bedroom_1_lamp_j
+              - name: Bedside Lamp (Hers)
+
+          - type: custom:decluttering-card
+            template: entity_light
+            variables:
+              - entity: light.bedroom_1_lamp_t
+              - name: Bedside Lamp (His)
+
+          - type: custom:decluttering-card
+            template: entity_light
+            variables:
+              - entity: light.closet_hallway_ceiling_light
+              - name: Closet Hallway
+
+          - type: custom:decluttering-card
+            template: entity_light
+            variables:
+              - entity: light.closet_hallway_light_j
+              - name: Closet (Hers)
+
+          - type: custom:decluttering-card
+            template: entity_light
+            variables:
+              - entity: light.closet_hallway_light_t
+              - name: Closet (His)
 
       - type: entities
         view_layout:
@@ -249,64 +249,63 @@ browser_mod:
         entities:
           - type: section
             label: Offices
-          - type: conditional
-            conditions:
-              - entity: light.bedroom_4_lights
-                state_not: "unavailable"
-              - entity: input_boolean.sync_bedroom_4_lights
-                state: "on"
-            row:
-              entity: light.bedroom_4_lights
-              name: His Office, Lights
-              icon: hue:desk-lamp
-              secondary_info: brightness
 
-          - type: conditional
-            conditions:
+          - type: custom:decluttering-card
+            template: entity_light
+            variables:
               - entity: light.bedroom_4_desk_lamp
-                state_not: "unavailable"
-              - entity: input_boolean.sync_bedroom_4_lights
-                state: "off"
-            row:
-              entity: light.bedroom_4_desk_lamp
-              name: His Office, Desk Lamp
-              secondary_info: brightness
+              - name: Desk Lamp (His)
 
-          - type: conditional
-            conditions:
+          - type: custom:decluttering-card
+            template: entity_light
+            variables:
               - entity: light.bedroom_4_lightstrip
-                state_not: "unavailable"
-              - entity: input_boolean.sync_bedroom_4_lights
-                state: "off"
-            row:
-              entity: light.bedroom_4_lightstrip
-              name: His Office, Lightstrip
-              secondary_info: brightness
+              - name: Baseboard Lightstrip (His)
 
           - type: section
             label: Other
-          - entity: light.laundry_ceiling_light
-            name: Laundry Room, Ceiling
-            icon: bha:dome-light
-            secondary_info: brightness
-          - entity: light.laundry_hallway_light
-            name: Laundry Room, Hallway
-            icon: bha:dome-light
-            secondary_info: brightness
-          - entity: switch.garage_light
-            name: Garage, Ceiling
-            icon: hass:lightbulb
+
+          - type: custom:decluttering-card
+            template: entity_light
+            variables:
+              - entity: light.laundry_ceiling_light
+              - name: Laundry Room, Ceiling
+
+          - type: custom:decluttering-card
+            template: entity_light
+            variables:
+              - entity: light.laundry_hallway_light
+              - name: Laundry Room, Hallway
+
+          - type: custom:decluttering-card
+            template: entity_light
+            variables:
+              - entity: light.guest_hallway_light
+              - name: Guest Bedroom, Hallway
+
+          - type: custom:decluttering-card
+            template: entity_light
+            variables:
+              - entity: light.garage_light
+              - name: Garage, Ceiling
 
           - type: section
             label: Exterior
-          - entity: light.foyer_exterior_entryway
-            name: Front Door, Entryway
-            icon: hass:globe-light
-            secondary_info: brightness
-          - entity: light.garage_exterior
-            name: Garage, Exterior
-            icon: bha:outdoor-lamp-variant
-            secondary_info: brightness
-          - entity: light.backyard_string_lights
-            name: Backyard, String Lights
-            icon: bha:light-string
+
+          - type: custom:decluttering-card
+            template: entity_light
+            variables:
+              - entity: light.foyer_exterior_entryway
+              - name: Front Door, Entryway
+
+          - type: custom:decluttering-card
+            template: entity_light
+            variables:
+              - entity: light.garage_exterior
+              - name: Garage, Exterior
+
+          - type: custom:decluttering-card
+            template: entity_light
+            variables:
+              - entity: light.backyard_string_lights
+              - name: Backyard String Lights

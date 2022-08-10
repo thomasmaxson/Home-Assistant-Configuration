@@ -1,0 +1,49 @@
+################################################################################
+#
+# @author      : Thomas Maxson
+# @package     : Entity, Door Details
+# @description :
+#
+################################################################################
+
+default:
+  - icon_open: "door-open"
+  - icon_closed: "door-closed"
+  - icon_unknown: "alert-circle-outline"
+  - show_battery: "true"
+card:
+  type: custom:mushroom-template-card
+  primary: "[[name]]"
+  secondary: |-
+    {% set show = '[[show_battery]]' %}
+    {% set state = states( '[[entity]]' ) %}
+
+    {% if show == 'true' %}
+      Battery: {{ state_attr( '[[entity]]', 'battery' ) }}%
+    {% else %}
+      {% if state == 'on' %}
+        Open
+      {% elif state == 'off' %}
+        Closed
+      {% else %}
+        Unknown
+      {% endif %}
+    {% endif %}
+  icon: |-
+    {% set state = states( '[[entity]]' ) %}
+    {% if state == 'on' %}
+      mdi:[[icon_open]]
+    {% elif state == 'off' %}
+      mdi:[[icon_closed]]
+    {% else %}
+      mdi:[[icon_unknown]]
+    {% endif %}
+  icon_color: |-
+    {% set state = states( '[[entity]]' ) %}
+    {% if state == 'on' %}
+      green
+    {% elif state == 'off' %}
+      disabled
+    {% else %}
+      disabled
+    {% endif %}

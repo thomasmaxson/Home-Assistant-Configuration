@@ -107,33 +107,79 @@ browser_mod:
           - type: section
             label: Doors
 
-          - entity: lock.front_door
+          - type: custom:mushroom-lock-card
+            entity: lock.front_door
             name: Front Door Lock
-          - entity: binary_sensor.door_front_primary
-            name: Front Door
-          - entity: cover.garage_door
+
+          - type: custom:decluttering-card
+            template: entity_door_details
+            variables:
+              - entity: binary_sensor.door_front_primary
+              - name: Front Door
+
+          - type: custom:mushroom-cover-card
+            entity: cover.garage_door
             name: Garage Door (Cover)
-          - entity: binary_sensor.door_garage
-            name: Garage Door (Interior)
-          - entity: binary_sensor.door_living
-            name: Living Room Sliding Glass
-          - entity: binary_sensor.door_bedroom_1
-            name: Main Bedroom
-          - entity: binary_sensor.door_bedroom_2
-            name: Guest Bedroom
-          - entity: binary_sensor.door_bedroom_3
-            name: Her Office
-          - entity: binary_sensor.door_bedroom_4
-            name: His Office
-          - entity: binary_sensor.door_laundry
-            name: Laundry Room
-          #- type: divider
-          - entity: sensor.custom_door_closet_hallway_j
-            #- entity: binary_sensor.door_closet_hallway_j
-            name: Her Closet
-          - entity: sensor.custom_door_closet_hallway_t
-            #- entity: binary_sensor.door_closet_hallway_t
-            name: His Closet
+            show_buttons_control: true
+            show_position_control: true
+
+          - type: custom:decluttering-card
+            template: entity_door_details
+            variables:
+              - entity: binary_sensor.door_garage
+              - name: Garage Door (Interior)
+
+          - type: custom:decluttering-card
+            template: entity_door_details
+            variables:
+              - entity: binary_sensor.door_living
+              - name: Living Room Sliding Glass Door
+
+          - type: custom:decluttering-card
+            template: entity_door_details
+            variables:
+              - entity: binary_sensor.door_bedroom_1
+              - name: Main Bedroom Door
+
+          - type: custom:decluttering-card
+            template: entity_door_details
+            variables:
+              - entity: binary_sensor.door_bedroom_2
+              - name: Guest Bedroom Door
+
+          - type: custom:decluttering-card
+            template: entity_door_details
+            variables:
+              - entity: binary_sensor.door_bedroom_3
+              - name: Office Door, Hers
+
+          - type: custom:decluttering-card
+            template: entity_door_details
+            variables:
+              - entity: binary_sensor.door_bedroom_4
+              - name: Office Door, His
+
+          - type: custom:decluttering-card
+            template: entity_door_details
+            variables:
+              - entity: binary_sensor.door_laundry
+              - name: Laundry Room Door
+
+          - type: custom:decluttering-card
+            template: entity_door_details
+            variables:
+              - entity: binary_sensor.door_closet_hallway_j
+              - name: Closet Door, Hers
+              - icon_open: door-sliding-open
+              - icon_closed: door-sliding
+
+          - type: custom:decluttering-card
+            template: entity_door_details
+            variables:
+              - entity: binary_sensor.door_closet_hallway_t
+              - name: Closet Door, His
+              - icon_open: door-sliding-open
+              - icon_closed: door-sliding
 
           # - type: section
           #   label: Occupany
@@ -146,32 +192,66 @@ browser_mod:
           - type: section
             label: Motion Sensors
 
-          - entity: binary_sensor.foyer_doorbell_motion
+          - type: custom:mushroom-entity-card
+            entity: binary_sensor.foyer_doorbell_motion
             name: Front Door Doorbell
             icon: hass:motion-sensor
-          - entity: binary_sensor.motion_laundry
+
+          - type: custom:mushroom-entity-card
+            entity: binary_sensor.motion_laundry
             name: Laundry Room
             icon: hass:motion-sensor
 
           - type: section
             label: Leak Sensors
 
-          - entity: binary_sensor.leak_air_conditioner
-            name: Air Conditioner
-          - entity: binary_sensor.leak_washing_machine_laundry
-            name: Washing Machine
-          - entity: binary_sensor.leak_wine_cooler_bar
-            name: Wine Cooler
-          - entity: binary_sensor.leak_sink_guest_bathroom
-            name: Guest Bathroom, Sink
-          - entity: binary_sensor.leak_sink_half_bathroom
-            name: Half Bathroom, Sink
-          - entity: binary_sensor.leak_sink_kitchen
-            name: Kitchen, Sink
-          - entity: binary_sensor.leak_sink_main_bathroom_hers
-            name: Main Bathroom, Sink (Hers)
-          - entity: binary_sensor.leak_sink_main_bathroom_his
-            name: Main Bathroom, Sink (His)
+          - type: custom:decluttering-card
+            template: entity_leak_details
+            variables:
+              - entity: binary_sensor.leak_air_conditioner
+              - name: Air Conditioner
+
+          - type: custom:decluttering-card
+            template: entity_leak_details
+            variables:
+              - entity: binary_sensor.leak_washing_machine_laundry
+              - name: Washing Machine
+
+          - type: custom:decluttering-card
+            template: entity_leak_details
+            variables:
+              - entity: binary_sensor.leak_wine_cooler_bar
+              - name: Wine Cooler
+
+          - type: custom:decluttering-card
+            template: entity_leak_details
+            variables:
+              - entity: binary_sensor.leak_sink_guest_bathroom
+              - name: Sink, Guest Bathroom
+
+          - type: custom:decluttering-card
+            template: entity_leak_details
+            variables:
+              - entity: binary_sensor.leak_sink_half_bathroom
+              - name: Sink, Half Bathroom
+
+          - type: custom:decluttering-card
+            template: entity_leak_details
+            variables:
+              - entity: binary_sensor.leak_sink_kitchen
+              - name: Sink, Kitchen
+
+          - type: custom:decluttering-card
+            template: entity_leak_details
+            variables:
+              - entity: binary_sensor.leak_sink_main_bathroom_hers
+              - name: Sink (Hers), Main Bathroom
+
+          - type: custom:decluttering-card
+            template: entity_leak_details
+            variables:
+              - entity: binary_sensor.leak_sink_main_bathroom_his
+              - name: Sink (His), Main Bathroom
 
       - type: entities
         view_layout:
@@ -188,136 +268,108 @@ browser_mod:
             .name { margin: 0 0 1em !important;}
         entities:
           - type: section
-            label: Door Batteries
-          - entity: sensor.door_front_primary_battery
-            name: Front Door, Primary
-          - entity: sensor.door_garage_battery
-            name: Garage Door, Interior
-          - entity: sensor.door_living_battery
-            name: Living Room Sliding Door
-          - entity: sensor.door_bedroom_1_battery
-            name: Bedroom 1 (Main)
-          - entity: sensor.door_bedroom_2_battery
-            name: Bedroom 2 (Guest)
-          - entity: sensor.door_bedroom_3_battery
-            name: Bedroom 3 (Office, Hers)
-          - entity: sensor.door_bedroom_4_battery
-            name: Bedroom 4 (Office, His)
-          - entity: sensor.door_closet_hallway_j_battery
-            name: Closet Hallway (Hers)
-          - entity: sensor.door_closet_hallway_t_battery
-            name: Closet Hallway (His)
-          - entity: sensor.door_laundry_battery
-            name: Laundry Room
-
-          # - type: conditional
-          #   condition:
-          #     condition: or
-          #     conditions:
-          #       - condition: state
-          #         entity: sensor.bedroom_1_large_window_left_battery
-          #         state_not: "unavailable"
-          #       - condition: state
-          #         entity: sensor.bedroom_1_large_window_right_battery
-          #         state_not: "unavailable"
-          #   row:
-          #     type: section
-          #     label: Curtain Batteries
-
-          # - type: conditional
-          #   conditions:
-          #     - entity: sensor.bedroom_1_large_window_left_battery
-          #       state_not: "unavailable"
-          #   row:
-          #     entity: sensor.bedroom_1_large_window_left_battery
-          #     name: Bedroom 1 Curtain, Large (L)
-          # - type: conditional
-          #   conditions:
-          #     - entity: sensor.bedroom_1_large_window_right_battery
-          #       state_not: "unavailable"
-          #   row:
-          #     entity: sensor.bedroom_1_large_window_right_battery
-          #     name: Bedroom 1 Curtain, Large (R)
-
-          - type: section
-            label: Water Leak Batteries
-          - entity: sensor.leak_air_conditioner_battery
-            name: Air Conditioner
-          - entity: sensor.leak_sink_kitchen_battery
-            name: Kitchen Sink
-          - entity: sensor.leak_sink_guest_bathroom_battery
-            name: Bathroom Sink (Guest)
-          - entity: sensor.leak_sink_half_bathroom_battery
-            name: Bathroom Sink (Half)
-          - entity: sensor.leak_sink_main_bathroom_hers_battery
-            name: Bathroom Sink (Main, Hers)
-          - entity: sensor.leak_sink_main_bathroom_his_battery
-            name: Bathroom Sink (Main, His)
-          - entity: sensor.leak_washing_machine_laundry_battery
-            name: Washing Machine
-          - entity: sensor.leak_wine_cooler_bar_battery
-            name: Wine Cooler (Top)
-
-          - type: section
             label: Temperature Batteries
 
-          - entity: sensor.temp_attic_battery
-            name: Attic
+          - type: custom:decluttering-card
+            template: entity_battery_level
+            variables:
+              - entity: sensor.temp_attic_battery
+              - name: Attic
+
           - type: conditional
             conditions:
               - entity: sensor.temp_freezer_battery
                 state_not: "unavailable"
             row:
-              entity: sensor.temp_freezer_battery
-              name: Freezer
+              type: custom:decluttering-card
+              template: entity_battery_level
+              variables:
+                - entity: sensor.temp_freezer_battery
+                - name: Freezer
 
           - type: conditional
             conditions:
               - entity: sensor.temp_refrigerator_battery
                 state_not: "unavailable"
             row:
-              entity: sensor.temp_refrigerator_battery
-              name: Refrigerator
+              type: custom:decluttering-card
+              template: entity_battery_level
+              variables:
+                - entity: sensor.temp_refrigerator_battery
+                - name: Refrigerator
 
           - type: conditional
             conditions:
               - entity: sensor.temp_wine_cooler_top_battery
                 state_not: "unavailable"
             row:
-              entity: sensor.temp_wine_cooler_top_battery
-              name: Wine Cooler (Top)
+              type: custom:decluttering-card
+              template: entity_battery_level
+              variables:
+                - entity: sensor.temp_wine_cooler_top_battery
+                - name: Wine Cooler (Top)
 
           - type: conditional
             conditions:
               - entity: sensor.temp_wine_cooler_bottom_battery
                 state_not: "unavailable"
             row:
-              entity: sensor.temp_wine_cooler_bottom_battery
-              name: Wine Cooler (Bottom)
+              type: custom:decluttering-card
+              template: entity_battery_level
+              variables:
+                - entity: sensor.temp_wine_cooler_bottom_battery
+                - name: Wine Cooler (Bottom)
 
           - type: section
             label: Remote Batteries
 
-          - entity: sensor.switch_bedroom_1_for_bedroom_1_battery
-            name: In Bedroom 1, for Bedroom 1
-          - entity: sensor.switch_living_room_for_living_room_battery
-            name: In Living Room, for Living Room
-          - entity: sensor.switch_bedroom_4_for_bedroom_4_battery
-            name: In Bedroom 4, for Bedroom 4
-          - entity: sensor.switch_kitchen_for_garage_battery
-            name: In Kitchen, for Garage
-          - entity: sensor.switch_foyer_for_foyer_battery
-            name: In Foyer, for Foyer
+          - type: custom:decluttering-card
+            template: entity_battery_level
+            variables:
+              - entity: sensor.switch_bedroom_1_for_bedroom_1_battery
+              - name: In Bedroom 1, for Bedroom 1
+
+          - type: custom:decluttering-card
+            template: entity_battery_level
+            variables:
+              - entity: sensor.switch_living_room_for_living_room_battery
+              - name: In Living Room, for Living Room
+
+          - type: custom:decluttering-card
+            template: entity_battery_level
+            variables:
+              - entity: sensor.switch_bedroom_4_for_bedroom_4_battery
+              - name: In Bedroom 4, for Bedroom 4
+
+          - type: custom:decluttering-card
+            template: entity_battery_level
+            variables:
+              - entity: sensor.switch_kitchen_for_garage_battery
+              - name: In Kitchen, for Garage
+
+          - type: custom:decluttering-card
+            template: entity_battery_level
+            variables:
+              - entity: sensor.switch_foyer_for_foyer_battery
+              - name: In Foyer, for Foyer
 
           - type: section
             label: Motion Sensor Batteries
-          - entity: sensor.motion_laundry_battery
-            name: Laundry Room
+
+          - type: custom:decluttering-card
+            template: entity_battery_level
+            variables:
+              - entity: sensor.motion_laundry_battery
+              - name: Laundry Room
 
           - type: section
             label: Other Batteries
-          - entity: sensor.front_door_battery
-            name: Front Door Lock
+
+          - type: custom:decluttering-card
+            template: entity_battery_level
+            variables:
+              - entity: sensor.front_door_battery
+              - name: Front Door Lock
 
       - type: entities
         view_layout:
@@ -336,24 +388,38 @@ browser_mod:
           - type: section
             label: Other
 
-          - entity: light.tablet_plug
-            name: Kitchen, Tablet Outlet
-            icon: mdi:power-socket-us
-          - entity: light.bedroom_4_media_plug
-            icon: mdi:power-socket-us
-            name: His Office, Media Outlet
-          - entity: switch.outlet_kitchen_a
-            icon: mdi:power-socket-us
-            name: Kitchen, Above Range, Outlet
-          - entity: switch.outlet_kitchen_b
-            icon: mdi:power-socket-us
-            name: Kitchen, Above Coffee Bar, Outlet
+          - type: custom:decluttering-card
+            template: entity_power_outlet
+            variables:
+              - entity: light.tablet_plug
+              - name: Kitchen, Tablet Outlet
+
+          - type: custom:decluttering-card
+            template: entity_power_outlet
+            variables:
+              - entity: light.bedroom_4_media_plug
+              - name: His Office, Media Outlet
+
+          - type: custom:decluttering-card
+            template: entity_power_outlet
+            variables:
+              - entity: switch.outlet_kitchen_a
+              - name: Kitchen, Above Range, Outlet
+
+          - type: custom:decluttering-card
+            template: entity_power_outlet
+            variables:
+              - entity: switch.outlet_kitchen_b
+              - name: Kitchen, Above Coffee Bar, Outlet
 
           - type: section
             label: Television
 
-          - entity: media_player.sony_bravia_tv
-            name: Living Room, Television
+          - type: custom:decluttering-card
+            template: entity_media_tv
+            variables:
+              - entity: media_player.sony_bravia_tv
+              - name: Living Room, Television
 
           - type: section
             label: AppleTV
@@ -364,11 +430,12 @@ browser_mod:
                 state_not: "unavailable"
               - entity: media_player.appletv_living_room
                 state_not: "unknown"
-              # - entity: media_player.appletv_living_room
-              #   state_not: "standby"
             row:
-              entity: media_player.appletv_living_room
-              nme: Living Room
+              type: custom:decluttering-card
+              template: entity_media_appletv
+              variables:
+                - entity: media_player.appletv_living_room
+                - name: Living Room
 
           - type: conditional
             conditions:
@@ -376,11 +443,12 @@ browser_mod:
                 state_not: "unavailable"
               - entity: media_player.appletv_bedroom_1
                 state_not: "unknown"
-              # - entity: media_player.appletv_bedroom_1
-              #   state_not: "standby"
             row:
-              entity: media_player.appletv_bedroom_1
-              name: Bedroom (Main)
+              type: custom:decluttering-card
+              template: entity_media_appletv
+              variables:
+                - entity: media_player.appletv_bedroom_1
+                - name: Bedroom (Main)
 
           - type: conditional
             conditions:
@@ -388,11 +456,12 @@ browser_mod:
                 state_not: "unavailable"
               - entity: media_player.appletv_bedroom_2
                 state_not: "unknown"
-              # - entity: media_player.appletv_bedroom_2
-              #   state_not: "standby"
             row:
-              entity: media_player.appletv_bedroom_2
-              name: Bedroom (Guest)
+              type: custom:decluttering-card
+              template: entity_media_appletv
+              variables:
+                - entity: media_player.appletv_bedroom_2
+                - name: Bedroom (Guest)
 
           - type: conditional
             conditions:
@@ -400,11 +469,12 @@ browser_mod:
                 state_not: "unavailable"
               - entity: media_player.appletv_bedroom_3
                 state_not: "unknown"
-              # - entity: media_player.appletv_bedroom_3
-              #   state_not: "standby"
             row:
-              entity: media_player.appletv_bedroom_3
-              name: Bedroom (Her Office)
+              type: custom:decluttering-card
+              template: entity_media_appletv
+              variables:
+                - entity: media_player.appletv_bedroom_3
+                - name: Bedroom (Her Office)
 
           - type: conditional
             conditions:
@@ -412,11 +482,12 @@ browser_mod:
                 state_not: "unavailable"
               - entity: media_player.appletv_bedroom_4
                 state_not: "unknown"
-              # - entity: media_player.appletv_bedroom_4
-              #   state_not: "standby"
             row:
-              entity: media_player.appletv_bedroom_4
-              name: Bedroom (His Office)
+              type: custom:decluttering-card
+              template: entity_media_appletv
+              variables:
+                - entity: media_player.appletv_bedroom_4
+                - name: Bedroom (His Office)
 
           - type: section
             label: Amazon Alexa
@@ -427,11 +498,12 @@ browser_mod:
                 state_not: "unavailable"
               - entity: media_player.echo_kitchen
                 state_not: "unknown"
-              # - entity: media_player.echo_kitchen
-              #   state_not: "standby"
             row:
-              entity: media_player.echo_kitchen
-              name: Kitchen
+              type: custom:decluttering-card
+              template: entity_media_alexa
+              variables:
+                - entity: media_player.echo_kitchen
+                - name: Kitchen
 
           - type: conditional
             conditions:
@@ -439,11 +511,12 @@ browser_mod:
                 state_not: "unavailable"
               - entity: media_player.echo_dot_dining_room
                 state_not: "unknown"
-              # - entity: media_player.echo_dot_dining_room
-              #   state_not: "standby"
             row:
-              entity: media_player.echo_dot_dining_room
-              name: Dining Room
+              type: custom:decluttering-card
+              template: entity_media_alexa
+              variables:
+                - entity: media_player.echo_dot_dining_room
+                - name: Dining Room
 
           - type: conditional
             conditions:
@@ -451,11 +524,12 @@ browser_mod:
                 state_not: "unavailable"
               - entity: media_player.echo_dot_bedroom_1
                 state_not: "unknown"
-              # - entity: media_player.echo_dot_bedroom_1
-              #   state_not: "standby"
             row:
-              entity: media_player.echo_dot_bedroom_1
-              name: Bedroom (Main)
+              type: custom:decluttering-card
+              template: entity_media_alexa
+              variables:
+                - entity: media_player.echo_dot_bedroom_1
+                - name: Main Bedroom
 
           - type: conditional
             conditions:
@@ -463,11 +537,12 @@ browser_mod:
                 state_not: "unavailable"
               - entity: media_player.echo_dot_bedroom_2
                 state_not: "unknown"
-              # - entity: media_player.echo_dot_bedroom_2
-              #   state_not: "standby"
             row:
-              entity: media_player.echo_dot_bedroom_2
-              name: Bedroom (Guest)
+              type: custom:decluttering-card
+              template: entity_media_alexa
+              variables:
+                - entity: media_player.echo_dot_bedroom_2
+                - name: Guest Bedroom
 
           - type: conditional
             conditions:
@@ -475,11 +550,12 @@ browser_mod:
                 state_not: "unavailable"
               - entity: media_player.echo_dot_bedroom_3
                 state_not: "unknown"
-              # - entity: media_player.echo_dot_bedroom_3
-              #   state_not: "standby"
             row:
-              entity: media_player.echo_dot_bedroom_3
-              name: Bedroom (Her Office)
+              type: custom:decluttering-card
+              template: entity_media_alexa
+              variables:
+                - entity: media_player.echo_dot_bedroom_3
+                - name: Her Office
 
           - type: conditional
             conditions:
@@ -487,8 +563,9 @@ browser_mod:
                 state_not: "unavailable"
               - entity: media_player.echo_dot_bedroom_4
                 state_not: "unknown"
-              # - entity: media_player.echo_dot_bedroom_4
-              #   state_not: "standby"
             row:
-              entity: media_player.echo_dot_bedroom_4
-              name: Bedroom (His Office)
+              type: custom:decluttering-card
+              template: entity_media_alexa
+              variables:
+                - entity: media_player.echo_dot_bedroom_4
+                - name: His Office

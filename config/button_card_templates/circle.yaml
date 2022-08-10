@@ -7,11 +7,22 @@
 ################################################################################
 
 circle:
+  styles:
+    custom_fields:
+      circle:
+        - display: initial
+        - width: 88%
+        #- letter-spacing: 0.03vw
+        - margin: -6% -6% 0 0
+        #- padding-top: 10%
+        - justify-self: end
+        - opacity: 1
   custom_fields:
     circle: >
       [[[
         if (variables.state == 'on') {
-          const input = variables.circle_input;
+          const domain = entity.entity_id.split('.')[0];
+          const input = ( domain === 'switch' && variables.state ) ? 100 : variables.circle_input;
           const radius = 20.5;
           const circumference = radius * 2 * Math.PI;
           return `
@@ -33,13 +44,3 @@ circle:
           `;
         }
       ]]]
-  styles:
-    custom_fields:
-      circle:
-        - display: initial
-        - width: 90%
-        - letter-spacing: 0.03vw
-        - margin: -6% -6% 0 0
-        - padding-top: 10%
-        - justify-self: end
-        - opacity: 1

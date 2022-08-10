@@ -6,23 +6,54 @@
 #
 ################################################################################
 
-base_cover:
-  tap_action:
-    action: call-service
-    service: >
-      [[[ return variables.state === 'closed' ? 'cover.open_cover' : 'cover.close_cover'; ]]]
-    service_data:
-      entity_id: >
-        [[[ return entity === undefined || entity.entity_id; ]]]
-  double_tap_action:
-    action: call-service
-    service: >
-      [[[ return variables.state === 'closed' ? 'cover.open_cover' : 'cover.close_cover'; ]]]
-    service_data:
-      entity_id: >
-        [[[ return entity === undefined || entity.entity_id; ]]]
-
 cover:
   template:
     - base
-    - base_cover
+    - loader
+  variables:
+    cover_open: >
+      [[[ return !entity || ['open', 'opening'].indexOf(entity.state) !== -1; ]]]
+    cover_closed: >
+      [[[ return !entity || ['closed', 'closing', 'unknown', 'unavailable'].indexOf(entity.state) !== -1; ]]]
+  tap_action:
+    action: call-service
+    service: >
+      [[[ 
+        return variables.cover_closed 
+          ? 'cover.open_cover' 
+          : 'cover.close_cover'
+      ]]]
+    service_data:
+      entity_id: >
+        [[[ 
+          return variables.entity_id;
+        ]]]
+  double_tap_action:
+    action: fire-dom-event
+    browser_mod:
+      command: popup
+      title: >
+        [[[ 
+          return ! entity || entity.attributes.friendly_name
+        ]]]
+      style:
+        hui-entities-card:
+          $: |
+            #states { 
+              padding-top: 0.8em;
+            }
+      card:
+        type: entities
+        entities:
+          - type: custom:mushroom-cover-card
+            entity: >
+              [[[ 
+                return variables.entity_id;
+              ]]]
+            fill_container: false
+            primary_info: "name"
+            secondary_info: "state"
+            icon_type: "icon"
+            show_buttons_control: true
+            show_position_control: true
+            collapsible_controls: true

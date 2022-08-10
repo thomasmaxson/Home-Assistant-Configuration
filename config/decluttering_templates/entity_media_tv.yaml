@@ -1,0 +1,18 @@
+################################################################################
+#
+# @author      : Thomas Maxson
+# @package     : Entity, Media Player (TV)
+# @description :
+#
+################################################################################
+
+card:
+  type: custom:mushroom-media-player-card
+  entity: "[[entity]]"
+  primary_info: "[[name]]"
+  secondary_info: none
+  collapsible_controls: true
+  use_media_info: false
+  media_controls: [on_off]
+  show_volume_level: true
+  volume_controls: [volume_mute, volume_set, volume_buttons]

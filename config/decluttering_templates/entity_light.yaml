@@ -1,0 +1,17 @@
+################################################################################
+#
+# @author      : Thomas Maxson
+# @package     : Entity, Light
+# @description :
+#
+################################################################################
+
+card:
+  type: custom:mushroom-light-card
+  entity: "[[entity]]"
+  name: "[[name]]"
+  collapsible_controls: true
+  show_brightness_control: true
+  show_color_control: true
+  show_color_temp_control: true
+  use_light_color: true

@@ -1,0 +1,58 @@
+################################################################################
+#
+# @author      : Thomas Maxson
+# @package     : Button Card Templates, Loader
+# @description :
+#
+################################################################################
+
+loader:
+  custom_fields:
+    loader: >
+      <img src="/local/images/loader.svg" width="100%">
+  tap_action:
+    loader: >
+      [[[
+        if (entity) {
+            let elt = this.shadowRoot,
+                loader = (id, style, timeout) => {
+                  elt.getElementById(id) && (elt.getElementById(id).style.display = style,
+                    window.setTimeout(() => {
+                      elt.getElementById('loader').style.display = 'none'
+                    }, 20000))
+                };
+            loader('circle', 'none', 'initial'),
+            loader('loader', 'initial', 'none');
+        }
+      ]]]
+  styles:
+    custom_fields:
+      loader:
+        - display: none
+        - top: >
+            [[[
+              return variables.tilt_enable
+                  ? '-6%'
+                  : '6%';
+            ]]]
+        - right: >
+            [[[
+              return variables.tilt_enable
+                  ? '-3.5%'
+                  : '6.5%';
+            ]]]
+        - width: >
+            [[[
+              return variables.tilt_enable
+                  ? '52%'
+                  : '42%';
+            ]]]
+        - position: absolute
+        - opacity: 0.5
+        - pointer-events: none
+        - filter: >
+            [[[
+              return variables.state_on
+                  ? 'none'
+                  : 'invert(1)';
+            ]]]
