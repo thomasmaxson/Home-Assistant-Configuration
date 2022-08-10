@@ -175,15 +175,15 @@ browser_mod:
           - type: section
             label: Sync Lights
 
-          - type: conditional
-            conditions:
-              - entity: light.kitchen_cabinet_upper_coffee_bar
-                state_not: "unavailable"
-              - entity: light.kitchen_cabinet_upper_range
-                state_not: "unavailable"
-            row:
-              entity: input_boolean.sync_cabinet_above_lights
-              name: Kitchen, Above Cabinets
+          # - type: conditional
+          #   conditions:
+          #     - entity: light.kitchen_cabinet_upper_coffee_bar
+          #       state_not: "unavailable"
+          #     - entity: light.kitchen_cabinet_upper_range
+          #       state_not: "unavailable"
+          #   row:
+          #     entity: input_boolean.sync_cabinet_above_lights
+          #     name: Kitchen, Above Cabinets
 
           - type: conditional
             conditions:

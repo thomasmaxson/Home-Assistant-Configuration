@@ -6,6 +6,21 @@
 #
 ################################################################################
 
+update_entities:
+  action: >
+    [[[
+      hass.callService( 'homeassistant', 'update_entity', {
+          entity_id: [
+            'sensor.processor_temperature',
+            'sensor.processor_use_percent',
+            'sensor.network_throughput_in_eth0',
+            'sensor.network_throughput_out_eth0',
+            'sensor.speedtest_ping',
+            'sensor.speedtest_upload',
+            'sensor.speedtest_download'
+          ]
+      });
+    ]]]
 action: fire-dom-event
 browser_mod:
   command: popup
