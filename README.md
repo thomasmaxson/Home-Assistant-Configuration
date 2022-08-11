@@ -8,19 +8,19 @@ This repo contains the constantly-in-progress [Home Assistant](https://home-assi
 Make sure that you :star: this repo, so that you can get updates right in your notification feed.
 
 ### Dashboard:
-![dashboard](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/lovelace-dashboard-1.png)
+![dashboard](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/dashboard.png)
 
 
 #### Household Information Popups:
-| [![household](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-details-household.png)](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-details-household.png)<br>Entities | [![temperature](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-details-temperature.png)](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-details-temperature.png)<br>Temperatures |
+| [![household](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-details-household-details.png)](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-details-household-details.png)<br>Entities | [![temperature](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-details-temperature.png)](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-details-temperature.png)<br>Temperatures |
 |:---:|:---:|
-| [![settings](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-details-settings.png)](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-details-settings.png)<br>Settings | [![systems](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-details-system.png)](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-details-system.png)<br>Systems |
+| [![settings](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-details-settings.png)](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-details-settings.png)<br>Settings | [![systems](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-details-systems.png)](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-details-systems.png)<br>Systems |
 
 
 #### Control Popups:
-| [![dimmer1](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-light-dimmer-color.png)](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-light-dimmer-color.png)<br>Light Dimmer with Colors | [![dimmer2](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-light-dimmer.png)](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-light-dimmer.png)<br>Light Dimmer |
+| [![lightoff](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-lights-off.png)](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-lights-off.png)<br>Mushroom Card, Lights Off | [![lightson](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-lights-on.png)](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-lights-on.png)<br>Mushroom Card, Lights On |
 |:---:|:---:|
-| [![switch](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-light-switch.png)](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-light-switch.png)<br>Light Switch | [![sidebar](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-sidebar-customizer.png)](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-sidebar-customizer.png)<br>Sidebar Visibility Controls |
+| [![sidebar](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-sidebar-customizer.png)](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-sidebar-customizer.png)<br>Sidebar Visibility Controls |
 
 <hr>
 
@@ -70,7 +70,8 @@ Make sure that you :star: this repo, so that you can get updates right in your n
 <details>
 <summary>Click to Expand</summary>
 
-* Node RED | Router, controller, switch and access point |
+* Node RED
+* [Mushroom Cards](https://github.com/piitaya/lovelace-mushroom)
 * [Alexa Media Player](https://github.com/custom-components/alexa_media_player/wiki)
 * [Apple TV](https://www.home-assistant.io/integrations/apple_tv)
 * [August](https://www.home-assistant.io/integrations/august)
