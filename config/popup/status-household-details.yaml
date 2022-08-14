@@ -269,6 +269,33 @@ browser_mod:
             .name { margin: 0 0 1em !important;}
         entities:
           - type: section
+            label: Power Outlets
+
+          - type: custom:decluttering-card
+            template: entity_power_outlet
+            variables:
+              - entity: light.tablet_plug
+              - name: Kitchen, Tablet Outlet
+
+          - type: custom:decluttering-card
+            template: entity_power_outlet
+            variables:
+              - entity: light.bedroom_4_media_plug
+              - name: His Office, Media Outlet
+
+          - type: custom:decluttering-card
+            template: entity_power_outlet
+            variables:
+              - entity: switch.outlet_kitchen_a
+              - name: Kitchen, Above Range, Outlet
+
+          - type: custom:decluttering-card
+            template: entity_power_outlet
+            variables:
+              - entity: switch.outlet_kitchen_b
+              - name: Kitchen, Above Coffee Bar, Outlet
+
+          - type: section
             label: Temperature Batteries
 
           - type: custom:decluttering-card
@@ -387,33 +414,6 @@ browser_mod:
             .name { margin: 0 0 1em !important;}
         entities:
           - type: section
-            label: Other
-
-          - type: custom:decluttering-card
-            template: entity_power_outlet
-            variables:
-              - entity: light.tablet_plug
-              - name: Kitchen, Tablet Outlet
-
-          - type: custom:decluttering-card
-            template: entity_power_outlet
-            variables:
-              - entity: light.bedroom_4_media_plug
-              - name: His Office, Media Outlet
-
-          - type: custom:decluttering-card
-            template: entity_power_outlet
-            variables:
-              - entity: switch.outlet_kitchen_a
-              - name: Kitchen, Above Range, Outlet
-
-          - type: custom:decluttering-card
-            template: entity_power_outlet
-            variables:
-              - entity: switch.outlet_kitchen_b
-              - name: Kitchen, Above Coffee Bar, Outlet
-
-          - type: section
             label: Television
 
           - type: custom:decluttering-card
@@ -421,7 +421,6 @@ browser_mod:
             variables:
               - entity: media_player.sony_bravia_tv
               - name: Living Room
-                - device: tv
 
           - type: section
             label: AppleTVs
@@ -438,7 +437,6 @@ browser_mod:
               variables:
                 - entity: media_player.appletv_living_room
                 - name: Living Room
-                - device: appletv
 
           - type: conditional
             conditions:
@@ -452,7 +450,6 @@ browser_mod:
               variables:
                 - entity: media_player.appletv_bedroom_1
                 - name: Main Bedroom
-                - device: appletv
 
           - type: conditional
             conditions:
@@ -466,7 +463,6 @@ browser_mod:
               variables:
                 - entity: media_player.appletv_bedroom_2
                 - name: Guest Bedroom
-                - device: appletv
 
           - type: conditional
             conditions:
@@ -480,7 +476,6 @@ browser_mod:
               variables:
                 - entity: media_player.appletv_bedroom_3
                 - name: Her Office
-                - device: appletv
 
           - type: conditional
             conditions:
@@ -494,7 +489,6 @@ browser_mod:
               variables:
                 - entity: media_player.appletv_bedroom_4
                 - name: His Office
-                - device: appletv
 
           - type: section
             label: Amazon Echos
@@ -507,11 +501,10 @@ browser_mod:
                 state_not: "unknown"
             row:
               type: custom:decluttering-card
-              template: entity_media_alexa
+              template: entity_media_echo
               variables:
                 - entity: media_player.echo_kitchen
                 - name: Kitchen
-                - device: alexa
 
           - type: conditional
             conditions:
@@ -521,11 +514,10 @@ browser_mod:
                 state_not: "unknown"
             row:
               type: custom:decluttering-card
-              template: entity_media_alexa
+              template: entity_media_echo
               variables:
                 - entity: media_player.echo_dot_dining_room
                 - name: Dining Room
-                - device: alexa
 
           - type: conditional
             conditions:
@@ -535,11 +527,10 @@ browser_mod:
                 state_not: "unknown"
             row:
               type: custom:decluttering-card
-              template: entity_media_alexa
+              template: entity_media_echo
               variables:
                 - entity: media_player.echo_dot_bedroom_1
                 - name: Main Bedroom
-                - device: alexa
 
           - type: conditional
             conditions:
@@ -549,11 +540,10 @@ browser_mod:
                 state_not: "unknown"
             row:
               type: custom:decluttering-card
-              template: entity_media_alexa
+              template: entity_media_echo
               variables:
                 - entity: media_player.echo_dot_bedroom_2
                 - name: Guest Bedroom
-                - device: alexa
 
           - type: conditional
             conditions:
@@ -563,11 +553,10 @@ browser_mod:
                 state_not: "unknown"
             row:
               type: custom:decluttering-card
-              template: entity_media_alexa
+              template: entity_media_echo
               variables:
                 - entity: media_player.echo_dot_bedroom_3
                 - name: Her Office
-                - device: alexa
 
           - type: conditional
             conditions:
@@ -577,8 +566,7 @@ browser_mod:
                 state_not: "unknown"
             row:
               type: custom:decluttering-card
-              template: entity_media
+              template: entity_media_echo
               variables:
                 - entity: media_player.echo_dot_bedroom_4
                 - name: His Office
-                - device: alexa

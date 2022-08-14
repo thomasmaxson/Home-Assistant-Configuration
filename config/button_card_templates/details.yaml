@@ -7,43 +7,56 @@
 ################################################################################
 
 details:
-  aspect_ratio: 2/1
-  show_state: false
-  show_icon: true
-  size: 40px
-
-  # Add space to bottom, on mobile devices
-  style: |
-    :host { 
-      padding: 0;
-      margin-bottom: 0 !important;
-      min-height: 40px;
-    }
-
-    @media screen and (max-width: 992px) {
-      :host {
-        padding-top: 20px;
-        padding-bottom: 20px;
-        min-height: 80px;
-      }
-    }
-
+  size: 2vw
+  show_icon: false
+  color: "#9da0a2"
   styles:
     card:
-      - border-radius: var(--custom-button-card-border-radius)
-      - margin: 0
-      - -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+      - color: "#97989c"
+      - width: fit-content
+      - border: 0.12vw solid rgba(115, 115, 115, 0.15)
       - transition: none
-    grid:
-      - grid-template-areas: |
-          "i"
-      - grid-template-columns: 1fr
-      - grid-template-rows: 1fr
-      - gap: 0
-      - justify-content: center
-      - align-items: center
-    icon:
-      - justify-self: center
-      - align-items: center
-      - height: auto
-      - color: rgba( 115, 115, 115, 0.8 )
+      - margin: 0
+      - overflow: visible
+  extra_styles: |
+    #name {
+      color: rgba(255, 255, 255, 0.3);
+      font-size: var(--footer-card-font-size);
+      letter-spacing: 0.05vw;
+      opacity: 1.0;
+    }
+
+    ha-icon {
+      width: var(--footer-card-icon-size);
+      vertical-align: 7%;
+      padding-right: 0.2vw;
+      color: rgba(255, 255, 255, 0.3);
+      opacity: 1.0;
+    }
+
+    #card {
+      padding: var(--footer-card-padding-v) var(--footer-card-padding-h);
+      border-radius: var(--footer-card-border-radius);
+      background: rgba(115, 115, 115, 0.20);
+    }
+
+    /* Mobile */
+    @media screen and (max-width: 992px) { 
+      ha-card { 
+        width: 100%;
+        margin: 0 2vw;
+      }
+
+      ha-icon { 
+        width: calc(var(--footer-card-icon-size) * 3.5 );
+      }
+
+      #name { 
+        font-size: calc(var(--footer-card-font-size) * 3.5 );
+      }
+
+      #card { 
+        padding: calc(var(--footer-card-padding-v) * 3 ) calc(var(--footer-card-padding-h) * 3 );
+        width: 100% !important;
+      }
+    }

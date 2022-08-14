@@ -30,9 +30,7 @@ card:
 
       #states > div:nth-child(5), 
       #states > div:nth-child(6),
-      #states > div:nth-child(7) {
-        padding-left: 45px !important;
-      }
+      #states > div:nth-child(7) { padding-left: 45px !important;}
   entities:
     - type: section
     - entity: '[[notify_general]]'

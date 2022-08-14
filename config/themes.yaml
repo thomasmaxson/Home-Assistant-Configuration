@@ -86,10 +86,10 @@ themes:
     button-card-letter-spacing: -0.03vw
     button-card-border-radius: 10%
 
-    footer-card-font-size: 1.22vw
-    footer-card-icon-size: 1.5vw
-    footer-card-padding-v: 0.7vw
-    footer-card-padding-h: 1.1vw
+    footer-card-font-size: 1.25vw
+    footer-card-icon-size: 1.75vw
+    footer-card-padding-v: 1vw
+    footer-card-padding-h: 1.5vw
     footer-card-border-radius: 0.65vw
 
     ####################################################
