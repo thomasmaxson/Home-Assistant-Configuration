@@ -110,6 +110,7 @@ browser_mod:
           - type: custom:mushroom-lock-card
             entity: lock.front_door
             name: Front Door Lock
+            layout: horizontal
 
           - type: custom:decluttering-card
             template: entity_door_details
@@ -419,10 +420,10 @@ browser_mod:
             template: entity_media_tv
             variables:
               - entity: media_player.sony_bravia_tv
-              - name: Living Room, Television
+              - name: Living Room
 
           - type: section
-            label: AppleTV
+            label: AppleTVs
 
           - type: conditional
             conditions:
@@ -448,7 +449,7 @@ browser_mod:
               template: entity_media_appletv
               variables:
                 - entity: media_player.appletv_bedroom_1
-                - name: Bedroom (Main)
+                - name: Main Bedroom
 
           - type: conditional
             conditions:
@@ -461,7 +462,7 @@ browser_mod:
               template: entity_media_appletv
               variables:
                 - entity: media_player.appletv_bedroom_2
-                - name: Bedroom (Guest)
+                - name: Guest Bedroom
 
           - type: conditional
             conditions:
@@ -474,7 +475,7 @@ browser_mod:
               template: entity_media_appletv
               variables:
                 - entity: media_player.appletv_bedroom_3
-                - name: Bedroom (Her Office)
+                - name: Her Office
 
           - type: conditional
             conditions:
@@ -487,10 +488,10 @@ browser_mod:
               template: entity_media_appletv
               variables:
                 - entity: media_player.appletv_bedroom_4
-                - name: Bedroom (His Office)
+                - name: His Office
 
           - type: section
-            label: Amazon Alexa
+            label: Amazon Echos
 
           - type: conditional
             conditions:

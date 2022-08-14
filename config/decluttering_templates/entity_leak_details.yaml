@@ -14,7 +14,7 @@ card:
   type: custom:mushroom-template-card
   primary: "[[name]]"
   secondary: "Battery: {{ state_attr( '[[entity]]', 'battery' ) }}%"
-  icon: |-
+  icon: >-
     {% set state = states( '[[entity]]' ) %}
     {% if state == 'on' %}
       mdi:[[icon_on]]
@@ -23,7 +23,7 @@ card:
     {% else %}
       mdi:[[icon_unknown]]
     {% endif %}
-  icon_color: |-
+  icon_color: >-
     {% set state = states( '[[entity]]' ) %}
     {% if state == 'on' %}
       red

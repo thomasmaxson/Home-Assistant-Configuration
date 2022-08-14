@@ -21,8 +21,7 @@ kiosk_mode:
       hide_sidebar: true
 
 views:
-  - type: custom:layout-card
-    layout_type: custom:grid-layout
+  - type: custom:grid-layout
     title: Dashboard
     path: dashboard
     layout:
@@ -33,7 +32,8 @@ views:
         "sidebar  common  foyer     ."
         "sidebar  bdr_1   bdr_3_4   ."
         "sidebar  other   resident  ."
-        "sidebar   popups  popups    ."
+        "popups   popups  popups    ."
+        ".        .       .         ."
       mediaquery:
         # Tablet and down
         "(max-width: 992px)":
@@ -42,13 +42,14 @@ views:
           grid-template-columns: 0 1fr 0
           grid-template-areas: |
             ".  sidebar   ."
-            ".  popups    ."
             ".  common    ."
             ".  foyer     ."
             ".  bdr_1     ."
             ".  bdr_3_4   ."
             ".  other     ."
             ".  resident  ."
+            ".  popups    ."
+            ".  .         ."
 
     cards:
       # extra_styles fix
@@ -69,50 +70,6 @@ views:
             template: sidebar_template
             tap_action: !include popup/status-sidebar.yaml
             double_tap_action: !include popup/status-sidebar.yaml
-
-      #
-      # Popups
-      # --------------------------------------------------
-
-      - type: horizontal-stack
-        view_layout:
-          grid-area: popups
-        cards:
-          - type: custom:button-card
-            icon: hass:home-circle-outline
-            #name: >
-            #  <ha-icon icon="mdi:home-circle-outline"></ha-icon> Overview
-            template:
-              - details
-            tap_action: !include popup/status-household-overview.yaml
-            double_tap_action: !include popup/status-household-details.yaml
-
-          - type: custom:button-card
-            icon: hass:thermometer
-            #name: >
-            #  <ha-icon icon="mdi:thermometer"></ha-icon> Temperature
-            template:
-              - details
-            tap_action: !include popup/status-temperatures.yaml
-            double_tap_action: !include popup/status-temperatures.yaml
-
-          - type: custom:button-card
-            icon: hass:information-outline
-            #name: >
-            #  <ha-icon icon="mdi:information-outline"></ha-icon> Systems
-            template:
-              - details
-            tap_action: !include popup/status-systems.yaml
-            double_tap_action: !include popup/status-systems.yaml
-
-          - type: custom:button-card
-            icon: hass:cog
-            #name: >
-            #  <ha-icon icon="mdi:cog"></ha-icon> Settings
-            template:
-              - details
-            tap_action: !include popup/status-settings.yaml
-            double_tap_action: !include popup/helpers.yaml
 
       #
       # COMMON AREAS
@@ -812,3 +769,65 @@ views:
                     entity_picture: /local/uploads/avatar-guest-dino.png
                     template:
                       - person_boolean
+
+      #
+      # Popups
+      # --------------------------------------------------
+
+      - type: horizontal-stack
+        view_layout:
+          grid-area: popups
+        cards:
+          - type: custom:button-card
+            #icon: hass:home-circle-outline
+            name: >
+              <ha-icon icon="mdi:home-circle-outline"></ha-icon> Overview
+            template:
+              - details
+            tap_action: !include popup/status-household-overview.yaml
+            double_tap_action: !include popup/status-household-overview.yaml
+
+          - type: custom:button-card
+            #icon: hass:home-circle-outline
+            name: >
+              <ha-icon icon="mdi:floor-plan"></ha-icon> Details
+            template:
+              - details
+            tap_action: !include popup/status-household-details.yaml
+            double_tap_action: !include popup/status-household-details.yaml
+
+          - type: custom:button-card
+            #icon: hass:thermometer
+            name: >
+              <ha-icon icon="mdi:thermometer"></ha-icon> Temperature
+            template:
+              - details
+            tap_action: !include popup/status-temperatures.yaml
+            double_tap_action: !include popup/status-temperatures.yaml
+
+          - type: custom:button-card
+            #icon: hass:router-wireless
+            name: >
+              <ha-icon icon="mdi:router-wireless"></ha-icon> Router
+            template:
+              - details
+            tap_action: !include popup/status-router.yaml
+            double_tap_action: !include popup/status-router.yaml
+
+          - type: custom:button-card
+            #icon: hass:information-outline
+            name: >
+              <ha-icon icon="mdi:information-outline"></ha-icon> Systems
+            template:
+              - details
+            tap_action: !include popup/status-systems.yaml
+            double_tap_action: !include popup/status-systems.yaml
+
+          - type: custom:button-card
+            #icon: hass:cog
+            name: >
+              <ha-icon icon="mdi:cog"></ha-icon> Settings
+            template:
+              - details
+            tap_action: !include popup/status-settings.yaml
+            double_tap_action: !include popup/helpers.yaml

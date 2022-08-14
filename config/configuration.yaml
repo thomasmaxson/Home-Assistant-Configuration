@@ -31,6 +31,7 @@ homeassistant:
 
 automation: !include automations.yaml
 script: !include scripts.yaml
+frontend: !include themes.yaml
 
 default_config:
 
@@ -78,19 +79,16 @@ browser_mod:
 
 # Media extractor is used for extracting audio from URLs
 # For more info ->https://www.home-assistant.io/integrations/media_extractor/
-media_extractor:
+#media_extractor:
 
-stream:
+#stream:
+
+#
+# Bluetooth
+# ----------------------------------------
 
 device_tracker:
   - platform: bluetooth_tracker
-
-#
-# Shell Commands
-# ----------------------------------------
-
-# shell_command:
-#   removesnapshots: 'find /config/www/snapshots/* -mtime 7 -exec rm {} \;'
 
 #
 # Watchman Config

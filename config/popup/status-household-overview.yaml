@@ -95,6 +95,7 @@ browser_mod:
           - type: custom:mushroom-lock-card
             entity: lock.front_door
             name: Front Door Lock
+            layout: horizontal
 
           - type: custom:decluttering-card
             template: entity_light
