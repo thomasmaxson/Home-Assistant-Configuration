@@ -1,0 +1,30 @@
+################################################################################
+#
+# @author      : Thomas Maxson
+# @package     : Person, Find Device
+# @description :
+#
+################################################################################
+
+default:
+  - name: "Find this iPhone"
+  - device: "false"
+card:
+  - type: custom:button-card
+    name: '[[name]]'
+    icon: mdi:bell-ring
+    template: icon_name
+    tap_action:
+      confirmation:
+        text: Are you sure you want to ping this device?
+      action: call-service
+      service: '[[device]]'
+      service_data:
+        title: Find my iPhone
+        message: Here I am.
+        data:
+          push:
+            sound:
+              name: alarm.caf
+              critical: 1
+              volume: 1

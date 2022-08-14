@@ -12,30 +12,17 @@ browser_mod:
   title: Thomas' Details
   style:
     $: |
-      @media screen and (max-width: 992px) { 
-        .mdc-dialog .mdc-dialog__container .mdc-dialog__surface { 
+      @media screen and (max-width: 992px) {
+        .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
           border-radius: 0 !important;
         }
       }
     hui-vertical-stack-card:
-      # $hui-history-graph-card$: |
-      #   .content {
-      #     padding: 0.2em 1.7em 1.2em 1.7em !important;
-      #   }
-      $: |
-        button-card {
-          align-self: center;
-          padding: 0.2em 0 2.3em 0;
-        }
-      $hui-entities-card$: |
-        #states {
-          padding-left: 2em;
-          padding-bottom: .9em;
-        }
-      $hui-glance-card$: |
-        .entities {
-          padding: 12px 29px 4px 26px !important;
-        }
+      $decluttering-card:
+        $: |
+          #root button-card {
+            margin: 1vw auto;
+          }
       $hui-map-card:
         $: |
           #root {
@@ -86,36 +73,22 @@ browser_mod:
       #   entities:
       #     - entity: person.thomas
 
-      - type: custom:button-card
-        name: Find this iPhone
-        icon: mdi:bell-ring
-        template: icon_name
-        tap_action:
-          confirmation:
-            text: Are you sure you want to ping this device?
-          action: call-service
-          service: notify.mobile_app_ckretajints_iphone
-          service_data:
-            title: Find my iPhone
-            message: Here I am.
-            data:
-              push:
-                sound:
-                  name: alarm.caf
-                  critical: 1
-                  volume: 1
+      - type: custom:decluttering-card
+        template: popup_person_find_device
+        variables:
+          - device: notify.mobile_app_ckretajints_iphone
 
       - type: custom:decluttering-card
         template: popup_person_notifications
         variables:
-          - notify_general: 'input_boolean.app_notify_tom'
-          - notify_info: 'input_boolean.app_notify_tom_alert_info'
-          - notify_warning: 'input_boolean.app_notify_tom_alert_warning'
-          - notify_critical: 'input_boolean.app_notify_tom_alert_critical'
-          - notify_activity: 'input_boolean.app_notify_tom_alert_activity'
-          - notify_activity_door_interior: 'input_boolean.app_notify_tom_alert_activity_door_interior'
-          - notify_activity_door_exterior: 'input_boolean.app_notify_tom_alert_activity_door_exterior'
-          - notify_activity_person_locations: 'input_boolean.app_notify_tom_alert_activity_person_location'
+          - notify_general: input_boolean.app_notify_tom
+          - notify_info: input_boolean.app_notify_tom_alert_info
+          - notify_warning: input_boolean.app_notify_tom_alert_warning
+          - notify_critical: input_boolean.app_notify_tom_alert_critical
+          - notify_activity: input_boolean.app_notify_tom_alert_activity
+          - notify_activity_door_interior: input_boolean.app_notify_tom_alert_activity_door_interior
+          - notify_activity_door_exterior: input_boolean.app_notify_tom_alert_activity_door_exterior
+          - notify_activity_person_locations: input_boolean.app_notify_tom_alert_activity_person_location
 
       - type: map
         default_zoom: 16
