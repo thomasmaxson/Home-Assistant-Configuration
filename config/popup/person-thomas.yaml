@@ -62,14 +62,15 @@ browser_mod:
             display: none;
           }
           .leaflet-bar a {
-            background-color: rgba(47, 51, 51, 0.9) !important;
+            background-color: rgba(115, 123, 124, 0.2) !important;
             color: #9da0a2 !important;
+            backdrop-filter: blur(0.25em);
           }
           a.leaflet-control-zoom-in {
             border-bottom: 1px solid #181818 !important;
           }
           .leaflet-pane.leaflet-tile-pane {
-            filter: contrast(85%);
+            filter: invert(0.95) grayscale(0.95) contrast(95%);
           }
   card:
     type: vertical-stack
@@ -84,24 +85,6 @@ browser_mod:
       # - type: history-graph
       #   entities:
       #     - entity: person.thomas
-
-      # - type: glance
-      #   show_state: false
-      #   entities:
-      #     - entity: sensor.iphone_tom_connection_type
-      #       name: Wi-Fi
-      #       icon: mdi:wifi
-      #       card_mod:
-      #         style: &state |
-      #           state-badge {
-      #             color: {{ is_state(config.entity, 'Wi-Fi') | iif('#3182b7', '#3c3f3f') }};
-      #           }
-
-      # - entity: device_tracker.mattias_bluetooth
-      #   name: Bluetooth
-      #   icon: mdi:bluetooth
-      #   card_mod:
-      #     style: *state
 
       - type: custom:button-card
         name: Find this iPhone
@@ -122,52 +105,17 @@ browser_mod:
                   critical: 1
                   volume: 1
 
-      - type: entities
-        show_header_toggle: false
-        card_mod:
-          class: header
-          style: |
-            ha-card {
-              margin: 0 !important;
-              width: 100%;
-            }
-            .name { margin: 0 0 1em !important;}
-        entities:
-          - type: section
-          - entity: input_boolean.app_notify_tom
-            name: Recieve Notifications
-
-          - type: conditional
-            conditions:
-              - entity: input_boolean.app_notify_tom
-                state: "on"
-            row:
-              entity: input_boolean.app_notify_tom_alert_info
-              name: Informational Notifications
-
-          - type: conditional
-            conditions:
-              - entity: input_boolean.app_notify_tom
-                state: "on"
-            row:
-              entity: input_boolean.app_notify_tom_alert_warning
-              name: Warning Notifications
-
-          - type: conditional
-            conditions:
-              - entity: input_boolean.app_notify_tom
-                state: "on"
-            row:
-              entity: input_boolean.app_notify_tom_alert_critical
-              name: Critical Notifications
-
-          - type: conditional
-            conditions:
-              - entity: input_boolean.app_notify_tom
-                state: "on"
-            row:
-              entity: input_boolean.app_notify_tom_person_location
-              name: Person Location Notifications
+      - type: custom:decluttering-card
+        template: popup_person_notifications
+        variables:
+          - notify_general: 'input_boolean.app_notify_tom'
+          - notify_info: 'input_boolean.app_notify_tom_alert_info'
+          - notify_warning: 'input_boolean.app_notify_tom_alert_warning'
+          - notify_critical: 'input_boolean.app_notify_tom_alert_critical'
+          - notify_activity: 'input_boolean.app_notify_tom_alert_activity'
+          - notify_activity_door_interior: 'input_boolean.app_notify_tom_alert_activity_door_interior'
+          - notify_activity_door_exterior: 'input_boolean.app_notify_tom_alert_activity_door_exterior'
+          - notify_activity_person_locations: 'input_boolean.app_notify_tom_alert_activity_person_location'
 
       - type: map
         default_zoom: 16

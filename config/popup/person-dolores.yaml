@@ -95,52 +95,17 @@ browser_mod:
                   critical: 1
                   volume: 1
 
-      - type: entities
-        show_header_toggle: false
-        card_mod:
-          class: header
-          style: |
-            ha-card {
-              margin: 0 !important;
-              width: 100%;
-            }
-            .name { margin: 0 0 1em !important;}
-        entities:
-          - type: section
-          - entity: input_boolean.app_notify_dolores
-            name: Recieve Notifications
-
-          - type: conditional
-            conditions:
-              - entity: input_boolean.app_notify_dolores
-                state: "on"
-            row:
-              entity: input_boolean.app_notify_dolores_alert_info
-              name: Informational Notifications
-
-          - type: conditional
-            conditions:
-              - entity: input_boolean.app_notify_dolores
-                state: "on"
-            row:
-              entity: input_boolean.app_notify_dolores_alert_warning
-              name: Warning Notifications
-
-          - type: conditional
-            conditions:
-              - entity: input_boolean.app_notify_dolores
-                state: "on"
-            row:
-              entity: input_boolean.app_notify_dolores_alert_critical
-              name: Critical Notifications
-
-          - type: conditional
-            conditions:
-              - entity: input_boolean.app_notify_dolores
-                state: "on"
-            row:
-              entity: input_boolean.app_notify_dolores_person_location
-              name: Person Location Notifications
+      - type: custom:decluttering-card
+        template: popup_person_notifications
+        variables:
+          - notify_general: 'input_boolean.app_notify_dolores'
+          - notify_info: 'input_boolean.app_notify_dolores_alert_info'
+          - notify_warning: 'input_boolean.app_notify_dolores_alert_warning'
+          - notify_critical: 'input_boolean.app_notify_dolores_alert_critical'
+          - notify_activity: 'input_boolean.app_notify_dolores_alert_activity'
+          - notify_activity_door_interior: 'input_boolean.app_notify_dolores_alert_activity_door_interior'
+          - notify_activity_door_exterior: 'input_boolean.app_notify_dolores_alert_activity_door_exterior'
+          - notify_activity_person_locations: 'input_boolean.app_notify_dolores_alert_activity_person_location'
 
       - type: map
         default_zoom: 16
