@@ -47,16 +47,8 @@ details:
         margin: 0 2vw;
       }
 
-      ha-icon { 
-        width: calc(var(--footer-card-icon-size) * 3.5 );
-      }
-
-      #name { 
-        font-size: calc(var(--footer-card-font-size) * 3.5 );
-      }
-
       #card { 
-        padding: calc(var(--footer-card-padding-v) * 3 ) calc(var(--footer-card-padding-h) * 3 );
+        padding: calc( var( --footer-card-padding-v ) * 3 ) var( --footer-card-padding-h );
         width: 100% !important;
       }
     }

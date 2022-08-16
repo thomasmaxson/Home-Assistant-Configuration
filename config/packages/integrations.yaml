@@ -11,6 +11,9 @@
 
 recorder:
   db_url: !secret recorder_db_url
+  exclude:
+    entity_globs:
+      - sensor.browser_*
 
 #
 # InfluxDB
@@ -26,24 +29,8 @@ influxdb:
   default_measurement: state
 
 #
-# Google Calendar
-# ----------------------------------------
-
-# google:
-#   client_id: !secret google_client_id
-#   client_secret: !secret google_client_secret
-
-#
 # Switchbot
 # ----------------------------------------
-
-# switch:
-#   - platform: switchbot
-#     mac: "EF:BD:30:E1:94:15"
-#     name: Bedroom 1, Large Window Left
-#   - platform: switchbot
-#     mac: "C7:69:2D:3E:FD:50"
-#     name: Bedroom 1, Large Window Right
 
 rest_command:
   switchbot_device_command:

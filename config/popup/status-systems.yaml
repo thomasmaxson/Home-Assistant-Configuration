@@ -147,8 +147,8 @@ browser_mod:
           - entity: sensor.home_assistant_log_size
           - entity: sensor.mariadb_database_size
             icon: mdi:database
-          - entity: sensor.influxdb_database_size
-            icon: mdi:database
+          #- entity: sensor.influxdb_database_size
+          #  icon: mdi:database
 
           - type: divider
 

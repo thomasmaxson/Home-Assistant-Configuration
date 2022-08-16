@@ -15,11 +15,10 @@ card:
   type: custom:mushroom-template-card
   primary: "[[name]]"
   secondary: >-
-    {% set show_battery = '[[show_battery]]' %}
     {% set state = states( '[[entity]]' ) %}
-
-    {% if show_battery == 'true' %}
-      Battery: {{ state_attr( '[[entity]]', 'battery' ) }}%
+    {% set battery_level = state_attr( '[[entity]]', 'battery' ) %}
+    {% if battery_level not in [ 'None', 'unknown', 'unavilable' ] %}
+      Battery: {{ battery_level }}%
     {% else %}
       {% if state == 'on' %}
         Open

@@ -86,10 +86,10 @@ themes:
     button-card-letter-spacing: -0.03vw
     button-card-border-radius: 10%
 
-    footer-card-font-size: 1.25vw
-    footer-card-icon-size: 1.75vw
+    footer-card-font-size: 1.2rem
+    footer-card-icon-size: 1.8rem
     footer-card-padding-v: 1vw
-    footer-card-padding-h: 1.5vw
+    footer-card-padding-h: 1.25vw
     footer-card-border-radius: 0.65vw
 
     ####################################################
@@ -144,7 +144,7 @@ themes:
           #root {
             justify-content: space-between;
             margin-top: 2vw;
-            margin-left: 5vw;
+            /*margin-left: 5vw;*/
           }
           /* phone */
           @media screen and (max-width: 992px) {
