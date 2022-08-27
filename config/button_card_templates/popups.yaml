@@ -14,29 +14,29 @@ color_light:
       - width: 4em
       - margin: 4px
 
-popup_dimmer_colors:
-  template:
-    - base
-    - circle
-  variables:
-    circle_input: >
-      [[[ return entity === undefined || Math.round(entity.attributes.brightness / 2.54); ]]]
-  double_tap_action: !include ../popup/light-controls-dimmer-color.yaml
+# popup_dimmer_colors:
+#   template:
+#     - base
+#     - circle
+#   variables:
+#     circle_input: >
+#       [[[ return entity === undefined || Math.round(entity.attributes.brightness / 2.54); ]]]
+#   double_tap_action: !include ../popup/light-controls-dimmer-color.yaml
 
-popup_dimmer:
-  template:
-    - base
-    - circle
-  variables:
-    circle_input: >
-      [[[ return entity === undefined || Math.round(entity.attributes.brightness / 2.54); ]]]
-  double_tap_action: !include ../popup/light-controls-dimmer.yaml
+# popup_dimmer:
+#   template:
+#     - base
+#     - circle
+#   variables:
+#     circle_input: >
+#       [[[ return entity === undefined || Math.round(entity.attributes.brightness / 2.54); ]]]
+#   double_tap_action: !include ../popup/light-controls-dimmer.yaml
 
-popup_switch:
-  template:
-    - base
-    - circle
-  variables:
-    circle_input: >
-      [[[ return 100; ]]]
-  double_tap_action: !include ../popup/light-controls-switch.yaml
+# popup_switch:
+#   template:
+#     - base
+#     - circle
+#   variables:
+#     circle_input: >
+#       [[[ return 100; ]]]
+#   double_tap_action: !include ../popup/light-controls-switch.yaml

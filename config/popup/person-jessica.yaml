@@ -68,6 +68,8 @@ browser_mod:
         entities:
           - entity: person.jessica
             secondary_info: last-changed
+          - entity: sensor.jessica_maxson_s_iphone_steps
+            name: Step Count
 
       # - type: history-graph
       #   entities:

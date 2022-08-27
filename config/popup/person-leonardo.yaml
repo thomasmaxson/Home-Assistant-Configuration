@@ -68,6 +68,8 @@ browser_mod:
         entities:
           - entity: person.leo
             secondary_info: last-changed
+          - entity: sensor.leo_phone_steps
+            name: Step Count
 
       # - type: history-graph
       #   entities:

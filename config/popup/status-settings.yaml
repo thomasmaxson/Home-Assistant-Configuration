@@ -104,6 +104,11 @@ browser_mod:
             .name { margin: 0 0 1em !important;}
         entities:
           - type: section
+            label: Household Automations
+          - entity: sensor.automation_daily_status
+            name: Evening Automation
+
+          - type: section
             label: Waste Collection
 
           - type: conditional

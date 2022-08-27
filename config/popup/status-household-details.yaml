@@ -152,13 +152,13 @@ browser_mod:
             template: entity_door_details
             variables:
               - entity: binary_sensor.door_bedroom_3
-              - name: Office Door, Hers
+              - name: Office Door (Hers)
 
           - type: custom:decluttering-card
             template: entity_door_details
             variables:
               - entity: binary_sensor.door_bedroom_4
-              - name: Office Door, His
+              - name: Office Door (His)
 
           - type: custom:decluttering-card
             template: entity_door_details
@@ -296,6 +296,15 @@ browser_mod:
               - name: Kitchen, Above Coffee Bar, Outlet
 
           - type: section
+            label: Lock Batteries
+
+          - type: custom:decluttering-card
+            template: entity_battery_level
+            variables:
+              - entity: sensor.front_door_battery
+              - name: Front Door Lock
+
+          - type: section
             label: Temperature Batteries
 
           - type: custom:decluttering-card
@@ -349,6 +358,15 @@ browser_mod:
                 - name: Wine Cooler (Bottom)
 
           - type: section
+            label: Motion Sensor Batteries
+
+          - type: custom:decluttering-card
+            template: entity_battery_level
+            variables:
+              - entity: sensor.motion_laundry_battery
+              - name: Laundry Room
+
+          - type: section
             label: Remote Batteries
 
           - type: custom:decluttering-card
@@ -380,24 +398,6 @@ browser_mod:
             variables:
               - entity: sensor.switch_foyer_for_foyer_battery
               - name: In Foyer, for Foyer
-
-          - type: section
-            label: Motion Sensor Batteries
-
-          - type: custom:decluttering-card
-            template: entity_battery_level
-            variables:
-              - entity: sensor.motion_laundry_battery
-              - name: Laundry Room
-
-          - type: section
-            label: Other Batteries
-
-          - type: custom:decluttering-card
-            template: entity_battery_level
-            variables:
-              - entity: sensor.front_door_battery
-              - name: Front Door Lock
 
       - type: entities
         view_layout:

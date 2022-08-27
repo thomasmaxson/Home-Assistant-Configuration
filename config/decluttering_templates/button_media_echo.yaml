@@ -1,0 +1,104 @@
+################################################################################
+#
+# @author      : Thomas Maxson
+# @package     : Button, Media (Amazon Echo)
+# @description :
+#
+################################################################################
+
+card:
+  type: custom:button-card
+  entity: "[[entity]]"
+  name: "[[name]]"
+  template:
+    - media
+  double_tap_action:
+    action: fire-dom-event
+    browser_mod:
+      command: popup
+      title: Amazon Echo Remote
+      style:
+        $: |
+          @media screen and (max-width: 992px) {
+            .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
+              border-radius: 0 !important;
+            }
+          }
+      card:
+        type: custom:layout-card
+        layout_type: grid
+        layout:
+          grid-template-rows: auto
+          grid-template-columns: 30% 30% 30%
+          margin: 30px 0 30px 35px
+        cards:
+          - type: custom:button-card
+            aspect_ratio: 1/1
+            icon: mdi:skip-backward
+            name: Down
+            show_icon: true
+            show_name: false
+            tap_action:
+              action: call-service
+              service: media_player.media_previous_track
+              service_data:
+                entity_id: "[[entity]]"
+          - type: custom:button-card
+            aspect_ratio: 1/1
+            icon: mdi:play-pause
+            name: Play/Pause
+            show_icon: true
+            show_name: false
+            tap_action:
+              action: call-service
+              service: media_player.media_play_pause
+              service_data:
+                entity_id: "[[entity]]"
+          - type: custom:button-card
+            aspect_ratio: 1/1
+            icon: mdi:skip-forward
+            name: Down
+            show_icon: true
+            show_name: false
+            tap_action:
+              action: call-service
+              service: media_player.media_next_track
+              service_data:
+                entity_id: "[[entity]]"
+
+          - type: custom:button-card
+            aspect_ratio: 1/1
+            icon: mdi:volume-minus
+            name: Volume Down
+            show_icon: true
+            show_name: false
+            tap_action:
+              action: call-service
+              service: media_player.volume_down
+              data_template:
+                entity_id: "[[entity]]"
+          - type: custom:gap-card
+          # - type: custom:button-card
+          #   aspect_ratio: 1/1
+          #   icon: mdi:volume-mute
+          #   name: Mute
+          #   show_icon: true
+          #   show_name: false
+          #   tap_action:
+          #     action: call-service
+          #     service: media_player.volume_mute
+          #     data_template:
+          #       entity_id: "[[entity]]"
+          #       is_volume_muted: >-
+          #         {{ iif( true == state_attr( '[[entity]]', 'is_volume_muted' ), false, true ) }}
+          - type: custom:button-card
+            aspect_ratio: 1/1
+            icon: mdi:volume-plus
+            name: Volume Up
+            show_icon: true
+            show_name: false
+            tap_action:
+              action: call-service
+              service: media_player.volume_up
+              data_template:
+                entity_id: "[[entity]]"

@@ -12,6 +12,7 @@ default:
   - icon_unknown: "alert-circle-outline"
 card:
   type: custom:mushroom-template-card
+  entity: "[[entity]]"
   primary: "[[name]]"
   icon: |-
     {% set state = states( '[[entity]]' ) %}

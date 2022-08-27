@@ -1,7 +1,7 @@
 ################################################################################
 #
 # @author      : Thomas Maxson
-# @package     : Person, Notifications
+# @package     : Person Details
 # @description :
 #
 ################################################################################
@@ -33,67 +33,67 @@ card:
       #states > div:nth-child(7) { padding-left: 45px !important;}
   entities:
     - type: section
-    - entity: '[[notify_general]]'
+    - entity: "[[notify_general]]"
       name: Recieve Notifications
 
     - type: conditional
       conditions:
-        - entity: '[[notify_general]]'
+        - entity: "[[notify_general]]"
           state: "on"
       row:
-        entity: '[[notify_info]]'
+        entity: "[[notify_info]]"
         name: Informational Notifications
 
     - type: conditional
       conditions:
-        - entity: '[[notify_general]]'
+        - entity: "[[notify_general]]"
           state: "on"
       row:
-        entity: '[[notify_activity]]'
+        entity: "[[notify_activity]]"
         name: Activity Notifications
 
     - type: conditional
       conditions:
-        - entity: '[[notify_general]]'
+        - entity: "[[notify_general]]"
           state: "on"
-        - entity: '[[notify_activity]]'
+        - entity: "[[notify_activity]]"
           state: "on"
       row:
-        entity: '[[notify_activity_door_exterior]]'
+        entity: "[[notify_activity_door_exterior]]"
         name: Doors (Exterior)
 
     - type: conditional
       conditions:
-        - entity: '[[notify_general]]'
+        - entity: "[[notify_general]]"
           state: "on"
-        - entity: '[[notify_activity]]'
+        - entity: "[[notify_activity]]"
           state: "on"
       row:
-        entity: '[[notify_activity_door_interior]]'
+        entity: "[[notify_activity_door_interior]]"
         name: Doors (Interior)
 
     - type: conditional
       conditions:
-        - entity: '[[notify_general]]'
+        - entity: "[[notify_general]]"
           state: "on"
-        - entity: '[[notify_activity]]'
+        - entity: "[[notify_activity]]"
           state: "on"
       row:
-        entity: '[[notify_activity_person_locations]]'
+        entity: "[[notify_activity_person_locations]]"
         name: Person Location
 
     - type: conditional
       conditions:
-        - entity: '[[notify_general]]'
+        - entity: "[[notify_general]]"
           state: "on"
       row:
-        entity: '[[notify_warning]]'
+        entity: "[[notify_warning]]"
         name: Warning Notifications
 
     - type: conditional
       conditions:
-        - entity: '[[notify_general]]'
+        - entity: "[[notify_general]]"
           state: "on"
       row:
-        entity: '[[notify_critical]]'
+        entity: "[[notify_critical]]"
         name: Critical Notifications

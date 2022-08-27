@@ -31,7 +31,7 @@ sidebar_template:
     }
 
     #name { 
-      padding: 1.8vw 2.5vw 0 var(--custom-layout-card-padding);
+      padding: 1.8vw 0 0 0;
       color: #6a7377;
       text-align: left;
       white-space: normal;

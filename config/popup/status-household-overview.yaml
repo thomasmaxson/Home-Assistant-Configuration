@@ -12,6 +12,14 @@ browser_mod:
   title: Household Overview
   large: false
   style:
+    $: |
+      /* Mobile Devices */
+      @media screen and (max-width: 992px) { 
+        .mdc-dialog .mdc-dialog__container .mdc-dialog__surface { 
+          border-radius: 0 !important;
+        }
+      }
+
     .: |
       :host .content {
         overflow-x: hidden;
@@ -133,11 +141,23 @@ browser_mod:
               - entity: light.kitchen_ceiling_lights
               - name: Ceiling
 
+          # - type: custom:decluttering-card
+          #   template: entity_light
+          #   variables:
+          #     - entity: light.cabinet_upper_lights
+          #     - name: Above Cabinets
+
           - type: custom:decluttering-card
             template: entity_light
             variables:
-              - entity: light.cabinet_upper_lights
-              - name: Above Cabinets
+              - entity: light.kitchen_cabinet_upper_coffee_bar
+              - name: Upper Cabinets, Coffee Bar
+
+          - type: custom:decluttering-card
+            template: entity_light
+            variables:
+              - entity: light.kitchen_cabinet_upper_range
+              - name: Upper Cabinets, Range
 
           - type: section
             label: Common Areas
