@@ -10,7 +10,6 @@ action: fire-dom-event
 browser_mod:
   command: popup
   title: Settings
-  large: false
   style:
     $: |
       /* Mobile Devices */

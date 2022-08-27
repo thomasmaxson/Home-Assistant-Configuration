@@ -25,7 +25,6 @@ action: fire-dom-event
 browser_mod:
   command: popup
   title: System Details
-  large: false
   style:
     $: |
       /* Mobile Devices */
