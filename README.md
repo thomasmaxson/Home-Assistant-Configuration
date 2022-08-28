@@ -9,9 +9,9 @@ Make sure that you :star: this repo, so that you can get updates right in your n
 
 ### Dashboard:
 
-|![dashboard-desktop](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/dashboard-desktop.png)<br>Desktop/Tablet|
+| [![dashboard-desktop](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/dashboard-desktop.png)](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/dashboard-desktop.png)<br>Desktop/Tablet |
 |:---:|:---:|
-|![dashboard-mobile](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/dashboard-mobile.png)<br>Mobile|
+| [![dashboard-mobile](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/dashboard-mobile.png)](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/dashboard-mobile.png)<br>Mobile |
 
 #### Household Information Popups:
 | [![overview](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-details-household-overview.png)](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-details-household-overview.png)<br>Household Overview | [![details](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-details-household-details.png)](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-details-household-details.png)<br>Household Details |
