@@ -9,8 +9,8 @@ Make sure that you :star: this repo, so that you can get updates right in your n
 
 ### Dashboard:
 
-| [![dashboard-desktop](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/dashboard-desktop.png)](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/dashboard-desktop.png)<br>Desktop/Tablet |
 |:---:|:---:|
+| [![dashboard-desktop](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/dashboard-desktop.png)](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/dashboard-desktop.png)<br>Desktop/Tablet |
 | [![dashboard-mobile](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/dashboard-mobile.png)](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/dashboard-mobile.png)<br>Mobile |
 
 #### Household Information Popups:
