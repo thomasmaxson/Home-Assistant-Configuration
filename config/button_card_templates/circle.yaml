@@ -12,17 +12,17 @@ circle:
       circle:
         - display: initial
         - width: 88%
-        #- letter-spacing: 0.03vw
         - margin: -6% -6% 0 0
-        #- padding-top: 10%
         - justify-self: end
         - opacity: 1
   custom_fields:
     circle: >
       [[[
-        if (variables.state == 'on') {
+        if( ['on', 'Run'].indexOf( variables.state ) !== -1 )
+        { 
           const domain = entity.entity_id.split('.')[0];
-          const input = ( domain === 'switch' && variables.state ) ? 100 : variables.circle_input;
+          const percent = ( domain === 'switch' && variables.state ) ? 100 : variables.circle_percent;
+          const value = ( undefined !== variables.circle_value ) ? variables.circle_value : percent;
           const radius = 20.5;
           const circumference = radius * 2 * Math.PI;
           return `
@@ -32,14 +32,14 @@ circle:
                   transform: rotate(-90deg);
                   transform-origin: 50% 50%;
                   stroke-dasharray: ${circumference};
-                  stroke-dashoffset: ${circumference - input / 100 * circumference};
+                  stroke-dashoffset: ${circumference - percent / 100 * circumference};
                 }
                 tspan {
                   font-size: 10px;
                 }
               </style>
               <circle cx="25" cy="25" r="${radius}" stroke="#b2b2b2" stroke-width="1.5" fill="none" />
-              <text x="50%" y="54%" fill="#8d8e90" font-size="14" text-anchor="middle" alignment-baseline="middle" dominant-baseline="middle">${input}<tspan font-size="10">%</tspan></text>
+              <text x="50%" y="54%" fill="#8d8e90" font-size="14" text-anchor="middle" alignment-baseline="middle" dominant-baseline="middle">${value}<tspan font-size="10">${variables.circle_value_unit}</tspan></text>
             </svg>
           `;
         }

@@ -694,6 +694,51 @@ views:
                 rotate: 80
                 depth: 300
             cards:
+              - type: conditional
+                conditions:
+                  - entity: sensor.custom_laundry_machine_state
+                    state: "on"
+                card:
+                  type: grid
+                  title: Laundry Status
+                  columns: 3
+                  cards:
+                    - type: conditional
+                      conditions:
+                        - entity: sensor.laundry_washer_machine_state
+                          state: "Run"
+                      card:
+                        type: custom:button-card
+                        entity: sensor.laundry_washer_combined_details
+                        icon: mdi:washing-machine
+                        name: Washer
+                        tap_action:
+                          action: none
+                        double_tap_action:
+                          action: none
+                        hold_action:
+                          action: none
+                        template:
+                          - laundry
+
+                    - type: conditional
+                      conditions:
+                        - entity: sensor.laundry_dryer_machine_state
+                          state: "Run"
+                      card:
+                        type: custom:button-card
+                        entity: sensor.laundry_dryer_combined_details
+                        icon: mdi:tumble-dryer
+                        name: Dryer
+                        tap_action:
+                          action: none
+                        double_tap_action:
+                          action: none
+                        hold_action:
+                          action: none
+                        template:
+                          - laundry
+
               - type: grid
                 title: Resident Status
                 columns: 3

@@ -9,7 +9,6 @@
 person:
   template:
     - base
-    - circle
   state_display: >
     [[[
       if( variables.state === 'home' || variables.state === 'Home' )
@@ -33,12 +32,10 @@ person:
       - background-color: rgba(115, 115, 115, 0.2)
     grid:
       - grid-template-areas: |
-          "icon  circle"
+          "icon  ."
           "n  n"
           "s  s"
     custom_fields:
-      circle:
-        - opacity: 0
       icon:
         - clip-path: circle()
         - width: 79%
@@ -55,38 +52,10 @@ person:
   custom_fields:
     icon: >
       [[[ return entity === undefined ? null : `<img src="${states[entity.entity_id].attributes.entity_picture}" width="100%">`; ]]]
-    circle: >
-      [[[
-        const time = c => {
-          const s = (c / 1000);
-          const m = (c / (1000 * 60));
-          const h = (c / (1000 * 60 * 60));
-          const d = (c / (1000 * 60 * 60 * 24));
-          if (s < 60) {
-            return parseInt(s) + 's';
-          } else if (m < 60) {
-            return parseInt(m) + 'm';
-          } else if (h < 24) {
-            return parseInt(h) + 'h';
-          } else {
-            return parseInt(d) + 'd';
-          }
-        };
-        let last_changed = entity === undefined  ? ' ' : (time(Date.now() - Date.parse(states[entity.entity_id].last_changed)));
-        const stroke_color = ( variables.state === 'home' || variables.state === 'Home' ) ? '#b2b2b2' : 'none';
-        const fill_color = variables.state === 'not_home' ? 'rgba(255, 255, 255, 0.04)' : 'none';
-        return `
-          <svg viewBox="0 0 50 50">
-            <circle cx="25" cy="25" r="20.5" stroke="${stroke_color}" stroke-width="1.5" fill="${fill_color}" />
-            <text x="50%" y="54%" fill="#8d8e90" font-size="14" text-anchor="middle" alignment-baseline="middle" dominant-baseline="middle">${last_changed}</text>
-          </svg>
-        `;
-      ]]]
 
 person_boolean:
   template:
     - base
-    - circle
   state_display: >
     [[[ return ( variables.state === 'on' ) ? 'Home' : 'Away'; ]]]
   styles:
@@ -95,7 +64,7 @@ person_boolean:
       - background-color: rgba(115, 115, 115, 0.2)
     grid:
       - grid-template-areas: |
-          "i  circle"
+          "i  ."
           "n  n"
           "s  s"
     icon:

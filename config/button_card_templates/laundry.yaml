@@ -1,0 +1,62 @@
+################################################################################
+#
+# @author      : Thomas Maxson
+# @package     : Button Card Templates, Laundry
+# @description :
+#
+################################################################################
+
+laundry:
+  template:
+    - base
+    - circle
+    - loader
+  state_display: >
+    [[[ return !entity || entity.attributes.cycle_type; ]]]
+  variables:
+    # state: >
+    #   [[[ return entity === undefined || entity.state; ]]]
+    circle_value: >
+      [[[
+        if( entity )
+        {
+            let new_time  = entity.attributes.time_remaining;
+            let new_parts = new_time.split( ':' );
+
+            let new_seconds = parseInt( parseFloat( new_parts[0] ) * 60 ) + parseFloat( new_parts[1] );
+
+            return new_seconds.toFixed();
+        }
+        return 0;
+      ]]]
+    circle_value_unit: "m"
+    circle_percent: >
+      [[[
+        if( entity )
+        {
+            const orig_time = entity.attributes.original_time;
+
+            if( orig_time != 'null' )
+            { 
+              const orig_parts = orig_time.split( ':' );
+
+              const new_time  = entity.attributes.time_remaining;
+              const new_parts = new_time.split( ':' );
+
+              const orig_seconds = parseInt( parseFloat( orig_parts[0] ) * 60 ) + parseFloat( orig_parts[1] );
+              const new_seconds = parseInt( parseFloat( new_parts[0] ) * 60 ) + parseFloat( new_parts[1] );
+
+              return ( ( ( new_seconds / orig_seconds ) * 100 ).toFixed() - 100 ) * -1;
+
+            }
+
+            return 0;
+        }
+        return 0;
+      ]]]
+  tap_action:
+    action: none
+  double_tap_action:
+    action: none
+  hold_action:
+    action: none

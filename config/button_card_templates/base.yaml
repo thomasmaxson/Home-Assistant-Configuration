@@ -15,7 +15,7 @@ base:
     state: >
       [[[ return entity === undefined || entity.state; ]]]
     state_on: >
-      [[[ return ['on', 'home', 'playing', 'unlocked'].indexOf(!entity || entity.state) !== -1; ]]]
+      [[[ return ['on', 'Run', 'home', 'Home', 'playing', 'unlocked'].indexOf(!entity || entity.state) !== -1; ]]]
     timeout: >
       [[[ return entity === undefined || Date.now() - Date.parse(entity.last_changed); ]]]
   aspect_ratio: 1/1
@@ -62,19 +62,9 @@ base:
       - height: auto
       - color: >
           [[[
-            if( variables.state == 'playing' || variables.state == 'home' || variables.state == 'Home' || variables.state == 'cool' )
-            { 
-              return 'var( --paper-item-icon-active-color )';
-
-            } else if( variables.state == 'on' )
-            { 
-              return 'var( --paper-item-icon-active-color )';
-
-            } else
-            {
-              return 'rgba( 255, 255, 255, 0.3 )';
-
-            }
+            return variables.state_on 
+              ? 'var( --paper-item-icon-active-color )'
+              : 'rgba( 255, 255, 255, 0.3 )';
           ]]]
     name:
       - justify-self: start

@@ -13,13 +13,12 @@ color_light:
       - height: 4em
       - width: 4em
       - margin: 4px
-
 # popup_dimmer_colors:
 #   template:
 #     - base
 #     - circle
 #   variables:
-#     circle_input: >
+#     circle_percent: >
 #       [[[ return entity === undefined || Math.round(entity.attributes.brightness / 2.54); ]]]
 #   double_tap_action: !include ../popup/light-controls-dimmer-color.yaml
 
@@ -28,7 +27,7 @@ color_light:
 #     - base
 #     - circle
 #   variables:
-#     circle_input: >
+#     circle_percent: >
 #       [[[ return entity === undefined || Math.round(entity.attributes.brightness / 2.54); ]]]
 #   double_tap_action: !include ../popup/light-controls-dimmer.yaml
 
@@ -37,6 +36,6 @@ color_light:
 #     - base
 #     - circle
 #   variables:
-#     circle_input: >
+#     circle_percent: >
 #       [[[ return 100; ]]]
 #   double_tap_action: !include ../popup/light-controls-switch.yaml

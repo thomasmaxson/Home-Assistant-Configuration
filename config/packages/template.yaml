@@ -39,6 +39,27 @@ sensor:
       #     {{ d + timedelta( days = adj ) + timedelta( weeks = nth - 1 ) }}
       #   icon_template: mdi:calendar-question
 
+      custom_laundry_machine_state:
+        friendly_name: "Laundry Machine Status"
+        value_template: >-
+          {%- set status_washer = states( 'sensor.laundry_washer_machine_state' ) -%}
+          {%- set status_dryer  = states( 'sensor.laundry_dryer_machine_state' ) -%}
+
+          {%- if  status_washer == 'Run' or status_dryer == 'Run' -%}
+            on
+          {%- else -%}
+            off
+          {%- endif -%}
+        icon_template: >-
+          {%- set status_washer = states( 'sensor.laundry_washer_machine_state' ) -%}
+          {%- set status_dryer  = states( 'sensor.laundry_dryer_machine_state' ) -%}
+
+          {%- if  status_washer == 'Run' or status_dryer == 'Run' -%}
+            mdi:washing-machine
+          {%- else -%}
+            mdi:washing-machine-off
+          {%- endif -%}
+
       custom_door_closet_hallway_j:
         friendly_name: "Jess' Closet Door"
         value_template: >-
@@ -213,6 +234,56 @@ sensor:
             | list | length }}
 
 template:
+  - trigger:
+      # Update on Home Assistant startup
+      - platform: homeassistant
+        event: start
+      # Update on Template reload
+      - platform: event
+        event_type: event_template_reloaded
+      # Update every XX seconds
+      - platform: time_pattern
+        seconds: /1
+    sensor:
+      - name: "Laundry Washer Combined Details"
+        icon: mdi:washing-machine
+        state: >-
+          {{ states( 'sensor.laundry_washer_machine_state' ) }}
+        attributes:
+          original_time: >-
+            {{ states( 'input_text.laundry_washer_original_duration' ) }}
+          time_remaining: >-
+            {{ states( 'sensor.laundry_washer_time_remaining' ) }}
+          cycle_type: >-
+            {{ states( 'sensor.laundry_washer_sub_cycle' ) }}
+          cycle_end: >-
+            {{ states( 'binary_sensor.laundry_washer_end_of_cycle' ) }}
+
+  - trigger:
+      # Update on Home Assistant startup
+      - platform: homeassistant
+        event: start
+      # Update on Template reload
+      - platform: event
+        event_type: event_template_reloaded
+      # Update every XX seconds
+      - platform: time_pattern
+        seconds: /1
+    sensor:
+      - name: "Laundry Dryer Combined Details"
+        icon: mdi:tumble-dryer
+        state: >-
+          {{ states( 'sensor.laundry_dryer_machine_state' ) }}
+        attributes:
+          original_time: >-
+            {{ states( 'input_text.laundry_dryer_original_duration' ) }}
+          time_remaining: >-
+            {{ states( 'sensor.laundry_dryer_time_remaining' ) }}
+          cycle_type: >-
+            {{ states( 'sensor.laundry_dryer_sub_cycle' ) }}
+          cycle_end: >-
+            {{ states( 'binary_sensor.laundry_dryer_end_of_cycle' ) }}
+
   - trigger:
       # Update on Home Assistant startup
       - platform: homeassistant
