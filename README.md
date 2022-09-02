@@ -66,7 +66,7 @@ Make sure that you :star: this repo, so that you can get updates right in your n
 
 ##### Smart Appliances
 * [GE Profile, Washing Machine](https://www.geappliances.com/appliance/GE-Profile-4-9-cu-ft-Capacity-Washer-with-Smarter-Wash-Technology-and-FlexDispense-PTW605BSRWS)
-* [GE PRofile, Tumble Dryer](https://www.geappliances.com/appliance/GE-Profile-7-4-cu-ft-Capacity-aluminized-alloy-drum-Electric-Dryer-with-Sanitize-Cycle-and-Sensor-Dry-PTD60EBSRWS)
+* [GE Profile, Tumble Dryer](https://www.geappliances.com/appliance/GE-Profile-7-4-cu-ft-Capacity-aluminized-alloy-drum-Electric-Dryer-with-Sanitize-Cycle-and-Sensor-Dry-PTD60EBSRWS)
 
 <hr>
 
