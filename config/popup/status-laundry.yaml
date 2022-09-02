@@ -1,0 +1,146 @@
+################################################################################
+#
+# @author      : Thomas Maxson
+# @package     : Popup, Laundry
+# @description :
+#
+################################################################################
+
+action: fire-dom-event
+browser_mod:
+  command: popup
+  title: Laundry Status
+  style:
+    $: |
+      /* Mobile Devices */
+      @media screen and (max-width: 992px) { 
+        .mdc-dialog .mdc-dialog__container .mdc-dialog__surface { 
+          border-radius: 0 !important;
+        }
+      }
+
+    .: |
+      :host .content {
+        overflow-x: hidden;
+      }
+
+      /* Desktop */
+      @media screen and (min-width: 992px) { 
+        :host .content { 
+          width: calc(385px + 385px);
+          max-width: 90vw;
+        }
+      }
+
+    layout-card:
+      $grid-layout$:
+        .: |
+          @media screen and (min-width: 992px) { 
+            #root {
+              margin-top: 0 !important;
+              margin-right: 0 !important;
+              margin-left: 0 !important;
+            }
+          }
+
+        hui-entities-card:
+          $: |
+            ha-card .card-content { 
+              padding-top: 0 !important;
+              margin-top: -16px;
+            }
+
+            /* Mobile */
+            @media screen and (max-width: 992px) { 
+              ha-card .card-content { 
+                width: 90vw;
+              }
+            }
+
+            /* Desktop */
+            @media screen and (min-width: 992px) { 
+              ha-card .card-content { 
+                border-right: 1px solid var(--entities-divider-color, var(--divider-color));
+                border-left: 1px solid var(--entities-divider-color, var(--divider-color));
+              }
+            }
+  card:
+    type: custom:layout-card
+    layout_type: custom:grid-layout
+    layout:
+      grid-template-columns: repeat(2, 1fr)
+      grid-template-rows: 1fr
+      grid-template-areas: |
+        'group_a group_b'
+      mediaquery:
+        # Tablet and down
+        "(max-width: 992px)":
+          grid-template-columns: 1fr
+          grid-template-rows: repeat(1, 1fr)
+          grid-template-areas: |
+            'group_a'
+            'group_b'
+    cards:
+      - type: entities
+        view_layout:
+          grid-area: group_a
+        show_header_toggle: false
+        card_mod:
+          class: header
+          style: |
+            ha-card {
+              margin: 0 !important;
+              width: 100%;
+            }
+            .name { margin: 0 0 1em !important;}
+        entities:
+          - type: section
+            label: Washing Machine
+
+          - entity: sensor.laundry_washer_machine_state
+            name: Status
+          - type: conditional
+            conditions:
+              - entity: sensor.laundry_washer_machine_state
+                state_not: "Off"
+            row:
+              entity: sensor.laundry_washer_time_remaining
+              name: Time Remaining
+          - entity: sensor.laundry_washer_sub_cycle
+            name: Sub-Cycle
+          - entity: sensor.laundry_washer_cycle
+            name: Cycle
+          - entity: binary_sensor.laundry_washer_door
+            name: Door Position
+
+      - type: entities
+        view_layout:
+          grid-area: group_b
+        show_header_toggle: false
+        card_mod:
+          class: header
+          style: |
+            ha-card {
+              margin: 0 !important;
+              width: 100%;
+            }
+            .name { margin: 0 0 1em !important;}
+        entities:
+          - type: section
+            label: Tumble Dryer
+
+          - entity: sensor.laundry_dryer_machine_state
+            name: Status
+          - type: conditional
+            conditions:
+              - entity: sensor.laundry_dryer_machine_state
+                state_not: "Off"
+            row:
+              entity: sensor.laundry_dryer_time_remaining
+              name: Time Remaining
+          - entity: sensor.laundry_dryer_sub_cycle
+            name: Sub-Cycle
+          - entity: sensor.laundry_dryer_cycle
+            name: Cycle
+          - entity: binary_sensor.laundry_dryer_door
+            name: Door Position

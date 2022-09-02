@@ -84,7 +84,7 @@ themes:
     button-card-font-size: 1.35vw
     button-card-font-weight: 500
     button-card-letter-spacing: -0.03vw
-    button-card-border-radius: 10%
+    button-card-border-radius: 10px
 
     footer-card-font-size: 1.2rem
     footer-card-icon-size: 1.8rem

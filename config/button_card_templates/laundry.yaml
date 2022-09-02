@@ -9,54 +9,115 @@
 laundry:
   template:
     - base
-    - circle
+    #- circle
     - loader
   state_display: >
     [[[ return !entity || entity.attributes.cycle_type; ]]]
   variables:
-    # state: >
-    #   [[[ return entity === undefined || entity.state; ]]]
+    time_remaining: >
+      [[[ return !entity || entity.attributes.time_remaining; ]]]
+    cycle_type: >
+      [[[ return !entity || entity.attributes.cycle_type; ]]]
     circle_value: >
       [[[
         if( entity )
         {
-            let new_time  = entity.attributes.time_remaining;
+          let new_time  = entity.attributes.time_remaining;
+
+          if( 'Off' != new_time )
+          { 
             let new_parts = new_time.split( ':' );
 
             let new_seconds = parseInt( parseFloat( new_parts[0] ) * 60 ) + parseFloat( new_parts[1] );
 
             return new_seconds.toFixed();
+          }
         }
+
         return 0;
       ]]]
     circle_value_unit: "m"
-    circle_percent: >
+    # circle_percent: >
+    #   [[[
+    #     if( entity )
+    #     {
+    #         const orig_time = entity.attributes.original_time;
+
+    #         if( orig_time != 'null' )
+    #         {
+    #           const orig_parts = orig_time.split( ':' );
+
+    #           const new_time  = entity.attributes.time_remaining;
+
+    #           if( 'Off' != new_time )
+    #           {
+    #             const new_parts = new_time.split( ':' );
+
+    #             const orig_seconds = parseInt( parseFloat( orig_parts[0] ) * 60 ) + parseFloat( orig_parts[1] );
+    #             const new_seconds = parseInt( parseFloat( new_parts[0] ) * 60 ) + parseFloat( new_parts[1] );
+
+    #             const percent = ( ( ( new_seconds / orig_seconds ) * 100 ).toFixed() - 100 ) * -1;
+
+    #             return percent;
+    #           }
+    #         }
+
+    #         return 0;
+    #     }
+    #     return 0;
+    #   ]]]
+  custom_fields:
+    remaining: >
       [[[
         if( entity )
         {
-            const orig_time = entity.attributes.original_time;
+          const state = variables.state;
+          const time  = variables.time_remaining;
 
-            if( orig_time != 'null' )
-            { 
-              const orig_parts = orig_time.split( ':' );
+          switch( state )
+          { 
+            case 'Run':
+            case 'Paused':
+              return `${variables.time_remaining} remaining`;
+              break;
 
-              const new_time  = entity.attributes.time_remaining;
-              const new_parts = new_time.split( ':' );
+            case 'Standby':
+              return `Done`;
+              break;
 
-              const orig_seconds = parseInt( parseFloat( orig_parts[0] ) * 60 ) + parseFloat( orig_parts[1] );
-              const new_seconds = parseInt( parseFloat( new_parts[0] ) * 60 ) + parseFloat( new_parts[1] );
+            default: 
+              return `Ready`;
+              break;
 
-              return ( ( ( new_seconds / orig_seconds ) * 100 ).toFixed() - 100 ) * -1;
-
-            }
-
-            return 0;
+          }
         }
-        return 0;
+
+        return `Unknown`;
       ]]]
-  tap_action:
-    action: none
-  double_tap_action:
-    action: none
-  hold_action:
-    action: none
+  aspect_ratio: 2/1
+  tap_action: !include ../popup/status-laundry.yaml
+  double_tap_action: !include ../popup/status-laundry.yaml
+  styles:
+    grid:
+      - grid-template-areas: |
+          "i  n"
+          "i  s"
+          "i  remaining"
+      - grid-template-columns: repeat(2, 1fr)
+      #- grid-template-rows: auto
+      - grid-template-rows: auto repeat(3, auto)
+    card:
+      - padding: 5% 2%
+      - border: 0.12vw solid rgba(115, 115, 115, 0.15)
+    img_cell:
+      - width: 86%
+    name:
+      - line-height: 150%
+    state:
+      - line-height: 150%
+  extra_styles: |
+    #remaining { 
+      justify-self: start;
+      padding-top: 5px;
+      line-height: 150%;
+    }

@@ -71,6 +71,37 @@ views:
             tap_action: !include popup/status-sidebar.yaml
             double_tap_action: !include popup/status-sidebar.yaml
 
+          - type: conditional
+            conditions:
+              - entity: sensor.custom_laundry_machine_state
+                state: "on"
+            card:
+              type: custom:mod-card
+              card_mod:
+                style:
+                  hui-grid-card$: |
+                    #root {
+                      padding-top: 10%;
+                    }
+              card:
+                type: grid
+                square: false
+                columns: 2
+                cards:
+                  - type: custom:button-card
+                    entity: sensor.laundry_washer_combined_details
+                    icon: mdi:washing-machine
+                    name: Washer
+                    template:
+                      - laundry
+
+                  - type: custom:button-card
+                    entity: sensor.laundry_dryer_combined_details
+                    icon: mdi:tumble-dryer
+                    name: Dryer
+                    template:
+                      - laundry
+
       #
       # COMMON AREAS
       # --------------------------------------------------
@@ -196,16 +227,18 @@ views:
                   - type: custom:decluttering-card
                     template: button_media_echo
                     variables:
-                      - name: Echo Dot
+                      - name: Echo, Kitchen
                       - room: Kitchen
                       - entity: media_player.echo_kitchen
+                      - permission: input_boolean.household_notify_kitchen
 
                   - type: custom:decluttering-card
                     template: button_media_echo
                     variables:
-                      - name: Echo Dot
+                      - name: Echo, Dining Room
                       - room: Dining Room
                       - entity: media_player.echo_dot_dining_room
+                      - permission: input_boolean.household_notify_dining_room
 
       #
       # FOYER
@@ -415,6 +448,7 @@ views:
                       - name: Echo Dot
                       - room: Main Bedroom
                       - entity: media_player.echo_dot_bedroom_1
+                      - permission: input_boolean.household_notify_bedroom_1
 
               - type: grid
                 title: Closet Lights
@@ -549,6 +583,7 @@ views:
                       - name: Echo Dot
                       - room: Tom's Office
                       - entity: media_player.echo_dot_bedroom_4
+                      - permission: input_boolean.household_notify_bedroom_4
 
               - type: grid
                 title: Jess' Office Media
@@ -568,6 +603,7 @@ views:
                       - name: Echo Dot
                       - room: Jess' Office
                       - entity: media_player.echo_dot_bedroom_3
+                      - permission: input_boolean.household_notify_bedroom_3
 
       #
       # OTHER
@@ -646,19 +682,20 @@ views:
                       #- popup_dimmer
                       - light
 
-                  - type: custom:decluttering-card
-                    template: button_media_echo
-                    variables:
-                      - name: Echo Dot
-                      - room: Guest Bedroom
-                      - entity: media_player.echo_dot_bedroom_2
-
                   - type: custom:button-card
                     entity: switch.garage_light
                     name: Garage
                     template:
                       #- popup_switch
                       - light
+
+                  - type: custom:decluttering-card
+                    template: button_media_echo
+                    variables:
+                      - name: Echo Dot
+                      - room: Guest Bedroom
+                      - entity: media_player.echo_dot_bedroom_2
+                      - permission: input_boolean.household_notify_bedroom_2
 
               # - type: grid
               #   title: Guest Bedroom
@@ -691,54 +728,9 @@ views:
               spaceBetween: 20
               threshold: 7
               coverflowEffect:
-                rotate: 80
+                rotate: 90
                 depth: 300
             cards:
-              - type: conditional
-                conditions:
-                  - entity: sensor.custom_laundry_machine_state
-                    state: "on"
-                card:
-                  type: grid
-                  title: Laundry Status
-                  columns: 3
-                  cards:
-                    - type: conditional
-                      conditions:
-                        - entity: sensor.laundry_washer_machine_state
-                          state: "Run"
-                      card:
-                        type: custom:button-card
-                        entity: sensor.laundry_washer_combined_details
-                        icon: mdi:washing-machine
-                        name: Washer
-                        tap_action:
-                          action: none
-                        double_tap_action:
-                          action: none
-                        hold_action:
-                          action: none
-                        template:
-                          - laundry
-
-                    - type: conditional
-                      conditions:
-                        - entity: sensor.laundry_dryer_machine_state
-                          state: "Run"
-                      card:
-                        type: custom:button-card
-                        entity: sensor.laundry_dryer_combined_details
-                        icon: mdi:tumble-dryer
-                        name: Dryer
-                        tap_action:
-                          action: none
-                        double_tap_action:
-                          action: none
-                        hold_action:
-                          action: none
-                        template:
-                          - laundry
-
               - type: grid
                 title: Resident Status
                 columns: 3

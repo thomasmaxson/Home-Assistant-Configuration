@@ -94,8 +94,8 @@ browser_mod:
             }
             .name { margin: 0 0 1em !important;}
         entities:
-          - entity: input_boolean.home_away_mode
-            name: Home Away Mode
+          # - entity: input_boolean.home_away_mode
+          #   name: Home Away Mode
 
           - type: conditional
             conditions:
@@ -125,7 +125,7 @@ browser_mod:
         view_layout:
           grid-area: column_b
         show_header_toggle: false
-        title: Snoozed Notifications
+        #title: Snoozed Notifications
         card_mod:
           class: header
           style: |
@@ -136,8 +136,7 @@ browser_mod:
             .name { margin: 0 0 1em !important;}
         entities:
           - type: section
-            label: Household Activity
-
+            label: Snoozed Household Activity
           - type: conditional
             conditions:
               - entity: input_boolean.household_activity_snooze
@@ -155,7 +154,7 @@ browser_mod:
               name: Snooze Countdown
 
           - type: section
-            label: Garage Door Left Open
+            label: Snoozed Garage Door Left Open
           - type: conditional
             conditions:
               - entity: input_boolean.garage_open_snooze
@@ -172,7 +171,7 @@ browser_mod:
               name: Snooze Countdown
 
           - type: section
-            label: Front Door Unlocked
+            label: Snoozed Front Door Unlocked
           - type: conditional
             conditions:
               - entity: input_boolean.front_door_unlocked_snooze
@@ -189,7 +188,7 @@ browser_mod:
               name: Snooze Countdown
 
           - type: section
-            label: Doorbell Motion Detected
+            label: Snoozed Doorbell Motion Detected
           - type: conditional
             conditions:
               - entity: input_boolean.doorbell_motion_snooze

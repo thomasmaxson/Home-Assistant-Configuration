@@ -25,80 +25,86 @@ card:
             }
           }
       card:
-        type: custom:layout-card
-        layout_type: grid
-        layout:
-          grid-template-rows: auto
-          grid-template-columns: 30% 30% 30%
-          margin: 30px 0 30px 35px
+        type: vertical-stack
         cards:
-          - type: custom:button-card
-            aspect_ratio: 1/1
-            icon: mdi:skip-backward
-            name: Down
-            show_icon: true
-            show_name: false
-            tap_action:
-              action: call-service
-              service: media_player.media_previous_track
-              service_data:
-                entity_id: "[[entity]]"
-          - type: custom:button-card
-            aspect_ratio: 1/1
-            icon: mdi:play-pause
-            name: Play/Pause
-            show_icon: true
-            show_name: false
-            tap_action:
-              action: call-service
-              service: media_player.media_play_pause
-              service_data:
-                entity_id: "[[entity]]"
-          - type: custom:button-card
-            aspect_ratio: 1/1
-            icon: mdi:skip-forward
-            name: Down
-            show_icon: true
-            show_name: false
-            tap_action:
-              action: call-service
-              service: media_player.media_next_track
-              service_data:
-                entity_id: "[[entity]]"
+          - type: entities
+            entities:
+              - entity: "[[permission]]"
+                name: Allow Audible Notifications
+          - type: custom:layout-card
+            layout_type: grid
+            layout:
+              grid-template-rows: auto
+              grid-template-columns: 30% 30% 30%
+              margin: 30px 0 30px 35px
+            cards:
+              - type: custom:button-card
+                aspect_ratio: 1/1
+                icon: mdi:skip-backward
+                name: Down
+                show_icon: true
+                show_name: false
+                tap_action:
+                  action: call-service
+                  service: media_player.media_previous_track
+                  service_data:
+                    entity_id: "[[entity]]"
+              - type: custom:button-card
+                aspect_ratio: 1/1
+                icon: mdi:play-pause
+                name: Play/Pause
+                show_icon: true
+                show_name: false
+                tap_action:
+                  action: call-service
+                  service: media_player.media_play_pause
+                  service_data:
+                    entity_id: "[[entity]]"
+              - type: custom:button-card
+                aspect_ratio: 1/1
+                icon: mdi:skip-forward
+                name: Down
+                show_icon: true
+                show_name: false
+                tap_action:
+                  action: call-service
+                  service: media_player.media_next_track
+                  service_data:
+                    entity_id: "[[entity]]"
 
-          - type: custom:button-card
-            aspect_ratio: 1/1
-            icon: mdi:volume-minus
-            name: Volume Down
-            show_icon: true
-            show_name: false
-            tap_action:
-              action: call-service
-              service: media_player.volume_down
-              data_template:
-                entity_id: "[[entity]]"
-          - type: custom:gap-card
-          # - type: custom:button-card
-          #   aspect_ratio: 1/1
-          #   icon: mdi:volume-mute
-          #   name: Mute
-          #   show_icon: true
-          #   show_name: false
-          #   tap_action:
-          #     action: call-service
-          #     service: media_player.volume_mute
-          #     data_template:
-          #       entity_id: "[[entity]]"
-          #       is_volume_muted: >-
-          #         {{ iif( true == state_attr( '[[entity]]', 'is_volume_muted' ), false, true ) }}
-          - type: custom:button-card
-            aspect_ratio: 1/1
-            icon: mdi:volume-plus
-            name: Volume Up
-            show_icon: true
-            show_name: false
-            tap_action:
-              action: call-service
-              service: media_player.volume_up
-              data_template:
-                entity_id: "[[entity]]"
+              - type: custom:button-card
+                aspect_ratio: 1/1
+                icon: mdi:volume-minus
+                name: Volume Down
+                show_icon: true
+                show_name: false
+                tap_action:
+                  action: call-service
+                  service: media_player.volume_down
+                  service_data:
+                    entity_id: "[[entity]]"
+              - type: custom:gap-card
+              # - type: custom:button-card
+              #   aspect_ratio: 1/1
+              #   icon: mdi:volume-mute
+              #   name: Mute
+              #   show_icon: true
+              #   show_name: false
+              #   tap_action:
+              #     action: call-service
+              #     service: media_player.volume_mute
+              #     data_template:
+              #       entity_id: "[[entity]]"
+              #       is_volume_muted: >-
+              #         {{ iif( true == state_attr( '[[entity]]', 'is_volume_muted' ), false, true ) }}
+              - type: custom:button-card
+                aspect_ratio: 1/1
+                icon: mdi:volume-plus
+                name: Volume Up
+                show_icon: true
+                show_name: false
+                tap_action:
+                  action: call-service
+                  service: media_player.volume_up
+                  service_data:
+                    entity_id: "[[entity]]"

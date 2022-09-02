@@ -27,7 +27,7 @@ browser_mod:
       /* Desktop */
       @media screen and (min-width: 992px) { 
         :host .content { 
-          width: calc(385px + 385px);
+          width: calc(385px + 385px + 385px);
           max-width: 90vw;
         }
       }
@@ -78,7 +78,7 @@ browser_mod:
       grid-template-columns: repeat(2, 1fr)
       grid-template-rows: 1fr
       grid-template-areas: |
-        'column_a column_b'
+        'column_a column_b column_c'
       mediaquery:
         # Tablet and down
         "(max-width: 992px)":
@@ -87,6 +87,7 @@ browser_mod:
           grid-template-areas: |
             'column_a'
             'column_b'
+            'column_c'
     cards:
       - type: entities
         view_layout:
@@ -143,6 +144,82 @@ browser_mod:
         view_layout:
           grid-area: column_b
         show_header_toggle: false
+        #title: Status
+        card_mod:
+          class: header
+          style: |
+            ha-card {
+              margin: 0 !important;
+              width: 100%;
+            }
+            .name { margin: 0 0 1em !important;}
+
+            #states > div:nth-child(4), 
+            #states > div:nth-child(5),
+            #states > div:nth-child(6),
+            #states > div:nth-child(7),
+            #states > div:nth-child(8),
+            #states > div:nth-child(9) { padding-left: 45px !important;}
+        entities:
+          - type: section
+            label: Notifications
+          - entity: input_boolean.app_notify
+            name: Mobile Push Notifications
+          - entity: input_boolean.household_notify
+            name: Alexa Announcements
+
+          - type: conditional
+            conditions:
+              - entity: input_boolean.household_notify
+                state: "on"
+            row:
+              entity: input_boolean.household_notify_kitchen
+              name: Kitchen
+
+          - type: conditional
+            conditions:
+              - entity: input_boolean.household_notify
+                state: "on"
+            row:
+              entity: input_boolean.household_notify_dining_room
+              name: Dining Room
+
+          - type: conditional
+            conditions:
+              - entity: input_boolean.household_notify
+                state: "on"
+            row:
+              entity: input_boolean.household_notify_bedroom_1
+              name: Main Bedroom
+
+          - type: conditional
+            conditions:
+              - entity: input_boolean.household_notify
+                state: "on"
+            row:
+              entity: input_boolean.household_notify_bedroom_2
+              name: Guest Bedroom
+
+          - type: conditional
+            conditions:
+              - entity: input_boolean.household_notify
+                state: "on"
+            row:
+              entity: input_boolean.household_notify_bedroom_3
+              name: Jess' Office
+
+          - type: conditional
+            conditions:
+              - entity: input_boolean.household_notify
+                state: "on"
+            row:
+              entity: input_boolean.household_notify_bedroom_4
+              name: Tom's Office
+
+      - type: entities
+        view_layout:
+          grid-area: column_c
+        show_header_toggle: false
         #title: Notifications
         card_mod:
           class: header
@@ -181,10 +258,3 @@ browser_mod:
             row:
               entity: input_boolean.sync_bedroom_4_lights
               name: Tom's Office
-
-          - type: section
-            label: Notifications
-          - entity: input_boolean.household_notify
-            name: Alexa Announcements
-          - entity: input_boolean.app_notify
-            name: Mobile Push Notifications
