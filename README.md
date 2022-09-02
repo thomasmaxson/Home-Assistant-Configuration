@@ -8,8 +8,8 @@ This repo contains the constantly-in-progress [Home Assistant](https://home-assi
 Make sure that you :star: this repo, so that you can get updates right in your notification feed.
 
 ### Dashboard:
-| [![dashboard-desktop](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/dashboard-desktop.png)](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/dashboard-desktop.png)<br>Desktop/Tablet | [![dashboard-mobile](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/dashboard-mobile-screen.png)](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/dashboard-mobile.png)<br>Mobile (click to view all tiles) |
-|:---:|:---:|
+![dashboard](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/dashboard.png)
+
 
 #### Household Information Popups:
 | [![overview](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-details-household-overview.png)](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-details-household-overview.png)<br>Household Overview | [![details](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-details-household-details.png)](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/popup-details-household-details.png)<br>Household Details |
@@ -63,6 +63,10 @@ Make sure that you :star: this repo, so that you can get updates right in your n
 ##### Climate
 * [Ecobee Thermostat](https://www.amazon.com/gp/product/B07NQT85FC/)
 * [Ecobee Temp and Motion Sensors](https://www.amazon.com/gp/product/B07NQVWRR3/)
+
+##### Smart Appliances
+* [GE Profile, Washing Machine](https://www.geappliances.com/appliance/GE-Profile-4-9-cu-ft-Capacity-Washer-with-Smarter-Wash-Technology-and-FlexDispense-PTW605BSRWS)
+* [GE PRofile, Tumble Dryer](https://www.geappliances.com/appliance/GE-Profile-7-4-cu-ft-Capacity-aluminized-alloy-drum-Electric-Dryer-with-Sanitize-Cycle-and-Sensor-Dry-PTD60EBSRWS)
 
 <hr>
 
