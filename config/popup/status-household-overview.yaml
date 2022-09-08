@@ -9,323 +9,279 @@
 action: fire-dom-event
 browser_mod:
   command: popup
-  title: Household Overview
-  style:
-    $: |
-      /* Mobile Devices */
-      @media screen and (max-width: 992px) { 
-        .mdc-dialog .mdc-dialog__container .mdc-dialog__surface { 
-          border-radius: 0 !important;
-        }
-      }
+  service: browser_mod.popup
+  data:
+    title: Household Overview
+    #timeout: 15000
+    style: >
+      --popup-max-width: calc( 385px + 385px + 385px );
+    content:
+      type: custom:mod-card
+      card_mod:
+        style:
+          layout-card$:
+            grid-layout$:
+              hui-entities-card:
+                $: |
+                  .card-content {
+                    padding: 1.5em 1.5em 0;
+                    margin: -2.2em -1px 0;
+                  }
 
-    .: |
-      :host .content {
-        overflow-x: hidden;
-      }
-
-      /* Desktop */
-      @media screen and (min-width: 992px) { 
-        :host .content { 
-          width: calc(385px + 385px + 385px);
-          max-width: 90vw;
-        }
-      }
-
-    layout-card:
-      $grid-layout$:
-        .: |
-          @media screen and (min-width: 992px) { 
-            #root {
-              margin-top: 0 !important;
-              margin-right: 0 !important;
-              margin-left: 0 !important;
-            }
-          }
-
-        hui-entities-card:
-          $: |
-            ha-card .card-content { 
-              padding-top: 0 !important;
-              margin-top: -16px;
-            }
-
-            /* Mobile */
-            @media screen and (max-width: 992px) { 
-              ha-card .card-content { 
-                width: 90vw;
-              }
-            }
-
-            /* Desktop */
-            @media screen and (min-width: 992px) { 
-              ha-card .card-content { 
-                border-right: 1px solid var(--entities-divider-color, var(--divider-color));
-                border-left: 1px solid var(--entities-divider-color, var(--divider-color));
-              }
-            }
-  card:
-    type: custom:layout-card
-    layout_type: custom:grid-layout
-    layout:
-      grid-template-columns: repeat(3, 1fr)
-      grid-template-rows: 1fr
-      grid-template-areas: |
-        'group_a group_b group_c'
-      mediaquery:
-        # Tablet and down
-        "(max-width: 992px)":
-          grid-template-columns: 1fr
-          grid-template-rows: repeat(1, 1fr)
+                  /* Desktop */
+                  @media screen and (min-width: 992px) { 
+                    .card-content { 
+                      border-right: 1px solid var( --entities-divider-color, var( --divider-color ) );
+                      border-left: 1px solid var( --entities-divider-color, var( --divider-color ) );
+                    }
+                  }
+      card:
+        type: custom:layout-card
+        layout_type: custom:grid-layout
+        layout:
+          margin: 0
+          grid-template-columns: repeat( 3, 385px )
+          grid-template-rows: 1fr
           grid-template-areas: |
-            'group_a'
-            'group_b'
-            'group_c'
-    cards:
-      - type: entities
-        view_layout:
-          grid-area: group_a
-        #title: Column A Title
-        show_header_toggle: false
-        card_mod:
-          class: header
-          style: |
-            ha-card {
-              margin: 0 !important;
-              width: 100%;
-            }
-            .name { margin: 0 0 1em !important;}
-        entities:
-          - type: section
-            label: Exterior Doors
+            'column_a column_b column_c'
+          mediaquery:
+            "(max-width: 992px)":
+              grid-template-columns: 1fr
+              grid-template-rows: repeat( 3, 1fr )
+              grid-template-areas: |
+                'column_a'
+                'column_b'
+                'column_c'
+        cards:
+          - type: entities
+            view_layout:
+              grid-area: column_a
+            show_header_toggle: false
+            card_mod:
+              class: column
+            entities:
+              - type: section
+                label: Exterior Doors
 
-          - type: custom:mushroom-lock-card
-            entity: lock.front_door
-            name: Front Door Lock
-            layout: horizontal
+              - type: custom:mushroom-lock-card
+                entity: lock.front_door
+                name: Front Door Lock
+                layout: horizontal
 
-          - type: custom:decluttering-card
-            template: entity_light
-            variables:
-              - entity: binary_sensor.door_front_primary
-              - name: Front Door
-              - show_battery: "false"
+              - type: custom:decluttering-card
+                template: entity_light
+                variables:
+                  - entity: binary_sensor.door_front_primary
+                  - name: Front Door
+                  - show_battery: "false"
 
-          - type: custom:mushroom-cover-card
-            entity: cover.garage_door
-            name: Garage Door (Cover)
-            show_buttons_control: true
-            show_position_control: true
+              - type: custom:mushroom-cover-card
+                entity: cover.garage_door
+                name: Garage Door (Cover)
+                show_buttons_control: true
+                show_position_control: true
 
-          - type: custom:decluttering-card
-            template: entity_light
-            variables:
-              - entity: binary_sensor.door_garage
-              - name: Garage Door (Interior)
-              - show_battery: "false"
+              - type: custom:decluttering-card
+                template: entity_light
+                variables:
+                  - entity: binary_sensor.door_garage
+                  - name: Garage Door (Interior)
+                  - show_battery: "false"
 
-          - type: custom:decluttering-card
-            template: entity_light
-            variables:
-              - entity: binary_sensor.door_living
-              - name: Living Room Sliding Glass
-              - show_battery: "false"
+              - type: custom:decluttering-card
+                template: entity_light
+                variables:
+                  - entity: binary_sensor.door_living
+                  - name: Living Room Sliding Glass
+                  - show_battery: "false"
 
-          - type: section
-            label: Kitchen
+              - type: section
+                label: Kitchen
 
-          - type: custom:decluttering-card
-            template: entity_light
-            variables:
-              - entity: light.kitchen_ceiling_lights
-              - name: Ceiling
+              - type: custom:decluttering-card
+                template: entity_light
+                variables:
+                  - entity: light.kitchen_ceiling_lights
+                  - name: Ceiling
 
-          # - type: custom:decluttering-card
-          #   template: entity_light
-          #   variables:
-          #     - entity: light.cabinet_upper_lights
-          #     - name: Above Cabinets
+              # - type: custom:decluttering-card
+              #   template: entity_light
+              #   variables:
+              #     - entity: light.cabinet_upper_lights
+              #     - name: Above Cabinets
 
-          - type: custom:decluttering-card
-            template: entity_light
-            variables:
-              - entity: light.kitchen_cabinet_upper_coffee_bar
-              - name: Upper Cabinets, Coffee Bar
+              - type: custom:decluttering-card
+                template: entity_light
+                variables:
+                  - entity: light.kitchen_cabinet_upper_coffee_bar
+                  - name: Upper Cabinets, Coffee Bar
 
-          - type: custom:decluttering-card
-            template: entity_light
-            variables:
-              - entity: light.kitchen_cabinet_upper_range
-              - name: Upper Cabinets, Range
+              - type: custom:decluttering-card
+                template: entity_light
+                variables:
+                  - entity: light.kitchen_cabinet_upper_range
+                  - name: Upper Cabinets, Range
 
-          - type: section
-            label: Common Areas
+              - type: section
+                label: Common Areas
 
-          - type: custom:decluttering-card
-            template: entity_light
-            variables:
-              - entity: light.dining_room_chandelier
-              - name: Dining Room, Chandelier
+              - type: custom:decluttering-card
+                template: entity_light
+                variables:
+                  - entity: light.dining_room_chandelier
+                  - name: Dining Room, Chandelier
 
-          - type: custom:decluttering-card
-            template: entity_light
-            variables:
-              - entity: light.living_room_corner_lamp
-              - name: Living Room, Corner Lamp
+              - type: custom:decluttering-card
+                template: entity_light
+                variables:
+                  - entity: light.living_room_corner_lamp
+                  - name: Living Room, Corner Lamp
 
-      - type: entities
-        view_layout:
-          grid-area: group_b
-        #title: Column B Title
-        show_header_toggle: false
-        card_mod:
-          class: header
-          style: |
-            ha-card {
-              margin: 0 !important;
-              width: 100%;
-            }
-            .name { margin: 0 0 1em !important;}
-        entities:
-          - type: section
-            label: Foyer
+          - type: entities
+            view_layout:
+              grid-area: column_b
+            show_header_toggle: false
+            card_mod:
+              class: column
+            entities:
+              - type: section
+                label: Foyer
+                # card_mod:
+                #   style: |
+                #     .divider { margin-top: 0;}
 
-          - type: custom:decluttering-card
-            template: entity_light
-            variables:
-              - entity: light.foyer_entryway_ceiling
-              - name: Entryway
+              - type: custom:decluttering-card
+                template: entity_light
+                variables:
+                  - entity: light.foyer_entryway_ceiling
+                  - name: Entryway
 
-          - type: custom:decluttering-card
-            template: entity_light
-            variables:
-              - entity: light.foyer_hallway_ceiling
-              - name: Hallway
+              - type: custom:decluttering-card
+                template: entity_light
+                variables:
+                  - entity: light.foyer_hallway_ceiling
+                  - name: Hallway
 
-          - type: custom:decluttering-card
-            template: entity_light
-            variables:
-              - entity: light.foyer_ceiling_ledge
-              - name: Upper Ledge
+              - type: custom:decluttering-card
+                template: entity_light
+                variables:
+                  - entity: light.foyer_ceiling_ledge
+                  - name: Upper Ledge
 
-          - type: custom:decluttering-card
-            template: entity_light
-            variables:
-              - entity: light.foyer_under_table
-              - name: Under Table
+              - type: custom:decluttering-card
+                template: entity_light
+                variables:
+                  - entity: light.foyer_under_table
+                  - name: Under Table
 
-          - type: section
-            label: Main Bedroom
+              - type: section
+                label: Main Bedroom
 
-          - type: custom:mushroom-cover-card
-            entity: cover.bedroom_1_large_curtains
-            name: Large Window
-            show_buttons_control: true
-            show_position_control: true
+              - type: custom:mushroom-cover-card
+                entity: cover.bedroom_1_large_curtains
+                name: Large Window
+                show_buttons_control: true
+                show_position_control: true
 
-          - type: custom:decluttering-card
-            template: entity_light
-            variables:
-              - entity: light.bedroom_1_lamp_j
-              - name: Bedside Lamp (Hers)
+              - type: custom:decluttering-card
+                template: entity_light
+                variables:
+                  - entity: light.bedroom_1_lamp_j
+                  - name: Bedside Lamp (Hers)
 
-          - type: custom:decluttering-card
-            template: entity_light
-            variables:
-              - entity: light.bedroom_1_lamp_t
-              - name: Bedside Lamp (His)
+              - type: custom:decluttering-card
+                template: entity_light
+                variables:
+                  - entity: light.bedroom_1_lamp_t
+                  - name: Bedside Lamp (His)
 
-          - type: custom:decluttering-card
-            template: entity_light
-            variables:
-              - entity: light.closet_hallway_ceiling_light
-              - name: Closet Hallway
+              - type: custom:decluttering-card
+                template: entity_light
+                variables:
+                  - entity: light.closet_hallway_ceiling_light
+                  - name: Closet Hallway
 
-          - type: custom:decluttering-card
-            template: entity_light
-            variables:
-              - entity: light.closet_hallway_light_j
-              - name: Closet (Hers)
+              - type: custom:decluttering-card
+                template: entity_light
+                variables:
+                  - entity: light.closet_hallway_light_j
+                  - name: Closet (Hers)
 
-          - type: custom:decluttering-card
-            template: entity_light
-            variables:
-              - entity: light.closet_hallway_light_t
-              - name: Closet (His)
+              - type: custom:decluttering-card
+                template: entity_light
+                variables:
+                  - entity: light.closet_hallway_light_t
+                  - name: Closet (His)
 
-      - type: entities
-        view_layout:
-          grid-area: group_c
-        #title: Column C Title
-        show_header_toggle: false
-        card_mod:
-          class: header
-          style: |
-            ha-card {
-              margin: 0 !important;
-              width: 100%;
-            }
-            .name { margin: 0 0 1em !important;}
-        entities:
-          - type: section
-            label: Offices
+          - type: entities
+            view_layout:
+              grid-area: column_c
+            show_header_toggle: false
+            card_mod:
+              class: column
+            entities:
+              - type: section
+                label: Offices
+                # card_mod:
+                #   style: |
+                #     .divider { margin-top: 0;}
 
-          - type: custom:decluttering-card
-            template: entity_light
-            variables:
-              - entity: light.bedroom_4_desk_lamp
-              - name: Desk Lamp (His)
+              - type: custom:decluttering-card
+                template: entity_light
+                variables:
+                  - entity: light.bedroom_4_desk_lamp
+                  - name: Desk Lamp (His)
 
-          - type: custom:decluttering-card
-            template: entity_light
-            variables:
-              - entity: light.bedroom_4_lightstrip
-              - name: Baseboard Lightstrip (His)
+              - type: custom:decluttering-card
+                template: entity_light
+                variables:
+                  - entity: light.bedroom_4_lightstrip
+                  - name: Baseboard Lightstrip (His)
 
-          - type: section
-            label: Other
+              - type: section
+                label: Other
 
-          - type: custom:decluttering-card
-            template: entity_light
-            variables:
-              - entity: light.laundry_ceiling_light
-              - name: Laundry Room, Ceiling
+              - type: custom:decluttering-card
+                template: entity_light
+                variables:
+                  - entity: light.laundry_ceiling_light
+                  - name: Laundry Room, Ceiling
 
-          - type: custom:decluttering-card
-            template: entity_light
-            variables:
-              - entity: light.laundry_hallway_light
-              - name: Laundry Room, Hallway
+              - type: custom:decluttering-card
+                template: entity_light
+                variables:
+                  - entity: light.laundry_hallway_light
+                  - name: Laundry Room, Hallway
 
-          - type: custom:decluttering-card
-            template: entity_light
-            variables:
-              - entity: light.guest_hallway_light
-              - name: Guest Bedroom, Hallway
+              - type: custom:decluttering-card
+                template: entity_light
+                variables:
+                  - entity: light.guest_hallway_light
+                  - name: Guest Bedroom, Hallway
 
-          - type: custom:decluttering-card
-            template: entity_light
-            variables:
-              - entity: light.garage_light
-              - name: Garage, Ceiling
+              - type: custom:decluttering-card
+                template: entity_light
+                variables:
+                  - entity: light.garage_light
+                  - name: Garage, Ceiling
 
-          - type: section
-            label: Exterior
+              - type: section
+                label: Exterior
 
-          - type: custom:decluttering-card
-            template: entity_light
-            variables:
-              - entity: light.foyer_exterior_entryway
-              - name: Front Door, Entryway
+              - type: custom:decluttering-card
+                template: entity_light
+                variables:
+                  - entity: light.foyer_exterior_entryway
+                  - name: Front Door, Entryway
 
-          - type: custom:decluttering-card
-            template: entity_light
-            variables:
-              - entity: light.garage_exterior
-              - name: Garage, Exterior
+              - type: custom:decluttering-card
+                template: entity_light
+                variables:
+                  - entity: light.garage_exterior
+                  - name: Garage, Exterior
 
-          - type: custom:decluttering-card
-            template: entity_light
-            variables:
-              - entity: light.backyard_string_lights
-              - name: Backyard String Lights
+              - type: custom:decluttering-card
+                template: entity_light
+                variables:
+                  - entity: light.backyard_string_lights
+                  - name: Backyard String Lights

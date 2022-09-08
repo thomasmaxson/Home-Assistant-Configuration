@@ -11,55 +11,6 @@ light:
     - base
     - circle
     - loader
-  double_tap_action:
-    action: fire-dom-event
-    browser_mod:
-      command: popup
-      title: >
-        [[[
-          return ! entity || entity.attributes.friendly_name
-        ]]]
-      style:
-        $: |
-          @media screen and (max-width: 992px) {
-            .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
-              border-radius: 0 !important;
-            }
-          }
-        hui-entities-card:
-          $: |
-            #states { 
-              padding-top: 0.8em;
-            }
-      card:
-        type: entities
-        entities: >
-          [[[
-            if( entity )
-            { 
-                let lights = [],
-                    id = Boolean( entity.attributes.entity_id )
-                        ? [entity.entity_id].concat( entity.attributes.entity_id )
-                        : [entity.entity_id];
-                for( let i = 0; i < id.length; i++ )
-                { 
-                    lights.push( {
-                        "type": "custom:mushroom-light-card",
-                        "entity": id[i],
-                        "fill_container": false,
-                        "primary_info": "name",
-                        "secondary_info": "state",
-                        "icon_type": "icon",
-                        "show_brightness_control": true,
-                        "use_light_color": true,
-                        "show_color_temp_control": true,
-                        "show_color_control": true,
-                        "collapsible_controls": true
-                    } );
-                }
-                return lights;
-            }
-          ]]]
   variables:
     circle_percent: >
       [[[
@@ -74,3 +25,45 @@ light:
         }
       ]]]
     circle_value_unit: "%"
+  double_tap_action:
+    action: fire-dom-event
+    browser_mod:
+      command: popup
+      service: browser_mod.popup
+      data:
+        title: >
+          [[[
+            return ! entity || entity.attributes.friendly_name
+          ]]]
+        style: >
+          --popup-max-width: calc( 385px );
+          --ha-card-border-radius: 0;
+        content:
+          type: entities
+          entities: >
+            [[[
+              if( entity )
+              { 
+                  let lights = [],
+                      id = Boolean( entity.attributes.entity_id )
+                          ? [entity.entity_id].concat( entity.attributes.entity_id )
+                          : [entity.entity_id];
+                  for( let i = 0; i < id.length; i++ )
+                  { 
+                      lights.push( {
+                          "type": "custom:mushroom-light-card",
+                          "entity": id[i],
+                          "fill_container": false,
+                          "primary_info": "name",
+                          "secondary_info": "state",
+                          "icon_type": "icon",
+                          "show_brightness_control": true,
+                          "use_light_color": true,
+                          "show_color_temp_control": true,
+                          "show_color_control": true,
+                          "collapsible_controls": true
+                      } );
+                  }
+                  return lights;
+              }
+            ]]]

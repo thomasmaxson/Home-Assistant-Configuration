@@ -40,21 +40,21 @@ sidebar_template:
     p {
       margin-top: 1em;
       margin-bottom: 0;
-      font-size: calc( var( --sidebar-font-size ) * 1.4 );
-      line-height: calc( var(--sidebar-line-height) + 1.2 );
+      font-size: calc( var( --tihiti-sidebar-font-size ) * 1.4 );
+      line-height: calc( var( --tihiti-sidebar-line-height ) + 1.2 );
       font-weight: 300;
       letter-spacing: 0.06vw;
     }
 
     p.time,
     p.date, 
-    p.greeting { color: rgba(255, 255, 255, 0.8);}
+    p.greeting { color: rgba( 255, 255, 255, 0.8 );}
 
     p.time {
       margin-top: 0;
       margin-left: -0.3vw;
       line-height: 1 !important;
-      font-size: calc( var(--sidebar-time-font-size ) * 1.5 );
+      font-size: calc( var( --tihiti-sidebar-time-font-size ) * 1.5 );
       font-weight: 200;
       letter-spacing: -0.05vw;
     }
@@ -67,12 +67,12 @@ sidebar_template:
     /* portrait */
     @media screen and (max-width: 1200px) {
       p {
-        font-size: calc(var(--sidebar-font-size) * 1.4 );
-        line-height: calc(var(--sidebar-line-height) * 1.4 );
+        font-size: calc( var( --tihiti-sidebar-font-size ) * 1.4 );
+        line-height: calc( var( --tihiti-sidebar-line-height ) * 1.4 );
       }
 
       p.time {
-        font-size: calc(var(--sidebar-time-font-size) * 1.4 );
+        font-size: calc( var( --tihiti-sidebar-time-font-size ) * 1.4 );
       }
     }
 
@@ -87,14 +87,14 @@ sidebar_template:
       }
 
       p {
-        font-size: calc(var(--sidebar-font-size) * 5 );
-        line-height: calc(var(--sidebar-line-height) * 5 );
+        font-size: calc( var( --tihiti-sidebar-font-size ) * 5 );
+        line-height: calc( var( --tihiti-sidebar-line-height ) * 5 );
         letter-spacing: 0.16vw;
       }
 
       p.time {
         display: none !important;
-        font-size: calc(var(--sidebar-time-font-size) * 2.6 );
+        font-size: calc( var( --tihiti-sidebar-time-font-size ) * 2.6 );
       }
 
       p.greeting { display: none !important;}

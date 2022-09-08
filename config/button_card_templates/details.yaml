@@ -21,13 +21,13 @@ details:
   extra_styles: |
     #name {
       color: rgba(255, 255, 255, 0.3);
-      font-size: var(--footer-card-font-size);
+      font-size: var(--tihiti-footer-card-font-size);
       letter-spacing: 0.05vw;
       opacity: 1.0;
     }
 
     ha-icon {
-      width: var(--footer-card-icon-size);
+      width: var(--tihiti-footer-card-icon-size);
       vertical-align: 7%;
       padding-right: 0.2vw;
       color: rgba(255, 255, 255, 0.3);
@@ -35,8 +35,8 @@ details:
     }
 
     #card {
-      padding: var(--footer-card-padding-v) var(--footer-card-padding-h);
-      border-radius: var(--footer-card-border-radius);
+      padding: var(--tihiti-footer-card-padding-v) var(--tihiti-footer-card-padding-h);
+      border-radius: var(--tihiti-footer-card-border-radius);
       background: rgba(115, 115, 115, 0.20);
     }
 
@@ -48,7 +48,7 @@ details:
       }
 
       #card { 
-        padding: calc( var( --footer-card-padding-v ) * 3 ) var( --footer-card-padding-h );
+        padding: calc( var( --tihiti-footer-card-padding-v ) * 3 ) var( --tihiti-footer-card-padding-h );
         width: 100% !important;
       }
     }

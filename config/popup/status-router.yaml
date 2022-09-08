@@ -9,96 +9,120 @@
 action: fire-dom-event
 browser_mod:
   command: popup
-  title: UniFi Dream Machine
-  style:
-    $: |
-      @media screen and (max-width: 992px) { 
-        .mdc-dialog .mdc-dialog__container .mdc-dialog__surface { 
-          border-radius: 0 !important;
-        }
-      }
-    hui-vertical-stack-card:
-      $: |
-        hui-horizontal-stack-card {
-          padding: 0em 2em 2.3em 2em;
-        }
-  card:
-    type: vertical-stack
-    cards:
-      - type: entities
-        state_color: true
-        card_mod:
-          class: content
-        entities:
+  service: browser_mod.popup
+  data:
+    title: Router
+    #timeout: 15000
+    style: >
+      --popup-max-width: calc( 400px );
+    content:
+      type: custom:mod-card
+      card_mod:
+        style:
+          layout-card$:
+            grid-layout$:
+              hui-entities-card:
+                $: |
+                  .card-content {
+                    padding: 1.5em 1.5em 0;
+                    margin: -2.2em -1px 0;
+                  }
 
-          #- entity: binary_sensor.template_udm_internet
-          #  secondary_info: last-changed
-
-          - entity: sensor.casamaxson_udmp_cpu_temperature
-            name: CPU Temperature
-
-          - type: custom:bar-card
-            width: 55%
-            height: 2em
-            decimal: 0
-            unit_of_measurement: '%'
-            positions:
-              icon: outside
-              indicator: 'off'
-              name: outside
-            severity:
-              - color: '#6d2525'
-                from: 90
-                to: 999
-            entity_row: true
+                  /* Desktop */
+                  @media screen and (min-width: 992px) { 
+                    .card-content { 
+                      border-right: 1px solid var( --entities-divider-color, var( --divider-color ) );
+                      border-left: 1px solid var( --entities-divider-color, var( --divider-color ) );
+                    }
+                  }
+      card:
+        type: custom:layout-card
+        layout_type: custom:grid-layout
+        layout:
+          margin: 0
+          grid-template-columns: repeat( 1, 400px )
+          grid-template-rows: 1fr
+          grid-template-areas: |
+            'column_a'
+          mediaquery:
+            # Tablet and down
+            "(max-width: 992px)":
+              grid-template-columns: 1fr
+              grid-template-rows: repeat( 1, 1fr )
+              grid-template-areas: |
+                'column_a'
+        cards:
+          - type: entities
             entities:
-              - entity: sensor.casamaxson_udmp_cpu_utilization
-                name: CPU Utilization
-              - entity: sensor.casamaxson_udmp_memory_utilization
-                name: Memory Utilization
-              - entity: sensor.casamaxson_udmp_storage_utilization
-                name: Storage Utilization
+              - type: section
+                label: Router Details
+                card_mod:
+                  style: |
+                    .label { display: none;}
+              - entity: sensor.casamaxson_udmp_cpu_temperature
+                name: CPU Temperature
 
-          - entity: sensor.casamaxson_udmp_uptime
-            name: Uptime
-          #- entity: binary_sensor.template_udm_upgradable
+              - type: custom:bar-card
+                width: 55%
+                height: 2em
+                decimal: 0
+                unit_of_measurement: "%"
+                positions:
+                  icon: outside
+                  indicator: "off"
+                  name: outside
+                severity:
+                  - color: "#6d2525"
+                    from: 90
+                    to: 999
+                entity_row: true
+                entities:
+                  - entity: sensor.casamaxson_udmp_cpu_utilization
+                    name: CPU Utilization
+                  - entity: sensor.casamaxson_udmp_memory_utilization
+                    name: Memory Utilization
+                  - entity: sensor.casamaxson_udmp_storage_utilization
+                    name: Storage Utilization
 
-          - type: divider
+              - entity: sensor.casamaxson_udmp_uptime
+                name: Uptime
 
-          - entity: sensor.speedtest_ping
-          - entity: sensor.speedtest_upload
-            style: |
-              :host {
-                --paper-item-icon-color: #385581;
-              }
-          - entity: sensor.speedtest_download
-            style: |
-              :host {
-                --paper-item-icon-color: green;
-              }
+              - type: divider
 
-        footer:
-          type: custom:mini-graph-card
-          entities:
-            - entity: sensor.speedtest_upload
-              color: "#385581"
-            - entity: sensor.speedtest_download
-              color: green
-          align_state: left
-          group: false
-          points_per_hour: 15
-          line_width: 3
-          hour24: true
-          hours_to_show: 1.5
-          show:
-            {
-              fill: fade,
-              icon: false,
-              name: false,
-              state: false,
-              name_adaptive_color: true,
-              labels: hover,
-              legend: false,
-            }
-          tap_action:
-            action: none
+              - entity: sensor.speedtest_ping
+              - entity: sensor.speedtest_upload
+                style: |
+                  :host {
+                    --paper-item-icon-color: #385581;
+                  }
+              - entity: sensor.speedtest_download
+                style: |
+                  :host {
+                    --paper-item-icon-color: green;
+                  }
+
+            footer:
+              type: custom:mini-graph-card
+              entities:
+                - entity: sensor.speedtest_upload
+                  color: "#385581"
+                - entity: sensor.speedtest_download
+                  color: green
+              align_state: left
+              group: false
+              points_per_hour: 15
+              line_width: 3
+              hour24: true
+              hours_to_show: 1.5
+              show:
+                {
+                  fill: fade,
+                  icon: false,
+                  name: false,
+                  state: false,
+                  name_adaptive_color: true,
+                  labels: hover,
+                  legend: false,
+                }
+              tap_action:
+                action: none

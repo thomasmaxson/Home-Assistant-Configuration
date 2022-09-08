@@ -32,34 +32,27 @@ cover:
     action: fire-dom-event
     browser_mod:
       command: popup
-      title: >
-        [[[ 
-          return ! entity || entity.attributes.friendly_name
-        ]]]
-      style:
-        $: |
-          @media screen and (max-width: 992px) {
-            .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
-              border-radius: 0 !important;
-            }
-          }
-        hui-entities-card:
-          $: |
-            #states { 
-              padding-top: 0.8em;
-            }
-      card:
-        type: entities
-        entities:
-          - type: custom:mushroom-cover-card
-            entity: >
-              [[[ 
-                return variables.entity_id;
-              ]]]
-            fill_container: false
-            primary_info: "name"
-            secondary_info: "state"
-            icon_type: "icon"
-            show_buttons_control: true
-            show_position_control: true
-            collapsible_controls: true
+      service: browser_mod.popup
+      data:
+        title: >
+          [[[
+            return ! entity || entity.attributes.friendly_name
+          ]]]
+        style: >
+          --popup-max-width: calc( 385px );
+          --ha-card-border-radius: 0;
+        content:
+          type: entities
+          entities:
+            - type: custom:mushroom-cover-card
+              entity: >
+                [[[ 
+                  return variables.entity_id;
+                ]]]
+              fill_container: false
+              primary_info: "name"
+              secondary_info: "state"
+              icon_type: "icon"
+              show_buttons_control: true
+              show_position_control: true
+              collapsible_controls: true
