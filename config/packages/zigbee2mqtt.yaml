@@ -18,24 +18,22 @@ timer:
     name: Time remaining
     duration: 600 # Updated this to the number of seconds you wish
 
-sensor:
-  # Sensor for monitoring the bridge state
-  - platform: mqtt
-    name: Zigbee2mqtt Bridge state
-    state_topic: "zigbee2mqtt/bridge/state"
-    icon: mdi:router-wireless
-  # Sensor for Showing the Zigbee2mqtt Version
-  - platform: mqtt
-    name: Zigbee2mqtt Version
-    state_topic: "zigbee2mqtt/bridge/config"
-    value_template: "{{ value_json.version }}"
-    icon: mdi:zigbee
-  # Sensor for Showing the Coordinator Version
-  - platform: mqtt
-    name: Zigbee2mqtt Coordinator Version
-    state_topic: "zigbee2mqtt/bridge/config"
-    value_template: "{{ value_json.coordinator }}"
-    icon: mdi:chip
+mqtt:
+  sensor:
+    # Sensor for monitoring the bridge state
+    - name: Zigbee2mqtt Bridge state
+      state_topic: "zigbee2mqtt/bridge/state"
+      icon: mdi:router-wireless
+    # Sensor for Showing the Zigbee2mqtt Version
+    - name: Zigbee2mqtt Version
+      state_topic: "zigbee2mqtt/bridge/config"
+      value_template: "{{ value_json.version }}"
+      icon: mdi:zigbee
+    # Sensor for Showing the Coordinator Version
+    - name: Zigbee2mqtt Coordinator Version
+      state_topic: "zigbee2mqtt/bridge/config"
+      value_template: "{{ value_json.coordinator }}"
+      icon: mdi:chip
 
 automation:
   - id: enable_zigbee_join
