@@ -43,7 +43,7 @@ browser_mod:
                 $: |
                   .card-content {
                     padding: 1.5em 1.5em 0;
-                    margin: -2.2em -1px 0;
+                    margin: -2.2em 0 0;
                   }
 
                   /* Desktop */
@@ -51,6 +51,8 @@ browser_mod:
                     .card-content { 
                       border-right: 1px solid var( --entities-divider-color, var( --divider-color ) );
                       border-left: 1px solid var( --entities-divider-color, var( --divider-color ) );
+                      margin-right: -1px;
+                      margin-left: -1px;
                     }
                   }
       card:
