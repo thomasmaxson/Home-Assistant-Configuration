@@ -55,13 +55,13 @@ browser_mod:
             entities:
               - entity: person.thomas
                 secondary_info: last-changed
-              - entity: sensor.ckretajints_iphone_steps
+              - entity: sensor.tom_iphone_steps
                 name: Step Count
 
           - type: custom:decluttering-card
             template: popup_person_find_device
             variables:
-              - device: notify.mobile_app_ckretajints_iphone
+              - device: notify.mobile_app_toms_iphone
 
           - type: custom:decluttering-card
             template: popup_person_notifications
