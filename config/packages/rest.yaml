@@ -6,6 +6,10 @@
 #
 ################################################################################
 
+rest_command:
+  kiosk_command:
+    url: !secret rest_url_kiosk_command
+
 sensor:
   # https://www.egglec.com.au/post/fully-kiosk-browser-and-home-assistant
   - platform: rest
@@ -137,7 +141,3 @@ sensor:
   #   value_template: "{{ (value|replace(' days', '')) | int }}"
   #   unit_of_measurement: Days
   #   scan_interval: 43200
-
-rest_command:
-  kiosk_command:
-    url: !secret rest_url_kiosk_command

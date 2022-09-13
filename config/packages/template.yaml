@@ -243,7 +243,7 @@ template:
         event_type: event_template_reloaded
       # Update every XX seconds
       - platform: time_pattern
-        seconds: /1
+        seconds: /5
     sensor:
       - name: "Laundry Washer Combined Details"
         icon: mdi:washing-machine
@@ -268,7 +268,7 @@ template:
         event_type: event_template_reloaded
       # Update every XX seconds
       - platform: time_pattern
-        seconds: /1
+        seconds: /5
     sensor:
       - name: "Laundry Dryer Combined Details"
         icon: mdi:tumble-dryer
