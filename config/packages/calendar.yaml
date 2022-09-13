@@ -52,55 +52,6 @@ binary_sensor:
     excludes: [sat, sun, holiday]
 
   - platform: workday
-    name: Waste Day, Solid
-    country: US
-    workdays: [tue, fri]
-    excludes: [mon, wed, thu, sat, sun]
-    remove_holidays:
-      - "New Year's Day"
-      - "Memorial Day"
-      - "Independence Day"
-      - "Labor Day"
-      - "Thanksgiving"
-      - "Christmas Day"
-
-  - platform: workday
-    name: Waste Day, Bulk
-    country: US
-    workdays: [tue]
-    excludes: [mon, wed, thu, fri, sat, sun]
-    remove_holidays:
-      - "New Year's Day"
-      - "Memorial Day"
-      - "Independence Day"
-      - "Labor Day"
-      - "Thanksgiving"
-      - "Christmas Day"
-
-  - platform: workday
-    name: Waste Day, Recycling
-    country: US
-    workdays: []
-    excludes: [mon, tue, wed, thu, fri, sat, sun]
-    remove_holidays:
-      - "New Year's Day"
-      - "Memorial Day"
-      - "Independence Day"
-      - "Labor Day"
-      - "Thanksgiving"
-      - "Christmas Day"
-
-  - platform: tod
-    name: Waste Take Out, Time
-    after: "16:00"
-    before: "22:30"
-
-  - platform: tod
-    name: Waste Bring In, Time
-    after: "06:00"
-    before: "18:00"
-
-  - platform: workday
     name: Cleaning Day
     country: US
     workdays: [thu]
