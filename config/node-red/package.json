@@ -10,6 +10,7 @@
         "node-red-contrib-spline-curve": "~1.1.8",
         "node-red-contrib-stoptimer": "~0.0.7",
         "node-red-contrib-sun-position": "~2.0.6",
+        "node-red-contrib-weekday": "~0.1.0",
         "node-red-contrib-zigbee2mqtt": "~2.1.6",
         "node-red-contrib-zigbee2mqtt-devices": "~0.19.5"
     }
