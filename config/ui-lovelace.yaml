@@ -25,7 +25,7 @@ views:
     title: Dashboard
     path: dashboard
     layout:
-      grid-gap: calc( var(--custom-layout-card-padding) / 1.2 ) calc( var(--custom-layout-card-padding) * 1.25 )
+      grid-gap: calc( var( --tihiti-dashboard-layout-padding ) / 1.2 ) calc( var( --tihiti-dashboard-layout-padding ) * 1.25 )
       grid-template-rows: min-content
       grid-template-columns: 0 23% repeat( 2, 1fr ) 0
       grid-template-areas: |
@@ -37,7 +37,7 @@ views:
       mediaquery:
         # Tablet and down
         "(max-width: 992px)":
-          grid-gap: var( --custom-layout-card-padding )
+          grid-gap: var( --tihiti-dashboard-layout-padding )
           grid-template-rows: auto
           grid-template-columns: 0 1fr 0
           grid-template-areas: |
@@ -50,12 +50,34 @@ views:
             ".  resident  ."
             ".  popups    ."
             ".  .         ."
-
     cards:
       # extra_styles fix
       # https://github.com/custom-cards/button-card#injecting-css-with-extra_styles
       - type: custom:button-card
         styles: { card: [display: none] }
+
+      - type: custom:button-card
+        view_layout:
+          grid-area: 1 / 2 / 2 / 5
+        name: SET THEME TO "Tihiti" IN PROFILE
+        tap_action:
+          action: navigate
+          navigation_path: /profile
+        styles:
+          card:
+            - display: >
+                [[[
+                  return hass.themes.theme === 'Tihiti'
+                      ? 'none'
+                      : 'initial';
+                ]]]
+          name:
+            - z-index: 1
+            - overflow: visible
+            - color: red
+            - font-weight: bolder
+            - font-size: xxx-large
+            - background: yellow
 
       #
       # SIDEBAR
@@ -86,19 +108,19 @@ views:
               card:
                 type: grid
                 square: false
-                columns: 2
+                columns: 1
                 cards:
                   - type: custom:button-card
                     entity: sensor.laundry_washer_combined_details
                     icon: mdi:washing-machine
-                    name: Washer
+                    name: Washing Machine
                     template:
                       - laundry
 
                   - type: custom:button-card
                     entity: sensor.laundry_dryer_combined_details
                     icon: mdi:tumble-dryer
-                    name: Dryer
+                    name: Tumble Dryer
                     template:
                       - laundry
 
@@ -798,60 +820,83 @@ views:
       # Popups
       # --------------------------------------------------
 
-      - type: horizontal-stack
+      - type: custom:mod-card
         view_layout:
           grid-area: popups
-        cards:
-          - type: custom:button-card
-            #icon: hass:home-circle-outline
-            name: >
-              <ha-icon icon="mdi:home"></ha-icon> Overview
-            template:
-              - details
-            tap_action: !include popup/status-household-overview.yaml
-            double_tap_action: !include popup/status-household-overview.yaml
+        card_mod:
+          style:
+            hui-horizontal-stack-card$: |
+              #root {
+                justify-content: space-between;
+                margin-top: 2vw;
+              }
 
-          - type: custom:button-card
-            #icon: hass:home-circle-outline
-            name: >
-              <ha-icon icon="mdi:floor-plan"></ha-icon> Details
-            template:
-              - details
-            tap_action: !include popup/status-household-details.yaml
-            double_tap_action: !include popup/status-household-details.yaml
+              @media screen and (max-width: 992px) {
+                #root { 
+                  flex-wrap: wrap;
+                  margin: 0 -2vw;
+                  padding-bottom: 5vw;
+                }
 
-          - type: custom:button-card
-            #icon: hass:thermometer
-            name: >
-              <ha-icon icon="mdi:thermometer"></ha-icon> Temperature
-            template:
-              - details
-            tap_action: !include popup/status-temperatures.yaml
-            double_tap_action: !include popup/status-temperatures.yaml
+                #root > button-card { 
+                  flex: 1 1 40vw !important;
+                  margin: 4vw 2vw 0 !important;
+                  max-width: none !important;
+                }
+              }
+        card:
+          type: horizontal-stack
+          cards:
+            - type: custom:button-card
+              #icon: hass:home-circle-outline
+              name: >
+                <ha-icon icon="mdi:home"></ha-icon> Overview
+              template:
+                - details
+              tap_action: !include popup/status-household-overview.yaml
+              double_tap_action: !include popup/status-household-overview.yaml
 
-          - type: custom:button-card
-            #icon: hass:router-wireless
-            name: >
-              <ha-icon icon="mdi:router-wireless"></ha-icon> Router
-            template:
-              - details
-            tap_action: !include popup/status-router.yaml
-            double_tap_action: !include popup/status-router.yaml
+            - type: custom:button-card
+              #icon: hass:home-circle-outline
+              name: >
+                <ha-icon icon="mdi:floor-plan"></ha-icon> Details
+              template:
+                - details
+              tap_action: !include popup/status-household-details.yaml
+              double_tap_action: !include popup/status-household-details.yaml
 
-          - type: custom:button-card
-            #icon: hass:information-outline
-            name: >
-              <ha-icon icon="mdi:information"></ha-icon> Systems
-            template:
-              - details
-            tap_action: !include popup/status-systems.yaml
-            double_tap_action: !include popup/status-systems.yaml
+            - type: custom:button-card
+              #icon: hass:thermometer
+              name: >
+                <ha-icon icon="mdi:thermometer"></ha-icon> Temperature
+              template:
+                - details
+              tap_action: !include popup/status-temperatures.yaml
+              double_tap_action: !include popup/status-temperatures.yaml
 
-          - type: custom:button-card
-            #icon: hass:cog
-            name: >
-              <ha-icon icon="mdi:cog"></ha-icon> Settings
-            template:
-              - details
-            tap_action: !include popup/status-settings.yaml
-            double_tap_action: !include popup/helpers.yaml
+            - type: custom:button-card
+              #icon: hass:router-wireless
+              name: >
+                <ha-icon icon="mdi:router-wireless"></ha-icon> Router
+              template:
+                - details
+              tap_action: !include popup/status-router.yaml
+              double_tap_action: !include popup/status-router.yaml
+
+            - type: custom:button-card
+              #icon: hass:information-outline
+              name: >
+                <ha-icon icon="mdi:information"></ha-icon> Systems
+              template:
+                - details
+              tap_action: !include popup/status-systems.yaml
+              double_tap_action: !include popup/status-systems.yaml
+
+            - type: custom:button-card
+              #icon: hass:cog
+              name: >
+                <ha-icon icon="mdi:cog"></ha-icon> Settings
+              template:
+                - details
+              tap_action: !include popup/status-settings.yaml
+              double_tap_action: !include popup/helpers.yaml
