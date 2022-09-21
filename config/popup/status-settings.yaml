@@ -21,11 +21,13 @@ browser_mod:
         style:
           layout-card$:
             grid-layout$:
+              .: |
+                #root { overflow: hidden;}
               hui-entities-card:
                 $: |
                   .card-content {
                     padding: 1.5em 1.5em 0;
-                    margin: -2.2em 0 0;
+                    margin: -2em 0 1em;
                   }
 
                   /* Desktop */
@@ -73,27 +75,39 @@ browser_mod:
 
               - type: conditional
                 conditions:
-                  - entity: sensor.waste_day_solid
-                    state_not: "Never"
+                  - entity: schedule.waste_take_out_solid
+                    state_not: "unknown"
+                  - entity: sensor.days_until_waste_day_solid
+                    state_not: "unavailable"
+                  - entity: sensor.days_until_waste_day_solid
+                    state_not: "unknown"
                 row:
-                  entity: sensor.waste_day_solid
-                  name: Solid Waste
+                  entity: sensor.days_until_waste_day_solid
+                  name: Solid Waste Pickup
 
               - type: conditional
                 conditions:
-                  - entity: sensor.waste_day_bulk
-                    state_not: "Never"
+                  - entity: schedule.waste_take_out_bulk
+                    state_not: "unknown"
+                  - entity: sensor.days_until_waste_day_bulk
+                    state_not: "unavailable"
+                  - entity: sensor.days_until_waste_day_bulk
+                    state_not: "unknown"
                 row:
-                  entity: sensor.waste_day_bulk
-                  name: Bulk Waste
+                  entity: sensor.days_until_waste_day_bulk
+                  name: Bulk Waste Pickup
 
-              - type: conditional
-                conditions:
-                  - entity: sensor.waste_day_recycling
-                    state_not: "Never"
-                row:
-                  entity: sensor.waste_day_recycling
-                  name: Recycling
+              # - type: conditional
+              #   conditions:
+              #     - entity: schedule.waste_take_out_recycle
+              #       state_not: "unknown"
+              #     - entity: sensor.days_until_waste_day_recycle
+              #       state_not: "unavailable"
+              #     - entity: sensor.days_until_waste_day_recycle
+              #       state_not: "unknown"
+              #   row:
+              #     entity: days_until_waste_day_recycle
+              #     name: Recycling Pickup
 
               - type: section
                 label: Clean Household

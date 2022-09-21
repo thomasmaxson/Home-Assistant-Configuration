@@ -21,6 +21,8 @@ browser_mod:
         style:
           layout-card$:
             grid-layout$:
+              .: |
+                #root { overflow: hidden;}
               hui-entities-card:
                 $: |
                   .card-content {
@@ -57,11 +59,19 @@ browser_mod:
                 secondary_info: last-changed
               - entity: sensor.tom_iphone_steps
                 name: Step Count
+              # - entity: input_boolean.reminder_medicine_taken_thomas
+              #   name: Medication Taken Today
 
           - type: custom:decluttering-card
             template: popup_person_find_device
             variables:
               - device: notify.mobile_app_toms_iphone
+
+          - type: entities
+            entities:
+              - type: section
+              - entity: input_boolean.reminder_medicine_taken_thomas
+                name: Medication Taken Today
 
           - type: custom:decluttering-card
             template: popup_person_notifications

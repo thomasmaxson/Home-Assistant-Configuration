@@ -21,11 +21,13 @@ browser_mod:
         style:
           layout-card$:
             grid-layout$:
+              .: |
+                #root { overflow: hidden;}
               hui-entities-card:
                 $: |
                   .card-content {
                     padding: 1.5em 1.5em 0;
-                    margin: -2.2em 0 0;
+                    margin: -2em 0 1em;
                   }
 
                   /* Desktop */

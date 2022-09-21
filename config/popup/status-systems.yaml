@@ -31,19 +31,19 @@ browser_mod:
     #timeout: 15000
     style: >
       --popup-max-width: calc( 385px + 385px );
-      --layout-padding: 0;
-      --layout-margin: 0;
     content:
       type: custom:mod-card
       card_mod:
         style:
           layout-card$:
             grid-layout$:
+              .: |
+                #root { overflow: hidden;}
               hui-entities-card:
                 $: |
                   .card-content {
                     padding: 1.5em 1.5em 0;
-                    margin: -2.2em 0 0;
+                    margin: -2em 0 1em;
                   }
 
                   /* Desktop */
@@ -131,7 +131,7 @@ browser_mod:
               - type: section
                 label: Amazon Fire HD Tablet
 
-              - entity: light.fire_tablet_screen
+              - entity: switch.fire_tablet_screen
                 name: Display
                 icon: hass:tablet
 
@@ -151,8 +151,8 @@ browser_mod:
 
               - type: divider
 
-              - entity: binary_sensor.fire_tablet_plugged_in
-                name: Power Supply
+              # - entity: binary_sensor.fire_tablet_plugged_in
+              #   name: Power Supply
 
               - type: custom:bar-card
                 width: 55%
@@ -175,7 +175,7 @@ browser_mod:
                     to: 100
                 entity_row: true
                 entities:
-                  - entity: sensor.custom_fire_tablet_battery_level
+                  - entity: sensor.custom_fire_tablet_battery
                     name: Battery Level
 
               - type: custom:bar-card

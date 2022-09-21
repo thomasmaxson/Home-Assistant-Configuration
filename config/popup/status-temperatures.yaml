@@ -12,7 +12,7 @@ browser_mod:
   service: browser_mod.popup
   data:
     title: Temperatures
-    #timeout: 15000
+    # timeout: 15000
     style: >
       --popup-max-width: calc( 385px + 385px + 385px );
     content:
@@ -21,19 +21,21 @@ browser_mod:
         style:
           layout-card$:
             grid-layout$:
+              .: |
+                #root { overflow: hidden;}
+
               hui-thermostat-card:
                 $: |
-                  ha-card { 
+                  .type-thermostat { 
                     border-top: 1px solid var( --entities-divider-color, var( --divider-color ) );
-                    border-radius: 0;
-                    margin: -3px auto 0 !important;
+                    margin: 1px 6px 0 !important;
                   }
 
               hui-entities-card:
                 $: |
-                  .card-content {
+                  .card-content { 
                     padding: 1.5em 1.5em 0;
-                    margin: -2.2em 0 0;
+                    margin: -2em 0 1em;
                   }
 
                   /* Desktop */

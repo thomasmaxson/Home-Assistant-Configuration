@@ -21,11 +21,13 @@ browser_mod:
         style:
           layout-card$:
             grid-layout$:
+              .: |
+                #root { overflow: hidden;}
               hui-entities-card:
                 $: |
                   .card-content {
                     padding: 1.5em 1.5em 0;
-                    margin: -2.2em 0 0;
+                    margin: -2em 0 1em;
                   }
 
                   /* Desktop */
@@ -35,6 +37,7 @@ browser_mod:
                       border-left: 1px solid var( --entities-divider-color, var( --divider-color ) );
                       margin-right: -1px;
                       margin-left: -1px;
+                      overflow: hidden;
                     }
                   }
       card:
@@ -147,6 +150,14 @@ browser_mod:
               # - entity: binary_sensor.bedroom_1_occupancy
               # - entity: binary_sensor.bedroom_4_occupancy
               # - entity: binary_sensor.living_room_occupancy
+
+              - type: section
+                label: Presence
+
+              - type: custom:mushroom-entity-card
+                entity: binary_sensor.presence_living_room
+                name: Living Room
+                icon: hass:motion-sensor
 
               - type: section
                 label: Motion Sensors

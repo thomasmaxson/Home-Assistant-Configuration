@@ -21,11 +21,13 @@ browser_mod:
         style:
           layout-card$:
             grid-layout$:
+              .: |
+                #root { overflow: hidden;}
               hui-entities-card:
                 $: |
                   .card-content {
                     padding: 1.5em 1.5em 0;
-                    margin: -2.2em 0 0;
+                    margin: -2em 0 1em;
                   }
 
                   /* Desktop */
@@ -74,11 +76,18 @@ browser_mod:
                   name: Foyer Exterior, Override
 
               - type: section
-                label: Automation Status
+                label: Daily Evening Automations
               - entity: sensor.automation_daily_status
-                name: Daily, In Evening
-              - entity: input_boolean.automation_daily_sunset
-                name: Evening Automations
+                name: Status
+              - type: conditional
+                conditions:
+                  - entity: input_boolean.automation_daily_sunset
+                    state: "on"
+                row:
+                  entity: input_boolean.automation_daily_sunset
+                  name: Active
+              - entity: input_button.trigger_evening_automation
+                name: Run Automations
 
               - type: section
                 label: Laundry Reminders
@@ -87,14 +96,12 @@ browser_mod:
               - entity: input_boolean.reminder_laundry_complete_dryer
                 name: Dryer Complete Reminder
 
-              - type: section
-                label: Zigbee2MQTT
-              - entity: sensor.zigbee2mqtt_bridge_state
-                name: Bridge State
-              #- entity: sensor.zigbee2mqtt_version
-              #  name: Version
-              - entity: input_boolean.zigbee2mqtt_allow_join
-                name: Allow Devices to Join
+              # - type: section
+              #   label: Zigbee2MQTT
+              # - entity: sensor.zigbee2mqtt_bridge_state
+              #   name: Bridge State
+              # - entity: input_boolean.zigbee2mqtt_allow_join
+              #   name: Allow Devices to Join
 
           - type: entities
             view_layout:
@@ -156,19 +163,19 @@ browser_mod:
                   entity: timer.front_door_unlocked_snooze
                   name: Snooze Countdown
 
-              - type: section
-                label: Snoozed Doorbell Motion Detected
-              - type: conditional
-                conditions:
-                  - entity: input_boolean.doorbell_motion_snooze
-                    state: "on"
-                row:
-                  entity: input_boolean.doorbell_motion_snooze
-                  name: Snoozed Indefinite
-              - type: conditional
-                conditions:
-                  - entity: input_boolean.doorbell_motion_snooze
-                    state: "off"
-                row:
-                  entity: timer.doorbell_motion_snooze
-                  name: Snooze Countdown
+              # - type: section
+              #   label: Snoozed Doorbell Motion Detected
+              # - type: conditional
+              #   conditions:
+              #     - entity: input_boolean.doorbell_motion_snooze
+              #       state: "on"
+              #   row:
+              #     entity: input_boolean.doorbell_motion_snooze
+              #     name: Snoozed Indefinite
+              # - type: conditional
+              #   conditions:
+              #     - entity: input_boolean.doorbell_motion_snooze
+              #       state: "off"
+              #   row:
+              #     entity: timer.doorbell_motion_snooze
+              #     name: Snooze Countdown
