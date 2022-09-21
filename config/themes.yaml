@@ -11,7 +11,7 @@ extra_module_url:
   - /hacsfiles/hass-hue-icons/hass-hue-icons.js
 
 themes:
-  Tihiti:
+  tihiti:
     primary-text-color: "#e1e1e1"
     primary-background-color: "#111111"
     secondary-background-color: "#202020"
@@ -131,9 +131,21 @@ themes:
         min-height: 100vh;
       }
 
-    card-mod-view-yaml: |
-      .: |
-        hui-view { 
-          background: none !important;
-          min-height: 100vh;
-        }
+    # card-mod-more-info-yaml: |
+    #   $: |
+    #     .mdc-dialog {
+    #       backdrop-filter: blur(17px);
+    #       -webkit-backdrop-filter: blur(17px);
+    #       background: rgba(0,0,0,0.25);
+    #     }
+    #     .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
+    #       background: none !important;
+    #       box-shadow: none;
+    #       border-radius: 100%;
+    #     }
+
+    # card-mod-card: |
+    #   ha-card {
+    #     backdrop-filter: var( --bg-filter );
+    #     -webkit-backdrop-filter: var( --bg-filter );
+    #   }
