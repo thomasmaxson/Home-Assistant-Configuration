@@ -42,6 +42,8 @@ http:
 lovelace:
   mode: yaml
   resources:
+    - url: /local/lovelace-browser-mod-icon/browser_mod_icon.js
+      type: module
     - url: /hacsfiles/bar-card/bar-card.js
       type: module
     - url: /hacsfiles/button-card/button-card.js
