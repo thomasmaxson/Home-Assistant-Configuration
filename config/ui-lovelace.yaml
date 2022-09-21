@@ -59,7 +59,7 @@ views:
       - type: custom:button-card
         view_layout:
           grid-area: 1 / 2 / 2 / 5
-        name: SET THEME TO "Tihiti" IN PROFILE
+        name: SET THEME TO "TIHITI" IN PROFILE
         tap_action:
           action: navigate
           navigation_path: /profile
@@ -67,7 +67,7 @@ views:
           card:
             - display: >
                 [[[
-                  return hass.themes.theme === 'Tihiti'
+                  return hass.themes.theme === 'tihiti'
                       ? 'none'
                       : 'initial';
                 ]]]
