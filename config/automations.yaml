@@ -8,7 +8,7 @@
   action:
   - service: frontend.set_theme
     data:
-      name: Custom Dashboard
+      name: tihiti
   mode: single
 - id: '1651337763691'
   alias: Remove Snapshots, Older than 7 Days
@@ -22,4 +22,20 @@
     data:
       folder: /config/www/snapshots/
       time: 604800
+  mode: single
+- id: '1663551161065'
+  alias: Reset Medicine Reminder at Midnight
+  description: ''
+  trigger:
+  - platform: time
+    at: 00:00:00
+  condition:
+  - condition: state
+    entity_id: input_boolean.reminder_medicine_taken_thomas
+    state: 'on'
+  action:
+  - service: input_boolean.turn_off
+    data: {}
+    target:
+      entity_id: input_boolean.reminder_medicine_taken_thomas
   mode: single
