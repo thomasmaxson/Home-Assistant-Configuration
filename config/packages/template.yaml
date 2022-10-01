@@ -27,25 +27,13 @@ sensor:
           {%- set output = ( ( ( now().strftime( '%W' ) ) | int ) % 2 ) == 1 %}
           {{ iif( ( True == output ), 'mdi:calendar-check', 'mdi:calendar-remove' ) }}
 
-      # fourth_wednesday:
-      #   friendly_name:"Is Fourth Wednesday"
-      #   value_template: >
-      #     {% set nth = 4 %}
-      #     {% set month = now().month %}
-      #     {% set isoweekday = 3 %}
-      #     {% set d = now().date().replace( month = month ).replace( day = 1 ) %}
-      #     {% set adj = ( isoweekday - d.isoweekday() ) % 7 %}
-
-      #     {{ d + timedelta( days = adj ) + timedelta( weeks = nth - 1 ) }}
-      #   icon_template: mdi:calendar-question
-
       custom_laundry_machine_state:
         friendly_name: "Laundry Machine Status"
         value_template: >-
           {%- set status_washer = states( 'sensor.laundry_washer_machine_state' ) -%}
           {%- set status_dryer  = states( 'sensor.laundry_dryer_machine_state' ) -%}
 
-          {%- if  status_washer == 'Run' or status_dryer == 'Run' -%}
+          {%- if status_washer == 'Run' or status_dryer == 'Run' -%}
             on
           {%- else -%}
             off
@@ -54,7 +42,7 @@ sensor:
           {%- set status_washer = states( 'sensor.laundry_washer_machine_state' ) -%}
           {%- set status_dryer  = states( 'sensor.laundry_dryer_machine_state' ) -%}
 
-          {%- if  status_washer == 'Run' or status_dryer == 'Run' -%}
+          {%- if status_washer == 'Run' or status_dryer == 'Run' -%}
             mdi:washing-machine
           {%- else -%}
             mdi:washing-machine-off
@@ -98,14 +86,14 @@ sensor:
           mdi:cloud-question
           {%- endif -%}
 
-      custom_fire_tablet_battery_level:
+      custom_fire_tablet_battery:
         #device_class: battery
         friendly_name: Battery Level
         unit_of_measurement: "%"
         value_template: >-
-          {{ states( 'sensor.fire_tablet_battery_level' ) }}
+          {{ states( 'sensor.fire_tablet_battery' ) }}
         icon_template: >-
-          {%- set battery_level = states( 'sensor.fire_tablet_battery_level' ) -%}
+          {%- set battery_level = states( 'sensor.fire_tablet_battery' ) -%}
           {%- set battery_round = ( battery_level | int(0) / 10 ) | int(0) * 10 -%}
 
           {%- if battery_level == 0 -%}
@@ -192,14 +180,19 @@ sensor:
 
       fire_tablet_ram_used_memory:
         icon_template: mdi:memory
-        unit_of_measurement: GB
+        unit_of_measurement: MB
         value_template: >-
-          {%- set total_memory = states( 'sensor.fire_tablet_ram_total_memory' ) | int(0) -%}
-          {%- set free_memory = states( 'sensor.fire_tablet_ram_free_memory' ) | int(0) -%}
-          {%- set used_memory = ( total_memory - free_memory ) -%}
+          {%- set ignore = [ 'unknown', 'unavailable' ] -%}
+          {%- set total_memory = states( 'sensor.fire_tablet_total_memory' ) | int( 0 ) -%}
+          {%- set free_memory  = states( 'sensor.fire_tablet_free_memory' ) | int( 0 ) -%}
 
-          {%- if used_memory > 0 and total_memory > 0 %}
-            {{ used_memory / total_memory * 100 }}
+          {%- if total_memory not in ignore and total_memory not in ignore %}
+            {%- set used_memory = ( total_memory - free_memory ) -%}
+            {%- if used_memory > 0 and total_memory > 0 %}
+              {{ used_memory / total_memory * 100 }}
+            {%- else %}
+              Unknown
+            {%- endif %}
           {%- else %}
             Unknown
           {%- endif %}
@@ -291,206 +284,87 @@ template:
       # Update on Template reload
       - platform: event
         event_type: event_template_reloaded
-      # Update daily at midnight
+      # Update every XX seconds
       - platform: time_pattern
-        hours: "00"
-        minutes: "00"
-        seconds: "00"
+        seconds: /30
+      # Update on Template reload
+      - platform: event
+        event_type: event_template_reloaded
     sensor:
-      - name: "Waste Day, Solid"
+      - name: "Days Until, Waste Day - Solid"
         icon: mdi:trash-can-outline
         state: >-
-          {%- set ns = namespace( days = [] ) %}
-          {%- set wd = state_attr( 'binary_sensor.waste_day_solid', 'workdays' ) %}
-          {%- set today = now().strftime( '%a' ) | lower %}
+          {%- set entity = 'schedule.waste_bring_in_solid' %}
+          {%- set nextEvent = state_attr( entity, 'next_event' ) %}
 
-          {%- if wd %}
-            {%- if today in wd %}
-              {%- set ns.days = ns.days + [0] %}
+          {%- if 'on' == states( entity ) %}
+            Now
+          {%- else %}
+            {%- set ts_now = as_timestamp( now() ) %}
+            {%- set ts_next = as_timestamp( nextEvent ) %}
+            {%- set daysUntil = ( ( ts_next - ts_now ) | int / 60 / 1440 ) | round( 0 ) %}
 
-            {%- else -%}
-              {%- for i in range( 1, 7, 1 ) %}
-                {%- set dow = ( now() + timedelta( days = i ) ).strftime( '%a' ) | lower %}
-
-                {%- if dow in wd %}
-                  {%- set ns.days = ns.days + [i] %}
-                {%- endif %}
-              {%- endfor %}
-            {%- endif %}
-
-            {% set value = ns.days | min %}
-
-            {%- if 0 == value %}
+            {%- if 0 == daysUntil %}
               Today
 
-            {%- elif 1 == value %}
+            {%- elif 1 == daysUntil %}
               Tomorrow
 
             {%- else %}
-              {{value}} days away
+              {{daysUntil}} days away
 
             {%- endif %}
-          {%- else -%}
-            Never
-
           {%- endif %}
 
-        attributes:
-          days_until: >-
-            {%- set ns = namespace( days = [] ) %}
-            {%- set wd = state_attr( 'binary_sensor.waste_day_solid', 'workdays' ) %}
-            {%- set today = now().strftime( '%a' ) | lower %}
-
-            {%- if wd %}
-              {%- if today in wd %}
-                {%- set ns.days = ns.days + [0] %}
-
-              {%- else -%}
-                {%- for i in range( 1, 7, 1 ) %}
-                  {%- set dow = ( now() + timedelta( days = i ) ).strftime( '%a' ) | lower %}
-
-                  {%- if dow in wd %}
-                    {%- set ns.days = ns.days + [i] %}
-                  {%- endif %}
-                {%- endfor %}
-              {%- endif %}
-
-              {{ ns.days | min | int }}
-
-            {%- else -%}
-              {{ '-1' | int }}
-
-            {%- endif %}
-
-      - name: "Waste Day, Bulk"
-        icon: mdi:washing-machine
+      - name: "Days Until, Waste Day - Bulk"
+        icon: mdi:forest
         state: >-
-          {%- set ns = namespace( days = [] ) %}
-          {%- set wd = state_attr( 'binary_sensor.waste_day_bulk', 'workdays' ) %}
-          {%- set today = now().strftime( '%a' ) | lower %}
+          {%- set entity = 'schedule.waste_bring_in_bulk' %}
+          {%- set nextEvent = state_attr( entity, 'next_event' ) %}
 
-          {%- if wd %}
-            {%- if today in wd %}
-              {%- set ns.days = ns.days + [0] %}
+          {%- if 'on' == states( entity ) %}
+            Now
+          {%- else %}
+            {%- set ts_now = as_timestamp( now() ) %}
+            {%- set ts_next = as_timestamp( nextEvent ) %}
+            {%- set daysUntil = ( ( ts_next - ts_now ) | int / 60 / 1440 ) | round( 0 ) %}
 
-            {%- else -%}
-              {%- for i in range( 1, 7, 1 ) %}
-                {%- set dow = ( now() + timedelta( days = i ) ).strftime( '%a' ) | lower %}
-
-                {%- if dow in wd %}
-                  {%- set ns.days = ns.days + [i] %}
-                {%- endif %}
-              {%- endfor %}
-            {%- endif %}
-
-            {% set value = ns.days | min %}
-
-            {%- if 0 == value %}
+            {%- if 0 == daysUntil %}
               Today
 
-            {%- elif 1 == value %}
+            {%- elif 1 == daysUntil %}
               Tomorrow
 
             {%- else %}
-              {{value}} days away
+              {{daysUntil}} days away
 
             {%- endif %}
-          {%- else -%}
-            Never
-
           {%- endif %}
 
-        attributes:
-          days_until: >-
-            {%- set ns = namespace( days = [] ) %}
-            {%- set wd = state_attr( 'binary_sensor.waste_day_bulk', 'workdays' ) %}
-            {%- set today = now().strftime( '%a' ) | lower %}
-
-            {%- if wd %}
-              {%- if today in wd %}
-                {%- set ns.days = ns.days + [0] %}
-
-              {%- else -%}
-                {%- for i in range( 1, 7, 1 ) %}
-                  {%- set dow = ( now() + timedelta( days = i ) ).strftime( '%a' ) | lower %}
-
-                  {%- if dow in wd %}
-                    {%- set ns.days = ns.days + [i] %}
-                  {%- endif %}
-                {%- endfor %}
-              {%- endif %}
-
-              {{ ns.days | min | int }}
-
-            {%- else -%}
-              {{ '-1' | int }}
-
-            {%- endif %}
-
-      - name: "Waste Day, Recycling"
+      - name: "Days Until, Waste Day - Recycle"
         icon: mdi:recycle
         state: >-
-          {%- set ns = namespace( days = [] ) %}
-          {%- set wd = state_attr( 'binary_sensor.waste_day_recycling', 'workdays' ) %}
-          {%- set today = now().strftime( '%a' ) | lower %}
+          {%- set entity = 'schedule.waste_bring_in_recycle' %}
+          {%- set nextEvent = state_attr( entity, 'next_event' ) %}
 
-          {%- if wd %}
-            {%- if today in wd %}
-              {%- set ns.days = ns.days + [0] %}
+          {%- if 'on' == states( entity ) %}
+            Now
+          {%- else %}
+            {%- set ts_now = as_timestamp( now() ) %}
+            {%- set ts_next = as_timestamp( nextEvent ) %}
+            {%- set daysUntil = ( ( ts_next - ts_now ) | int / 60 / 1440 ) | round( 0 ) %}
 
-            {%- else -%}
-              {%- for i in range( 1, 7, 1 ) %}
-                {%- set dow = ( now() + timedelta( days = i ) ).strftime( '%a' ) | lower %}
-
-                {%- if dow in wd %}
-                  {%- set ns.days = ns.days + [i] %}
-                {%- endif %}
-              {%- endfor %}
-            {%- endif %}
-
-            {% set value = ns.days | min %}
-
-            {%- if 0 == value %}
+            {%- if 0 == daysUntil %}
               Today
 
-            {%- elif 1 == value %}
+            {%- elif 1 == daysUntil %}
               Tomorrow
 
             {%- else %}
-              {{value}} days away
+              {{daysUntil}} days away
 
             {%- endif %}
-          {%- else -%}
-            Never
-
           {%- endif %}
-
-        attributes:
-          days_until: >-
-            {%- set ns = namespace( days = [] ) %}
-            {%- set wd = state_attr( 'binary_sensor.waste_day_recycling', 'workdays' ) %}
-            {%- set today = now().strftime( '%a' ) | lower %}
-
-            {%- if wd %}
-              {%- if today in wd %}
-                {%- set ns.days = ns.days + [0] %}
-
-              {%- else -%}
-                {%- for i in range( 1, 7, 1 ) %}
-                  {%- set dow = ( now() + timedelta( days = i ) ).strftime( '%a' ) | lower %}
-
-                  {%- if dow in wd %}
-                    {%- set ns.days = ns.days + [i] %}
-                  {%- endif %}
-                {%- endfor %}
-              {%- endif %}
-
-              {{ ns.days | min | int }}
-
-            {%- else -%}
-              {{ '-1' | int }}
-
-            {%- endif %}
 
   - trigger:
       # Update on Home Assistant startup
@@ -499,95 +373,41 @@ template:
       # Update on Template reload
       - platform: event
         event_type: event_template_reloaded
-      # Update daily at midnight
+      # Update every XX seconds
       - platform: time_pattern
-        hours: "00"
-        minutes: "00"
-        seconds: "00"
-      # Update daily at noon
-      - platform: time_pattern
-        hours: "12"
-        minutes: "00"
-        seconds: "00"
+        seconds: /30
+      # Update on Template reload
+      - platform: event
+        event_type: event_template_reloaded
     sensor:
-      - name: "Cleaning Day"
+      - name: "Days Until, Cleaning Day"
         icon: mdi:spray-bottle
         state: >-
-          {%- set ns = namespace( days = [] ) %}
-          {%- set wd = state_attr( 'binary_sensor.cleaning_day', 'workdays' ) %}
-          {%- set today = now().strftime( '%a' ) | lower %}
-          {%- set isWeekEven = is_state( 'sensor.is_week_even', 'on' ) %}
+          {%- set entity = 'schedule.house_cleaning' %}
+          {%- set nextEvent = state_attr( entity, 'next_event' ) %}
+          {%- set isWeekOdd = is_state( 'sensor.is_week_odd', 'on' ) %}
 
-          {%- if wd %}
-            {%- if today in wd %}
-              {%- set ns.days = ns.days + [0] %}
+          {%- if 'on' == states( entity ) and not isWeekOdd %}
+            Now
+          {%- else %}
+            {%- set ts_now = as_timestamp( now() ) %}
+            {%- set ts_next = as_timestamp( nextEvent ) %}
+            {%- set daysUntil = ( ( ts_next - ts_now ) | int / 60 / 1440 ) | round( 0 ) %}
 
-            {%- else -%}
-              {%- for i in range( 1, 7, 1 ) %}
-                {%- set dow = ( now() + timedelta( days = i ) ).strftime( '%a' ) | lower %}
+          {%- if isWeekOdd %}
+              {{ daysUntil + 7 }} days away
 
-                {%- if dow in wd %}
-                  {%- set ns.days = ns.days + [i] %}
-                {%- endif %}
-              {%- endfor %}
-            {%- endif %}
+            {%- elif 0 == daysUntil %}
+              Today
 
-            {% set value = ns.days | min %}
+            {%- elif 1 == daysUntil %}
+              Tomorrow
 
-            {%- if isWeekEven %}
-              {%- if ( 0 == value ) %}
-                Today
-
-              {%- elif ( 1 == value ) %}
-                Tomorrow
-
-              {%- else %}
-                in {{ value }} days
-
-              {%- endif %}
             {%- else %}
-              in {{ value + 7 }} days
+              {{ daysUntil }} days away
 
             {%- endif %}
-          {%- else -%}
-            Never
-
           {%- endif %}
-
-        attributes:
-          days_until: >-
-            {%- set ns = namespace( days = [] ) %}
-            {%- set wd = state_attr( 'binary_sensor.cleaning_day', 'workdays' ) %}
-            {%- set today = now().strftime( '%a' ) | lower %}
-            {%- set isWeekEven = is_state( 'sensor.is_week_even', 'on' ) %}
-
-            {%- if wd %}
-              {%- if today in wd %}
-                {%- set ns.days = ns.days + [0] %}
-
-              {%- else -%}
-                {%- for i in range( 1, 7, 1 ) %}
-                  {%- set dow = ( now() + timedelta( days = i ) ).strftime( '%a' ) | lower %}
-
-                  {%- if dow in wd %}
-                    {%- set ns.days = ns.days + [i] %}
-                  {%- endif %}
-                {%- endfor %}
-              {%- endif %}
-
-              {% set value = ns.days | min %}
-
-              {%- if isWeekEven %}
-                {{value}}
-
-              {%- else %}
-                {{ value + 7 }}
-
-              {%- endif %}
-            {%- else -%}
-              {{ '-1' | int }}
-
-            {%- endif %}
 
   - trigger:
       # Update on Home Assistant startup

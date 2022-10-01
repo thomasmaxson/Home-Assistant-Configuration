@@ -71,7 +71,7 @@ browser_mod:
                 name: Evening Automation
 
               - type: section
-                label: Waste Collection
+                label: Schedules
 
               - type: conditional
                 conditions:
@@ -83,7 +83,7 @@ browser_mod:
                     state_not: "unknown"
                 row:
                   entity: sensor.days_until_waste_day_solid
-                  name: Solid Waste Pickup
+                  name: Trash Pickup
 
               - type: conditional
                 conditions:
@@ -95,24 +95,31 @@ browser_mod:
                     state_not: "unknown"
                 row:
                   entity: sensor.days_until_waste_day_bulk
-                  name: Bulk Waste Pickup
+                  name: Bulk Pickup
 
-              # - type: conditional
-              #   conditions:
-              #     - entity: schedule.waste_take_out_recycle
-              #       state_not: "unknown"
-              #     - entity: sensor.days_until_waste_day_recycle
-              #       state_not: "unavailable"
-              #     - entity: sensor.days_until_waste_day_recycle
-              #       state_not: "unknown"
-              #   row:
-              #     entity: days_until_waste_day_recycle
-              #     name: Recycling Pickup
+              - type: conditional
+                conditions:
+                  - entity: schedule.waste_take_out_recycle
+                    state_not: "unknown"
+                  - entity: sensor.days_until_waste_day_recycle
+                    state_not: "unavailable"
+                  - entity: sensor.days_until_waste_day_recycle
+                    state_not: "unknown"
+                row:
+                  entity: days_until_waste_day_recycle
+                  name: Recycling Pickup
 
-              - type: section
-                label: Clean Household
-              - entity: sensor.cleaning_day
-                name: Frances Comes
+              - type: conditional
+                conditions:
+                  - entity: schedule.house_cleaning
+                    state_not: "unknown"
+                  - entity: sensor.days_until_cleaning_day
+                    state_not: "unavailable"
+                  - entity: sensor.days_until_cleaning_day
+                    state_not: "unknown"
+                row:
+                  entity: sensor.days_until_cleaning_day
+                  name: House Cleaning
 
           - type: entities
             view_layout:
