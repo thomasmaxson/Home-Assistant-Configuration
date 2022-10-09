@@ -109,7 +109,7 @@ template:
 
           weather: |
             {%- if is_state( 'input_boolean.sidebar_display_weather_forecast', 'on' ) %}
-              {%- set ignore = [ 'unknown', 'unavailable' ] -%}
+              {%- set ignore = [ null, 'unknown', 'unavailable' ] -%}
               {%- set temperature = states( 'sensor.openweathermap_temperature' ) | round %}
               {%- set forecast = states( 'sensor.openweathermap_forecast_condition' ) %}
 
@@ -159,7 +159,7 @@ template:
             {%- endif %}
 
           lights_on: |
-            {%- set ignore = [ '0', 'unknown', 'unavailable' ] -%}
+            {%- set ignore = [ null, '0', 'unknown', 'unavailable' ] -%}
             {%- set count = states( 'sensor.total_lights_on' ) %}
 
             {%- if count not in ignore and is_state( 'input_boolean.sidebar_display_lights_on', 'on' ) %}
@@ -168,7 +168,7 @@ template:
             {%- endif %}
 
           doors_open: |
-            {%- set ignore = [ '0', 'unknown', 'unavailable' ] -%}
+            {%- set ignore = [ null, '0', 'unknown', 'unavailable' ] -%}
             {%- set count = states( 'sensor.total_doors_open' ) %}
 
             {%- if count not in ignore and is_state( 'input_boolean.sidebar_display_doors_open', 'on' ) %}
@@ -180,19 +180,19 @@ template:
             {%- if is_state( 'input_boolean.sidebar_display_exterior_door_status', 'on' ) %}
               {%- set ns = namespace( output = [] ) -%}
               {%- set state_lock_front  = states( 'lock.front_door' ) -%}
-              {%- set ignore_lock_front = [ 'locked', 'unknown', 'unavailable' ] -%}
+              {%- set ignore_lock_front = [ null, 'locked', 'unknown', 'unavailable' ] -%}
 
               {%- set state_door_front   = states( 'binary_sensor.door_front_primary' ) -%}
-              {%- set ignore_door_front = [ 'off', 'unknown', 'unavailable' ] -%}
+              {%- set ignore_door_front = [ null, 'off', 'unknown', 'unavailable' ] -%}
 
               {%- set state_cover_garage = states( 'cover.garage_door' ) -%}
-              {%- set ignore_cover_garage = [ 'closed', 'unknown', 'unavailable' ] -%}
+              {%- set ignore_cover_garage = [ null, 'closed', 'unknown', 'unavailable' ] -%}
 
               {%- set state_door_garage  = states( 'binary_sensor.door_garage' ) -%}
-              {%- set ignore_door_garage = [ 'off', 'unknown', 'unavailable' ] -%}
+              {%- set ignore_door_garage = [ null, 'off', 'unknown', 'unavailable' ] -%}
 
               {%- set state_door_sliding = states( 'binary_sensor.door_living' ) -%}
-              {%- set ignore_door_sliding = [ 'off', 'unknown', 'unavailable' ] -%}
+              {%- set ignore_door_sliding = [ null, 'off', 'unknown', 'unavailable' ] -%}
 
               {%- set status_lock_front   = iif( ( state_lock_front not in ignore_lock_front ), true, false ) -%}
               {%- set status_door_front   = iif( ( state_door_front not in ignore_door_front ), true, false ) -%}
@@ -276,7 +276,7 @@ template:
 
           waste: |
             {%- if is_state( 'input_boolean.sidebar_display_waste_reminder', 'on' ) -%}
-              {%- set ignore = [ 'off', 'unknown', 'unavailable' ] -%}
+              {%- set ignore = [ null, 'off', 'unknown', 'unavailable' ] -%}
 
               {%- set state_take_out_solid   = states( 'schedule.waste_take_out_solid' ) %}
               {%- set state_take_out_recycle = states( 'schedule.waste_take_out_recycle' ) %}

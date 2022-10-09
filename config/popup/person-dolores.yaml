@@ -57,8 +57,8 @@ browser_mod:
             entities:
               - entity: person.dolores
                 secondary_info: last-changed
-              - entity: sensor.tatis_iphone_steps
-                name: Step Count
+              # - entity: sensor.tatis_iphone_steps
+              #   name: Step Count
 
           # - type: history-graph
           #   entities:

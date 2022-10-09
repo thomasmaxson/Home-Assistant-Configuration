@@ -300,18 +300,20 @@ template:
           {%- if 'on' == states( entity ) %}
             Now
           {%- else %}
-            {%- set ts_now = as_timestamp( now() ) %}
-            {%- set ts_next = as_timestamp( nextEvent ) %}
-            {%- set daysUntil = ( ( ts_next - ts_now ) | int / 60 / 1440 ) | round( 0 ) %}
+            {%- set date_today = as_timestamp( now() ) | timestamp_custom( '%F' ) %}
+            {%- set date_tomorrow = ( as_timestamp( now() + timedelta( days = 1 ) ) ) | timestamp_custom( '%F' ) %}
+            {%- set date_nextEvent = as_timestamp( nextEvent ) | timestamp_custom( '%F' ) %}
 
-            {%- if 0 == daysUntil %}
+            {%- set daysUntil = ( ( as_timestamp( date_nextEvent ) - as_timestamp( date_today ) ) | int /60/1440 ) | round( 0 ) | string %}
+
+            {%- if date_today == date_nextEvent %}
               Today
 
-            {%- elif 1 == daysUntil %}
+            {%- elif date_tomorrow == date_nextEvent %}
               Tomorrow
 
             {%- else %}
-              {{daysUntil}} days away
+              {{ iif( ( '1' == daysUntil ), daysUntil + ' day away', daysUntil + ' days away' ) }}
 
             {%- endif %}
           {%- endif %}
@@ -325,18 +327,20 @@ template:
           {%- if 'on' == states( entity ) %}
             Now
           {%- else %}
-            {%- set ts_now = as_timestamp( now() ) %}
-            {%- set ts_next = as_timestamp( nextEvent ) %}
-            {%- set daysUntil = ( ( ts_next - ts_now ) | int / 60 / 1440 ) | round( 0 ) %}
+            {%- set date_today = as_timestamp( now() ) | timestamp_custom( '%F' ) %}
+            {%- set date_tomorrow = ( as_timestamp( now() + timedelta( days = 1 ) ) ) | timestamp_custom( '%F' ) %}
+            {%- set date_nextEvent = as_timestamp( nextEvent ) | timestamp_custom( '%F' ) %}
 
-            {%- if 0 == daysUntil %}
+            {%- set daysUntil = ( ( as_timestamp( date_nextEvent ) - as_timestamp( date_today ) ) | int /60/1440 ) | round( 0 ) | string %}
+
+            {%- if date_today == date_nextEvent %}
               Today
 
-            {%- elif 1 == daysUntil %}
+            {%- elif date_tomorrow == date_nextEvent %}
               Tomorrow
 
             {%- else %}
-              {{daysUntil}} days away
+              {{ iif( ( '1' == daysUntil ), daysUntil + ' day away', daysUntil + ' days away' ) }}
 
             {%- endif %}
           {%- endif %}
@@ -350,18 +354,20 @@ template:
           {%- if 'on' == states( entity ) %}
             Now
           {%- else %}
-            {%- set ts_now = as_timestamp( now() ) %}
-            {%- set ts_next = as_timestamp( nextEvent ) %}
-            {%- set daysUntil = ( ( ts_next - ts_now ) | int / 60 / 1440 ) | round( 0 ) %}
+            {%- set date_today = as_timestamp( now() ) | timestamp_custom( '%F' ) %}
+            {%- set date_tomorrow = ( as_timestamp( now() + timedelta( days = 1 ) ) ) | timestamp_custom( '%F' ) %}
+            {%- set date_nextEvent = as_timestamp( nextEvent ) | timestamp_custom( '%F' ) %}
 
-            {%- if 0 == daysUntil %}
+            {%- set daysUntil = ( ( as_timestamp( date_nextEvent ) - as_timestamp( date_today ) ) | int /60/1440 ) | round( 0 ) | string %}
+
+            {%- if date_today == date_nextEvent %}
               Today
 
-            {%- elif 1 == daysUntil %}
+            {%- elif date_tomorrow == date_nextEvent %}
               Tomorrow
 
             {%- else %}
-              {{daysUntil}} days away
+              {{ iif( ( '1' == daysUntil ), daysUntil + ' day away', daysUntil + ' days away' ) }}
 
             {%- endif %}
           {%- endif %}
@@ -383,30 +389,27 @@ template:
       - name: "Days Until, Cleaning Day"
         icon: mdi:spray-bottle
         state: >-
-          {%- set entity = 'schedule.house_cleaning' %}
-          {%- set nextEvent = state_attr( entity, 'next_event' ) %}
-          {%- set isWeekOdd = is_state( 'sensor.is_week_odd', 'on' ) %}
+          {%- set entity = 'calendar.casamaxson_cleaning_schedule' %}
+          {%- set eventStart = state_attr( entity, 'start_time' ) | as_timestamp %}
+          {%- set eventEnd   = state_attr( entity, 'end_time' ) | as_timestamp %}
 
-          {%- if 'on' == states( entity ) and not isWeekOdd %}
+          {%- set untilDays = ( ( eventStart - now().replace( hour = 0, minute = 0, second = 0, microsecond = 0 ).timestamp() ) / 86400 ) | int %}
+
+          {%- set untilMinStart = ( ( eventStart - now().timestamp() ) / 60 ) | int %}
+          {%- set untilMinEnd   = ( ( eventEnd - now().timestamp() ) / 60 ) | int %}
+
+          {%- if untilMinStart <= 0 and untilMinEnd >= 0 %}
             Now
+
+          {%- elif untilDays <= 0 %}
+            Today
+
+          {%- elif untilDays <= 1 %}
+            Tomorrow
+
           {%- else %}
-            {%- set ts_now = as_timestamp( now() ) %}
-            {%- set ts_next = as_timestamp( nextEvent ) %}
-            {%- set daysUntil = ( ( ts_next - ts_now ) | int / 60 / 1440 ) | round( 0 ) %}
+            {{ iif( ( 1 == untilDays ), untilDays + ' day away', untilDays + ' days away' ) }}
 
-          {%- if isWeekOdd %}
-              {{ daysUntil + 7 }} days away
-
-            {%- elif 0 == daysUntil %}
-              Today
-
-            {%- elif 1 == daysUntil %}
-              Tomorrow
-
-            {%- else %}
-              {{ daysUntil }} days away
-
-            {%- endif %}
           {%- endif %}
 
   - trigger:

@@ -48,7 +48,7 @@ details:
       }
 
       #card { 
-        padding: calc( var( --tihiti-footer-card-padding-v ) * 3 ) var( --tihiti-footer-card-padding-h );
+        padding: calc( var( --tihiti-footer-card-padding-v ) * 4.5 ) var( --tihiti-footer-card-padding-h );
         width: 100% !important;
       }
     }

@@ -714,7 +714,7 @@ views:
                   - type: custom:decluttering-card
                     template: button_media_echo
                     variables:
-                      - name: Echo Dot
+                      - name: Echo, Guest Bedroom
                       - room: Guest Bedroom
                       - entity: media_player.echo_dot_bedroom_2
                       - permission: input_boolean.household_notify_bedroom_2
