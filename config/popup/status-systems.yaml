@@ -137,11 +137,11 @@ browser_mod:
 
               - type: conditional
                 conditions:
-                  - entity: light.fire_tablet_screen
+                  - entity: switch.fire_tablet_screen
                     state: "on"
                 row:
                   type: custom:slider-entity-row
-                  entity: light.fire_tablet_screen
+                  entity: switch.fire_tablet_screen
                   name: Brightness
                   icon: mdi:brightness-6
                   hide_state: false
