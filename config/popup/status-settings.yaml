@@ -65,10 +65,10 @@ browser_mod:
             card_mod:
               class: column
             entities:
-              - type: section
-                label: Household Automations
-              - entity: sensor.automation_daily_status
-                name: Evening Automation
+              # - type: section
+              #   label: Household Automations
+              # - entity: sensor.evening_automations_status
+              #   name: Evening Automations
 
               - type: section
                 label: Schedules

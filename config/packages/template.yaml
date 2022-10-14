@@ -481,7 +481,7 @@ template:
         minutes: "/01"
         seconds: "00"
     sensor:
-      - name: "Automation Daily Status"
+      - name: "Evening Automations Status"
         state: >-
           {%- set offset = ( 45 * 60 ) %}
           {%- set next_sunset     = as_timestamp( states.sun.sun.attributes.next_setting ) %}

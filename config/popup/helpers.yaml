@@ -76,18 +76,29 @@ browser_mod:
                   name: Foyer Exterior, Override
 
               - type: section
-                label: Daily Evening Automations
-              - entity: sensor.automation_daily_status
+                label: Evening Automations
+              - entity: sensor.evening_automations_status
                 name: Status
+
+              - entity: input_boolean.evening_automations_run
+                name: Run at Sunset
               - type: conditional
                 conditions:
-                  - entity: input_boolean.automation_daily_sunset
+                  - entity: input_boolean.evening_automations_run
                     state: "on"
                 row:
-                  entity: input_boolean.automation_daily_sunset
-                  name: Active
-              - entity: input_button.trigger_evening_automation
-                name: Run Automations
+                  entity: input_button.trigger_evening_automations_run
+                  name: Run Sunset Now
+
+              - entity: input_boolean.evening_automations_reset
+                name: Run at Bedtime
+              - type: conditional
+                conditions:
+                  - entity: input_boolean.evening_automations_reset
+                    state: "on"
+                row:
+                  entity: input_button.trigger_evening_automations_reset
+                  name: Run Bedtime Now
 
               - type: section
                 label: Laundry Reminders
