@@ -694,6 +694,24 @@ views:
                       - light
 
               - type: grid
+                title: Garage
+                columns: 3
+                cards:
+                  - type: custom:button-card
+                    entity: switch.garage_light
+                    name: Ceiling
+                    template:
+                      #- popup_switch
+                      - light
+
+                  - type: custom:button-card
+                    entity: light.garage_fan
+                    name: Fan
+                    template:
+                      #- popup_switch
+                      - light
+
+              - type: grid
                 title: Other
                 columns: 3
                 cards:
@@ -702,13 +720,6 @@ views:
                     name: Guest Hallway
                     template:
                       #- popup_dimmer
-                      - light
-
-                  - type: custom:button-card
-                    entity: switch.garage_light
-                    name: Garage
-                    template:
-                      #- popup_switch
                       - light
 
                   - type: custom:decluttering-card

@@ -334,8 +334,8 @@ browser_mod:
               - type: custom:decluttering-card
                 template: entity_battery_level
                 variables:
-                  - entity: sensor.switch_bedroom_1_for_bedroom_1_battery
-                  - name: In Bedroom 1, for Bedroom 1
+                  - entity: sensor.switch_garage_for_garage_fan_battery
+                  - name: In Garage, for Garage Fan
 
               - type: custom:decluttering-card
                 template: entity_battery_level
