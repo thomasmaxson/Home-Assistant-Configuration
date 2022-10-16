@@ -79,22 +79,26 @@ Make sure that you :star: this repo, so that you can get updates right in your n
 <details>
 <summary>Click to Expand</summary>
 
-* Node RED
+* [Node RED](https://zachowj.github.io/node-red-contrib-home-assistant-websocket/guide/custom_integration/)
 * [Mushroom Cards](https://github.com/piitaya/lovelace-mushroom)
-* [Alexa Media Player](https://github.com/custom-components/alexa_media_player/wiki)
+* [Alexa Media Player](https://github.com/custom-components/alexa_media_player)
 * [Apple TV](https://www.home-assistant.io/integrations/apple_tv)
 * [August](https://www.home-assistant.io/integrations/august)
-* [Browser Mod](https://github.com/thomasloven/hass-browser_mod/blob/master/README.md)
+* [Browser Mod](https://github.com/thomasloven/hass-browser_mod)
 * [Ecobee](https://www.home-assistant.io/integrations/ecobee)
 * [Fully Kiosk](https://github.com/cgarwood/homeassistant-fullykiosk)
+* [GE SmartHQ](https://github.com/simbaja/ha_gehome)
 * [HACS](https://hacs.xyz/docs/configuration/start)
 * [Philips Hue](https://www.home-assistant.io/integrations/hue)
 * [Home Assistant iOS](https://www.home-assistant.io/integrations/ios)
 * [Lutron Caséta](https://www.home-assistant.io/integrations/lutron_caseta)
 * [MyQ](https://www.home-assistant.io/integrations/myq)
 * [Rachio](https://www.home-assistant.io/integrations/rachio)
-* [Ring](https://www.home-assistant.io/integrations/ring)
-* [Zigbee Home Automation](https://www.home-assistant.io/integrations/zha)  
+* [Shelly](https://www.home-assistant.io/integrations/shelly)
+* [Switchbot](https://www.home-assistant.io/integrations/switchbot)
+* [UniFi Protect](https://www.home-assistant.io/integrations/unifiprotect)
+* [WLED](https://www.home-assistant.io/integrations/wled)
+* [Zigbee2MQTT](https://www.home-assistant.io/integrations/mqtt)
 
 </details>
 
