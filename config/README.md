@@ -62,6 +62,7 @@ Make sure that you :star: this repo, so that you can get updates right in your n
 * [Aqara Leak Sensor](https://www.amazon.com/gp/product/B07D39MSZS/)
 * [Aqara Motion Sensor](https://www.amazon.com/gp/product/B07D1CRRVF/)
 * [Aqara Temperature Sensor](https://www.amazon.com/gp/product/B07D37FKGY/)
+* [Shelly 1 One Relay Switch](https://www.amazon.com/gp/product/B07NQNLDTD/)
 * [SONOFF SNZB-02 Temperature and Humidity Sensor](https://www.amazon.com/gp/product/B08BCJNDYQ/)
 
 ##### Climate
