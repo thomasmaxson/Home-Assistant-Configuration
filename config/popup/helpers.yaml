@@ -67,14 +67,6 @@ browser_mod:
               # - entity: input_boolean.home_away_mode
               #   name: Home Away Mode
 
-              - type: conditional
-                conditions:
-                  - entity: input_boolean.manual_override_foyer_exterior_entryway
-                    state: "on"
-                row:
-                  entity: input_boolean.manual_override_foyer_exterior_entryway
-                  name: Foyer Exterior, Override
-
               - type: section
                 label: Evening Automations
               - entity: sensor.evening_automations_status
