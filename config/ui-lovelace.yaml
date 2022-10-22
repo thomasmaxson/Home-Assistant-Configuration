@@ -708,8 +708,10 @@ views:
                     entity: light.garage_fan
                     name: Fan
                     template:
-                      #- popup_switch
                       - light
+                    variables:
+                      circle_value: "ON"
+                      circle_value_unit: ""
 
               - type: grid
                 title: Other
