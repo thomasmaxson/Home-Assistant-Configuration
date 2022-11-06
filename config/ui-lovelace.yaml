@@ -83,46 +83,48 @@ views:
       # SIDEBAR
       # --------------------------------------------------
 
-      - type: vertical-stack
+      - type: custom:mod-card
         view_layout:
           grid-area: sidebar
-        cards:
-          - type: custom:button-card
-            entity: sensor.template_sidebar
-            template: sidebar_template
-            tap_action: !include popup/status-sidebar.yaml
-            double_tap_action: !include popup/status-sidebar.yaml
+        card:
+          type: vertical-stack
+          cards:
+            - type: custom:button-card
+              entity: sensor.template_sidebar
+              template: sidebar_template
+              tap_action: !include popup/status-sidebar.yaml
+              double_tap_action: !include popup/status-sidebar.yaml
 
-          - type: conditional
-            conditions:
-              - entity: sensor.custom_laundry_machine_state
-                state: "on"
-            card:
-              type: custom:mod-card
-              card_mod:
-                style:
-                  hui-grid-card$: |
-                    #root {
-                      padding-top: 10%;
-                    }
+            - type: conditional
+              conditions:
+                - entity: sensor.custom_laundry_machine_state
+                  state: "on"
               card:
-                type: grid
-                square: false
-                columns: 1
-                cards:
-                  - type: custom:button-card
-                    entity: sensor.laundry_washer_combined_details
-                    icon: mdi:washing-machine
-                    name: Washing Machine
-                    template:
-                      - laundry
+                type: custom:mod-card
+                card_mod:
+                  style:
+                    hui-grid-card$: |
+                      #root {
+                        padding-top: 10%;
+                      }
+                card:
+                  type: grid
+                  square: false
+                  columns: 1
+                  cards:
+                    - type: custom:button-card
+                      entity: sensor.laundry_washer_combined_details
+                      icon: mdi:washing-machine
+                      name: Washing Machine
+                      template:
+                        - laundry
 
-                  - type: custom:button-card
-                    entity: sensor.laundry_dryer_combined_details
-                    icon: mdi:tumble-dryer
-                    name: Tumble Dryer
-                    template:
-                      - laundry
+                    - type: custom:button-card
+                      entity: sensor.laundry_dryer_combined_details
+                      icon: mdi:tumble-dryer
+                      name: Tumble Dryer
+                      template:
+                        - laundry
 
       #
       # COMMON AREAS
@@ -155,21 +157,18 @@ views:
                     entity: light.kitchen_ceiling_lights
                     name: Kitchen
                     template:
-                      #- popup_dimmer_colors
                       - light
 
                   - type: custom:button-card
                     entity: light.dining_room_chandelier
                     name: Chandelier
                     template:
-                      #- popup_dimmer
                       - light
 
                   - type: custom:button-card
                     entity: light.living_room_corner_lamp
                     name: Corner Lamp
                     template:
-                      #- popup_dimmer_colors
                       - light
 
               - type: grid
@@ -178,7 +177,6 @@ views:
                 cards:
                   - type: conditional
                     conditions:
-                      #- entity: group.kitchen_cabinet_upper_lights
                       - entity: light.kitchen_cabinet_upper_coffee_bar
                         state_not: "unavailable"
                       - entity: light.kitchen_cabinet_upper_range
@@ -190,10 +188,8 @@ views:
                     card:
                       type: custom:button-card
                       entity: light.cabinet_upper_lights
-                      #entity: light.kitchen_cabinet_upper_coffee_bar
                       name: Up Lighting
                       template:
-                        #- popup_dimmer_colors
                         - light
 
                   - type: conditional
@@ -207,7 +203,6 @@ views:
                       entity: light.kitchen_cabinet_upper_coffee_bar
                       name: Above Coffee Bar
                       template:
-                        #- popup_dimmer_colors
                         - light
 
                   - type: conditional
@@ -221,7 +216,6 @@ views:
                       entity: light.kitchen_cabinet_upper_range
                       name: Above Range
                       template:
-                        #- popup_dimmer_colors
                         - light
 
               - type: grid
@@ -293,7 +287,6 @@ views:
                     entity: light.foyer_ceiling_ledge
                     name: Ledge
                     template:
-                      #- popup_dimmer_colors
                       - light
 
                   - type: conditional
@@ -307,7 +300,6 @@ views:
                       entity: light.foyer_ceiling_lights
                       name: Ceiling
                       template:
-                        #- popup_dimmer
                         - light
 
                   - type: conditional
@@ -321,7 +313,6 @@ views:
                       entity: light.foyer_hallway_ceiling
                       name: Hallway
                       template:
-                        #- popup_dimmer
                         - light
 
                   - type: conditional
@@ -335,7 +326,6 @@ views:
                       entity: light.foyer_entryway_ceiling
                       name: Entryway
                       template:
-                        #- popup_dimmer
                         - light
 
               - type: grid
@@ -346,7 +336,6 @@ views:
                     entity: light.foyer_under_table
                     name: Floor
                     template:
-                      #- popup_dimmer_colors
                       - light
 
                   # - type: custom:button-card
@@ -473,6 +462,22 @@ views:
                       - permission: input_boolean.household_notify_bedroom_1
 
               - type: grid
+                title: Main Bathroom
+                columns: 3
+                cards:
+                  - type: custom:button-card
+                    entity: switch.main_bathroom_lights_switch_a
+                    name: Ceiling
+                    template:
+                      - light
+
+                  - type: custom:button-card
+                    entity: switch.main_bathroom_lights_switch_b
+                    name: Vanity
+                    template:
+                      - light
+
+              - type: grid
                 title: Closet Lights
                 columns: 3
                 cards:
@@ -487,14 +492,12 @@ views:
                     entity: light.closet_hallway_light_j
                     name: Her Closet
                     template:
-                      #- popup_dimmer_colors
                       - light
 
                   - type: custom:button-card
                     entity: light.closet_hallway_light_t
                     name: His Closet
                     template:
-                      #- popup_dimmer_colors
                       - light
 
       #
@@ -535,7 +538,6 @@ views:
                       entity: light.bedroom_4_lights
                       name: Tom
                       template:
-                        #- popup_dimmer_colors
                         - light
 
                   - type: conditional
@@ -549,7 +551,6 @@ views:
                       entity: light.bedroom_4_desk_lamp
                       name: Tom, Desk Lamp
                       template:
-                        #- popup_dimmer_colors
                         - light
 
                   - type: conditional
@@ -563,34 +564,19 @@ views:
                       entity: light.bedroom_4_lightstrip
                       name: Tom, Lightstrip
                       template:
-                        #- popup_dimmer_colors
                         - light
-
-                  # - type: custom:button-card
-                  #   entity: light.bedroom_4_lights
-                  #   name: Tom
-                  #   template:
-                  #     - popup_dimmer_colors
-                  #     - light
 
                   - type: custom:button-card
                     entity: light.closet_hallway_ceiling_light
                     name: Jess
                     icon: hue:room-office
                     template:
-                      #- popup_dimmer
                       - light
 
               - type: grid
                 title: Tom's Office Media
                 columns: 3
                 cards:
-                  # - type: custom:button-card
-                  #   entity: media_player.appletv_bedroom_4
-                  #   name: AppleTV
-                  #   template:
-                  #     - media
-
                   - type: custom:decluttering-card
                     template: button_media_appletv
                     variables:
@@ -658,21 +644,18 @@ views:
                     entity: switch.backyard_string_lights
                     name: Backyard
                     template:
-                      #- popup_switch
                       - light
 
                   - type: custom:button-card
                     entity: light.foyer_exterior_entryway
                     name: Entryway
                     template:
-                      #- popup_dimmer
                       - light
 
                   - type: custom:button-card
                     entity: light.garage_exterior
                     name: Garage
                     template:
-                      #- popup_dimmer
                       - light
 
               - type: grid
@@ -683,14 +666,12 @@ views:
                     entity: light.laundry_ceiling_light
                     name: Ceiling
                     template:
-                      #- popup_dimmer_colors
                       - light
 
                   - type: custom:button-card
                     entity: light.laundry_hallway_light
                     name: Hallway
                     template:
-                      #- popup_dimmer
                       - light
 
               - type: grid
@@ -701,7 +682,6 @@ views:
                     entity: switch.garage_light
                     name: Ceiling
                     template:
-                      #- popup_switch
                       - light
 
                   - type: custom:button-card
@@ -721,7 +701,6 @@ views:
                     entity: light.guest_hallway_light
                     name: Guest Hallway
                     template:
-                      #- popup_dimmer
                       - light
 
                   - type: custom:decluttering-card
@@ -839,7 +818,7 @@ views:
         card_mod:
           style:
             hui-horizontal-stack-card$: |
-              #root {
+              #root { 
                 justify-content: space-between;
                 margin-top: 2vw;
               }
@@ -861,7 +840,6 @@ views:
           type: horizontal-stack
           cards:
             - type: custom:button-card
-              #icon: hass:home-circle-outline
               name: >
                 <ha-icon icon="mdi:home"></ha-icon> Overview
               template:
@@ -870,7 +848,6 @@ views:
               double_tap_action: !include popup/status-household-overview.yaml
 
             - type: custom:button-card
-              #icon: hass:home-circle-outline
               name: >
                 <ha-icon icon="mdi:floor-plan"></ha-icon> Details
               template:
@@ -879,7 +856,6 @@ views:
               double_tap_action: !include popup/status-household-details.yaml
 
             - type: custom:button-card
-              #icon: hass:thermometer
               name: >
                 <ha-icon icon="mdi:thermometer"></ha-icon> Temperature
               template:
@@ -888,7 +864,6 @@ views:
               double_tap_action: !include popup/status-temperatures.yaml
 
             - type: custom:button-card
-              #icon: hass:router-wireless
               name: >
                 <ha-icon icon="mdi:router-wireless"></ha-icon> Router
               template:
@@ -897,7 +872,6 @@ views:
               double_tap_action: !include popup/status-router.yaml
 
             - type: custom:button-card
-              #icon: hass:information-outline
               name: >
                 <ha-icon icon="mdi:information"></ha-icon> Systems
               template:
@@ -906,7 +880,6 @@ views:
               double_tap_action: !include popup/status-systems.yaml
 
             - type: custom:button-card
-              #icon: hass:cog
               name: >
                 <ha-icon icon="mdi:cog"></ha-icon> Settings
               template:
