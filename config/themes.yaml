@@ -37,8 +37,9 @@ themes:
     input-dropdown-icon-color: rgba(255, 255, 255, 0.54)
 
     # Edited
-    ha-card-box-shadow: none
+    #ha-card-box-shadow: none
     ha-card-background: none
+    ha-card-border-width: 0
     grid-card-gap: 5%
     masonry-view-card-margin: 0
 
