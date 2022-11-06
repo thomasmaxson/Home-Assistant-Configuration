@@ -71,6 +71,7 @@ base:
       - letter-spacing: 0.05vw
 
     card:
+      - border-width: 0
       - border-radius: var(--button-card-border-radius)
       - -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
       - transition: none
