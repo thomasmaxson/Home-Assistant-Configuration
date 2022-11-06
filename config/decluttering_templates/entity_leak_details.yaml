@@ -38,6 +38,7 @@ card:
     {% else %}
       mdi:[[icon_unknown]]
     {% endif %}
+
   icon_color: >-
     {% set state = states( '[[entity]]' ) | lower %}
     {% if state == 'on' %}
