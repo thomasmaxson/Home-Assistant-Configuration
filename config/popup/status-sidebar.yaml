@@ -57,6 +57,8 @@ browser_mod:
                 'column_a'
         cards:
           - type: entities
+            card_mod:
+              class: column
             entities:
               - type: section
                 label: Sidebar Items
