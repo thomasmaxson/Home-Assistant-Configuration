@@ -219,6 +219,21 @@ browser_mod:
                   - entity: light.closet_hallway_light_t
                   - name: Closet (His)
 
+              - type: section
+                label: Main Bathroom
+
+              - type: custom:decluttering-card
+                template: entity_light
+                variables:
+                  - entity: switch.main_bathroom_lights_switch_a
+                  - name: Ceiling
+
+              - type: custom:decluttering-card
+                template: entity_light
+                variables:
+                  - entity: switch.main_bathroom_lights_switch_b
+                  - name: Vanity
+
           - type: entities
             view_layout:
               grid-area: column_c
