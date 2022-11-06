@@ -53,7 +53,7 @@ browser_mod:
         cards:
           - type: entities
             card_mod:
-              class: content
+              class: column
             entities:
               - entity: person.leo
                 secondary_info: last-changed

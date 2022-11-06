@@ -62,7 +62,7 @@ browser_mod:
               grid-area: column_a
             show_header_toggle: false
             card_mod:
-              class: content
+              class: column
             entities:
               # - entity: input_boolean.home_away_mode
               #   name: Home Away Mode
@@ -99,20 +99,12 @@ browser_mod:
               - entity: input_boolean.reminder_laundry_complete_dryer
                 name: Dryer Complete Reminder
 
-              # - type: section
-              #   label: Zigbee2MQTT
-              # - entity: sensor.zigbee2mqtt_bridge_state
-              #   name: Bridge State
-              # - entity: input_boolean.zigbee2mqtt_allow_join
-              #   name: Allow Devices to Join
-
           - type: entities
             view_layout:
               grid-area: column_b
             show_header_toggle: false
-            #title: Snoozed Notifications
             card_mod:
-              class: content
+              class: column
             entities:
               - type: section
                 label: Snoozed Household Activity
