@@ -62,7 +62,7 @@ template:
           holiday: |
             {%- if is_state( 'input_boolean.sidebar_display_holidays', 'on' ) %}
               {%- if states.calendar.holidays_in_united_states.state == 'on' %}
-                Today is {{ states.calendar.holidays_in_united_states.attributes.message }}.
+                Today is {{ states.calendar.holidays_in_united_states.attributes.message }}
 
               {%- endif %}
             {%- endif %}
@@ -101,7 +101,7 @@ template:
                     'your neighborhood', 
                     'Regency Lakes', 
                     'Osprey Point'
-                  ] | random }} today.
+                  ] | random }} today
 
                 {%- endif %}
               {%- endif %}
@@ -119,56 +119,93 @@ template:
                 {%- if is_state( 'sensor.openweathermap_forecast_condition', 'rainy' ) %}
                   {%- set precip = states( 'sensor.openweathermap_forecast_precipitation_probability' ) | round %}
                   {{ [
-                    'with expected rain.', 
-                    'with expected showers.'
+                    'with expected rain', 
+                    'with expected showers'
                   ] | random }}
 
                 {%- elif is_state( 'sensor.openweathermap_forecast_condition', 'cloudy' ) %}
                   {{ [
-                    'with clouds.', 
-                    'with cloudy skies.'
+                    'with clouds', 
+                    'with cloudy skies'
                   ] | random }}
 
                 {%- elif is_state( 'sensor.openweathermap_forecast_condition', 'partlycloudy' ) %}
                   {{ [
-                    'with some clouds.', 
-                    'with partly cloudy skies.',
+                    'with some clouds', 
+                    'with partly cloudy skies',
                     'with scattered clouds'
                   ] | random }}
 
                 {%- else %}
                   {%- if is_state( 'sun.sun', 'above_horizon' ) %}
                     {{ [
-                      'and sunny.', 
-                      'with sun.'
+                      'and sunny', 
+                      'with sun'
                     ] | random }}
 
                   {%- else %}
                     {{ [
-                      'and clear.', 
-                      'with clear skies.'
+                      'and clear', 
+                      'with clear skies'
                     ] | random }}
 
                   {%- endif %}
                 {%- endif %}
 
               {%- else %}
-                Unable to load weather information.
+                Unable to load weather information
 
               {%- endif %}
             {%- endif %}
 
+          # lights_on: |
+          #   {%- set ignore = [ null, '0', 'unknown', 'unavailable' ] -%}
+          #   {%- set count = states( 'sensor.total_lights_on' ) %}
+
+          #   {%- if count not in ignore and is_state( 'input_boolean.sidebar_display_lights_on', 'on' ) %}
+          #     {{ iif( ( '1' == count ), count + ' light is on', count + ' lights are on' ) }}
+
+          #   {%- endif %}
+
           lights_on: |
-            {%- set ignore = [ null, '0', 'unknown', 'unavailable' ] -%}
-            {%- set count = states( 'sensor.total_lights_on' ) %}
+            {%- if is_state( 'input_boolean.sidebar_display_lights_on', 'on' ) %}
+              {%- set ns = namespace( output = [] ) -%}
+              {%- set ignore = [ 'off', '0', 'unknown', 'unavailable' ] -%}
 
-            {%- if count not in ignore and is_state( 'input_boolean.sidebar_display_lights_on', 'on' ) %}
-              {{ iif( ( '1' == count ), count + ' light is on', count + ' lights are on' ) }}
+              {%- set lights_on = states( 'sensor.total_lights_on' ) %}
+              {%- set status_lights_on = iif( ( lights_on not in ignore ), true, false ) -%}
 
-            {%- endif %}
+              {%- set garage_fan_on = states( 'light.garage_fan' ) %}
+              {%- set status_garage_fan_on = iif( ( garage_fan_on not in ignore ), true, false ) -%}
+
+              {%- if ( true == status_lights_on ) -%}
+                {%- set ns.output = ns.output + [ iif( ( '1' == lights_on ), lights_on + ' light', lights_on + ' lights' ) ] -%}
+              {%- endif -%}
+
+              {%- if ( true == status_garage_fan_on ) -%}
+                {%- set ns.output = ns.output + [ iif( ( '0' == lights_on ), 'The garage fan', 'garage fan' ) ] -%}
+              {%- endif -%}
+
+              {%- set verb = iif( ( '1' == lights_on ), 'is', 'are' ) -%}
+
+              {%- if ns.output | length == 1 -%}
+                {{ ns.output | join( '' ) }} {{ verb }} on
+              {%- elif ns.output | length >= 2 -%}
+                {%- for e in ns.output -%}
+                  {% if loop.first %}
+                    {{ e }}
+                  {% elif loop.last %}
+                    and the {{ e }} {{ verb }} on
+                  {% else %}
+                    the {{ e }}, 
+                  {% endif %}
+
+                {%- endfor -%}
+              {%- endif -%}
+            {% endif %}
 
           doors_open: |
-            {%- set ignore = [ null, '0', 'unknown', 'unavailable' ] -%}
+            {%- set ignore = [ 'off', '0', 'unknown', 'unavailable' ] -%}
             {%- set count = states( 'sensor.total_doors_open' ) %}
 
             {%- if count not in ignore and is_state( 'input_boolean.sidebar_display_doors_open', 'on' ) %}
@@ -227,7 +264,7 @@ template:
                   {% if loop.first %}
                     The {{ e }}, 
                   {% elif loop.last %}
-                    and the {{ e }}.
+                    and the {{ e }}
                   {% else %}
                     the {{ e }}, 
                   {% endif %}
@@ -250,9 +287,9 @@ template:
                   {{ minutes }} {{ iif( ( minutes == 1 ), 'minute', 'minutes') }}
                 {%- endif %}
                 {{ [
-                  ' until the sun rises.',
-                  ' until the sun is up.',
-                  ' before the sun officially rises. '
+                  ' until the sun rises',
+                  ' until the sun is up',
+                  ' before the sun officially rises'
                 ] | random }}
               {%- else %}
                 You have
@@ -267,9 +304,9 @@ template:
                 {%- endif %}
 
                 {{ [
-                  ' until the sun sets for the day.',
-                  ' until the sun slips below the horizon.',
-                  ' before the sun officially sets.'
+                  ' until the sun sets for the day',
+                  ' until the sun slips below the horizon',
+                  ' before the sun officially sets'
                 ] | random }}
               {%- endif %}
             {%- endif %}
