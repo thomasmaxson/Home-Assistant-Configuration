@@ -113,6 +113,6 @@ Make sure that you :star: this repo, so that you can get updates right in your n
 Below are a few of my most used resources. If you like what you see here, please check them out as well!
 
 * [Matt8707 (Mattias Persson)](https://github.com/matt8707/hass-config)
-* [Slacker Labs (Jeffery Stone)](https://github.com/thejeffreystone/home-assistant-configuration/)
+* [Slacker Labs (Jeffery Stone)](https://github.com/thejeffreystone/homeassistant-config)
 
 </details>
