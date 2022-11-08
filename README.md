@@ -51,6 +51,8 @@ Make sure that you :star: this repo, so that you can get updates right in your n
 * [Lutron Caseta Outdoor Smart Plug](https://www.amazon.com/gp/product/B08YPFFM58/)
 * [Philips Hue Smart Plug](https://www.amazon.com/gp/product/B07XD578LD/)
 * [MyQ Garage Door Hub](https://www.amazon.com/gp/product/B075RQVSY7/)
+* [Shelly 1 Relay Switch](https://www.amazon.com/gp/product/B07NQNLDTD)
+* [Shelly 2.5 Relay Switch](https://www.amazon.com/gp/product/B07Z623J8Z)
 
 ##### Lights
 * [Philips Hue Smart Lightbulb (BR30)](https://www.amazon.com/gp/product/B07QZHMM57/)
