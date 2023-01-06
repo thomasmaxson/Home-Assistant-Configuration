@@ -1,0 +1,171 @@
+################################################################################
+#
+# @author      : Thomas Maxson
+# @package     : Popup, Media
+# @description :
+#
+################################################################################
+
+action: fire-dom-event
+browser_mod:
+  command: popup
+  service: browser_mod.popup
+  data:
+    title: Media Details
+    #timeout: 15000
+    style: >
+      --popup-max-width: calc( 385px + 385px );
+    content:
+      type: custom:mod-card
+      card_mod:
+        style:
+          layout-card$:
+            grid-layout$:
+              .: |
+                #root { overflow: hidden;}
+              hui-entities-card:
+                $: |
+                  .card-content {
+                    padding: 1.5em 1.5em 0;
+                    margin: -2em 0 1em;
+                  }
+
+                  /* Desktop */
+                  @media screen and (min-width: 992px) { 
+                    .card-content { 
+                      border-right: 1px solid var( --entities-divider-color, var( --divider-color ) );
+                      border-left: 1px solid var( --entities-divider-color, var( --divider-color ) );
+                      margin-right: -1px;
+                      margin-left: -1px;
+                    }
+                  }
+      card:
+        type: custom:layout-card
+        layout_type: custom:grid-layout
+        layout:
+          margin: 0
+          grid-template-columns: repeat( 2, 385px )
+          grid-template-rows: 1fr
+          grid-template-areas: |
+            'column_a column_b'
+          mediaquery:
+            # Tablet and down
+            "(max-width: 992px)":
+              grid-template-columns: 1fr
+              grid-template-rows: repeat( 2, 1fr )
+              grid-template-areas: |
+                'column_a'
+                'column_b'
+        cards:
+          - type: entities
+            view_layout:
+              grid-area: column_a
+            show_header_toggle: false
+            card_mod:
+              class: column
+            entities:
+              - type: section
+                label: Living Room
+
+              - type: custom:decluttering-card
+                template: entity_media_appletv
+                variables:
+                  - entity: media_player.appletv_living_room
+                  - name: Apple TV
+
+              - type: custom:decluttering-card
+                template: entity_media_tv
+                variables:
+                  - entity: media_player.sony_bravia_tv
+                  - name: Television
+
+              - entity: light.tv_ambient_lights
+
+              - type: section
+                label: Kitchen
+
+              - type: custom:decluttering-card
+                template: entity_media_echo
+                variables:
+                  - entity: media_player.echo_kitchen
+                  - name: Amazon Echo
+
+              - type: section
+                label: Dining Room
+
+              - type: custom:decluttering-card
+                template: entity_media_echo
+                variables:
+                  - entity: media_player.echo_dot_dining_room
+                  - name: Amazon Echo
+
+              - type: section
+                label: Main Bedroom
+
+              - type: custom:decluttering-card
+                template: entity_media_appletv
+                variables:
+                  - entity: media_player.appletv_bedroom_1
+                  - name: Apple TV
+              - type: custom:decluttering-card
+                template: entity_media_echo
+                variables:
+                  - entity: media_player.echo_dot_bedroom_1
+                  - name: Amazon Echo
+
+          - type: entities
+            view_layout:
+              grid-area: column_b
+            show_header_toggle: false
+            card_mod:
+              class: column
+              # style: |
+              #   ha-card {
+              #     margin: 0 !important;
+              #     width: 100%;
+              #   }
+              #   .name { margin: 0 0 1em !important;}
+            entities:
+              - type: section
+                label: Guest Bedroom
+
+              - type: custom:decluttering-card
+                template: entity_media_appletv
+                variables:
+                  - entity: media_player.appletv_bedroom_2
+                  - name: Apple TV
+              - type: custom:decluttering-card
+                template: entity_media_echo
+                variables:
+                  - entity: media_player.echo_dot_bedroom_2
+                  - name: Amazon Echo
+
+              - type: section
+                label: Jess' Office
+
+              - type: custom:decluttering-card
+                template: entity_media_appletv
+                variables:
+                  - entity: media_player.appletv_bedroom_3
+                  - name: Apple TV
+
+              - type: custom:decluttering-card
+                template: entity_media_echo
+                variables:
+                  - entity: media_player.echo_dot_bedroom_3
+                  - name: Amazon Echo
+
+              - type: section
+                label: Tom's Office
+
+              - type: custom:decluttering-card
+                template: entity_media_appletv
+                variables:
+                  - entity: media_player.appletv_bedroom_4
+                  - name: Apple TV
+
+              - type: custom:decluttering-card
+                template: entity_media_echo
+                variables:
+                  - entity: media_player.echo_dot_bedroom_4
+                  - name: Amazon Echo

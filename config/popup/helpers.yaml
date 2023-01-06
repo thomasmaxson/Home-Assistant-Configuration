@@ -95,9 +95,9 @@ browser_mod:
               - type: section
                 label: Laundry Reminders
               - entity: input_boolean.reminder_laundry_complete_washer
-                name: Washer Complete Reminder
+                name: Washer Complete
               - entity: input_boolean.reminder_laundry_complete_dryer
-                name: Dryer Complete Reminder
+                name: Dryer Complete
 
           - type: entities
             view_layout:

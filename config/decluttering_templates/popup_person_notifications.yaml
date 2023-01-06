@@ -33,13 +33,23 @@ card:
       #states > div:nth-child(7) { padding-left: 45px !important;}
   entities:
     - type: section
-    - entity: "[[notify_general]]"
-      name: Recieve Notifications
 
     - type: conditional
       conditions:
         - entity: "[[notify_general]]"
           state: "on"
+        - entity: "[[notify_general]]"
+          state_not: "unavailable"
+      row:
+        entity: "[[notify_info]]"
+        name: Recieve Notifications
+
+    - type: conditional
+      conditions:
+        - entity: "[[notify_general]]"
+          state: "on"
+        - entity: "[[notify_general]]"
+          state_not: "unavailable"
       row:
         entity: "[[notify_info]]"
         name: Informational Notifications
@@ -48,6 +58,8 @@ card:
       conditions:
         - entity: "[[notify_general]]"
           state: "on"
+        - entity: "[[notify_general]]"
+          state_not: "unavailable"
       row:
         entity: "[[notify_activity]]"
         name: Activity Notifications
@@ -56,8 +68,12 @@ card:
       conditions:
         - entity: "[[notify_general]]"
           state: "on"
+        - entity: "[[notify_general]]"
+          state_not: "unavailable"
         - entity: "[[notify_activity]]"
           state: "on"
+        - entity: "[[notify_activity]]"
+          state_not: "unavailable"
       row:
         entity: "[[notify_activity_door_exterior]]"
         name: Doors (Exterior)
@@ -66,8 +82,12 @@ card:
       conditions:
         - entity: "[[notify_general]]"
           state: "on"
+        - entity: "[[notify_general]]"
+          state_not: "unavailable"
         - entity: "[[notify_activity]]"
           state: "on"
+        - entity: "[[notify_activity]]"
+          state_not: "unavailable"
       row:
         entity: "[[notify_activity_door_interior]]"
         name: Doors (Interior)
@@ -76,8 +96,12 @@ card:
       conditions:
         - entity: "[[notify_general]]"
           state: "on"
+        - entity: "[[notify_general]]"
+          state_not: "unavailable"
         - entity: "[[notify_activity]]"
           state: "on"
+        - entity: "[[notify_activity]]"
+          state_not: "unavailable"
       row:
         entity: "[[notify_activity_person_locations]]"
         name: Person Location
@@ -86,6 +110,8 @@ card:
       conditions:
         - entity: "[[notify_general]]"
           state: "on"
+        - entity: "[[notify_general]]"
+          state_not: "unavailable"
       row:
         entity: "[[notify_warning]]"
         name: Warning Notifications
@@ -94,6 +120,8 @@ card:
       conditions:
         - entity: "[[notify_general]]"
           state: "on"
+        - entity: "[[notify_general]]"
+          state_not: "unavailable"
       row:
         entity: "[[notify_critical]]"
         name: Critical Notifications

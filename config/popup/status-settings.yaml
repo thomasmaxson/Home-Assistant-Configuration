@@ -95,17 +95,17 @@ browser_mod:
                   entity: sensor.days_until_waste_day_bulk
                   name: Bulk Pickup
 
-              - type: conditional
-                conditions:
-                  - entity: schedule.waste_take_out_recycle
-                    state_not: "unknown"
-                  - entity: sensor.days_until_waste_day_recycle
-                    state_not: "unavailable"
-                  - entity: sensor.days_until_waste_day_recycle
-                    state_not: "unknown"
-                row:
-                  entity: sensor.days_until_waste_day_recycle
-                  name: Recycling Pickup
+              # - type: conditional
+              #   conditions:
+              #     - entity: schedule.waste_take_out_recycle
+              #       state_not: "unknown"
+              #     - entity: sensor.days_until_waste_day_recycle
+              #       state_not: "unavailable"
+              #     - entity: sensor.days_until_waste_day_recycle
+              #       state_not: "unknown"
+              #   row:
+              #     entity: sensor.days_until_waste_day_recycle
+              #     name: Recycling Pickup
 
               - type: conditional
                 conditions:
@@ -223,3 +223,9 @@ browser_mod:
                 row:
                   entity: input_boolean.sync_bedroom_4_lights
                   name: Tom's Office
+
+              - type: section
+                label: Automations
+
+              - entity: input_boolean.closet_automatic_turn_off
+                name: Turn Off Closet Lights

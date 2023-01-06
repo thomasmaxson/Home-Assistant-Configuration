@@ -66,6 +66,29 @@ browser_mod:
             card_mod:
               class: column
             entities:
+              - type: conditional
+                conditions:
+                  - entity: light.christmas_tree
+                    state_not: "unavailable"
+                  - entity: light.christmas_tree
+                    state_not: "unknown"
+                row:
+                  type: section
+                  label: Seasonal
+
+              - type: conditional
+                conditions:
+                  - entity: light.christmas_tree
+                    state_not: "unavailable"
+                  - entity: light.christmas_tree
+                    state_not: "unknown"
+                row:
+                  type: custom:decluttering-card
+                  template: entity_light
+                  variables:
+                    - entity: light.christmas_tree
+                    - name: Christmas Tree
+
               - type: section
                 label: Exterior Doors
 
@@ -142,6 +165,19 @@ browser_mod:
                 variables:
                   - entity: light.living_room_corner_lamp
                   - name: Living Room, Corner Lamp
+
+              - type: conditional
+                conditions:
+                  - entity: light.tv_ambient_lights
+                    state_not: "unavailable"
+                  - entity: light.tv_ambient_lights
+                    state_not: "unknown"
+                row:
+                  type: custom:decluttering-card
+                  template: entity_light
+                  variables:
+                    - entity: light.tv_ambient_lights
+                    - name: Television, Ambient Light
 
           - type: entities
             view_layout:
@@ -247,6 +283,12 @@ browser_mod:
                 #   style: |
                 #     .divider { margin-top: 0;}
 
+              # - type: custom:decluttering-card
+              #   template: entity_light
+              #   variables:
+              #     - entity: light.bedroom_3_desk_lamp
+              #     - name: Desk Lamp (Hers)
+
               - type: custom:decluttering-card
                 template: entity_light
                 variables:
@@ -286,7 +328,7 @@ browser_mod:
               - type: custom:decluttering-card
                 template: entity_light
                 variables:
-                  - entity: light.garage_light
+                  - entity: light.garage_ceiling
                   - name: Ceiling Light
 
               - type: custom:decluttering-card

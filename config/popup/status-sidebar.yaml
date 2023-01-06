@@ -14,7 +14,7 @@ browser_mod:
     title: Sidebar Items
     #timeout: 15000
     style: >
-      --popup-max-width: calc( 400px );
+      --popup-max-width: 400px;
     content:
       type: custom:mod-card
       card_mod:
@@ -57,6 +57,9 @@ browser_mod:
                 'column_a'
         cards:
           - type: entities
+            view_layout:
+              grid-area: column_a
+            show_header_toggle: false
             card_mod:
               class: column
             entities:

@@ -29,11 +29,11 @@ views:
       grid-template-rows: min-content
       grid-template-columns: 0 23% repeat( 2, 1fr ) 0
       grid-template-areas: |
-        ".  sidebar  common  foyer     ."
-        ".  sidebar  bdr_1   bdr_3_4   ."
-        ".  sidebar  other   resident  ."
-        ".  popups   popups  popups    ."
-        ".  .        .       .         ."
+        ".  sidebar  common    foyer     ."
+        ".  sidebar  bdr_1     other   ."
+        ".  sidebar  exterior  resident  ."
+        ".  popups   popups    popups    ."
+        ".  .        .         .         ."
       mediaquery:
         # Tablet and down
         "(max-width: 992px)":
@@ -42,11 +42,12 @@ views:
           grid-template-columns: 0 1fr 0
           grid-template-areas: |
             ".  sidebar   ."
+            ".  quick     ."
             ".  common    ."
             ".  foyer     ."
             ".  bdr_1     ."
-            ".  bdr_3_4   ."
             ".  other     ."
+            ".  exterior  ."
             ".  resident  ."
             ".  popups    ."
             ".  .         ."
@@ -95,6 +96,52 @@ views:
               tap_action: !include popup/status-sidebar.yaml
               double_tap_action: !include popup/status-sidebar.yaml
 
+            - type: custom:mod-card
+              card_mod:
+                style:
+                  hui-horizontal-stack-card$: |
+                    #root {
+                      padding-top: 10%;
+                    }
+
+                    @media screen and (min-width: 992px) {
+                      #root {
+                        display: none !important;
+                      }
+                    }
+              card:
+                type: horizontal-stack
+                square: false
+                columns: 2
+                cards:
+                  - type: custom:button-card
+                    entity: lock.front_door
+                    name: Front Door
+                    template:
+                      - lock
+                    aspect_ratio: 2/1
+                    styles:
+                      grid:
+                        - grid-template-areas: |
+                            "i  n"
+                            "i  s"
+                        - grid-template-columns: 35% 65%
+                        - grid-template-rows: repeat(2, auto)
+
+                  - type: custom:button-card
+                    entity: cover.garage_door
+                    name: Garage Door
+                    template:
+                      - cover
+                    aspect_ratio: 2/1
+                    styles:
+                      grid:
+                        - grid-template-areas: |
+                            "i  n"
+                            "i  s"
+                        - grid-template-columns: 35% 65%
+                        - grid-template-rows: repeat(2, auto)
+
             - type: conditional
               conditions:
                 - entity: sensor.custom_laundry_machine_state
@@ -112,19 +159,29 @@ views:
                   square: false
                   columns: 1
                   cards:
-                    - type: custom:button-card
-                      entity: sensor.laundry_washer_combined_details
-                      icon: mdi:washing-machine
-                      name: Washing Machine
-                      template:
-                        - laundry
+                    - type: conditional
+                      conditions:
+                        - entity: sensor.laundry_washer_machine_state
+                          state_not: "Off"
+                      card:
+                        type: custom:button-card
+                        entity: sensor.laundry_washer_combined_details
+                        icon: mdi:washing-machine
+                        name: Washing Machine
+                        template:
+                          - laundry
 
-                    - type: custom:button-card
-                      entity: sensor.laundry_dryer_combined_details
-                      icon: mdi:tumble-dryer
-                      name: Tumble Dryer
-                      template:
-                        - laundry
+                    - type: conditional
+                      conditions:
+                        - entity: sensor.laundry_dryer_machine_state
+                          state_not: "Off"
+                      card:
+                        type: custom:button-card
+                        entity: sensor.laundry_dryer_combined_details
+                        icon: mdi:tumble-dryer
+                        name: Tumble Dryer
+                        template:
+                          - laundry
 
       #
       # COMMON AREAS
@@ -133,11 +190,13 @@ views:
       - type: grid
         view_layout:
           grid-area: common
+        title: Common Areas
         square: false
         columns: 1
         cards:
           - type: custom:swipe-card
             square: false
+            reset_after: 30
             parameters:
               autoHeight: true
               roundLengths: true
@@ -150,7 +209,7 @@ views:
                 depth: 300
             cards:
               - type: grid
-                title: Common Areas
+                # title: Common Areas
                 columns: 3
                 cards:
                   - type: custom:button-card
@@ -172,7 +231,7 @@ views:
                       - light
 
               - type: grid
-                title: Kitchen Cabinets
+                # title: Kitchen Cabinets
                 columns: 3
                 cards:
                   - type: conditional
@@ -218,44 +277,6 @@ views:
                       template:
                         - light
 
-              - type: grid
-                title: Living Room Streaming
-                columns: 3
-                cards:
-                  - type: custom:decluttering-card
-                    template: button_media_appletv
-                    variables:
-                      - name: AppleTV
-                      - room: Living Room
-                      - entity: media_player.appletv_living_room
-                      - remote: remote.appletv_living_room
-
-                  - type: custom:button-card
-                    entity: media_player.sony_bravia_tv
-                    name: Television
-                    template:
-                      - base
-
-              - type: grid
-                title: Other Media
-                columns: 3
-                cards:
-                  - type: custom:decluttering-card
-                    template: button_media_echo
-                    variables:
-                      - name: Echo, Kitchen
-                      - room: Kitchen
-                      - entity: media_player.echo_kitchen
-                      - permission: input_boolean.household_notify_kitchen
-
-                  - type: custom:decluttering-card
-                    template: button_media_echo
-                    variables:
-                      - name: Echo, Dining Room
-                      - room: Dining Room
-                      - entity: media_player.echo_dot_dining_room
-                      - permission: input_boolean.household_notify_dining_room
-
       #
       # FOYER
       # --------------------------------------------------
@@ -263,11 +284,13 @@ views:
       - type: grid
         view_layout:
           grid-area: foyer
+        title: Foyer
         square: false
         columns: 1
         cards:
           - type: custom:swipe-card
             square: false
+            reset_after: 30
             parameters:
               autoHeight: true
               roundLengths: true
@@ -280,7 +303,7 @@ views:
                 depth: 300
             cards:
               - type: grid
-                title: Foyer
+                # title: Foyer
                 columns: 3
                 cards:
                   - type: custom:button-card
@@ -329,7 +352,7 @@ views:
                         - light
 
               - type: grid
-                title: Foyer
+                # title: Foyer
                 columns: 3
                 cards:
                   - type: custom:button-card
@@ -368,6 +391,7 @@ views:
         cards:
           - type: custom:swipe-card
             square: false
+            reset_after: 30
             parameters:
               autoHeight: true
               roundLengths: true
@@ -383,25 +407,6 @@ views:
                 title: Main Bedroom
                 columns: 3
                 cards:
-                  - type: conditional
-                    conditions:
-                      - entity: cover.bedroom_1_large_window_left
-                        state_not: "unavailable"
-                      - entity: cover.bedroom_1_large_window_right
-                        state_not: "unavailable"
-                    card:
-                      type: custom:button-card
-                      entity: cover.bedroom_1_large_curtains
-                      name: Curtains
-                      template:
-                        - cover
-
-                  # - type: custom:button-card
-                  #   entity: light.bedroom_1_bedside_lamps
-                  #   name: Bedside Lamps
-                  #   template:
-                  #     - popup_dimmer_colors
-
                   - type: conditional
                     conditions:
                       - entity: light.bedroom_1_bedside_lamps
@@ -441,25 +446,18 @@ views:
                       template:
                         - light
 
-              - type: grid
-                title: Main Bedroom Media
-                columns: 3
-                cards:
-                  - type: custom:decluttering-card
-                    template: button_media_appletv
-                    variables:
-                      - name: AppleTV
-                      - room: Main Bedroom
-                      - entity: media_player.appletv_bedroom_1
-                      - remote: remote.appletv_bedroom_1
-
-                  - type: custom:decluttering-card
-                    template: button_media_echo
-                    variables:
-                      - name: Echo Dot
-                      - room: Main Bedroom
-                      - entity: media_player.echo_dot_bedroom_1
-                      - permission: input_boolean.household_notify_bedroom_1
+                  - type: conditional
+                    conditions:
+                      - entity: cover.bedroom_1_large_window_left
+                        state_not: "unavailable"
+                      - entity: cover.bedroom_1_large_window_right
+                        state_not: "unavailable"
+                    card:
+                      type: custom:button-card
+                      entity: cover.bedroom_1_large_curtains
+                      name: Curtains
+                      template:
+                        - cover
 
               - type: grid
                 title: Main Bathroom
@@ -470,12 +468,18 @@ views:
                     name: Ceiling
                     template:
                       - light
+                    variables:
+                      circle_value: "ON"
+                      circle_value_unit: ""
 
                   - type: custom:button-card
                     entity: switch.main_bathroom_lights_switch_b
                     name: Vanity
                     template:
                       - light
+                    variables:
+                      circle_value: "ON"
+                      circle_value_unit: ""
 
               - type: grid
                 title: Closet Lights
@@ -506,12 +510,13 @@ views:
 
       - type: grid
         view_layout:
-          grid-area: bdr_3_4
+          grid-area: other
         square: false
         columns: 1
         cards:
           - type: custom:swipe-card
             square: false
+            reset_after: 30
             parameters:
               autoHeight: true
               roundLengths: true
@@ -524,94 +529,42 @@ views:
                 depth: 300
             cards:
               - type: grid
-                title: Office's
+                title: Other
                 columns: 3
                 cards:
-                  - type: conditional
-                    conditions:
-                      - entity: light.bedroom_4_lights
-                        state_not: "unavailable"
-                      - entity: input_boolean.sync_bedroom_4_lights
-                        state: "on"
-                    card:
-                      type: custom:button-card
-                      entity: light.bedroom_4_lights
-                      name: Tom
-                      template:
-                        - light
-
-                  - type: conditional
-                    conditions:
-                      - entity: light.bedroom_4_desk_lamp
-                        state_not: "unavailable"
-                      - entity: input_boolean.sync_bedroom_4_lights
-                        state: "off"
-                    card:
-                      type: custom:button-card
-                      entity: light.bedroom_4_desk_lamp
-                      name: Tom, Desk Lamp
-                      template:
-                        - light
-
-                  - type: conditional
-                    conditions:
-                      - entity: light.bedroom_4_lightstrip
-                        state_not: "unavailable"
-                      - entity: input_boolean.sync_bedroom_4_lights
-                        state: "off"
-                    card:
-                      type: custom:button-card
-                      entity: light.bedroom_4_lightstrip
-                      name: Tom, Lightstrip
-                      template:
-                        - light
+                  - type: custom:button-card
+                    entity: light.bedroom_4_lights
+                    name: Tom's Office
+                    template:
+                      - light
 
                   - type: custom:button-card
-                    entity: light.closet_hallway_ceiling_light
-                    name: Jess
-                    icon: hue:room-office
+                    entity: light.laundry_ceiling_light
+                    name: Laundry Room
                     template:
                       - light
 
               - type: grid
-                title: Tom's Office Media
+                title: Garage
                 columns: 3
                 cards:
-                  - type: custom:decluttering-card
-                    template: button_media_appletv
+                  - type: custom:button-card
+                    entity: switch.garage_ceiling
+                    name: Ceiling
+                    template:
+                      - light
                     variables:
-                      - name: AppleTV
-                      - room: Tom's Office
-                      - entity: media_player.appletv_bedroom_4
-                      - remote: remote.appletv_bedroom_4
+                      circle_value: "ON"
+                      circle_value_unit: ""
 
-                  - type: custom:decluttering-card
-                    template: button_media_echo
+                  - type: custom:button-card
+                    entity: light.garage_fan
+                    name: Fan
+                    template:
+                      - light
                     variables:
-                      - name: Echo Dot
-                      - room: Tom's Office
-                      - entity: media_player.echo_dot_bedroom_4
-                      - permission: input_boolean.household_notify_bedroom_4
-
-              - type: grid
-                title: Jess' Office Media
-                columns: 3
-                cards:
-                  - type: custom:decluttering-card
-                    template: button_media_appletv
-                    variables:
-                      - name: AppleTV
-                      - room: Jess' Office
-                      - entity: media_player.appletv_bedroom_3
-                      - remote: remote.appletv_bedroom_3
-
-                  - type: custom:decluttering-card
-                    template: button_media_echo
-                    variables:
-                      - name: Echo Dot
-                      - room: Jess' Office
-                      - entity: media_player.echo_dot_bedroom_3
-                      - permission: input_boolean.household_notify_bedroom_3
+                      circle_value: "ON"
+                      circle_value_unit: ""
 
       #
       # OTHER
@@ -619,12 +572,13 @@ views:
 
       - type: grid
         view_layout:
-          grid-area: other
+          grid-area: exterior
         square: false
         columns: 1
         cards:
           - type: custom:swipe-card
             square: false
+            reset_after: 30
             parameters:
               autoHeight: true
               roundLengths: true
@@ -645,6 +599,9 @@ views:
                     name: Backyard
                     template:
                       - light
+                    variables:
+                      circle_value: "ON"
+                      circle_value_unit: ""
 
                   - type: custom:button-card
                     entity: light.foyer_exterior_entryway
@@ -654,73 +611,25 @@ views:
 
                   - type: custom:button-card
                     entity: light.garage_exterior
-                    name: Garage
-                    template:
-                      - light
-
-              - type: grid
-                title: Laundry Room
-                columns: 3
-                cards:
-                  - type: custom:button-card
-                    entity: light.laundry_ceiling_light
                     name: Ceiling
                     template:
                       - light
 
+              - type: grid
+                title: Misc
+                columns: 3
+                cards:
                   - type: custom:button-card
                     entity: light.laundry_hallway_light
-                    name: Hallway
+                    name: Laundry Hallway
                     template:
                       - light
 
-              - type: grid
-                title: Garage
-                columns: 3
-                cards:
-                  - type: custom:button-card
-                    entity: switch.garage_light
-                    name: Ceiling
-                    template:
-                      - light
-
-                  - type: custom:button-card
-                    entity: light.garage_fan
-                    name: Fan
-                    template:
-                      - light
-                    variables:
-                      circle_value: "ON"
-                      circle_value_unit: ""
-
-              - type: grid
-                title: Other
-                columns: 3
-                cards:
                   - type: custom:button-card
                     entity: light.guest_hallway_light
                     name: Guest Hallway
                     template:
                       - light
-
-                  - type: custom:decluttering-card
-                    template: button_media_echo
-                    variables:
-                      - name: Echo, Guest Bedroom
-                      - room: Guest Bedroom
-                      - entity: media_player.echo_dot_bedroom_2
-                      - permission: input_boolean.household_notify_bedroom_2
-
-              # - type: grid
-              #   title: Guest Bedroom
-              #   columns: 3
-              #   cards:
-              #     - type: custom:button-card
-              #       entity: media_player.appletv_bedroom_2
-              #       name: AppleTV
-              #       icon: hass:apple
-              #       template:
-              #         - media
 
       #
       # RESIDENT
@@ -734,6 +643,7 @@ views:
         cards:
           - type: custom:swipe-card
             square: false
+            reset_after: 30
             parameters:
               autoHeight: true
               roundLengths: true
@@ -769,12 +679,13 @@ views:
 
                   - type: custom:button-card
                     name: Doggies
-                    entity: group.pets
+                    # entity: group.pets
+                    entity: input_boolean.dog_gouda_status
                     show_entity_picture: true
                     entity_picture: /local/uploads/avatar-gouda.png
-                    tap_action: !include popup/pets.yaml
-                    double_tap_action: !include popup/pets.yaml
-                    hold_action: !include popup/pets.yaml
+                    # tap_action: !include popup/pets.yaml
+                    # double_tap_action: !include popup/pets.yaml
+                    # hold_action: !include popup/pets.yaml
                     template:
                       - person_boolean
 
@@ -782,23 +693,23 @@ views:
                 title: Resident Status
                 columns: 3
                 cards:
-                  - type: custom:button-card
-                    name: Leo
-                    entity: person.leo
-                    tap_action: !include popup/person-leonardo.yaml
-                    double_tap_action: !include popup/person-leonardo.yaml
-                    hold_action: !include popup/person-leonardo.yaml
-                    template:
-                      - person
+                  # - type: custom:button-card
+                  #   name: Leo
+                  #   entity: person.leo
+                  #   tap_action: !include popup/person-leonardo.yaml
+                  #   double_tap_action: !include popup/person-leonardo.yaml
+                  #   hold_action: !include popup/person-leonardo.yaml
+                  #   template:
+                  #     - person
 
-                  - type: custom:button-card
-                    name: Dolores
-                    entity: person.dolores
-                    tap_action: !include popup/person-dolores.yaml
-                    double_tap_action: !include popup/person-dolores.yaml
-                    hold_action: !include popup/person-dolores.yaml
-                    template:
-                      - person
+                  # - type: custom:button-card
+                  #   name: Dolores
+                  #   entity: person.dolores
+                  #   tap_action: !include popup/person-dolores.yaml
+                  #   double_tap_action: !include popup/person-dolores.yaml
+                  #   hold_action: !include popup/person-dolores.yaml
+                  #   template:
+                  #     - person
 
                   - type: custom:button-card
                     name: Guests
@@ -854,6 +765,14 @@ views:
                 - details
               tap_action: !include popup/status-household-details.yaml
               double_tap_action: !include popup/status-household-details.yaml
+
+            - type: custom:button-card
+              name: >
+                <ha-icon icon="mdi:television"></ha-icon> Media
+              template:
+                - details
+              tap_action: !include popup/status-media.yaml
+              double_tap_action: !include popup/status-media.yaml
 
             - type: custom:button-card
               name: >

@@ -9,8 +9,7 @@
 card:
   type: custom:mushroom-media-player-card
   entity: "[[entity]]"
-  primary: "[[name]]"
-  secondary: none
+  name: "[[name]]"
   collapsible_controls: true
   use_media_info: false
   media_controls:

@@ -95,7 +95,6 @@ browser_mod:
                 .: |
                   #root {
                     height: 25em;
-                    padding-bottom: 0 !important;
                   }
                   ha-icon-button {
                     color: var(--primary-color);

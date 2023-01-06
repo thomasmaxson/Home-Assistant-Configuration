@@ -381,7 +381,7 @@ browser_mod:
                 template: entity_media_tv
                 variables:
                   - entity: media_player.sony_bravia_tv
-                  - name: Living Room
+                  - name: Living Room TV
 
               - type: section
                 label: AppleTVs
