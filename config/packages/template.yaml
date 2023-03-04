@@ -489,7 +489,7 @@ template:
           {%- set ts_next_sunset  = modified_sunset | timestamp_custom( '%H%M%S' ) | int %}
           {%- set ts_current      = as_timestamp( now() ) | timestamp_custom( '%H%M%S' ) | int %}
 
-          {%- if( is_state( 'input_boolean.automation_daily_sunset', 'on' ) ) %}
+          {%- if( is_state( 'input_boolean.evening_automations_active', 'on' ) ) %}
             Active
           {%- elif( ts_current > ts_next_sunset ) %}
             Complete
@@ -503,7 +503,7 @@ template:
           {%- set ts_next_sunset  = modified_sunset | timestamp_custom( '%H%M%S' ) | int %}
           {%- set ts_current      = as_timestamp( now() ) | timestamp_custom( '%H%M%S' ) | int %}
 
-          {%- if( is_state( 'input_boolean.automation_daily_sunset', 'on' ) ) %}
+          {%- if( is_state( 'input_boolean.evening_automations_active', 'on' ) ) %}
           mdi:clock-alert-outline
           {%- elif( ts_current > ts_next_sunset ) %}
           mdi:clock-check-outline

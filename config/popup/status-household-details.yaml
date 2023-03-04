@@ -151,6 +151,46 @@ browser_mod:
               # - entity: binary_sensor.bedroom_4_occupancy
               # - entity: binary_sensor.living_room_occupancy
 
+          - type: entities
+            view_layout:
+              grid-area: column_b
+            show_header_toggle: false
+            card_mod:
+              class: column
+            entities:
+              - type: section
+                label: Power Outlets
+
+              - type: custom:decluttering-card
+                template: entity_power_outlet
+                variables:
+                  - entity: light.tablet_plug
+                  - name: Kitchen, Tablet Outlet
+
+              - type: custom:decluttering-card
+                template: entity_power_outlet
+                variables:
+                  - entity: switch.outlet_kitchen_a
+                  - name: Kitchen, Above Range, Outlet
+
+              - type: custom:decluttering-card
+                template: entity_power_outlet
+                variables:
+                  - entity: switch.outlet_kitchen_b
+                  - name: Kitchen, Above Coffee Bar, Outlet
+
+              - type: custom:decluttering-card
+                template: entity_power_outlet
+                variables:
+                  - entity: light.bedroom_4_media_plug
+                  - name: His Office, Media Outlet
+
+              - type: custom:decluttering-card
+                template: entity_power_outlet
+                variables:
+                  - entity: light.garage_fan
+                  - name: Garage, Fan
+
               - type: section
                 label: Presence
 
@@ -225,44 +265,11 @@ browser_mod:
 
           - type: entities
             view_layout:
-              grid-area: column_b
+              grid-area: column_c
             show_header_toggle: false
             card_mod:
               class: column
             entities:
-              - type: section
-                label: Power Outlets
-
-              - type: custom:decluttering-card
-                template: entity_power_outlet
-                variables:
-                  - entity: light.tablet_plug
-                  - name: Kitchen, Tablet Outlet
-
-              - type: custom:decluttering-card
-                template: entity_power_outlet
-                variables:
-                  - entity: switch.outlet_kitchen_a
-                  - name: Kitchen, Above Range, Outlet
-
-              - type: custom:decluttering-card
-                template: entity_power_outlet
-                variables:
-                  - entity: switch.outlet_kitchen_b
-                  - name: Kitchen, Above Coffee Bar, Outlet
-
-              - type: custom:decluttering-card
-                template: entity_power_outlet
-                variables:
-                  - entity: light.bedroom_4_media_plug
-                  - name: His Office, Media Outlet
-
-              - type: custom:decluttering-card
-                template: entity_power_outlet
-                variables:
-                  - entity: light.garage_fan
-                  - name: Garage, Fan
-
               - type: section
                 label: Lock Batteries
 
@@ -366,168 +373,3 @@ browser_mod:
                 variables:
                   - entity: sensor.remote_foyer_for_foyer_battery
                   - name: In Foyer, for Foyer Lights
-
-          - type: entities
-            view_layout:
-              grid-area: column_c
-            show_header_toggle: false
-            card_mod:
-              class: column
-            entities:
-              - type: section
-                label: Television
-
-              - type: custom:decluttering-card
-                template: entity_media_tv
-                variables:
-                  - entity: media_player.sony_bravia_tv
-                  - name: Living Room TV
-
-              - type: section
-                label: AppleTVs
-
-              - type: conditional
-                conditions:
-                  - entity: media_player.appletv_living_room
-                    state_not: "unavailable"
-                  - entity: media_player.appletv_living_room
-                    state_not: "unknown"
-                row:
-                  type: custom:decluttering-card
-                  template: entity_media_appletv
-                  variables:
-                    - entity: media_player.appletv_living_room
-                    - name: Living Room
-
-              - type: conditional
-                conditions:
-                  - entity: media_player.appletv_bedroom_1
-                    state_not: "unavailable"
-                  - entity: media_player.appletv_bedroom_1
-                    state_not: "unknown"
-                row:
-                  type: custom:decluttering-card
-                  template: entity_media_appletv
-                  variables:
-                    - entity: media_player.appletv_bedroom_1
-                    - name: Main Bedroom
-
-              - type: conditional
-                conditions:
-                  - entity: media_player.appletv_bedroom_2
-                    state_not: "unavailable"
-                  - entity: media_player.appletv_bedroom_2
-                    state_not: "unknown"
-                row:
-                  type: custom:decluttering-card
-                  template: entity_media_appletv
-                  variables:
-                    - entity: media_player.appletv_bedroom_2
-                    - name: Guest Bedroom
-
-              - type: conditional
-                conditions:
-                  - entity: media_player.appletv_bedroom_3
-                    state_not: "unavailable"
-                  - entity: media_player.appletv_bedroom_3
-                    state_not: "unknown"
-                row:
-                  type: custom:decluttering-card
-                  template: entity_media_appletv
-                  variables:
-                    - entity: media_player.appletv_bedroom_3
-                    - name: Her Office
-
-              - type: conditional
-                conditions:
-                  - entity: media_player.appletv_bedroom_4
-                    state_not: "unavailable"
-                  - entity: media_player.appletv_bedroom_4
-                    state_not: "unknown"
-                row:
-                  type: custom:decluttering-card
-                  template: entity_media_appletv
-                  variables:
-                    - entity: media_player.appletv_bedroom_4
-                    - name: His Office
-
-              - type: section
-                label: Amazon Echos
-
-              - type: conditional
-                conditions:
-                  - entity: media_player.echo_kitchen
-                    state_not: "unavailable"
-                  - entity: media_player.echo_kitchen
-                    state_not: "unknown"
-                row:
-                  type: custom:decluttering-card
-                  template: entity_media_echo
-                  variables:
-                    - entity: media_player.echo_kitchen
-                    - name: Kitchen
-
-              - type: conditional
-                conditions:
-                  - entity: media_player.echo_dot_dining_room
-                    state_not: "unavailable"
-                  - entity: media_player.echo_dot_dining_room
-                    state_not: "unknown"
-                row:
-                  type: custom:decluttering-card
-                  template: entity_media_echo
-                  variables:
-                    - entity: media_player.echo_dot_dining_room
-                    - name: Dining Room
-
-              - type: conditional
-                conditions:
-                  - entity: media_player.echo_dot_bedroom_1
-                    state_not: "unavailable"
-                  - entity: media_player.echo_dot_bedroom_1
-                    state_not: "unknown"
-                row:
-                  type: custom:decluttering-card
-                  template: entity_media_echo
-                  variables:
-                    - entity: media_player.echo_dot_bedroom_1
-                    - name: Main Bedroom
-
-              - type: conditional
-                conditions:
-                  - entity: media_player.echo_dot_bedroom_2
-                    state_not: "unavailable"
-                  - entity: media_player.echo_dot_bedroom_2
-                    state_not: "unknown"
-                row:
-                  type: custom:decluttering-card
-                  template: entity_media_echo
-                  variables:
-                    - entity: media_player.echo_dot_bedroom_2
-                    - name: Guest Bedroom
-
-              - type: conditional
-                conditions:
-                  - entity: media_player.echo_dot_bedroom_3
-                    state_not: "unavailable"
-                  - entity: media_player.echo_dot_bedroom_3
-                    state_not: "unknown"
-                row:
-                  type: custom:decluttering-card
-                  template: entity_media_echo
-                  variables:
-                    - entity: media_player.echo_dot_bedroom_3
-                    - name: Her Office
-
-              - type: conditional
-                conditions:
-                  - entity: media_player.echo_dot_bedroom_4
-                    state_not: "unavailable"
-                  - entity: media_player.echo_dot_bedroom_4
-                    state_not: "unknown"
-                row:
-                  type: custom:decluttering-card
-                  template: entity_media_echo
-                  variables:
-                    - entity: media_player.echo_dot_bedroom_4
-                    - name: His Office

@@ -109,12 +109,12 @@ template:
 
           weather: |
             {%- if is_state( 'input_boolean.sidebar_display_weather_forecast', 'on' ) %}
-              {%- set ignore = [ null, 'unknown', 'unavailable' ] -%}
-              {%- set temperature = states( 'sensor.openweathermap_temperature' ) | round %}
+              {%- set ignore = [ 'null', 'unknown', 'unavailable' ] -%}
+              {%- set temperature = states( 'sensor.openweathermap_temperature' ) %}
               {%- set forecast = states( 'sensor.openweathermap_forecast_condition' ) %}
 
               {%- if temperature not in ignore %}
-                It's currently {{ temperature }}°
+                It is currently {{ temperature | round }}°
 
                 {%- if is_state( 'sensor.openweathermap_forecast_condition', 'rainy' ) %}
                   {%- set precip = states( 'sensor.openweathermap_forecast_precipitation_probability' ) | round %}
@@ -237,12 +237,10 @@ template:
               {%- set status_door_garage  = iif( ( state_door_garage not in ignore_door_garage ), true, false ) -%}
               {%- set status_door_sliding = iif( ( state_door_sliding not in ignore_door_sliding ), true, false ) -%}
 
-              {%- if ( true == status_lock_front ) and ( true == status_door_front ) -%}
-                {%- set ns.output = ns.output + [ 'front door is ' + state_lock_front + ' and open' ] -%}
+              {%- if ( true == status_door_front ) -%}
+                {%- set ns.output = ns.output + [ 'front door is open' ] -%}
               {%- elif ( true == status_lock_front ) -%}
                 {%- set ns.output = ns.output + [ 'front door is ' + state_lock_front ] -%}
-              {%- elif ( true == status_door_front ) -%}
-                {%- set ns.output = ns.output + [ 'front door is open' ] -%}
               {%- endif -%}
 
               {%- if ( true == status_cover_garage ) -%}

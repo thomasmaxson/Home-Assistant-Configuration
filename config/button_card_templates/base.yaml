@@ -75,7 +75,6 @@ base:
       - border-radius: var(--button-card-border-radius)
       - -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
       - transition: none
-      - padding: 10%
       - --mdc-ripple-color: >
           [[[
             return variables.state_on 

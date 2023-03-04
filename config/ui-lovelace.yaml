@@ -30,7 +30,7 @@ views:
       grid-template-columns: 0 23% repeat( 2, 1fr ) 0
       grid-template-areas: |
         ".  sidebar  common    foyer     ."
-        ".  sidebar  bdr_1     other   ."
+        ".  sidebar  bdr_1     other     ."
         ".  sidebar  exterior  resident  ."
         ".  popups   popups    popups    ."
         ".  .        .         .         ."
@@ -95,6 +95,7 @@ views:
               template: sidebar_template
               tap_action: !include popup/status-sidebar.yaml
               double_tap_action: !include popup/status-sidebar.yaml
+              hold_action: !include popup/status-sidebar.yaml
 
             - type: custom:mod-card
               card_mod:
@@ -611,7 +612,7 @@ views:
 
                   - type: custom:button-card
                     entity: light.garage_exterior
-                    name: Ceiling
+                    name: Garage Exterior
                     template:
                       - light
 
@@ -663,7 +664,7 @@ views:
                     name: Tom
                     entity: person.thomas
                     tap_action: !include popup/person-thomas.yaml
-                    double_tap_action: !include popup/person-thomas.yaml
+                    #double_tap_action: !include popup/person-thomas.yaml
                     hold_action: !include popup/person-thomas.yaml
                     template:
                       - person
@@ -672,13 +673,14 @@ views:
                     name: Jess
                     entity: person.jessica
                     tap_action: !include popup/person-jessica.yaml
-                    double_tap_action: !include popup/person-jessica.yaml
+                    #double_tap_action: !include popup/person-jessica.yaml
                     hold_action: !include popup/person-jessica.yaml
                     template:
                       - person
 
                   - type: custom:button-card
-                    name: Doggies
+                    # name: Doggies
+                    name: Gouda
                     # entity: group.pets
                     entity: input_boolean.dog_gouda_status
                     show_entity_picture: true
@@ -757,6 +759,7 @@ views:
                 - details
               tap_action: !include popup/status-household-overview.yaml
               double_tap_action: !include popup/status-household-overview.yaml
+              hold_action: !include popup/status-household-overview.yaml
 
             - type: custom:button-card
               name: >
@@ -765,6 +768,7 @@ views:
                 - details
               tap_action: !include popup/status-household-details.yaml
               double_tap_action: !include popup/status-household-details.yaml
+              hold_action: !include popup/status-household-details.yaml
 
             - type: custom:button-card
               name: >
@@ -773,6 +777,7 @@ views:
                 - details
               tap_action: !include popup/status-media.yaml
               double_tap_action: !include popup/status-media.yaml
+              hold_action: !include popup/status-media.yaml
 
             - type: custom:button-card
               name: >
@@ -781,6 +786,7 @@ views:
                 - details
               tap_action: !include popup/status-temperatures.yaml
               double_tap_action: !include popup/status-temperatures.yaml
+              hold_action: !include popup/status-temperatures.yaml
 
             - type: custom:button-card
               name: >
@@ -789,6 +795,7 @@ views:
                 - details
               tap_action: !include popup/status-router.yaml
               double_tap_action: !include popup/status-router.yaml
+              hold_action: !include popup/status-router.yaml
 
             - type: custom:button-card
               name: >
@@ -797,6 +804,7 @@ views:
                 - details
               tap_action: !include popup/status-systems.yaml
               double_tap_action: !include popup/status-systems.yaml
+              hold_action: !include popup/status-systems.yaml
 
             - type: custom:button-card
               name: >
@@ -805,3 +813,4 @@ views:
                 - details
               tap_action: !include popup/status-settings.yaml
               double_tap_action: !include popup/helpers.yaml
+              hold_action: !include popup/helpers.yaml

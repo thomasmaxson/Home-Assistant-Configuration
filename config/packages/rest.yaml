@@ -16,66 +16,27 @@ sensor:
     name: Kitchen Tablet
     resource: !secret rest_url_kiosk_device_info
     json_attributes:
-      # - screenOn
-      # - batteryLevel
-      # - kioskMode
-      # - screenBrightness
-      # - motionDetectorState
-      # - maintenanceMode
-      # - appFreeMemory
-      # - appUsedMemory
-      # - totalFreeMemory
-      # - totalUsedMemory
-      # - hostname4
-      # - ip4
-      # - mac
-      # - locationLatitude
-      # - locationLongitude
-      # - locationAltitude
-      # - startUrl
-      # - currentPage
-      - androidSdk
-      - androidVersion
+      - ip4
+      - batteryLevel
+      - isPlugged
+      - plugged
+      - kioskMode
+      - screenBrightness
+      - motionDetectorState
+      - maintenanceMode
       - appFreeMemory
       - appUsedMemory
-      - appVersionCode
-      - appVersionName
-      - batteryLevel
-      - currentFragment
-      - currentPage
-      - currentTabIndex
-      - deviceID
-      - deviceManufacturer
-      - deviceModel
-      - deviceName
-      - displayHeightPixels
-      - displayWidthPixels
-      - foregroundApp
-      - hostname4
-      - hostname6
-      - ip4
-      - ip6
-      - isDeviceAdmin
-      - isDeviceOwner
-      - isLicensed
-      - isScreenOn
-      - keyguardLocked
-      - kioskLocked
-      - kioskMode
-      - lastAppStart
-      - mac
-      - maintenanceMode
-      - motionDetectorState
-      - plugged
-      - screenBrightness
-      - screenOrientation
-      - ssid
-      - startUrl
       - totalFreeMemory
       - totalUsedMemory
-      - webviewUa
-      - wifiSignalLevel
-    value_template: "{{ value_json.isScreenOn }}"
+      - mac
+      - startUrl
+      - currentPage
+      - screenOrientation
+      - screenBrightness
+      - screenLocked
+      - screenOn
+      - batteryTemperature
+    value_template: "{{ value_json.screenOn }}"
     scan_interval: 10
 
   - platform: rest
@@ -83,6 +44,7 @@ sensor:
     json_attributes:
       - timeToScreenOffV2
       - screenBrightness
+      - microphoneAccess
       - motionSensitivity
       - motionDection
       - motionDetectionAcoustic
@@ -90,54 +52,5 @@ sensor:
       - screenOffInDarkness
       - darknessLevel
     resource: !secret rest_url_kiosk_device_settings
-    value_template: "{{ value_json.motionSensitivity }}"
+    value_template: "{{ value_json.startURL }}"
     scan_interval: 10
-
-  - platform: rest
-    name: Countdown to Wedding Anniversary
-    resource: !secret wolframalpha_api_countdown_wedding_anniversary
-    value_template: "{{ (value|replace(' days', '')) }}"
-    unit_of_measurement: Days
-    scan_interval: 43200
-
-  # - platform: rest
-  #   name: Countdown to Mothers Day
-  #   resource: !secret wolframalpha_api_countdown_mothersday
-  #   value_template: "{{ (value|replace(' days', '')) | int }}"
-  #   unit_of_measurement: Days
-  #   scan_interval: 43200
-
-  # - platform: rest
-  #   name: Countdown to Fathers day
-  #   resource: !secret wolframalpha_api_countdown_fathersday
-  #   value_template: "{{ (value|replace(' days', '')) | int }}"
-  #   unit_of_measurement: Days
-  #   scan_interval: 43200
-
-  # - platform: rest
-  #   name: Countdown to Easter
-  #   resource: !secret wolframalpha_api_countdown_easter
-  #   value_template: "{{ (value|replace(' days', '')) | int }}"
-  #   unit_of_measurement: Days
-  #   scan_interval: 43200
-
-  # - platform: rest
-  #   name: Countdown to Halloween
-  #   resource: !secret wolframalpha_api_countdown_halloween
-  #   value_template: "{{ (value|replace(' days', '')) | int }}"
-  #   unit_of_measurement: Days
-  #   scan_interval: 43200
-
-  # - platform: rest
-  #   name: Countdown to Thanksgiving
-  #   resource: !secret wolframalpha_api_countdown_thanksgiving
-  #   value_template: "{{ (value|replace(' days', '')) | int }}"
-  #   unit_of_measurement: Days
-  #   scan_interval: 43200
-
-  # - platform: rest
-  #   name: Countdown to Christmas
-  #   resource: !secret wolframalpha_api_countdown_christmas
-  #   value_template: "{{ (value|replace(' days', '')) | int }}"
-  #   unit_of_measurement: Days
-  #   scan_interval: 43200
