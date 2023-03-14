@@ -627,6 +627,15 @@ views:
                       - light
 
                   - type: custom:button-card
+                    entity: light.bedroom_2_bedside_lamps
+                    name: Guest Bedside Lamps
+                    template:
+                      - light
+                    variables:
+                      circle_value: "ON"
+                      circle_value_unit: ""
+
+                  - type: custom:button-card
                     entity: light.guest_hallway_light
                     name: Guest Hallway
                     template:
@@ -682,7 +691,7 @@ views:
                     # name: Doggies
                     name: Gouda
                     # entity: group.pets
-                    entity: input_boolean.dog_gouda_status
+                    entity: input_boolean.status_dog_gouda
                     show_entity_picture: true
                     entity_picture: /local/uploads/avatar-gouda.png
                     # tap_action: !include popup/pets.yaml

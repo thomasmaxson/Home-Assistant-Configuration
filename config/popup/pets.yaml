@@ -65,9 +65,9 @@ browser_mod:
                 card_mod:
                   style: |
                     .label { display: none;}
-              - entity: input_boolean.dog_gouda_status
+              - entity: input_boolean.status_dog_gouda
                 name: Gouda is Home
-              - entity: input_boolean.dog_walrus_status
-                name: Walrus is Home
-              - entity: input_boolean.dog_lady_mimi_status
-                name: Lady Mimi is Home
+              # - entity: input_boolean.dog_walrus_status
+              #   name: Walrus is Home
+              # - entity: input_boolean.dog_lady_mimi_status
+              #   name: Lady Mimi is Home

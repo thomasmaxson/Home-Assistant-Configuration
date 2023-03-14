@@ -302,25 +302,34 @@ browser_mod:
                   - name: Baseboard Lightstrip (His)
 
               - type: section
-                label: Other
+                label: Guest Bedroom
 
               - type: custom:decluttering-card
                 template: entity_light
                 variables:
-                  - entity: light.laundry_ceiling_light
-                  - name: Laundry Room, Ceiling
-
-              - type: custom:decluttering-card
-                template: entity_light
-                variables:
-                  - entity: light.laundry_hallway_light
-                  - name: Laundry Room, Hallway
+                  - entity: light.bedroom_2_bedside_lamps
+                  - name: Bedside Lamps
 
               - type: custom:decluttering-card
                 template: entity_light
                 variables:
                   - entity: light.guest_hallway_light
-                  - name: Guest Bedroom, Hallway
+                  - name: Hallway
+
+              - type: section
+                label: Laundry Room
+
+              - type: custom:decluttering-card
+                template: entity_light
+                variables:
+                  - entity: light.laundry_ceiling_light
+                  - name: Ceiling
+
+              - type: custom:decluttering-card
+                template: entity_light
+                variables:
+                  - entity: light.laundry_hallway_light
+                  - name: Hallway
 
               - type: section
                 label: Garage

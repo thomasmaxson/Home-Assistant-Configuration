@@ -110,67 +110,67 @@ browser_mod:
                 label: Snoozed Household Activity
               - type: conditional
                 conditions:
-                  - entity: input_boolean.household_activity_snooze
+                  - entity: input_boolean.snooze_household_activity
                     state: "on"
                 row:
-                  entity: input_boolean.household_activity_snooze
+                  entity: input_boolean.snooze_household_activity
                   name: Snoozed Indefinite
 
               - type: conditional
                 conditions:
-                  - entity: input_boolean.household_activity_snooze
+                  - entity: input_boolean.snooze_household_activity
                     state: "off"
                 row:
-                  entity: timer.household_activity_snooze
+                  entity: timer.snooze_household_activity
                   name: Snooze Countdown
 
               - type: section
                 label: Snoozed Garage Door Left Open
               - type: conditional
                 conditions:
-                  - entity: input_boolean.garage_open_snooze
+                  - entity: input_boolean.snooze_garage_open
                     state: "on"
                 row:
-                  entity: input_boolean.garage_open_snooze
+                  entity: input_boolean.snooze_garage_open
                   name: Snoozed Indefinite
               - type: conditional
                 conditions:
-                  - entity: input_boolean.garage_open_snooze
+                  - entity: input_boolean.snooze_garage_open
                     state: "off"
                 row:
-                  entity: timer.garage_open_snooze
+                  entity: timer.snooze_garage_open
                   name: Snooze Countdown
 
               - type: section
                 label: Snoozed Front Door Unlocked
               - type: conditional
                 conditions:
-                  - entity: input_boolean.front_door_unlocked_snooze
+                  - entity: input_boolean.snooze_front_door_unlocked
                     state: "on"
                 row:
-                  entity: input_boolean.front_door_unlocked_snooze
+                  entity: input_boolean.snooze_front_door_unlocked
                   name: Snoozed Indefinite
               - type: conditional
                 conditions:
-                  - entity: input_boolean.front_door_unlocked_snooze
+                  - entity: input_boolean.snooze_front_door_unlocked
                     state: "off"
                 row:
-                  entity: timer.front_door_unlocked_snooze
+                  entity: timer.snooze_front_door_unlocked
                   name: Snooze Countdown
 
               # - type: section
               #   label: Snoozed Doorbell Motion Detected
               # - type: conditional
               #   conditions:
-              #     - entity: input_boolean.doorbell_motion_snooze
+              #     - entity: input_boolean.snooze_doorbell_motion
               #       state: "on"
               #   row:
-              #     entity: input_boolean.doorbell_motion_snooze
+              #     entity: input_boolean.snooze_doorbell_motion
               #     name: Snoozed Indefinite
               # - type: conditional
               #   conditions:
-              #     - entity: input_boolean.doorbell_motion_snooze
+              #     - entity: input_boolean.snooze_doorbell_motion
               #       state: "off"
               #   row:
-              #     entity: timer.doorbell_motion_snooze
+              #     entity: timer.snooze_doorbell_motion
               #     name: Snooze Countdown

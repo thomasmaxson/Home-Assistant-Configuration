@@ -106,11 +106,11 @@ sensor:
             mdi:battery-{{ battery_round }}
           {%- endif -%}
 
-      household_notifications_snooze_countdown:
+      snooze_countdown_household_notifications:
         device_class: timestamp
         value_template: >-
-          {%- set state = states( 'timer.household_activity_snooze' ) %}
-          {%- set duration = state_attr( 'timer.household_activity_snooze', 'duration' ) %}
+          {%- set state = states( 'timer.snooze_household_activity' ) %}
+          {%- set duration = state_attr( 'timer.snooze_household_activity', 'duration' ) %}
           {%- set n = now().timestamp() %}
           {%- set h = '00' | int %}
           {%- set m = '00' | int %}
@@ -122,11 +122,11 @@ sensor:
 
           {{ ( n + h * 60 * 60 + m * 60 + s ) | timestamp_custom( '%Y-%m-%dT%H:%M:%S-00:00', false ) }}
 
-      garage_door_open_snooze_countdown:
+      snooze_countdown_garage_door_open:
         device_class: timestamp
         value_template: >-
-          {%- set state = states( 'timer.garage_open_snooze' ) %}
-          {%- set duration = state_attr( 'timer.garage_open_snooze', 'duration' ) %}
+          {%- set state = states( 'timer.snooze_garage_open' ) %}
+          {%- set duration = state_attr( 'timer.snooze_garage_open', 'duration' ) %}
           {%- set n = now().timestamp() %}
           {%- set h = '00' | int %}
           {%- set m = '00' | int %}
@@ -138,11 +138,11 @@ sensor:
 
           {{ ( n + h * 60 * 60 + m * 60 + s ) | timestamp_custom( '%Y-%m-%dT%H:%M:%S-00:00', false ) }}
 
-      doorbell_motion_snooze_countdown:
+      snooze_countdown_doorbell_motion:
         device_class: timestamp
         value_template: >-
-          {%- set state = states( 'timer.doorbell_motion_snooze' ) %}
-          {%- set duration = state_attr( 'timer.doorbell_motion_snooze', 'duration' ) %}
+          {%- set state = states( 'timer.snooze_doorbell_motion' ) %}
+          {%- set duration = state_attr( 'timer.snooze_doorbell_motion', 'duration' ) %}
           {%- set n = now().timestamp() %}
           {%- set h = '00' | int %}
           {%- set m = '00' | int %}
@@ -154,11 +154,11 @@ sensor:
 
           {{ ( n + h * 60 * 60 + m * 60 + s ) | timestamp_custom( '%Y-%m-%dT%H:%M:%S-00:00', false ) }}
 
-      front_door_unlocked_snooze_countdown:
+      snooze_countdown_front_door_unlocked:
         device_class: timestamp
         value_template: >-
-          {%- set state = states( 'timer.front_door_unlocked_snooze' ) %}
-          {%- set duration = state_attr( 'timer.front_door_unlocked_snooze', 'duration' ) %}
+          {%- set state = states( 'timer.snooze_front_door_unlocked' ) %}
+          {%- set duration = state_attr( 'timer.snooze_front_door_unlocked', 'duration' ) %}
           {%- set n = now().timestamp() %}
           {%- set h = '00' | int %}
           {%- set m = '00' | int %}
