@@ -30,10 +30,9 @@ Make sure that you :star: this repo, so that you can get updates right in your n
 <hr>
 
 ### Hardware:
-* [Raspberry Pi 4](https://www.amazon.com/dp/B0897XZDF2/)
-* [Kingston A400 Internal SSD M.2](https://www.amazon.com/dp/B07P22RK1G/)
-* [Argon ONE M.2 Case for Raspberry Pi 4](https://www.amazon.com/dp/B08MJ3CSW7/)
-* [Nortec GoControl HUSBZB-1 USB Hub, Universal Zigbee & Z-Wave USB Gateway](https://www.amazon.com/dp/B01GJ826F8/)
+* [Home Assistant Yellow](https://crowdsupply.com/nabu-casa/home-assistant-yellow)
+* [SAMSUNG 970 EVO Plus SSD 1TB NVMe M.2](https://www.amazon.com/dp/B07MFZY2F2/)
+* [ASUS USB-BT500 Bluetooth 5.0 USB Adapter](https://www.amazon.com/dp/B08DFBNG7F/)
 
 <hr>
 
