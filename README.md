@@ -30,10 +30,9 @@ Make sure that you :star: this repo, so that you can get updates right in your n
 <hr>
 
 ### Hardware:
-* [Raspberry Pi 4](https://www.amazon.com/dp/B0897XZDF2/)
-* [Kingston A400 Internal SSD M.2](https://www.amazon.com/dp/B07P22RK1G/)
-* [Argon ONE M.2 Case for Raspberry Pi 4](https://www.amazon.com/dp/B08MJ3CSW7/)
-* [Nortec GoControl HUSBZB-1 USB Hub, Universal Zigbee & Z-Wave USB Gateway](https://www.amazon.com/dp/B01GJ826F8/)
+* [Home Assistant Yellow](https://crowdsupply.com/nabu-casa/home-assistant-yellow)
+* [SAMSUNG 970 EVO Plus SSD 1TB NVMe M.2](https://www.amazon.com/dp/B07MFZY2F2/)
+* [ASUS USB-BT500 Bluetooth 5.0 USB Adapter](https://www.amazon.com/dp/B08DFBNG7F/)
 
 <hr>
 
@@ -51,8 +50,8 @@ Make sure that you :star: this repo, so that you can get updates right in your n
 * [Lutron Caseta Outdoor Smart Plug](https://www.amazon.com/gp/product/B08YPFFM58/)
 * [Philips Hue Smart Plug](https://www.amazon.com/gp/product/B07XD578LD/)
 * [MyQ Garage Door Hub](https://www.amazon.com/gp/product/B075RQVSY7/)
-* [Shelly 1 Relay Switch](https://www.amazon.com/gp/product/B07NQNLDTD)
-* [Shelly 2.5 Relay Switch](https://www.amazon.com/gp/product/B07Z623J8Z)
+* [IKEA TRÅDFRI Wireless Control Outlet](https://www.ikea.com/us/en/p/tradfri-wireless-control-outlet-smart-30356169/)
+* [IKEA TRÅDFRI Shortcut Button](https://www.ikea.com/us/en/p/tradfri-shortcut-button-white-smart-20356382/)
 
 ##### Lights
 * [Philips Hue Smart Lightbulb (BR30)](https://www.amazon.com/gp/product/B07QZHMM57/)
@@ -64,7 +63,11 @@ Make sure that you :star: this repo, so that you can get updates right in your n
 * [Aqara Leak Sensor](https://www.amazon.com/gp/product/B07D39MSZS/)
 * [Aqara Motion Sensor](https://www.amazon.com/gp/product/B07D1CRRVF/)
 * [Aqara Temperature Sensor](https://www.amazon.com/gp/product/B07D37FKGY/)
+* [Aqara Wireless Mini Switch](https://www.amazon.com/gp/product/B07D19YXND/)
+* [IKEA TRÅDFRI Wireless Dimmer](https://www.ikea.com/us/en/p/tradfri-wireless-dimmer-smart-white-10408598/)
+* [Shelly 1 One Relay Switch](https://www.amazon.com/gp/product/B07NQNLDTD/)
 * [SONOFF SNZB-02 Temperature and Humidity Sensor](https://www.amazon.com/gp/product/B08BCJNDYQ/)
+* [SONOFF SNZB-01 Zigbee Wireless Switch](https://www.amazon.com/gp/product/B08BF9YQK1/)
 
 ##### Climate
 * [Ecobee Thermostat](https://www.amazon.com/gp/product/B07NQT85FC/)
@@ -81,22 +84,26 @@ Make sure that you :star: this repo, so that you can get updates right in your n
 <details>
 <summary>Click to Expand</summary>
 
-* Node RED
+* [Node RED](https://zachowj.github.io/node-red-contrib-home-assistant-websocket/guide/custom_integration/)
 * [Mushroom Cards](https://github.com/piitaya/lovelace-mushroom)
-* [Alexa Media Player](https://github.com/custom-components/alexa_media_player/wiki)
+* [Alexa Media Player](https://github.com/custom-components/alexa_media_player)
 * [Apple TV](https://www.home-assistant.io/integrations/apple_tv)
 * [August](https://www.home-assistant.io/integrations/august)
-* [Browser Mod](https://github.com/thomasloven/hass-browser_mod/blob/master/README.md)
+* [Browser Mod](https://github.com/thomasloven/hass-browser_mod)
 * [Ecobee](https://www.home-assistant.io/integrations/ecobee)
 * [Fully Kiosk](https://github.com/cgarwood/homeassistant-fullykiosk)
+* [GE SmartHQ](https://github.com/simbaja/ha_gehome)
 * [HACS](https://hacs.xyz/docs/configuration/start)
 * [Philips Hue](https://www.home-assistant.io/integrations/hue)
 * [Home Assistant iOS](https://www.home-assistant.io/integrations/ios)
 * [Lutron Caséta](https://www.home-assistant.io/integrations/lutron_caseta)
 * [MyQ](https://www.home-assistant.io/integrations/myq)
 * [Rachio](https://www.home-assistant.io/integrations/rachio)
-* [Ring](https://www.home-assistant.io/integrations/ring)
-* [Zigbee Home Automation](https://www.home-assistant.io/integrations/zha)  
+* [Shelly](https://www.home-assistant.io/integrations/shelly)
+* [Switchbot](https://www.home-assistant.io/integrations/switchbot)
+* [UniFi Protect](https://www.home-assistant.io/integrations/unifiprotect)
+* [WLED](https://www.home-assistant.io/integrations/wled)
+* [Zigbee Home Automation](https://www.home-assistant.io/integrations/zha/)
 
 </details>
 
@@ -110,6 +117,6 @@ Make sure that you :star: this repo, so that you can get updates right in your n
 Below are a few of my most used resources. If you like what you see here, please check them out as well!
 
 * [Matt8707 (Mattias Persson)](https://github.com/matt8707/hass-config)
-* [Slacker Labs (Jeffery Stone)](https://github.com/thejeffreystone/home-assistant-configuration/)
+* [Slacker Labs (Jeffery Stone)](https://github.com/thejeffreystone/homeassistant-config)
 
 </details>
