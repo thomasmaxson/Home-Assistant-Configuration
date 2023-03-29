@@ -50,6 +50,8 @@ Make sure that you :star: this repo, so that you can get updates right in your n
 * [Lutron Caseta Outdoor Smart Plug](https://www.amazon.com/gp/product/B08YPFFM58/)
 * [Philips Hue Smart Plug](https://www.amazon.com/gp/product/B07XD578LD/)
 * [MyQ Garage Door Hub](https://www.amazon.com/gp/product/B075RQVSY7/)
+* [IKEA TRÅDFRI Wireless Control Outlet](https://www.ikea.com/us/en/p/tradfri-wireless-control-outlet-smart-30356169/)
+* [IKEA TRÅDFRI Shortcut Button](https://www.ikea.com/us/en/p/tradfri-shortcut-button-white-smart-20356382/)
 
 ##### Lights
 * [Philips Hue Smart Lightbulb (BR30)](https://www.amazon.com/gp/product/B07QZHMM57/)
@@ -61,8 +63,11 @@ Make sure that you :star: this repo, so that you can get updates right in your n
 * [Aqara Leak Sensor](https://www.amazon.com/gp/product/B07D39MSZS/)
 * [Aqara Motion Sensor](https://www.amazon.com/gp/product/B07D1CRRVF/)
 * [Aqara Temperature Sensor](https://www.amazon.com/gp/product/B07D37FKGY/)
+* [Aqara Wireless Mini Switch](https://www.amazon.com/gp/product/B07D19YXND/)
+* [IKEA TRÅDFRI Wireless Dimmer](https://www.ikea.com/us/en/p/tradfri-wireless-dimmer-smart-white-10408598/)
 * [Shelly 1 One Relay Switch](https://www.amazon.com/gp/product/B07NQNLDTD/)
 * [SONOFF SNZB-02 Temperature and Humidity Sensor](https://www.amazon.com/gp/product/B08BCJNDYQ/)
+* [SONOFF SNZB-01 Zigbee Wireless Switch](https://www.amazon.com/gp/product/B08BF9YQK1/)
 
 ##### Climate
 * [Ecobee Thermostat](https://www.amazon.com/gp/product/B07NQT85FC/)
@@ -98,7 +103,7 @@ Make sure that you :star: this repo, so that you can get updates right in your n
 * [Switchbot](https://www.home-assistant.io/integrations/switchbot)
 * [UniFi Protect](https://www.home-assistant.io/integrations/unifiprotect)
 * [WLED](https://www.home-assistant.io/integrations/wled)
-* [Zigbee2MQTT](https://www.home-assistant.io/integrations/mqtt)
+* [Zigbee Home Automation](https://www.home-assistant.io/integrations/zha/)
 
 </details>
 
