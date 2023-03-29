@@ -11,35 +11,34 @@ card:
   entity: "[[entity]]"
   primary: "[[name]]"
   secondary: >-
-    {% set ignore = [ 'none', 'unknown', 'unavilable' ] %}
-    {% set battery_level = states( '[[entity]]' ) | lower %}
-    {% if battery_level not in ignore %}
-      Battery: {{ battery_level }}%
+    {% if not is_state( '[[battery]]', 'unavailable' ) %}
+      {% set state_battery = states( '[[battery]]' ) | lower %}
+      Battery: {{ state_battery }}%
     {% else %}
       Unknown
     {% endif %}
   icon: >-
-    {% set battery_level = ( states( '[[entity]]' ) | int / 10 ) | round(0) | int * 10 %}
-    {% if battery_level == 100 %}
+    {% set state_battery = ( states( '[[battery]]' ) | int / 10 ) | round(0) | int * 10 %}
+    {% if state_battery == 100 %}
       mdi:battery
-    {% elif battery_level > 20 %}
-      mdi:battery-{{ battery_level }}
+    {% elif state_battery > 20 %}
+      mdi:battery-{{ state_battery }}
     {% else %}
       mdi:battery-alert-variant-outline
     {% endif %}
   icon_color: >-
-    {% set battery_level = states( '[[entity]]' ) | int %}
-    {% if battery_level > 90 %}
+    {% set state_battery = states( '[[battery]]' ) | int %}
+    {% if state_battery > 90 %}
       green
-    {% elif battery_level > 75 %}
+    {% elif state_battery > 75 %}
       light-green
-    {% elif battery_level > 60 %}
+    {% elif state_battery > 60 %}
       lime
-    {% elif battery_level > 50 %}
+    {% elif state_battery > 50 %}
       yellow
-    {% elif battery_level > 40 %}
+    {% elif state_battery > 40 %}
       orange
-    {% elif battery_level > 30 %}
+    {% elif state_battery > 30 %}
       deep-orange
     {% else %}
       red

@@ -15,65 +15,64 @@ card:
   type: custom:mushroom-template-card
   primary: "[[name]]"
   secondary: >-
-    {% set ignore = [ 'none', 'unknown', 'unavilable' ] %}
-    {% set state = states( '[[entity]]' ) | lower %}
-    {% set battery_level = state_attr( '[[entity]]', 'battery' ) %}
-    {% if state not in ignore and battery_level not in ignore %}
-      Battery: {{ battery_level }}%
+    {% if not is_state( '[[battery]]', 'unavailable' ) %}
+      {% set state_battery = states( '[[battery]]' ) | lower %}
+      Battery: {{ state_battery }}%
     {% else %}
-      {% if state == 'on' %}
+      {% set state_entity = states( '[[entity]]' ) | lower %}
+      {% if state_entity == 'on' %}
         Open
-      {% elif state == 'off' %}
+      {% elif state_entity == 'off' %}
         Closed
       {% else %}
         Unknown
       {% endif %}
     {% endif %}
   icon: >-
-    {% set state = states( '[[entity]]' ) | lower %}
-    {% if state == 'on' %}
+    {% set state_entity = states( '[[entity]]' ) | lower %}
+    {% if state_entity == 'on' %}
       mdi:[[icon_open]]
-    {% elif state == 'off' %}
+    {% elif state_entity == 'off' %}
       mdi:[[icon_closed]]
     {% else %}
       mdi:[[icon_unknown]]
     {% endif %}
   icon_color: >-
     {% set show_battery = '[[show_battery]]' %}
-    {% set state = states( '[[entity]]' ) %}
+    {% set state_entity = states( '[[entity]]' ) %}
 
     {% if show_battery == 'true' %}
-      {% set battery_level = state_attr( '[[entity]]', 'battery' ) | int %}
+      {% set state_battery = states( '[[battery]]' ) | int %}
 
-      {% if battery_level > 50 %}
-        {%if state == 'on' %}
+      {% if state_battery > 50 %}
+        {%if state_entity == 'on' %}
           green
         {% else %}
           disabled
         {% endif %}
-      {% elif battery_level > 40 %}
+      {% elif state_battery > 40 %}
         yellow
-      {% elif battery_level > 30 %}
+      {% elif state_battery > 30 %}
         amber
-      {% elif battery_level > 20 %}
+      {% elif state_battery > 20 %}
         orange
-      {% elif battery_level > 10 %}
+      {% elif state_battery > 10 %}
         deep-orange
       {% else %}
         red
       {% endif %}
     {% else %}
-      {% if state == 'on' %}
+      {% if state_entity == 'on' %}
         green
       {% else %}
         disabled
       {% endif %}
     {% endif %}
   # icon_color: >-
-  #   {% set state = states( '[[entity]]' ) %}
-  #   {% if state == 'on' %}
+  #   {% set state_entity = states( '[[entity]]' ) %}
+  #   {% if state_entity == 'on' %}
   #     green
-  #   {% elif state == 'off' %}
+  #   {% elif state_entity == 'off' %}
   #     disabled
   #   {% else %}
   #     disabled

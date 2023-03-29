@@ -92,6 +92,12 @@ browser_mod:
               - type: section
                 label: Exterior Doors
 
+              - type: custom:mushroom-cover-card
+                entity: cover.garage_door
+                name: Garage Door (Cover)
+                show_buttons_control: true
+                show_position_control: true
+
               - type: custom:mushroom-lock-card
                 entity: lock.front_door
                 name: Front Door Lock
@@ -101,14 +107,15 @@ browser_mod:
                 template: entity_light
                 variables:
                   - entity: binary_sensor.door_front_primary
-                  - name: Front Door
+                  - name: Front Door (Primary)
                   - show_battery: "false"
 
-              - type: custom:mushroom-cover-card
-                entity: cover.garage_door
-                name: Garage Door (Cover)
-                show_buttons_control: true
-                show_position_control: true
+              - type: custom:decluttering-card
+                template: entity_light
+                variables:
+                  - entity: binary_sensor.door_front_secondary
+                  - name: Front Door (Secondary)
+                  - show_battery: "false"
 
               - type: custom:decluttering-card
                 template: entity_light

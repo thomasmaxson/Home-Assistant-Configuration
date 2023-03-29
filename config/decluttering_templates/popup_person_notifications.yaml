@@ -34,15 +34,8 @@ card:
   entities:
     - type: section
 
-    - type: conditional
-      conditions:
-        - entity: "[[notify_general]]"
-          state: "on"
-        - entity: "[[notify_general]]"
-          state_not: "unavailable"
-      row:
-        entity: "[[notify_info]]"
-        name: Recieve Notifications
+    - entity: "[[notify_general]]"
+      name: Recieve Notifications
 
     - type: conditional
       conditions:

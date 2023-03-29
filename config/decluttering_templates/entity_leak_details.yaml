@@ -15,14 +15,14 @@ card:
   primary: "[[name]]"
   secondary: >-
     {% set ignore = [ 'none', 'unknown', 'unavilable' ] %}
-    {% set state = states( '[[entity]]' ) | lower %}
-    {% set battery_level = state_attr( '[[entity]]', 'battery' ) %}
-    {% if state not in ignore and battery_level not in ignore %}
-      Battery: {{ battery_level }}%
+    {% set state_entity = states( '[[entity]]' ) | lower %}
+    {% set state_battery = states( '[[battery]]' ) %}
+    {% if state_entity not in ignore and state_battery not in ignore %}
+      Battery: {{ state_battery }}%
     {% else %}
-      {% if state == 'on' %}
+      {% if state_entity == 'on' %}
         Wet
-      {% elif state == 'off' %}
+      {% elif state_entity == 'off' %}
         Dry
       {% else %}
         Unknown
@@ -30,20 +30,20 @@ card:
     {% endif %}
 
   icon: >-
-    {% set state = states( '[[entity]]' ) | lower %}
-    {% if state == 'on' %}
+    {% set state_entity = states( '[[entity]]' ) | lower %}
+    {% if state_entity == 'on' %}
       mdi:[[icon_on]]
-    {% elif state == 'off' %}
+    {% elif state_entity == 'off' %}
       mdi:[[icon_off]]
     {% else %}
       mdi:[[icon_unknown]]
     {% endif %}
 
   icon_color: >-
-    {% set state = states( '[[entity]]' ) | lower %}
-    {% if state == 'on' %}
+    {% set state_entity = states( '[[entity]]' ) | lower %}
+    {% if state_entity == 'on' %}
       red
-    {% elif state == 'off' %}
+    {% elif state_entity == 'off' %}
       disabled
     {% else %}
       disabled

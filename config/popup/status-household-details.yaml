@@ -68,6 +68,12 @@ browser_mod:
               - type: section
                 label: Doors
 
+              - type: custom:mushroom-cover-card
+                entity: cover.garage_door
+                name: Garage Door (Cover)
+                show_buttons_control: true
+                show_position_control: true
+
               - type: custom:mushroom-lock-card
                 entity: lock.front_door
                 name: Front Door Lock
@@ -77,69 +83,80 @@ browser_mod:
                 template: entity_door_details
                 variables:
                   - entity: binary_sensor.door_front_primary
-                  - name: Front Door
+                  - battery: sensor.door_front_primary_battery
+                  - name: Front Door (Primary)
 
-              - type: custom:mushroom-cover-card
-                entity: cover.garage_door
-                name: Garage Door (Cover)
-                show_buttons_control: true
-                show_position_control: true
+              - type: custom:decluttering-card
+                template: entity_door_details
+                variables:
+                  - entity: binary_sensor.door_front_secondary
+                  - battery: sensor.door_front_secondary_battery
+                  - name: Front Door (Secondary)
 
               - type: custom:decluttering-card
                 template: entity_door_details
                 variables:
                   - entity: binary_sensor.door_garage
+                  - battery: sensor.door_garage_battery
                   - name: Garage Door (Interior)
 
               - type: custom:decluttering-card
                 template: entity_door_details
                 variables:
                   - entity: binary_sensor.door_living
+                  - battery: sensor.door_living_battery
                   - name: Living Room Sliding Glass Door
 
               - type: custom:decluttering-card
                 template: entity_door_details
                 variables:
                   - entity: binary_sensor.door_bedroom_1
+                  - battery: sensor.door_bedroom_1_battery
                   - name: Main Bedroom Door
 
               - type: custom:decluttering-card
                 template: entity_door_details
                 variables:
                   - entity: binary_sensor.door_bedroom_2
+                  - battery: sensor.door_bedroom_2_battery
                   - name: Guest Bedroom Door
 
               - type: custom:decluttering-card
                 template: entity_door_details
                 variables:
                   - entity: binary_sensor.door_bedroom_3
+                  - battery: sensor.door_bedroom_3_battery
                   - name: Office Door (Hers)
 
               - type: custom:decluttering-card
                 template: entity_door_details
                 variables:
                   - entity: binary_sensor.door_bedroom_4
+                  - battery: sensor.door_bedroom_4_battery
                   - name: Office Door (His)
 
               - type: custom:decluttering-card
                 template: entity_door_details
                 variables:
                   - entity: binary_sensor.door_laundry
+                  - battery: sensor.door_laundry_battery
                   - name: Laundry Room Door
 
               - type: custom:decluttering-card
                 template: entity_door_details
                 variables:
-                  - entity: binary_sensor.door_closet_hallway_j
-                  - name: Closet Door, Hers
+                  - entity: binary_sensor.door_closet_hallway_hers
+                  - battery: sensor.door_closet_hallway_his_battery
+                  - name: Closet Door (Hers)
                   - icon_open: door-sliding-open
                   - icon_closed: door-sliding
 
               - type: custom:decluttering-card
                 template: entity_door_details
                 variables:
-                  - entity: binary_sensor.door_closet_hallway_t
-                  - name: Closet Door, His
+                  - entity: binary_sensor.door_closet_hallway_his
+                  - battery: sensor.door_closet_hallway_his_battery
+                  - name: Closet Door (His)
                   - icon_open: door-sliding-open
                   - icon_closed: door-sliding
 
@@ -165,31 +182,31 @@ browser_mod:
                 template: entity_power_outlet
                 variables:
                   - entity: light.tablet_plug
-                  - name: Kitchen, Tablet Outlet
+                  - name: Kitchen, Tablet
 
               - type: custom:decluttering-card
                 template: entity_power_outlet
                 variables:
                   - entity: switch.outlet_kitchen_a
-                  - name: Kitchen, Above Range, Outlet
+                  - name: Kitchen, Above Range
 
               - type: custom:decluttering-card
                 template: entity_power_outlet
                 variables:
                   - entity: switch.outlet_kitchen_b
-                  - name: Kitchen, Above Coffee Bar, Outlet
+                  - name: Kitchen, Above Coffee Bar
 
               - type: custom:decluttering-card
                 template: entity_power_outlet
                 variables:
                   - entity: light.bedroom_4_media_plug
-                  - name: His Office, Media Outlet
+                  - name: His Office, Media
 
-              - type: custom:decluttering-card
-                template: entity_power_outlet
-                variables:
-                  - entity: light.garage_fan
-                  - name: Garage, Fan
+              # - type: custom:decluttering-card
+              #   template: entity_power_outlet
+              #   variables:
+              #     - entity: light.garage_fan
+              #     - name: Garage, Fan
 
               - type: section
                 label: Presence
@@ -219,49 +236,57 @@ browser_mod:
                 template: entity_leak_details
                 variables:
                   - entity: binary_sensor.leak_air_conditioner
+                  - battery: sensor.leak_air_conditioner_battery
                   - name: Air Conditioner
 
               - type: custom:decluttering-card
                 template: entity_leak_details
                 variables:
-                  - entity: binary_sensor.leak_washing_machine_laundry
-                  - name: Washing Machine
-
-              - type: custom:decluttering-card
-                template: entity_leak_details
-                variables:
-                  - entity: binary_sensor.leak_wine_cooler_bar
-                  - name: Wine Cooler
-
-              - type: custom:decluttering-card
-                template: entity_leak_details
-                variables:
                   - entity: binary_sensor.leak_sink_guest_bathroom
-                  - name: Sink, Guest Bathroom
+                  - battery: sensor.leak_sink_guest_bathroom_battery
+                  - name: Sink, Bathroom (Guest)
 
               - type: custom:decluttering-card
                 template: entity_leak_details
                 variables:
                   - entity: binary_sensor.leak_sink_half_bathroom
-                  - name: Sink, Half Bathroom
-
-              - type: custom:decluttering-card
-                template: entity_leak_details
-                variables:
-                  - entity: binary_sensor.leak_sink_kitchen
-                  - name: Sink, Kitchen
+                  - battery: sensor.leak_sink_half_bathroom_battery
+                  - name: Sink, Bathroom (Half)
 
               - type: custom:decluttering-card
                 template: entity_leak_details
                 variables:
                   - entity: binary_sensor.leak_sink_main_bathroom_hers
-                  - name: Sink (Hers), Main Bathroom
+                  - battery: sensor.leak_sink_main_bathroom_hers_battery
+                  - name: Sink, Bathroom (Main, Hers)
 
               - type: custom:decluttering-card
                 template: entity_leak_details
                 variables:
                   - entity: binary_sensor.leak_sink_main_bathroom_his
-                  - name: Sink (His), Main Bathroom
+                  - battery: sensor.leak_sink_main_bathroom_his_battery
+                  - name: Sink, Bathroom (Main, His)
+
+              - type: custom:decluttering-card
+                template: entity_leak_details
+                variables:
+                  - entity: binary_sensor.leak_sink_kitchen
+                  - battery: sensor.leak_sink_kitchen_battery
+                  - name: Sink, Kitchen
+
+              - type: custom:decluttering-card
+                template: entity_leak_details
+                variables:
+                  - entity: binary_sensor.leak_wine_cooler_bar
+                  - battery: sensor.leak_wine_cooler_bar_battery
+                  - name: Wine Cooler
+
+              - type: custom:decluttering-card
+                template: entity_leak_details
+                variables:
+                  - entity: binary_sensor.leak_washing_machine_laundry
+                  - battery: sensor.leak_washing_machine_laundry_battery
+                  - name: Washing Machine
 
           - type: entities
             view_layout:
@@ -276,61 +301,52 @@ browser_mod:
               - type: custom:decluttering-card
                 template: entity_battery_level
                 variables:
-                  - entity: sensor.front_door_battery
+                  - entity: lock.front_door
+                  - battery: sensor.front_door_battery
                   - name: Front Door Lock
 
               - type: section
                 label: Temperature Batteries
 
+              - type: conditional
+                conditions:
+                  - entity: sensor.temp_attic_temperature
+                    state_not: "unavailable"
+                row:
+                  type: custom:decluttering-card
+                  template: entity_battery_level
+                  variables:
+                    - entity: sensor.temp_attic_temperature
+                    - battery: sensor.temp_attic_battery
+                    - name: Attic
+
               - type: custom:decluttering-card
                 template: entity_battery_level
                 variables:
-                  - entity: sensor.temp_attic_battery
-                  - name: Attic
+                  - entity: sensor.temp_freezer_temperature
+                  - battery: sensor.temp_freezer_battery
+                  - name: Freezer
 
-              - type: conditional
-                conditions:
-                  - entity: sensor.temp_freezer_battery
-                    state_not: "unavailable"
-                row:
-                  type: custom:decluttering-card
-                  template: entity_battery_level
-                  variables:
-                    - entity: sensor.temp_freezer_battery
-                    - name: Freezer
+              - type: custom:decluttering-card
+                template: entity_battery_level
+                variables:
+                  - entity: sensor.temp_refrigerator_temperature
+                  - battery: sensor.temp_refrigerator_battery
+                  - name: Refrigerator
 
-              - type: conditional
-                conditions:
-                  - entity: sensor.temp_refrigerator_battery
-                    state_not: "unavailable"
-                row:
-                  type: custom:decluttering-card
-                  template: entity_battery_level
-                  variables:
-                    - entity: sensor.temp_refrigerator_battery
-                    - name: Refrigerator
+              - type: custom:decluttering-card
+                template: entity_battery_level
+                variables:
+                  - entity: sensor.temp_wine_cooler_top_temperature
+                  - battery: sensor.temp_wine_cooler_top_battery
+                  - name: Wine Cooler (Top)
 
-              - type: conditional
-                conditions:
-                  - entity: sensor.temp_wine_cooler_top_battery
-                    state_not: "unavailable"
-                row:
-                  type: custom:decluttering-card
-                  template: entity_battery_level
-                  variables:
-                    - entity: sensor.temp_wine_cooler_top_battery
-                    - name: Wine Cooler (Top)
-
-              - type: conditional
-                conditions:
-                  - entity: sensor.temp_wine_cooler_bottom_battery
-                    state_not: "unavailable"
-                row:
-                  type: custom:decluttering-card
-                  template: entity_battery_level
-                  variables:
-                    - entity: sensor.temp_wine_cooler_bottom_battery
-                    - name: Wine Cooler (Bottom)
+              - type: custom:decluttering-card
+                template: entity_battery_level
+                variables:
+                  - entity: sensor.temp_wine_cooler_bottom_temperature
+                  - battery: sensor.temp_wine_cooler_bottom_battery
+                  - name: Wine Cooler (Bottom)
 
               - type: section
                 label: Motion Sensor Batteries
@@ -338,7 +354,8 @@ browser_mod:
               - type: custom:decluttering-card
                 template: entity_battery_level
                 variables:
-                  - entity: sensor.motion_laundry_battery
+                  - entity: binary_sensor.motion_laundry
+                  - battery: sensor.motion_laundry_battery
                   - name: Laundry Room
 
               - type: section
@@ -348,28 +365,33 @@ browser_mod:
                 template: entity_battery_level
                 variables:
                   - entity: sensor.remote_garage_for_garage_fan_battery
+                  - battery: sensor.remote_garage_for_garage_fan_battery
                   - name: In Garage, for Garage Fan
 
               - type: custom:decluttering-card
                 template: entity_battery_level
                 variables:
                   - entity: sensor.remote_living_room_for_living_room_battery
+                  - battery: sensor.remote_living_room_for_living_room_battery
                   - name: In Living Room, for Living Room Lights
 
               - type: custom:decluttering-card
                 template: entity_battery_level
                 variables:
                   - entity: sensor.remote_bedroom_4_for_bedroom_4_battery
+                  - battery: sensor.remote_bedroom_4_for_bedroom_4_battery
                   - name: In Bedroom 4, for Bedroom 4 Lights
 
               - type: custom:decluttering-card
                 template: entity_battery_level
                 variables:
                   - entity: sensor.remote_kitchen_for_garage_battery
+                  - battery: sensor.remote_kitchen_for_garage_battery
                   - name: In Kitchen, for Garage Door
 
               - type: custom:decluttering-card
                 template: entity_battery_level
                 variables:
                   - entity: sensor.remote_foyer_for_foyer_battery
+                  - battery: sensor.remote_foyer_for_foyer_battery
                   - name: In Foyer, for Foyer Lights

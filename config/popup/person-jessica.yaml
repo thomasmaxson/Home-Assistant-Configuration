@@ -39,7 +39,7 @@ browser_mod:
         layout_type: custom:grid-layout
         layout:
           margin: 0
-          grid-template-columns: repeat( 1, 400px )
+          grid-template-columns: 1fr
           grid-template-rows: 1fr
           grid-template-areas: |
             'column_a'
@@ -47,7 +47,7 @@ browser_mod:
             # Tablet and down
             "(max-width: 992px)":
               grid-template-columns: 1fr
-              grid-template-rows: repeat( 1, 1fr )
+              grid-template-rows: 1fr
               grid-template-areas: |
                 'column_a'
         cards:

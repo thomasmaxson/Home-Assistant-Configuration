@@ -449,13 +449,11 @@ views:
 
                   - type: conditional
                     conditions:
-                      - entity: cover.bedroom_1_large_window_left
-                        state_not: "unavailable"
-                      - entity: cover.bedroom_1_large_window_right
+                      - entity: cover.large_window_curtains_bedroom_1
                         state_not: "unavailable"
                     card:
                       type: custom:button-card
-                      entity: cover.bedroom_1_large_curtains
+                      entity: cover.large_window_curtains_bedroom_1
                       name: Curtains
                       template:
                         - cover
@@ -494,13 +492,13 @@ views:
                       - light
 
                   - type: custom:button-card
-                    entity: light.closet_hallway_light_j
+                    entity: light.closet_hallway_light_hers
                     name: Her Closet
                     template:
                       - light
 
                   - type: custom:button-card
-                    entity: light.closet_hallway_light_t
+                    entity: light.closet_hallway_light_his
                     name: His Closet
                     template:
                       - light

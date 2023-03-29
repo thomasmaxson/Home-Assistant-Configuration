@@ -217,27 +217,31 @@ template:
             {%- if is_state( 'input_boolean.sidebar_display_exterior_door_status', 'on' ) %}
               {%- set ns = namespace( output = [] ) -%}
               {%- set state_lock_front  = states( 'lock.front_door' ) -%}
-              {%- set ignore_lock_front = [ null, 'locked', 'unknown', 'unavailable' ] -%}
+              {%- set ignore_lock_front = [ 'null', 'locked', 'unknown', 'unavailable' ] -%}
 
-              {%- set state_door_front   = states( 'binary_sensor.door_front_primary' ) -%}
-              {%- set ignore_door_front = [ null, 'off', 'unknown', 'unavailable' ] -%}
+              {%- set state_door_front_primary   = states( 'binary_sensor.door_front_primary' ) -%}
+              {%- set state_door_front_secondary = states( 'binary_sensor.door_front_secondary' ) -%}
+              {%- set ignore_door_front = [ 'null', 'off', 'unknown', 'unavailable' ] -%}
 
               {%- set state_cover_garage = states( 'cover.garage_door' ) -%}
-              {%- set ignore_cover_garage = [ null, 'closed', 'unknown', 'unavailable' ] -%}
+              {%- set ignore_cover_garage = [ 'null', 'closed', 'unknown', 'unavailable' ] -%}
 
               {%- set state_door_garage  = states( 'binary_sensor.door_garage' ) -%}
-              {%- set ignore_door_garage = [ null, 'off', 'unknown', 'unavailable' ] -%}
+              {%- set ignore_door_garage = [ 'null', 'off', 'unknown', 'unavailable' ] -%}
 
               {%- set state_door_sliding = states( 'binary_sensor.door_living' ) -%}
-              {%- set ignore_door_sliding = [ null, 'off', 'unknown', 'unavailable' ] -%}
+              {%- set ignore_door_sliding = [ 'null', 'off', 'unknown', 'unavailable' ] -%}
 
-              {%- set status_lock_front   = iif( ( state_lock_front not in ignore_lock_front ), true, false ) -%}
-              {%- set status_door_front   = iif( ( state_door_front not in ignore_door_front ), true, false ) -%}
-              {%- set status_cover_garage = iif( ( state_cover_garage not in ignore_cover_garage ), true, false ) -%}
-              {%- set status_door_garage  = iif( ( state_door_garage not in ignore_door_garage ), true, false ) -%}
-              {%- set status_door_sliding = iif( ( state_door_sliding not in ignore_door_sliding ), true, false ) -%}
+              {%- set status_lock_front           = iif( ( state_lock_front not in ignore_lock_front ), true, false ) -%}
+              {%- set status_door_front_primary   = iif( ( state_door_front_primary not in ignore_door_front ), true, false ) -%}
+              {%- set status_door_front_secondary = iif( ( state_door_front_secondary not in ignore_door_front ), true, false ) -%}
+              {%- set status_cover_garage         = iif( ( state_cover_garage not in ignore_cover_garage ), true, false ) -%}
+              {%- set status_door_garage          = iif( ( state_door_garage not in ignore_door_garage ), true, false ) -%}
+              {%- set status_door_sliding         = iif( ( state_door_sliding not in ignore_door_sliding ), true, false ) -%}
 
-              {%- if ( true == status_door_front ) -%}
+              {%- if ( true == status_door_front_primary and true == status_door_front_secondary ) -%}
+                {%- set ns.output = [ 'front doors are open' ] -%}
+              {%- elif ( true == status_door_front_primary or true == status_door_front_secondary ) -%} 
                 {%- set ns.output = ns.output + [ 'front door is open' ] -%}
               {%- elif ( true == status_lock_front ) -%}
                 {%- set ns.output = ns.output + [ 'front door is ' + state_lock_front ] -%}

@@ -48,20 +48,39 @@ sensor:
             mdi:washing-machine-off
           {%- endif -%}
 
+      # custom_large_window_curtains_bedroom_1:
+      #   friendly_name: Large Window Curtains
+      #   value_template: >-
+      #     {%- if is_state( 'cover.large_window_curtains_bedroom_1', 'open' ) -%}
+      #       Open
+      #     {%- elif is_state( 'cover.large_window_curtains_bedroom_1', 'closed' ) -%}
+      #       Closed
+      #     {%- else -%}
+      #       Unknown
+      #     {%- endif -%}
+      #   icon_template: >-
+      #     {%- if is_state( 'cover.large_window_curtains_bedroom_1', 'open' ) -%}
+      #     mdi:curtains
+      #     {%- elif is_state( 'cover.large_window_curtains_bedroom_1', 'closed' ) -%}
+      #     mdi:curtains-closed
+      #     {%- else -%}
+      #     mdi:cloud-question
+      #     {%- endif -%}
+
       custom_door_closet_hallway_j:
         friendly_name: "Jess' Closet Door"
         value_template: >-
-          {%- if is_state( 'binary_sensor.door_closet_hallway_j', 'on' ) -%}
+          {%- if is_state( 'binary_sensor.door_closet_hallway_hers', 'on' ) -%}
             Open
-          {%- elif is_state( 'binary_sensor.door_closet_hallway_j', 'off' ) -%}
+          {%- elif is_state( 'binary_sensor.door_closet_hallway_hers', 'off' ) -%}
             Closed
           {%- else -%}
             Unknown
           {%- endif -%}
         icon_template: >-
-          {%- if is_state( 'binary_sensor.door_closet_hallway_j', 'on' ) -%}
+          {%- if is_state( 'binary_sensor.door_closet_hallway_hers', 'on' ) -%}
           mdi:door-sliding-open
-          {%- elif is_state( 'binary_sensor.door_closet_hallway_j', 'off' ) -%}
+          {%- elif is_state( 'binary_sensor.door_closet_hallway_hers', 'off' ) -%}
           mdi:door-sliding
           {%- else -%}
           mdi:cloud-question
@@ -70,17 +89,17 @@ sensor:
       custom_door_closet_hallway_t:
         friendly_name: "Tom's Closet Door"
         value_template: >-
-          {%- if is_state( 'binary_sensor.door_closet_hallway_t', 'on' ) -%}
+          {%- if is_state( 'binary_sensor.door_closet_hallway_his', 'on' ) -%}
             Open
-          {%- elif is_state( 'binary_sensor.door_closet_hallway_t', 'off' ) -%}
+          {%- elif is_state( 'binary_sensor.door_closet_hallway_his', 'off' ) -%}
             Closed
           {%- else -%}
             Unknown
           {%- endif -%}
         icon_template: >-
-          {%- if is_state( 'binary_sensor.door_closet_hallway_t', 'on' ) -%}
+          {%- if is_state( 'binary_sensor.door_closet_hallway_his', 'on' ) -%}
           mdi:door-sliding-open
-          {%- elif is_state( 'binary_sensor.door_closet_hallway_t', 'off' ) -%}
+          {%- elif is_state( 'binary_sensor.door_closet_hallway_his', 'off' ) -%}
           mdi:door-sliding
           {%- else -%}
           mdi:cloud-question
