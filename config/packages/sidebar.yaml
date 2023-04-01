@@ -169,29 +169,32 @@ template:
 
           lights_on: |
             {%- if is_state( 'input_boolean.sidebar_display_lights_on', 'on' ) %}
-              {%- set ns = namespace( output = [] ) -%}
+              {%- set output = [] -%}
+              {%- set item_count = 0 -%}
               {%- set ignore = [ 'off', '0', 'unknown', 'unavailable' ] -%}
 
               {%- set lights_on = states( 'sensor.total_lights_on' ) %}
               {%- set status_lights_on = iif( ( lights_on not in ignore ), true, false ) -%}
+              {%- set item_count = lights_on | int %}
 
               {%- set garage_fan_on = states( 'light.garage_fan' ) %}
               {%- set status_garage_fan_on = iif( ( garage_fan_on not in ignore ), true, false ) -%}
 
               {%- if ( true == status_lights_on ) -%}
-                {%- set ns.output = ns.output + [ iif( ( '1' == lights_on ), lights_on + ' light', lights_on + ' lights' ) ] -%}
+                {%- set output = output + [ iif( ( 1 == item_count ), lights_on + ' light', lights_on + ' lights' ) ] -%}
               {%- endif -%}
 
               {%- if ( true == status_garage_fan_on ) -%}
-                {%- set ns.output = ns.output + [ iif( ( '0' == lights_on ), 'The garage fan', 'garage fan' ) ] -%}
+                {%- set output = output + [ iif( ( 0 == item_count ), 'The garage fan', 'garage fan' ) ] -%}
+                {%- set item_count = item_count + 1 %}
               {%- endif -%}
 
-              {%- set verb = iif( ( '1' == lights_on ), 'is', 'are' ) -%}
+              {%- set verb = iif( ( 1 == item_count ), 'is', 'are' ) -%}
 
-              {%- if ns.output | length == 1 -%}
-                {{ ns.output | join( '' ) }} {{ verb }} on
-              {%- elif ns.output | length >= 2 -%}
-                {%- for e in ns.output -%}
+              {%- if output | length == 1 -%}
+                {{ output | join( '' ) }} {{ verb }} on
+              {%- elif output | length >= 2 -%}
+                {%- for e in output -%}
                   {% if loop.first %}
                     {{ e }}
                   {% elif loop.last %}
