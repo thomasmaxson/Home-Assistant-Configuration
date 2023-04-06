@@ -353,7 +353,7 @@ template:
                   'Do not forget to take the trash and bulk trash out. '
                 ] | random }}
 
-              {%- elif ( ( is_take_out_solid ) and ( is_take_out_recycle ) ) -%}
+              {%- elif ( ( is_take_out_recycle ) and ( is_take_out_bulk ) ) -%}
                 {{ [ 
                   'Tomorrow is the big day: recycling and bulk trash day! ',
                   'Recycling and bulk trash should go out before tomorrow morning. ',
@@ -369,9 +369,7 @@ template:
 
               {%- elif ( is_take_out_recycle ) -%}
                 {{ [ 
-                  'Tomorrow is the big day, recycling day! ',
-                  'Recycling should go out before tomorrow morning. ',
-                  'Do not forget to take the recylcing out. '
+                  'Tomorrow is the big day, recycling day! '
                 ] | random }}
 
               {%- elif ( is_take_out_bulk ) -%}
@@ -400,9 +398,7 @@ template:
 
               {%- elif ( is_bring_in_recycle ) -%}
                 {{ [ 
-                  'Do not forget to bring the recycling bins in.',
-                  'The recycling bins will feel lonely if you leave them outside.',
-                  'The HOA will get mad if you leave the recycling bins out on the street.'
+                  'Do not forget to take the recycling to the drop-off center.'
                 ] | random }}
 
               {%- endif -%}
