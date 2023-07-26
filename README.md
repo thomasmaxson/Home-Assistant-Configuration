@@ -66,8 +66,8 @@ Make sure that you :star: this repo, so that you can get updates right in your n
 * [Govee WiFi Thermometer Hygrometer H5179](https://www.amazon.com/gp/product/B0C39TSV2W/)
 * [Shelly 1 Relay Switch](https://www.amazon.com/gp/product/B07NQNLDTD/)
 * [Shelly 2.5 Relay Switch](https://www.amazon.com/gp/product/B07Z623J8Z/)
-#* [SONOFF SNZB-02 Temperature and Humidity Sensor](https://www.amazon.com/gp/product/B08BCJNDYQ/)
-#* [SONOFF SNZB-01 Zigbee Wireless Switch](https://www.amazon.com/gp/product/B08BF9YQK1/)
+~~* [SONOFF SNZB-02 Temperature and Humidity Sensor](https://www.amazon.com/gp/product/B08BCJNDYQ/)~~
+~~* [SONOFF SNZB-01 Zigbee Wireless Switch](https://www.amazon.com/gp/product/B08BF9YQK1/)~~
 
 ##### Remotes
 * [Aqara Wireless Mini Switch](https://www.amazon.com/gp/product/B07D19YXND/)
