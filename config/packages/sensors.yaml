@@ -7,45 +7,6 @@
 ################################################################################
 
 sensor:
-  # - platform: filesize
-  #   file_paths:
-  #     - /config/home-assistant.log
-
-  # MariaDB recorder DB size sensor
-  # DEPRECATED IN 2022.6
-  # - platform: sql
-  #   db_url: !secret recorder_db_url
-  #   queries:
-  #     - name: MariaDB Database Size
-  #       query: >
-  #         SELECT table_schema "database", Round( Sum( data_length + index_length ) / POWER( 1024, 2 ), 1 )
-  #         "value" FROM information_schema.tables WHERE table_schema="homeassistant" GROUP BY table_schema;
-  #       column: value
-  #       unit_of_measurement: MB
-
-  # InfluxDB DB size sensor
-  - platform: influxdb
-    host: !secret influxdb_host
-    port: !secret influxdb_port
-    username: !secret influxdb_username
-    password: !secret influxdb_password
-    queries:
-      - name: InfluxDB Database Size
-        unit_of_measurement: MB
-        value_template: '{{ (value | float / 1024 /1024) | round(1) }}'
-        group_function: mean
-        measurement: '"monitor"."shard"'
-        database: _internal
-        where: 'time > now() - 1m AND "database"=''home_assistant'''
-        field: diskBytes
-        # unit_of_measurement: MB
-        # value_template: "{{ (value | float / 1024 /1024) | round(1) }}"
-        # group_function: sum
-        # measurement: '"monitor"."shard"'
-        # database: _internal
-        # where: "time > now() - 10s"
-        # field: diskBytes
-
   - platform: systemmonitor
     resources:
       - type: last_boot

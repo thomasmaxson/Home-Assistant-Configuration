@@ -41,72 +41,6 @@ template:
 
             {%- endif -%}
 
-          # date_greeting: |
-          #   {%- set weekday_full_name = now().strftime( '%A' ) %}
-          #   {%- set month_full_name = now().strftime( '%B' ) %}
-
-          #   {%- set day = now().strftime( '%-d' ) %}
-          #   {%- set weekday = now().strftime( '%w' ) %}
-
-          #   Good morning. Today is {{ weekday_full_name }}, {{ month_full_name }} the
-          #   {% if day | int == 1 or day | int == 21 or day | int == 31 %}
-          #     {{ day }}st
-          #   {% elif day | int == 2 or day | int == 22 %}
-          #     {{ day }}nd
-          #   {% elif day | int == 3 or day | int == 23 %}
-          #     {{ day }}rd
-          #   {% else %}
-          #     {{ day }}th
-          #   {% endif %}.
-
-          holiday: |
-            {%- if is_state( 'input_boolean.sidebar_display_holidays', 'on' ) %}
-              {%- if states.calendar.holidays_in_united_states.state == 'on' %}
-                Today is {{ states.calendar.holidays_in_united_states.attributes.message }}
-
-              {%- endif %}
-            {%- endif %}
-
-          # anniversary: |
-          #   {%- if is_state( 'input_boolean.sidebar_display_celebrations', 'on' ) %}
-          #     {%- if states.calendar.anniverseries.state == 'on' %}
-          #       Today is {{ states.calendar.anniverseries.attributes.message }}.
-
-          #     {%- endif %}
-          #   {%- endif %}
-
-          birthday: |
-            {%- if is_state( 'input_boolean.sidebar_display_celebrations', 'on' ) %}
-              {%- if states.calendar.birthdays.state == 'on' %}
-                Today is {{ states.calendar.birthdays.attributes.message }}. {{ [
-                  'Ready for another lap around the sun?',
-                  'They can cry if they want to.',
-                  'The confetti cannon is ready.',
-                  'I hope the cake is tasty.'
-                ] | random }}
-              {%- endif %}
-            {%- endif %}
-
-          neighborhood: |
-            {%- if is_state( 'input_boolean.sidebar_display_neighborhood', 'on' ) %}
-              {%- if states.calendar.regency_lakes.state == 'on' %}
-                {%- set message = states.calendar.regency_lakes.attributes.message %}
-                {%- set description = states.calendar.regency_lakes.attributes.description %}
-
-                {%- if description != '' %}
-                  {{ description }}
-
-                {%- elif message != '' %}
-                  {{ message }} in {{ [
-                    'your neighborhood', 
-                    'Regency Lakes', 
-                    'Osprey Point'
-                  ] | random }} today
-
-                {%- endif %}
-              {%- endif %}
-            {%- endif %}
-
           weather: |
             {%- if is_state( 'input_boolean.sidebar_display_weather_forecast', 'on' ) %}
               {%- set ignore = [ 'null', 'unknown', 'unavailable' ] -%}
@@ -140,7 +74,7 @@ template:
                   {%- if is_state( 'sun.sun', 'above_horizon' ) %}
                     {{ [
                       'and sunny', 
-                      'with sun'
+                      'with sunshine'
                     ] | random }}
 
                   {%- else %}
@@ -158,20 +92,51 @@ template:
               {%- endif %}
             {%- endif %}
 
-          # lights_on: |
-          #   {%- set ignore = [ null, '0', 'unknown', 'unavailable' ] -%}
-          #   {%- set count = states( 'sensor.total_lights_on' ) %}
+          holiday: |
+            {%- if is_state( 'input_boolean.sidebar_display_holidays', 'on' ) %}
+              {%- if states.calendar.holidays_in_united_states.state == 'on' %}
+                Today is {{ states.calendar.holidays_in_united_states.attributes.message }}
 
-          #   {%- if count not in ignore and is_state( 'input_boolean.sidebar_display_lights_on', 'on' ) %}
-          #     {{ iif( ( '1' == count ), count + ' light is on', count + ' lights are on' ) }}
+              {%- endif %}
+            {%- endif %}
 
-          #   {%- endif %}
+          birthday: |
+            {%- if is_state( 'input_boolean.sidebar_display_celebrations', 'on' ) %}
+              {%- if states.calendar.birthdays.state == 'on' %}
+                Today is {{ states.calendar.birthdays.attributes.message }}. {{ [
+                  'Ready for another lap around the sun?',
+                  'They can cry if they want to.',
+                  'The confetti cannon is ready.',
+                  'I hope the cake is tasty.'
+                ] | random }}
+              {%- endif %}
+            {%- endif %}
+
+          neighborhood: |
+            {%- if is_state( 'input_boolean.sidebar_display_neighborhood', 'on' ) %}
+              {%- if states.calendar.regency_lakes.state == 'on' %}
+                {%- set message = states.calendar.regency_lakes.attributes.message %}
+                {%- set description = states.calendar.regency_lakes.attributes.description %}
+
+                {%- if description != '' %}
+                  {{ description }}
+
+                {%- elif message != '' %}
+                  {{ message }} in {{ [
+                    'your neighborhood', 
+                    'Regency Lakes', 
+                    'Osprey Point'
+                  ] | random }} today
+
+                {%- endif %}
+              {%- endif %}
+            {%- endif %}
 
           lights_on: |
             {%- if is_state( 'input_boolean.sidebar_display_lights_on', 'on' ) %}
               {%- set output = [] -%}
               {%- set item_count = 0 -%}
-              {%- set ignore = [ 'off', '0', 'unknown', 'unavailable' ] -%}
+              {%- set ignore = [ '0', 'off', 'unknown', 'unavailable' ] -%}
 
               {%- set lights_on = states( 'sensor.total_lights_on' ) %}
               {%- set status_lights_on = iif( ( lights_on not in ignore ), true, false ) -%}
@@ -255,7 +220,7 @@ template:
               {%- endif -%}
 
               {%- if ( true == status_door_garage ) -%}
-                {%- set ns.output = ns.output + [ 'garage interior door is open' ] -%}
+                {%- set ns.output = ns.output + [ 'interior garage door is open' ] -%}
               {%- endif -%}
 
               {%- if ( true == status_door_sliding ) -%}
@@ -276,44 +241,6 @@ template:
                   
                 {% endfor %}
               {%- endif -%}
-            {%- endif %}
-
-          sunrise_sunset: >-
-            {%- if is_state( 'input_boolean.sidebar_display_sunrise_sunset', 'on' ) -%}
-              {% if is_state( 'sun.sun', 'below_horizon' ) %}
-                You have
-                {%- set seconds = ( as_timestamp( states.sun.sun.attributes.next_rising ) - now().timestamp() ) %}
-                {%- set minutes = ( seconds / 60 ) | int %}
-                {%- set hours   = ( seconds / ( 60 * 60 ) ) | int %}
-
-                {%- if hours > 1 %}
-                  {{ hours }} {{ iif( ( hours == 1 ), 'hour', 'hours') }}
-                {%- else %}
-                  {{ minutes }} {{ iif( ( minutes == 1 ), 'minute', 'minutes') }}
-                {%- endif %}
-                {{ [
-                  ' until the sun rises',
-                  ' until the sun is up',
-                  ' before the sun officially rises'
-                ] | random }}
-              {%- else %}
-                You have
-                {% set seconds = as_timestamp( states.sun.sun.attributes.next_setting ) - now().timestamp() %}
-                {%- set minutes = ( seconds / 60 ) | int %}
-                {%- set hours   = ( seconds / ( 60 * 60 ) ) | int %}
-
-                {%- if hours > 1 %}
-                  {{ hours }} {{ iif( ( hours == 1 ), 'hour', 'hours') }}
-                {%- else %}
-                  {{ minutes }} {{ iif( ( minutes == 1 ), 'minute', 'minutes') }}
-                {%- endif %}
-
-                {{ [
-                  ' until the sun sets for the day',
-                  ' until the sun slips below the horizon',
-                  ' before the sun officially sets'
-                ] | random }}
-              {%- endif %}
             {%- endif %}
 
           waste: |

@@ -12,12 +12,3 @@ group:
     entities:
       - person.thomas
       - person.jessica
-      #- person.leo
-      #- person.dolores
-
-  pets:
-    name: Pets
-    entities:
-      - input_boolean.status_dog_gouda
-      #- input_boolean.dog_walrus_status
-      #- input_boolean.dog_lady_mimi_status

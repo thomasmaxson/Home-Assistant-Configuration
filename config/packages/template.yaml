@@ -9,6 +9,57 @@
 sensor:
   - platform: template
     sensors:
+      sidebar_time:
+        friendly_name: "Sidebar, Time"
+        value_template: >-
+          {%- set hours = now().strftime( '%I' ) %}
+          {%- set minutes = now().strftime( '%M' ) %}
+
+          <span class="sidebar-time">{{ hours }}<span class="time-colon">:</span>{{ minutes }}</span>
+        icon_template: >-
+          {%- set time = now().hour %}
+
+          {%- if time == 12 or time == 24 -%}
+            mdi:clock-time-twelve-outline
+
+          {%- elif time == 11 or time == 23 -%}
+            mdi:clock-time-eleven-outline
+
+          {%- elif time == 10 or time == 22 -%}
+            mdi:clock-time-ten-outline
+
+          {%- elif time == 9 or time == 21 -%}
+            mdi:clock-time-nine-outline
+
+          {%- elif time == 8 or time == 20 -%}
+            mdi:clock-time-eight-outline
+
+          {%- elif time == 7 or time == 19 -%}
+            mdi:clock-time-seven-outline
+
+          {%- elif time == 6 or time == 18 -%}
+            mdi:clock-time-six-outline
+
+          {%- elif time == 5 or time == 17 -%}
+            mdi:clock-time-five-outline
+
+          {%- elif time == 4 or time == 16 -%}
+            mdi:clock-time-four-outline
+
+          {%- elif time == 3 or time == 15 -%}
+            mdi:clock-time-three-outline
+
+          {%- elif time == 2 or time == 14 -%}
+            mdi:clock-time-two-outline
+
+          {%- elif time == 1 or time == 13 -%}
+            mdi:clock-time-one-outline
+
+          {%- else -%}
+            mdi:clock-outline
+
+          {%- endif -%}
+
       is_week_even:
         friendly_name: "Is Week Even"
         value_template: >-
@@ -105,6 +156,34 @@ sensor:
           mdi:cloud-question
           {%- endif -%}
 
+      custom_freezer_temperature:
+        friendly_name: Freezer Temperature
+        icon_template: "mdi:thermometer"
+        unit_of_measurement: "°F"
+        value_template: >-
+          {%- set ignore = [ 'unknown', 'unavailable' ] -%}
+          {%- set state = states( 'sensor.temp_freezer_temperature' ) -%}
+
+          {%- if state not in ignore -%}
+            {{ state | int - 5 }}
+          {%- else -%}
+            Unknown
+          {%- endif -%}
+
+      custom_refrigerator_temperature:
+        friendly_name: Refrigerator Temperature
+        icon_template: "mdi:thermometer"
+        unit_of_measurement: "°F"
+        value_template: >-
+          {%- set ignore = [ 'unknown', 'unavailable' ] -%}
+          {%- set state = states( 'sensor.temp_refrigerator_temperature' ) -%}
+
+          {%- if state not in ignore -%}
+            {{ state | int - 5 }}
+          {%- else -%}
+            Unknown
+          {%- endif -%}
+
       custom_fire_tablet_battery:
         #device_class: battery
         friendly_name: Battery Level
@@ -124,70 +203,6 @@ sensor:
           {%- else -%}
             mdi:battery-{{ battery_round }}
           {%- endif -%}
-
-      snooze_countdown_household_notifications:
-        device_class: timestamp
-        value_template: >-
-          {%- set state = states( 'timer.snooze_household_activity' ) %}
-          {%- set duration = state_attr( 'timer.snooze_household_activity', 'duration' ) %}
-          {%- set n = now().timestamp() %}
-          {%- set h = '00' | int %}
-          {%- set m = '00' | int %}
-          {%- set s = '00' | int %}
-
-          {%- if state not in [ 'idle', 'unknown', 'unavailable' ] %}
-            {%- set h, m, s = duration.split( ':' ) | list | map( 'int' ) %}
-          {%- endif %}
-
-          {{ ( n + h * 60 * 60 + m * 60 + s ) | timestamp_custom( '%Y-%m-%dT%H:%M:%S-00:00', false ) }}
-
-      snooze_countdown_garage_door_open:
-        device_class: timestamp
-        value_template: >-
-          {%- set state = states( 'timer.snooze_garage_open' ) %}
-          {%- set duration = state_attr( 'timer.snooze_garage_open', 'duration' ) %}
-          {%- set n = now().timestamp() %}
-          {%- set h = '00' | int %}
-          {%- set m = '00' | int %}
-          {%- set s = '00' | int %}
-
-          {%- if state not in [ 'idle', 'unknown', 'unavailable' ] %}
-            {%- set h, m, s = duration.split( ':' ) | list | map( 'int' ) %}
-          {%- endif %}
-
-          {{ ( n + h * 60 * 60 + m * 60 + s ) | timestamp_custom( '%Y-%m-%dT%H:%M:%S-00:00', false ) }}
-
-      snooze_countdown_doorbell_motion:
-        device_class: timestamp
-        value_template: >-
-          {%- set state = states( 'timer.snooze_doorbell_motion' ) %}
-          {%- set duration = state_attr( 'timer.snooze_doorbell_motion', 'duration' ) %}
-          {%- set n = now().timestamp() %}
-          {%- set h = '00' | int %}
-          {%- set m = '00' | int %}
-          {%- set s = '00' | int %}
-
-          {%- if state not in [ 'idle', 'unknown', 'unavailable' ] %}
-            {%- set h, m, s = duration.split( ':' ) | list | map( 'int' ) %}
-          {%- endif %}
-
-          {{ ( n + h * 60 * 60 + m * 60 + s ) | timestamp_custom( '%Y-%m-%dT%H:%M:%S-00:00', false ) }}
-
-      snooze_countdown_front_door_unlocked:
-        device_class: timestamp
-        value_template: >-
-          {%- set state = states( 'timer.snooze_front_door_unlocked' ) %}
-          {%- set duration = state_attr( 'timer.snooze_front_door_unlocked', 'duration' ) %}
-          {%- set n = now().timestamp() %}
-          {%- set h = '00' | int %}
-          {%- set m = '00' | int %}
-          {%- set s = '00' | int %}
-
-          {%- if state not in [ 'idle', 'unknown', 'unavailable' ] %}
-            {%- set h, m, s = duration.split( ':' ) | list | map( 'int' ) %}
-          {%- endif %}
-
-          {{ ( n + h * 60 * 60 + m * 60 + s ) | timestamp_custom( '%Y-%m-%dT%H:%M:%S-00:00', false ) }}
 
       # fire_tablet_last_app_start_formatted:
       #   #device_class: timestamp
@@ -216,34 +231,35 @@ sensor:
             Unknown
           {%- endif %}
 
-      # Count interior lights switched ON
+      # Count lights that are ON
       total_lights_on:
         friendly_name: Total Lights On
         icon_template: mdi:lightbulb
         value_template: >-
-          {% set state = 'on' %}
-          {% set ns = namespace( count = 0 ) %}
+          {% set entity = 'light.lights_all' %}
+          {% set reject = [] %}
+          {% set state  = 'on' %}
 
-          {% for light in state_attr( 'light.lights_all', 'entity_id' ) if is_state( light, state ) %}
-            {% set ns.count = ns.count + 1 %}
-          {% endfor %}
+          {{ expand( state_attr( entity, 'entity_id' ) ) 
+            | selectattr( 'state', 'eq', state ) 
+            | map( attribute = 'entity_id' ) 
+            | reject( 'in', reject ) 
+            | list | count }}
 
-          {{ ns.count | int }}
-
-      # Count Doors that are OPEN
+      # Count INTERIOR Doors that are OPEN (aka ON)
       total_doors_open:
         friendly_name: Total Doors Open
         icon_template: mdi:door-open
         value_template: >-
-          {% set state = 'on' %}
-          {% set device = 'door' %}
-          {{ states.binary_sensor 
-            | selectattr( 'attributes.device_class', 'defined' ) 
-            | selectattr( 'attributes.device_class', 'eq', device ) 
+          {% set entity = 'binary_sensor.doors_all_interior' %}
+          {% set reject = [] %}
+          {% set state  = 'on' %}
+
+          {{ expand( state_attr( entity, 'entity_id' ) ) 
             | selectattr( 'state', 'eq', state ) 
             | map( attribute = 'entity_id' ) 
-            | reject( 'in', [ 'binary_sensor.door_front_primary', 'binary_sensor.door_garage', 'binary_sensor.door_living' ] ) 
-            | list | length }}
+            | reject( 'in', reject ) 
+            | list | count }}
 
 template:
   - trigger:
@@ -406,6 +422,54 @@ template:
       - platform: time_pattern
         seconds: /30
     sensor:
+      - name: "Days Until, Recycle Drop Off"
+        icon: mdi:recycle
+        state: >-
+          {%- set ignore = [ 'unknown', 'unavailable' ] -%}
+
+          {%- set entity = 'schedule.waste_bring_in_recycle' %}
+          {%- set nextEvent = state_attr( entity, 'next_event' ) %}
+
+          {%- if entity in ignore %}
+            -----
+
+          {%- else %}
+            {%- if 'on' == states( entity ) %}
+              Now
+            {%- else %}
+              {%- set date_today = as_timestamp( now() ) | timestamp_custom( '%F' ) %}
+              {%- set date_tomorrow = ( as_timestamp( now() + timedelta( days = 1 ) ) ) | timestamp_custom( '%F' ) %}
+              {%- set date_nextEvent = as_timestamp( nextEvent ) | timestamp_custom( '%F' ) %}
+
+              {%- set daysUntil = ( ( as_timestamp( date_nextEvent ) - as_timestamp( date_today ) ) | int /60/1440 ) | round( 0 ) | string %}
+
+              {%- if date_today == date_nextEvent %}
+                Today
+
+              {%- elif date_tomorrow == date_nextEvent %}
+                Tomorrow
+
+              {%- else %}
+                {{ iif( ( '1' == daysUntil ), daysUntil + ' day away', daysUntil + ' days away' ) }}
+
+              {%- endif %}
+            {%- endif %}
+          {%- endif %}
+
+  - trigger:
+      # Update on Home Assistant startup
+      - platform: homeassistant
+        event: start
+      # Update on Template reload
+      - platform: event
+        event_type: event_template_reloaded
+      # Update on Template reload
+      - platform: event
+        event_type: event_template_reloaded
+      # Update every XX seconds
+      - platform: time_pattern
+        seconds: /30
+    sensor:
       - name: "Days Until, Waste Day - Recycle"
         icon: mdi:recycle
         state: >-
@@ -500,7 +564,7 @@ template:
         minutes: "/01"
         seconds: "00"
     sensor:
-      - name: "Evening Automations Status"
+      - name: "Sunset Automations Status"
         state: >-
           {%- set offset = ( 45 * 60 ) %}
           {%- set next_sunset     = as_timestamp( states.sun.sun.attributes.next_setting ) %}
@@ -508,12 +572,12 @@ template:
           {%- set ts_next_sunset  = modified_sunset | timestamp_custom( '%H%M%S' ) | int %}
           {%- set ts_current      = as_timestamp( now() ) | timestamp_custom( '%H%M%S' ) | int %}
 
-          {%- if( is_state( 'input_boolean.evening_automations_active', 'on' ) ) %}
+          {%- if( is_state( 'input_boolean.sunset_automations_active', 'on' ) ) %}
             Active
           {%- elif( ts_current > ts_next_sunset ) %}
             Complete
           {%- else %}
-            Runs at {{ modified_sunset | timestamp_custom( '%I:%M %p' ) }}
+            Run at {{ modified_sunset | timestamp_custom( '%I:%M %p' ) }}
           {%- endif %}
         icon: >-
           {%- set offset = ( 45 * 60 ) %}
@@ -522,7 +586,7 @@ template:
           {%- set ts_next_sunset  = modified_sunset | timestamp_custom( '%H%M%S' ) | int %}
           {%- set ts_current      = as_timestamp( now() ) | timestamp_custom( '%H%M%S' ) | int %}
 
-          {%- if( is_state( 'input_boolean.evening_automations_active', 'on' ) ) %}
+          {%- if( is_state( 'input_boolean.sunset_automations_active', 'on' ) ) %}
           mdi:clock-alert-outline
           {%- elif( ts_current > ts_next_sunset ) %}
           mdi:clock-check-outline
