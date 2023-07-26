@@ -12,11 +12,11 @@ extra_module_url:
 
 themes:
   tihiti:
+    #primary-color: rgb(3, 169, 244)
     primary-text-color: "#e1e1e1"
     primary-background-color: "#111111"
     secondary-background-color: "#202020"
     card-background-color: "#1c1c1c"
-    primary-color: "#03a9f4"
     app-header-text-color: var(--primary-text-color)
     app-header-background-color: "#101e24"
     table-row-background-color: var(--primary-background-color)
@@ -37,7 +37,6 @@ themes:
     input-dropdown-icon-color: rgba(255, 255, 255, 0.54)
 
     # Edited
-    #ha-card-box-shadow: none
     ha-card-background: none
     ha-card-border-width: 0
     grid-card-gap: 5%
@@ -48,14 +47,6 @@ themes:
 
     switch-unchecked-button-color: "#3b4041"
     switch-unchecked-track-color: "#0c0d0d"
-
-    # paper-slider-knob-color: "#a4abb1"
-    # paper-slider-knob-start-color: "#a4abb1"
-    # paper-slider-pin-color: "#626a6f"
-    # paper-slider-active-color: '#626a6f'
-    # paper-slider-container-color: "#202020"
-    # paper-toast-color: var( --primary-text-color )
-    # paper-toast-background-color: "#1b1b1bf2"
 
     # Font
     primary-font-family: SF Pro Text, SF Text, Roboto, system-ui
@@ -70,18 +61,11 @@ themes:
     mdc-typography-body1-font-family: var(--primary-font-family)
     mdc-typography-font-family: var(--primary-font-family)
 
-    # Custom Variables
-    ha-card-background-color: rgba(34,38,39,0.9)
-    ha-card-header-background-color: rgba(48,52,52,0.8)
-    card-content-padding: 1.4em 2.2em 1.6em 1.5em
-
-    bar-card-color: "#303435"
-
     # Button Card Templates
-    button-card-font-size: 1.35vw
-    button-card-font-weight: 500
-    button-card-letter-spacing: -0.03vw
     button-card-border-radius: 10px
+
+    # Custom Variables
+    bar-card-color: "#303435"
 
     # Popups
     mdc-dialog-scrim-color: rgba( 0, 0, 0, 0.5 )
@@ -112,12 +96,6 @@ themes:
     tihiti-footer-card-padding-h: 1.25vw
     tihiti-footer-card-border-radius: 10px
 
-    # Popups
-    #tihiti-popup-header-color: rgba( 200, 218, 222, 0.05 )
-    tihiti-popup-header-color: rgba( 255, 0, 0, 0.5 )
-    # tihiti-popup-button-padding: 0.1em 2em 1.8em 2em
-    # tihiti-popup-border-style: 1.5px solid rgba( 0, 0, 0, 0.2 )
-
     ####################################################
     #                                                  #
     #                     CARD-MOD                     #
@@ -132,21 +110,24 @@ themes:
         min-height: 100vh;
       }
 
-    # card-mod-more-info-yaml: |
-    #   $: |
-    #     .mdc-dialog {
-    #       backdrop-filter: blur(17px);
-    #       -webkit-backdrop-filter: blur(17px);
-    #       background: rgba(0,0,0,0.25);
-    #     }
-    #     .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
-    #       background: none !important;
-    #       box-shadow: none;
-    #       border-radius: 100%;
-    #     }
+    card-mod-view-yaml: |
+      grid-layout$hui-horizontal-stack-card:
+        $: |
+          #root {
+              justify-content: space-between;
+              margin-top: 2vw;
+          }
 
-    # card-mod-card: |
-    #   ha-card {
-    #     backdrop-filter: var( --bg-filter );
-    #     -webkit-backdrop-filter: var( --bg-filter );
-    #   }
+          @media screen and (max-width: 992px) {
+            #root { 
+              flex-wrap: wrap;
+              margin: 0 -2vw;
+              padding-bottom: 5vw;
+            }
+
+            #root > button-card { 
+              flex: 1 1 40vw !important;
+              margin: 4vw 2vw 0 !important;
+              max-width: none !important;
+            }
+          }
