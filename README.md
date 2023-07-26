@@ -42,14 +42,15 @@ Make sure that you :star: this repo, so that you can get updates right in your n
 
 ##### Media
 * AppleTV
-* [Amazon Echo Dot](https://www.amazon.com/gp/product/B07FZ8S74R/)
 * [Amazon Echo](https://www.amazon.com/gp/product/B084J4KNDS/)
+* [Amazon Echo Dot](https://www.amazon.com/gp/product/B07FZ8S74R/)
+* [Amazon Echo Pop](https://www.amazon.com/gp/product/B09WNK39JN/)
 
 ##### Switches / Plugs
 * [Lutron Caseta Lightswitch](https://www.amazon.com/gp/product/B07SJJBTYY/)
-* [Lutron Caseta Outdoor Smart Plug](https://www.amazon.com/gp/product/B08YPFFM58/)
+* [Lutron Caseta Outdoor Smart Plug](https://www.amazon.com/gp/product/B00KHSXB60/)
+* [Lutron Caseta Smart Lamp Dimmer](https://www.amazon.com/gp/product/B08YPFFM58/)
 * [Philips Hue Smart Plug](https://www.amazon.com/gp/product/B07XD578LD/)
-* [MyQ Garage Door Hub](https://www.amazon.com/gp/product/B075RQVSY7/)
 * [IKEA TRÅDFRI Wireless Control Outlet](https://www.ikea.com/us/en/p/tradfri-wireless-control-outlet-smart-30356169/)
 
 ##### Lights
@@ -62,9 +63,11 @@ Make sure that you :star: this repo, so that you can get updates right in your n
 * [Aqara Leak Sensor](https://www.amazon.com/gp/product/B07D39MSZS/)
 * [Aqara Motion Sensor](https://www.amazon.com/gp/product/B07D1CRRVF/)
 * [Aqara Temperature Sensor](https://www.amazon.com/gp/product/B07D37FKGY/)
-* [Shelly 1 One Relay Switch](https://www.amazon.com/gp/product/B07NQNLDTD/)
-* [SONOFF SNZB-02 Temperature and Humidity Sensor](https://www.amazon.com/gp/product/B08BCJNDYQ/)
-* [SONOFF SNZB-01 Zigbee Wireless Switch](https://www.amazon.com/gp/product/B08BF9YQK1/)
+* [Govee WiFi Thermometer Hygrometer H5179](https://www.amazon.com/gp/product/B0C39TSV2W/)
+* [Shelly 1 Relay Switch](https://www.amazon.com/gp/product/B07NQNLDTD/)
+* [Shelly 2.5 Relay Switch](https://www.amazon.com/gp/product/B07Z623J8Z/)
+#* [SONOFF SNZB-02 Temperature and Humidity Sensor](https://www.amazon.com/gp/product/B08BCJNDYQ/)
+#* [SONOFF SNZB-01 Zigbee Wireless Switch](https://www.amazon.com/gp/product/B08BF9YQK1/)
 
 ##### Remotes
 * [Aqara Wireless Mini Switch](https://www.amazon.com/gp/product/B07D19YXND/)
@@ -75,7 +78,8 @@ Make sure that you :star: this repo, so that you can get updates right in your n
 * [Ecobee Thermostat](https://www.amazon.com/gp/product/B07NQT85FC/)
 * [Ecobee Temp and Motion Sensors](https://www.amazon.com/gp/product/B07NQVWRR3/)
 
-##### Smart Appliances
+##### Other
+* [MyQ Garage Door Hub](https://www.amazon.com/gp/product/B075RQVSY7/)
 * [GE Profile, Washing Machine](https://www.geappliances.com/appliance/GE-Profile-4-9-cu-ft-Capacity-Washer-with-Smarter-Wash-Technology-and-FlexDispense-PTW605BSRWS)
 * [GE Profile, Tumble Dryer](https://www.geappliances.com/appliance/GE-Profile-7-4-cu-ft-Capacity-aluminized-alloy-drum-Electric-Dryer-with-Sanitize-Cycle-and-Sensor-Dry-PTD60EBSRWS)
 
