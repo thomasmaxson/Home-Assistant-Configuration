@@ -126,6 +126,15 @@ views:
                       name: Washing Machine
                       template:
                         - laundry
+                      tap_action:
+                        action: navigate
+                        navigation_path: /dashboard-home/subview-laundry
+                      double_tap_action:
+                        action: navigate
+                        navigation_path: /dashboard-home/subview-laundry
+                      hold_action:
+                        action: navigate
+                        navigation_path: /dashboard-home/subview-laundry
                   - type: conditional
                     conditions:
                       - entity: sensor.laundry_dryer_cycle
@@ -139,6 +148,15 @@ views:
                       name: Tumble Dryer
                       template:
                         - laundry
+                      tap_action:
+                        action: navigate
+                        navigation_path: /dashboard-home/subview-laundry
+                      double_tap_action:
+                        action: navigate
+                        navigation_path: /dashboard-home/subview-laundry
+                      hold_action:
+                        action: navigate
+                        navigation_path: /dashboard-home/subview-laundry
       - type: grid
         columns: 1
         square: false
@@ -249,16 +267,42 @@ views:
                     name: Ledge
                     template:
                       - light
-                  - type: custom:button-card
-                    entity: light.foyer_hallway_ceiling
-                    name: Hallway
-                    template:
-                      - light
-                  - type: custom:button-card
-                    entity: light.foyer_entryway_ceiling
-                    name: Entryway
-                    template:
-                      - light
+                  - type: conditional
+                    conditions:
+                      - entity: light.foyer_ceiling_lights
+                        state_not: unavailable
+                      - entity: input_boolean.sync_foyer_lights
+                        state: 'on'
+                    card:
+                      type: custom:button-card
+                      entity: light.foyer_ceiling_lights
+                      name: Ceiling
+                      template:
+                        - light
+                  - type: conditional
+                    conditions:
+                      - entity: light.foyer_hallway_ceiling
+                        state_not: unavailable
+                      - entity: input_boolean.sync_foyer_lights
+                        state: 'off'
+                    card:
+                      type: custom:button-card
+                      entity: light.foyer_hallway_ceiling
+                      name: Hallway
+                      template:
+                        - light
+                  - type: conditional
+                    conditions:
+                      - entity: light.bedroom_4_lightstrip
+                        state_not: unavailable
+                      - entity: input_boolean.sync_foyer_lights
+                        state: 'off'
+                    card:
+                      type: custom:button-card
+                      entity: light.foyer_entryway_ceiling
+                      name: Entryway
+                      template:
+                        - light
               - type: grid
                 title: Foyer
                 columns: 3
@@ -562,10 +606,10 @@ views:
                     entity: person.thomas
                     tap_action:
                       action: navigate
-                      navigation_path: /dashboard-home/person-thomas
+                      navigation_path: /dashboard-home/person-him
                     hold_action:
                       action: navigate
-                      navigation_path: /dashboard-home/person-thomas
+                      navigation_path: /dashboard-home/person-him
                     template:
                       - person
                   - type: custom:button-card
@@ -573,10 +617,10 @@ views:
                     entity: person.jessica
                     tap_action:
                       action: navigate
-                      navigation_path: /dashboard-home/person-jessica
+                      navigation_path: /dashboard-home/person-her
                     hold_action:
                       action: navigate
-                      navigation_path: /dashboard-home/person-jessica
+                      navigation_path: /dashboard-home/person-her
                     template:
                       - person
                   - type: custom:button-card
@@ -600,8 +644,6 @@ views:
         view_layout:
           grid-area: content6
       - type: horizontal-stack
-        view_layout:
-          grid-area: subviews
         cards:
           - type: custom:button-card
             name: |
@@ -661,20 +703,6 @@ views:
               navigation_path: /dashboard-home/subview-temperature
           - type: custom:button-card
             name: |
-              <ha-icon icon="mdi:router-wireless"></ha-icon> Router
-            template:
-              - details
-            tap_action:
-              action: navigate
-              navigation_path: /dashboard-home/subview-router
-            double_tap_action:
-              action: navigate
-              navigation_path: /dashboard-home/subview-router
-            hold_action:
-              action: navigate
-              navigation_path: /dashboard-home/subview-router
-          - type: custom:button-card
-            name: |
               <ha-icon icon="mdi:information"></ha-icon> Systems
             template:
               - details
@@ -701,6 +729,8 @@ views:
             hold_action:
               action: navigate
               navigation_path: /dashboard-home/subview-helpers
+        view_layout:
+          grid-area: subviews
   - title: Floor Plan
     path: subview-floor-plan
     type: custom:grid-layout
@@ -734,53 +764,55 @@ views:
               ha-card { display: none;}
             }
             ha-card {
-              --pei_color_temperature: var( --primary-color );
-
               --pei_color_cover_garage: {% if( states( 'cover.garage_door' ) in ['open', 'opening'] ) %} var( --state-lock-unlocked-color ) {% else %} var( --state-lock-locked-color ) {% endif %};
               --pei_color_lock_door_front: {% if( states( 'lock.front_door' ) in ['unlocked', unlocking] ) %} var( --state-lock-unlocked-color ) {% else %} var( --state-lock-locked-color ) {% endif %};
 
-              --pei_color_light_bedroom_1: {% if( states( 'light.bedroom_1_bedside_lamps' ) == 'on' ) %} var( --primary-color ) {% else %} var( --disabled-text-color ) {% endif %};
-              --pei_color_light_bedroom_2: {% if( states( 'light.bedroom_2_bedside_lamps' ) == 'on' ) %} var( --primary-color ) {% else %} var( --disabled-text-color ) {% endif %};
-              --pei_color_light_bedroom_4: {% if( states( 'light.bedroom_4_lights' ) == 'on' ) %} var( --primary-color ) {% else %} var( --disabled-text-color ) {% endif %};
-              --pei_color_light_kitchen_ceiling: {% if( states( 'light.kitchen_ceiling_lights' ) == 'on' ) %} var( --primary-color ) {% else %} var( --disabled-text-color ) {% endif %};
-              --pei_color_light_kitchen_upper_coffee: {% if( states( 'light.kitchen_cabinet_upper_coffee_bar' ) == 'on' ) %} var( --primary-color ) {% else %} var( --disabled-text-color ) {% endif %};
-              --pei_color_light_kitchen_upper_range: {% if( states( 'light.kitchen_cabinet_upper_range' ) == 'on' ) %} var( --primary-color ) {% else %} var( --disabled-text-color ) {% endif %};
-              --pei_color_light_living_room_corner: {% if( states( 'light.living_room_corner_lamp' ) == 'on' ) %} var( --primary-color ) {% else %} var( --disabled-text-color ) {% endif %};
-              --pei_color_light_dining_room_chandelier: {% if( states( 'light.dining_room_chandelier' ) == 'on' ) %} var( --primary-color ) {% else %} var( --disabled-text-color ) {% endif %};
-              --pei_color_light_guest_hallway_light: {% if( states( 'light.guest_hallway_light' ) == 'on' ) %} var( --primary-color ) {% else %} var( --disabled-text-color ) {% endif %};
-              --pei_color_light_laundry_ceiling_light: {% if( states( 'light.laundry_ceiling_light' ) == 'on' ) %} var( --primary-color ) {% else %} var( --disabled-text-color ) {% endif %};
-              --pei_color_light_laundry_hallway_light: {% if( states( 'light.laundry_hallway_light' ) == 'on' ) %} var( --primary-color ) {% else %} var( --disabled-text-color ) {% endif %};
-              --pei_color_light_foyer_hallway_ceiling: {% if( states( 'light.foyer_hallway_ceiling' ) == 'on' ) %} var( --primary-color ) {% else %} var( --disabled-text-color ) {% endif %};
-              --pei_color_light_foyer_ceiling_ledge: {% if( states( 'light.foyer_ceiling_ledge' ) == 'on' ) %} var( --primary-color ) {% else %} var( --disabled-text-color ) {% endif %};
-              --pei_color_light_foyer_under_table: {% if( states( 'light.foyer_under_table' ) == 'on' ) %} var( --primary-color ) {% else %} var( --disabled-text-color ) {% endif %};
-              --pei_color_light_foyer_entryway_ceiling: {% if( states( 'light.foyer_entryway_ceiling' ) == 'on' ) %} var( --primary-color ) {% else %} var( --disabled-text-color ) {% endif %};
-              --pei_color_light_foyer_exterior_entryway: {% if( states( 'light.foyer_exterior_entryway' ) == 'on' ) %} var( --primary-color ) {% else %} var( --disabled-text-color ) {% endif %};
-              --pei_color_light_garage_exterior: {% if( states( 'light.garage_exterior' ) == 'on' ) %} var( --primary-color ) {% else %} var( --disabled-text-color ) {% endif %};
-              --pei_color_light_garage_ceiling: {% if( states( 'light.garage_ceiling' ) == 'on' ) %} var( --primary-color ) {% else %} var( --disabled-text-color ) {% endif %};
-              --pei_color_light_garage_fan: {% if( states( 'light.garage_fan' ) == 'on' ) %} var( --primary-color ) {% else %} var( --disabled-text-color ) {% endif %};
-              --pei_color_light_closet_hallway_light: {% if( states( 'light.closet_hallway_ceiling_light' ) == 'on' ) %} var( --primary-color ) {% else %} var( --disabled-text-color ) {% endif %};
-              --pei_color_light_closet_hallway_light_j: {% if( states( 'light.closet_hallway_light_j' ) == 'on' ) %} var( --primary-color ) {% else %} var( --disabled-text-color ) {% endif %};
-              --pei_color_light_closet_hallway_light_t: {% if( states( 'light.closet_hallway_light_t' ) == 'on' ) %} var( --primary-color ) {% else %} var( --disabled-text-color ) {% endif %};
-              --pei_color_light_main_bathroom_lights_switch_a: {% if( states( 'light.main_bathroom_lights_switch_a' ) == 'on' ) %} var( --primary-color ) {% else %} var( --disabled-text-color ) {% endif %};
-              --pei_color_light_main_bathroom_lights_switch_b: {% if( states( 'light.main_bathroom_lights_switch_b' ) == 'on' ) %} var( --primary-color ) {% else %} var( --disabled-text-color ) {% endif %};
-              --pei_color_light_front_yard_accent_lights: {% if( states( 'light.front_yard_accent_lights' ) == 'on' ) %} var( --primary-color ) {% else %} var( --disabled-text-color ) {% endif %};
-              --pei_color_light_backyard_string_lights: {% if( states( 'light.backyard_string_lights' ) == 'on' ) %} var( --primary-color ) {% else %} var( --disabled-text-color ) {% endif %};
-              --pei_color_light_tv_ambient_lights: {% if( states( 'light.tv_ambient_lights' ) == 'on' ) %} var( --primary-color ) {% else %} var( --disabled-text-color ) {% endif %};
-              --pei_color_media_player_sony_bravia_tv: {% if( states( 'media_player.sony_bravia_tv' ) == 'on' ) %} var( --primary-color ) {% else %} var( --disabled-text-color ) {% endif %};
+              --pei_color_light_bedroom_1: {% if( states( 'light.bedroom_1_bedside_lamps' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_light_bedroom_2: {% if( states( 'light.bedroom_2_bedside_lamps' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_light_bedroom_4: {% if( states( 'light.bedroom_4_lights' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_light_kitchen_ceiling: {% if( states( 'light.kitchen_ceiling_lights' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_light_kitchen_upper_coffee: {% if( states( 'light.kitchen_cabinet_upper_coffee_bar' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_light_kitchen_upper_range: {% if( states( 'light.kitchen_cabinet_upper_range' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_light_living_room_corner: {% if( states( 'light.living_room_corner_lamp' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_light_dining_room_chandelier: {% if( states( 'light.dining_room_chandelier' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_light_guest_hallway_light: {% if( states( 'light.guest_hallway_light' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_light_laundry_ceiling_light: {% if( states( 'light.laundry_ceiling_light' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_light_laundry_hallway_light: {% if( states( 'light.laundry_hallway_light' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_light_foyer_hallway_ceiling: {% if( states( 'light.foyer_hallway_ceiling' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_light_foyer_ceiling_ledge: {% if( states( 'light.foyer_ceiling_ledge' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_light_foyer_under_table: {% if( states( 'light.foyer_under_table' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_light_foyer_entryway_ceiling: {% if( states( 'light.foyer_entryway_ceiling' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_light_foyer_exterior_entryway: {% if( states( 'light.foyer_exterior_entryway' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_light_garage_exterior: {% if( states( 'light.garage_exterior' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_light_garage_ceiling: {% if( states( 'light.garage_ceiling' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_light_garage_fan: {% if( states( 'light.garage_fan' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_light_closet_hallway_light: {% if( states( 'light.closet_hallway_ceiling_light' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_light_closet_hallway_light_j: {% if( states( 'light.closet_hallway_light_j' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_light_closet_hallway_light_t: {% if( states( 'light.closet_hallway_light_t' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_light_main_bathroom_lights_switch_a: {% if( states( 'light.main_bathroom_lights_switch_a' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_light_main_bathroom_lights_switch_b: {% if( states( 'light.main_bathroom_lights_switch_b' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_light_front_yard_accent_lights: {% if( states( 'light.front_yard_accent_lights' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_light_backyard_string_lights: {% if( states( 'light.backyard_string_lights' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_light_tv_ambient_lights: {% if( states( 'light.tv_ambient_lights' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_media_player_sony_bravia_tv: {% if( states( 'media_player.sony_bravia_tv' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
 
-              --pei_color_curtains_bedroom_1: {% if( states( 'cover.large_window_curtains_bedroom_1' ) in ['open', 'opening'] ) %} var( --primary-color ) {% else %} var( --disabled-text-color ) {% endif %};
+              --pei_color_curtains_bedroom_1: {% if( states( 'cover.large_window_curtains_bedroom_1' ) in ['open', 'opening'] ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
 
-              --pei_color_door_front_primary: {% if( states( 'binary_sensor.door_front_primary' ) == 'on' ) %} var( --state-lock-unlocked-color ) {% else %} var( --disabled-text-color ) {% endif %};
-              --pei_color_door_front_secondary: {% if( states( 'binary_sensor.door_front_secondary' ) == 'on' ) %} var( --state-lock-unlocked-color ) {% else %} var( --disabled-text-color ) {% endif %};
-              --pei_color_door_garage: {% if( states( 'binary_sensor.door_garage' ) == 'on' ) %} var( --state-lock-unlocked-color ) {% else %} var( --disabled-text-color ) {% endif %};
-              --pei_color_door_bedroom_1: {% if( states( 'binary_sensor.door_bedroom_1' ) == 'on' ) %} var( --state-lock-unlocked-color ) {% else %} var( --disabled-text-color ) {% endif %};
-              --pei_color_door_bedroom_2: {% if( states( 'binary_sensor.door_bedroom_2' ) == 'on' ) %} var( --state-lock-unlocked-color ) {% else %} var( --disabled-text-color ) {% endif %};
-              --pei_color_door_bedroom_3: {% if( states( 'binary_sensor.door_bedroom_3' ) == 'on' ) %} var( --state-lock-unlocked-color ) {% else %} var( --disabled-text-color ) {% endif %};
-              --pei_color_door_bedroom_4: {% if( states( 'binary_sensor.door_bedroom_4' ) == 'on' ) %} var( --state-lock-unlocked-color ) {% else %} var( --disabled-text-color ) {% endif %};
-              --pei_color_door_living: {% if( states( 'binary_sensor.door_living' ) == 'on' ) %} var( --state-lock-unlocked-color ) {% else %} var( --disabled-text-color ) {% endif %};
-              --pei_color_door_laundry: {% if( states( 'binary_sensor.door_laundry' ) == 'on' ) %} var( --state-lock-unlocked-color ) {% else %} var( --disabled-text-color ) {% endif %};
-              --pei_color_door_closet_hallway_hers: {% if( states( 'binary_sensor.door_closet_hallway_hers' ) == 'on' ) %} var( --state-lock-unlocked-color ) {% else %} var( --disabled-text-color ) {% endif %};
-              --pei_color_door_closet_hallway_his: {% if( states( 'binary_sensor.door_closet_hallway_his' ) == 'on' ) %} var( --state-lock-unlocked-color ) {% else %} var( --disabled-text-color ) {% endif %};
+              --pei_color_door_front_primary: {% if( states( 'binary_sensor.door_front_primary' ) == 'on' ) %} var( --state-lock-unlocked-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_door_front_secondary: {% if( states( 'binary_sensor.door_front_secondary' ) == 'on' ) %} var( --state-lock-unlocked-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_door_garage: {% if( states( 'binary_sensor.door_garage' ) == 'on' ) %} var( --state-lock-unlocked-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_door_bedroom_1: {% if( states( 'binary_sensor.door_bedroom_1' ) == 'on' ) %} var( --state-lock-unlocked-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_door_bedroom_2: {% if( states( 'binary_sensor.door_bedroom_2' ) == 'on' ) %} var( --state-lock-unlocked-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_door_bedroom_3: {% if( states( 'binary_sensor.door_bedroom_3' ) == 'on' ) %} var( --state-lock-unlocked-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_door_bedroom_4: {% if( states( 'binary_sensor.door_bedroom_4' ) == 'on' ) %} var( --state-lock-unlocked-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_door_living: {% if( states( 'binary_sensor.door_living' ) == 'on' ) %} var( --state-lock-unlocked-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_door_laundry: {% if( states( 'binary_sensor.door_laundry' ) == 'on' ) %} var( --state-lock-unlocked-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_door_closet_hallway_hers: {% if( states( 'binary_sensor.door_closet_hallway_hers' ) == 'on' ) %} var( --state-lock-unlocked-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_door_closet_hallway_his: {% if( states( 'binary_sensor.door_closet_hallway_his' ) == 'on' ) %} var( --state-lock-unlocked-color ) {% else %} var( --secondary-text-color ) {% endif %};
+
+              --pei_color_presence_living_room: {% if( states( 'binary_sensor.presence_living_room' ) == 'on' ) %} var( --state-lock-locked-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_presence_garage: {% if( states( 'binary_sensor.presence_garage' ) == 'on' ) %} var( --state-lock-locked-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_motion_laundry: {% if( states( 'binary_sensor.motion_laundry' ) == 'on' ) %} var( --state-lock-locked-color ) {% else %} var( --secondary-text-color ) {% endif %};
             }
         elements:
           - type: state-icon
@@ -1198,7 +1230,7 @@ views:
             style:
               top: 34.5%
               left: 17%
-              color: var(--pei_color_temperature)
+              color: var(--primary-color)
           - type: state-label
             entity: sensor.bedroom_2_temperature
             tap_action:
@@ -1206,7 +1238,7 @@ views:
             style:
               top: 87%
               left: 85%
-              color: var(--pei_color_temperature)
+              color: var(--primary-color)
           - type: state-label
             entity: sensor.bedroom_3_temperature
             tap_action:
@@ -1214,7 +1246,7 @@ views:
             style:
               top: 33%
               left: 61%
-              color: var(--pei_color_temperature)
+              color: var(--primary-color)
           - type: state-label
             entity: sensor.bedroom_4_temperature
             tap_action:
@@ -1222,7 +1254,7 @@ views:
             style:
               top: 87%
               left: 56.5%
-              color: var(--pei_color_temperature)
+              color: var(--primary-color)
           - type: state-label
             entity: sensor.living_room_temperature
             tap_action:
@@ -1230,7 +1262,7 @@ views:
             style:
               top: 64%
               left: 11%
-              color: var(--pei_color_temperature)
+              color: var(--primary-color)
           - type: state-label
             entity: sensor.temp_garage_temperature
             tap_action:
@@ -1238,7 +1270,7 @@ views:
             style:
               top: 48%
               left: 77.5%
-              color: var(--pei_color_temperature)
+              color: var(--primary-color)
           - type: state-label
             entity: sensor.temp_attic_temperature
             tap_action:
@@ -1246,7 +1278,7 @@ views:
             style:
               top: 30.5%
               left: 95%
-              color: var(--pei_color_temperature)
+              color: var(--primary-color)
           - type: state-label
             entity: sensor.foyer_temperature
             tap_action:
@@ -1254,7 +1286,7 @@ views:
             style:
               top: 55%
               left: 65%
-              color: var(--pei_color_temperature)
+              color: var(--primary-color)
           - type: state-label
             entity: sensor.custom_refrigerator_temperature
             tap_action:
@@ -1262,7 +1294,7 @@ views:
             style:
               top: 72%
               left: 44%
-              color: var(--pei_color_temperature)
+              color: var(--primary-color)
           - type: state-label
             entity: sensor.custom_freezer_temperature
             tap_action:
@@ -1270,7 +1302,7 @@ views:
             style:
               top: 75%
               left: 44%
-              color: var(--pei_color_temperature)
+              color: var(--primary-color)
           - type: state-label
             entity: sensor.temp_wine_cooler_top_temperature
             tap_action:
@@ -1278,7 +1310,7 @@ views:
             style:
               top: 84%
               left: 12%
-              color: var(--pei_color_temperature)
+              color: var(--primary-color)
           - type: state-label
             entity: sensor.temp_wine_cooler_bottom_temperature
             tap_action:
@@ -1286,7 +1318,7 @@ views:
             style:
               top: 87%
               left: 12%
-              color: var(--pei_color_temperature)
+              color: var(--primary-color)
           - type: state-icon
             entity: binary_sensor.presence_living_room
             state_color: false
@@ -1294,6 +1326,7 @@ views:
               top: 64%
               left: 15%
               border-radius: 100%
+              '--paper-item-icon-color': var( --pei_color_presence_living_room )
           - type: state-icon
             entity: binary_sensor.presence_garage
             state_color: false
@@ -1301,6 +1334,7 @@ views:
               top: 48%
               left: 81.5%
               border-radius: 100%
+              '--paper-item-icon-color': var( --pei_color_presence_garage )
           - type: state-icon
             entity: binary_sensor.motion_laundry
             state_color: false
@@ -1308,6 +1342,7 @@ views:
               top: 49%
               left: 58%
               border-radius: 100%
+              '--paper-item-icon-color': var( --pei_color_motion_laundry )
         image: /local/images/floor-plan/casa-maxson-floor-plan-horizontal.png
       - type: picture-elements
         view_layout:
@@ -1319,53 +1354,55 @@ views:
               ha-card { display: none;}
             }
             ha-card {
-              --pei_color_temperature: var( --primary-color );
-
               --pei_color_cover_garage: {% if( states( 'cover.garage_door' ) in ['open', 'opening'] ) %} var( --state-lock-unlocked-color ) {% else %} var( --state-lock-locked-color ) {% endif %};
               --pei_color_lock_door_front: {% if( states( 'lock.front_door' ) in ['unlocked', unlocking] ) %} var( --state-lock-unlocked-color ) {% else %} var( --state-lock-locked-color ) {% endif %};
 
-              --pei_color_light_bedroom_1: {% if( states( 'light.bedroom_1_bedside_lamps' ) == 'on' ) %} var( --primary-color ) {% else %} var( --disabled-text-color ) {% endif %};
-              --pei_color_light_bedroom_2: {% if( states( 'light.bedroom_2_bedside_lamps' ) == 'on' ) %} var( --primary-color ) {% else %} var( --disabled-text-color ) {% endif %};
-              --pei_color_light_bedroom_4: {% if( states( 'light.bedroom_4_lights' ) == 'on' ) %} var( --primary-color ) {% else %} var( --disabled-text-color ) {% endif %};
-              --pei_color_light_kitchen_ceiling: {% if( states( 'light.kitchen_ceiling_lights' ) == 'on' ) %} var( --primary-color ) {% else %} var( --disabled-text-color ) {% endif %};
-              --pei_color_light_kitchen_upper_coffee: {% if( states( 'light.kitchen_cabinet_upper_coffee_bar' ) == 'on' ) %} var( --primary-color ) {% else %} var( --disabled-text-color ) {% endif %};
-              --pei_color_light_kitchen_upper_range: {% if( states( 'light.kitchen_cabinet_upper_range' ) == 'on' ) %} var( --primary-color ) {% else %} var( --disabled-text-color ) {% endif %};
-              --pei_color_light_living_room_corner: {% if( states( 'light.living_room_corner_lamp' ) == 'on' ) %} var( --primary-color ) {% else %} var( --disabled-text-color ) {% endif %};
-              --pei_color_light_dining_room_chandelier: {% if( states( 'light.dining_room_chandelier' ) == 'on' ) %} var( --primary-color ) {% else %} var( --disabled-text-color ) {% endif %};
-              --pei_color_light_guest_hallway_light: {% if( states( 'light.guest_hallway_light' ) == 'on' ) %} var( --primary-color ) {% else %} var( --disabled-text-color ) {% endif %};
-              --pei_color_light_laundry_ceiling_light: {% if( states( 'light.laundry_ceiling_light' ) == 'on' ) %} var( --primary-color ) {% else %} var( --disabled-text-color ) {% endif %};
-              --pei_color_light_laundry_hallway_light: {% if( states( 'light.laundry_hallway_light' ) == 'on' ) %} var( --primary-color ) {% else %} var( --disabled-text-color ) {% endif %};
-              --pei_color_light_foyer_hallway_ceiling: {% if( states( 'light.foyer_hallway_ceiling' ) == 'on' ) %} var( --primary-color ) {% else %} var( --disabled-text-color ) {% endif %};
-              --pei_color_light_foyer_ceiling_ledge: {% if( states( 'light.foyer_ceiling_ledge' ) == 'on' ) %} var( --primary-color ) {% else %} var( --disabled-text-color ) {% endif %};
-              --pei_color_light_foyer_under_table: {% if( states( 'light.foyer_under_table' ) == 'on' ) %} var( --primary-color ) {% else %} var( --disabled-text-color ) {% endif %};
-              --pei_color_light_foyer_entryway_ceiling: {% if( states( 'light.foyer_entryway_ceiling' ) == 'on' ) %} var( --primary-color ) {% else %} var( --disabled-text-color ) {% endif %};
-              --pei_color_light_foyer_exterior_entryway: {% if( states( 'light.foyer_exterior_entryway' ) == 'on' ) %} var( --primary-color ) {% else %} var( --disabled-text-color ) {% endif %};
-              --pei_color_light_garage_exterior: {% if( states( 'light.garage_exterior' ) == 'on' ) %} var( --primary-color ) {% else %} var( --disabled-text-color ) {% endif %};
-              --pei_color_light_garage_ceiling: {% if( states( 'light.garage_ceiling' ) == 'on' ) %} var( --primary-color ) {% else %} var( --disabled-text-color ) {% endif %};
-              --pei_color_light_garage_fan: {% if( states( 'light.garage_fan' ) == 'on' ) %} var( --primary-color ) {% else %} var( --disabled-text-color ) {% endif %};
-              --pei_color_light_closet_hallway_light: {% if( states( 'light.closet_hallway_ceiling_light' ) == 'on' ) %} var( --primary-color ) {% else %} var( --disabled-text-color ) {% endif %};
-              --pei_color_light_closet_hallway_light_j: {% if( states( 'light.closet_hallway_light_j' ) == 'on' ) %} var( --primary-color ) {% else %} var( --disabled-text-color ) {% endif %};
-              --pei_color_light_closet_hallway_light_t: {% if( states( 'light.closet_hallway_light_t' ) == 'on' ) %} var( --primary-color ) {% else %} var( --disabled-text-color ) {% endif %};
-              --pei_color_light_main_bathroom_lights_switch_a: {% if( states( 'light.main_bathroom_lights_switch_a' ) == 'on' ) %} var( --primary-color ) {% else %} var( --disabled-text-color ) {% endif %};
-              --pei_color_light_main_bathroom_lights_switch_b: {% if( states( 'light.main_bathroom_lights_switch_b' ) == 'on' ) %} var( --primary-color ) {% else %} var( --disabled-text-color ) {% endif %};
-              --pei_color_light_front_yard_accent_lights: {% if( states( 'light.front_yard_accent_lights' ) == 'on' ) %} var( --primary-color ) {% else %} var( --disabled-text-color ) {% endif %};
-              --pei_color_light_backyard_string_lights: {% if( states( 'light.backyard_string_lights' ) == 'on' ) %} var( --primary-color ) {% else %} var( --disabled-text-color ) {% endif %};
-              --pei_color_light_tv_ambient_lights: {% if( states( 'light.tv_ambient_lights' ) == 'on' ) %} var( --primary-color ) {% else %} var( --disabled-text-color ) {% endif %};
-              --pei_color_media_player_sony_bravia_tv: {% if( states( 'media_player.sony_bravia_tv' ) == 'on' ) %} var( --primary-color ) {% else %} var( --disabled-text-color ) {% endif %};
+              --pei_color_light_bedroom_1: {% if( states( 'light.bedroom_1_bedside_lamps' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_light_bedroom_2: {% if( states( 'light.bedroom_2_bedside_lamps' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_light_bedroom_4: {% if( states( 'light.bedroom_4_lights' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_light_kitchen_ceiling: {% if( states( 'light.kitchen_ceiling_lights' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_light_kitchen_upper_coffee: {% if( states( 'light.kitchen_cabinet_upper_coffee_bar' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_light_kitchen_upper_range: {% if( states( 'light.kitchen_cabinet_upper_range' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_light_living_room_corner: {% if( states( 'light.living_room_corner_lamp' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_light_dining_room_chandelier: {% if( states( 'light.dining_room_chandelier' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_light_guest_hallway_light: {% if( states( 'light.guest_hallway_light' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_light_laundry_ceiling_light: {% if( states( 'light.laundry_ceiling_light' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_light_laundry_hallway_light: {% if( states( 'light.laundry_hallway_light' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_light_foyer_hallway_ceiling: {% if( states( 'light.foyer_hallway_ceiling' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_light_foyer_ceiling_ledge: {% if( states( 'light.foyer_ceiling_ledge' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_light_foyer_under_table: {% if( states( 'light.foyer_under_table' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_light_foyer_entryway_ceiling: {% if( states( 'light.foyer_entryway_ceiling' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_light_foyer_exterior_entryway: {% if( states( 'light.foyer_exterior_entryway' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_light_garage_exterior: {% if( states( 'light.garage_exterior' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_light_garage_ceiling: {% if( states( 'light.garage_ceiling' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_light_garage_fan: {% if( states( 'light.garage_fan' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_light_closet_hallway_light: {% if( states( 'light.closet_hallway_ceiling_light' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_light_closet_hallway_light_j: {% if( states( 'light.closet_hallway_light_j' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_light_closet_hallway_light_t: {% if( states( 'light.closet_hallway_light_t' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_light_main_bathroom_lights_switch_a: {% if( states( 'light.main_bathroom_lights_switch_a' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_light_main_bathroom_lights_switch_b: {% if( states( 'light.main_bathroom_lights_switch_b' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_light_front_yard_accent_lights: {% if( states( 'light.front_yard_accent_lights' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_light_backyard_string_lights: {% if( states( 'light.backyard_string_lights' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_light_tv_ambient_lights: {% if( states( 'light.tv_ambient_lights' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_media_player_sony_bravia_tv: {% if( states( 'media_player.sony_bravia_tv' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
 
-              --pei_color_curtains_bedroom_1: {% if( states( 'cover.large_window_curtains_bedroom_1' ) in ['open', 'opening'] ) %} var( --primary-color ) {% else %} var( --disabled-text-color ) {% endif %};
+              --pei_color_curtains_bedroom_1: {% if( states( 'cover.large_window_curtains_bedroom_1' ) in ['open', 'opening'] ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
 
-              --pei_color_door_front_primary: {% if( states( 'binary_sensor.door_front_primary' ) == 'on' ) %} var( --state-lock-unlocked-color ) {% else %} var( --disabled-text-color ) {% endif %};
-              --pei_color_door_front_secondary: {% if( states( 'binary_sensor.door_front_secondary' ) == 'on' ) %} var( --state-lock-unlocked-color ) {% else %} var( --disabled-text-color ) {% endif %};
-              --pei_color_door_garage: {% if( states( 'binary_sensor.door_garage' ) == 'on' ) %} var( --state-lock-unlocked-color ) {% else %} var( --disabled-text-color ) {% endif %};
-              --pei_color_door_bedroom_1: {% if( states( 'binary_sensor.door_bedroom_1' ) == 'on' ) %} var( --state-lock-unlocked-color ) {% else %} var( --disabled-text-color ) {% endif %};
-              --pei_color_door_bedroom_2: {% if( states( 'binary_sensor.door_bedroom_2' ) == 'on' ) %} var( --state-lock-unlocked-color ) {% else %} var( --disabled-text-color ) {% endif %};
-              --pei_color_door_bedroom_3: {% if( states( 'binary_sensor.door_bedroom_3' ) == 'on' ) %} var( --state-lock-unlocked-color ) {% else %} var( --disabled-text-color ) {% endif %};
-              --pei_color_door_bedroom_4: {% if( states( 'binary_sensor.door_bedroom_4' ) == 'on' ) %} var( --state-lock-unlocked-color ) {% else %} var( --disabled-text-color ) {% endif %};
-              --pei_color_door_living: {% if( states( 'binary_sensor.door_living' ) == 'on' ) %} var( --state-lock-unlocked-color ) {% else %} var( --disabled-text-color ) {% endif %};
-              --pei_color_door_laundry: {% if( states( 'binary_sensor.door_laundry' ) == 'on' ) %} var( --state-lock-unlocked-color ) {% else %} var( --disabled-text-color ) {% endif %};
-              --pei_color_door_closet_hallway_hers: {% if( states( 'binary_sensor.door_closet_hallway_hers' ) == 'on' ) %} var( --state-lock-unlocked-color ) {% else %} var( --disabled-text-color ) {% endif %};
-              --pei_color_door_closet_hallway_his: {% if( states( 'binary_sensor.door_closet_hallway_his' ) == 'on' ) %} var( --state-lock-unlocked-color ) {% else %} var( --disabled-text-color ) {% endif %};
+              --pei_color_door_front_primary: {% if( states( 'binary_sensor.door_front_primary' ) == 'on' ) %} var( --state-lock-unlocked-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_door_front_secondary: {% if( states( 'binary_sensor.door_front_secondary' ) == 'on' ) %} var( --state-lock-unlocked-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_door_garage: {% if( states( 'binary_sensor.door_garage' ) == 'on' ) %} var( --state-lock-unlocked-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_door_bedroom_1: {% if( states( 'binary_sensor.door_bedroom_1' ) == 'on' ) %} var( --state-lock-unlocked-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_door_bedroom_2: {% if( states( 'binary_sensor.door_bedroom_2' ) == 'on' ) %} var( --state-lock-unlocked-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_door_bedroom_3: {% if( states( 'binary_sensor.door_bedroom_3' ) == 'on' ) %} var( --state-lock-unlocked-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_door_bedroom_4: {% if( states( 'binary_sensor.door_bedroom_4' ) == 'on' ) %} var( --state-lock-unlocked-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_door_living: {% if( states( 'binary_sensor.door_living' ) == 'on' ) %} var( --state-lock-unlocked-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_door_laundry: {% if( states( 'binary_sensor.door_laundry' ) == 'on' ) %} var( --state-lock-unlocked-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_door_closet_hallway_hers: {% if( states( 'binary_sensor.door_closet_hallway_hers' ) == 'on' ) %} var( --state-lock-unlocked-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_door_closet_hallway_his: {% if( states( 'binary_sensor.door_closet_hallway_his' ) == 'on' ) %} var( --state-lock-unlocked-color ) {% else %} var( --secondary-text-color ) {% endif %};
+
+              --pei_color_presence_living_room: {% if( states( 'binary_sensor.presence_living_room' ) == 'on' ) %} var( --state-lock-locked-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_presence_garage: {% if( states( 'binary_sensor.presence_garage' ) == 'on' ) %} var( --state-lock-locked-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_motion_laundry: {% if( states( 'binary_sensor.motion_laundry' ) == 'on' ) %} var( --state-lock-locked-color ) {% else %} var( --secondary-text-color ) {% endif %};
             }
         elements:
           - type: state-icon
@@ -1783,6 +1820,7 @@ views:
               top: 14%
               left: 37%
               border-radius: 100%
+              '--paper-item-icon-color': var( --pei_color_presence_living_room )
           - type: state-icon
             entity: binary_sensor.presence_garage
             state_color: false
@@ -1790,6 +1828,7 @@ views:
               top: 83%
               left: 69%
               border-radius: 100%
+              '--paper-item-icon-color': var( --pei_color_presence_garage )
           - type: state-icon
             entity: binary_sensor.motion_laundry
             state_color: false
@@ -1797,6 +1836,7 @@ views:
               top: 58%
               left: 51%
               border-radius: 100%
+              '--paper-item-icon-color': var( --pei_color_motion_laundry )
         image: /local/images/floor-plan/casa-maxson-floor-plan-vertical.png
   - title: Security
     path: page-security
@@ -1936,16 +1976,36 @@ views:
               - entity: light.kitchen_ceiling_lights
               - name: Ceiling
               - state: light
-          - type: custom:decluttering-card
-            template: light
-            variables:
-              - entity: light.kitchen_cabinet_upper_coffee_bar
-              - name: Upper Cabinets, Coffee Bar
-          - type: custom:decluttering-card
-            template: light
-            variables:
-              - entity: light.kitchen_cabinet_upper_range
-              - name: Upper Cabinets, Range
+          - type: conditional
+            conditions:
+              - entity: input_boolean.sync_cabinet_above_lights
+                state: 'on'
+            row:
+              type: custom:decluttering-card
+              template: light
+              variables:
+                - entity: light.cabinet_upper_lights
+                - name: Cabinet Up Lighting
+          - type: conditional
+            conditions:
+              - entity: input_boolean.sync_cabinet_above_lights
+                state: 'off'
+            row:
+              type: custom:decluttering-card
+              template: light
+              variables:
+                - entity: light.kitchen_cabinet_upper_coffee_bar
+                - name: Upper Cabinets, Above Coffee Bar
+          - type: conditional
+            conditions:
+              - entity: input_boolean.sync_cabinet_above_lights
+                state: 'off'
+            row:
+              type: custom:decluttering-card
+              template: light
+              variables:
+                - entity: light.kitchen_cabinet_upper_range
+                - name: Upper Cabinets, Above Range
           - type: section
             label: Common Areas
           - type: custom:decluttering-card
@@ -1975,16 +2035,36 @@ views:
         entities:
           - type: section
             label: Foyer
-          - type: custom:decluttering-card
-            template: light
-            variables:
-              - entity: light.foyer_entryway_ceiling
-              - name: Entryway
-          - type: custom:decluttering-card
-            template: light
-            variables:
-              - entity: light.foyer_hallway_ceiling
-              - name: Hallway
+          - type: conditional
+            conditions:
+              - entity: input_boolean.sync_foyer_lights
+                state: 'on'
+            row:
+              type: custom:decluttering-card
+              template: light
+              variables:
+                - entity: light.foyer_ceiling_lights
+                - name: Ceiling Lights
+          - type: conditional
+            conditions:
+              - entity: input_boolean.sync_foyer_lights
+                state: 'off'
+            row:
+              type: custom:decluttering-card
+              template: light
+              variables:
+                - entity: light.foyer_entryway_ceiling
+                - name: Entryway
+          - type: conditional
+            conditions:
+              - entity: input_boolean.sync_foyer_lights
+                state: 'off'
+            row:
+              type: custom:decluttering-card
+              template: light
+              variables:
+                - entity: light.foyer_hallway_ceiling
+                - name: Hallway
           - type: custom:decluttering-card
             template: light
             variables:
@@ -2002,16 +2082,36 @@ views:
             name: Large Window
             show_buttons_control: true
             show_position_control: true
-          - type: custom:decluttering-card
-            template: light
-            variables:
-              - entity: light.bedroom_1_lamp_j
-              - name: Bedside Lamp (Hers)
-          - type: custom:decluttering-card
-            template: light
-            variables:
-              - entity: light.bedroom_1_lamp_t
-              - name: Bedside Lamp (His)
+          - type: conditional
+            conditions:
+              - entity: input_boolean.sync_bedroom_1_bedside_lamps
+                state: 'on'
+            row:
+              type: custom:decluttering-card
+              template: light
+              variables:
+                - entity: light.bedroom_1_bedside_lamps
+                - name: Bedside Lamps
+          - type: conditional
+            conditions:
+              - entity: input_boolean.sync_bedroom_1_bedside_lamps
+                state: 'off'
+            row:
+              type: custom:decluttering-card
+              template: light
+              variables:
+                - entity: light.bedroom_1_lamp_j
+                - name: Bedside Lamp (Hers)
+          - type: conditional
+            conditions:
+              - entity: input_boolean.sync_bedroom_1_bedside_lamps
+                state: 'off'
+            row:
+              type: custom:decluttering-card
+              template: light
+              variables:
+                - entity: light.bedroom_1_lamp_t
+                - name: Bedside Lamp (His)
           - type: custom:decluttering-card
             template: light
             variables:
@@ -2044,16 +2144,36 @@ views:
         entities:
           - type: section
             label: Offices
-          - type: custom:decluttering-card
-            template: light
-            variables:
-              - entity: light.bedroom_4_desk_lamp
-              - name: Desk Lamp
-          - type: custom:decluttering-card
-            template: light
-            variables:
-              - entity: light.bedroom_4_lightstrip
-              - name: Baseboard Lightstrip
+          - type: conditional
+            conditions:
+              - entity: input_boolean.sync_bedroom_4_lights
+                state: 'on'
+            row:
+              type: custom:decluttering-card
+              template: light
+              variables:
+                - entity: light.bedroom_4_lights
+                - name: His Office Lights
+          - type: conditional
+            conditions:
+              - entity: input_boolean.sync_bedroom_4_lights
+                state: 'off'
+            row:
+              type: custom:decluttering-card
+              template: light
+              variables:
+                - entity: light.bedroom_4_desk_lamp
+                - name: Desk Lamp
+          - type: conditional
+            conditions:
+              - entity: input_boolean.sync_bedroom_4_lights
+                state: 'off'
+            row:
+              type: custom:decluttering-card
+              template: light
+              variables:
+                - entity: light.bedroom_4_lightstrip
+                - name: Baseboard Lightstrip
           - type: custom:decluttering-card
             template: light
             variables:
@@ -2287,13 +2407,18 @@ views:
           - type: custom:decluttering-card
             template: outlet
             variables:
-              - entity: switch.outlet_kitchen_a
+              - entity: switch.outlet_router_a
               - name: Kitchen, Above Range
           - type: custom:decluttering-card
             template: outlet
             variables:
-              - entity: switch.outlet_kitchen_b
+              - entity: switch.outlet_router_b
               - name: Kitchen, Above Coffee Bar
+          - type: custom:decluttering-card
+            template: outlet
+            variables:
+              - entity: switch.outlet_router_c
+              - name: Guest Bedroom
           - type: custom:decluttering-card
             template: outlet
             variables:
@@ -2471,7 +2596,7 @@ views:
             variables:
               - entity: media_player.echo_dot_bedroom_4
               - name: Amazon Echo
-  - title: Temperatures
+  - title: Temperature
     path: subview-temperature
     back_path: /dashboard-home/home
     subview: true
@@ -2640,192 +2765,6 @@ views:
           grid-area: column1
         card_mod:
           class: column
-  - title: Settings
-    path: subview-settings
-    back_path: /dashboard-home/home
-    subview: true
-    type: custom:horizontal-layout
-    layout:
-      max_cols: 3
-    theme: tihiti
-    badges: []
-    cards:
-      - type: entities
-        show_header_toggle: false
-        entities:
-          - type: section
-            label: Schedules
-          - entity: sensor.sunset_automations_status
-            name: Sunset Automations
-          - type: conditional
-            conditions:
-              - entity: schedule.waste_take_out_solid
-                state_not: unknown
-              - entity: sensor.days_until_waste_day_solid
-                state_not: unavailable
-              - entity: sensor.days_until_waste_day_solid
-                state_not: unknown
-            row:
-              entity: sensor.days_until_waste_day_solid
-              name: Trash Pickup
-          - type: conditional
-            conditions:
-              - entity: schedule.waste_take_out_bulk
-                state_not: unknown
-              - entity: sensor.days_until_waste_day_bulk
-                state_not: unavailable
-              - entity: sensor.days_until_waste_day_bulk
-                state_not: unknown
-            row:
-              entity: sensor.days_until_waste_day_bulk
-              name: Bulk Pickup
-          - type: conditional
-            conditions:
-              - entity: schedule.waste_bring_in_recycle
-                state_not: unknown
-              - entity: sensor.days_until_recycle_drop_off
-                state_not: unavailable
-              - entity: sensor.days_until_recycle_drop_off
-                state_not: unknown
-            row:
-              entity: sensor.days_until_recycle_drop_off
-              name: Recycling Drop Off
-          - type: conditional
-            conditions:
-              - entity: schedule.house_cleaning
-                state_not: unknown
-              - entity: sensor.days_until_cleaning_day
-                state_not: unavailable
-              - entity: sensor.days_until_cleaning_day
-                state_not: unknown
-            row:
-              entity: sensor.days_until_cleaning_day
-              name: House Cleaning
-          - type: section
-            label: Sync Lights
-          - type: conditional
-            conditions:
-              - entity: light.kitchen_cabinet_upper_coffee_bar
-                state_not: unavailable
-              - entity: light.kitchen_cabinet_upper_range
-                state_not: unavailable
-            row:
-              entity: input_boolean.sync_cabinet_above_lights
-              name: Kitchen, Above Cabinets Lights
-          - type: conditional
-            conditions:
-              - entity: light.foyer_ceiling_lights
-                state_not: unavailable
-            row:
-              entity: input_boolean.sync_foyer_lights
-              name: Foyer, Entryway & Hallway Lights
-          - type: conditional
-            conditions:
-              - entity: light.bedroom_1_lamp_j
-                state_not: unavailable
-              - entity: light.bedroom_1_lamp_t
-                state_not: unavailable
-            row:
-              entity: input_boolean.sync_bedroom_1_bedside_lamps
-              name: Main Bedroom, Bedside Lights
-          - type: conditional
-            conditions:
-              - entity: light.bedroom_4_lights
-                state_not: unavailable
-            row:
-              entity: input_boolean.sync_bedroom_4_lights
-              name: Tom's Office, Desk Lights
-      - type: entities
-        show_header_toggle: false
-        style: |
-          #states > div:nth-child(3) { padding-left: 45px !important;}          
-        entities:
-          - type: section
-            label: Automations
-          - entity: input_boolean.automation_bedroom_1_door_open_close
-            name: Bedroom 1, Door Open/Close
-          - entity: input_boolean.closet_automatic_turn_off
-            name: Auto-Shutoff Closet Lights
-          - entity: input_boolean.automation_bedroom_2_door_open_close
-            name: Bedroom 2, Door Open/Close
-          - entity: input_boolean.automation_bedroom_3_door_open_close
-            name: Bedroom 3, Door Open/Close
-          - entity: input_boolean.automation_bedroom_4_door_open_close
-            name: Bedroom 4, Door Open/Close
-          - entity: input_boolean.automation_foyer_door_open_close
-            name: Entry, Door Open/Close
-          - entity: input_boolean.automation_living_room_door_open_close
-            name: Living Room, Door Open/Close
-          - entity: input_boolean.automation_laundry_room_door_open_close
-            name: Laundry Room, Door Open/Close
-          - entity: input_boolean.automation_garage_door_open_close
-            name: Garage, Door Open/Close
-      - type: entities
-        show_header_toggle: false
-        style: |
-          #states > div:nth-child(4), 
-          #states > div:nth-child(5),
-          #states > div:nth-child(6),
-          #states > div:nth-child(7),
-          #states > div:nth-child(8),
-          #states > div:nth-child(9),
-          #states > div:nth-child(10) { padding-left: 45px !important;}
-        entities:
-          - type: section
-            label: Notifications
-          - entity: input_boolean.app_notify
-            name: Mobile Push Notifications
-          - entity: input_boolean.household_notify
-            name: Alexa Announcements
-          - type: conditional
-            conditions:
-              - entity: input_boolean.household_notify
-                state: 'on'
-            row:
-              entity: input_boolean.household_notify_kitchen
-              name: Kitchen
-          - type: conditional
-            conditions:
-              - entity: input_boolean.household_notify
-                state: 'on'
-            row:
-              entity: input_boolean.household_notify_dining_room
-              name: Dining Room
-          - type: conditional
-            conditions:
-              - entity: input_boolean.household_notify
-                state: 'on'
-            row:
-              entity: input_boolean.household_notify_bedroom_1
-              name: Main Bedroom
-          - type: conditional
-            conditions:
-              - entity: input_boolean.household_notify
-                state: 'on'
-            row:
-              entity: input_boolean.household_notify_bedroom_2
-              name: Guest Bedroom
-          - type: conditional
-            conditions:
-              - entity: input_boolean.household_notify
-                state: 'on'
-            row:
-              entity: input_boolean.household_notify_bedroom_3
-              name: Jess' Office
-          - type: conditional
-            conditions:
-              - entity: input_boolean.household_notify
-                state: 'on'
-            row:
-              entity: input_boolean.household_notify_bedroom_4
-              name: Tom's Office
-          - type: conditional
-            conditions:
-              - entity: input_boolean.household_notify
-                state: 'on'
-            row:
-              entity: input_boolean.household_notify_bathroom_1
-              name: Main Bathroom
   - title: Systems
     path: subview-systems
     back_path: /dashboard-home/home
@@ -2836,6 +2775,49 @@ views:
     theme: tihiti
     badges: []
     cards:
+      - type: entities
+        title: Router and Internet
+        show_header_toggle: false
+        entities:
+          - type: section
+            label: Router Details
+            card_mod:
+              style: |
+                .label { display: none;}
+          - entity: sensor.casamaxson_udmp_cpu_temperature
+            name: CPU Temperature
+          - type: custom:bar-card
+            width: 55%
+            height: 2em
+            decimal: 0
+            unit_of_measurement: '%'
+            positions:
+              icon: outside
+              indicator: 'off'
+              name: outside
+            severity:
+              - color: '#6d2525'
+                from: 90
+                to: 999
+            entity_row: true
+            entities:
+              - entity: sensor.casamaxson_udmp_cpu_utilization
+                name: CPU Utilization
+              - entity: sensor.casamaxson_udmp_memory_utilization
+                name: Memory Utilization
+          - entity: sensor.casamaxson_udmp_uptime
+            name: Last Restart
+          - type: divider
+          - entity: sensor.speedtest_upload
+            style: |
+              :host {
+                --paper-item-icon-color: #385581;
+              }
+          - entity: sensor.speedtest_download
+            style: |
+              :host {
+                --paper-item-icon-color: green;
+              }
       - type: entities
         show_header_toggle: false
         entities:
@@ -2935,6 +2917,192 @@ views:
                 name: Memory
                 icon: hass:memory
         title: Amazon Fire HD Tablet
+  - title: Settings
+    path: subview-settings
+    back_path: /dashboard-home/home
+    subview: true
+    type: custom:horizontal-layout
+    layout:
+      max_cols: 3
+    theme: tihiti
+    badges: []
+    cards:
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - type: section
+            label: Schedules
+          - entity: sensor.sunset_automations_status
+            name: Sunset Automations
+          - type: conditional
+            conditions:
+              - entity: schedule.waste_take_out_solid
+                state_not: unknown
+              - entity: sensor.days_until_waste_day_solid
+                state_not: unavailable
+              - entity: sensor.days_until_waste_day_solid
+                state_not: unknown
+            row:
+              entity: sensor.days_until_waste_day_solid
+              name: Trash Pickup
+          - type: conditional
+            conditions:
+              - entity: schedule.waste_take_out_bulk
+                state_not: unknown
+              - entity: sensor.days_until_waste_day_bulk
+                state_not: unavailable
+              - entity: sensor.days_until_waste_day_bulk
+                state_not: unknown
+            row:
+              entity: sensor.days_until_waste_day_bulk
+              name: Bulk Pickup
+          - type: conditional
+            conditions:
+              - entity: schedule.waste_bring_in_recycle
+                state_not: unknown
+              - entity: sensor.days_until_recycle_drop_off
+                state_not: unavailable
+              - entity: sensor.days_until_recycle_drop_off
+                state_not: unknown
+            row:
+              entity: sensor.days_until_recycle_drop_off
+              name: Recycling Drop Off
+          - type: conditional
+            conditions:
+              - entity: schedule.house_cleaning
+                state_not: unknown
+              - entity: sensor.days_until_cleaning_day
+                state_not: unavailable
+              - entity: sensor.days_until_cleaning_day
+                state_not: unknown
+            row:
+              entity: sensor.days_until_cleaning_day
+              name: House Cleaning
+          - type: section
+            label: Sync Lights
+          - type: conditional
+            conditions:
+              - entity: light.kitchen_cabinet_upper_coffee_bar
+                state_not: unavailable
+              - entity: light.kitchen_cabinet_upper_range
+                state_not: unavailable
+            row:
+              entity: input_boolean.sync_cabinet_above_lights
+              name: Kitchen, Above Cabinets Lights
+          - type: conditional
+            conditions:
+              - entity: light.foyer_ceiling_lights
+                state_not: unavailable
+            row:
+              entity: input_boolean.sync_foyer_lights
+              name: Foyer, Entryway & Hallway Lights
+          - type: conditional
+            conditions:
+              - entity: light.bedroom_1_lamp_j
+                state_not: unavailable
+              - entity: light.bedroom_1_lamp_t
+                state_not: unavailable
+            row:
+              entity: input_boolean.sync_bedroom_1_bedside_lamps
+              name: Main Bedroom, Bedside Lights
+          - type: conditional
+            conditions:
+              - entity: light.bedroom_4_lights
+                state_not: unavailable
+            row:
+              entity: input_boolean.sync_bedroom_4_lights
+              name: Tom's Office, Desk Lights
+      - type: entities
+        show_header_toggle: false
+        style: |
+          #states > div:nth-child(4), 
+          #states > div:nth-child(5),
+          #states > div:nth-child(6),
+          #states > div:nth-child(7),
+          #states > div:nth-child(8),
+          #states > div:nth-child(9),
+          #states > div:nth-child(10) { padding-left: 45px !important;}
+        entities:
+          - type: section
+            label: Notifications
+          - entity: input_boolean.app_notify
+            name: Mobile Push Notifications
+          - entity: input_boolean.household_notify
+            name: Alexa Announcements
+          - type: conditional
+            conditions:
+              - entity: input_boolean.household_notify
+                state: 'on'
+            row:
+              entity: input_boolean.household_notify_kitchen
+              name: Kitchen
+          - type: conditional
+            conditions:
+              - entity: input_boolean.household_notify
+                state: 'on'
+            row:
+              entity: input_boolean.household_notify_dining_room
+              name: Dining Room
+          - type: conditional
+            conditions:
+              - entity: input_boolean.household_notify
+                state: 'on'
+            row:
+              entity: input_boolean.household_notify_bedroom_1
+              name: Main Bedroom
+          - type: conditional
+            conditions:
+              - entity: input_boolean.household_notify
+                state: 'on'
+            row:
+              entity: input_boolean.household_notify_bedroom_2
+              name: Guest Bedroom
+          - type: conditional
+            conditions:
+              - entity: input_boolean.household_notify
+                state: 'on'
+            row:
+              entity: input_boolean.household_notify_bedroom_3
+              name: Jess' Office
+          - type: conditional
+            conditions:
+              - entity: input_boolean.household_notify
+                state: 'on'
+            row:
+              entity: input_boolean.household_notify_bedroom_4
+              name: Tom's Office
+          - type: conditional
+            conditions:
+              - entity: input_boolean.household_notify
+                state: 'on'
+            row:
+              entity: input_boolean.household_notify_bathroom_1
+              name: Main Bathroom
+      - type: entities
+        show_header_toggle: false
+        style: |
+          #states > div:nth-child(3) { padding-left: 45px !important;}          
+        entities:
+          - type: section
+            label: Door Triggered Automations
+          - entity: input_boolean.automation_bedroom_1_door_open_close
+            name: Bedroom 1, Door Open/Close
+          - entity: input_boolean.closet_automatic_turn_off
+            name: Auto-Shutoff Closet Lights
+          - entity: input_boolean.automation_bedroom_2_door_open_close
+            name: Bedroom 2, Door Open/Close
+          - entity: input_boolean.automation_bedroom_3_door_open_close
+            name: Bedroom 3, Door Open/Close
+          - entity: input_boolean.automation_bedroom_4_door_open_close
+            name: Bedroom 4, Door Open/Close
+          - entity: input_boolean.automation_foyer_door_open_close
+            name: Entry, Door Open/Close
+          - entity: input_boolean.automation_living_room_door_open_close
+            name: Living Room, Door Open/Close
+          - entity: input_boolean.automation_laundry_room_door_open_close
+            name: Laundry Room, Door Open/Close
+          - entity: input_boolean.automation_garage_door_open_close
+            name: Garage, Door Open/Close
   - title: Helpers
     path: subview-helpers
     back_path: /dashboard-home/home
@@ -3084,8 +3252,8 @@ views:
           - entity: binary_sensor.laundry_dryer_door
             name: Door Position
         title: Tumble Dryer
-  - title: Tom Details
-    path: person-thomas
+  - title: His Details
+    path: person-him
     back_path: /dashboard-home/home
     subview: true
     type: custom:vertical-layout
@@ -3237,8 +3405,8 @@ views:
               .leaflet-pane.leaflet-tile-pane {
                 filter: invert(0.95) grayscale(0.95) contrast(95%);
               }
-  - title: Jess Details
-    path: person-jessica
+  - title: Her Details
+    path: person-him
     type: custom:vertical-layout
     back_path: /dashboard-home/home
     subview: true
