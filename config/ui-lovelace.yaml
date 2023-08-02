@@ -2685,86 +2685,6 @@ views:
             variables:
               - entity: sensor.temp_wine_cooler_bottom_temperature
               - name: Wine Cooler, Lower
-  - title: Internet & Router
-    path: subview-router
-    back_path: /dashboard-home/home
-    subview: true
-    type: custom:horizontal-layout
-    layout:
-      max_cols: 3
-    theme: tihiti
-    badges: []
-    cards:
-      - type: entities
-        show_header_toggle: false
-        entities:
-          - type: section
-            label: Router Details
-            card_mod:
-              style: |
-                .label { display: none;}
-          - entity: sensor.casamaxson_udmp_cpu_temperature
-            name: CPU Temperature
-          - type: custom:bar-card
-            width: 55%
-            height: 2em
-            decimal: 0
-            unit_of_measurement: '%'
-            positions:
-              icon: outside
-              indicator: 'off'
-              name: outside
-            severity:
-              - color: '#6d2525'
-                from: 90
-                to: 999
-            entity_row: true
-            entities:
-              - entity: sensor.casamaxson_udmp_cpu_utilization
-                name: CPU Utilization
-              - entity: sensor.casamaxson_udmp_memory_utilization
-                name: Memory Utilization
-          - entity: sensor.casamaxson_udmp_uptime
-            name: Last Restart
-          - type: divider
-          - entity: sensor.speedtest_ping
-          - entity: sensor.speedtest_upload
-            style: |
-              :host {
-                --paper-item-icon-color: #385581;
-              }
-          - entity: sensor.speedtest_download
-            style: |
-              :host {
-                --paper-item-icon-color: green;
-              }
-        footer:
-          type: custom:mini-graph-card
-          entities:
-            - entity: sensor.speedtest_upload
-              color: '#385581'
-            - entity: sensor.speedtest_download
-              color: green
-          align_state: left
-          group: false
-          points_per_hour: 15
-          line_width: 3
-          hour24: true
-          hours_to_show: 1.5
-          show:
-            fill: fade
-            icon: false
-            name: false
-            state: false
-            name_adaptive_color: true
-            labels: hover
-            legend: false
-          tap_action:
-            action: none
-        view_layout:
-          grid-area: column1
-        card_mod:
-          class: column
   - title: Systems
     path: subview-systems
     back_path: /dashboard-home/home
@@ -2779,11 +2699,11 @@ views:
         title: Router and Internet
         show_header_toggle: false
         entities:
-          - type: section
-            label: Router Details
-            card_mod:
-              style: |
-                .label { display: none;}
+          - entity: sensor.speedtest_upload
+            name: Upload speed
+          - entity: sensor.speedtest_download
+            name: Download speed
+          - type: divider
           - entity: sensor.casamaxson_udmp_cpu_temperature
             name: CPU Temperature
           - type: custom:bar-card
@@ -2807,18 +2727,8 @@ views:
                 name: Memory Utilization
           - entity: sensor.casamaxson_udmp_uptime
             name: Last Restart
-          - type: divider
-          - entity: sensor.speedtest_upload
-            style: |
-              :host {
-                --paper-item-icon-color: #385581;
-              }
-          - entity: sensor.speedtest_download
-            style: |
-              :host {
-                --paper-item-icon-color: green;
-              }
       - type: entities
+        title: Home Assistant
         show_header_toggle: false
         entities:
           - entity: sensor.processor_temperature
@@ -2852,8 +2762,8 @@ views:
             tap_action:
               action: call-service
               service: homeassistant.restart
-        title: Home Assistant
       - type: entities
+        title: Amazon Fire HD Tablet
         show_header_toggle: false
         entities:
           - entity: switch.fire_tablet_screen
@@ -2916,7 +2826,6 @@ views:
               - entity: sensor.fire_tablet_ram_used_memory
                 name: Memory
                 icon: hass:memory
-        title: Amazon Fire HD Tablet
   - title: Settings
     path: subview-settings
     back_path: /dashboard-home/home
@@ -2988,14 +2897,14 @@ views:
                 state_not: unavailable
             row:
               entity: input_boolean.sync_cabinet_above_lights
-              name: Kitchen, Above Cabinets Lights
+              name: Kitchen, Above Cabinet Lights
           - type: conditional
             conditions:
               - entity: light.foyer_ceiling_lights
                 state_not: unavailable
             row:
               entity: input_boolean.sync_foyer_lights
-              name: Foyer, Entryway & Hallway Lights
+              name: Foyer, Ceiling Lights
           - type: conditional
             conditions:
               - entity: light.bedroom_1_lamp_j
@@ -3004,7 +2913,7 @@ views:
                 state_not: unavailable
             row:
               entity: input_boolean.sync_bedroom_1_bedside_lamps
-              name: Main Bedroom, Bedside Lights
+              name: Main Bedroom, Bedside Lamps
           - type: conditional
             conditions:
               - entity: light.bedroom_4_lights
@@ -3281,14 +3190,24 @@ views:
                   name: alarm.caf
                   critical: 1
                   volume: 1
-      - type: entities
-        entities:
-          - type: section
-            label: Daily Reminders
-          - entity: input_boolean.reminder_medicine_taken_thomas
-            name: Medication Taken
-          - entity: input_boolean.reminder_toothbrush_thomas
-            name: Teeth Brushed
+      - type: custom:state-switch
+        entity: user
+        default: Johan
+        states:
+          CasaMaxson:
+            type: entities
+            entities:
+              - type: section
+                label: Daily Reminders
+              - entity: input_boolean.reminder_medicine_am_taken_thomas
+                name: Medication Taken
+          Thomas:
+            type: entities
+            entities:
+              - type: section
+                label: Daily Reminders
+              - entity: input_boolean.reminder_medicine_am_taken_thomas
+                name: Medication Taken
       - type: entities
         show_header_toggle: false
         card_mod: null
@@ -3296,12 +3215,21 @@ views:
         style: |
           .name { margin: 0 0 1em !important;}
 
-          #states > div:nth-child(5), 
-          #states > div:nth-child(6) { padding-left: 45px !important;}
+          #states > div:nth-child(6), 
+          #states > div:nth-child(7) { padding-left: 45px !important;}
         entities:
           - type: section
           - entity: input_boolean.app_notify_tom
             name: Recieve Notifications
+          - type: conditional
+            conditions:
+              - entity: input_boolean.app_notify_tom
+                state: 'on'
+              - entity: input_boolean.app_notify_tom
+                state_not: unavailable
+            row:
+              entity: input_boolean.app_notify_tom_alert_schedule
+              name: Schedule Notifications
           - type: conditional
             conditions:
               - entity: input_boolean.app_notify_tom
@@ -3406,7 +3334,7 @@ views:
                 filter: invert(0.95) grayscale(0.95) contrast(95%);
               }
   - title: Her Details
-    path: person-him
+    path: person-her
     type: custom:vertical-layout
     back_path: /dashboard-home/home
     subview: true
@@ -3431,12 +3359,37 @@ views:
                   name: alarm.caf
                   critical: 1
                   volume: 1
-      - type: entities
-        entities:
-          - type: section
-            label: Daily Reminders
-          - entity: input_boolean.reminder_toothbrush_jessica
-            name: Teeth Brushed
+      - type: custom:state-switch
+        entity: user
+        default: Johan
+        states:
+          CasaMaxson:
+            type: entities
+            entities:
+              - type: section
+                label: Daily Reminders
+              - entity: input_boolean.reminder_medicine_am_taken_jessica
+                name: Morning Medication Taken
+              - entity: input_boolean.reminder_medicine_pm_taken_jessica
+                name: Evening Medication Taken
+          Thomas:
+            type: entities
+            entities:
+              - type: section
+                label: Daily Reminders
+              - entity: input_boolean.reminder_medicine_am_taken_jessica
+                name: Morning Medication Taken
+              - entity: input_boolean.reminder_medicine_pm_taken_jessica
+                name: Evening Medication Taken
+          Jessica:
+            type: entities
+            entities:
+              - type: section
+                label: Daily Reminders
+              - entity: input_boolean.reminder_medicine_am_taken_jessica
+                name: Morning Medication Taken
+              - entity: input_boolean.reminder_medicine_pm_taken_jessica
+                name: Evening Medication Taken
       - type: entities
         show_header_toggle: false
         card_mod: null
@@ -3444,12 +3397,21 @@ views:
         style: |
           .name { margin: 0 0 1em !important;}
 
-          #states > div:nth-child(5), 
-          #states > div:nth-child(6) { padding-left: 45px !important;}
+          #states > div:nth-child(6), 
+          #states > div:nth-child(7) { padding-left: 45px !important;}
         entities:
           - type: section
           - entity: input_boolean.app_notify_jess
             name: Recieve Notifications
+          - type: conditional
+            conditions:
+              - entity: input_boolean.app_notify_jess
+                state: 'on'
+              - entity: input_boolean.app_notify_jess
+                state_not: unavailable
+            row:
+              entity: input_boolean.app_notify_jess_alert_schedule
+              name: Schedule Notifications
           - type: conditional
             conditions:
               - entity: input_boolean.app_notify_jess
