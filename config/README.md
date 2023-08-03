@@ -8,7 +8,7 @@ This repo contains the constantly-in-progress [Home Assistant](https://home-assi
 Make sure that you :star: this repo, so that you can get updates right in your notification feed.
 
 ### Dashboard:
-| [![dashboard-desktop](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/dashboard-desktop.png)](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/dashboard-desktop.png)<br>Desktop/Tablet | [![dashboard-mobile](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/dashboard-mobile-screen.png)](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/dashboard-mobile.png)<br>Mobile<br>(click to view all tiles) |
+| [![dashboard-desktop](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/dashboard-desktop.png)](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/dashboard-desktop.png)<br>Desktop/Tablet | [![dashboard-mobile](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/dashboard-mobile.png)](https://raw.githubusercontent.com/thomasmaxson/Home-Assistant-Configuration/main/config/www/images/dashboard/dashboard-mobile-full.png)<br>Mobile<br>(click to view all tiles) |
 |:---:|:---:|
 
 ### Wall Mounted Tablet:
