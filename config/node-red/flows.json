@@ -232,9 +232,9 @@
 			"4f997090c886c6b5",
 			"f94cede360fbcd89"
 		],
-		"x": 44,
+		"x": 54,
 		"y": 39,
-		"w": 1442,
+		"w": 1432,
 		"h": 462
 	},
 	{
@@ -284,9 +284,9 @@
 			"9be85ff0bb1d897e",
 			"96a95b863ebb13a7"
 		],
-		"x": 44,
+		"x": 54,
 		"y": 559,
-		"w": 2032,
+		"w": 2022,
 		"h": 462
 	},
 	{
@@ -352,9 +352,9 @@
 			"739908c2caa329e7",
 			"faf06f138718c891"
 		],
-		"x": 44,
+		"x": 54,
 		"y": 1079,
-		"w": 2162,
+		"w": 2152,
 		"h": 702
 	},
 	{
@@ -421,7 +421,9 @@
 			"eb8659db04f28a16"
 		],
 		"x": 34,
-		"y": 39
+		"y": 39,
+		"w": 1092,
+		"h": 322
 	},
 	{
 		"id": "09686aa28ec76166",
@@ -450,7 +452,9 @@
 			"fc5993e3b509d963"
 		],
 		"x": 34,
-		"y": 419
+		"y": 419,
+		"w": 1092,
+		"h": 322
 	},
 	{
 		"id": "90b28685286b5c32",
@@ -477,7 +481,9 @@
 			"df97128a7a5fa070"
 		],
 		"x": 34,
-		"y": 1319
+		"y": 1319,
+		"w": 992,
+		"h": 202
 	},
 	{
 		"id": "6c9abf623b0a916b",
@@ -505,7 +511,9 @@
 			"23ce45040468a50d"
 		],
 		"x": 34,
-		"y": 2099
+		"y": 2099,
+		"w": 1152,
+		"h": 322
 	},
 	{
 		"id": "2ef23d258e2908a5",
@@ -535,7 +543,9 @@
 			"b23e6a87cc646cae"
 		],
 		"x": 34,
-		"y": 1839
+		"y": 1839,
+		"w": 1692,
+		"h": 209.5
 	},
 	{
 		"id": "1f3f56a64bdf7245",
@@ -563,7 +573,9 @@
 			"0270d118ae4b7804"
 		],
 		"x": 54,
-		"y": 599
+		"y": 599,
+		"w": 912,
+		"h": 262
 	},
 	{
 		"id": "ac97a59aa0e054c4",
@@ -592,7 +604,9 @@
 			"a3917d33848d267a"
 		],
 		"x": 54,
-		"y": 319
+		"y": 319,
+		"w": 1662,
+		"h": 222
 	},
 	{
 		"id": "babed62518ff1825",
@@ -621,7 +635,9 @@
 			"eba87b7c0a53c6e7"
 		],
 		"x": 54,
-		"y": 1179
+		"y": 1179,
+		"w": 1332,
+		"h": 222
 	},
 	{
 		"id": "3c888c1f5a7f12b2",
@@ -654,7 +670,9 @@
 			"7b69a238ddfbd434"
 		],
 		"x": 54,
-		"y": 499
+		"y": 499,
+		"w": 1412,
+		"h": 402
 	},
 	{
 		"id": "0b05817bb4d42102",
@@ -680,7 +698,9 @@
 			"e2e51abfe5a20233"
 		],
 		"x": 54,
-		"y": 959
+		"y": 959,
+		"w": 1032,
+		"h": 177
 	},
 	{
 		"id": "d46092dab47821af",
@@ -715,7 +735,9 @@
 			"691634b6fca7bc53"
 		],
 		"x": 54,
-		"y": 2199
+		"y": 2199,
+		"w": 1492,
+		"h": 357
 	},
 	{
 		"id": "abb2809c73c9bf16",
@@ -741,7 +763,9 @@
 			"1138b2ef74de0b3d"
 		],
 		"x": 54,
-		"y": 1259
+		"y": 1259,
+		"w": 982,
+		"h": 244.5
 	},
 	{
 		"id": "ced32fcc854281a5",
@@ -843,9 +867,9 @@
 			"062c51f7d411b10d",
 			"d5ef7b3634b07679"
 		],
-		"x": 44,
+		"x": 54,
 		"y": 2559,
-		"w": 1212,
+		"w": 1202,
 		"h": 282
 	},
 	{
@@ -869,9 +893,9 @@
 			"b9a65f55c429fd35",
 			"bf8f7ff097449bb7"
 		],
-		"x": 44,
+		"x": 54,
 		"y": 4559,
-		"w": 672,
+		"w": 682,
 		"h": 202
 	},
 	{
@@ -947,13 +971,12 @@
 		},
 		"nodes": [
 			"09e750898cfc8b60",
-			"c4be9eb3db479d51",
-			"f1e68be6187fda86",
-			"3b19e82b3d03a401"
+			"3a01748301fe8498",
+			"92003b8d7ece4c1a"
 		],
 		"x": 48,
 		"y": 1253,
-		"w": 1908,
+		"w": 1934,
 		"h": 694
 	},
 	{
@@ -1019,9 +1042,7 @@
 			"b1a669a3734738d0"
 		],
 		"x": 44,
-		"y": 1139,
-		"w": 2632,
-		"h": 382
+		"y": 1139
 	},
 	{
 		"id": "8953653722b0a6b2",
@@ -1057,7 +1078,9 @@
 			"e5bb78769aa39ad1"
 		],
 		"x": 54,
-		"y": 1559
+		"y": 1559,
+		"w": 1572,
+		"h": 322
 	},
 	{
 		"id": "6f4459aaf422d31f",
@@ -1084,8 +1107,10 @@
 			"57e784ddeb4dd9f7",
 			"2e59f659b453aacb"
 		],
-		"x": 64,
-		"y": 39
+		"x": 54,
+		"y": 39,
+		"w": 1202,
+		"h": 222
 	},
 	{
 		"id": "52a2267cd3f77359",
@@ -1183,9 +1208,7 @@
 			"0d433e62683f6be8"
 		],
 		"x": 894,
-		"y": 579,
-		"w": 812,
-		"h": 202
+		"y": 579
 	},
 	{
 		"id": "95861d07508e4eae",
@@ -1220,9 +1243,7 @@
 			"0522f6c225c5d710"
 		],
 		"x": 44,
-		"y": 579,
-		"w": 782,
-		"h": 502
+		"y": 579
 	},
 	{
 		"id": "d21e3e6ec895624b",
@@ -1249,9 +1270,7 @@
 			"ddb5a8f76343991b"
 		],
 		"x": 54,
-		"y": 39,
-		"w": 1172,
-		"h": 482
+		"y": 39
 	},
 	{
 		"id": "f7710150c9cb5972",
@@ -1273,9 +1292,7 @@
 			"715cc250ba4cf7f2"
 		],
 		"x": 54,
-		"y": 2459,
-		"w": 1112,
-		"h": 222
+		"y": 2459
 	},
 	{
 		"id": "bd3118f367301ff5",
@@ -1310,9 +1327,7 @@
 			"13647171e3c55ca1"
 		],
 		"x": 44,
-		"y": 1579,
-		"w": 1142,
-		"h": 322
+		"y": 1579
 	},
 	{
 		"id": "3c7ebf27175ff688",
@@ -1350,9 +1365,7 @@
 			"f4a78e21be38ddb6"
 		],
 		"x": 44,
-		"y": 1959,
-		"w": 1602,
-		"h": 442
+		"y": 1959
 	},
 	{
 		"id": "9369390f85b0a7e0",
@@ -1381,7 +1394,9 @@
 			"5f8cd28d7154bad9"
 		],
 		"x": 714,
-		"y": 39
+		"y": 39,
+		"w": 912,
+		"h": 322
 	},
 	{
 		"id": "931f2c0cfb587811",
@@ -1410,7 +1425,7 @@
 		],
 		"x": 54,
 		"y": 4199,
-		"w": 1042,
+		"w": 1082,
 		"h": 302
 	},
 	{
@@ -1430,7 +1445,6 @@
 			"ca7f0ec6ab089e7b",
 			"6f2dc7d6a66e6ed9",
 			"a8d7d9ab126bcd9b",
-			"b126de85b3fe471d",
 			"ba6895f23ee9fad7",
 			"9750e4da9bc743a7",
 			"c2f8d7ee81ae9f02",
@@ -1439,10 +1453,13 @@
 			"45e7f3b21bebeb97",
 			"fdf9af40e1fc52fe",
 			"f846b44c9fcc13f2",
-			"1b7e09ce6caeb583"
+			"1b7e09ce6caeb583",
+			"c2d0edcc4462e3c8"
 		],
 		"x": 34,
-		"y": 2999
+		"y": 2999,
+		"w": 1692,
+		"h": 262
 	},
 	{
 		"id": "778ef0caf6d2c32c",
@@ -1476,7 +1493,9 @@
 			"e5e7522676146d83"
 		],
 		"x": 34,
-		"y": 2479
+		"y": 2479,
+		"w": 1392,
+		"h": 462
 	},
 	{
 		"id": "3d111a6d8f2d610a",
@@ -1564,7 +1583,9 @@
 			"392c3227fb72aeac"
 		],
 		"x": 54,
-		"y": 1459
+		"y": 1459,
+		"w": 1292,
+		"h": 262
 	},
 	{
 		"id": "f7b26ea9f0e17e65",
@@ -1654,34 +1675,25 @@
 			"f362ec70ea4be4df",
 			"3ea1383fd9f814b1",
 			"89ae94b9748fcbc2",
-			"e0febc49b43a98ce",
-			"e2c2647e3e4ead17",
 			"32b9450a6c884094",
 			"563b16eda3a54186",
-			"0575cdc06907a33a",
-			"0587ea4e1aabd99b",
-			"3de2101f96ca55fe",
 			"9b57716374f7b836",
-			"a717c6b2486717b7",
 			"cfaac68d63f9f089",
 			"9dd5e89a8295d45e",
 			"5f0e3e6ce7eac8f9",
 			"f5f0b18f6bcba7b2",
 			"2910780454bfbaa6",
-			"6285a7f300565dfd",
-			"f99335252a8f3eb7",
-			"5861b547160b597d",
-			"ebd64f322e65d430",
 			"e4261b83f719debb",
-			"5128001a4ffbc386",
 			"0693068bdb17d0d2",
 			"4a51c7a4a0f87ef1",
-			"33afbe853d8eaade"
+			"4e1fb9d34aa23750",
+			"a717c6b2486717b7",
+			"e0febc49b43a98ce"
 		],
-		"x": 44,
+		"x": 54,
 		"y": 39,
-		"w": 1192,
-		"h": 742
+		"w": 1202,
+		"h": 422
 	},
 	{
 		"id": "5a9581dae47d7692",
@@ -1734,7 +1746,9 @@
 			"97331ecb21c559ae"
 		],
 		"x": 34,
-		"y": 1579
+		"y": 1579,
+		"w": 992,
+		"h": 202
 	},
 	{
 		"id": "08276ee9df51871b",
@@ -1761,9 +1775,9 @@
 			"9c941b8dad512b92",
 			"bcad761bd7c9507e"
 		],
-		"x": 44,
-		"y": 2239,
-		"w": 1182,
+		"x": 54,
+		"y": 1599,
+		"w": 1172,
 		"h": 297
 	},
 	{
@@ -1800,7 +1814,9 @@
 			"affea21285f569cf"
 		],
 		"x": 54,
-		"y": 3199
+		"y": 3199,
+		"w": 1652,
+		"h": 402
 	},
 	{
 		"id": "05c65d015fcf11b4",
@@ -1841,7 +1857,9 @@
 			"4796bef84742797b"
 		],
 		"x": 54,
-		"y": 3659
+		"y": 3659,
+		"w": 1652,
+		"h": 402
 	},
 	{
 		"id": "5f657ee6cba71f79",
@@ -1868,7 +1886,9 @@
 			"8bf74f6c6b9f29db"
 		],
 		"x": 34,
-		"y": 1059
+		"y": 1059,
+		"w": 992,
+		"h": 202
 	},
 	{
 		"id": "aad3985c6a7c0ff8",
@@ -1896,7 +1916,9 @@
 			"9e938ab3b902b828"
 		],
 		"x": 34,
-		"y": 799
+		"y": 799,
+		"w": 1052,
+		"h": 209.5
 	},
 	{
 		"id": "ce9dba3c9b1f5d7b",
@@ -1937,7 +1959,9 @@
 			"cbfa083111ea46f8"
 		],
 		"x": 54,
-		"y": 4099
+		"y": 4099,
+		"w": 1652,
+		"h": 402
 	},
 	{
 		"id": "88bae69ad7e7108b",
@@ -1968,7 +1992,9 @@
 			"41b8b255959be350"
 		],
 		"x": 54,
-		"y": 39
+		"y": 39,
+		"w": 582,
+		"h": 342
 	},
 	{
 		"id": "6330fa86196c236b",
@@ -1992,7 +2018,9 @@
 			"439e77665479a203"
 		],
 		"x": 54,
-		"y": 1939
+		"y": 1939,
+		"w": 832,
+		"h": 202
 	},
 	{
 		"id": "3c3107ab072966d6",
@@ -2021,49 +2049,9 @@
 			"82a3b88452cacbdb"
 		],
 		"x": 54,
-		"y": 919
-	},
-	{
-		"id": "5f9a23eb89d77a95",
-		"type": "group",
-		"z": "462cafc155901a6e",
-		"style": {
-			"stroke": "#999999",
-			"stroke-opacity": "1",
-			"fill": "none",
-			"fill-opacity": "1",
-			"label": true,
-			"label-position": "nw",
-			"color": "#a4a4a4"
-		},
-		"nodes": [
-			"686e8b05a6f1e42e",
-			"bebf4a3fc45e2ac0",
-			"311fa63cfc8956d9",
-			"bf03bf2b96b59065",
-			"377ca9a41c0cd042",
-			"41eee5cc161eeec5",
-			"1fa99bab6c8456e1",
-			"72be0eea7e36017e",
-			"cf2299141a5472a4",
-			"3d7f37f07f55f2d2",
-			"f09db008ec631ea7",
-			"4b75425c2cbcc11b",
-			"acc558526fc7141f",
-			"fe8f4fe2531bf788",
-			"1d9d12eeb391d674",
-			"6168003aa03935e8",
-			"75c70bdc5e96fa65",
-			"45c844d96c80e1cb",
-			"3722c817cb8dcdfd",
-			"0b8c2c5c6698121c",
-			"6b2a493779647f88",
-			"20a22b3364b6c696"
-		],
-		"x": 1304,
-		"y": 39,
-		"w": 1172,
-		"h": 562
+		"y": 919,
+		"w": 1292,
+		"h": 202
 	},
 	{
 		"id": "4c006916009d586c",
@@ -2085,27 +2073,20 @@
 			"8026bbb75ba9e427",
 			"e767633c5f8c9e55",
 			"a2977e1dbf24e083",
-			"0c781df44d668cbd",
-			"f36f9ec3c3c690b3",
-			"acb319185cfdf4f3",
-			"4176b7612e035b3f",
 			"4f7950d00335adbb",
 			"3f687814dc402ee0",
 			"19cadec02396af3c",
 			"07395fa30f73ff1a",
-			"28631f0db50360cf",
-			"1392a1415cab422c",
 			"3ec0f64e4f8da9ac",
 			"ddf3ebe33374e4a3",
 			"f08ec85ae1fabf77",
-			"da62c1d89e70b87b",
-			"2796a9351a02d12a",
-			"46bc0ea7f8e6e39a"
+			"46bc0ea7f8e6e39a",
+			"1392a1415cab422c"
 		],
-		"x": 1284,
-		"y": 839,
-		"w": 1172,
-		"h": 562
+		"x": 1334,
+		"y": 519,
+		"w": 1182,
+		"h": 342
 	},
 	{
 		"id": "c5d790d50e846cf3",
@@ -2149,9 +2130,9 @@
 			"c4add1f930fa7e59",
 			"4ec7b36d7e5e80a7"
 		],
-		"x": 64,
-		"y": 1639,
-		"w": 1502,
+		"x": 54,
+		"y": 999,
+		"w": 1512,
 		"h": 542
 	},
 	{
@@ -2212,7 +2193,9 @@
 			"4d2787f7908ec7ea"
 		],
 		"x": 54,
-		"y": 439
+		"y": 439,
+		"w": 732,
+		"h": 322
 	},
 	{
 		"id": "8c050726f929271a",
@@ -2237,8 +2220,10 @@
 			"e6819eb8ca67a1cb",
 			"da7ce0e1273c7ce9"
 		],
-		"x": 794,
-		"y": 439
+		"x": 854,
+		"y": 439,
+		"w": 712,
+		"h": 322
 	},
 	{
 		"id": "c27b37bacfd81b8e",
@@ -2262,7 +2247,9 @@
 			"573fc76fae6efd28"
 		],
 		"x": 54,
-		"y": 819
+		"y": 819,
+		"w": 672,
+		"h": 282
 	},
 	{
 		"id": "1bb40b79d6de32c3",
@@ -2285,8 +2272,10 @@
 			"ece7245699721110",
 			"f305cd7d4e967216"
 		],
-		"x": 784,
-		"y": 819
+		"x": 864,
+		"y": 819,
+		"w": 682,
+		"h": 282
 	},
 	{
 		"id": "f98f8b4014a46540",
@@ -2325,7 +2314,9 @@
 			"6be11bf05a85aade"
 		],
 		"x": 54,
-		"y": 1159
+		"y": 1159,
+		"w": 992,
+		"h": 662
 	},
 	{
 		"id": "38cb202ea2b40994",
@@ -2353,7 +2344,9 @@
 			"d4082ad4fa6a52a6"
 		],
 		"x": 54,
-		"y": 39
+		"y": 39,
+		"w": 862,
+		"h": 362
 	},
 	{
 		"id": "5cbfb71c8a2b5642",
@@ -2385,7 +2378,9 @@
 			"8d7696f2f39eddb7"
 		],
 		"x": 54,
-		"y": 1879
+		"y": 1879,
+		"w": 912,
+		"h": 462
 	},
 	{
 		"id": "2892c2a908070716",
@@ -2409,7 +2404,9 @@
 			"88980cc8a0b72251"
 		],
 		"x": 1114,
-		"y": 1159
+		"y": 1159,
+		"w": 832,
+		"h": 202
 	},
 	{
 		"id": "9eaf4263c61903d2",
@@ -2450,7 +2447,9 @@
 			"5ea0acf745e146da"
 		],
 		"x": 54,
-		"y": 2599
+		"y": 2599,
+		"w": 1512,
+		"h": 482
 	},
 	{
 		"id": "2ee7394580f79cc3",
@@ -2493,9 +2492,9 @@
 			"49c81db6698e83f0",
 			"e96225d133413d78"
 		],
-		"x": 44,
+		"x": 54,
 		"y": 39,
-		"w": 1122,
+		"w": 1112,
 		"h": 542
 	},
 	{
@@ -2538,9 +2537,9 @@
 			"da06eb7a5821a4cb",
 			"3fe868e04338da57"
 		],
-		"x": 44,
+		"x": 54,
 		"y": 639,
-		"w": 1192,
+		"w": 1182,
 		"h": 502
 	},
 	{
@@ -2621,33 +2620,24 @@
 			"c43c1a6087a3fa6d",
 			"d3e86f719b7b8a5d",
 			"13bf736a80504f29",
-			"be93d986cf74a2b8",
 			"e3bf1f24d15a6f85",
 			"16a92463cb0979c3",
-			"8da472a0773a0797",
-			"65545e1171cac2d5",
-			"97f9b8d7218e9b38",
 			"3055c68eadabb88b",
-			"1b05476bd02d2487",
 			"acea7448d48ce619",
 			"a760d1eaeffd1bd0",
 			"30902be5b371a29a",
 			"0a8e9f1f67ac5ba8",
 			"8cd3e95bcf04742b",
-			"9ee8e8f69ff01ecd",
-			"a70637dfa2a1f6aa",
-			"a96fe990bade684e",
-			"da5015a9e3fca7a8",
 			"5e5905eb9e6833bc",
-			"a94ce3cab1396817",
 			"954f51202a1d4143",
 			"41390226403d99e6",
-			"4c376ea756858b2c"
+			"be93d986cf74a2b8",
+			"1b05476bd02d2487"
 		],
-		"x": 44,
-		"y": 839,
-		"w": 1172,
-		"h": 742
+		"x": 54,
+		"y": 519,
+		"w": 1202,
+		"h": 422
 	},
 	{
 		"id": "3d767195141d839b",
@@ -2678,8 +2668,10 @@
 			"b1fba3ee14cb0d1e",
 			"c2b304794497a3ff"
 		],
-		"x": 1074,
-		"y": 1879
+		"x": 1044,
+		"y": 1879,
+		"w": 912,
+		"h": 462
 	},
 	{
 		"id": "bdc631bb10970883",
@@ -2716,10 +2708,45 @@
 			"81251d5c7c8c240e",
 			"c33975c50e590909"
 		],
-		"x": 44,
+		"x": 54,
 		"y": 2199,
-		"w": 1162,
+		"w": 1152,
 		"h": 562
+	},
+	{
+		"id": "5f9a23eb89d77a95",
+		"type": "group",
+		"z": "462cafc155901a6e",
+		"style": {
+			"stroke": "#999999",
+			"stroke-opacity": "1",
+			"fill": "none",
+			"fill-opacity": "1",
+			"label": true,
+			"label-position": "nw",
+			"color": "#a4a4a4"
+		},
+		"nodes": [
+			"686e8b05a6f1e42e",
+			"bebf4a3fc45e2ac0",
+			"311fa63cfc8956d9",
+			"377ca9a41c0cd042",
+			"1fa99bab6c8456e1",
+			"72be0eea7e36017e",
+			"cf2299141a5472a4",
+			"f09db008ec631ea7",
+			"4b75425c2cbcc11b",
+			"acc558526fc7141f",
+			"fe8f4fe2531bf788",
+			"3722c817cb8dcdfd",
+			"20a22b3364b6c696",
+			"7f1978c500978be7",
+			"bf03bf2b96b59065"
+		],
+		"x": 1334,
+		"y": 39,
+		"w": 1182,
+		"h": 342
 	},
 	{
 		"id": "09e750898cfc8b60",
@@ -2754,52 +2781,58 @@
 		"h": 142
 	},
 	{
-		"id": "c4be9eb3db479d51",
+		"id": "92003b8d7ece4c1a",
 		"type": "group",
 		"z": "4e1d02e135536c14",
 		"g": "58946bdd678fbfa5",
-		"name": "",
 		"style": {
-			"label": true
+			"stroke": "#999999",
+			"stroke-opacity": "1",
+			"fill": "none",
+			"fill-opacity": "1",
+			"label": true,
+			"label-position": "nw",
+			"color": "#a4a4a4"
 		},
 		"nodes": [
-			"a62008d8914b95a2",
-			"1d6d45ce35d1f8fb",
-			"fa75df9d99a78852",
-			"8363ca529c5b4620",
-			"a425ce3a062da4e5",
-			"fd82a36789e9f0fd",
-			"f9e0b7ba2c681f39",
-			"3a01748301fe8498",
-			"c722151add88f640",
-			"b9fb615b89979085",
-			"e4967201c6355ab0",
-			"85de72e04aaa2de6",
-			"d892463cc91098f1",
-			"915f38fb1e724141",
-			"d86681ccbd79c9f3",
-			"4c26de52a53acb79",
-			"064a1785b9c6a8a0",
-			"d0dc2e32d91cc767",
-			"30a58835931e351d",
-			"e6130a39a2ab366a",
-			"e3f52efe96ae8364",
-			"b9d4c31f4c3cc017",
-			"42fa0ba60aff98c6",
-			"06d2f5e90b465001",
-			"86fa6b8d15a3bd95",
-			"5752a3489da78395",
-			"1a2972494879f106",
-			"eb8e6829bd532d6b",
-			"b2d6fd7d25cc6c7f",
-			"6d9005bfb46a1024",
-			"9d1c9c66ff51c965",
+			"3b19e82b3d03a401",
+			"f1e68be6187fda86",
+			"e3d5fb23eee00328",
 			"ffe59e12601889d3",
-			"e3d5fb23eee00328"
+			"9d1c9c66ff51c965",
+			"e6130a39a2ab366a",
+			"e4967201c6355ab0",
+			"06d2f5e90b465001",
+			"42fa0ba60aff98c6",
+			"c722151add88f640",
+			"30a58835931e351d",
+			"6d9005bfb46a1024",
+			"e3f52efe96ae8364",
+			"d0dc2e32d91cc767",
+			"b2d6fd7d25cc6c7f",
+			"b9fb615b89979085",
+			"8363ca529c5b4620",
+			"5752a3489da78395",
+			"b9d4c31f4c3cc017",
+			"4c26de52a53acb79",
+			"a62008d8914b95a2",
+			"fa75df9d99a78852",
+			"86fa6b8d15a3bd95",
+			"d86681ccbd79c9f3",
+			"915f38fb1e724141",
+			"d892463cc91098f1",
+			"85de72e04aaa2de6",
+			"1a2972494879f106",
+			"f9e0b7ba2c681f39",
+			"1d6d45ce35d1f8fb",
+			"a425ce3a062da4e5",
+			"064a1785b9c6a8a0",
+			"eb8e6829bd532d6b",
+			"fd82a36789e9f0fd"
 		],
 		"x": 74,
 		"y": 1459,
-		"w": 1592,
+		"w": 1882,
 		"h": 462
 	},
 	{
@@ -8843,7 +8876,7 @@
 		"endtime": "10001",
 		"starttime2": "0",
 		"endtime2": "0",
-		"startoff": "0",
+		"startoff": "-1",
 		"endoff": "0",
 		"startoff2": 0,
 		"endoff2": 0,
@@ -9716,10 +9749,10 @@
 		"x": 170,
 		"y": 2020,
 		"wires": [
+			[],
 			[
 				"49aae6dea38bcdde"
 			],
-			[],
 			[]
 		]
 	},
@@ -10536,7 +10569,8 @@
 			"c2d9c5d0f0f75c79",
 			"a1397f38ed4c472b",
 			"4b61ae11cd77b022",
-			"20f7f8e014ee3926"
+			"20f7f8e014ee3926",
+			"c106cd286f469772"
 		],
 		"x": 935,
 		"y": 680,
@@ -11007,7 +11041,9 @@
 		"z": "81dea24119402f3d",
 		"g": "95861d07508e4eae",
 		"name": "Set Light Brightness, 20%",
-		"links": [],
+		"links": [
+			"c106cd286f469772"
+		],
 		"x": 95,
 		"y": 980,
 		"wires": [
@@ -11024,7 +11060,8 @@
 		"name": "Set Light Brightness, 10%",
 		"links": [
 			"e437eec0c6a8dbfb",
-			"365e7f9a79775c09"
+			"365e7f9a79775c09",
+			"cdbb4f362eb7cc92"
 		],
 		"x": 95,
 		"y": 1040,
@@ -11167,7 +11204,10 @@
 		"g": "8806b584b745745a",
 		"name": "Lights, Kitchen Ceiling PM",
 		"mode": "link",
-		"links": [],
+		"links": [
+			"82b59c2457fddf8e",
+			"9e2f75a618a6a942"
+		],
 		"x": 435,
 		"y": 1300,
 		"wires": []
@@ -11796,7 +11836,9 @@
 		"g": "8806b584b745745a",
 		"name": "Lights, Kitchen Upper Cabinets",
 		"mode": "link",
-		"links": [],
+		"links": [
+			"0522f6c225c5d710"
+		],
 		"x": 435,
 		"y": 1360,
 		"wires": []
@@ -14519,7 +14561,7 @@
 		"targetType": "full",
 		"statusVal": "",
 		"statusType": "auto",
-		"x": 970,
+		"x": 930,
 		"y": 1420,
 		"wires": []
 	},
@@ -14560,7 +14602,7 @@
 		"override_payload": "msg",
 		"entity_location": "data",
 		"override_data": "msg",
-		"x": 590,
+		"x": 550,
 		"y": 1420,
 		"wires": [
 			[
@@ -14591,7 +14633,7 @@
 		"mustacheAltTags": false,
 		"outputProperties": [],
 		"queue": "none",
-		"x": 800,
+		"x": 760,
 		"y": 1420,
 		"wires": [
 			[
@@ -14636,7 +14678,7 @@
 		"override_payload": "msg",
 		"entity_location": "data",
 		"override_data": "msg",
-		"x": 580,
+		"x": 540,
 		"y": 1480,
 		"wires": [
 			[
@@ -14667,7 +14709,7 @@
 		"mustacheAltTags": false,
 		"outputProperties": [],
 		"queue": "none",
-		"x": 800,
+		"x": 760,
 		"y": 1480,
 		"wires": [
 			[
@@ -14712,7 +14754,7 @@
 		"override_payload": "msg",
 		"entity_location": "data",
 		"override_data": "msg",
-		"x": 800,
+		"x": 660,
 		"y": 2000,
 		"wires": [
 			[
@@ -14743,7 +14785,7 @@
 		"mustacheAltTags": false,
 		"outputProperties": [],
 		"queue": "none",
-		"x": 1060,
+		"x": 920,
 		"y": 2000,
 		"wires": [
 			[
@@ -14773,7 +14815,7 @@
 		"mustacheAltTags": false,
 		"outputProperties": [],
 		"queue": "none",
-		"x": 1600,
+		"x": 1460,
 		"y": 2000,
 		"wires": [
 			[
@@ -15000,11 +15042,11 @@
 		"endTime": "sunrise",
 		"startOffset": "-30",
 		"endOffset": "+30",
-		"x": 520,
-		"y": 2000,
+		"x": 380,
+		"y": 1940,
 		"wires": [
 			[
-				"ef376d85a3136f21"
+				"ad5708633460b6fb"
 			],
 			[]
 		]
@@ -15023,7 +15065,7 @@
 		"targetType": "full",
 		"statusVal": "",
 		"statusType": "auto",
-		"x": 1770,
+		"x": 1630,
 		"y": 2000,
 		"wires": []
 	},
@@ -15068,7 +15110,7 @@
 		"type": "api-current-state",
 		"z": "a95ec654e9a3d387",
 		"g": "2ef23d258e2908a5",
-		"name": "If Evening Automation Flag is OFF",
+		"name": "If Sunset Automation Flag is OFF",
 		"server": "1040bb61.673d75",
 		"version": 3,
 		"outputs": 2,
@@ -15100,7 +15142,7 @@
 		"override_payload": "msg",
 		"entity_location": "data",
 		"override_data": "msg",
-		"x": 800,
+		"x": 660,
 		"y": 1940,
 		"wires": [
 			[
@@ -15146,7 +15188,7 @@
 		"override_payload": "msg",
 		"entity_location": "data",
 		"override_data": "msg",
-		"x": 1340,
+		"x": 1200,
 		"y": 2000,
 		"wires": [
 			[
@@ -15173,11 +15215,16 @@
 				"t": "eq",
 				"v": "off",
 				"vt": "str"
+			},
+			{
+				"t": "eq",
+				"v": "unavailable",
+				"vt": "str"
 			}
 		],
 		"checkall": "true",
 		"repair": false,
-		"outputs": 2,
+		"outputs": 3,
 		"x": 150,
 		"y": 200,
 		"wires": [
@@ -15186,7 +15233,8 @@
 			],
 			[
 				"e9f3e7483c18d115"
-			]
+			],
+			[]
 		]
 	},
 	{
@@ -15207,11 +15255,16 @@
 				"t": "eq",
 				"v": "off",
 				"vt": "str"
+			},
+			{
+				"t": "eq",
+				"v": "unavailable",
+				"vt": "str"
 			}
 		],
 		"checkall": "true",
 		"repair": false,
-		"outputs": 2,
+		"outputs": 3,
 		"x": 150,
 		"y": 580,
 		"wires": [
@@ -15220,7 +15273,8 @@
 			],
 			[
 				"cfd5c0a89e5d590f"
-			]
+			],
+			[]
 		]
 	},
 	{
@@ -15241,20 +15295,26 @@
 				"t": "eq",
 				"v": "off",
 				"vt": "str"
+			},
+			{
+				"t": "eq",
+				"v": "unavailable",
+				"vt": "str"
 			}
 		],
 		"checkall": "false",
 		"repair": false,
-		"outputs": 2,
-		"x": 310,
-		"y": 1480,
+		"outputs": 3,
+		"x": 350,
+		"y": 1420,
 		"wires": [
 			[
 				"d105d1df17b7b199"
 			],
 			[
 				"b18a99e3215ce7a9"
-			]
+			],
+			[]
 		]
 	},
 	{
@@ -15275,11 +15335,16 @@
 				"t": "eq",
 				"v": "off",
 				"vt": "str"
+			},
+			{
+				"t": "eq",
+				"v": "unavailable",
+				"vt": "str"
 			}
 		],
 		"checkall": "false",
 		"repair": false,
-		"outputs": 2,
+		"outputs": 3,
 		"x": 150,
 		"y": 2260,
 		"wires": [
@@ -15288,7 +15353,8 @@
 			],
 			[
 				"ca0bce132255d2f5"
-			]
+			],
+			[]
 		]
 	},
 	{
@@ -15309,17 +15375,23 @@
 				"t": "eq",
 				"v": "off",
 				"vt": "str"
+			},
+			{
+				"t": "eq",
+				"v": "unavailable",
+				"vt": "str"
 			}
 		],
 		"checkall": "false",
 		"repair": false,
-		"outputs": 2,
-		"x": 310,
+		"outputs": 3,
+		"x": 350,
 		"y": 2000,
 		"wires": [
 			[
-				"c367a2a0e26fd211"
+				"ef376d85a3136f21"
 			],
+			[],
 			[]
 		]
 	},
@@ -15457,7 +15529,6 @@
 		"id": "8f4cbc4036b81f6f",
 		"type": "server-state-changed",
 		"z": "a95ec654e9a3d387",
-		"d": true,
 		"g": "90b28685286b5c32",
 		"name": "Door Sensor",
 		"server": "1040bb61.673d75",
@@ -15715,7 +15786,7 @@
 		"payloadtype": "num",
 		"payloadval": "0",
 		"name": "",
-		"x": 1280,
+		"x": 1140,
 		"y": 1940,
 		"wires": [
 			[
@@ -15761,7 +15832,7 @@
 		"override_payload": "msg",
 		"entity_location": "data",
 		"override_data": "msg",
-		"x": 850,
+		"x": 1210,
 		"y": 3100,
 		"wires": [
 			[
@@ -15792,7 +15863,7 @@
 		"mustacheAltTags": false,
 		"outputProperties": [],
 		"queue": "none",
-		"x": 1100,
+		"x": 1460,
 		"y": 3100,
 		"wires": [
 			[
@@ -15812,27 +15883,6 @@
 		"wires": []
 	},
 	{
-		"id": "b126de85b3fe471d",
-		"type": "time-range-switch",
-		"z": "a95ec654e9a3d387",
-		"g": "abb95db352dd9844",
-		"name": "",
-		"lat": "26.305080",
-		"lon": "-80.197180",
-		"startTime": "sunset",
-		"endTime": "sunrise",
-		"startOffset": "+45",
-		"endOffset": "-45",
-		"x": 580,
-		"y": 3100,
-		"wires": [
-			[
-				"ca7f0ec6ab089e7b"
-			],
-			[]
-		]
-	},
-	{
 		"id": "ba6895f23ee9fad7",
 		"type": "switch",
 		"z": "a95ec654e9a3d387",
@@ -15850,20 +15900,26 @@
 				"t": "eq",
 				"v": "off",
 				"vt": "str"
+			},
+			{
+				"t": "eq",
+				"v": "unavailable",
+				"vt": "str"
 			}
 		],
 		"checkall": "false",
 		"repair": false,
-		"outputs": 2,
-		"x": 390,
-		"y": 3100,
+		"outputs": 3,
+		"x": 630,
+		"y": 3160,
 		"wires": [
 			[
-				"b126de85b3fe471d"
+				"ca7f0ec6ab089e7b"
 			],
 			[
-				"2a834e28dbae31e5"
-			]
+				"1b7e09ce6caeb583"
+			],
+			[]
 		]
 	},
 	{
@@ -15929,10 +15985,10 @@
 			}
 		],
 		"x": 160,
-		"y": 3100,
+		"y": 3080,
 		"wires": [
 			[
-				"ba6895f23ee9fad7"
+				"c2d0edcc4462e3c8"
 			],
 			[]
 		]
@@ -16205,11 +16261,16 @@
 				"t": "eq",
 				"v": "off",
 				"vt": "str"
+			},
+			{
+				"t": "eq",
+				"v": "unavailable",
+				"vt": "str"
 			}
 		],
 		"checkall": "false",
 		"repair": false,
-		"outputs": 2,
+		"outputs": 3,
 		"x": 150,
 		"y": 2640,
 		"wires": [
@@ -16219,7 +16280,8 @@
 			],
 			[
 				"a42b8c5530dcc689"
-			]
+			],
+			[]
 		]
 	},
 	{
@@ -16992,7 +17054,7 @@
 		"targetType": "full",
 		"statusVal": "",
 		"statusType": "auto",
-		"x": 970,
+		"x": 930,
 		"y": 1680,
 		"wires": []
 	},
@@ -17033,7 +17095,7 @@
 		"override_payload": "msg",
 		"entity_location": "data",
 		"override_data": "msg",
-		"x": 590,
+		"x": 550,
 		"y": 1680,
 		"wires": [
 			[
@@ -17064,7 +17126,7 @@
 		"mustacheAltTags": false,
 		"outputProperties": [],
 		"queue": "none",
-		"x": 800,
+		"x": 760,
 		"y": 1680,
 		"wires": [
 			[
@@ -17109,7 +17171,7 @@
 		"override_payload": "msg",
 		"entity_location": "data",
 		"override_data": "msg",
-		"x": 580,
+		"x": 540,
 		"y": 1740,
 		"wires": [
 			[
@@ -17140,7 +17202,7 @@
 		"mustacheAltTags": false,
 		"outputProperties": [],
 		"queue": "none",
-		"x": 800,
+		"x": 760,
 		"y": 1740,
 		"wires": [
 			[
@@ -17177,20 +17239,26 @@
 				"t": "eq",
 				"v": "off",
 				"vt": "str"
+			},
+			{
+				"t": "eq",
+				"v": "unavailable",
+				"vt": "str"
 			}
 		],
 		"checkall": "false",
 		"repair": false,
-		"outputs": 2,
-		"x": 310,
-		"y": 1740,
+		"outputs": 3,
+		"x": 350,
+		"y": 1680,
 		"wires": [
 			[
 				"0fec38f62ec4c081"
 			],
 			[
 				"2fd9263c91c772cc"
-			]
+			],
+			[]
 		]
 	},
 	{
@@ -17301,8 +17369,8 @@
 		"override_payload": "msg",
 		"entity_location": "data",
 		"override_data": "msg",
-		"x": 350,
-		"y": 1680,
+		"x": 150,
+		"y": 1740,
 		"wires": [
 			[
 				"81fb99965f445fd0"
@@ -17347,8 +17415,8 @@
 		"override_payload": "msg",
 		"entity_location": "data",
 		"override_data": "msg",
-		"x": 350,
-		"y": 1420,
+		"x": 150,
+		"y": 1480,
 		"wires": [
 			[
 				"1cab91dc852c881f"
@@ -17370,7 +17438,7 @@
 		"targetType": "full",
 		"statusVal": "",
 		"statusType": "auto",
-		"x": 1210,
+		"x": 930,
 		"y": 1160,
 		"wires": []
 	},
@@ -17411,7 +17479,7 @@
 		"override_payload": "msg",
 		"entity_location": "data",
 		"override_data": "msg",
-		"x": 830,
+		"x": 550,
 		"y": 1160,
 		"wires": [
 			[
@@ -17442,7 +17510,7 @@
 		"mustacheAltTags": false,
 		"outputProperties": [],
 		"queue": "none",
-		"x": 1040,
+		"x": 760,
 		"y": 1160,
 		"wires": [
 			[
@@ -17487,7 +17555,7 @@
 		"override_payload": "msg",
 		"entity_location": "data",
 		"override_data": "msg",
-		"x": 820,
+		"x": 540,
 		"y": 1220,
 		"wires": [
 			[
@@ -17518,7 +17586,7 @@
 		"mustacheAltTags": false,
 		"outputProperties": [],
 		"queue": "none",
-		"x": 1040,
+		"x": 760,
 		"y": 1220,
 		"wires": [
 			[
@@ -17555,12 +17623,17 @@
 				"t": "eq",
 				"v": "off",
 				"vt": "str"
+			},
+			{
+				"t": "eq",
+				"v": "unavailable",
+				"vt": "str"
 			}
 		],
 		"checkall": "false",
 		"repair": false,
-		"outputs": 2,
-		"x": 570,
+		"outputs": 3,
+		"x": 350,
 		"y": 1160,
 		"wires": [
 			[
@@ -17568,7 +17641,8 @@
 			],
 			[
 				"2c5083edadd9b7ba"
-			]
+			],
+			[]
 		]
 	},
 	{
@@ -17679,8 +17753,8 @@
 		"override_payload": "msg",
 		"entity_location": "data",
 		"override_data": "msg",
-		"x": 350,
-		"y": 1160,
+		"x": 150,
+		"y": 1220,
 		"wires": [
 			[
 				"b6fd3135c58e45ca"
@@ -17702,7 +17776,7 @@
 		"targetType": "full",
 		"statusVal": "",
 		"statusType": "auto",
-		"x": 1210,
+		"x": 990,
 		"y": 900,
 		"wires": []
 	},
@@ -17743,7 +17817,7 @@
 		"override_payload": "msg",
 		"entity_location": "data",
 		"override_data": "msg",
-		"x": 830,
+		"x": 610,
 		"y": 900,
 		"wires": [
 			[
@@ -17774,7 +17848,7 @@
 		"mustacheAltTags": false,
 		"outputProperties": [],
 		"queue": "none",
-		"x": 1040,
+		"x": 820,
 		"y": 900,
 		"wires": [
 			[
@@ -17819,7 +17893,7 @@
 		"override_payload": "msg",
 		"entity_location": "data",
 		"override_data": "msg",
-		"x": 820,
+		"x": 600,
 		"y": 960,
 		"wires": [
 			[
@@ -17850,7 +17924,7 @@
 		"mustacheAltTags": false,
 		"outputProperties": [],
 		"queue": "none",
-		"x": 1040,
+		"x": 820,
 		"y": 960,
 		"wires": [
 			[
@@ -17887,12 +17961,17 @@
 				"t": "eq",
 				"v": "off",
 				"vt": "str"
+			},
+			{
+				"t": "eq",
+				"v": "unavailable",
+				"vt": "str"
 			}
 		],
 		"checkall": "false",
 		"repair": false,
-		"outputs": 2,
-		"x": 550,
+		"outputs": 3,
+		"x": 350,
 		"y": 960,
 		"wires": [
 			[
@@ -17900,7 +17979,8 @@
 			],
 			[
 				"e2bac67e21c222a8"
-			]
+			],
+			[]
 		]
 	},
 	{
@@ -18011,8 +18091,8 @@
 		"override_payload": "msg",
 		"entity_location": "data",
 		"override_data": "msg",
-		"x": 350,
-		"y": 900,
+		"x": 150,
+		"y": 960,
 		"wires": [
 			[
 				"9e938ab3b902b828"
@@ -18057,11 +18137,11 @@
 		"override_payload": "msg",
 		"entity_location": "data",
 		"override_data": "msg",
-		"x": 360,
-		"y": 1940,
+		"x": 150,
+		"y": 2000,
 		"wires": [
 			[
-				"ad5708633460b6fb"
+				"c367a2a0e26fd211"
 			],
 			[]
 		]
@@ -18221,10 +18301,10 @@
 			}
 		],
 		"x": 170,
-		"y": 3160,
+		"y": 3140,
 		"wires": [
 			[
-				"ba6895f23ee9fad7"
+				"c2d0edcc4462e3c8"
 			],
 			[]
 		]
@@ -18373,7 +18453,7 @@
 		"endTime": "sunset",
 		"startOffset": "+120",
 		"endOffset": "0",
-		"x": 580,
+		"x": 380,
 		"y": 900,
 		"wires": [
 			[
@@ -18419,7 +18499,7 @@
 		"override_payload": "msg",
 		"entity_location": "data",
 		"override_data": "msg",
-		"x": 850,
+		"x": 1210,
 		"y": 3160,
 		"wires": [
 			[
@@ -18450,7 +18530,7 @@
 		"mustacheAltTags": false,
 		"outputProperties": [],
 		"queue": "none",
-		"x": 1100,
+		"x": 1460,
 		"y": 3160,
 		"wires": [
 			[
@@ -18472,7 +18552,7 @@
 		"targetType": "full",
 		"statusVal": "",
 		"statusType": "auto",
-		"x": 1270,
+		"x": 1630,
 		"y": 3100,
 		"wires": []
 	},
@@ -18488,11 +18568,11 @@
 		"endTime": "sunrise",
 		"startOffset": "+45",
 		"endOffset": "-45",
-		"x": 580,
-		"y": 3160,
+		"x": 660,
+		"y": 3080,
 		"wires": [
 			[
-				"1b7e09ce6caeb583"
+				"ba6895f23ee9fad7"
 			],
 			[]
 		]
@@ -18507,8 +18587,8 @@
 		"payloadtype": "num",
 		"payloadval": "0",
 		"name": "",
-		"x": 890,
-		"y": 3240,
+		"x": 1250,
+		"y": 3220,
 		"wires": [
 			[
 				"fdf9af40e1fc52fe"
@@ -18521,7 +18601,7 @@
 		"type": "api-current-state",
 		"z": "a95ec654e9a3d387",
 		"g": "abb95db352dd9844",
-		"name": "If Automations ACTIVE Flag is OFF",
+		"name": "If Sunset Automation Flag is OFF",
 		"server": "1040bb61.673d75",
 		"version": 3,
 		"outputs": 2,
@@ -18553,11 +18633,57 @@
 		"override_payload": "msg",
 		"entity_location": "data",
 		"override_data": "msg",
-		"x": 520,
-		"y": 3240,
+		"x": 880,
+		"y": 3160,
 		"wires": [
 			[
 				"50c9840c06087ba3"
+			],
+			[]
+		]
+	},
+	{
+		"id": "c2d0edcc4462e3c8",
+		"type": "api-current-state",
+		"z": "a95ec654e9a3d387",
+		"g": "abb95db352dd9844",
+		"name": "Automation Allowed",
+		"server": "1040bb61.673d75",
+		"version": 3,
+		"outputs": 2,
+		"halt_if": "on",
+		"halt_if_type": "str",
+		"halt_if_compare": "is",
+		"entity_id": "input_boolean.automation_front_doors_open_close",
+		"state_type": "str",
+		"blockInputOverrides": false,
+		"outputProperties": [
+			{
+				"property": "payload",
+				"propertyType": "msg",
+				"value": "",
+				"valueType": "entityState"
+			},
+			{
+				"property": "data",
+				"propertyType": "msg",
+				"value": "",
+				"valueType": "entity"
+			}
+		],
+		"for": "0",
+		"forType": "num",
+		"forUnits": "minutes",
+		"override_topic": false,
+		"state_location": "payload",
+		"override_payload": "msg",
+		"entity_location": "data",
+		"override_data": "msg",
+		"x": 430,
+		"y": 3080,
+		"wires": [
+			[
+				"2a834e28dbae31e5"
 			],
 			[]
 		]
@@ -19366,7 +19492,7 @@
 		"g": "6f4459aaf422d31f",
 		"name": "----- Motion Detected at Front Door, Send Notification with Image -----",
 		"info": "",
-		"x": 330,
+		"x": 320,
 		"y": 80,
 		"wires": []
 	},
@@ -19419,7 +19545,7 @@
 		"outputinitially": false,
 		"state_type": "str",
 		"enableInput": false,
-		"x": 160,
+		"x": 150,
 		"y": 140,
 		"wires": [
 			[
@@ -19450,7 +19576,7 @@
 		"mustacheAltTags": false,
 		"outputProperties": [],
 		"queue": "none",
-		"x": 880,
+		"x": 840,
 		"y": 140,
 		"wires": [
 			[
@@ -19476,7 +19602,7 @@
 		"drop": false,
 		"allowrate": false,
 		"outputs": 1,
-		"x": 1090,
+		"x": 1050,
 		"y": 140,
 		"wires": [
 			[
@@ -19496,7 +19622,7 @@
 		"initialize": "",
 		"finalize": "",
 		"libs": [],
-		"x": 1130,
+		"x": 1090,
 		"y": 220,
 		"wires": [
 			[
@@ -19520,7 +19646,7 @@
 			"f5ce6c4b657db2c6",
 			"72b133dce044ac3e"
 		],
-		"x": 1255,
+		"x": 1215,
 		"y": 140,
 		"wires": []
 	},
@@ -19536,7 +19662,7 @@
 		"initialize": "",
 		"finalize": "",
 		"libs": [],
-		"x": 650,
+		"x": 610,
 		"y": 220,
 		"wires": [
 			[
@@ -19576,7 +19702,7 @@
 		"for": 0,
 		"forType": "num",
 		"forUnits": "minutes",
-		"x": 410,
+		"x": 370,
 		"y": 220,
 		"wires": [
 			[],
@@ -19603,7 +19729,7 @@
 		"drop": true,
 		"allowrate": false,
 		"outputs": 1,
-		"x": 650,
+		"x": 610,
 		"y": 140,
 		"wires": [
 			[
@@ -19629,7 +19755,7 @@
 		"drop": false,
 		"allowrate": false,
 		"outputs": 1,
-		"x": 160,
+		"x": 140,
 		"y": 220,
 		"wires": [
 			[
@@ -21460,7 +21586,7 @@
 				"valueType": "triggerId"
 			}
 		],
-		"x": 200,
+		"x": 190,
 		"y": 340,
 		"wires": [
 			[
@@ -21930,7 +22056,6 @@
 		"id": "10ff9389d2759db9",
 		"type": "trigger-state",
 		"z": "0b9e1ba4986c22e4",
-		"d": true,
 		"g": "a1741ef23732bce4",
 		"name": "Washer Cycle Complete",
 		"server": "1040bb61.673d75",
@@ -21988,7 +22113,6 @@
 		"id": "a36ce9d743a7b4e4",
 		"type": "trigger-state",
 		"z": "0b9e1ba4986c22e4",
-		"d": true,
 		"g": "a1741ef23732bce4",
 		"name": "Dryer Cycle Complete",
 		"server": "1040bb61.673d75",
@@ -22587,8 +22711,8 @@
 		"links": [
 			"b5bf4f1d2a2db4f8"
 		],
-		"x": 1195,
-		"y": 240,
+		"x": 1215,
+		"y": 220,
 		"wires": []
 	},
 	{
@@ -22603,8 +22727,8 @@
 		"initialize": "",
 		"finalize": "",
 		"libs": [],
-		"x": 1010,
-		"y": 240,
+		"x": 1030,
+		"y": 220,
 		"wires": [
 			[
 				"f362ec70ea4be4df"
@@ -22620,11 +22744,11 @@
 		"server": "1040bb61.673d75",
 		"version": 2,
 		"outputs": 2,
-		"entityId": "input_boolean.reminder_medicine_am_taken_thomas",
+		"entityId": "input_boolean.reminder_medicine_am_complete_thomas",
 		"entityIdFilterType": "exact",
 		"property": "state",
 		"comparator": "is",
-		"value": "off",
+		"value": "on",
 		"valueType": "str",
 		"timeout": "30",
 		"timeoutType": "num",
@@ -22632,81 +22756,14 @@
 		"checkCurrentState": true,
 		"blockInputOverrides": true,
 		"outputProperties": [],
-		"x": 700,
-		"y": 160,
+		"x": 500,
+		"y": 220,
 		"wires": [
 			[],
 			[
-				"e0febc49b43a98ce",
-				"563b16eda3a54186"
+				"4e1fb9d34aa23750",
+				"e0febc49b43a98ce"
 			]
-		]
-	},
-	{
-		"id": "e0febc49b43a98ce",
-		"type": "function",
-		"z": "462cafc155901a6e",
-		"g": "126a5e09ee15c478",
-		"name": "placeholder",
-		"func": "// Needed because you can’t link a node to itself.\n\nreturn msg;",
-		"outputs": 1,
-		"noerr": 0,
-		"initialize": "",
-		"finalize": "",
-		"libs": [],
-		"x": 650,
-		"y": 240,
-		"wires": [
-			[
-				"89ae94b9748fcbc2"
-			]
-		]
-	},
-	{
-		"id": "e2c2647e3e4ead17",
-		"type": "api-current-state",
-		"z": "462cafc155901a6e",
-		"g": "126a5e09ee15c478",
-		"name": "If Flag is OFF",
-		"server": "1040bb61.673d75",
-		"version": 3,
-		"outputs": 2,
-		"halt_if": "off",
-		"halt_if_type": "str",
-		"halt_if_compare": "is",
-		"entity_id": "input_boolean.snooze_reminder_medicine_am_taken_thomas",
-		"state_type": "str",
-		"blockInputOverrides": false,
-		"outputProperties": [
-			{
-				"property": "payload",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "entityState"
-			},
-			{
-				"property": "data",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "entity"
-			}
-		],
-		"for": 0,
-		"forType": "num",
-		"forUnits": "minutes",
-		"override_topic": false,
-		"state_location": "payload",
-		"override_payload": "msg",
-		"entity_location": "data",
-		"override_data": "msg",
-		"x": 440,
-		"y": 160,
-		"wires": [
-			[
-				"89ae94b9748fcbc2",
-				"563b16eda3a54186"
-			],
-			[]
 		]
 	},
 	{
@@ -22778,7 +22835,7 @@
 		"halt_if": "off",
 		"halt_if_type": "str",
 		"halt_if_compare": "is",
-		"entity_id": "input_boolean.snooze_reminder_medicine_am_taken_thomas",
+		"entity_id": "input_boolean.reminder_medicine_am_snoozed_thomas",
 		"state_type": "str",
 		"blockInputOverrides": false,
 		"outputProperties": [
@@ -22798,8 +22855,8 @@
 		"for": 0,
 		"forType": "num",
 		"forUnits": "minutes",
-		"x": 670,
-		"y": 300,
+		"x": 770,
+		"y": 220,
 		"wires": [
 			[
 				"0693068bdb17d0d2"
@@ -22864,7 +22921,7 @@
 			}
 		],
 		"x": 140,
-		"y": 2400,
+		"y": 1760,
 		"wires": [
 			[
 				"737155936e3d9e27"
@@ -22906,7 +22963,7 @@
 		"repair": false,
 		"outputs": 4,
 		"x": 150,
-		"y": 2480,
+		"y": 1840,
 		"wires": [
 			[],
 			[],
@@ -22954,7 +23011,7 @@
 		"entity_location": "data",
 		"override_data": "msg",
 		"x": 390,
-		"y": 2400,
+		"y": 1760,
 		"wires": [
 			[
 				"bcad761bd7c9507e"
@@ -22985,7 +23042,7 @@
 		"outputProperties": [],
 		"queue": "none",
 		"x": 960,
-		"y": 2400,
+		"y": 1760,
 		"wires": [
 			[
 				"5a848164fb2ae0b8"
@@ -23000,7 +23057,7 @@
 		"name": "----- Living Room Television Ambient Light -----",
 		"info": "",
 		"x": 250,
-		"y": 2280,
+		"y": 1640,
 		"wires": []
 	},
 	{
@@ -23041,7 +23098,7 @@
 		"entity_location": "data",
 		"override_data": "msg",
 		"x": 390,
-		"y": 2460,
+		"y": 1820,
 		"wires": [
 			[
 				"e02c82c7d233fdcf"
@@ -23072,7 +23129,7 @@
 		"outputProperties": [],
 		"queue": "none",
 		"x": 960,
-		"y": 2460,
+		"y": 1820,
 		"wires": [
 			[
 				"5a848164fb2ae0b8"
@@ -23094,7 +23151,7 @@
 		"statusVal": "",
 		"statusType": "auto",
 		"x": 1130,
-		"y": 2400,
+		"y": 1760,
 		"wires": []
 	},
 	{
@@ -23154,7 +23211,7 @@
 			}
 		],
 		"x": 140,
-		"y": 2340,
+		"y": 1700,
 		"wires": [
 			[],
 			[]
@@ -23198,443 +23255,13 @@
 		"entity_location": "data",
 		"override_data": "msg",
 		"x": 700,
-		"y": 2400,
+		"y": 1760,
 		"wires": [
 			[
 				"efca7498a47dc2f0"
 			],
 			[]
 		]
-	},
-	{
-		"id": "686e8b05a6f1e42e",
-		"type": "comment",
-		"z": "462cafc155901a6e",
-		"g": "5f9a23eb89d77a95",
-		"name": "----- Toothbrush Reminder, Tom -----",
-		"info": "",
-		"x": 1480,
-		"y": 80,
-		"wires": []
-	},
-	{
-		"id": "311fa63cfc8956d9",
-		"type": "trigger-state",
-		"z": "462cafc155901a6e",
-		"g": "5f9a23eb89d77a95",
-		"name": "Reminder Window to ON",
-		"server": "1040bb61.673d75",
-		"version": 2,
-		"exposeToHomeAssistant": false,
-		"haConfig": [
-			{
-				"property": "name",
-				"value": ""
-			},
-			{
-				"property": "icon",
-				"value": ""
-			}
-		],
-		"entityid": "schedule.reminder_toothbrush_thomas",
-		"entityidfiltertype": "exact",
-		"debugenabled": false,
-		"constraints": [
-			{
-				"targetType": "this_entity",
-				"targetValue": "",
-				"propertyType": "previous_state",
-				"propertyValue": "old_state.state",
-				"comparatorType": "is",
-				"comparatorValueDatatype": "str",
-				"comparatorValue": "off"
-			},
-			{
-				"targetType": "this_entity",
-				"targetValue": "",
-				"propertyType": "current_state",
-				"propertyValue": "new_state.state",
-				"comparatorType": "is",
-				"comparatorValueDatatype": "str",
-				"comparatorValue": "on"
-			}
-		],
-		"inputs": 0,
-		"outputs": 2,
-		"customoutputs": [],
-		"outputinitially": false,
-		"state_type": "str",
-		"enableInput": false,
-		"x": 1450,
-		"y": 160,
-		"wires": [
-			[
-				"bf03bf2b96b59065"
-			],
-			[]
-		]
-	},
-	{
-		"id": "bf03bf2b96b59065",
-		"type": "api-current-state",
-		"z": "462cafc155901a6e",
-		"g": "5f9a23eb89d77a95",
-		"name": "If Flag is OFF",
-		"server": "1040bb61.673d75",
-		"version": 3,
-		"outputs": 2,
-		"halt_if": "off",
-		"halt_if_type": "str",
-		"halt_if_compare": "is",
-		"entity_id": "input_boolean.reminder_toothbrush_thomas",
-		"state_type": "str",
-		"blockInputOverrides": false,
-		"outputProperties": [
-			{
-				"property": "payload",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "entityState"
-			},
-			{
-				"property": "data",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "entity"
-			}
-		],
-		"for": 0,
-		"forType": "num",
-		"forUnits": "minutes",
-		"override_topic": false,
-		"state_location": "payload",
-		"override_payload": "msg",
-		"entity_location": "data",
-		"override_data": "msg",
-		"x": 1700,
-		"y": 160,
-		"wires": [
-			[
-				"377ca9a41c0cd042",
-				"1fa99bab6c8456e1"
-			],
-			[]
-		]
-	},
-	{
-		"id": "3d7f37f07f55f2d2",
-		"type": "inject",
-		"z": "462cafc155901a6e",
-		"g": "5f9a23eb89d77a95",
-		"name": "Trigger Flow",
-		"props": [
-			{
-				"p": "payload"
-			},
-			{
-				"p": "topic",
-				"vt": "str"
-			}
-		],
-		"repeat": "",
-		"crontab": "",
-		"once": false,
-		"onceDelay": 0.1,
-		"topic": "",
-		"payload": "",
-		"payloadType": "date",
-		"x": 1490,
-		"y": 240,
-		"wires": [
-			[
-				"bf03bf2b96b59065"
-			]
-		]
-	},
-	{
-		"id": "377ca9a41c0cd042",
-		"type": "ha-wait-until",
-		"z": "462cafc155901a6e",
-		"g": "5f9a23eb89d77a95",
-		"name": "Wait 30 minutes and Repeat",
-		"server": "1040bb61.673d75",
-		"version": 2,
-		"outputs": 2,
-		"entityId": "input_boolean.reminder_toothbrush_thomas",
-		"entityIdFilterType": "exact",
-		"property": "state",
-		"comparator": "is",
-		"value": "off",
-		"valueType": "str",
-		"timeout": "30",
-		"timeoutType": "num",
-		"timeoutUnits": "minutes",
-		"checkCurrentState": true,
-		"blockInputOverrides": true,
-		"outputProperties": [],
-		"x": 1960,
-		"y": 160,
-		"wires": [
-			[],
-			[
-				"41eee5cc161eeec5",
-				"1fa99bab6c8456e1"
-			]
-		]
-	},
-	{
-		"id": "1fa99bab6c8456e1",
-		"type": "api-current-state",
-		"z": "462cafc155901a6e",
-		"g": "5f9a23eb89d77a95",
-		"name": "If NOT SNOOZED",
-		"server": "1040bb61.673d75",
-		"version": 3,
-		"outputs": 2,
-		"halt_if": "off",
-		"halt_if_type": "str",
-		"halt_if_compare": "is",
-		"entity_id": "input_boolean.snooze_reminder_toothbrush_thomas",
-		"state_type": "str",
-		"blockInputOverrides": false,
-		"outputProperties": [
-			{
-				"property": "payload",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "entityState"
-			},
-			{
-				"property": "data",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "entity"
-			}
-		],
-		"for": 0,
-		"forType": "num",
-		"forUnits": "minutes",
-		"x": 1930,
-		"y": 300,
-		"wires": [
-			[
-				"20a22b3364b6c696"
-			],
-			[]
-		]
-	},
-	{
-		"id": "41eee5cc161eeec5",
-		"type": "function",
-		"z": "462cafc155901a6e",
-		"g": "5f9a23eb89d77a95",
-		"name": "placeholder",
-		"func": "// Needed because you can’t link a node to itself.\n\nreturn msg;",
-		"outputs": 1,
-		"noerr": 0,
-		"initialize": "",
-		"finalize": "",
-		"libs": [],
-		"x": 1910,
-		"y": 240,
-		"wires": [
-			[
-				"377ca9a41c0cd042"
-			]
-		]
-	},
-	{
-		"id": "72be0eea7e36017e",
-		"type": "function",
-		"z": "462cafc155901a6e",
-		"g": "5f9a23eb89d77a95",
-		"name": "Prepare iOS Notification",
-		"func": "msg.notification_type = 'warning';\nmsg.notification = { \n    data : {\n        \"title\"   : \"Home Assistant\",\n        \"message\" : \"Don't forget to brush your teeth\",\n        \"data\"    : { \n            \"subtitle\": false,\n            \"actions\" : [\n                { \n                    action : \"TOOTHBRUSH_REMINDER_THOMAS_DONE\",\n                    title  : \"Done\",\n                    icon   : \"sfsymbols:checkmark\"\n                },\n                { \n                    action      : \"TOOTHBRUSH_REMINDER_THOMAS_SNOOZE\",\n                    title       : \"Snooze\",\n                    icon        : \"sfsymbols:xmark\",\n                    destructive : true\n                }\n            ]\n        }\n            \n    }\n};\n\nreturn msg;",
-		"outputs": 1,
-		"noerr": 0,
-		"initialize": "",
-		"finalize": "",
-		"libs": [],
-		"x": 2250,
-		"y": 240,
-		"wires": [
-			[
-				"cf2299141a5472a4"
-			]
-		]
-	},
-	{
-		"id": "cf2299141a5472a4",
-		"type": "link out",
-		"z": "462cafc155901a6e",
-		"g": "5f9a23eb89d77a95",
-		"name": "Brush Teeth Reminder (Thomas), Send Notification",
-		"mode": "link",
-		"links": [
-			"b5bf4f1d2a2db4f8"
-		],
-		"x": 2435,
-		"y": 240,
-		"wires": []
-	},
-	{
-		"id": "4b75425c2cbcc11b",
-		"type": "api-current-state",
-		"z": "462cafc155901a6e",
-		"g": "5f9a23eb89d77a95",
-		"name": "If Flag is OFF",
-		"server": "1040bb61.673d75",
-		"version": 3,
-		"outputs": 2,
-		"halt_if": "off",
-		"halt_if_type": "str",
-		"halt_if_compare": "is",
-		"entity_id": "input_boolean.reminder_toothbrush_thomas",
-		"state_type": "str",
-		"blockInputOverrides": false,
-		"outputProperties": [
-			{
-				"property": "payload",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "entityState"
-			},
-			{
-				"property": "data",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "entity"
-			}
-		],
-		"for": 0,
-		"forType": "num",
-		"forUnits": "minutes",
-		"override_topic": false,
-		"state_location": "payload",
-		"override_payload": "msg",
-		"entity_location": "data",
-		"override_data": "msg",
-		"x": 1650,
-		"y": 400,
-		"wires": [
-			[
-				"acc558526fc7141f"
-			],
-			[]
-		]
-	},
-	{
-		"id": "f09db008ec631ea7",
-		"type": "server-state-changed",
-		"z": "462cafc155901a6e",
-		"g": "5f9a23eb89d77a95",
-		"name": "Toothbrush, Running",
-		"server": "1040bb61.673d75",
-		"version": 4,
-		"exposeToHomeAssistant": false,
-		"haConfig": [
-			{
-				"property": "name",
-				"value": ""
-			},
-			{
-				"property": "icon",
-				"value": ""
-			}
-		],
-		"entityidfilter": "sensor.toothbrush_t_state",
-		"entityidfiltertype": "exact",
-		"outputinitially": false,
-		"state_type": "str",
-		"haltifstate": "running",
-		"halt_if_type": "str",
-		"halt_if_compare": "is",
-		"outputs": 2,
-		"output_only_on_state_change": true,
-		"for": 0,
-		"forType": "num",
-		"forUnits": "minutes",
-		"ignorePrevStateNull": true,
-		"ignorePrevStateUnknown": true,
-		"ignorePrevStateUnavailable": false,
-		"ignoreCurrentStateUnknown": true,
-		"ignoreCurrentStateUnavailable": true,
-		"outputProperties": [
-			{
-				"property": "payload",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "entityState"
-			},
-			{
-				"property": "data",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "eventData"
-			},
-			{
-				"property": "topic",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "triggerId"
-			}
-		],
-		"x": 1430,
-		"y": 400,
-		"wires": [
-			[
-				"4b75425c2cbcc11b"
-			],
-			[]
-		]
-	},
-	{
-		"id": "acc558526fc7141f",
-		"type": "api-call-service",
-		"z": "462cafc155901a6e",
-		"g": "5f9a23eb89d77a95",
-		"name": "Turn Flag ON",
-		"server": "1040bb61.673d75",
-		"version": 5,
-		"debugenabled": false,
-		"domain": "input_boolean",
-		"service": "turn_on",
-		"areaId": [],
-		"deviceId": [],
-		"entityId": [
-			"input_boolean.reminder_toothbrush_thomas"
-		],
-		"data": "",
-		"dataType": "json",
-		"mergeContext": "",
-		"mustacheAltTags": false,
-		"outputProperties": [],
-		"queue": "none",
-		"x": 1850,
-		"y": 400,
-		"wires": [
-			[
-				"fe8f4fe2531bf788"
-			]
-		]
-	},
-	{
-		"id": "fe8f4fe2531bf788",
-		"type": "debug",
-		"z": "462cafc155901a6e",
-		"g": "5f9a23eb89d77a95",
-		"name": "msg",
-		"active": false,
-		"tosidebar": true,
-		"console": false,
-		"tostatus": false,
-		"complete": "payload",
-		"targetType": "msg",
-		"statusVal": "",
-		"statusType": "auto",
-		"x": 2030,
-		"y": 400,
-		"wires": []
 	},
 	{
 		"id": "79bff868b10c9efc",
@@ -23692,8 +23319,8 @@
 				"valueType": "triggerId"
 			}
 		],
-		"x": 1410,
-		"y": 1200,
+		"x": 1450,
+		"y": 820,
 		"wires": [
 			[
 				"915a4642d03112c1"
@@ -23713,7 +23340,7 @@
 		"halt_if": "off",
 		"halt_if_type": "str",
 		"halt_if_compare": "is",
-		"entity_id": "input_boolean.reminder_toothbrush_jessica",
+		"entity_id": "input_boolean.reminder_toothbrush_complete_jessica",
 		"state_type": "str",
 		"blockInputOverrides": false,
 		"outputProperties": [
@@ -23738,8 +23365,8 @@
 		"override_payload": "msg",
 		"entity_location": "data",
 		"override_data": "msg",
-		"x": 1640,
-		"y": 1200,
+		"x": 1680,
+		"y": 820,
 		"wires": [
 			[
 				"8026bbb75ba9e427"
@@ -23761,7 +23388,7 @@
 		"areaId": [],
 		"deviceId": [],
 		"entityId": [
-			"input_boolean.reminder_toothbrush_jessica"
+			"input_boolean.reminder_toothbrush_complete_jessica"
 		],
 		"data": "",
 		"dataType": "json",
@@ -23769,227 +23396,13 @@
 		"mustacheAltTags": false,
 		"outputProperties": [],
 		"queue": "none",
-		"x": 1860,
-		"y": 1200,
+		"x": 1900,
+		"y": 820,
 		"wires": [
 			[
 				"4f7950d00335adbb"
 			]
 		]
-	},
-	{
-		"id": "0575cdc06907a33a",
-		"type": "api-current-state",
-		"z": "462cafc155901a6e",
-		"g": "126a5e09ee15c478",
-		"name": "If Flag is OFF",
-		"server": "1040bb61.673d75",
-		"version": 3,
-		"outputs": 2,
-		"halt_if": "off",
-		"halt_if_type": "str",
-		"halt_if_compare": "is",
-		"entity_id": "input_boolean.reminder_medicine_am_taken_thomas",
-		"state_type": "str",
-		"blockInputOverrides": false,
-		"outputProperties": [
-			{
-				"property": "payload",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "entityState"
-			},
-			{
-				"property": "data",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "entity"
-			}
-		],
-		"for": 0,
-		"forType": "num",
-		"forUnits": "minutes",
-		"override_topic": false,
-		"state_location": "payload",
-		"override_payload": "msg",
-		"entity_location": "data",
-		"override_data": "msg",
-		"x": 460,
-		"y": 740,
-		"wires": [
-			[
-				"0587ea4e1aabd99b"
-			],
-			[]
-		]
-	},
-	{
-		"id": "0587ea4e1aabd99b",
-		"type": "api-call-service",
-		"z": "462cafc155901a6e",
-		"g": "126a5e09ee15c478",
-		"name": "Enable Flag",
-		"server": "1040bb61.673d75",
-		"version": 5,
-		"debugenabled": false,
-		"domain": "input_boolean",
-		"service": "turn_on",
-		"areaId": [],
-		"deviceId": [],
-		"entityId": [
-			"input_boolean.reminder_medicine_am_taken_thomas"
-		],
-		"data": "",
-		"dataType": "json",
-		"mergeContext": "",
-		"mustacheAltTags": false,
-		"outputProperties": [],
-		"queue": "none",
-		"x": 670,
-		"y": 740,
-		"wires": [
-			[
-				"5861b547160b597d"
-			]
-		]
-	},
-	{
-		"id": "6168003aa03935e8",
-		"type": "api-current-state",
-		"z": "462cafc155901a6e",
-		"g": "5f9a23eb89d77a95",
-		"name": "If Flag is OFF",
-		"server": "1040bb61.673d75",
-		"version": 3,
-		"outputs": 2,
-		"halt_if": "off",
-		"halt_if_type": "str",
-		"halt_if_compare": "is",
-		"entity_id": "input_boolean.reminder_toothbrush_thomas",
-		"state_type": "str",
-		"blockInputOverrides": false,
-		"outputProperties": [
-			{
-				"property": "payload",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "entityState"
-			},
-			{
-				"property": "data",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "entity"
-			}
-		],
-		"for": 0,
-		"forType": "num",
-		"forUnits": "minutes",
-		"override_topic": false,
-		"state_location": "payload",
-		"override_payload": "msg",
-		"entity_location": "data",
-		"override_data": "msg",
-		"x": 1850,
-		"y": 560,
-		"wires": [
-			[
-				"75c70bdc5e96fa65"
-			],
-			[]
-		]
-	},
-	{
-		"id": "75c70bdc5e96fa65",
-		"type": "api-call-service",
-		"z": "462cafc155901a6e",
-		"g": "5f9a23eb89d77a95",
-		"name": "Turn Flag ON",
-		"server": "1040bb61.673d75",
-		"version": 5,
-		"debugenabled": false,
-		"domain": "input_boolean",
-		"service": "turn_on",
-		"areaId": [],
-		"deviceId": [],
-		"entityId": [
-			"input_boolean.reminder_toothbrush_thomas"
-		],
-		"data": "",
-		"dataType": "json",
-		"mergeContext": "",
-		"mustacheAltTags": false,
-		"outputProperties": [],
-		"queue": "none",
-		"x": 2050,
-		"y": 560,
-		"wires": [
-			[
-				"45c844d96c80e1cb"
-			]
-		]
-	},
-	{
-		"id": "45c844d96c80e1cb",
-		"type": "debug",
-		"z": "462cafc155901a6e",
-		"g": "5f9a23eb89d77a95",
-		"name": "",
-		"active": false,
-		"tosidebar": true,
-		"console": false,
-		"tostatus": false,
-		"complete": "true",
-		"targetType": "full",
-		"statusVal": "",
-		"statusType": "auto",
-		"x": 2230,
-		"y": 560,
-		"wires": []
-	},
-	{
-		"id": "bebf4a3fc45e2ac0",
-		"type": "comment",
-		"z": "462cafc155901a6e",
-		"g": "5f9a23eb89d77a95",
-		"name": "----- Send Reminder -----",
-		"info": "",
-		"x": 1450,
-		"y": 120,
-		"wires": []
-	},
-	{
-		"id": "1d9d12eeb391d674",
-		"type": "comment",
-		"z": "462cafc155901a6e",
-		"g": "5f9a23eb89d77a95",
-		"name": "----- Fake Set Flag, Reset Reminder Notification -----",
-		"info": "",
-		"x": 1530,
-		"y": 500,
-		"wires": []
-	},
-	{
-		"id": "3722c817cb8dcdfd",
-		"type": "comment",
-		"z": "462cafc155901a6e",
-		"g": "5f9a23eb89d77a95",
-		"name": "----- Automatic Set Flag -----",
-		"info": "",
-		"x": 1460,
-		"y": 360,
-		"wires": []
-	},
-	{
-		"id": "3de2101f96ca55fe",
-		"type": "comment",
-		"z": "462cafc155901a6e",
-		"g": "126a5e09ee15c478",
-		"name": "----- Force Stop Reminder -----",
-		"info": "",
-		"x": 200,
-		"y": 620,
-		"wires": []
 	},
 	{
 		"id": "74e3e96c937c912c",
@@ -23998,8 +23411,8 @@
 		"g": "4c006916009d586c",
 		"name": "----- Toothbrush Reminder, Jess -----",
 		"info": "",
-		"x": 1460,
-		"y": 880,
+		"x": 1500,
+		"y": 560,
 		"wires": []
 	},
 	{
@@ -24009,8 +23422,8 @@
 		"g": "4c006916009d586c",
 		"name": "----- Automatic Set Flag -----",
 		"info": "",
-		"x": 1440,
-		"y": 1160,
+		"x": 1480,
+		"y": 780,
 		"wires": []
 	},
 	{
@@ -24020,113 +23433,8 @@
 		"g": "4c006916009d586c",
 		"name": "----- Send Reminder -----",
 		"info": "",
-		"x": 1430,
-		"y": 920,
-		"wires": []
-	},
-	{
-		"id": "0c781df44d668cbd",
-		"type": "comment",
-		"z": "462cafc155901a6e",
-		"g": "4c006916009d586c",
-		"name": "----- Fake Set Flag, Reset Reminder Notification -----",
-		"info": "",
-		"x": 1510,
-		"y": 1300,
-		"wires": []
-	},
-	{
-		"id": "f36f9ec3c3c690b3",
-		"type": "api-current-state",
-		"z": "462cafc155901a6e",
-		"g": "4c006916009d586c",
-		"name": "If Flag is OFF",
-		"server": "1040bb61.673d75",
-		"version": 3,
-		"outputs": 2,
-		"halt_if": "off",
-		"halt_if_type": "str",
-		"halt_if_compare": "is",
-		"entity_id": "input_boolean.reminder_toothbrush_jessica",
-		"state_type": "str",
-		"blockInputOverrides": false,
-		"outputProperties": [
-			{
-				"property": "payload",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "entityState"
-			},
-			{
-				"property": "data",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "entity"
-			}
-		],
-		"for": 0,
-		"forType": "num",
-		"forUnits": "minutes",
-		"override_topic": false,
-		"state_location": "payload",
-		"override_payload": "msg",
-		"entity_location": "data",
-		"override_data": "msg",
-		"x": 1830,
-		"y": 1360,
-		"wires": [
-			[
-				"acb319185cfdf4f3"
-			],
-			[]
-		]
-	},
-	{
-		"id": "acb319185cfdf4f3",
-		"type": "api-call-service",
-		"z": "462cafc155901a6e",
-		"g": "4c006916009d586c",
-		"name": "Turn Flag ON",
-		"server": "1040bb61.673d75",
-		"version": 5,
-		"debugenabled": false,
-		"domain": "input_boolean",
-		"service": "turn_on",
-		"areaId": [],
-		"deviceId": [],
-		"entityId": [
-			"input_boolean.reminder_toothbrush_jessica"
-		],
-		"data": "",
-		"dataType": "json",
-		"mergeContext": "",
-		"mustacheAltTags": false,
-		"outputProperties": [],
-		"queue": "none",
-		"x": 2030,
-		"y": 1360,
-		"wires": [
-			[
-				"4176b7612e035b3f"
-			]
-		]
-	},
-	{
-		"id": "4176b7612e035b3f",
-		"type": "debug",
-		"z": "462cafc155901a6e",
-		"g": "4c006916009d586c",
-		"name": "",
-		"active": false,
-		"tosidebar": true,
-		"console": false,
-		"tostatus": false,
-		"complete": "true",
-		"targetType": "full",
-		"statusVal": "",
-		"statusType": "auto",
-		"x": 2210,
-		"y": 1360,
+		"x": 1470,
+		"y": 600,
 		"wires": []
 	},
 	{
@@ -24143,8 +23451,8 @@
 		"targetType": "msg",
 		"statusVal": "",
 		"statusType": "auto",
-		"x": 2050,
-		"y": 1200,
+		"x": 2090,
+		"y": 820,
 		"wires": []
 	},
 	{
@@ -24167,7 +23475,7 @@
 				"value": ""
 			}
 		],
-		"entityid": "schedule.schedule_reminder_toothbrush_jessica",
+		"entityid": "schedule.reminder_toothbrush_jessica",
 		"entityidfiltertype": "exact",
 		"debugenabled": false,
 		"constraints": [
@@ -24196,90 +23504,13 @@
 		"outputinitially": false,
 		"state_type": "str",
 		"enableInput": false,
-		"x": 1430,
-		"y": 960,
-		"wires": [
-			[
-				"1392a1415cab422c"
-			],
-			[]
-		]
-	},
-	{
-		"id": "1392a1415cab422c",
-		"type": "api-current-state",
-		"z": "462cafc155901a6e",
-		"g": "4c006916009d586c",
-		"name": "If Flag is OFF",
-		"server": "1040bb61.673d75",
-		"version": 3,
-		"outputs": 2,
-		"halt_if": "off",
-		"halt_if_type": "str",
-		"halt_if_compare": "is",
-		"entity_id": "input_boolean.reminder_toothbrush_jessica",
-		"state_type": "str",
-		"blockInputOverrides": false,
-		"outputProperties": [
-			{
-				"property": "payload",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "entityState"
-			},
-			{
-				"property": "data",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "entity"
-			}
-		],
-		"for": 0,
-		"forType": "num",
-		"forUnits": "minutes",
-		"override_topic": false,
-		"state_location": "payload",
-		"override_payload": "msg",
-		"entity_location": "data",
-		"override_data": "msg",
-		"x": 1680,
-		"y": 960,
-		"wires": [
-			[
-				"3ec0f64e4f8da9ac",
-				"f08ec85ae1fabf77"
-			],
-			[]
-		]
-	},
-	{
-		"id": "28631f0db50360cf",
-		"type": "inject",
-		"z": "462cafc155901a6e",
-		"g": "4c006916009d586c",
-		"name": "Trigger Flow",
-		"props": [
-			{
-				"p": "payload"
-			},
-			{
-				"p": "topic",
-				"vt": "str"
-			}
-		],
-		"repeat": "",
-		"crontab": "",
-		"once": false,
-		"onceDelay": 0.1,
-		"topic": "",
-		"payload": "",
-		"payloadType": "date",
 		"x": 1470,
-		"y": 1040,
+		"y": 640,
 		"wires": [
 			[
-				"1392a1415cab422c"
-			]
+				"3ec0f64e4f8da9ac"
+			],
+			[]
 		]
 	},
 	{
@@ -24295,7 +23526,7 @@
 		"entityIdFilterType": "exact",
 		"property": "state",
 		"comparator": "is",
-		"value": "off",
+		"value": "on",
 		"valueType": "str",
 		"timeout": "30",
 		"timeoutType": "num",
@@ -24303,13 +23534,13 @@
 		"checkCurrentState": true,
 		"blockInputOverrides": true,
 		"outputProperties": [],
-		"x": 1940,
-		"y": 960,
+		"x": 1760,
+		"y": 640,
 		"wires": [
 			[],
 			[
 				"ddf3ebe33374e4a3",
-				"f08ec85ae1fabf77"
+				"1392a1415cab422c"
 			]
 		]
 	},
@@ -24325,7 +23556,7 @@
 		"halt_if": "off",
 		"halt_if_type": "str",
 		"halt_if_compare": "is",
-		"entity_id": "input_boolean.snooze_reminder_toothbrush_jessica",
+		"entity_id": "input_boolean.reminder_toothbrush_snoozed_jessica",
 		"state_type": "str",
 		"blockInputOverrides": false,
 		"outputProperties": [
@@ -24345,8 +23576,8 @@
 		"for": 0,
 		"forType": "num",
 		"forUnits": "minutes",
-		"x": 1910,
-		"y": 1100,
+		"x": 2030,
+		"y": 720,
 		"wires": [
 			[
 				"46bc0ea7f8e6e39a"
@@ -24366,8 +23597,8 @@
 		"initialize": "",
 		"finalize": "",
 		"libs": [],
-		"x": 1890,
-		"y": 1040,
+		"x": 1750,
+		"y": 720,
 		"wires": [
 			[
 				"3ec0f64e4f8da9ac"
@@ -24380,14 +23611,14 @@
 		"z": "462cafc155901a6e",
 		"g": "4c006916009d586c",
 		"name": "Prepare iOS Notification",
-		"func": "msg.notification_type = 'warning';\nmsg.notification = { \n    data : {\n        \"title\"   : \"Home Assistant\",\n        \"message\" : \"Don't forget to brush your teeth\",\n        \"data\"    : { \n            \"subtitle\": false,\n            \"actions\" : [\n                { \n                    action : \"TOOTHBRUSH_REMINDER_JESSICA_DONE\",\n                    title  : \"Done\",\n                    icon   : \"sfsymbols:checkmark\"\n                },\n                { \n                    action      : \"TOOTHBRUSH_REMINDER_JESSICA_SNOOZE\",\n                    title       : \"Snooze\",\n                    icon        : \"sfsymbols:xmark\",\n                    destructive : true\n                }\n            ]\n        }\n            \n    }\n};\n\nreturn msg;",
+		"func": "msg.notification_type = 'schedule';\nmsg.notification = { \n    data : {\n        \"title\"   : \"Home Assistant\",\n        \"message\" : \"Don't forget to brush your teeth\",\n        \"data\"    : { \n            \"subtitle\": false,\n            \"actions\" : [\n                { \n                    action : \"TOOTHBRUSH_REMINDER_JESSICA_DONE\",\n                    title  : \"Done\",\n                    icon   : \"sfsymbols:checkmark\"\n                },\n                { \n                    action      : \"TOOTHBRUSH_REMINDER_JESSICA_SNOOZE\",\n                    title       : \"Snooze\",\n                    icon        : \"sfsymbols:xmark\",\n                    destructive : true\n                }\n            ]\n        }\n            \n    }\n};\n\nreturn msg;",
 		"outputs": 1,
 		"noerr": 0,
 		"initialize": "",
 		"finalize": "",
 		"libs": [],
-		"x": 2230,
-		"y": 1040,
+		"x": 2290,
+		"y": 720,
 		"wires": [
 			[
 				"19cadec02396af3c"
@@ -24404,8 +23635,8 @@
 		"links": [
 			"f5ce6c4b657db2c6"
 		],
-		"x": 2415,
-		"y": 1040,
+		"x": 2475,
+		"y": 720,
 		"wires": []
 	},
 	{
@@ -24418,70 +23649,6 @@
 		"x": 190,
 		"y": 120,
 		"wires": []
-	},
-	{
-		"id": "0b8c2c5c6698121c",
-		"type": "switch",
-		"z": "462cafc155901a6e",
-		"g": "5f9a23eb89d77a95",
-		"name": "Route",
-		"property": "payload",
-		"propertyType": "msg",
-		"rules": [
-			{
-				"t": "eq",
-				"v": "1",
-				"vt": "str"
-			},
-			{
-				"t": "eq",
-				"v": "0",
-				"vt": "str"
-			}
-		],
-		"checkall": "true",
-		"repair": false,
-		"outputs": 2,
-		"x": 1670,
-		"y": 560,
-		"wires": [
-			[
-				"6168003aa03935e8"
-			],
-			[]
-		]
-	},
-	{
-		"id": "da62c1d89e70b87b",
-		"type": "switch",
-		"z": "462cafc155901a6e",
-		"g": "4c006916009d586c",
-		"name": "Route",
-		"property": "payload",
-		"propertyType": "msg",
-		"rules": [
-			{
-				"t": "eq",
-				"v": "1",
-				"vt": "str"
-			},
-			{
-				"t": "eq",
-				"v": "0",
-				"vt": "str"
-			}
-		],
-		"checkall": "true",
-		"repair": false,
-		"outputs": 2,
-		"x": 1650,
-		"y": 1360,
-		"wires": [
-			[
-				"f36f9ec3c3c690b3"
-			],
-			[]
-		]
 	},
 	{
 		"id": "a8f62b6959210b06",
@@ -24506,7 +23673,7 @@
 		"outputProperties": [],
 		"queue": "none",
 		"x": 700,
-		"y": 2080,
+		"y": 1440,
 		"wires": [
 			[
 				"942455c50c745d33"
@@ -24528,7 +23695,7 @@
 		"statusVal": "",
 		"statusType": "auto",
 		"x": 880,
-		"y": 2080,
+		"y": 1440,
 		"wires": []
 	},
 	{
@@ -24556,7 +23723,7 @@
 		"entity_location": "data",
 		"override_data": "msg",
 		"x": 460,
-		"y": 2080,
+		"y": 1440,
 		"wires": [
 			[
 				"a8f62b6959210b06"
@@ -24589,7 +23756,7 @@
 		"entity_location": "data",
 		"override_data": "msg",
 		"x": 460,
-		"y": 2140,
+		"y": 1500,
 		"wires": [
 			[
 				"a8f62b6959210b06"
@@ -24624,7 +23791,7 @@
 			"zone.regency_lakes"
 		],
 		"x": 190,
-		"y": 2080,
+		"y": 1440,
 		"wires": [
 			[
 				"8de0cf0127a7ed00"
@@ -24658,7 +23825,7 @@
 			"zone.regency_lakes"
 		],
 		"x": 190,
-		"y": 2140,
+		"y": 1500,
 		"wires": [
 			[
 				"2138d90aef87700f"
@@ -24673,7 +23840,7 @@
 		"name": "----- Camera, Interior Recording START -----",
 		"info": "",
 		"x": 260,
-		"y": 2040,
+		"y": 1400,
 		"wires": []
 	},
 	{
@@ -24684,7 +23851,7 @@
 		"name": "----- Camera, Interior Recording STOP -----",
 		"info": "",
 		"x": 260,
-		"y": 1680,
+		"y": 1040,
 		"wires": []
 	},
 	{
@@ -24714,7 +23881,7 @@
 			"zone.regency_lakes"
 		],
 		"x": 190,
-		"y": 1720,
+		"y": 1080,
 		"wires": [
 			[
 				"4ea16263946abcfa"
@@ -24748,7 +23915,7 @@
 			"zone.regency_lakes"
 		],
 		"x": 190,
-		"y": 1840,
+		"y": 1200,
 		"wires": [
 			[
 				"4ea16263946abcfa"
@@ -24778,7 +23945,7 @@
 		"outputProperties": [],
 		"queue": "none",
 		"x": 450,
-		"y": 1720,
+		"y": 1080,
 		"wires": [
 			[
 				"f855a4bf1d2c42c7"
@@ -24800,7 +23967,7 @@
 		"statusVal": "",
 		"statusType": "auto",
 		"x": 650,
-		"y": 1720,
+		"y": 1080,
 		"wires": []
 	},
 	{
@@ -24829,7 +23996,7 @@
 		"outputProperties": [],
 		"queue": "none",
 		"x": 1220,
-		"y": 1720,
+		"y": 1080,
 		"wires": [
 			[
 				"fbf52c0499c3594b"
@@ -24893,7 +24060,7 @@
 			}
 		],
 		"x": 920,
-		"y": 1720,
+		"y": 1080,
 		"wires": [
 			[
 				"a2490ecf60ed025d"
@@ -24909,7 +24076,7 @@
 		"name": "----- Camera, Interior Recording START/STOP -----",
 		"info": "",
 		"x": 1010,
-		"y": 1680,
+		"y": 1040,
 		"wires": []
 	},
 	{
@@ -24936,7 +24103,7 @@
 		"repair": false,
 		"outputs": 2,
 		"x": 970,
-		"y": 1780,
+		"y": 1140,
 		"wires": [
 			[
 				"08e3ea572acb6c7f"
@@ -24972,7 +24139,7 @@
 		"outputProperties": [],
 		"queue": "none",
 		"x": 1220,
-		"y": 1780,
+		"y": 1140,
 		"wires": [
 			[
 				"fbf52c0499c3594b"
@@ -24994,7 +24161,7 @@
 		"statusVal": "",
 		"statusType": "auto",
 		"x": 1470,
-		"y": 1720,
+		"y": 1080,
 		"wires": []
 	},
 	{
@@ -25024,7 +24191,7 @@
 			"zone.home"
 		],
 		"x": 180,
-		"y": 1780,
+		"y": 1140,
 		"wires": [
 			[
 				"4ea16263946abcfa"
@@ -25058,7 +24225,7 @@
 			"zone.home"
 		],
 		"x": 180,
-		"y": 1900,
+		"y": 1260,
 		"wires": [
 			[
 				"4ea16263946abcfa"
@@ -25128,7 +24295,7 @@
 			}
 		],
 		"x": 200,
-		"y": 1960,
+		"y": 1320,
 		"wires": [
 			[
 				"4ea16263946abcfa"
@@ -25144,7 +24311,7 @@
 		"name": "----- Camera, Interior Recording START/STOP -----",
 		"info": "",
 		"x": 1010,
-		"y": 1880,
+		"y": 1240,
 		"wires": []
 	},
 	{
@@ -25204,7 +24371,7 @@
 			}
 		],
 		"x": 920,
-		"y": 1920,
+		"y": 1280,
 		"wires": [
 			[
 				"07ac770d3ee0c07c"
@@ -25236,7 +24403,7 @@
 		"repair": false,
 		"outputs": 2,
 		"x": 970,
-		"y": 1980,
+		"y": 1340,
 		"wires": [
 			[
 				"1d2424ed16fca9f6"
@@ -25272,7 +24439,7 @@
 		"outputProperties": [],
 		"queue": "none",
 		"x": 1220,
-		"y": 1920,
+		"y": 1280,
 		"wires": [
 			[
 				"4ec7b36d7e5e80a7"
@@ -25305,7 +24472,7 @@
 		"outputProperties": [],
 		"queue": "none",
 		"x": 1220,
-		"y": 1980,
+		"y": 1340,
 		"wires": [
 			[
 				"4ec7b36d7e5e80a7"
@@ -25327,55 +24494,8 @@
 		"statusVal": "",
 		"statusType": "auto",
 		"x": 1470,
-		"y": 1920,
+		"y": 1280,
 		"wires": []
-	},
-	{
-		"id": "a717c6b2486717b7",
-		"type": "api-current-state",
-		"z": "462cafc155901a6e",
-		"g": "126a5e09ee15c478",
-		"name": "If Flag is OFF",
-		"server": "1040bb61.673d75",
-		"version": 3,
-		"outputs": 2,
-		"halt_if": "off",
-		"halt_if_type": "str",
-		"halt_if_compare": "is",
-		"entity_id": "input_boolean.snooze_reminder_medicine_pm_taken_thomas",
-		"state_type": "str",
-		"blockInputOverrides": false,
-		"outputProperties": [
-			{
-				"property": "payload",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "entityState"
-			},
-			{
-				"property": "data",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "entity"
-			}
-		],
-		"for": 0,
-		"forType": "num",
-		"forUnits": "minutes",
-		"override_topic": false,
-		"state_location": "payload",
-		"override_payload": "msg",
-		"entity_location": "data",
-		"override_data": "msg",
-		"x": 440,
-		"y": 400,
-		"wires": [
-			[
-				"cfaac68d63f9f089",
-				"5f0e3e6ce7eac8f9"
-			],
-			[]
-		]
 	},
 	{
 		"id": "cfaac68d63f9f089",
@@ -25386,7 +24506,7 @@
 		"server": "1040bb61.673d75",
 		"version": 2,
 		"outputs": 2,
-		"entityId": "input_boolean.reminder_medicine_pm_taken_thomas",
+		"entityId": "input_boolean.reminder_medicine_pm_complete_thomas",
 		"entityIdFilterType": "exact",
 		"property": "state",
 		"comparator": "is",
@@ -25398,13 +24518,13 @@
 		"checkCurrentState": true,
 		"blockInputOverrides": true,
 		"outputProperties": [],
-		"x": 700,
-		"y": 400,
+		"x": 500,
+		"y": 340,
 		"wires": [
 			[],
 			[
 				"9dd5e89a8295d45e",
-				"5f0e3e6ce7eac8f9"
+				"a717c6b2486717b7"
 			]
 		]
 	},
@@ -25420,7 +24540,7 @@
 		"halt_if": "off",
 		"halt_if_type": "str",
 		"halt_if_compare": "is",
-		"entity_id": "input_boolean.snooze_reminder_medicine_pm_taken_thomas",
+		"entity_id": "input_boolean.reminder_medicine_pm_snoozed_thomas",
 		"state_type": "str",
 		"blockInputOverrides": false,
 		"outputProperties": [
@@ -25440,8 +24560,8 @@
 		"for": 0,
 		"forType": "num",
 		"forUnits": "minutes",
-		"x": 670,
-		"y": 540,
+		"x": 770,
+		"y": 420,
 		"wires": [
 			[
 				"4a51c7a4a0f87ef1"
@@ -25461,8 +24581,8 @@
 		"initialize": "",
 		"finalize": "",
 		"libs": [],
-		"x": 650,
-		"y": 480,
+		"x": 490,
+		"y": 420,
 		"wires": [
 			[
 				"cfaac68d63f9f089"
@@ -25481,8 +24601,8 @@
 		"initialize": "",
 		"finalize": "",
 		"libs": [],
-		"x": 1010,
-		"y": 480,
+		"x": 1030,
+		"y": 420,
 		"wires": [
 			[
 				"2910780454bfbaa6"
@@ -25499,102 +24619,8 @@
 		"links": [
 			"b5bf4f1d2a2db4f8"
 		],
-		"x": 1195,
-		"y": 480,
-		"wires": []
-	},
-	{
-		"id": "6285a7f300565dfd",
-		"type": "api-current-state",
-		"z": "462cafc155901a6e",
-		"g": "126a5e09ee15c478",
-		"name": "If Flag is OFF",
-		"server": "1040bb61.673d75",
-		"version": 3,
-		"outputs": 2,
-		"halt_if": "off",
-		"halt_if_type": "str",
-		"halt_if_compare": "is",
-		"entity_id": "input_boolean.reminder_medicine_pm_taken_thomas",
-		"state_type": "str",
-		"blockInputOverrides": false,
-		"outputProperties": [
-			{
-				"property": "payload",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "entityState"
-			},
-			{
-				"property": "data",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "entity"
-			}
-		],
-		"for": 0,
-		"forType": "num",
-		"forUnits": "minutes",
-		"override_topic": false,
-		"state_location": "payload",
-		"override_payload": "msg",
-		"entity_location": "data",
-		"override_data": "msg",
-		"x": 460,
-		"y": 660,
-		"wires": [
-			[
-				"f99335252a8f3eb7"
-			],
-			[]
-		]
-	},
-	{
-		"id": "f99335252a8f3eb7",
-		"type": "api-call-service",
-		"z": "462cafc155901a6e",
-		"g": "126a5e09ee15c478",
-		"name": "Enable Flag",
-		"server": "1040bb61.673d75",
-		"version": 5,
-		"debugenabled": false,
-		"domain": "input_boolean",
-		"service": "turn_on",
-		"areaId": [],
-		"deviceId": [],
-		"entityId": [
-			"input_boolean.reminder_medicine_pm_taken_thomas"
-		],
-		"data": "",
-		"dataType": "json",
-		"mergeContext": "",
-		"mustacheAltTags": false,
-		"outputProperties": [],
-		"queue": "none",
-		"x": 670,
-		"y": 660,
-		"wires": [
-			[
-				"5861b547160b597d"
-			]
-		]
-	},
-	{
-		"id": "5861b547160b597d",
-		"type": "debug",
-		"z": "462cafc155901a6e",
-		"g": "126a5e09ee15c478",
-		"name": "",
-		"active": false,
-		"tosidebar": true,
-		"console": false,
-		"tostatus": false,
-		"complete": "true",
-		"targetType": "full",
-		"statusVal": "",
-		"statusType": "auto",
-		"x": 850,
-		"y": 660,
+		"x": 1215,
+		"y": 420,
 		"wires": []
 	},
 	{
@@ -25605,7 +24631,7 @@
 		"name": "----- Medication Reminder, Jess -----",
 		"info": "",
 		"x": 220,
-		"y": 880,
+		"y": 560,
 		"wires": []
 	},
 	{
@@ -25618,8 +24644,8 @@
 		"links": [
 			"f5ce6c4b657db2c6"
 		],
-		"x": 1175,
-		"y": 1040,
+		"x": 1215,
+		"y": 700,
 		"wires": []
 	},
 	{
@@ -25634,8 +24660,8 @@
 		"initialize": "",
 		"finalize": "",
 		"libs": [],
-		"x": 990,
-		"y": 1040,
+		"x": 1030,
+		"y": 700,
 		"wires": [
 			[
 				"cfab5089b94fade5"
@@ -25651,11 +24677,11 @@
 		"server": "1040bb61.673d75",
 		"version": 2,
 		"outputs": 2,
-		"entityId": "input_boolean.reminder_medicine_am_taken_jessica",
+		"entityId": "input_boolean.reminder_medicine_am_complete_jessica",
 		"entityIdFilterType": "exact",
 		"property": "state",
 		"comparator": "is",
-		"value": "off",
+		"value": "on",
 		"valueType": "str",
 		"timeout": "30",
 		"timeoutType": "num",
@@ -25663,13 +24689,13 @@
 		"checkCurrentState": true,
 		"blockInputOverrides": true,
 		"outputProperties": [],
-		"x": 700,
-		"y": 960,
+		"x": 500,
+		"y": 700,
 		"wires": [
 			[],
 			[
 				"13bf736a80504f29",
-				"16a92463cb0979c3"
+				"be93d986cf74a2b8"
 			]
 		]
 	},
@@ -25685,59 +24711,12 @@
 		"initialize": "",
 		"finalize": "",
 		"libs": [],
-		"x": 650,
-		"y": 1040,
+		"x": 490,
+		"y": 620,
 		"wires": [
 			[
 				"d3e86f719b7b8a5d"
 			]
-		]
-	},
-	{
-		"id": "be93d986cf74a2b8",
-		"type": "api-current-state",
-		"z": "462cafc155901a6e",
-		"g": "5ca480c6f55d70db",
-		"name": "If Flag is OFF",
-		"server": "1040bb61.673d75",
-		"version": 3,
-		"outputs": 2,
-		"halt_if": "off",
-		"halt_if_type": "str",
-		"halt_if_compare": "is",
-		"entity_id": "input_boolean.snooze_reminder_medicine_am_taken_jessica",
-		"state_type": "str",
-		"blockInputOverrides": false,
-		"outputProperties": [
-			{
-				"property": "payload",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "entityState"
-			},
-			{
-				"property": "data",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "entity"
-			}
-		],
-		"for": 0,
-		"forType": "num",
-		"forUnits": "minutes",
-		"override_topic": false,
-		"state_location": "payload",
-		"override_payload": "msg",
-		"entity_location": "data",
-		"override_data": "msg",
-		"x": 440,
-		"y": 960,
-		"wires": [
-			[
-				"d3e86f719b7b8a5d",
-				"16a92463cb0979c3"
-			],
-			[]
 		]
 	},
 	{
@@ -25789,7 +24768,7 @@
 		"state_type": "str",
 		"enableInput": false,
 		"x": 190,
-		"y": 960,
+		"y": 640,
 		"wires": [
 			[
 				"5e5905eb9e6833bc"
@@ -25809,7 +24788,7 @@
 		"halt_if": "off",
 		"halt_if_type": "str",
 		"halt_if_compare": "is",
-		"entity_id": "input_boolean.snooze_reminder_medicine_am_taken_jessica",
+		"entity_id": "input_boolean.reminder_medicine_am_snoozed_jessica",
 		"state_type": "str",
 		"blockInputOverrides": false,
 		"outputProperties": [
@@ -25829,101 +24808,14 @@
 		"for": 0,
 		"forType": "num",
 		"forUnits": "minutes",
-		"x": 670,
-		"y": 1100,
+		"x": 770,
+		"y": 700,
 		"wires": [
 			[
 				"954f51202a1d4143"
 			],
 			[]
 		]
-	},
-	{
-		"id": "8da472a0773a0797",
-		"type": "api-current-state",
-		"z": "462cafc155901a6e",
-		"g": "5ca480c6f55d70db",
-		"name": "If Flag is OFF",
-		"server": "1040bb61.673d75",
-		"version": 3,
-		"outputs": 2,
-		"halt_if": "off",
-		"halt_if_type": "str",
-		"halt_if_compare": "is",
-		"entity_id": "input_boolean.reminder_medicine_am_taken_jessica",
-		"state_type": "str",
-		"blockInputOverrides": false,
-		"outputProperties": [
-			{
-				"property": "payload",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "entityState"
-			},
-			{
-				"property": "data",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "entity"
-			}
-		],
-		"for": 0,
-		"forType": "num",
-		"forUnits": "minutes",
-		"override_topic": false,
-		"state_location": "payload",
-		"override_payload": "msg",
-		"entity_location": "data",
-		"override_data": "msg",
-		"x": 460,
-		"y": 1540,
-		"wires": [
-			[
-				"65545e1171cac2d5"
-			],
-			[]
-		]
-	},
-	{
-		"id": "65545e1171cac2d5",
-		"type": "api-call-service",
-		"z": "462cafc155901a6e",
-		"g": "5ca480c6f55d70db",
-		"name": "Enable Flag",
-		"server": "1040bb61.673d75",
-		"version": 5,
-		"debugenabled": false,
-		"domain": "input_boolean",
-		"service": "turn_on",
-		"areaId": [],
-		"deviceId": [],
-		"entityId": [
-			"input_boolean.reminder_medicine_am_taken_jessica"
-		],
-		"data": "",
-		"dataType": "json",
-		"mergeContext": "",
-		"mustacheAltTags": false,
-		"outputProperties": [],
-		"queue": "none",
-		"x": 670,
-		"y": 1540,
-		"wires": [
-			[
-				"a96fe990bade684e"
-			]
-		]
-	},
-	{
-		"id": "97f9b8d7218e9b38",
-		"type": "comment",
-		"z": "462cafc155901a6e",
-		"g": "5ca480c6f55d70db",
-		"name": "----- Force Stop Reminder -----",
-		"info": "",
-		"x": 200,
-		"y": 1420,
-		"wires": []
 	},
 	{
 		"id": "3055c68eadabb88b",
@@ -25933,55 +24825,8 @@
 		"name": "----- Send Reminder -----",
 		"info": "",
 		"x": 190,
-		"y": 920,
+		"y": 600,
 		"wires": []
-	},
-	{
-		"id": "1b05476bd02d2487",
-		"type": "api-current-state",
-		"z": "462cafc155901a6e",
-		"g": "5ca480c6f55d70db",
-		"name": "If Flag is OFF",
-		"server": "1040bb61.673d75",
-		"version": 3,
-		"outputs": 2,
-		"halt_if": "off",
-		"halt_if_type": "str",
-		"halt_if_compare": "is",
-		"entity_id": "input_boolean.snooze_reminder_medicine_pm_taken_jessica",
-		"state_type": "str",
-		"blockInputOverrides": false,
-		"outputProperties": [
-			{
-				"property": "payload",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "entityState"
-			},
-			{
-				"property": "data",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "entity"
-			}
-		],
-		"for": 0,
-		"forType": "num",
-		"forUnits": "minutes",
-		"override_topic": false,
-		"state_location": "payload",
-		"override_payload": "msg",
-		"entity_location": "data",
-		"override_data": "msg",
-		"x": 440,
-		"y": 1200,
-		"wires": [
-			[
-				"acea7448d48ce619",
-				"30902be5b371a29a"
-			],
-			[]
-		]
 	},
 	{
 		"id": "acea7448d48ce619",
@@ -25992,11 +24837,11 @@
 		"server": "1040bb61.673d75",
 		"version": 2,
 		"outputs": 2,
-		"entityId": "input_boolean.reminder_medicine_pm_taken_jessica",
+		"entityId": "input_boolean.reminder_medicine_pm_complete_jessica",
 		"entityIdFilterType": "exact",
 		"property": "state",
 		"comparator": "is",
-		"value": "off",
+		"value": "on",
 		"valueType": "str",
 		"timeout": "30",
 		"timeoutType": "num",
@@ -26004,13 +24849,13 @@
 		"checkCurrentState": true,
 		"blockInputOverrides": true,
 		"outputProperties": [],
-		"x": 700,
-		"y": 1200,
+		"x": 500,
+		"y": 820,
 		"wires": [
 			[],
 			[
 				"a760d1eaeffd1bd0",
-				"30902be5b371a29a"
+				"1b05476bd02d2487"
 			]
 		]
 	},
@@ -26026,8 +24871,8 @@
 		"initialize": "",
 		"finalize": "",
 		"libs": [],
-		"x": 650,
-		"y": 1280,
+		"x": 490,
+		"y": 900,
 		"wires": [
 			[
 				"acea7448d48ce619"
@@ -26046,7 +24891,7 @@
 		"halt_if": "off",
 		"halt_if_type": "str",
 		"halt_if_compare": "is",
-		"entity_id": "input_boolean.snooze_reminder_medicine_pm_taken_jessica",
+		"entity_id": "input_boolean.reminder_medicine_pm_snoozed_thomas",
 		"state_type": "str",
 		"blockInputOverrides": false,
 		"outputProperties": [
@@ -26066,8 +24911,8 @@
 		"for": 0,
 		"forType": "num",
 		"forUnits": "minutes",
-		"x": 670,
-		"y": 1340,
+		"x": 770,
+		"y": 900,
 		"wires": [
 			[
 				"41390226403d99e6"
@@ -26087,8 +24932,8 @@
 		"initialize": "",
 		"finalize": "",
 		"libs": [],
-		"x": 990,
-		"y": 1280,
+		"x": 1030,
+		"y": 900,
 		"wires": [
 			[
 				"8cd3e95bcf04742b"
@@ -26105,331 +24950,9 @@
 		"links": [
 			"f5ce6c4b657db2c6"
 		],
-		"x": 1175,
-		"y": 1280,
+		"x": 1215,
+		"y": 900,
 		"wires": []
-	},
-	{
-		"id": "9ee8e8f69ff01ecd",
-		"type": "api-current-state",
-		"z": "462cafc155901a6e",
-		"g": "5ca480c6f55d70db",
-		"name": "If Flag is OFF",
-		"server": "1040bb61.673d75",
-		"version": 3,
-		"outputs": 2,
-		"halt_if": "off",
-		"halt_if_type": "str",
-		"halt_if_compare": "is",
-		"entity_id": "input_boolean.reminder_medicine_pm_taken_jessica",
-		"state_type": "str",
-		"blockInputOverrides": false,
-		"outputProperties": [
-			{
-				"property": "payload",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "entityState"
-			},
-			{
-				"property": "data",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "entity"
-			}
-		],
-		"for": 0,
-		"forType": "num",
-		"forUnits": "minutes",
-		"override_topic": false,
-		"state_location": "payload",
-		"override_payload": "msg",
-		"entity_location": "data",
-		"override_data": "msg",
-		"x": 460,
-		"y": 1460,
-		"wires": [
-			[
-				"a70637dfa2a1f6aa"
-			],
-			[]
-		]
-	},
-	{
-		"id": "a70637dfa2a1f6aa",
-		"type": "api-call-service",
-		"z": "462cafc155901a6e",
-		"g": "5ca480c6f55d70db",
-		"name": "Enable Flag",
-		"server": "1040bb61.673d75",
-		"version": 5,
-		"debugenabled": false,
-		"domain": "input_boolean",
-		"service": "turn_on",
-		"areaId": [],
-		"deviceId": [],
-		"entityId": [
-			"input_boolean.reminder_medicine_pm_taken_jessica"
-		],
-		"data": "",
-		"dataType": "json",
-		"mergeContext": "",
-		"mustacheAltTags": false,
-		"outputProperties": [],
-		"queue": "none",
-		"x": 670,
-		"y": 1460,
-		"wires": [
-			[
-				"a96fe990bade684e"
-			]
-		]
-	},
-	{
-		"id": "a96fe990bade684e",
-		"type": "debug",
-		"z": "462cafc155901a6e",
-		"g": "5ca480c6f55d70db",
-		"name": "",
-		"active": false,
-		"tosidebar": true,
-		"console": false,
-		"tostatus": false,
-		"complete": "true",
-		"targetType": "full",
-		"statusVal": "",
-		"statusType": "auto",
-		"x": 850,
-		"y": 1460,
-		"wires": []
-	},
-	{
-		"id": "6b2a493779647f88",
-		"type": "trigger-state",
-		"z": "462cafc155901a6e",
-		"g": "5f9a23eb89d77a95",
-		"name": "Reminder Window to OFF",
-		"server": "1040bb61.673d75",
-		"version": 2,
-		"exposeToHomeAssistant": false,
-		"haConfig": [
-			{
-				"property": "name",
-				"value": ""
-			},
-			{
-				"property": "icon",
-				"value": ""
-			}
-		],
-		"entityid": "schedule.reminder_toothbrush_thomas",
-		"entityidfiltertype": "exact",
-		"debugenabled": false,
-		"constraints": [
-			{
-				"targetType": "this_entity",
-				"targetValue": "",
-				"propertyType": "previous_state",
-				"propertyValue": "old_state.state",
-				"comparatorType": "is",
-				"comparatorValueDatatype": "str",
-				"comparatorValue": "on"
-			},
-			{
-				"targetType": "this_entity",
-				"targetValue": "",
-				"propertyType": "current_state",
-				"propertyValue": "new_state.state",
-				"comparatorType": "is",
-				"comparatorValueDatatype": "str",
-				"comparatorValue": "off"
-			}
-		],
-		"inputs": 0,
-		"outputs": 2,
-		"customoutputs": [],
-		"outputinitially": false,
-		"state_type": "str",
-		"enableInput": false,
-		"x": 1450,
-		"y": 560,
-		"wires": [
-			[
-				"0b8c2c5c6698121c"
-			],
-			[]
-		]
-	},
-	{
-		"id": "2796a9351a02d12a",
-		"type": "trigger-state",
-		"z": "462cafc155901a6e",
-		"g": "4c006916009d586c",
-		"name": "Reminder Window to OFF",
-		"server": "1040bb61.673d75",
-		"version": 2,
-		"exposeToHomeAssistant": false,
-		"haConfig": [
-			{
-				"property": "name",
-				"value": ""
-			},
-			{
-				"property": "icon",
-				"value": ""
-			}
-		],
-		"entityid": "schedule.schedule_reminder_toothbrush_jessica",
-		"entityidfiltertype": "exact",
-		"debugenabled": false,
-		"constraints": [
-			{
-				"targetType": "this_entity",
-				"targetValue": "",
-				"propertyType": "previous_state",
-				"propertyValue": "old_state.state",
-				"comparatorType": "is",
-				"comparatorValueDatatype": "str",
-				"comparatorValue": "on"
-			},
-			{
-				"targetType": "this_entity",
-				"targetValue": "",
-				"propertyType": "current_state",
-				"propertyValue": "new_state.state",
-				"comparatorType": "is",
-				"comparatorValueDatatype": "str",
-				"comparatorValue": "off"
-			}
-		],
-		"inputs": 0,
-		"outputs": 2,
-		"customoutputs": [],
-		"outputinitially": false,
-		"state_type": "str",
-		"enableInput": false,
-		"x": 1430,
-		"y": 1360,
-		"wires": [
-			[
-				"da62c1d89e70b87b"
-			],
-			[]
-		]
-	},
-	{
-		"id": "ebd64f322e65d430",
-		"type": "trigger-state",
-		"z": "462cafc155901a6e",
-		"g": "126a5e09ee15c478",
-		"name": "Reminder Window to OFF",
-		"server": "1040bb61.673d75",
-		"version": 2,
-		"exposeToHomeAssistant": false,
-		"haConfig": [
-			{
-				"property": "name",
-				"value": ""
-			},
-			{
-				"property": "icon",
-				"value": ""
-			}
-		],
-		"entityid": "schedule.reminder_medicine_thomas",
-		"entityidfiltertype": "exact",
-		"debugenabled": false,
-		"constraints": [
-			{
-				"targetType": "this_entity",
-				"targetValue": "",
-				"propertyType": "previous_state",
-				"propertyValue": "old_state.state",
-				"comparatorType": "is",
-				"comparatorValueDatatype": "str",
-				"comparatorValue": "on"
-			},
-			{
-				"targetType": "this_entity",
-				"targetValue": "",
-				"propertyType": "current_state",
-				"propertyValue": "new_state.state",
-				"comparatorType": "is",
-				"comparatorValueDatatype": "str",
-				"comparatorValue": "off"
-			}
-		],
-		"inputs": 0,
-		"outputs": 2,
-		"customoutputs": [],
-		"outputinitially": false,
-		"state_type": "str",
-		"enableInput": false,
-		"x": 190,
-		"y": 660,
-		"wires": [
-			[
-				"5128001a4ffbc386"
-			],
-			[]
-		]
-	},
-	{
-		"id": "da5015a9e3fca7a8",
-		"type": "trigger-state",
-		"z": "462cafc155901a6e",
-		"g": "5ca480c6f55d70db",
-		"name": "Reminder Window to OFF",
-		"server": "1040bb61.673d75",
-		"version": 2,
-		"exposeToHomeAssistant": false,
-		"haConfig": [
-			{
-				"property": "name",
-				"value": ""
-			},
-			{
-				"property": "icon",
-				"value": ""
-			}
-		],
-		"entityid": "schedule.reminder_medicine_jessica",
-		"entityidfiltertype": "exact",
-		"debugenabled": false,
-		"constraints": [
-			{
-				"targetType": "this_entity",
-				"targetValue": "",
-				"propertyType": "previous_state",
-				"propertyValue": "old_state.state",
-				"comparatorType": "is",
-				"comparatorValueDatatype": "str",
-				"comparatorValue": "on"
-			},
-			{
-				"targetType": "this_entity",
-				"targetValue": "",
-				"propertyType": "current_state",
-				"propertyValue": "new_state.state",
-				"comparatorType": "is",
-				"comparatorValueDatatype": "str",
-				"comparatorValue": "off"
-			}
-		],
-		"inputs": 0,
-		"outputs": 2,
-		"customoutputs": [],
-		"outputinitially": false,
-		"state_type": "str",
-		"enableInput": false,
-		"x": 190,
-		"y": 1460,
-		"wires": [
-			[
-				"a94ce3cab1396817"
-			],
-			[]
-		]
 	},
 	{
 		"id": "e4261b83f719debb",
@@ -26447,33 +24970,12 @@
 		"y": 280,
 		"wires": [
 			[
-				"e2c2647e3e4ead17"
+				"89ae94b9748fcbc2",
+				"4e1fb9d34aa23750"
 			],
 			[
+				"cfaac68d63f9f089",
 				"a717c6b2486717b7"
-			]
-		]
-	},
-	{
-		"id": "5128001a4ffbc386",
-		"type": "time-range-switch",
-		"z": "462cafc155901a6e",
-		"g": "126a5e09ee15c478",
-		"name": "Only between 01:00 - 13:00",
-		"lat": "26.305080",
-		"lon": "-80.197180",
-		"startTime": "1:00",
-		"endTime": "13:00",
-		"startOffset": "",
-		"endOffset": "",
-		"x": 200,
-		"y": 740,
-		"wires": [
-			[
-				"6285a7f300565dfd"
-			],
-			[
-				"0575cdc06907a33a"
 			]
 		]
 	},
@@ -26490,36 +24992,15 @@
 		"startOffset": "",
 		"endOffset": "",
 		"x": 200,
-		"y": 1080,
+		"y": 760,
 		"wires": [
 			[
+				"d3e86f719b7b8a5d"
+			],
+			[
+				"acea7448d48ce619",
+				"1b05476bd02d2487",
 				"be93d986cf74a2b8"
-			],
-			[
-				"1b05476bd02d2487"
-			]
-		]
-	},
-	{
-		"id": "a94ce3cab1396817",
-		"type": "time-range-switch",
-		"z": "462cafc155901a6e",
-		"g": "5ca480c6f55d70db",
-		"name": "Only between 01:00 - 13:00",
-		"lat": "26.305080",
-		"lon": "-80.197180",
-		"startTime": "01:00",
-		"endTime": "13:00",
-		"startOffset": "",
-		"endOffset": "",
-		"x": 200,
-		"y": 1540,
-		"wires": [
-			[
-				"9ee8e8f69ff01ecd"
-			],
-			[
-				"8da472a0773a0797"
 			]
 		]
 	},
@@ -26555,8 +25036,8 @@
 		"for": 0,
 		"forType": "num",
 		"forUnits": "minutes",
-		"x": 1010,
-		"y": 160,
+		"x": 1030,
+		"y": 140,
 		"wires": [
 			[
 				"3ea1383fd9f814b1"
@@ -26596,8 +25077,8 @@
 		"for": 0,
 		"forType": "num",
 		"forUnits": "minutes",
-		"x": 1010,
-		"y": 400,
+		"x": 1030,
+		"y": 340,
 		"wires": [
 			[
 				"f5f0b18f6bcba7b2"
@@ -26637,8 +25118,8 @@
 		"for": 0,
 		"forType": "num",
 		"forUnits": "minutes",
-		"x": 990,
-		"y": 960,
+		"x": 1030,
+		"y": 620,
 		"wires": [
 			[
 				"c43c1a6087a3fa6d"
@@ -26678,52 +25159,11 @@
 		"for": 0,
 		"forType": "num",
 		"forUnits": "minutes",
-		"x": 990,
-		"y": 1200,
+		"x": 1030,
+		"y": 820,
 		"wires": [
 			[
 				"0a8e9f1f67ac5ba8"
-			],
-			[]
-		]
-	},
-	{
-		"id": "20a22b3364b6c696",
-		"type": "api-current-state",
-		"z": "462cafc155901a6e",
-		"g": "5f9a23eb89d77a95",
-		"name": "Is Reminder Window ON",
-		"server": "1040bb61.673d75",
-		"version": 3,
-		"outputs": 2,
-		"halt_if": "off",
-		"halt_if_type": "str",
-		"halt_if_compare": "is",
-		"entity_id": "schedule.reminder_toothbrush_thomas",
-		"state_type": "str",
-		"blockInputOverrides": false,
-		"outputProperties": [
-			{
-				"property": "payload",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "entityState"
-			},
-			{
-				"property": "data",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "entity"
-			}
-		],
-		"for": 0,
-		"forType": "num",
-		"forUnits": "minutes",
-		"x": 2250,
-		"y": 160,
-		"wires": [
-			[
-				"72be0eea7e36017e"
 			],
 			[]
 		]
@@ -26737,7 +25177,7 @@
 		"server": "1040bb61.673d75",
 		"version": 3,
 		"outputs": 2,
-		"halt_if": "off",
+		"halt_if": "on",
 		"halt_if_type": "str",
 		"halt_if_compare": "is",
 		"entity_id": "schedule.reminder_toothbrush_jessica",
@@ -26760,8 +25200,8 @@
 		"for": 0,
 		"forType": "num",
 		"forUnits": "minutes",
-		"x": 2230,
-		"y": 960,
+		"x": 2290,
+		"y": 640,
 		"wires": [
 			[
 				"3f687814dc402ee0"
@@ -26770,62 +25210,714 @@
 		]
 	},
 	{
-		"id": "4c376ea756858b2c",
-		"type": "inject",
+		"id": "4e1fb9d34aa23750",
+		"type": "api-current-state",
 		"z": "462cafc155901a6e",
-		"g": "5ca480c6f55d70db",
-		"name": "",
-		"props": [
+		"g": "126a5e09ee15c478",
+		"name": "If Flag is OFF",
+		"server": "1040bb61.673d75",
+		"version": 3,
+		"outputs": 2,
+		"halt_if": "off",
+		"halt_if_type": "str",
+		"halt_if_compare": "is",
+		"entity_id": "input_boolean.reminder_medicine_am_complete_thomas",
+		"state_type": "str",
+		"blockInputOverrides": false,
+		"outputProperties": [
 			{
-				"p": "payload"
+				"property": "payload",
+				"propertyType": "msg",
+				"value": "",
+				"valueType": "entityState"
 			},
 			{
-				"p": "topic",
-				"vt": "str"
+				"property": "data",
+				"propertyType": "msg",
+				"value": "",
+				"valueType": "entity"
 			}
 		],
-		"repeat": "",
-		"crontab": "",
-		"once": false,
-		"onceDelay": 0.1,
-		"topic": "",
-		"payload": "",
-		"payloadType": "date",
-		"x": 200,
-		"y": 1200,
+		"for": 0,
+		"forType": "num",
+		"forUnits": "minutes",
+		"override_topic": false,
+		"state_location": "payload",
+		"override_payload": "msg",
+		"entity_location": "data",
+		"override_data": "msg",
+		"x": 760,
+		"y": 140,
 		"wires": [
 			[
-				"5e5905eb9e6833bc"
+				"563b16eda3a54186"
+			],
+			[]
+		]
+	},
+	{
+		"id": "a717c6b2486717b7",
+		"type": "api-current-state",
+		"z": "462cafc155901a6e",
+		"g": "126a5e09ee15c478",
+		"name": "If Flag is OFF",
+		"server": "1040bb61.673d75",
+		"version": 3,
+		"outputs": 2,
+		"halt_if": "off",
+		"halt_if_type": "str",
+		"halt_if_compare": "is",
+		"entity_id": "input_boolean.reminder_medicine_pm_complete_thomas",
+		"state_type": "str",
+		"blockInputOverrides": false,
+		"outputProperties": [
+			{
+				"property": "payload",
+				"propertyType": "msg",
+				"value": "",
+				"valueType": "entityState"
+			},
+			{
+				"property": "data",
+				"propertyType": "msg",
+				"value": "",
+				"valueType": "entity"
+			}
+		],
+		"for": 0,
+		"forType": "num",
+		"forUnits": "minutes",
+		"override_topic": false,
+		"state_location": "payload",
+		"override_payload": "msg",
+		"entity_location": "data",
+		"override_data": "msg",
+		"x": 760,
+		"y": 340,
+		"wires": [
+			[
+				"5f0e3e6ce7eac8f9"
+			],
+			[]
+		]
+	},
+	{
+		"id": "be93d986cf74a2b8",
+		"type": "api-current-state",
+		"z": "462cafc155901a6e",
+		"g": "5ca480c6f55d70db",
+		"name": "If Flag is OFF",
+		"server": "1040bb61.673d75",
+		"version": 3,
+		"outputs": 2,
+		"halt_if": "off",
+		"halt_if_type": "str",
+		"halt_if_compare": "is",
+		"entity_id": "input_boolean.reminder_medicine_am_complete_jessica",
+		"state_type": "str",
+		"blockInputOverrides": false,
+		"outputProperties": [
+			{
+				"property": "payload",
+				"propertyType": "msg",
+				"value": "",
+				"valueType": "entityState"
+			},
+			{
+				"property": "data",
+				"propertyType": "msg",
+				"value": "",
+				"valueType": "entity"
+			}
+		],
+		"for": 0,
+		"forType": "num",
+		"forUnits": "minutes",
+		"override_topic": false,
+		"state_location": "payload",
+		"override_payload": "msg",
+		"entity_location": "data",
+		"override_data": "msg",
+		"x": 760,
+		"y": 620,
+		"wires": [
+			[
+				"16a92463cb0979c3"
+			],
+			[]
+		]
+	},
+	{
+		"id": "1b05476bd02d2487",
+		"type": "api-current-state",
+		"z": "462cafc155901a6e",
+		"g": "5ca480c6f55d70db",
+		"name": "If Flag is OFF",
+		"server": "1040bb61.673d75",
+		"version": 3,
+		"outputs": 2,
+		"halt_if": "off",
+		"halt_if_type": "str",
+		"halt_if_compare": "is",
+		"entity_id": "input_boolean.reminder_medicine_pm_complete_jessica",
+		"state_type": "str",
+		"blockInputOverrides": false,
+		"outputProperties": [
+			{
+				"property": "payload",
+				"propertyType": "msg",
+				"value": "",
+				"valueType": "entityState"
+			},
+			{
+				"property": "data",
+				"propertyType": "msg",
+				"value": "",
+				"valueType": "entity"
+			}
+		],
+		"for": 0,
+		"forType": "num",
+		"forUnits": "minutes",
+		"override_topic": false,
+		"state_location": "payload",
+		"override_payload": "msg",
+		"entity_location": "data",
+		"override_data": "msg",
+		"x": 760,
+		"y": 820,
+		"wires": [
+			[
+				"30902be5b371a29a"
+			],
+			[]
+		]
+	},
+	{
+		"id": "686e8b05a6f1e42e",
+		"type": "comment",
+		"z": "462cafc155901a6e",
+		"g": "5f9a23eb89d77a95",
+		"name": "----- Toothbrush Reminder, Tom -----",
+		"info": "",
+		"x": 1500,
+		"y": 80,
+		"wires": []
+	},
+	{
+		"id": "bebf4a3fc45e2ac0",
+		"type": "comment",
+		"z": "462cafc155901a6e",
+		"g": "5f9a23eb89d77a95",
+		"name": "----- Send Reminder -----",
+		"info": "",
+		"x": 1470,
+		"y": 120,
+		"wires": []
+	},
+	{
+		"id": "311fa63cfc8956d9",
+		"type": "trigger-state",
+		"z": "462cafc155901a6e",
+		"g": "5f9a23eb89d77a95",
+		"name": "Reminder Window to ON",
+		"server": "1040bb61.673d75",
+		"version": 2,
+		"exposeToHomeAssistant": false,
+		"haConfig": [
+			{
+				"property": "name",
+				"value": ""
+			},
+			{
+				"property": "icon",
+				"value": ""
+			}
+		],
+		"entityid": "schedule.reminder_toothbrush_thomas",
+		"entityidfiltertype": "exact",
+		"debugenabled": false,
+		"constraints": [
+			{
+				"targetType": "this_entity",
+				"targetValue": "",
+				"propertyType": "previous_state",
+				"propertyValue": "old_state.state",
+				"comparatorType": "is",
+				"comparatorValueDatatype": "str",
+				"comparatorValue": "off"
+			},
+			{
+				"targetType": "this_entity",
+				"targetValue": "",
+				"propertyType": "current_state",
+				"propertyValue": "new_state.state",
+				"comparatorType": "is",
+				"comparatorValueDatatype": "str",
+				"comparatorValue": "on"
+			}
+		],
+		"inputs": 0,
+		"outputs": 2,
+		"customoutputs": [],
+		"outputinitially": false,
+		"state_type": "str",
+		"enableInput": false,
+		"x": 1470,
+		"y": 160,
+		"wires": [
+			[
+				"377ca9a41c0cd042"
+			],
+			[]
+		]
+	},
+	{
+		"id": "377ca9a41c0cd042",
+		"type": "ha-wait-until",
+		"z": "462cafc155901a6e",
+		"g": "5f9a23eb89d77a95",
+		"name": "Wait 30 minutes and Repeat",
+		"server": "1040bb61.673d75",
+		"version": 2,
+		"outputs": 2,
+		"entityId": "input_boolean.reminder_toothbrush_thomas",
+		"entityIdFilterType": "exact",
+		"property": "state",
+		"comparator": "is",
+		"value": "on",
+		"valueType": "str",
+		"timeout": "30",
+		"timeoutType": "num",
+		"timeoutUnits": "minutes",
+		"checkCurrentState": true,
+		"blockInputOverrides": true,
+		"outputProperties": [],
+		"x": 1760,
+		"y": 160,
+		"wires": [
+			[],
+			[
+				"7f1978c500978be7",
+				"bf03bf2b96b59065"
 			]
 		]
 	},
 	{
-		"id": "33afbe853d8eaade",
-		"type": "inject",
+		"id": "1fa99bab6c8456e1",
+		"type": "api-current-state",
 		"z": "462cafc155901a6e",
-		"g": "126a5e09ee15c478",
-		"name": "",
-		"props": [
+		"g": "5f9a23eb89d77a95",
+		"name": "If NOT SNOOZED",
+		"server": "1040bb61.673d75",
+		"version": 3,
+		"outputs": 2,
+		"halt_if": "off",
+		"halt_if_type": "str",
+		"halt_if_compare": "is",
+		"entity_id": "input_boolean.reminder_toothbrush_snoozed_thomas",
+		"state_type": "str",
+		"blockInputOverrides": false,
+		"outputProperties": [
 			{
-				"p": "payload"
+				"property": "payload",
+				"propertyType": "msg",
+				"value": "",
+				"valueType": "entityState"
 			},
 			{
-				"p": "topic",
-				"vt": "str"
+				"property": "data",
+				"propertyType": "msg",
+				"value": "",
+				"valueType": "entity"
 			}
 		],
-		"repeat": "",
-		"crontab": "",
-		"once": false,
-		"onceDelay": 0.1,
-		"topic": "",
-		"payload": "",
-		"payloadType": "date",
-		"x": 900,
-		"y": 300,
+		"for": 0,
+		"forType": "num",
+		"forUnits": "minutes",
+		"x": 2030,
+		"y": 240,
 		"wires": [
 			[
-				"3ea1383fd9f814b1"
+				"20a22b3364b6c696"
+			],
+			[]
+		]
+	},
+	{
+		"id": "72be0eea7e36017e",
+		"type": "function",
+		"z": "462cafc155901a6e",
+		"g": "5f9a23eb89d77a95",
+		"name": "Prepare iOS Notification",
+		"func": "msg.notification_type = 'schedule';\nmsg.notification = { \n    data : {\n        \"title\"   : \"Home Assistant\",\n        \"message\" : \"Don't forget to brush your teeth\",\n        \"data\"    : { \n            \"subtitle\": false,\n            \"actions\" : [\n                { \n                    action : \"TOOTHBRUSH_REMINDER_THOMAS_DONE\",\n                    title  : \"Done\",\n                    icon   : \"sfsymbols:checkmark\"\n                },\n                { \n                    action      : \"TOOTHBRUSH_REMINDER_THOMAS_SNOOZE\",\n                    title       : \"Snooze\",\n                    icon        : \"sfsymbols:xmark\",\n                    destructive : true\n                }\n            ]\n        }\n            \n    }\n};\n\nreturn msg;",
+		"outputs": 1,
+		"noerr": 0,
+		"initialize": "",
+		"finalize": "",
+		"libs": [],
+		"x": 2290,
+		"y": 240,
+		"wires": [
+			[
+				"cf2299141a5472a4"
+			]
+		]
+	},
+	{
+		"id": "cf2299141a5472a4",
+		"type": "link out",
+		"z": "462cafc155901a6e",
+		"g": "5f9a23eb89d77a95",
+		"name": "Brush Teeth Reminder (Thomas), Send Notification",
+		"mode": "link",
+		"links": [
+			"b5bf4f1d2a2db4f8"
+		],
+		"x": 2475,
+		"y": 240,
+		"wires": []
+	},
+	{
+		"id": "f09db008ec631ea7",
+		"type": "server-state-changed",
+		"z": "462cafc155901a6e",
+		"g": "5f9a23eb89d77a95",
+		"name": "Toothbrush, Running",
+		"server": "1040bb61.673d75",
+		"version": 4,
+		"exposeToHomeAssistant": false,
+		"haConfig": [
+			{
+				"property": "name",
+				"value": ""
+			},
+			{
+				"property": "icon",
+				"value": ""
+			}
+		],
+		"entityidfilter": "sensor.toothbrush_t_state",
+		"entityidfiltertype": "exact",
+		"outputinitially": false,
+		"state_type": "str",
+		"haltifstate": "running",
+		"halt_if_type": "str",
+		"halt_if_compare": "is",
+		"outputs": 2,
+		"output_only_on_state_change": true,
+		"for": 0,
+		"forType": "num",
+		"forUnits": "minutes",
+		"ignorePrevStateNull": true,
+		"ignorePrevStateUnknown": true,
+		"ignorePrevStateUnavailable": false,
+		"ignoreCurrentStateUnknown": true,
+		"ignoreCurrentStateUnavailable": true,
+		"outputProperties": [
+			{
+				"property": "payload",
+				"propertyType": "msg",
+				"value": "",
+				"valueType": "entityState"
+			},
+			{
+				"property": "data",
+				"propertyType": "msg",
+				"value": "",
+				"valueType": "eventData"
+			},
+			{
+				"property": "topic",
+				"propertyType": "msg",
+				"value": "",
+				"valueType": "triggerId"
+			}
+		],
+		"x": 1450,
+		"y": 340,
+		"wires": [
+			[
+				"4b75425c2cbcc11b"
+			],
+			[]
+		]
+	},
+	{
+		"id": "4b75425c2cbcc11b",
+		"type": "api-current-state",
+		"z": "462cafc155901a6e",
+		"g": "5f9a23eb89d77a95",
+		"name": "If Flag is OFF",
+		"server": "1040bb61.673d75",
+		"version": 3,
+		"outputs": 2,
+		"halt_if": "off",
+		"halt_if_type": "str",
+		"halt_if_compare": "is",
+		"entity_id": "input_boolean.reminder_toothbrush_complete_thomas",
+		"state_type": "str",
+		"blockInputOverrides": false,
+		"outputProperties": [
+			{
+				"property": "payload",
+				"propertyType": "msg",
+				"value": "",
+				"valueType": "entityState"
+			},
+			{
+				"property": "data",
+				"propertyType": "msg",
+				"value": "",
+				"valueType": "entity"
+			}
+		],
+		"for": 0,
+		"forType": "num",
+		"forUnits": "minutes",
+		"override_topic": false,
+		"state_location": "payload",
+		"override_payload": "msg",
+		"entity_location": "data",
+		"override_data": "msg",
+		"x": 1670,
+		"y": 340,
+		"wires": [
+			[
+				"acc558526fc7141f"
+			],
+			[]
+		]
+	},
+	{
+		"id": "acc558526fc7141f",
+		"type": "api-call-service",
+		"z": "462cafc155901a6e",
+		"g": "5f9a23eb89d77a95",
+		"name": "Turn Flag ON",
+		"server": "1040bb61.673d75",
+		"version": 5,
+		"debugenabled": false,
+		"domain": "input_boolean",
+		"service": "turn_on",
+		"areaId": [],
+		"deviceId": [],
+		"entityId": [
+			"input_boolean.reminder_toothbrush_complete_thomas"
+		],
+		"data": "",
+		"dataType": "json",
+		"mergeContext": "",
+		"mustacheAltTags": false,
+		"outputProperties": [],
+		"queue": "none",
+		"x": 1870,
+		"y": 340,
+		"wires": [
+			[
+				"fe8f4fe2531bf788"
+			]
+		]
+	},
+	{
+		"id": "fe8f4fe2531bf788",
+		"type": "debug",
+		"z": "462cafc155901a6e",
+		"g": "5f9a23eb89d77a95",
+		"name": "msg",
+		"active": false,
+		"tosidebar": true,
+		"console": false,
+		"tostatus": false,
+		"complete": "payload",
+		"targetType": "msg",
+		"statusVal": "",
+		"statusType": "auto",
+		"x": 2050,
+		"y": 340,
+		"wires": []
+	},
+	{
+		"id": "3722c817cb8dcdfd",
+		"type": "comment",
+		"z": "462cafc155901a6e",
+		"g": "5f9a23eb89d77a95",
+		"name": "----- Automatic Set Flag -----",
+		"info": "",
+		"x": 1480,
+		"y": 300,
+		"wires": []
+	},
+	{
+		"id": "20a22b3364b6c696",
+		"type": "api-current-state",
+		"z": "462cafc155901a6e",
+		"g": "5f9a23eb89d77a95",
+		"name": "Is Reminder Window ON",
+		"server": "1040bb61.673d75",
+		"version": 3,
+		"outputs": 2,
+		"halt_if": "on",
+		"halt_if_type": "str",
+		"halt_if_compare": "is",
+		"entity_id": "schedule.reminder_toothbrush_thomas",
+		"state_type": "str",
+		"blockInputOverrides": false,
+		"outputProperties": [
+			{
+				"property": "payload",
+				"propertyType": "msg",
+				"value": "",
+				"valueType": "entityState"
+			},
+			{
+				"property": "data",
+				"propertyType": "msg",
+				"value": "",
+				"valueType": "entity"
+			}
+		],
+		"for": 0,
+		"forType": "num",
+		"forUnits": "minutes",
+		"x": 2290,
+		"y": 160,
+		"wires": [
+			[
+				"72be0eea7e36017e"
+			],
+			[]
+		]
+	},
+	{
+		"id": "7f1978c500978be7",
+		"type": "function",
+		"z": "462cafc155901a6e",
+		"g": "5f9a23eb89d77a95",
+		"name": "placeholder",
+		"func": "// Needed because you can’t link a node to itself.\n\nreturn msg;",
+		"outputs": 1,
+		"noerr": 0,
+		"initialize": "",
+		"finalize": "",
+		"libs": [],
+		"x": 1750,
+		"y": 240,
+		"wires": [
+			[
+				"377ca9a41c0cd042"
+			]
+		]
+	},
+	{
+		"id": "bf03bf2b96b59065",
+		"type": "api-current-state",
+		"z": "462cafc155901a6e",
+		"g": "5f9a23eb89d77a95",
+		"name": "If Flag is OFF",
+		"server": "1040bb61.673d75",
+		"version": 3,
+		"outputs": 2,
+		"halt_if": "off",
+		"halt_if_type": "str",
+		"halt_if_compare": "is",
+		"entity_id": "input_boolean.reminder_toothbrush_complete_thomas",
+		"state_type": "str",
+		"blockInputOverrides": false,
+		"outputProperties": [
+			{
+				"property": "payload",
+				"propertyType": "msg",
+				"value": "",
+				"valueType": "entityState"
+			},
+			{
+				"property": "data",
+				"propertyType": "msg",
+				"value": "",
+				"valueType": "entity"
+			}
+		],
+		"for": 0,
+		"forType": "num",
+		"forUnits": "minutes",
+		"override_topic": false,
+		"state_location": "payload",
+		"override_payload": "msg",
+		"entity_location": "data",
+		"override_data": "msg",
+		"x": 2020,
+		"y": 160,
+		"wires": [
+			[
+				"1fa99bab6c8456e1"
+			],
+			[]
+		]
+	},
+	{
+		"id": "1392a1415cab422c",
+		"type": "api-current-state",
+		"z": "462cafc155901a6e",
+		"g": "4c006916009d586c",
+		"name": "If Flag is OFF",
+		"server": "1040bb61.673d75",
+		"version": 3,
+		"outputs": 2,
+		"halt_if": "off",
+		"halt_if_type": "str",
+		"halt_if_compare": "is",
+		"entity_id": "input_boolean.reminder_toothbrush_complete_jessica",
+		"state_type": "str",
+		"blockInputOverrides": false,
+		"outputProperties": [
+			{
+				"property": "payload",
+				"propertyType": "msg",
+				"value": "",
+				"valueType": "entityState"
+			},
+			{
+				"property": "data",
+				"propertyType": "msg",
+				"value": "",
+				"valueType": "entity"
+			}
+		],
+		"for": 0,
+		"forType": "num",
+		"forUnits": "minutes",
+		"override_topic": false,
+		"state_location": "payload",
+		"override_payload": "msg",
+		"entity_location": "data",
+		"override_data": "msg",
+		"x": 2020,
+		"y": 640,
+		"wires": [
+			[
+				"f08ec85ae1fabf77"
+			],
+			[]
+		]
+	},
+	{
+		"id": "e0febc49b43a98ce",
+		"type": "function",
+		"z": "462cafc155901a6e",
+		"g": "126a5e09ee15c478",
+		"name": "placeholder",
+		"func": "// Needed because you can’t link a node to itself.\n\nreturn msg;",
+		"outputs": 1,
+		"noerr": 0,
+		"initialize": "",
+		"finalize": "",
+		"libs": [],
+		"x": 490,
+		"y": 140,
+		"wires": [
+			[
+				"89ae94b9748fcbc2"
 			]
 		]
 	},
@@ -33151,9 +32243,8 @@
 		"id": "fd147829f79e871a",
 		"type": "trigger-state",
 		"z": "948139bb1964bc5a",
-		"d": true,
 		"g": "2a7a5bd2ac8e1c46",
-		"name": "Stale Backups",
+		"name": "Backups Gone Stale",
 		"server": "1040bb61.673d75",
 		"version": 2,
 		"exposeToHomeAssistant": false,
@@ -33196,7 +32287,7 @@
 		"outputinitially": false,
 		"state_type": "str",
 		"enableInput": false,
-		"x": 150,
+		"x": 170,
 		"y": 4660,
 		"wires": [
 			[
@@ -33212,13 +32303,13 @@
 		"z": "948139bb1964bc5a",
 		"g": "2a7a5bd2ac8e1c46",
 		"name": "Prepare iOS Notification",
-		"func": "msg.notification_type = 'general';\nmsg.notification = { \n    data : {\n        \"title\"   : \"Home Assistant\",\n        \"message\" : \"An error occurred while running backups\",\n        \"data\"    : { \n            \"subtitle\": false\n        }\n    }\n};\n\nreturn msg;",
+		"func": "msg.notification_type = 'warning';\nmsg.notification = { \n    data : {\n        \"title\"   : \"Home Assistant\",\n        \"message\" : \"An error occurred while running Google Drive backups\",\n        \"data\"    : { \n            \"subtitle\": false\n        }\n    }\n};\n\nreturn msg;",
 		"outputs": 1,
 		"noerr": 0,
 		"initialize": "",
 		"finalize": "",
 		"libs": [],
-		"x": 410,
+		"x": 430,
 		"y": 4660,
 		"wires": [
 			[
@@ -33239,7 +32330,7 @@
 			"f5ce6c4b657db2c6",
 			"72b133dce044ac3e"
 		],
-		"x": 595,
+		"x": 615,
 		"y": 4660,
 		"wires": []
 	},
@@ -33249,13 +32340,13 @@
 		"z": "948139bb1964bc5a",
 		"g": "2a7a5bd2ac8e1c46",
 		"name": "Prepare/Store Persistant Notification",
-		"func": "msg.notification = { \n    data : {\n        \"title\"   : \"Backup Have Gone Stale\",\n        \"message\" : \"An error occurred while running backups. This should be resolved as soon as possible.\"\n    }\n};\n\nreturn msg;",
+		"func": "msg.notification = { \n    data : {\n        \"title\"   : \"Backup Have Gone Stale\",\n        \"message\" : \"An error occurred while running Google Drive backups. This should be resolved as soon as possible.\"\n    }\n};\n\nreturn msg;",
 		"outputs": 1,
 		"noerr": 0,
 		"initialize": "",
 		"finalize": "",
 		"libs": [],
-		"x": 450,
+		"x": 470,
 		"y": 4720,
 		"wires": [
 			[
@@ -33273,7 +32364,7 @@
 		"links": [
 			"a2729e8ee4af65f5"
 		],
-		"x": 675,
+		"x": 695,
 		"y": 4720,
 		"wires": []
 	},
@@ -34825,7 +33916,7 @@
 		"initialize": "",
 		"finalize": "",
 		"libs": [],
-		"x": 840,
+		"x": 880,
 		"y": 4340,
 		"wires": [
 			[
@@ -34844,7 +33935,7 @@
 			"b5bf4f1d2a2db4f8",
 			"f5ce6c4b657db2c6"
 		],
-		"x": 1055,
+		"x": 1095,
 		"y": 4340,
 		"wires": []
 	},
@@ -35076,7 +34167,7 @@
 		"checkall": "true",
 		"repair": false,
 		"outputs": 2,
-		"x": 820,
+		"x": 860,
 		"y": 4280,
 		"wires": [
 			[
@@ -40137,13 +39228,13 @@
 		"type": "api-current-state",
 		"z": "948139bb1964bc5a",
 		"g": "931f2c0cfb587811",
-		"name": "Jess not in REGENCY",
+		"name": "Jess not in REGENCY or HOME",
 		"server": "1040bb61.673d75",
 		"version": 3,
 		"outputs": 2,
-		"halt_if": "Regency Lakes",
+		"halt_if": "Home, Regency Lakes",
 		"halt_if_type": "str",
-		"halt_if_compare": "is_not",
+		"halt_if_compare": "does_not_include",
 		"entity_id": "person.jessica",
 		"state_type": "str",
 		"blockInputOverrides": false,
@@ -40156,7 +39247,7 @@
 		"override_payload": "msg",
 		"entity_location": "data",
 		"override_data": "msg",
-		"x": 520,
+		"x": 550,
 		"y": 4280,
 		"wires": [
 			[
@@ -40292,7 +39383,7 @@
 		"id": "a62008d8914b95a2",
 		"type": "comment",
 		"z": "4e1d02e135536c14",
-		"g": "c4be9eb3db479d51",
+		"g": "92003b8d7ece4c1a",
 		"name": "----- Echo, Kitchen -----",
 		"info": "",
 		"x": 200,
@@ -40303,7 +39394,7 @@
 		"id": "1d6d45ce35d1f8fb",
 		"type": "comment",
 		"z": "4e1d02e135536c14",
-		"g": "c4be9eb3db479d51",
+		"g": "92003b8d7ece4c1a",
 		"name": "----- Echo Dot, Bedroom 1 (Main) -----",
 		"info": "",
 		"x": 250,
@@ -40314,7 +39405,7 @@
 		"id": "fa75df9d99a78852",
 		"type": "link in",
 		"z": "4e1d02e135536c14",
-		"g": "c4be9eb3db479d51",
+		"g": "92003b8d7ece4c1a",
 		"name": "Send Audible Notification, KITCHEN",
 		"links": [
 			"491012938a8df3df",
@@ -40335,7 +39426,7 @@
 		"id": "8363ca529c5b4620",
 		"type": "comment",
 		"z": "4e1d02e135536c14",
-		"g": "c4be9eb3db479d51",
+		"g": "92003b8d7ece4c1a",
 		"name": "----- Echo Dot, Bedroom 2 (Guest) -----",
 		"info": "",
 		"x": 870,
@@ -40346,7 +39437,7 @@
 		"id": "a425ce3a062da4e5",
 		"type": "comment",
 		"z": "4e1d02e135536c14",
-		"g": "c4be9eb3db479d51",
+		"g": "92003b8d7ece4c1a",
 		"name": "----- Echo Dot, Bedroom 3 (Office, Hers) -----",
 		"info": "",
 		"x": 270,
@@ -40456,7 +39547,7 @@
 		"id": "fd82a36789e9f0fd",
 		"type": "function",
 		"z": "4e1d02e135536c14",
-		"g": "c4be9eb3db479d51",
+		"g": "92003b8d7ece4c1a",
 		"name": "Setup Device Data",
 		"func": "const gHomeAssistant = global.get(\"homeassistant\").homeAssistant;\nconst device = \"media_player.echo_dot_bedroom_3\";\n\nmsg.alexa_device = device;\nmsg.volume_level = { \n    \"old\" : gHomeAssistant.states[ device ].attributes.volume_level,\n    \"new\" :  0.2\n};\n\nreturn msg;",
 		"outputs": 1,
@@ -40476,7 +39567,7 @@
 		"id": "f9e0b7ba2c681f39",
 		"type": "link in",
 		"z": "4e1d02e135536c14",
-		"g": "c4be9eb3db479d51",
+		"g": "92003b8d7ece4c1a",
 		"name": "Send Audible Notification, BEDROOM 1 (MAIN)",
 		"links": [
 			"8be476363dfd33d3",
@@ -40505,7 +39596,7 @@
 		"id": "3a01748301fe8498",
 		"type": "link out",
 		"z": "4e1d02e135536c14",
-		"g": "c4be9eb3db479d51",
+		"g": "58946bdd678fbfa5",
 		"name": "Send Audible Notification",
 		"mode": "link",
 		"links": [
@@ -40519,7 +39610,7 @@
 		"id": "c722151add88f640",
 		"type": "function",
 		"z": "4e1d02e135536c14",
-		"g": "c4be9eb3db479d51",
+		"g": "92003b8d7ece4c1a",
 		"name": "Setup Device Data",
 		"func": "const gHomeAssistant = global.get(\"homeassistant\").homeAssistant;\nconst device = \"media_player.echo_dot_bedroom_2\";\n\nmsg.alexa_device = device;\nmsg.volume_level = { \n    \"old\" : gHomeAssistant.states[ device ].attributes.volume_level,\n    \"new\" :  0.2\n};\n\nreturn msg;",
 		"outputs": 1,
@@ -40539,7 +39630,7 @@
 		"id": "b9fb615b89979085",
 		"type": "link in",
 		"z": "4e1d02e135536c14",
-		"g": "c4be9eb3db479d51",
+		"g": "92003b8d7ece4c1a",
 		"name": "Send Audible Notification, BEDROOM 2 (GUEST)",
 		"links": [
 			"189c2f3c3581250e",
@@ -40568,7 +39659,7 @@
 		"id": "e4967201c6355ab0",
 		"type": "link out",
 		"z": "4e1d02e135536c14",
-		"g": "c4be9eb3db479d51",
+		"g": "92003b8d7ece4c1a",
 		"name": "Send Audible Notification",
 		"mode": "link",
 		"links": [
@@ -40582,7 +39673,7 @@
 		"id": "85de72e04aaa2de6",
 		"type": "function",
 		"z": "4e1d02e135536c14",
-		"g": "c4be9eb3db479d51",
+		"g": "92003b8d7ece4c1a",
 		"name": "Setup Device Data",
 		"func": "const gHomeAssistant = global.get(\"homeassistant\").homeAssistant;\nconst device = \"media_player.echo_dot_bedroom_1\";\n\nmsg.alexa_device = device;\nmsg.volume_level = { \n    \"old\" : gHomeAssistant.states[ device ].attributes.volume_level,\n    \"new\" :  0.3\n};\n\nreturn msg;",
 		"outputs": 1,
@@ -40602,7 +39693,7 @@
 		"id": "d892463cc91098f1",
 		"type": "link out",
 		"z": "4e1d02e135536c14",
-		"g": "c4be9eb3db479d51",
+		"g": "92003b8d7ece4c1a",
 		"name": "Send Audible Notification",
 		"mode": "link",
 		"links": [
@@ -40616,7 +39707,7 @@
 		"id": "915f38fb1e724141",
 		"type": "link out",
 		"z": "4e1d02e135536c14",
-		"g": "c4be9eb3db479d51",
+		"g": "92003b8d7ece4c1a",
 		"name": "Send Audible Notification",
 		"mode": "link",
 		"links": [
@@ -40630,7 +39721,7 @@
 		"id": "d86681ccbd79c9f3",
 		"type": "function",
 		"z": "4e1d02e135536c14",
-		"g": "c4be9eb3db479d51",
+		"g": "92003b8d7ece4c1a",
 		"name": "Setup Device Data",
 		"func": "const gHomeAssistant = global.get(\"homeassistant\").homeAssistant;\nconst device = \"media_player.echo_kitchen\";\n\nmsg.alexa_device = device;\nmsg.volume_level = { \n    \"old\" : gHomeAssistant.states[ device ].attributes.volume_level,\n    \"new\" :  0.5\n};\n\nreturn msg;",
 		"outputs": 1,
@@ -40650,7 +39741,7 @@
 		"id": "4c26de52a53acb79",
 		"type": "comment",
 		"z": "4e1d02e135536c14",
-		"g": "c4be9eb3db479d51",
+		"g": "92003b8d7ece4c1a",
 		"name": "----- Echo Dot, Dining Room -----",
 		"info": "",
 		"x": 850,
@@ -40661,7 +39752,7 @@
 		"id": "064a1785b9c6a8a0",
 		"type": "link in",
 		"z": "4e1d02e135536c14",
-		"g": "c4be9eb3db479d51",
+		"g": "92003b8d7ece4c1a",
 		"name": "Send Audible Notification, BEDROOM 3 (OFFICE, HERS)",
 		"links": [
 			"8be476363dfd33d3",
@@ -40689,10 +39780,10 @@
 		"id": "d0dc2e32d91cc767",
 		"type": "comment",
 		"z": "4e1d02e135536c14",
-		"g": "c4be9eb3db479d51",
+		"g": "92003b8d7ece4c1a",
 		"name": "----- Echo Dot, Bedroom 4 (Office, His) -----",
 		"info": "",
-		"x": 880,
+		"x": 890,
 		"y": 1820,
 		"wires": []
 	},
@@ -40700,7 +39791,7 @@
 		"id": "30a58835931e351d",
 		"type": "function",
 		"z": "4e1d02e135536c14",
-		"g": "c4be9eb3db479d51",
+		"g": "92003b8d7ece4c1a",
 		"name": "Setup Device Data",
 		"func": "const gHomeAssistant = global.get(\"homeassistant\").homeAssistant;\nconst device = \"media_player.echo_dot_bedroom_4\";\n\nmsg.alexa_device = device;\nmsg.volume_level = { \n    \"old\" : gHomeAssistant.states[ device ].attributes.volume_level,\n    \"new\" :  0.2\n};\n\nreturn msg;",
 		"outputs": 1,
@@ -40720,7 +39811,7 @@
 		"id": "e6130a39a2ab366a",
 		"type": "link out",
 		"z": "4e1d02e135536c14",
-		"g": "c4be9eb3db479d51",
+		"g": "92003b8d7ece4c1a",
 		"name": "Send Audible Notification",
 		"mode": "link",
 		"links": [
@@ -40734,7 +39825,7 @@
 		"id": "e3f52efe96ae8364",
 		"type": "link in",
 		"z": "4e1d02e135536c14",
-		"g": "c4be9eb3db479d51",
+		"g": "92003b8d7ece4c1a",
 		"name": "Send Audible Notification, BEDROOM 4 (OFFICE, HIS)",
 		"links": [
 			"8be476363dfd33d3",
@@ -40806,7 +39897,7 @@
 		"id": "b9d4c31f4c3cc017",
 		"type": "link in",
 		"z": "4e1d02e135536c14",
-		"g": "c4be9eb3db479d51",
+		"g": "92003b8d7ece4c1a",
 		"name": "Send Audible Notification, DINING ROOM",
 		"links": [
 			"8be476363dfd33d3",
@@ -40832,7 +39923,7 @@
 		"id": "42fa0ba60aff98c6",
 		"type": "function",
 		"z": "4e1d02e135536c14",
-		"g": "c4be9eb3db479d51",
+		"g": "92003b8d7ece4c1a",
 		"name": "Setup Device Data",
 		"func": "const gHomeAssistant = global.get(\"homeassistant\").homeAssistant;\nconst device = \"media_player.echo_dot_dining_room\";\n\nmsg.alexa_device = device;\nmsg.volume_level = { \n    \"old\" : gHomeAssistant.states[ device ].attributes.volume_level,\n    \"new\" :  0.3\n};\n\nreturn msg;",
 		"outputs": 1,
@@ -40852,7 +39943,7 @@
 		"id": "06d2f5e90b465001",
 		"type": "link out",
 		"z": "4e1d02e135536c14",
-		"g": "c4be9eb3db479d51",
+		"g": "92003b8d7ece4c1a",
 		"name": "Send Audible Notification",
 		"mode": "link",
 		"links": [
@@ -41184,7 +40275,7 @@
 		"type": "api-current-state",
 		"z": "4e1d02e135536c14",
 		"g": "f7b26ea9f0e17e65",
-		"name": "Can Recieve Alerts (People Locations)",
+		"name": "Can Recieve Alerts (Locations)",
 		"server": "1040bb61.673d75",
 		"version": 3,
 		"outputs": 2,
@@ -41216,7 +40307,7 @@
 		"override_payload": "msg",
 		"entity_location": "data",
 		"override_data": "msg",
-		"x": 570,
+		"x": 550,
 		"y": 440,
 		"wires": [
 			[
@@ -41531,7 +40622,7 @@
 		"z": "4e1d02e135536c14",
 		"g": "26d6ae42cf54cc15",
 		"name": "",
-		"active": true,
+		"active": false,
 		"tosidebar": true,
 		"console": false,
 		"tostatus": false,
@@ -41704,7 +40795,7 @@
 		"type": "api-current-state",
 		"z": "4e1d02e135536c14",
 		"g": "26d6ae42cf54cc15",
-		"name": "Can Recieve Alerts (People Locations)",
+		"name": "Can Recieve Alerts (Locations)",
 		"server": "1040bb61.673d75",
 		"version": 3,
 		"outputs": 2,
@@ -41736,7 +40827,7 @@
 		"override_payload": "msg",
 		"entity_location": "data",
 		"override_data": "msg",
-		"x": 570,
+		"x": 550,
 		"y": 920,
 		"wires": [
 			[
@@ -41979,7 +41070,7 @@
 		"id": "86fa6b8d15a3bd95",
 		"type": "api-current-state",
 		"z": "4e1d02e135536c14",
-		"g": "c4be9eb3db479d51",
+		"g": "92003b8d7ece4c1a",
 		"name": "Can Recieve",
 		"server": "1040bb61.673d75",
 		"version": 3,
@@ -42025,7 +41116,7 @@
 		"id": "5752a3489da78395",
 		"type": "api-current-state",
 		"z": "4e1d02e135536c14",
-		"g": "c4be9eb3db479d51",
+		"g": "92003b8d7ece4c1a",
 		"name": "Can Recieve",
 		"server": "1040bb61.673d75",
 		"version": 3,
@@ -42071,7 +41162,7 @@
 		"id": "1a2972494879f106",
 		"type": "api-current-state",
 		"z": "4e1d02e135536c14",
-		"g": "c4be9eb3db479d51",
+		"g": "92003b8d7ece4c1a",
 		"name": "Can Recieve",
 		"server": "1040bb61.673d75",
 		"version": 3,
@@ -42117,7 +41208,7 @@
 		"id": "eb8e6829bd532d6b",
 		"type": "api-current-state",
 		"z": "4e1d02e135536c14",
-		"g": "c4be9eb3db479d51",
+		"g": "92003b8d7ece4c1a",
 		"name": "Can Recieve",
 		"server": "1040bb61.673d75",
 		"version": 3,
@@ -42163,7 +41254,7 @@
 		"id": "b2d6fd7d25cc6c7f",
 		"type": "api-current-state",
 		"z": "4e1d02e135536c14",
-		"g": "c4be9eb3db479d51",
+		"g": "92003b8d7ece4c1a",
 		"name": "Can Recieve",
 		"server": "1040bb61.673d75",
 		"version": 3,
@@ -42209,7 +41300,7 @@
 		"id": "6d9005bfb46a1024",
 		"type": "api-current-state",
 		"z": "4e1d02e135536c14",
-		"g": "c4be9eb3db479d51",
+		"g": "92003b8d7ece4c1a",
 		"name": "Can Recieve",
 		"server": "1040bb61.673d75",
 		"version": 3,
@@ -42397,7 +41488,7 @@
 		"id": "9d1c9c66ff51c965",
 		"type": "comment",
 		"z": "4e1d02e135536c14",
-		"g": "c4be9eb3db479d51",
+		"g": "92003b8d7ece4c1a",
 		"name": "----- Echo Pop, Main Bathroom -----",
 		"info": "",
 		"x": 1500,
@@ -42408,7 +41499,7 @@
 		"id": "ffe59e12601889d3",
 		"type": "link in",
 		"z": "4e1d02e135536c14",
-		"g": "c4be9eb3db479d51",
+		"g": "92003b8d7ece4c1a",
 		"name": "Send Audible Notification, BATHROOM (MAIN)",
 		"links": [
 			"491012938a8df3df",
@@ -42429,7 +41520,7 @@
 		"id": "e3d5fb23eee00328",
 		"type": "api-current-state",
 		"z": "4e1d02e135536c14",
-		"g": "c4be9eb3db479d51",
+		"g": "92003b8d7ece4c1a",
 		"name": "Can Recieve",
 		"server": "1040bb61.673d75",
 		"version": 3,
@@ -42470,40 +41561,6 @@
 			],
 			[]
 		]
-	},
-	{
-		"id": "f1e68be6187fda86",
-		"type": "function",
-		"z": "4e1d02e135536c14",
-		"g": "58946bdd678fbfa5",
-		"name": "Setup Device Data",
-		"func": "const gHomeAssistant = global.get(\"homeassistant\").homeAssistant;\nconst device = \"media_player.echo_pop_main_bathroom\";\n\nmsg.alexa_device = device;\nmsg.volume_level = { \n    \"old\" : gHomeAssistant.states[ device ].attributes.volume_level,\n    \"new\" :  0.2\n};\n\nreturn msg;",
-		"outputs": 1,
-		"noerr": 0,
-		"initialize": "",
-		"finalize": "",
-		"libs": [],
-		"x": 1750,
-		"y": 1560,
-		"wires": [
-			[
-				"3b19e82b3d03a401"
-			]
-		]
-	},
-	{
-		"id": "3b19e82b3d03a401",
-		"type": "link out",
-		"z": "4e1d02e135536c14",
-		"g": "58946bdd678fbfa5",
-		"name": "Send Audible Notification",
-		"mode": "link",
-		"links": [
-			"23bf231d5f92d898"
-		],
-		"x": 1915,
-		"y": 1560,
-		"wires": []
 	},
 	{
 		"id": "578913da502b50d6",
@@ -42626,6 +41683,40 @@
 				"914500a98f1597b0"
 			]
 		]
+	},
+	{
+		"id": "f1e68be6187fda86",
+		"type": "function",
+		"z": "4e1d02e135536c14",
+		"g": "92003b8d7ece4c1a",
+		"name": "Setup Device Data",
+		"func": "const gHomeAssistant = global.get(\"homeassistant\").homeAssistant;\nconst device = \"media_player.echo_pop_main_bathroom\";\n\nmsg.alexa_device = device;\nmsg.volume_level = { \n    \"old\" : gHomeAssistant.states[ device ].attributes.volume_level,\n    \"new\" :  0.2\n};\n\nreturn msg;",
+		"outputs": 1,
+		"noerr": 0,
+		"initialize": "",
+		"finalize": "",
+		"libs": [],
+		"x": 1750,
+		"y": 1560,
+		"wires": [
+			[
+				"3b19e82b3d03a401"
+			]
+		]
+	},
+	{
+		"id": "3b19e82b3d03a401",
+		"type": "link out",
+		"z": "4e1d02e135536c14",
+		"g": "92003b8d7ece4c1a",
+		"name": "Send Audible Notification",
+		"mode": "link",
+		"links": [
+			"23bf231d5f92d898"
+		],
+		"x": 1915,
+		"y": 1560,
+		"wires": []
 	},
 	{
 		"id": "e4754a95609a8baa",
@@ -42792,7 +41883,7 @@
 		"targetType": "full",
 		"statusVal": "",
 		"statusType": "auto",
-		"x": 630,
+		"x": 690,
 		"y": 520,
 		"wires": []
 	},
@@ -42812,7 +41903,7 @@
 		"type": "api-call-service",
 		"z": "84fbe6cff282922d",
 		"g": "0d3a64265ec09852",
-		"name": "SNOOZE Today",
+		"name": "Garage Door: SNOOZE",
 		"server": "1040bb61.673d75",
 		"version": 5,
 		"debugenabled": false,
@@ -42829,7 +41920,7 @@
 		"mustacheAltTags": false,
 		"outputProperties": [],
 		"queue": "none",
-		"x": 440,
+		"x": 470,
 		"y": 520,
 		"wires": [
 			[
@@ -42908,7 +41999,7 @@
 				"valueType": "jsonata"
 			}
 		],
-		"x": 910,
+		"x": 970,
 		"y": 520,
 		"wires": [
 			[
@@ -42944,7 +42035,7 @@
 		"checkall": "true",
 		"repair": false,
 		"outputs": 3,
-		"x": 940,
+		"x": 1000,
 		"y": 620,
 		"wires": [
 			[
@@ -42980,7 +42071,7 @@
 		"mustacheAltTags": false,
 		"outputProperties": [],
 		"queue": "none",
-		"x": 1190,
+		"x": 1250,
 		"y": 640,
 		"wires": [
 			[
@@ -43010,7 +42101,7 @@
 		"mustacheAltTags": false,
 		"outputProperties": [],
 		"queue": "none",
-		"x": 1200,
+		"x": 1260,
 		"y": 580,
 		"wires": [
 			[
@@ -43032,7 +42123,7 @@
 		"targetType": "full",
 		"statusVal": "",
 		"statusType": "auto",
-		"x": 1370,
+		"x": 1470,
 		"y": 520,
 		"wires": []
 	},
@@ -43043,7 +42134,7 @@
 		"g": "8c050726f929271a",
 		"name": "----- Front Door iOS Actions -----",
 		"info": "",
-		"x": 950,
+		"x": 1010,
 		"y": 480,
 		"wires": []
 	},
@@ -43052,7 +42143,7 @@
 		"type": "api-call-service",
 		"z": "84fbe6cff282922d",
 		"g": "8c050726f929271a",
-		"name": "SNOOZE Today",
+		"name": "Front Door: SNOOZE",
 		"server": "1040bb61.673d75",
 		"version": 5,
 		"debugenabled": false,
@@ -43069,7 +42160,7 @@
 		"mustacheAltTags": false,
 		"outputProperties": [],
 		"queue": "none",
-		"x": 1180,
+		"x": 1260,
 		"y": 520,
 		"wires": [
 			[
@@ -43099,7 +42190,7 @@
 		"once": false,
 		"onceDelay": 0.1,
 		"topic": "",
-		"x": 930,
+		"x": 990,
 		"y": 720,
 		"wires": [
 			[
@@ -43207,7 +42298,7 @@
 		"targetType": "full",
 		"statusVal": "",
 		"statusType": "auto",
-		"x": 610,
+		"x": 630,
 		"y": 900,
 		"wires": []
 	},
@@ -43216,7 +42307,7 @@
 		"type": "api-call-service",
 		"z": "84fbe6cff282922d",
 		"g": "c27b37bacfd81b8e",
-		"name": "SNOOZE Today",
+		"name": "Doorbell: SNOOZE",
 		"server": "1040bb61.673d75",
 		"version": 5,
 		"debugenabled": false,
@@ -43233,7 +42324,7 @@
 		"mustacheAltTags": false,
 		"outputProperties": [],
 		"queue": "none",
-		"x": 420,
+		"x": 430,
 		"y": 900,
 		"wires": [
 			[
@@ -43318,7 +42409,7 @@
 				"valueType": "str"
 			}
 		],
-		"x": 910,
+		"x": 990,
 		"y": 900,
 		"wires": [
 			[
@@ -43344,7 +42435,7 @@
 		"checkall": "true",
 		"repair": false,
 		"outputs": 1,
-		"x": 940,
+		"x": 1020,
 		"y": 980,
 		"wires": [
 			[
@@ -43359,7 +42450,7 @@
 		"g": "1bb40b79d6de32c3",
 		"name": "----- Household Activity iOS Actions -----",
 		"info": "",
-		"x": 960,
+		"x": 1040,
 		"y": 860,
 		"wires": []
 	},
@@ -43377,7 +42468,7 @@
 		"targetType": "full",
 		"statusVal": "",
 		"statusType": "auto",
-		"x": 1350,
+		"x": 1450,
 		"y": 900,
 		"wires": []
 	},
@@ -43386,7 +42477,7 @@
 		"type": "api-call-service",
 		"z": "84fbe6cff282922d",
 		"g": "1bb40b79d6de32c3",
-		"name": "SNOOZE Today",
+		"name": "Activity: SNOOZE",
 		"server": "1040bb61.673d75",
 		"version": 5,
 		"debugenabled": false,
@@ -43403,7 +42494,7 @@
 		"mustacheAltTags": false,
 		"outputProperties": [],
 		"queue": "none",
-		"x": 1160,
+		"x": 1250,
 		"y": 900,
 		"wires": [
 			[
@@ -43429,7 +42520,7 @@
 		"once": false,
 		"onceDelay": 0.1,
 		"topic": "",
-		"x": 930,
+		"x": 1010,
 		"y": 1060,
 		"wires": [
 			[
@@ -44425,7 +43516,7 @@
 		"targetType": "full",
 		"statusVal": "",
 		"statusType": "auto",
-		"x": 910,
+		"x": 870,
 		"y": 1960,
 		"wires": []
 	},
@@ -44443,7 +43534,7 @@
 		"areaId": [],
 		"deviceId": [],
 		"entityId": [
-			"input_boolean.reminder_medicine_am_taken_thomas"
+			"input_boolean.reminder_medicine_am_complete_thomas"
 		],
 		"data": "",
 		"dataType": "json",
@@ -44522,7 +43613,7 @@
 		"areaId": [],
 		"deviceId": [],
 		"entityId": [
-			"input_boolean.snooze_reminder_medicine_am_taken_thomas"
+			"input_boolean.reminder_medicine_am_snoozed_thomas"
 		],
 		"data": "",
 		"dataType": "json",
@@ -44573,7 +43664,7 @@
 		"repair": false,
 		"outputs": 2,
 		"x": 380,
-		"y": 2260,
+		"y": 2240,
 		"wires": [
 			[
 				"9e027713d4b15eac"
@@ -44615,7 +43706,7 @@
 		"areaId": [],
 		"deviceId": [],
 		"entityId": [
-			"input_boolean.reminder_toothbrush_thomas"
+			"input_boolean.reminder_toothbrush_complete_thomas"
 		],
 		"data": "",
 		"dataType": "json",
@@ -44694,7 +43785,7 @@
 		"areaId": [],
 		"deviceId": [],
 		"entityId": [
-			"input_boolean.snooze_reminder_toothbrush_thomas"
+			"input_boolean.reminder_toothbrush_snoozed_thomas"
 		],
 		"data": "",
 		"dataType": "json",
@@ -44769,7 +43860,7 @@
 		"targetType": "full",
 		"statusVal": "",
 		"statusType": "auto",
-		"x": 1870,
+		"x": 1850,
 		"y": 1260,
 		"wires": []
 	},
@@ -44778,7 +43869,7 @@
 		"type": "api-call-service",
 		"z": "84fbe6cff282922d",
 		"g": "2892c2a908070716",
-		"name": "Turn Garage Fan ON",
+		"name": "Garage Fan: ON",
 		"server": "1040bb61.673d75",
 		"version": 5,
 		"debugenabled": false,
@@ -44795,7 +43886,7 @@
 		"mustacheAltTags": false,
 		"outputProperties": [],
 		"queue": "none",
-		"x": 1660,
+		"x": 1650,
 		"y": 1260,
 		"wires": [
 			[
@@ -44857,7 +43948,7 @@
 		"type": "api-call-service",
 		"z": "84fbe6cff282922d",
 		"g": "2892c2a908070716",
-		"name": "Turn Garage Fan OFF",
+		"name": "Garage Fan: OFF",
 		"server": "1040bb61.673d75",
 		"version": 5,
 		"debugenabled": false,
@@ -44874,7 +43965,7 @@
 		"mustacheAltTags": false,
 		"outputProperties": [],
 		"queue": "none",
-		"x": 1660,
+		"x": 1650,
 		"y": 1320,
 		"wires": [
 			[
@@ -44896,7 +43987,7 @@
 		"areaId": [],
 		"deviceId": [],
 		"entityId": [
-			"input_boolean.snooze_reminder_medicine_pm_taken_thomas"
+			"input_boolean.reminder_medicine_pm_snoozed_thomas"
 		],
 		"data": "",
 		"dataType": "json",
@@ -44907,7 +43998,9 @@
 		"x": 620,
 		"y": 2140,
 		"wires": [
-			[]
+			[
+				"e3165a952be8e08b"
+			]
 		]
 	},
 	{
@@ -44924,7 +44017,7 @@
 		"areaId": [],
 		"deviceId": [],
 		"entityId": [
-			"input_boolean.reminder_medicine_pm_taken_thomas"
+			"input_boolean.reminder_medicine_pm_complete_thomas"
 		],
 		"data": "",
 		"dataType": "json",
@@ -44935,7 +44028,9 @@
 		"x": 630,
 		"y": 2080,
 		"wires": [
-			[]
+			[
+				"e3165a952be8e08b"
+			]
 		]
 	},
 	{
@@ -44945,7 +44040,7 @@
 		"g": "3d767195141d839b",
 		"name": "----- Medication Reminder, Jess -----",
 		"info": "",
-		"x": 1240,
+		"x": 1210,
 		"y": 1920,
 		"wires": []
 	},
@@ -44982,7 +44077,7 @@
 		"checkall": "true",
 		"repair": false,
 		"outputs": 4,
-		"x": 1400,
+		"x": 1370,
 		"y": 1980,
 		"wires": [
 			[
@@ -45013,7 +44108,7 @@
 		"targetType": "full",
 		"statusVal": "",
 		"statusType": "auto",
-		"x": 1930,
+		"x": 1860,
 		"y": 1960,
 		"wires": []
 	},
@@ -45031,7 +44126,7 @@
 		"areaId": [],
 		"deviceId": [],
 		"entityId": [
-			"input_boolean.reminder_medicine_am_taken_jessica"
+			"input_boolean.reminder_medicine_am_complete_jessica"
 		],
 		"data": "",
 		"dataType": "json",
@@ -45039,7 +44134,7 @@
 		"mustacheAltTags": false,
 		"outputProperties": [],
 		"queue": "none",
-		"x": 1650,
+		"x": 1630,
 		"y": 1960,
 		"wires": [
 			[
@@ -45088,7 +44183,7 @@
 				"valueType": "jsonata"
 			}
 		],
-		"x": 1190,
+		"x": 1160,
 		"y": 1960,
 		"wires": [
 			[
@@ -45110,7 +44205,7 @@
 		"areaId": [],
 		"deviceId": [],
 		"entityId": [
-			"input_boolean.snooze_reminder_medicine_am_taken_jessica"
+			"input_boolean.reminder_medicine_am_snoozed_jessica"
 		],
 		"data": "",
 		"dataType": "json",
@@ -45118,7 +44213,7 @@
 		"mustacheAltTags": false,
 		"outputProperties": [],
 		"queue": "none",
-		"x": 1640,
+		"x": 1620,
 		"y": 2020,
 		"wires": [
 			[
@@ -45140,7 +44235,7 @@
 		"areaId": [],
 		"deviceId": [],
 		"entityId": [
-			"input_boolean.reminder_medicine_am_taken_jessica"
+			"input_boolean.reminder_medicine_pm_complete_jessica"
 		],
 		"data": "",
 		"dataType": "json",
@@ -45148,7 +44243,7 @@
 		"mustacheAltTags": false,
 		"outputProperties": [],
 		"queue": "none",
-		"x": 1650,
+		"x": 1630,
 		"y": 2080,
 		"wires": [
 			[
@@ -45170,7 +44265,7 @@
 		"areaId": [],
 		"deviceId": [],
 		"entityId": [
-			"input_boolean.snooze_reminder_medicine_pm_taken_jessica"
+			"input_boolean.reminder_medicine_pm_snoozed_jessica"
 		],
 		"data": "",
 		"dataType": "json",
@@ -45178,7 +44273,7 @@
 		"mustacheAltTags": false,
 		"outputProperties": [],
 		"queue": "none",
-		"x": 1640,
+		"x": 1620,
 		"y": 2140,
 		"wires": [
 			[
@@ -45193,7 +44288,7 @@
 		"g": "3d767195141d839b",
 		"name": "----- Toothbrush Reminders, Jess -----",
 		"info": "",
-		"x": 1250,
+		"x": 1220,
 		"y": 2200,
 		"wires": []
 	},
@@ -45220,8 +44315,8 @@
 		"checkall": "true",
 		"repair": false,
 		"outputs": 2,
-		"x": 1400,
-		"y": 2260,
+		"x": 1370,
+		"y": 2240,
 		"wires": [
 			[
 				"f42bb7a47317c872"
@@ -45245,7 +44340,7 @@
 		"targetType": "full",
 		"statusVal": "",
 		"statusType": "auto",
-		"x": 1890,
+		"x": 1860,
 		"y": 2240,
 		"wires": []
 	},
@@ -45290,7 +44385,7 @@
 				"valueType": "jsonata"
 			}
 		],
-		"x": 1190,
+		"x": 1160,
 		"y": 2240,
 		"wires": [
 			[
@@ -45312,7 +44407,7 @@
 		"areaId": [],
 		"deviceId": [],
 		"entityId": [
-			"input_boolean.reminder_toothbrush_jessica"
+			"input_boolean.reminder_toothbrush_complete_jessica"
 		],
 		"data": "",
 		"dataType": "json",
@@ -45320,7 +44415,7 @@
 		"mustacheAltTags": false,
 		"outputProperties": [],
 		"queue": "none",
-		"x": 1630,
+		"x": 1610,
 		"y": 2240,
 		"wires": [
 			[
@@ -45342,7 +44437,7 @@
 		"areaId": [],
 		"deviceId": [],
 		"entityId": [
-			"input_boolean.snooze_reminder_toothbrush_jessica"
+			"input_boolean.reminder_toothbrush_snoozed_jessica"
 		],
 		"data": "",
 		"dataType": "json",
@@ -45350,7 +44445,7 @@
 		"mustacheAltTags": false,
 		"outputProperties": [],
 		"queue": "none",
-		"x": 1620,
+		"x": 1600,
 		"y": 2300,
 		"wires": [
 			[
