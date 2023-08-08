@@ -2897,14 +2897,14 @@ views:
                 state_not: unavailable
             row:
               entity: input_boolean.sync_cabinet_above_lights
-              name: Kitchen, Above Cabinet Lights
+              name: Above Kitchen Cabinet Lights
           - type: conditional
             conditions:
               - entity: light.foyer_ceiling_lights
                 state_not: unavailable
             row:
               entity: input_boolean.sync_foyer_lights
-              name: Foyer, Ceiling Lights
+              name: Foyer Ceiling Lights
           - type: conditional
             conditions:
               - entity: light.bedroom_1_lamp_j
@@ -2913,105 +2913,121 @@ views:
                 state_not: unavailable
             row:
               entity: input_boolean.sync_bedroom_1_bedside_lamps
-              name: Main Bedroom, Bedside Lamps
+              name: Main Bedroom Bedside Lamps
           - type: conditional
             conditions:
               - entity: light.bedroom_4_lights
                 state_not: unavailable
             row:
               entity: input_boolean.sync_bedroom_4_lights
-              name: Tom's Office, Desk Lights
+              name: His Office Desk Lights
       - type: entities
         show_header_toggle: false
         style: |
+          #states > div:nth-child(3), 
           #states > div:nth-child(4), 
-          #states > div:nth-child(5),
-          #states > div:nth-child(6),
+          #states > div:nth-child(6), 
           #states > div:nth-child(7),
           #states > div:nth-child(8),
           #states > div:nth-child(9),
-          #states > div:nth-child(10) { padding-left: 45px !important;}
+          #states > div:nth-child(10),
+          #states > div:nth-child(11),
+          #states > div:nth-child(12) { padding-left: 45px !important;}
         entities:
           - type: section
             label: Allow Notifications On
           - entity: input_boolean.app_notify
             name: Mobile Devices
+          - type: conditional
+            conditions:
+              - entity: input_boolean.app_notify
+                state: 'on'
+            row:
+              entity: input_boolean.app_notify_jess
+              name: Jess' iPhone
+          - type: conditional
+            conditions:
+              - entity: input_boolean.app_notify
+                state: 'on'
+            row:
+              entity: input_boolean.app_notify_tom
+              name: Tom's iPhone
           - entity: input_boolean.household_notify
-            name: Alexa Devices
+            name: Amazon Alexa Devices
           - type: conditional
             conditions:
               - entity: input_boolean.household_notify
                 state: 'on'
             row:
               entity: input_boolean.household_notify_kitchen
-              name: Kitchen
+              name: Kitchen Echo
           - type: conditional
             conditions:
               - entity: input_boolean.household_notify
                 state: 'on'
             row:
               entity: input_boolean.household_notify_dining_room
-              name: Dining Room
+              name: Dining Room Echo Dot
           - type: conditional
             conditions:
               - entity: input_boolean.household_notify
                 state: 'on'
             row:
               entity: input_boolean.household_notify_bedroom_1
-              name: Main Bedroom
+              name: Main Bedroom Echo Dot
           - type: conditional
             conditions:
               - entity: input_boolean.household_notify
                 state: 'on'
             row:
               entity: input_boolean.household_notify_bathroom_1
-              name: Main Bathroom
+              name: Main Bathroom Echo Pop
           - type: conditional
             conditions:
               - entity: input_boolean.household_notify
                 state: 'on'
             row:
               entity: input_boolean.household_notify_bedroom_2
-              name: Guest Bedroom
+              name: Guest Bedroom Echo Dot
           - type: conditional
             conditions:
               - entity: input_boolean.household_notify
                 state: 'on'
             row:
               entity: input_boolean.household_notify_bedroom_3
-              name: Jess' Office
+              name: Her Office Echo Dot
           - type: conditional
             conditions:
               - entity: input_boolean.household_notify
                 state: 'on'
             row:
               entity: input_boolean.household_notify_bedroom_4
-              name: Tom's Office
+              name: His Office Echo Dot
       - type: entities
         show_header_toggle: false
         style: |
-          #states > div:nth-child(3) { padding-left: 45px !important;}          
+          #states > div:nth-child(6) { padding-left: 45px !important;}          
         entities:
           - type: section
             label: Door Triggered Automations
+          - entity: input_boolean.automation_foyer_door_open_close
+            name: Front Doors (primary and secondary)
+          - entity: input_boolean.automation_garage_door_open_close
+            name: Garage (Interior) Door
+          - entity: input_boolean.automation_living_room_door_open_close
+            name: Sliding Glass Door
           - entity: input_boolean.automation_bedroom_1_door_open_close
-            name: Bedroom 1, Door Open/Close
+            name: Main Bedroom Door
           - entity: input_boolean.closet_automatic_turn_off
             name: Auto-Shutoff Closet Lights
           - entity: input_boolean.automation_bedroom_2_door_open_close
-            name: Bedroom 2, Door Open/Close
+            name: Guest Bedroom Door
           - entity: input_boolean.automation_bedroom_3_door_open_close
-            name: Bedroom 3, Door Open/Close
+            name: Her Office Door
           - entity: input_boolean.automation_bedroom_4_door_open_close
-            name: Bedroom 4, Door Open/Close
-          - entity: input_boolean.automation_foyer_door_open_close
-            name: Front Entry, Door Open/Close
-          - entity: input_boolean.automation_living_room_door_open_close
-            name: Living Room, Door Open/Close
+            name: His Office Door
           - entity: input_boolean.automation_laundry_room_door_open_close
-            name: Laundry Room, Door Open/Close
-          - entity: input_boolean.automation_garage_door_open_close
-            name: Garage, Door Open/Close
+            name: Laundry Room Door
   - title: Helpers
     path: subview-helpers
     back_path: /dashboard-home/home
@@ -3169,27 +3185,6 @@ views:
     theme: tihiti
     badges: []
     cards:
-      - type: custom:button-card
-        name: Find my iPhone
-        icon: mdi:bell-ring
-        template: icon_name
-        styles:
-          card:
-            - margin: 0 auto
-        tap_action:
-          confirmation:
-            text: Are you sure you want to ping this device?
-          action: call-service
-          service: notify.mobile_app_toms_iphone
-          service_data:
-            title: Find my iPhone
-            message: Here I am.
-            data:
-              push:
-                sound:
-                  name: alarm.caf
-                  critical: 1
-                  volume: 1
       - type: custom:state-switch
         entity: user
         default: Johan
@@ -3215,12 +3210,18 @@ views:
         style: |
           .name { margin: 0 0 1em !important;}
 
+          #states > div:nth-child(3), 
+          #states > div:nth-child(4), 
+          #states > div:nth-child(5), 
+          #states > div:nth-child(8), 
+          #states > div:nth-child(9) { padding-left: 45px !important;}
+
           #states > div:nth-child(6), 
-          #states > div:nth-child(7) { padding-left: 45px !important;}
+          #states > div:nth-child(7) { padding-left: 90px !important;}
         entities:
           - type: section
           - entity: input_boolean.app_notify_tom
-            name: Recieve Notifications
+            name: Allow Mobile Device Notifications
           - type: conditional
             conditions:
               - entity: input_boolean.app_notify_tom
@@ -3292,6 +3293,34 @@ views:
             row:
               entity: input_boolean.app_notify_tom_alert_critical
               name: Critical Notifications
+      - type: custom:layout-card
+        layout_type: grid
+        layout:
+          place-items: center center
+        square: false
+        columns: 1
+        cards:
+          - type: custom:button-card
+            name: Find my iPhone
+            icon: mdi:bell-ring
+            template: icon_name
+            styles:
+              card:
+                - margin-bottom: 2vw
+            tap_action:
+              confirmation:
+                text: Are you sure you want to ping this device?
+              action: call-service
+              service: notify.mobile_app_toms_iphone
+              service_data:
+                title: Find my iPhone
+                message: Here I am.
+                data:
+                  push:
+                    sound:
+                      name: alarm.caf
+                      critical: 1
+                      volume: 1
       - type: map
         default_zoom: 16
         dark_mode: true
@@ -3341,24 +3370,6 @@ views:
     theme: tihiti
     badges: []
     cards:
-      - type: custom:button-card
-        name: Find my iPhone
-        icon: mdi:bell-ring
-        template: icon_name
-        tap_action:
-          confirmation:
-            text: Are you sure you want to ping this device?
-          action: call-service
-          service: notify.mobile_app_jess_iphone
-          service_data:
-            title: Find my iPhone
-            message: Here I am.
-            data:
-              push:
-                sound:
-                  name: alarm.caf
-                  critical: 1
-                  volume: 1
       - type: custom:state-switch
         entity: user
         default: Johan
@@ -3397,12 +3408,18 @@ views:
         style: |
           .name { margin: 0 0 1em !important;}
 
+          #states > div:nth-child(3), 
+          #states > div:nth-child(4), 
+          #states > div:nth-child(5), 
+          #states > div:nth-child(8), 
+          #states > div:nth-child(9) { padding-left: 45px !important;}
+
           #states > div:nth-child(6), 
-          #states > div:nth-child(7) { padding-left: 45px !important;}
+          #states > div:nth-child(7) { padding-left: 90px !important;}
         entities:
           - type: section
           - entity: input_boolean.app_notify_jess
-            name: Recieve Notifications
+            name: Allow Mobile Device Notifications
           - type: conditional
             conditions:
               - entity: input_boolean.app_notify_jess
@@ -3474,6 +3491,34 @@ views:
             row:
               entity: input_boolean.app_notify_jess_alert_critical
               name: Critical Notifications
+      - type: custom:layout-card
+        layout_type: grid
+        layout:
+          place-items: center center
+        square: false
+        columns: 1
+        cards:
+          - type: custom:button-card
+            name: Find my iPhone
+            icon: mdi:bell-ring
+            template: icon_name
+            styles:
+              card:
+                - margin-bottom: 2vw
+            tap_action:
+              confirmation:
+                text: Are you sure you want to ping this device?
+              action: call-service
+              service: notify.mobile_app_jess_iphone
+              service_data:
+                title: Find my iPhone
+                message: Here I am.
+                data:
+                  push:
+                    sound:
+                      name: alarm.caf
+                      critical: 1
+                      volume: 1
       - type: map
         default_zoom: 16
         dark_mode: true

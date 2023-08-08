@@ -232,9 +232,9 @@
 			"4f997090c886c6b5",
 			"f94cede360fbcd89"
 		],
-		"x": 54,
+		"x": 44,
 		"y": 39,
-		"w": 1432,
+		"w": 1442,
 		"h": 462
 	},
 	{
@@ -284,9 +284,9 @@
 			"9be85ff0bb1d897e",
 			"96a95b863ebb13a7"
 		],
-		"x": 54,
+		"x": 44,
 		"y": 559,
-		"w": 2022,
+		"w": 2032,
 		"h": 462
 	},
 	{
@@ -352,9 +352,9 @@
 			"739908c2caa329e7",
 			"faf06f138718c891"
 		],
-		"x": 54,
+		"x": 44,
 		"y": 1079,
-		"w": 2152,
+		"w": 2162,
 		"h": 702
 	},
 	{
@@ -421,9 +421,7 @@
 			"eb8659db04f28a16"
 		],
 		"x": 34,
-		"y": 39,
-		"w": 1092,
-		"h": 322
+		"y": 39
 	},
 	{
 		"id": "09686aa28ec76166",
@@ -451,10 +449,8 @@
 			"1466455846b44c47",
 			"fc5993e3b509d963"
 		],
-		"x": 34,
-		"y": 419,
-		"w": 1092,
-		"h": 322
+		"x": 24,
+		"y": 419
 	},
 	{
 		"id": "90b28685286b5c32",
@@ -480,10 +476,8 @@
 			"8f4cbc4036b81f6f",
 			"df97128a7a5fa070"
 		],
-		"x": 34,
-		"y": 1319,
-		"w": 992,
-		"h": 202
+		"x": 24,
+		"y": 1319
 	},
 	{
 		"id": "6c9abf623b0a916b",
@@ -510,10 +504,8 @@
 			"f48a8550febb335f",
 			"23ce45040468a50d"
 		],
-		"x": 34,
-		"y": 2099,
-		"w": 1152,
-		"h": 322
+		"x": 24,
+		"y": 2099
 	},
 	{
 		"id": "2ef23d258e2908a5",
@@ -542,10 +534,8 @@
 			"0c745f65dfe2301c",
 			"b23e6a87cc646cae"
 		],
-		"x": 34,
-		"y": 1839,
-		"w": 1692,
-		"h": 209.5
+		"x": 24,
+		"y": 1839
 	},
 	{
 		"id": "1f3f56a64bdf7245",
@@ -573,9 +563,7 @@
 			"0270d118ae4b7804"
 		],
 		"x": 54,
-		"y": 599,
-		"w": 912,
-		"h": 262
+		"y": 599
 	},
 	{
 		"id": "ac97a59aa0e054c4",
@@ -604,9 +592,7 @@
 			"a3917d33848d267a"
 		],
 		"x": 54,
-		"y": 319,
-		"w": 1662,
-		"h": 222
+		"y": 319
 	},
 	{
 		"id": "babed62518ff1825",
@@ -635,9 +621,7 @@
 			"eba87b7c0a53c6e7"
 		],
 		"x": 54,
-		"y": 1179,
-		"w": 1332,
-		"h": 222
+		"y": 1179
 	},
 	{
 		"id": "3c888c1f5a7f12b2",
@@ -669,9 +653,9 @@
 			"6250801d5249ba07",
 			"7b69a238ddfbd434"
 		],
-		"x": 54,
+		"x": 44,
 		"y": 499,
-		"w": 1412,
+		"w": 1422,
 		"h": 402
 	},
 	{
@@ -783,7 +767,6 @@
 		"nodes": [
 			"0d46746ba8440730",
 			"6b25673ada107590",
-			"c6d8e1b43823a5dc",
 			"97e968a2365c92c3",
 			"e26d20461f8bf2d6",
 			"b0d4b0345dc6f620",
@@ -799,7 +782,7 @@
 		],
 		"x": 54,
 		"y": 39,
-		"w": 1462,
+		"w": 1182,
 		"h": 622
 	},
 	{
@@ -818,8 +801,6 @@
 			"e0b6b365e87fb6b5",
 			"8be476363dfd33d3",
 			"848ffb410d7e4f62",
-			"11f8bc649bee4ded",
-			"f69152fd9615e388",
 			"2f5cd294e37eebe8",
 			"321a3a8d99208af6",
 			"218b9a93a0633e77",
@@ -839,7 +820,7 @@
 		],
 		"x": 54,
 		"y": 1879,
-		"w": 1352,
+		"w": 1102,
 		"h": 562
 	},
 	{
@@ -867,9 +848,9 @@
 			"062c51f7d411b10d",
 			"d5ef7b3634b07679"
 		],
-		"x": 54,
+		"x": 44,
 		"y": 2559,
-		"w": 1202,
+		"w": 1212,
 		"h": 282
 	},
 	{
@@ -926,9 +907,9 @@
 			"3aa42271bb831f91",
 			"09dda31a10fb6d18"
 		],
-		"x": 54,
+		"x": 44,
 		"y": 3819,
-		"w": 1002,
+		"w": 1012,
 		"h": 322
 	},
 	{
@@ -1041,7 +1022,7 @@
 			"9b218a2d492ec04a",
 			"b1a669a3734738d0"
 		],
-		"x": 44,
+		"x": 54,
 		"y": 1139
 	},
 	{
@@ -1107,10 +1088,8 @@
 			"57e784ddeb4dd9f7",
 			"2e59f659b453aacb"
 		],
-		"x": 54,
-		"y": 39,
-		"w": 1202,
-		"h": 222
+		"x": 44,
+		"y": 39
 	},
 	{
 		"id": "52a2267cd3f77359",
@@ -1242,7 +1221,7 @@
 			"82b59c2457fddf8e",
 			"0522f6c225c5d710"
 		],
-		"x": 44,
+		"x": 54,
 		"y": 579
 	},
 	{
@@ -1292,80 +1271,7 @@
 			"715cc250ba4cf7f2"
 		],
 		"x": 54,
-		"y": 2459
-	},
-	{
-		"id": "bd3118f367301ff5",
-		"type": "group",
-		"z": "81dea24119402f3d",
-		"style": {
-			"stroke": "#999999",
-			"stroke-opacity": "1",
-			"fill": "none",
-			"fill-opacity": "1",
-			"label": true,
-			"label-position": "nw",
-			"color": "#a4a4a4"
-		},
-		"nodes": [
-			"47c6beecaf9e5285",
-			"8fef094520f97e33",
-			"8d6e0c3515de5e46",
-			"ba4b0a900eaa620b",
-			"a8a272fb5fe1e626",
-			"78ffdee5ce1f83f0",
-			"38b8672ee442e9f0",
-			"31474addb70e9b66",
-			"a7094f5080084d0d",
-			"21843f05c8a1678d",
-			"7671e90adb265d95",
-			"aa22207828b574e1",
-			"aa359bf704718694",
-			"889ec330f44a214b",
-			"baf09091da5eeec6",
-			"64e10880e9c0a9cf",
-			"13647171e3c55ca1"
-		],
-		"x": 44,
 		"y": 1579
-	},
-	{
-		"id": "3c7ebf27175ff688",
-		"type": "group",
-		"z": "81dea24119402f3d",
-		"style": {
-			"stroke": "#999999",
-			"stroke-opacity": "1",
-			"fill": "none",
-			"fill-opacity": "1",
-			"label": true,
-			"label-position": "nw",
-			"color": "#a4a4a4"
-		},
-		"nodes": [
-			"5302aabeacf1e6cc",
-			"34a2227aa3a9a106",
-			"f15ed318dd3b0e7b",
-			"45c2d0281967263f",
-			"6250d260a22af26f",
-			"cc777e3bea3f9c4f",
-			"23f17b2780b546e8",
-			"9be5f08ea4571bfb",
-			"638c99a18a49619e",
-			"8b446a9f2038fedd",
-			"9e9a255c3ddd706d",
-			"0d39f2930bf14a65",
-			"89705a4bcdf30fc9",
-			"748df687d70372bf",
-			"aabafc943660d22b",
-			"5cfc49ac3e1df9ac",
-			"5e0194b18cf20aeb",
-			"7b23fdda4f22758c",
-			"be3d38bb098302db",
-			"f4a78e21be38ddb6"
-		],
-		"x": 44,
-		"y": 1959
 	},
 	{
 		"id": "9369390f85b0a7e0",
@@ -1423,9 +1329,9 @@
 			"78f9811868612e66",
 			"8905f4ab1fc84338"
 		],
-		"x": 54,
+		"x": 44,
 		"y": 4199,
-		"w": 1082,
+		"w": 1092,
 		"h": 302
 	},
 	{
@@ -1456,10 +1362,8 @@
 			"1b7e09ce6caeb583",
 			"c2d0edcc4462e3c8"
 		],
-		"x": 34,
-		"y": 2999,
-		"w": 1692,
-		"h": 262
+		"x": 24,
+		"y": 2999
 	},
 	{
 		"id": "778ef0caf6d2c32c",
@@ -1492,10 +1396,8 @@
 			"b1d1b306a45f84a5",
 			"e5e7522676146d83"
 		],
-		"x": 34,
-		"y": 2479,
-		"w": 1392,
-		"h": 462
+		"x": 24,
+		"y": 2479
 	},
 	{
 		"id": "3d111a6d8f2d610a",
@@ -1549,9 +1451,9 @@
 			"4cf99a1c1abac76f",
 			"ca860da0e25ef4e2"
 		],
-		"x": 34,
+		"x": 24,
 		"y": 2899,
-		"w": 1232,
+		"w": 1242,
 		"h": 862
 	},
 	{
@@ -1583,9 +1485,7 @@
 			"392c3227fb72aeac"
 		],
 		"x": 54,
-		"y": 1459,
-		"w": 1292,
-		"h": 262
+		"y": 1459
 	},
 	{
 		"id": "f7b26ea9f0e17e65",
@@ -1745,10 +1645,8 @@
 			"2ef088202b99510a",
 			"97331ecb21c559ae"
 		],
-		"x": 34,
-		"y": 1579,
-		"w": 992,
-		"h": 202
+		"x": 24,
+		"y": 1579
 	},
 	{
 		"id": "08276ee9df51871b",
@@ -1775,9 +1673,9 @@
 			"9c941b8dad512b92",
 			"bcad761bd7c9507e"
 		],
-		"x": 54,
+		"x": 44,
 		"y": 1599,
-		"w": 1172,
+		"w": 1182,
 		"h": 297
 	},
 	{
@@ -1813,9 +1711,9 @@
 			"b23b1e38ab4c6104",
 			"affea21285f569cf"
 		],
-		"x": 54,
+		"x": 44,
 		"y": 3199,
-		"w": 1652,
+		"w": 1662,
 		"h": 402
 	},
 	{
@@ -1856,9 +1754,9 @@
 			"bc3c9fb0ed393846",
 			"4796bef84742797b"
 		],
-		"x": 54,
+		"x": 44,
 		"y": 3659,
-		"w": 1652,
+		"w": 1662,
 		"h": 402
 	},
 	{
@@ -1885,10 +1783,8 @@
 			"d470599d67b17323",
 			"8bf74f6c6b9f29db"
 		],
-		"x": 34,
-		"y": 1059,
-		"w": 992,
-		"h": 202
+		"x": 24,
+		"y": 1059
 	},
 	{
 		"id": "aad3985c6a7c0ff8",
@@ -1912,13 +1808,10 @@
 			"1083f15d6da6c757",
 			"d30bbe3896549b7d",
 			"aeac00c97d2b7aac",
-			"e0ce2a9de9f5cbc9",
-			"9e938ab3b902b828"
+			"e0ce2a9de9f5cbc9"
 		],
-		"x": 34,
-		"y": 799,
-		"w": 1052,
-		"h": 209.5
+		"x": 24,
+		"y": 799
 	},
 	{
 		"id": "ce9dba3c9b1f5d7b",
@@ -1958,9 +1851,9 @@
 			"e46b50d46b2184de",
 			"cbfa083111ea46f8"
 		],
-		"x": 54,
+		"x": 44,
 		"y": 4099,
-		"w": 1652,
+		"w": 1662,
 		"h": 402
 	},
 	{
@@ -1991,9 +1884,9 @@
 			"2bfa04c6a8dae45a",
 			"41b8b255959be350"
 		],
-		"x": 54,
+		"x": 44,
 		"y": 39,
-		"w": 582,
+		"w": 592,
 		"h": 342
 	},
 	{
@@ -2017,9 +1910,9 @@
 			"734836514649ff8d",
 			"439e77665479a203"
 		],
-		"x": 54,
+		"x": 44,
 		"y": 1939,
-		"w": 832,
+		"w": 842,
 		"h": 202
 	},
 	{
@@ -2049,9 +1942,7 @@
 			"82a3b88452cacbdb"
 		],
 		"x": 54,
-		"y": 919,
-		"w": 1292,
-		"h": 202
+		"y": 919
 	},
 	{
 		"id": "4c006916009d586c",
@@ -2083,9 +1974,9 @@
 			"46bc0ea7f8e6e39a",
 			"1392a1415cab422c"
 		],
-		"x": 1334,
+		"x": 1324,
 		"y": 519,
-		"w": 1182,
+		"w": 1192,
 		"h": 342
 	},
 	{
@@ -2130,9 +2021,9 @@
 			"c4add1f930fa7e59",
 			"4ec7b36d7e5e80a7"
 		],
-		"x": 54,
+		"x": 64,
 		"y": 999,
-		"w": 1512,
+		"w": 1502,
 		"h": 542
 	},
 	{
@@ -2193,9 +2084,7 @@
 			"4d2787f7908ec7ea"
 		],
 		"x": 54,
-		"y": 439,
-		"w": 732,
-		"h": 322
+		"y": 439
 	},
 	{
 		"id": "8c050726f929271a",
@@ -2221,9 +2110,7 @@
 			"da7ce0e1273c7ce9"
 		],
 		"x": 854,
-		"y": 439,
-		"w": 712,
-		"h": 322
+		"y": 439
 	},
 	{
 		"id": "c27b37bacfd81b8e",
@@ -2247,9 +2134,7 @@
 			"573fc76fae6efd28"
 		],
 		"x": 54,
-		"y": 819,
-		"w": 672,
-		"h": 282
+		"y": 819
 	},
 	{
 		"id": "1bb40b79d6de32c3",
@@ -2272,10 +2157,8 @@
 			"ece7245699721110",
 			"f305cd7d4e967216"
 		],
-		"x": 864,
-		"y": 819,
-		"w": 682,
-		"h": 282
+		"x": 854,
+		"y": 819
 	},
 	{
 		"id": "f98f8b4014a46540",
@@ -2314,9 +2197,7 @@
 			"6be11bf05a85aade"
 		],
 		"x": 54,
-		"y": 1159,
-		"w": 992,
-		"h": 662
+		"y": 1159
 	},
 	{
 		"id": "38cb202ea2b40994",
@@ -2344,9 +2225,7 @@
 			"d4082ad4fa6a52a6"
 		],
 		"x": 54,
-		"y": 39,
-		"w": 862,
-		"h": 362
+		"y": 39
 	},
 	{
 		"id": "5cbfb71c8a2b5642",
@@ -2378,9 +2257,7 @@
 			"8d7696f2f39eddb7"
 		],
 		"x": 54,
-		"y": 1879,
-		"w": 912,
-		"h": 462
+		"y": 1879
 	},
 	{
 		"id": "2892c2a908070716",
@@ -2404,9 +2281,7 @@
 			"88980cc8a0b72251"
 		],
 		"x": 1114,
-		"y": 1159,
-		"w": 832,
-		"h": 202
+		"y": 1159
 	},
 	{
 		"id": "9eaf4263c61903d2",
@@ -2492,10 +2367,8 @@
 			"49c81db6698e83f0",
 			"e96225d133413d78"
 		],
-		"x": 54,
-		"y": 39,
-		"w": 1112,
-		"h": 542
+		"x": 44,
+		"y": 39
 	},
 	{
 		"id": "a1741ef23732bce4",
@@ -2537,10 +2410,8 @@
 			"da06eb7a5821a4cb",
 			"3fe868e04338da57"
 		],
-		"x": 54,
-		"y": 639,
-		"w": 1182,
-		"h": 502
+		"x": 44,
+		"y": 639
 	},
 	{
 		"id": "5d8d0f65348b95a2",
@@ -2562,12 +2433,11 @@
 			"da0d169e4d8e3ecb",
 			"60498de18d640439",
 			"d471a47b892f65f0",
-			"be3e6f28e804edba",
 			"1c768ef70f317cb8"
 		],
 		"x": 1634,
 		"y": 1799,
-		"w": 982,
+		"w": 662,
 		"h": 202
 	},
 	{
@@ -2597,9 +2467,7 @@
 			"c43fbb77952fd295"
 		],
 		"x": 54,
-		"y": 39,
-		"w": 1182,
-		"h": 202
+		"y": 39
 	},
 	{
 		"id": "5ca480c6f55d70db",
@@ -2634,9 +2502,9 @@
 			"be93d986cf74a2b8",
 			"1b05476bd02d2487"
 		],
-		"x": 54,
+		"x": 44,
 		"y": 519,
-		"w": 1202,
+		"w": 1212,
 		"h": 422
 	},
 	{
@@ -2669,9 +2537,7 @@
 			"c2b304794497a3ff"
 		],
 		"x": 1044,
-		"y": 1879,
-		"w": 912,
-		"h": 462
+		"y": 1879
 	},
 	{
 		"id": "bdc631bb10970883",
@@ -2708,9 +2574,9 @@
 			"81251d5c7c8c240e",
 			"c33975c50e590909"
 		],
-		"x": 54,
+		"x": 44,
 		"y": 2199,
-		"w": 1152,
+		"w": 1162,
 		"h": 562
 	},
 	{
@@ -9858,7 +9724,7 @@
 		"g": "8806b584b745745a",
 		"name": "----- Set Default Values When Lights are Turned On -----",
 		"info": "",
-		"x": 280,
+		"x": 290,
 		"y": 1180,
 		"wires": []
 	},
@@ -10758,7 +10624,7 @@
 		"g": "95861d07508e4eae",
 		"name": "----- Set Light Brightness. -----",
 		"info": "",
-		"x": 200,
+		"x": 210,
 		"y": 620,
 		"wires": []
 	},
@@ -10833,7 +10699,8 @@
 		"name": "Set Light Brightness, 100%",
 		"links": [
 			"4b61ae11cd77b022",
-			"c2d9c5d0f0f75c79"
+			"c2d9c5d0f0f75c79",
+			"20f7f8e014ee3926"
 		],
 		"x": 95,
 		"y": 740,
@@ -10990,8 +10857,7 @@
 		"g": "95861d07508e4eae",
 		"name": "Set Light Brightness, 80%",
 		"links": [
-			"d0a9a8dc3b812aa9",
-			"20f7f8e014ee3926"
+			"d0a9a8dc3b812aa9"
 		],
 		"x": 95,
 		"y": 800,
@@ -11900,7 +11766,7 @@
 		"entity_location": "data",
 		"override_data": "msg",
 		"x": 190,
-		"y": 2560,
+		"y": 1680,
 		"wires": [
 			[
 				"d6a094825203c86a"
@@ -11930,7 +11796,7 @@
 		"payload": "",
 		"payloadType": "date",
 		"x": 210,
-		"y": 2640,
+		"y": 1760,
 		"wires": [
 			[
 				"56dad286db1798fa"
@@ -11961,7 +11827,7 @@
 		"repair": false,
 		"outputs": 2,
 		"x": 430,
-		"y": 2560,
+		"y": 1680,
 		"wires": [
 			[
 				"e518af598013fcd0"
@@ -12009,7 +11875,7 @@
 		"entity_location": "data",
 		"override_data": "msg",
 		"x": 610,
-		"y": 2640,
+		"y": 1760,
 		"wires": [
 			[
 				"b4fbb079f9a362f6"
@@ -12040,7 +11906,7 @@
 		"outputProperties": [],
 		"queue": "none",
 		"x": 860,
-		"y": 2640,
+		"y": 1760,
 		"wires": [
 			[
 				"715cc250ba4cf7f2"
@@ -12085,7 +11951,7 @@
 		"entity_location": "data",
 		"override_data": "msg",
 		"x": 620,
-		"y": 2560,
+		"y": 1680,
 		"wires": [
 			[
 				"ae5d6e1357ad837a"
@@ -12116,7 +11982,7 @@
 		"outputProperties": [],
 		"queue": "none",
 		"x": 860,
-		"y": 2560,
+		"y": 1680,
 		"wires": [
 			[
 				"715cc250ba4cf7f2"
@@ -12131,7 +11997,7 @@
 		"name": "----- Automate Tablet Plug, in the Kitchen -----",
 		"info": "",
 		"x": 250,
-		"y": 2500,
+		"y": 1620,
 		"wires": []
 	},
 	{
@@ -12149,1032 +12015,8 @@
 		"statusVal": "",
 		"statusType": "auto",
 		"x": 1070,
-		"y": 2560,
-		"wires": []
-	},
-	{
-		"id": "47c6beecaf9e5285",
-		"type": "server-state-changed",
-		"z": "81dea24119402f3d",
-		"d": true,
-		"g": "bd3118f367301ff5",
-		"name": "Foyer, Hallway",
-		"server": "1040bb61.673d75",
-		"version": 4,
-		"exposeToHomeAssistant": false,
-		"haConfig": [
-			{
-				"property": "name",
-				"value": ""
-			},
-			{
-				"property": "icon",
-				"value": ""
-			}
-		],
-		"entityidfilter": "light.foyer_hallway_ceiling",
-		"entityidfiltertype": "exact",
-		"outputinitially": false,
-		"state_type": "str",
-		"haltifstate": "on",
-		"halt_if_type": "str",
-		"halt_if_compare": "is",
-		"outputs": 2,
-		"output_only_on_state_change": false,
-		"for": 0,
-		"forType": "num",
-		"forUnits": "minutes",
-		"ignorePrevStateNull": false,
-		"ignorePrevStateUnknown": true,
-		"ignorePrevStateUnavailable": true,
-		"ignoreCurrentStateUnknown": true,
-		"ignoreCurrentStateUnavailable": true,
-		"outputProperties": [
-			{
-				"property": "payload",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "entityState"
-			},
-			{
-				"property": "data",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "eventData"
-			},
-			{
-				"property": "topic",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "triggerId"
-			}
-		],
-		"x": 160,
-		"y": 1680,
-		"wires": [
-			[
-				"78ffdee5ce1f83f0"
-			],
-			[
-				"38b8672ee442e9f0"
-			]
-		]
-	},
-	{
-		"id": "8fef094520f97e33",
-		"type": "api-current-state",
-		"z": "81dea24119402f3d",
-		"g": "bd3118f367301ff5",
-		"name": "If Light is OFF",
-		"server": "1040bb61.673d75",
-		"version": 3,
-		"outputs": 2,
-		"halt_if": "off",
-		"halt_if_type": "str",
-		"halt_if_compare": "is",
-		"entity_id": "light.foyer_entryway_ceiling",
-		"state_type": "str",
-		"blockInputOverrides": false,
-		"outputProperties": [
-			{
-				"property": "payload",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "entityState"
-			},
-			{
-				"property": "data",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "entity"
-			}
-		],
-		"for": 0,
-		"forType": "num",
-		"forUnits": "minutes",
-		"override_topic": false,
-		"state_location": "payload",
-		"override_payload": "msg",
-		"entity_location": "data",
-		"override_data": "msg",
-		"x": 620,
-		"y": 1680,
-		"wires": [
-			[
-				"8d6e0c3515de5e46"
-			],
-			[]
-		]
-	},
-	{
-		"id": "8d6e0c3515de5e46",
-		"type": "api-call-service",
-		"z": "81dea24119402f3d",
-		"g": "bd3118f367301ff5",
-		"name": "Turn Entryway Light ON",
-		"server": "1040bb61.673d75",
-		"version": 5,
-		"debugenabled": false,
-		"domain": "light",
-		"service": "turn_on",
-		"areaId": [],
-		"deviceId": [],
-		"entityId": [
-			"light.foyer_entryway_ceiling"
-		],
-		"data": "",
-		"dataType": "json",
-		"mergeContext": "",
-		"mustacheAltTags": false,
-		"outputProperties": [],
-		"queue": "none",
-		"x": 870,
-		"y": 1680,
-		"wires": [
-			[
-				"64e10880e9c0a9cf"
-			]
-		]
-	},
-	{
-		"id": "ba4b0a900eaa620b",
-		"type": "comment",
-		"z": "81dea24119402f3d",
-		"g": "bd3118f367301ff5",
-		"name": "----- Sync Lights, In the Foyer -----",
-		"info": "",
-		"x": 210,
-		"y": 1620,
-		"wires": []
-	},
-	{
-		"id": "a8a272fb5fe1e626",
-		"type": "server-state-changed",
-		"z": "81dea24119402f3d",
-		"d": true,
-		"g": "bd3118f367301ff5",
-		"name": "Foyer, Entryway",
-		"server": "1040bb61.673d75",
-		"version": 4,
-		"exposeToHomeAssistant": false,
-		"haConfig": [
-			{
-				"property": "name",
-				"value": ""
-			},
-			{
-				"property": "icon",
-				"value": ""
-			}
-		],
-		"entityidfilter": "light.foyer_entryway_ceiling",
-		"entityidfiltertype": "exact",
-		"outputinitially": false,
-		"state_type": "str",
-		"haltifstate": "on",
-		"halt_if_type": "str",
-		"halt_if_compare": "is",
-		"outputs": 2,
-		"output_only_on_state_change": false,
-		"for": 0,
-		"forType": "num",
-		"forUnits": "minutes",
-		"ignorePrevStateNull": false,
-		"ignorePrevStateUnknown": true,
-		"ignorePrevStateUnavailable": true,
-		"ignoreCurrentStateUnknown": true,
-		"ignoreCurrentStateUnavailable": true,
-		"outputProperties": [
-			{
-				"property": "payload",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "entityState"
-			},
-			{
-				"property": "data",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "eventData"
-			},
-			{
-				"property": "topic",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "triggerId"
-			}
-		],
-		"x": 160,
-		"y": 1800,
-		"wires": [
-			[
-				"31474addb70e9b66"
-			],
-			[
-				"a7094f5080084d0d"
-			]
-		]
-	},
-	{
-		"id": "78ffdee5ce1f83f0",
-		"type": "api-current-state",
-		"z": "81dea24119402f3d",
-		"g": "bd3118f367301ff5",
-		"name": "Sync Foyer Lights?",
-		"server": "1040bb61.673d75",
-		"version": 3,
-		"outputs": 2,
-		"halt_if": "on",
-		"halt_if_type": "str",
-		"halt_if_compare": "is",
-		"entity_id": "input_boolean.sync_foyer_lights",
-		"state_type": "str",
-		"blockInputOverrides": false,
-		"outputProperties": [
-			{
-				"property": "payload",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "entityState"
-			},
-			{
-				"property": "data",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "entity"
-			}
-		],
-		"for": 0,
-		"forType": "num",
-		"forUnits": "minutes",
-		"override_topic": false,
-		"state_location": "payload",
-		"override_payload": "msg",
-		"entity_location": "data",
-		"override_data": "msg",
-		"x": 390,
-		"y": 1680,
-		"wires": [
-			[
-				"8fef094520f97e33"
-			],
-			[]
-		]
-	},
-	{
-		"id": "38b8672ee442e9f0",
-		"type": "api-current-state",
-		"z": "81dea24119402f3d",
-		"g": "bd3118f367301ff5",
-		"name": "Sync Foyer Lights?",
-		"server": "1040bb61.673d75",
-		"version": 3,
-		"outputs": 2,
-		"halt_if": "on",
-		"halt_if_type": "str",
-		"halt_if_compare": "is",
-		"entity_id": "input_boolean.sync_foyer_lights",
-		"state_type": "str",
-		"blockInputOverrides": false,
-		"outputProperties": [
-			{
-				"property": "payload",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "entityState"
-			},
-			{
-				"property": "data",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "entity"
-			}
-		],
-		"for": 0,
-		"forType": "num",
-		"forUnits": "minutes",
-		"override_topic": false,
-		"state_location": "payload",
-		"override_payload": "msg",
-		"entity_location": "data",
-		"override_data": "msg",
-		"x": 390,
-		"y": 1740,
-		"wires": [
-			[
-				"21843f05c8a1678d"
-			],
-			[]
-		]
-	},
-	{
-		"id": "31474addb70e9b66",
-		"type": "api-current-state",
-		"z": "81dea24119402f3d",
-		"g": "bd3118f367301ff5",
-		"name": "Sync Foyer Lights?",
-		"server": "1040bb61.673d75",
-		"version": 3,
-		"outputs": 2,
-		"halt_if": "on",
-		"halt_if_type": "str",
-		"halt_if_compare": "is",
-		"entity_id": "input_boolean.sync_foyer_lights",
-		"state_type": "str",
-		"blockInputOverrides": false,
-		"outputProperties": [
-			{
-				"property": "payload",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "entityState"
-			},
-			{
-				"property": "data",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "entity"
-			}
-		],
-		"for": 0,
-		"forType": "num",
-		"forUnits": "minutes",
-		"override_topic": false,
-		"state_location": "payload",
-		"override_payload": "msg",
-		"entity_location": "data",
-		"override_data": "msg",
-		"x": 390,
-		"y": 1800,
-		"wires": [
-			[
-				"aa22207828b574e1"
-			],
-			[]
-		]
-	},
-	{
-		"id": "a7094f5080084d0d",
-		"type": "api-current-state",
-		"z": "81dea24119402f3d",
-		"g": "bd3118f367301ff5",
-		"name": "Sync Foyer Lights?",
-		"server": "1040bb61.673d75",
-		"version": 3,
-		"outputs": 2,
-		"halt_if": "on",
-		"halt_if_type": "str",
-		"halt_if_compare": "is",
-		"entity_id": "input_boolean.sync_foyer_lights",
-		"state_type": "str",
-		"blockInputOverrides": false,
-		"outputProperties": [
-			{
-				"property": "payload",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "entityState"
-			},
-			{
-				"property": "data",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "entity"
-			}
-		],
-		"for": 0,
-		"forType": "num",
-		"forUnits": "minutes",
-		"override_topic": false,
-		"state_location": "payload",
-		"override_payload": "msg",
-		"entity_location": "data",
-		"override_data": "msg",
-		"x": 390,
-		"y": 1860,
-		"wires": [
-			[
-				"aa359bf704718694"
-			],
-			[]
-		]
-	},
-	{
-		"id": "21843f05c8a1678d",
-		"type": "api-current-state",
-		"z": "81dea24119402f3d",
-		"g": "bd3118f367301ff5",
-		"name": "If Light is ON",
-		"server": "1040bb61.673d75",
-		"version": 3,
-		"outputs": 2,
-		"halt_if": "on",
-		"halt_if_type": "str",
-		"halt_if_compare": "is",
-		"entity_id": "light.foyer_entryway_ceiling",
-		"state_type": "str",
-		"blockInputOverrides": false,
-		"outputProperties": [
-			{
-				"property": "payload",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "entityState"
-			},
-			{
-				"property": "data",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "entity"
-			}
-		],
-		"for": 0,
-		"forType": "num",
-		"forUnits": "minutes",
-		"override_topic": false,
-		"state_location": "payload",
-		"override_payload": "msg",
-		"entity_location": "data",
-		"override_data": "msg",
-		"x": 610,
-		"y": 1740,
-		"wires": [
-			[
-				"7671e90adb265d95"
-			],
-			[]
-		]
-	},
-	{
-		"id": "7671e90adb265d95",
-		"type": "api-call-service",
-		"z": "81dea24119402f3d",
-		"g": "bd3118f367301ff5",
-		"name": "Turn Entryway Light OFF",
-		"server": "1040bb61.673d75",
-		"version": 5,
-		"debugenabled": false,
-		"domain": "light",
-		"service": "turn_off",
-		"areaId": [],
-		"deviceId": [],
-		"entityId": [
-			"light.foyer_entryway_ceiling"
-		],
-		"data": "",
-		"dataType": "json",
-		"mergeContext": "",
-		"mustacheAltTags": false,
-		"outputProperties": [],
-		"queue": "none",
-		"x": 870,
-		"y": 1740,
-		"wires": [
-			[
-				"64e10880e9c0a9cf"
-			]
-		]
-	},
-	{
-		"id": "aa22207828b574e1",
-		"type": "api-current-state",
-		"z": "81dea24119402f3d",
-		"g": "bd3118f367301ff5",
-		"name": "If Light is OFF",
-		"server": "1040bb61.673d75",
-		"version": 3,
-		"outputs": 2,
-		"halt_if": "off",
-		"halt_if_type": "str",
-		"halt_if_compare": "is",
-		"entity_id": "light.foyer_hallway_ceiling",
-		"state_type": "str",
-		"blockInputOverrides": false,
-		"outputProperties": [
-			{
-				"property": "payload",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "entityState"
-			},
-			{
-				"property": "data",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "entity"
-			}
-		],
-		"for": 0,
-		"forType": "num",
-		"forUnits": "minutes",
-		"override_topic": false,
-		"state_location": "payload",
-		"override_payload": "msg",
-		"entity_location": "data",
-		"override_data": "msg",
-		"x": 620,
-		"y": 1800,
-		"wires": [
-			[
-				"baf09091da5eeec6"
-			],
-			[]
-		]
-	},
-	{
-		"id": "aa359bf704718694",
-		"type": "api-current-state",
-		"z": "81dea24119402f3d",
-		"g": "bd3118f367301ff5",
-		"name": "If Light is ON",
-		"server": "1040bb61.673d75",
-		"version": 3,
-		"outputs": 2,
-		"halt_if": "on",
-		"halt_if_type": "str",
-		"halt_if_compare": "is",
-		"entity_id": "light.foyer_hallway_ceiling",
-		"state_type": "str",
-		"blockInputOverrides": false,
-		"outputProperties": [
-			{
-				"property": "payload",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "entityState"
-			},
-			{
-				"property": "data",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "entity"
-			}
-		],
-		"for": 0,
-		"forType": "num",
-		"forUnits": "minutes",
-		"override_topic": false,
-		"state_location": "payload",
-		"override_payload": "msg",
-		"entity_location": "data",
-		"override_data": "msg",
-		"x": 610,
-		"y": 1860,
-		"wires": [
-			[
-				"889ec330f44a214b"
-			],
-			[]
-		]
-	},
-	{
-		"id": "889ec330f44a214b",
-		"type": "api-call-service",
-		"z": "81dea24119402f3d",
-		"g": "bd3118f367301ff5",
-		"name": "Turn Hallway Light OFF",
-		"server": "1040bb61.673d75",
-		"version": 5,
-		"debugenabled": false,
-		"domain": "light",
-		"service": "turn_off",
-		"areaId": [],
-		"deviceId": [],
-		"entityId": [
-			"light.foyer_hallway_ceiling"
-		],
-		"data": "",
-		"dataType": "json",
-		"mergeContext": "",
-		"mustacheAltTags": false,
-		"outputProperties": [],
-		"queue": "none",
-		"x": 870,
-		"y": 1860,
-		"wires": [
-			[
-				"13647171e3c55ca1"
-			]
-		]
-	},
-	{
-		"id": "baf09091da5eeec6",
-		"type": "api-call-service",
-		"z": "81dea24119402f3d",
-		"g": "bd3118f367301ff5",
-		"name": "Turn Hallway Light ON",
-		"server": "1040bb61.673d75",
-		"version": 5,
-		"debugenabled": false,
-		"domain": "light",
-		"service": "turn_on",
-		"areaId": [],
-		"deviceId": [],
-		"entityId": [
-			"light.foyer_hallway_ceiling"
-		],
-		"data": "",
-		"dataType": "json",
-		"mergeContext": "",
-		"mustacheAltTags": false,
-		"outputProperties": [],
-		"queue": "none",
-		"x": 860,
-		"y": 1800,
-		"wires": [
-			[
-				"13647171e3c55ca1"
-			]
-		]
-	},
-	{
-		"id": "64e10880e9c0a9cf",
-		"type": "debug",
-		"z": "81dea24119402f3d",
-		"g": "bd3118f367301ff5",
-		"name": "",
-		"active": false,
-		"tosidebar": true,
-		"console": false,
-		"tostatus": false,
-		"complete": "true",
-		"targetType": "full",
-		"statusVal": "",
-		"statusType": "auto",
-		"x": 1090,
 		"y": 1680,
 		"wires": []
-	},
-	{
-		"id": "13647171e3c55ca1",
-		"type": "debug",
-		"z": "81dea24119402f3d",
-		"g": "bd3118f367301ff5",
-		"name": "",
-		"active": false,
-		"tosidebar": true,
-		"console": false,
-		"tostatus": false,
-		"complete": "true",
-		"targetType": "full",
-		"statusVal": "",
-		"statusType": "auto",
-		"x": 1090,
-		"y": 1800,
-		"wires": []
-	},
-	{
-		"id": "5302aabeacf1e6cc",
-		"type": "server-state-changed",
-		"z": "81dea24119402f3d",
-		"d": true,
-		"g": "3c7ebf27175ff688",
-		"name": "Kitchen Cabinets Above, Coffee Bar",
-		"server": "1040bb61.673d75",
-		"version": 4,
-		"exposeToHomeAssistant": false,
-		"haConfig": [
-			{
-				"property": "name",
-				"value": ""
-			},
-			{
-				"property": "icon",
-				"value": ""
-			}
-		],
-		"entityidfilter": "light.kitchen_cabinet_upper_coffee_bar",
-		"entityidfiltertype": "exact",
-		"outputinitially": false,
-		"state_type": "str",
-		"haltifstate": "on",
-		"halt_if_type": "str",
-		"halt_if_compare": "is",
-		"outputs": 2,
-		"output_only_on_state_change": false,
-		"for": 0,
-		"forType": "num",
-		"forUnits": "minutes",
-		"ignorePrevStateNull": false,
-		"ignorePrevStateUnknown": true,
-		"ignorePrevStateUnavailable": true,
-		"ignoreCurrentStateUnknown": true,
-		"ignoreCurrentStateUnavailable": true,
-		"outputProperties": [
-			{
-				"property": "payload",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "entityState"
-			},
-			{
-				"property": "data",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "eventData"
-			},
-			{
-				"property": "topic",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "triggerId"
-			}
-		],
-		"x": 220,
-		"y": 2080,
-		"wires": [
-			[
-				"cc777e3bea3f9c4f"
-			],
-			[
-				"9be5f08ea4571bfb"
-			]
-		]
-	},
-	{
-		"id": "34a2227aa3a9a106",
-		"type": "api-current-state",
-		"z": "81dea24119402f3d",
-		"g": "3c7ebf27175ff688",
-		"name": "If Cabinet Above Range Light is ON",
-		"server": "1040bb61.673d75",
-		"version": 3,
-		"outputs": 2,
-		"halt_if": "on",
-		"halt_if_type": "str",
-		"halt_if_compare": "is",
-		"entity_id": "light.kitchen_cabinet_upper_range",
-		"state_type": "str",
-		"blockInputOverrides": false,
-		"outputProperties": [
-			{
-				"property": "payload",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "entityState"
-			},
-			{
-				"property": "data",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "entity"
-			}
-		],
-		"for": 0,
-		"forType": "num",
-		"forUnits": "minutes",
-		"override_topic": false,
-		"state_location": "payload",
-		"override_payload": "msg",
-		"entity_location": "data",
-		"override_data": "msg",
-		"x": 780,
-		"y": 2140,
-		"wires": [
-			[
-				"f15ed318dd3b0e7b"
-			],
-			[]
-		]
-	},
-	{
-		"id": "f15ed318dd3b0e7b",
-		"type": "api-call-service",
-		"z": "81dea24119402f3d",
-		"g": "3c7ebf27175ff688",
-		"name": "Turn OFF",
-		"server": "1040bb61.673d75",
-		"version": 5,
-		"debugenabled": false,
-		"domain": "light",
-		"service": "turn_off",
-		"areaId": [],
-		"deviceId": [],
-		"entityId": [
-			"light.kitchen_cabinet_upper_range"
-		],
-		"data": "",
-		"dataType": "json",
-		"mergeContext": "",
-		"mustacheAltTags": false,
-		"outputProperties": [],
-		"queue": "none",
-		"x": 1040,
-		"y": 2140,
-		"wires": [
-			[
-				"23f17b2780b546e8"
-			]
-		]
-	},
-	{
-		"id": "45c2d0281967263f",
-		"type": "comment",
-		"z": "81dea24119402f3d",
-		"g": "3c7ebf27175ff688",
-		"name": "----- Sync Lights, Kitchen Above Cabinets -----",
-		"info": "",
-		"x": 250,
-		"y": 2000,
-		"wires": []
-	},
-	{
-		"id": "6250d260a22af26f",
-		"type": "api-call-service",
-		"z": "81dea24119402f3d",
-		"g": "3c7ebf27175ff688",
-		"name": "SYNC Cabinet Above Range Lights",
-		"server": "1040bb61.673d75",
-		"version": 5,
-		"debugenabled": false,
-		"domain": "light",
-		"service": "turn_on",
-		"areaId": [],
-		"deviceId": [],
-		"entityId": [
-			"light.kitchen_cabinet_upper_range"
-		],
-		"data": "{\"brightness\":\"{{sync.brightness}}\"}",
-		"dataType": "json",
-		"mergeContext": "",
-		"mustacheAltTags": false,
-		"outputProperties": [
-			{
-				"property": "output_color",
-				"propertyType": "msg",
-				"value": "sync_color",
-				"valueType": "msg"
-			}
-		],
-		"queue": "none",
-		"x": 1040,
-		"y": 2080,
-		"wires": [
-			[
-				"f4a78e21be38ddb6"
-			]
-		]
-	},
-	{
-		"id": "cc777e3bea3f9c4f",
-		"type": "api-current-state",
-		"z": "81dea24119402f3d",
-		"g": "3c7ebf27175ff688",
-		"name": "Sync Lights?",
-		"server": "1040bb61.673d75",
-		"version": 3,
-		"outputs": 2,
-		"halt_if": "on",
-		"halt_if_type": "str",
-		"halt_if_compare": "is",
-		"entity_id": "input_boolean.sync_cabinet_above_lights",
-		"state_type": "str",
-		"blockInputOverrides": false,
-		"outputProperties": [
-			{
-				"property": "payload",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "entityState"
-			},
-			{
-				"property": "data",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "entity"
-			}
-		],
-		"for": 0,
-		"forType": "num",
-		"forUnits": "minutes",
-		"override_topic": false,
-		"state_location": "payload",
-		"override_payload": "msg",
-		"entity_location": "data",
-		"override_data": "msg",
-		"x": 490,
-		"y": 2080,
-		"wires": [
-			[
-				"be3d38bb098302db"
-			],
-			[]
-		]
-	},
-	{
-		"id": "23f17b2780b546e8",
-		"type": "debug",
-		"z": "81dea24119402f3d",
-		"g": "3c7ebf27175ff688",
-		"name": "",
-		"active": false,
-		"tosidebar": true,
-		"console": false,
-		"tostatus": false,
-		"complete": "true",
-		"targetType": "full",
-		"statusVal": "",
-		"statusType": "auto",
-		"x": 1550,
-		"y": 2080,
-		"wires": []
-	},
-	{
-		"id": "9be5f08ea4571bfb",
-		"type": "api-current-state",
-		"z": "81dea24119402f3d",
-		"g": "3c7ebf27175ff688",
-		"name": "Sync Lights?",
-		"server": "1040bb61.673d75",
-		"version": 3,
-		"outputs": 2,
-		"halt_if": "on",
-		"halt_if_type": "str",
-		"halt_if_compare": "is",
-		"entity_id": "input_boolean.sync_cabinet_above_lights",
-		"state_type": "str",
-		"blockInputOverrides": false,
-		"outputProperties": [
-			{
-				"property": "payload",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "entityState"
-			},
-			{
-				"property": "data",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "entity"
-			}
-		],
-		"for": 0,
-		"forType": "num",
-		"forUnits": "minutes",
-		"override_topic": false,
-		"state_location": "payload",
-		"override_payload": "msg",
-		"entity_location": "data",
-		"override_data": "msg",
-		"x": 490,
-		"y": 2140,
-		"wires": [
-			[
-				"34a2227aa3a9a106"
-			],
-			[]
-		]
-	},
-	{
-		"id": "638c99a18a49619e",
-		"type": "api-current-state",
-		"z": "81dea24119402f3d",
-		"g": "3c7ebf27175ff688",
-		"name": "Get Current Attributes",
-		"server": "1040bb61.673d75",
-		"version": 3,
-		"outputs": 1,
-		"halt_if": "",
-		"halt_if_type": "str",
-		"halt_if_compare": "is",
-		"entity_id": "light.kitchen_cabinet_upper_coffee_bar",
-		"state_type": "str",
-		"blockInputOverrides": false,
-		"outputProperties": [
-			{
-				"property": "payload",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "entityState"
-			},
-			{
-				"property": "data",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "entity"
-			},
-			{
-				"property": "sync",
-				"propertyType": "msg",
-				"value": "data.attributes",
-				"valueType": "jsonata"
-			}
-		],
-		"for": 0,
-		"forType": "num",
-		"forUnits": "minutes",
-		"override_topic": false,
-		"state_location": "payload",
-		"override_payload": "msg",
-		"entity_location": "data",
-		"override_data": "msg",
-		"x": 740,
-		"y": 2080,
-		"wires": [
-			[
-				"6250d260a22af26f"
-			]
-		]
 	},
 	{
 		"id": "4480c4f99747985b",
@@ -13240,355 +12082,6 @@
 		"wires": []
 	},
 	{
-		"id": "8b446a9f2038fedd",
-		"type": "server-state-changed",
-		"z": "81dea24119402f3d",
-		"d": true,
-		"g": "3c7ebf27175ff688",
-		"name": "Kitchen Cabinets Above, Range",
-		"server": "1040bb61.673d75",
-		"version": 4,
-		"exposeToHomeAssistant": false,
-		"haConfig": [
-			{
-				"property": "name",
-				"value": ""
-			},
-			{
-				"property": "icon",
-				"value": ""
-			}
-		],
-		"entityidfilter": "light.kitchen_cabinet_upper_range",
-		"entityidfiltertype": "exact",
-		"outputinitially": false,
-		"state_type": "str",
-		"haltifstate": "on",
-		"halt_if_type": "str",
-		"halt_if_compare": "is",
-		"outputs": 2,
-		"output_only_on_state_change": false,
-		"for": 0,
-		"forType": "num",
-		"forUnits": "minutes",
-		"ignorePrevStateNull": false,
-		"ignorePrevStateUnknown": true,
-		"ignorePrevStateUnavailable": true,
-		"ignoreCurrentStateUnknown": true,
-		"ignoreCurrentStateUnavailable": true,
-		"outputProperties": [
-			{
-				"property": "payload",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "entityState"
-			},
-			{
-				"property": "data",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "eventData"
-			},
-			{
-				"property": "topic",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "triggerId"
-			}
-		],
-		"x": 230,
-		"y": 2300,
-		"wires": [
-			[
-				"9e9a255c3ddd706d"
-			],
-			[
-				"0d39f2930bf14a65"
-			]
-		]
-	},
-	{
-		"id": "9e9a255c3ddd706d",
-		"type": "api-current-state",
-		"z": "81dea24119402f3d",
-		"g": "3c7ebf27175ff688",
-		"name": "Sync Lights?",
-		"server": "1040bb61.673d75",
-		"version": 3,
-		"outputs": 2,
-		"halt_if": "on",
-		"halt_if_type": "str",
-		"halt_if_compare": "is",
-		"entity_id": "input_boolean.sync_cabinet_above_lights",
-		"state_type": "str",
-		"blockInputOverrides": false,
-		"outputProperties": [
-			{
-				"property": "payload",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "entityState"
-			},
-			{
-				"property": "data",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "entity"
-			}
-		],
-		"for": 0,
-		"forType": "num",
-		"forUnits": "minutes",
-		"override_topic": false,
-		"state_location": "payload",
-		"override_payload": "msg",
-		"entity_location": "data",
-		"override_data": "msg",
-		"x": 490,
-		"y": 2300,
-		"wires": [
-			[
-				"89705a4bcdf30fc9"
-			],
-			[]
-		]
-	},
-	{
-		"id": "0d39f2930bf14a65",
-		"type": "api-current-state",
-		"z": "81dea24119402f3d",
-		"g": "3c7ebf27175ff688",
-		"name": "Sync Lights?",
-		"server": "1040bb61.673d75",
-		"version": 3,
-		"outputs": 2,
-		"halt_if": "on",
-		"halt_if_type": "str",
-		"halt_if_compare": "is",
-		"entity_id": "input_boolean.sync_cabinet_above_lights",
-		"state_type": "str",
-		"blockInputOverrides": false,
-		"outputProperties": [
-			{
-				"property": "payload",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "entityState"
-			},
-			{
-				"property": "data",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "entity"
-			}
-		],
-		"for": 0,
-		"forType": "num",
-		"forUnits": "minutes",
-		"override_topic": false,
-		"state_location": "payload",
-		"override_payload": "msg",
-		"entity_location": "data",
-		"override_data": "msg",
-		"x": 490,
-		"y": 2360,
-		"wires": [
-			[
-				"aabafc943660d22b"
-			],
-			[]
-		]
-	},
-	{
-		"id": "89705a4bcdf30fc9",
-		"type": "api-current-state",
-		"z": "81dea24119402f3d",
-		"g": "3c7ebf27175ff688",
-		"name": "Get Current Attributes",
-		"server": "1040bb61.673d75",
-		"version": 3,
-		"outputs": 1,
-		"halt_if": "",
-		"halt_if_type": "str",
-		"halt_if_compare": "is",
-		"entity_id": "light.kitchen_cabinet_upper_range",
-		"state_type": "str",
-		"blockInputOverrides": false,
-		"outputProperties": [
-			{
-				"property": "payload",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "entityState"
-			},
-			{
-				"property": "data",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "entity"
-			}
-		],
-		"for": 0,
-		"forType": "num",
-		"forUnits": "minutes",
-		"override_topic": false,
-		"state_location": "payload",
-		"override_payload": "msg",
-		"entity_location": "data",
-		"override_data": "msg",
-		"x": 740,
-		"y": 2240,
-		"wires": [
-			[
-				"748df687d70372bf"
-			]
-		]
-	},
-	{
-		"id": "aabafc943660d22b",
-		"type": "api-current-state",
-		"z": "81dea24119402f3d",
-		"g": "3c7ebf27175ff688",
-		"name": "If Cabinet Above Coffee Bar Light is ON",
-		"server": "1040bb61.673d75",
-		"version": 3,
-		"outputs": 2,
-		"halt_if": "on",
-		"halt_if_type": "str",
-		"halt_if_compare": "is",
-		"entity_id": "light.kitchen_cabinet_upper_coffee_bar",
-		"state_type": "str",
-		"blockInputOverrides": false,
-		"outputProperties": [
-			{
-				"property": "payload",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "entityState"
-			},
-			{
-				"property": "data",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "entity"
-			}
-		],
-		"for": 0,
-		"forType": "num",
-		"forUnits": "minutes",
-		"override_topic": false,
-		"state_location": "payload",
-		"override_payload": "msg",
-		"entity_location": "data",
-		"override_data": "msg",
-		"x": 800,
-		"y": 2360,
-		"wires": [
-			[
-				"5e0194b18cf20aeb"
-			],
-			[]
-		]
-	},
-	{
-		"id": "748df687d70372bf",
-		"type": "function",
-		"z": "81dea24119402f3d",
-		"g": "3c7ebf27175ff688",
-		"name": "Set Syncing Attributes",
-		"func": "msg.sync_brightness = msg.data.attributes.brightness;\nmsg.sync_color = msg.data.attributes.rgb_color;\nmsg.sync_effect = msg.data.attributes.effect;\n\nreturn msg;",
-		"outputs": 1,
-		"noerr": 0,
-		"initialize": "",
-		"finalize": "",
-		"libs": [],
-		"x": 740,
-		"y": 2300,
-		"wires": [
-			[
-				"5cfc49ac3e1df9ac"
-			]
-		]
-	},
-	{
-		"id": "5e0194b18cf20aeb",
-		"type": "api-call-service",
-		"z": "81dea24119402f3d",
-		"g": "3c7ebf27175ff688",
-		"name": "Turn OFF",
-		"server": "1040bb61.673d75",
-		"version": 5,
-		"debugenabled": false,
-		"domain": "light",
-		"service": "turn_off",
-		"areaId": [],
-		"deviceId": [],
-		"entityId": [
-			"light.kitchen_cabinet_upper_range"
-		],
-		"data": "",
-		"dataType": "json",
-		"mergeContext": "",
-		"mustacheAltTags": false,
-		"outputProperties": [],
-		"queue": "none",
-		"x": 1080,
-		"y": 2360,
-		"wires": [
-			[
-				"7b23fdda4f22758c"
-			]
-		]
-	},
-	{
-		"id": "5cfc49ac3e1df9ac",
-		"type": "api-call-service",
-		"z": "81dea24119402f3d",
-		"g": "3c7ebf27175ff688",
-		"name": "SYNC Cabinet Above Coffee Bar Lights",
-		"server": "1040bb61.673d75",
-		"version": 5,
-		"debugenabled": false,
-		"domain": "light",
-		"service": "turn_on",
-		"areaId": [],
-		"deviceId": [],
-		"entityId": [
-			"light.kitchen_cabinet_upper_coffee_bar"
-		],
-		"data": "{ \"brightness\" : {{sync_brightness}}, \"rgb_color\" : {{sync_color}}, \"effect\" : \"{{sync_effect}}\" }",
-		"dataType": "json",
-		"mergeContext": "",
-		"mustacheAltTags": false,
-		"outputProperties": [],
-		"queue": "none",
-		"x": 1060,
-		"y": 2300,
-		"wires": [
-			[
-				"7b23fdda4f22758c"
-			]
-		]
-	},
-	{
-		"id": "7b23fdda4f22758c",
-		"type": "debug",
-		"z": "81dea24119402f3d",
-		"g": "3c7ebf27175ff688",
-		"name": "",
-		"active": false,
-		"tosidebar": true,
-		"console": false,
-		"tostatus": false,
-		"complete": "true",
-		"targetType": "full",
-		"statusVal": "",
-		"statusType": "auto",
-		"x": 1330,
-		"y": 2300,
-		"wires": []
-	},
-	{
 		"id": "1a9cddeb6a4cb22a",
 		"type": "time-range-switch",
 		"z": "81dea24119402f3d",
@@ -13600,7 +12093,7 @@
 		"endTime": "23:00",
 		"startOffset": "",
 		"endOffset": "",
-		"x": 200,
+		"x": 210,
 		"y": 1300,
 		"wires": [
 			[
@@ -13638,7 +12131,7 @@
 		"halt_if": "on",
 		"halt_if_type": "str",
 		"halt_if_compare": "is",
-		"entity_id": "input_boolean.evening_automations_active",
+		"entity_id": "input_boolean.sunset_automations_active",
 		"state_type": "str",
 		"blockInputOverrides": false,
 		"outputProperties": [
@@ -13683,7 +12176,7 @@
 		"mode": "link",
 		"links": [
 			"9e2f75a618a6a942",
-			"efff7c9a1c7ed6df"
+			"e5d6355881da6768"
 		],
 		"x": 2635,
 		"y": 1480,
@@ -13922,307 +12415,6 @@
 		"wires": [
 			[
 				"a1397f38ed4c472b"
-			],
-			[]
-		]
-	},
-	{
-		"id": "be3d38bb098302db",
-		"type": "api-call-service",
-		"z": "81dea24119402f3d",
-		"g": "3c7ebf27175ff688",
-		"name": "Toggle Sync (Disable)",
-		"server": "1040bb61.673d75",
-		"version": 5,
-		"debugenabled": false,
-		"domain": "input_boolean",
-		"service": "turn_off",
-		"areaId": [],
-		"deviceId": [],
-		"entityId": [
-			"input_boolean.sync_cabinet_above_lights"
-		],
-		"data": "",
-		"dataType": "json",
-		"mergeContext": "",
-		"mustacheAltTags": false,
-		"outputProperties": [
-			{
-				"property": "output_color",
-				"propertyType": "msg",
-				"value": "sync_color",
-				"valueType": "msg"
-			}
-		],
-		"queue": "none",
-		"x": 740,
-		"y": 2000,
-		"wires": [
-			[
-				"638c99a18a49619e"
-			]
-		]
-	},
-	{
-		"id": "f4a78e21be38ddb6",
-		"type": "api-call-service",
-		"z": "81dea24119402f3d",
-		"g": "3c7ebf27175ff688",
-		"name": "Toggle Sync (Enable)",
-		"server": "1040bb61.673d75",
-		"version": 5,
-		"debugenabled": false,
-		"domain": "input_boolean",
-		"service": "turn_on",
-		"areaId": [],
-		"deviceId": [],
-		"entityId": [
-			"input_boolean.sync_cabinet_above_lights"
-		],
-		"data": "",
-		"dataType": "json",
-		"mergeContext": "",
-		"mustacheAltTags": false,
-		"outputProperties": [
-			{
-				"property": "output_color",
-				"propertyType": "msg",
-				"value": "sync_color",
-				"valueType": "msg"
-			}
-		],
-		"queue": "none",
-		"x": 1340,
-		"y": 2080,
-		"wires": [
-			[
-				"23f17b2780b546e8"
-			]
-		]
-	},
-	{
-		"id": "8b648a5c.711c88",
-		"type": "inject",
-		"z": "81dea24119402f3d",
-		"name": "",
-		"props": [
-			{
-				"p": "payload"
-			},
-			{
-				"p": "topic",
-				"vt": "str"
-			}
-		],
-		"repeat": "",
-		"crontab": "",
-		"once": false,
-		"onceDelay": 0.1,
-		"topic": "",
-		"payload": "",
-		"payloadType": "date",
-		"x": 1390,
-		"y": 1900,
-		"wires": [
-			[
-				"e1223542.628ae8"
-			]
-		]
-	},
-	{
-		"id": "e1223542.628ae8",
-		"type": "api-current-state",
-		"z": "81dea24119402f3d",
-		"name": "Get Current Attributes",
-		"server": "1040bb61.673d75",
-		"version": 3,
-		"outputs": 1,
-		"halt_if": "",
-		"halt_if_type": "str",
-		"halt_if_compare": "is",
-		"entity_id": "light.kitchen_cabinet_upper_coffee_bar",
-		"state_type": "str",
-		"blockInputOverrides": false,
-		"outputProperties": [
-			{
-				"property": "data.state",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "entityState"
-			},
-			{
-				"property": "data",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "entity"
-			}
-		],
-		"for": 0,
-		"forType": "num",
-		"forUnits": "minutes",
-		"x": 1590,
-		"y": 1900,
-		"wires": [
-			[
-				"6ba35180.6cfdd"
-			]
-		]
-	},
-	{
-		"id": "ba0bad86.ee87d",
-		"type": "debug",
-		"z": "81dea24119402f3d",
-		"name": "",
-		"active": false,
-		"tosidebar": true,
-		"console": false,
-		"tostatus": false,
-		"complete": "true",
-		"targetType": "full",
-		"x": 2060,
-		"y": 2040,
-		"wires": []
-	},
-	{
-		"id": "75431647.913698",
-		"type": "api-call-service",
-		"z": "81dea24119402f3d",
-		"name": "SYNC Cabinet Above Range Lights",
-		"server": "1040bb61.673d75",
-		"version": 5,
-		"debugenabled": false,
-		"domain": "light",
-		"service": "turn_on",
-		"areaId": [],
-		"deviceId": [],
-		"entityId": [
-			"light.kitchen_cabinet_upper_range"
-		],
-		"data": "",
-		"dataType": "json",
-		"mergeContext": "",
-		"mustacheAltTags": false,
-		"outputProperties": [],
-		"queue": "none",
-		"output_location": "",
-		"output_location_type": "none",
-		"x": 2160,
-		"y": 1900,
-		"wires": [
-			[
-				"ba0bad86.ee87d"
-			]
-		]
-	},
-	{
-		"id": "6ba35180.6cfdd",
-		"type": "change",
-		"z": "81dea24119402f3d",
-		"name": "Setup Sync Data",
-		"rules": [
-			{
-				"t": "set",
-				"p": "payload",
-				"pt": "msg",
-				"to": "{ \"data\" : []}",
-				"tot": "json"
-			},
-			{
-				"t": "move",
-				"p": "data.attributes.brightness",
-				"pt": "msg",
-				"to": "payload.data.brightness",
-				"tot": "msg"
-			},
-			{
-				"t": "move",
-				"p": "data.attributes.rgb_color",
-				"pt": "msg",
-				"to": "payload.data.rgb_color",
-				"tot": "msg"
-			},
-			{
-				"t": "move",
-				"p": "data.attributes.effect",
-				"pt": "msg",
-				"to": "payload.data.effect",
-				"tot": "msg"
-			}
-		],
-		"action": "",
-		"property": "",
-		"from": "",
-		"to": "",
-		"reg": false,
-		"x": 1840,
-		"y": 1900,
-		"wires": [
-			[
-				"75431647.913698"
-			]
-		]
-	},
-	{
-		"id": "a79b9eb3c1b40b30",
-		"type": "server-state-changed",
-		"z": "81dea24119402f3d",
-		"d": true,
-		"name": "Kitchen Cabinets Above, Coffee Bar",
-		"server": "1040bb61.673d75",
-		"version": 4,
-		"exposeToHomeAssistant": false,
-		"haConfig": [
-			{
-				"property": "name",
-				"value": ""
-			},
-			{
-				"property": "icon",
-				"value": ""
-			}
-		],
-		"entityidfilter": "light.kitchen_cabinet_upper_coffee_bar",
-		"entityidfiltertype": "exact",
-		"outputinitially": false,
-		"state_type": "str",
-		"haltifstate": "on",
-		"halt_if_type": "str",
-		"halt_if_compare": "is",
-		"outputs": 2,
-		"output_only_on_state_change": false,
-		"for": 0,
-		"forType": "num",
-		"forUnits": "minutes",
-		"ignorePrevStateNull": false,
-		"ignorePrevStateUnknown": true,
-		"ignorePrevStateUnavailable": true,
-		"ignoreCurrentStateUnknown": true,
-		"ignoreCurrentStateUnavailable": true,
-		"outputProperties": [
-			{
-				"property": "payload",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "entityState"
-			},
-			{
-				"property": "data",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "eventData"
-			},
-			{
-				"property": "topic",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "triggerId"
-			}
-		],
-		"x": 1530,
-		"y": 1820,
-		"wires": [
-			[
-				"6ba35180.6cfdd"
 			],
 			[]
 		]
@@ -17780,7 +15972,7 @@
 		"targetType": "full",
 		"statusVal": "",
 		"statusType": "auto",
-		"x": 990,
+		"x": 930,
 		"y": 900,
 		"wires": []
 	},
@@ -17821,7 +16013,7 @@
 		"override_payload": "msg",
 		"entity_location": "data",
 		"override_data": "msg",
-		"x": 610,
+		"x": 550,
 		"y": 900,
 		"wires": [
 			[
@@ -17852,7 +16044,7 @@
 		"mustacheAltTags": false,
 		"outputProperties": [],
 		"queue": "none",
-		"x": 820,
+		"x": 760,
 		"y": 900,
 		"wires": [
 			[
@@ -17897,7 +16089,7 @@
 		"override_payload": "msg",
 		"entity_location": "data",
 		"override_data": "msg",
-		"x": 600,
+		"x": 540,
 		"y": 960,
 		"wires": [
 			[
@@ -17928,7 +16120,7 @@
 		"mustacheAltTags": false,
 		"outputProperties": [],
 		"queue": "none",
-		"x": 820,
+		"x": 760,
 		"y": 960,
 		"wires": [
 			[
@@ -17976,7 +16168,7 @@
 		"repair": false,
 		"outputs": 3,
 		"x": 350,
-		"y": 960,
+		"y": 900,
 		"wires": [
 			[
 				"52815cd4bc12818d"
@@ -18099,7 +16291,7 @@
 		"y": 960,
 		"wires": [
 			[
-				"9e938ab3b902b828"
+				"d30bbe3896549b7d"
 			],
 			[]
 		]
@@ -18441,27 +16633,6 @@
 		"wires": [
 			[
 				"eaabce55fd80cfa9"
-			],
-			[]
-		]
-	},
-	{
-		"id": "9e938ab3b902b828",
-		"type": "time-range-switch",
-		"z": "a95ec654e9a3d387",
-		"g": "aad3985c6a7c0ff8",
-		"name": "",
-		"lat": "26.305080",
-		"lon": "-80.197180",
-		"startTime": "sunrise",
-		"endTime": "sunset",
-		"startOffset": "+120",
-		"endOffset": "0",
-		"x": 380,
-		"y": 900,
-		"wires": [
-			[
-				"d30bbe3896549b7d"
 			],
 			[]
 		]
@@ -22725,7 +20896,7 @@
 		"z": "462cafc155901a6e",
 		"g": "126a5e09ee15c478",
 		"name": "Prepare iOS Notification",
-		"func": "msg.notification_type = 'schedule';\nmsg.notification = { \n    data : {\n        \"title\"   : \"Home Assistant\",\n        \"message\" : \"Don't forget to take your morning medication\",\n        \"data\"    : { \n            \"subtitle\": false,\n            \"actions\" : [\n                { \n                    action : \"MEDICINE_REMINDER_THOMAS_AM_DONE\",\n                    title  : \"Done\",\n                    icon   : \"sfsymbols:checkmark\"\n                },\n                { \n                    action: \"MEDICINE_REMINDER_THOMAS_AM_SNOOZE\",\n                    title       : \"Snooze\",\n                    icon        : \"sfsymbols:xmark\",\n                    destructive : true\n                }\n            ]\n        }\n            \n    }\n};\n\nreturn msg;",
+		"func": "msg.notification_type = 'schedule';\nmsg.notification = { \n    data : {\n        \"title\"   : \"Home Assistant\",\n        \"message\" : \"Don't forget to take your morning medication\",\n        \"data\"    : { \n            \"subtitle\": false,\n            \"url\": \"/dashboard-home/person-him\",\n            \"actions\" : [\n                { \n                    action : \"MEDICINE_REMINDER_THOMAS_AM_DONE\",\n                    title  : \"Done\",\n                    icon   : \"sfsymbols:checkmark\"\n                },\n                { \n                    action: \"MEDICINE_REMINDER_THOMAS_AM_SNOOZE\",\n                    title       : \"Snooze\",\n                    icon        : \"sfsymbols:xmark\",\n                    destructive : true\n                }\n            ]\n        }\n            \n    }\n};\n\nreturn msg;",
 		"outputs": 1,
 		"noerr": 0,
 		"initialize": "",
@@ -23615,7 +21786,7 @@
 		"z": "462cafc155901a6e",
 		"g": "4c006916009d586c",
 		"name": "Prepare iOS Notification",
-		"func": "msg.notification_type = 'schedule';\nmsg.notification = { \n    data : {\n        \"title\"   : \"Home Assistant\",\n        \"message\" : \"Don't forget to brush your teeth\",\n        \"data\"    : { \n            \"subtitle\": false,\n            \"actions\" : [\n                { \n                    action : \"TOOTHBRUSH_REMINDER_JESSICA_DONE\",\n                    title  : \"Done\",\n                    icon   : \"sfsymbols:checkmark\"\n                },\n                { \n                    action      : \"TOOTHBRUSH_REMINDER_JESSICA_SNOOZE\",\n                    title       : \"Snooze\",\n                    icon        : \"sfsymbols:xmark\",\n                    destructive : true\n                }\n            ]\n        }\n            \n    }\n};\n\nreturn msg;",
+		"func": "msg.notification_type = 'schedule';\nmsg.notification = { \n    data : {\n        \"title\"   : \"Home Assistant\",\n        \"message\" : \"Don't forget to brush your teeth\",\n        \"data\"    : { \n            \"subtitle\": false,\n            \"url\": \"/dashboard-home/person-her\",\n            \"actions\" : [\n                { \n                    action : \"TOOTHBRUSH_REMINDER_JESSICA_DONE\",\n                    title  : \"Done\",\n                    icon   : \"sfsymbols:checkmark\"\n                },\n                { \n                    action      : \"TOOTHBRUSH_REMINDER_JESSICA_SNOOZE\",\n                    title       : \"Snooze\",\n                    icon        : \"sfsymbols:xmark\",\n                    destructive : true\n                }\n            ]\n        }\n            \n    }\n};\n\nreturn msg;",
 		"outputs": 1,
 		"noerr": 0,
 		"initialize": "",
@@ -24599,7 +22770,7 @@
 		"z": "462cafc155901a6e",
 		"g": "126a5e09ee15c478",
 		"name": "Prepare iOS Notification",
-		"func": "msg.notification_type = 'schedule';\nmsg.notification = { \n    data : {\n        \"title\"   : \"Home Assistant\",\n        \"message\" : \"Don't forget to take your evening medication\",\n        \"data\"    : { \n            \"subtitle\": false,\n            \"actions\" : [\n                { \n                    action : \"MEDICINE_REMINDER_THOMAS_PM_DONE\",\n                    title  : \"Done\",\n                    icon   : \"sfsymbols:checkmark\"\n                },\n                { \n                    action: \"MEDICINE_REMINDER_THOMAS_PM_SNOOZE\",\n                    title       : \"Snooze\",\n                    icon        : \"sfsymbols:xmark\",\n                    destructive : true\n                }\n            ]\n        }\n            \n    }\n};\n\nreturn msg;",
+		"func": "msg.notification_type = 'schedule';\nmsg.notification = { \n    data : {\n        \"title\"   : \"Home Assistant\",\n        \"message\" : \"Don't forget to take your evening medication\",\n        \"data\"    : { \n            \"subtitle\": false,\n            \"url\": \"/dashboard-home/person-him\",\n            \"actions\" : [\n                { \n                    action : \"MEDICINE_REMINDER_THOMAS_PM_DONE\",\n                    title  : \"Done\",\n                    icon   : \"sfsymbols:checkmark\"\n                },\n                { \n                    action: \"MEDICINE_REMINDER_THOMAS_PM_SNOOZE\",\n                    title       : \"Snooze\",\n                    icon        : \"sfsymbols:xmark\",\n                    destructive : true\n                }\n            ]\n        }\n            \n    }\n};\n\nreturn msg;",
 		"outputs": 1,
 		"noerr": 0,
 		"initialize": "",
@@ -24658,7 +22829,7 @@
 		"z": "462cafc155901a6e",
 		"g": "5ca480c6f55d70db",
 		"name": "Prepare iOS Notification",
-		"func": "msg.notification_type = 'schedule';\nmsg.notification = { \n    data : {\n        \"title\"   : \"Home Assistant\",\n        \"message\" : \"Don't forget to take your morning medication\",\n        \"data\"    : { \n            \"subtitle\": false,\n            \"actions\" : [\n                { \n                    action : \"MEDICINE_REMINDER_JESSICA_AM_DONE\",\n                    title  : \"Done\",\n                    icon   : \"sfsymbols:checkmark\"\n                },\n                { \n                    action: \"MEDICINE_REMINDER_JESSICA_AM_SNOOZE\",\n                    title       : \"Snooze\",\n                    icon        : \"sfsymbols:xmark\",\n                    destructive : true\n                }\n            ]\n        }\n            \n    }\n};\n\nreturn msg;",
+		"func": "msg.notification_type = 'schedule';\nmsg.notification = { \n    data : {\n        \"title\"   : \"Home Assistant\",\n        \"message\" : \"Don't forget to take your morning medication\",\n        \"data\"    : { \n            \"subtitle\": false,\n            \"url\": \"/dashboard-home/person-her\",\n            \"actions\" : [\n                { \n                    action : \"MEDICINE_REMINDER_JESSICA_AM_DONE\",\n                    title  : \"Done\",\n                    icon   : \"sfsymbols:checkmark\"\n                },\n                { \n                    action: \"MEDICINE_REMINDER_JESSICA_AM_SNOOZE\",\n                    title       : \"Snooze\",\n                    icon        : \"sfsymbols:xmark\",\n                    destructive : true\n                }\n            ]\n        }\n            \n    }\n};\n\nreturn msg;",
 		"outputs": 1,
 		"noerr": 0,
 		"initialize": "",
@@ -24930,7 +23101,7 @@
 		"z": "462cafc155901a6e",
 		"g": "5ca480c6f55d70db",
 		"name": "Prepare iOS Notification",
-		"func": "msg.notification_type = 'schedule';\nmsg.notification = { \n    data : {\n        \"title\"   : \"Home Assistant\",\n        \"message\" : \"Don't forget to take your evening medication\",\n        \"data\"    : { \n            \"subtitle\": false,\n            \"actions\" : [\n                { \n                    action : \"MEDICINE_REMINDER_JESSICA_PM_DONE\",\n                    title  : \"Done\",\n                    icon   : \"sfsymbols:checkmark\"\n                },\n                { \n                    action: \"MEDICINE_REMINDER_JESSICA_PM_SNOOZE\",\n                    title       : \"Snooze\",\n                    icon        : \"sfsymbols:xmark\",\n                    destructive : true\n                }\n            ]\n        }\n            \n    }\n};\n\nreturn msg;",
+		"func": "msg.notification_type = 'schedule';\nmsg.notification = { \n    data : {\n        \"title\"   : \"Home Assistant\",\n        \"message\" : \"Don't forget to take your evening medication\",\n        \"data\"    : { \n            \"subtitle\": false,\n            \"url\": \"/dashboard-home/person-her\",\n            \"actions\" : [\n                { \n                    action : \"MEDICINE_REMINDER_JESSICA_PM_DONE\",\n                    title  : \"Done\",\n                    icon   : \"sfsymbols:checkmark\"\n                },\n                { \n                    action: \"MEDICINE_REMINDER_JESSICA_PM_SNOOZE\",\n                    title       : \"Snooze\",\n                    icon        : \"sfsymbols:xmark\",\n                    destructive : true\n                }\n            ]\n        }\n            \n    }\n};\n\nreturn msg;",
 		"outputs": 1,
 		"noerr": 0,
 		"initialize": "",
@@ -25554,7 +23725,7 @@
 		"z": "462cafc155901a6e",
 		"g": "5f9a23eb89d77a95",
 		"name": "Prepare iOS Notification",
-		"func": "msg.notification_type = 'schedule';\nmsg.notification = { \n    data : {\n        \"title\"   : \"Home Assistant\",\n        \"message\" : \"Don't forget to brush your teeth\",\n        \"data\"    : { \n            \"subtitle\": false,\n            \"actions\" : [\n                { \n                    action : \"TOOTHBRUSH_REMINDER_THOMAS_DONE\",\n                    title  : \"Done\",\n                    icon   : \"sfsymbols:checkmark\"\n                },\n                { \n                    action      : \"TOOTHBRUSH_REMINDER_THOMAS_SNOOZE\",\n                    title       : \"Snooze\",\n                    icon        : \"sfsymbols:xmark\",\n                    destructive : true\n                }\n            ]\n        }\n            \n    }\n};\n\nreturn msg;",
+		"func": "msg.notification_type = 'schedule';\nmsg.notification = { \n    data : {\n        \"title\"   : \"Home Assistant\",\n        \"message\" : \"Don't forget to brush your teeth\",\n        \"data\"    : { \n            \"subtitle\": false,\n            \"url\": \"/dashboard-home/person-him\",\n            \"actions\" : [\n                { \n                    action : \"TOOTHBRUSH_REMINDER_THOMAS_DONE\",\n                    title  : \"Done\",\n                    icon   : \"sfsymbols:checkmark\"\n                },\n                { \n                    action      : \"TOOTHBRUSH_REMINDER_THOMAS_SNOOZE\",\n                    title       : \"Snooze\",\n                    icon        : \"sfsymbols:xmark\",\n                    destructive : true\n                }\n            ]\n        }\n            \n    }\n};\n\nreturn msg;",
 		"outputs": 1,
 		"noerr": 0,
 		"initialize": "",
@@ -32093,7 +30264,7 @@
 			"b5bf4f1d2a2db4f8",
 			"f5ce6c4b657db2c6"
 		],
-		"x": 1475,
+		"x": 1195,
 		"y": 140,
 		"wires": []
 	},
@@ -32182,26 +30353,6 @@
 		"x": 1075,
 		"y": 2040,
 		"wires": []
-	},
-	{
-		"id": "c6d8e1b43823a5dc",
-		"type": "function",
-		"z": "948139bb1964bc5a",
-		"g": "ced32fcc854281a5",
-		"name": "Prepare iOS Notification",
-		"func": "const name = msg.friendly_name; // Custom attribute name\nconst state = ( msg.payload === 'on' ) ? \"opened\" : \"closed\";\n\nmsg.notification = { \n    data : {\n        \"title\"   : \"Home Assistant\",\n        \"message\" : \"The \" + name + \" has been \" + state,\n        \"data\"    : { \n            \"subtitle\": false,\n            \"actions\" : [\n                { \n                    action      : \"HOUSEHOLD_ACTIVITY_SNOOZE\",\n                    title       : \"Snooze\",\n                    icon        : \"sfsymbols:xmark\",\n                    destructive : true\n                }\n            ]\n        }\n    }\n};\n\nreturn msg;",
-		"outputs": 1,
-		"noerr": 0,
-		"initialize": "",
-		"finalize": "",
-		"libs": [],
-		"x": 1070,
-		"y": 140,
-		"wires": [
-			[
-				"97e968a2365c92c3"
-			]
-		]
 	},
 	{
 		"id": "56e812d6e0542d72",
@@ -32373,21 +30524,6 @@
 		"wires": []
 	},
 	{
-		"id": "11f8bc649bee4ded",
-		"type": "e-mail",
-		"z": "948139bb1964bc5a",
-		"g": "b4dea0a7c8b7a32a",
-		"server": "smtp.gmail.com",
-		"port": "465",
-		"secure": true,
-		"tls": true,
-		"name": "casamaxson+homeassistant@gmail.com",
-		"dname": "",
-		"x": 1220,
-		"y": 2160,
-		"wires": []
-	},
-	{
 		"id": "bf8f7ff097449bb7",
 		"type": "comment",
 		"z": "948139bb1964bc5a",
@@ -32399,33 +30535,13 @@
 		"wires": []
 	},
 	{
-		"id": "f69152fd9615e388",
-		"type": "function",
-		"z": "948139bb1964bc5a",
-		"g": "b4dea0a7c8b7a32a",
-		"name": "Prepare Email Notification",
-		"func": "const d = new Date();\nconst h = d.getHours();\nconst m = d.getMinutes();\n\nmsg = { \n    \"topic\"   : \"WARNING! Water Detected at Home.\",\n    \"payload\": \"The \" + msg.friendly_name + \" has detected the presence of water at\" + h + \":\" + m,\n};\n\nreturn msg;",
-		"outputs": 1,
-		"noerr": 0,
-		"initialize": "",
-		"finalize": "",
-		"libs": [],
-		"x": 890,
-		"y": 2160,
-		"wires": [
-			[
-				"11f8bc649bee4ded"
-			]
-		]
-	},
-	{
 		"id": "7118a48e68688bb8",
 		"type": "comment",
 		"z": "948139bb1964bc5a",
 		"g": "7fbcda953d53c56b",
 		"name": "----- Temperature to High for Device -----",
 		"info": "",
-		"x": 240,
+		"x": 230,
 		"y": 3860,
 		"wires": []
 	},
@@ -32433,7 +30549,6 @@
 		"id": "b365d449119baa70",
 		"type": "server-state-changed",
 		"z": "948139bb1964bc5a",
-		"d": true,
 		"g": "7fbcda953d53c56b",
 		"name": "Freezer Temperature",
 		"server": "1040bb61.673d75",
@@ -32584,7 +30699,6 @@
 		"id": "f5810ad2a121d7f5",
 		"type": "server-state-changed",
 		"z": "948139bb1964bc5a",
-		"d": true,
 		"g": "7fbcda953d53c56b",
 		"name": "Refrigerator Temperature",
 		"server": "1040bb61.673d75",
@@ -33063,7 +31177,7 @@
 		"for": 0,
 		"forType": "num",
 		"forUnits": "minutes",
-		"x": 1320,
+		"x": 1040,
 		"y": 140,
 		"wires": [
 			[],
@@ -33132,6 +31246,12 @@
 				"propertyType": "msg",
 				"value": "Living Room Sliding Glass door",
 				"valueType": "str"
+			},
+			{
+				"property": "door_status",
+				"propertyType": "msg",
+				"value": "",
+				"valueType": "entityState"
 			}
 		],
 		"x": 230,
@@ -33203,6 +31323,12 @@
 				"propertyType": "msg",
 				"value": "Laundry Room door",
 				"valueType": "str"
+			},
+			{
+				"property": "door_status",
+				"propertyType": "msg",
+				"value": "",
+				"valueType": "entityState"
 			}
 		],
 		"x": 250,
@@ -33274,6 +31400,12 @@
 				"propertyType": "msg",
 				"value": "Main Bedroom door",
 				"valueType": "str"
+			},
+			{
+				"property": "door_status",
+				"propertyType": "msg",
+				"value": "",
+				"valueType": "entityState"
 			}
 		],
 		"x": 240,
@@ -33345,6 +31477,12 @@
 				"propertyType": "msg",
 				"value": "Guest Bedroom door",
 				"valueType": "str"
+			},
+			{
+				"property": "door_status",
+				"propertyType": "msg",
+				"value": "",
+				"valueType": "entityState"
 			}
 		],
 		"x": 230,
@@ -33416,6 +31554,12 @@
 				"propertyType": "msg",
 				"value": "Jess' Office door",
 				"valueType": "str"
+			},
+			{
+				"property": "door_status",
+				"propertyType": "msg",
+				"value": "",
+				"valueType": "entityState"
 			}
 		],
 		"x": 210,
@@ -33487,6 +31631,12 @@
 				"propertyType": "msg",
 				"value": "Tom's Office door",
 				"valueType": "str"
+			},
+			{
+				"property": "door_status",
+				"propertyType": "msg",
+				"value": "",
+				"valueType": "entityState"
 			}
 		],
 		"x": 220,
@@ -33904,7 +32054,7 @@
 		"g": "931f2c0cfb587811",
 		"name": "----- When Location Changes, Send Notification -----",
 		"info": "",
-		"x": 280,
+		"x": 270,
 		"y": 4240,
 		"wires": []
 	},
@@ -34003,6 +32153,12 @@
 				"propertyType": "msg",
 				"value": "Garage (Interior) door",
 				"valueType": "str"
+			},
+			{
+				"property": "door_status",
+				"propertyType": "msg",
+				"value": "",
+				"valueType": "entityState"
 			}
 		],
 		"x": 240,
@@ -34074,6 +32230,12 @@
 				"propertyType": "msg",
 				"value": "Front (Primary) door",
 				"valueType": "str"
+			},
+			{
+				"property": "door_status",
+				"propertyType": "msg",
+				"value": "",
+				"valueType": "entityState"
 			}
 		],
 		"x": 240,
@@ -34324,7 +32486,7 @@
 		"z": "948139bb1964bc5a",
 		"g": "3d111a6d8f2d610a",
 		"name": "Prepare iOS Notification",
-		"func": "msg.notification_type = 'warning';\nmsg.notification = { \n    data : {\n        \"title\"   : \"Home Assistant\",\n        \"message\": \"Don't forget to take out the waste can.\",\n        \"data\"    : { \n            \"subtitle\": false,\n            \"actions\" : [\n                { \n                    action: \"WASTE_TAKE_OUT_HIDE\",\n                    title  : \"Done\",\n                    icon  : \"sfsymbols:checkmark\"\n                },\n                { \n                    action      : \"WASTE_TAKE_OUT_SNOOZE\",\n                    title       : \"Snooze\",\n                    icon        : \"sfsymbols:xmark\",\n                    destructive : true\n                }\n            ]\n        }\n            \n    }\n};\n\nreturn msg;",
+		"func": "msg.notification_type = 'warning';\nmsg.notification = { \n    data : {\n        \"title\"   : \"Home Assistant\",\n        \"message\": \"Don't forget to take out the waste can.\",\n        \"data\"    : { \n            \"subtitle\": false,\n            \"url\": \"/dashboard-home/subview-sidebar\",\n            \"actions\" : [\n                { \n                    action: \"WASTE_TAKE_OUT_HIDE\",\n                    title  : \"Done\",\n                    icon  : \"sfsymbols:checkmark\"\n                },\n                { \n                    action      : \"WASTE_TAKE_OUT_SNOOZE\",\n                    title       : \"Snooze\",\n                    icon        : \"sfsymbols:xmark\",\n                    destructive : true\n                }\n            ]\n        }\n            \n    }\n};\n\nreturn msg;",
 		"outputs": 1,
 		"noerr": 0,
 		"initialize": "",
@@ -34903,7 +33065,7 @@
 		"z": "948139bb1964bc5a",
 		"g": "3d111a6d8f2d610a",
 		"name": "Prepare iOS Notification",
-		"func": "msg.notification_type = 'warning';\nmsg.notification = { \n    data : {\n        \"title\"   : \"Home Assistant\",\n        \"message\" : \"Don't forget to bring in the waste can.\",\n        \"data\"    : { \n            \"subtitle\": false,\n            \"actions\" : [\n                { \n                    action : \"WASTE_BRING_IN_HIDE\",\n                    title  : \"Done\",\n                    icon   : \"sfsymbols:checkmark\"\n                },\n                { \n                    action      : \"WASTE_BRING_IN_SNOOZE\",\n                    title       : \"Snooze\",\n                    icon        : \"sfsymbols:xmark\",\n                    destructive : true\n                }\n            ]\n        }\n            \n    }\n};\n\nreturn msg;",
+		"func": "msg.notification_type = 'warning';\nmsg.notification = { \n    data : {\n        \"title\"   : \"Home Assistant\",\n        \"message\" : \"Don't forget to bring in the waste can.\",\n        \"data\"    : { \n            \"subtitle\": false,\n            \"url\": \"/dashboard-home/subview-sidebar\",\n            \"actions\" : [\n                { \n                    action : \"WASTE_BRING_IN_HIDE\",\n                    title  : \"Done\",\n                    icon   : \"sfsymbols:checkmark\"\n                },\n                { \n                    action      : \"WASTE_BRING_IN_SNOOZE\",\n                    title       : \"Snooze\",\n                    icon        : \"sfsymbols:xmark\",\n                    destructive : true\n                }\n            ]\n        }\n            \n    }\n};\n\nreturn msg;",
 		"outputs": 1,
 		"noerr": 0,
 		"initialize": "",
@@ -34986,7 +33148,7 @@
 		"g": "3d111a6d8f2d610a",
 		"name": "----- Waste Bring In -----",
 		"info": "",
-		"x": 170,
+		"x": 160,
 		"y": 3260,
 		"wires": []
 	},
@@ -36540,7 +34702,7 @@
 		"z": "948139bb1964bc5a",
 		"g": "ced32fcc854281a5",
 		"name": "Prepare iOS Notification Type",
-		"func": "msg.notification_type = 'activity_door';\n\nreturn msg;",
+		"func": "const name = msg.friendly_name; // Custom attribute name\nconst state = (msg.door_status === 'on') ? \"opened\" : \"closed\";\n\nmsg.notification_type = 'activity_door';\nmsg.notification = {\n    data: {\n        \"title\": \"Home Assistant\",\n        \"message\": \"The \" + name + \" has been \" + state,\n        \"data\": {\n            \"subtitle\": false,\n            \"actions\": [\n                {\n                    action: \"HOUSEHOLD_ACTIVITY_SNOOZE\",\n                    title: \"Snooze\",\n                    icon: \"sfsymbols:xmark\",\n                    destructive: true\n                }\n            ]\n        }\n    }\n};\n\nreturn msg;",
 		"outputs": 1,
 		"noerr": 0,
 		"initialize": "",
@@ -36550,7 +34712,7 @@
 		"y": 141,
 		"wires": [
 			[
-				"c6d8e1b43823a5dc"
+				"97e968a2365c92c3"
 			]
 		]
 	},
@@ -37723,6 +35885,12 @@
 				"propertyType": "msg",
 				"value": "Front (Primary) door",
 				"valueType": "str"
+			},
+			{
+				"property": "door_status",
+				"propertyType": "msg",
+				"value": "",
+				"valueType": "entityState"
 			}
 		],
 		"x": 240,
@@ -38980,7 +37148,7 @@
 		"type": "server-state-changed",
 		"z": "948139bb1964bc5a",
 		"g": "5d8d0f65348b95a2",
-		"name": "Garage Presence UNAVAILABLE",
+		"name": "Garage Fan UNAVAILABLE",
 		"server": "1040bb61.673d75",
 		"version": 4,
 		"exposeToHomeAssistant": false,
@@ -38994,7 +37162,7 @@
 				"value": ""
 			}
 		],
-		"entityidfilter": "binary_sensor.presence_garage",
+		"entityidfilter": "light.garage_fan",
 		"entityidfiltertype": "exact",
 		"outputinitially": false,
 		"state_type": "str",
@@ -39031,11 +37199,12 @@
 				"valueType": "triggerId"
 			}
 		],
-		"x": 1790,
+		"x": 1780,
 		"y": 1900,
 		"wires": [
 			[
-				"be3e6f28e804edba"
+				"393b99dd77d1d26c",
+				"60498de18d640439"
 			],
 			[]
 		]
@@ -39052,7 +37221,7 @@
 		"initialize": "",
 		"finalize": "",
 		"libs": [],
-		"x": 2390,
+		"x": 2070,
 		"y": 1900,
 		"wires": [
 			[
@@ -39071,7 +37240,7 @@
 			"b5bf4f1d2a2db4f8",
 			"f5ce6c4b657db2c6"
 		],
-		"x": 2575,
+		"x": 2255,
 		"y": 1900,
 		"wires": []
 	},
@@ -39087,7 +37256,7 @@
 		"initialize": "",
 		"finalize": "",
 		"libs": [],
-		"x": 2390,
+		"x": 2070,
 		"y": 1960,
 		"wires": [
 			[
@@ -39111,56 +37280,9 @@
 			"fa75df9d99a78852",
 			"ffe59e12601889d3"
 		],
-		"x": 2575,
+		"x": 2255,
 		"y": 1960,
 		"wires": []
-	},
-	{
-		"id": "be3e6f28e804edba",
-		"type": "api-current-state",
-		"z": "948139bb1964bc5a",
-		"g": "5d8d0f65348b95a2",
-		"name": "Garage Fan is UNAVAILABLE",
-		"server": "1040bb61.673d75",
-		"version": 3,
-		"outputs": 2,
-		"halt_if": "unavailable",
-		"halt_if_type": "str",
-		"halt_if_compare": "is",
-		"entity_id": "light.garage_fan",
-		"state_type": "str",
-		"blockInputOverrides": false,
-		"outputProperties": [
-			{
-				"property": "payload",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "entityState"
-			},
-			{
-				"property": "data",
-				"propertyType": "msg",
-				"value": "",
-				"valueType": "entity"
-			}
-		],
-		"for": 0,
-		"forType": "num",
-		"forUnits": "minutes",
-		"override_topic": false,
-		"state_location": "payload",
-		"override_payload": "msg",
-		"entity_location": "data",
-		"override_data": "msg",
-		"x": 2100,
-		"y": 1900,
-		"wires": [
-			[
-				"393b99dd77d1d26c",
-				"60498de18d640439"
-			],
-			[]
-		]
 	},
 	{
 		"id": "1c768ef70f317cb8",
@@ -39184,7 +37306,7 @@
 		"topic": "",
 		"payload": "",
 		"payloadType": "date",
-		"x": 2160,
+		"x": 1840,
 		"y": 1960,
 		"wires": [
 			[
@@ -39236,7 +37358,7 @@
 		"server": "1040bb61.673d75",
 		"version": 3,
 		"outputs": 2,
-		"halt_if": "Home, Regency Lakes",
+		"halt_if": "home, Home, Regency Lakes",
 		"halt_if_type": "str",
 		"halt_if_compare": "does_not_include",
 		"entity_id": "person.jessica",
@@ -39553,7 +37675,7 @@
 		"z": "4e1d02e135536c14",
 		"g": "92003b8d7ece4c1a",
 		"name": "Setup Device Data",
-		"func": "const gHomeAssistant = global.get(\"homeassistant\").homeAssistant;\nconst device = \"media_player.echo_dot_bedroom_3\";\n\nmsg.alexa_device = device;\nmsg.volume_level = { \n    \"old\" : gHomeAssistant.states[ device ].attributes.volume_level,\n    \"new\" :  0.2\n};\n\nreturn msg;",
+		"func": "const gHomeAssistant = global.get(\"homeassistant\").homeAssistant;\nconst device = \"media_player.echo_dot_bedroom_3\";\n\nmsg.alexa_device = device;\nmsg.volume_level = { \n    \"old\" : gHomeAssistant.states[ device ].attributes.volume_level,\n    \"new\" :  0.3\n};\n\nreturn msg;",
 		"outputs": 1,
 		"noerr": 0,
 		"initialize": "",
@@ -39616,7 +37738,7 @@
 		"z": "4e1d02e135536c14",
 		"g": "92003b8d7ece4c1a",
 		"name": "Setup Device Data",
-		"func": "const gHomeAssistant = global.get(\"homeassistant\").homeAssistant;\nconst device = \"media_player.echo_dot_bedroom_2\";\n\nmsg.alexa_device = device;\nmsg.volume_level = { \n    \"old\" : gHomeAssistant.states[ device ].attributes.volume_level,\n    \"new\" :  0.2\n};\n\nreturn msg;",
+		"func": "const gHomeAssistant = global.get(\"homeassistant\").homeAssistant;\nconst device = \"media_player.echo_dot_bedroom_2\";\n\nmsg.alexa_device = device;\nmsg.volume_level = { \n    \"old\" : gHomeAssistant.states[ device ].attributes.volume_level,\n    \"new\" :  0.3\n};\n\nreturn msg;",
 		"outputs": 1,
 		"noerr": 0,
 		"initialize": "",
@@ -39648,8 +37770,8 @@
 			"85f46618c0b6ba31",
 			"47266ebebc13b117",
 			"e8e315bb439b2097",
-			"be695693e3560395",
-			"d471a47b892f65f0"
+			"d471a47b892f65f0",
+			"be695693e3560395"
 		],
 		"x": 735,
 		"y": 1720,
@@ -39797,7 +37919,7 @@
 		"z": "4e1d02e135536c14",
 		"g": "92003b8d7ece4c1a",
 		"name": "Setup Device Data",
-		"func": "const gHomeAssistant = global.get(\"homeassistant\").homeAssistant;\nconst device = \"media_player.echo_dot_bedroom_4\";\n\nmsg.alexa_device = device;\nmsg.volume_level = { \n    \"old\" : gHomeAssistant.states[ device ].attributes.volume_level,\n    \"new\" :  0.2\n};\n\nreturn msg;",
+		"func": "const gHomeAssistant = global.get(\"homeassistant\").homeAssistant;\nconst device = \"media_player.echo_dot_bedroom_4\";\n\nmsg.alexa_device = device;\nmsg.volume_level = { \n    \"old\" : gHomeAssistant.states[ device ].attributes.volume_level,\n    \"new\" :  0.3\n};\n\nreturn msg;",
 		"outputs": 1,
 		"noerr": 0,
 		"initialize": "",
@@ -41694,7 +39816,7 @@
 		"z": "4e1d02e135536c14",
 		"g": "92003b8d7ece4c1a",
 		"name": "Setup Device Data",
-		"func": "const gHomeAssistant = global.get(\"homeassistant\").homeAssistant;\nconst device = \"media_player.echo_pop_main_bathroom\";\n\nmsg.alexa_device = device;\nmsg.volume_level = { \n    \"old\" : gHomeAssistant.states[ device ].attributes.volume_level,\n    \"new\" :  0.2\n};\n\nreturn msg;",
+		"func": "const gHomeAssistant = global.get(\"homeassistant\").homeAssistant;\nconst device = \"media_player.echo_pop_main_bathroom\";\n\nmsg.alexa_device = device;\nmsg.volume_level = { \n    \"old\" : gHomeAssistant.states[ device ].attributes.volume_level,\n    \"new\" :  0.3\n};\n\nreturn msg;",
 		"outputs": 1,
 		"noerr": 0,
 		"initialize": "",
@@ -42413,7 +40535,7 @@
 				"valueType": "str"
 			}
 		],
-		"x": 990,
+		"x": 970,
 		"y": 900,
 		"wires": [
 			[
@@ -42439,7 +40561,7 @@
 		"checkall": "true",
 		"repair": false,
 		"outputs": 1,
-		"x": 1020,
+		"x": 1000,
 		"y": 980,
 		"wires": [
 			[
@@ -42454,7 +40576,7 @@
 		"g": "1bb40b79d6de32c3",
 		"name": "----- Household Activity iOS Actions -----",
 		"info": "",
-		"x": 1040,
+		"x": 1030,
 		"y": 860,
 		"wires": []
 	},
@@ -42472,7 +40594,7 @@
 		"targetType": "full",
 		"statusVal": "",
 		"statusType": "auto",
-		"x": 1450,
+		"x": 1430,
 		"y": 900,
 		"wires": []
 	},
@@ -42498,7 +40620,7 @@
 		"mustacheAltTags": false,
 		"outputProperties": [],
 		"queue": "none",
-		"x": 1250,
+		"x": 1230,
 		"y": 900,
 		"wires": [
 			[
@@ -42524,7 +40646,7 @@
 		"once": false,
 		"onceDelay": 0.1,
 		"topic": "",
-		"x": 1010,
+		"x": 990,
 		"y": 1060,
 		"wires": [
 			[
