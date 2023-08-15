@@ -2568,6 +2568,11 @@ views:
           - type: section
             label: Guest Bedroom
           - type: custom:decluttering-card
+            template: media_appletv
+            variables:
+              - entity: media_player.appletv_bedroom_2
+              - name: Apple TV
+          - type: custom:decluttering-card
             template: media_echo
             variables:
               - entity: media_player.echo_dot_bedroom_2
@@ -2668,12 +2673,12 @@ views:
           - type: custom:decluttering-card
             template: temperature
             variables:
-              - entity: sensor.custom_refrigerator_temperature
+              - entity: sensor.temp_refrigerator_temperature
               - name: Refrigerator
           - type: custom:decluttering-card
             template: temperature
             variables:
-              - entity: sensor.custom_freezer_temperature
+              - entity: sensor.temp_freezer_temperature
               - name: Freezer
           - type: custom:decluttering-card
             template: temperature
