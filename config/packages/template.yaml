@@ -99,25 +99,6 @@ sensor:
             mdi:washing-machine-off
           {%- endif -%}
 
-      # custom_large_window_curtains_bedroom_1:
-      #   friendly_name: Large Window Curtains
-      #   value_template: >-
-      #     {%- if is_state( 'cover.large_window_curtains_bedroom_1', 'open' ) -%}
-      #       Open
-      #     {%- elif is_state( 'cover.large_window_curtains_bedroom_1', 'closed' ) -%}
-      #       Closed
-      #     {%- else -%}
-      #       Unknown
-      #     {%- endif -%}
-      #   icon_template: >-
-      #     {%- if is_state( 'cover.large_window_curtains_bedroom_1', 'open' ) -%}
-      #     mdi:curtains
-      #     {%- elif is_state( 'cover.large_window_curtains_bedroom_1', 'closed' ) -%}
-      #     mdi:curtains-closed
-      #     {%- else -%}
-      #     mdi:cloud-question
-      #     {%- endif -%}
-
       custom_door_closet_hallway_j:
         friendly_name: "Jess' Closet Door"
         value_template: >-
@@ -154,34 +135,6 @@ sensor:
           mdi:door-sliding
           {%- else -%}
           mdi:cloud-question
-          {%- endif -%}
-
-      custom_freezer_temperature:
-        friendly_name: Freezer Temperature
-        icon_template: "mdi:thermometer"
-        unit_of_measurement: "°F"
-        value_template: >-
-          {%- set ignore = [ 'unknown', 'unavailable' ] -%}
-          {%- set state = states( 'sensor.temp_freezer_temperature' ) -%}
-
-          {%- if state not in ignore -%}
-            {{ state | int - 5 }}
-          {%- else -%}
-            Unknown
-          {%- endif -%}
-
-      custom_refrigerator_temperature:
-        friendly_name: Refrigerator Temperature
-        icon_template: "mdi:thermometer"
-        unit_of_measurement: "°F"
-        value_template: >-
-          {%- set ignore = [ 'unknown', 'unavailable' ] -%}
-          {%- set state = states( 'sensor.temp_refrigerator_temperature' ) -%}
-
-          {%- if state not in ignore -%}
-            {{ state | int - 5 }}
-          {%- else -%}
-            Unknown
           {%- endif -%}
 
       custom_fire_tablet_battery:
@@ -319,9 +272,6 @@ template:
       # Update on Template reload
       - platform: event
         event_type: event_template_reloaded
-      # Update on Template reload
-      - platform: event
-        event_type: event_template_reloaded
       # Update every XX seconds
       - platform: time_pattern
         seconds: /30
@@ -364,9 +314,6 @@ template:
       # Update on Home Assistant startup
       - platform: homeassistant
         event: start
-      # Update on Template reload
-      - platform: event
-        event_type: event_template_reloaded
       # Update on Template reload
       - platform: event
         event_type: event_template_reloaded
@@ -415,9 +362,6 @@ template:
       # Update on Template reload
       - platform: event
         event_type: event_template_reloaded
-      # Update on Template reload
-      - platform: event
-        event_type: event_template_reloaded
       # Update every XX seconds
       - platform: time_pattern
         seconds: /30
@@ -463,9 +407,6 @@ template:
       # Update on Template reload
       - platform: event
         event_type: event_template_reloaded
-      # Update on Template reload
-      - platform: event
-        event_type: event_template_reloaded
       # Update every XX seconds
       - platform: time_pattern
         seconds: /30
@@ -508,9 +449,6 @@ template:
       # Update on Home Assistant startup
       - platform: homeassistant
         event: start
-      # Update on Template reload
-      - platform: event
-        event_type: event_template_reloaded
       # Update on Template reload
       - platform: event
         event_type: event_template_reloaded
