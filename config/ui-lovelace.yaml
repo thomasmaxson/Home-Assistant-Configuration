@@ -764,8 +764,8 @@ views:
               ha-card { display: none;}
             }
             ha-card {
-              --pei_color_cover_garage: {% if( states( 'cover.garage_door' ) in ['open', 'opening'] ) %} var( --state-lock-unlocked-color ) {% else %} var( --state-lock-locked-color ) {% endif %};
-              --pei_color_lock_door_front: {% if( states( 'lock.front_door' ) in ['unlocked', unlocking] ) %} var( --state-lock-unlocked-color ) {% else %} var( --state-lock-locked-color ) {% endif %};
+              --pei_color_cover_garage: {% if( states( 'cover.garage_door' ) in ['open', 'opening'] ) %} var( --state-lock-unlocked-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_lock_door_front: {% if( states( 'lock.front_door' ) in ['unlocked', unlocking] ) %} var( --state-lock-unlocked-color ) {% else %} var( --secondary-text-color ) {% endif %};
 
               --pei_color_light_bedroom_1: {% if( states( 'light.bedroom_1_bedside_lamps' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
               --pei_color_light_bedroom_2: {% if( states( 'light.bedroom_2_bedside_lamps' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
@@ -1288,7 +1288,7 @@ views:
               left: 65%
               color: var(--primary-color)
           - type: state-label
-            entity: sensor.custom_refrigerator_temperature
+            entity: sensor.temp_refrigerator_temperature
             tap_action:
               action: more-info
             style:
@@ -1296,7 +1296,7 @@ views:
               left: 44%
               color: var(--primary-color)
           - type: state-label
-            entity: sensor.custom_freezer_temperature
+            entity: sensor.temp_freezer_temperature
             tap_action:
               action: more-info
             style:
@@ -1354,8 +1354,8 @@ views:
               ha-card { display: none;}
             }
             ha-card {
-              --pei_color_cover_garage: {% if( states( 'cover.garage_door' ) in ['open', 'opening'] ) %} var( --state-lock-unlocked-color ) {% else %} var( --state-lock-locked-color ) {% endif %};
-              --pei_color_lock_door_front: {% if( states( 'lock.front_door' ) in ['unlocked', unlocking] ) %} var( --state-lock-unlocked-color ) {% else %} var( --state-lock-locked-color ) {% endif %};
+              --pei_color_cover_garage: {% if( states( 'cover.garage_door' ) in ['open', 'opening'] ) %} var( --state-lock-unlocked-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_lock_door_front: {% if( states( 'lock.front_door' ) in ['unlocked', unlocking] ) %} var( --state-lock-unlocked-color ) {% else %} var( --secondary-text-color ) {% endif %};
 
               --pei_color_light_bedroom_1: {% if( states( 'light.bedroom_1_bedside_lamps' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
               --pei_color_light_bedroom_2: {% if( states( 'light.bedroom_2_bedside_lamps' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
@@ -2925,7 +2925,7 @@ views:
                 state_not: unavailable
             row:
               entity: input_boolean.sync_bedroom_4_lights
-              name: His Office Desk Lights
+              name: Tom's Office Desk Lights
       - type: entities
         show_header_toggle: false
         style: |
@@ -3028,9 +3028,9 @@ views:
           - entity: input_boolean.automation_bedroom_2_door_open_close
             name: Guest Bedroom Door
           - entity: input_boolean.automation_bedroom_3_door_open_close
-            name: Her Office Door
+            name: Jess' Office Door
           - entity: input_boolean.automation_bedroom_4_door_open_close
-            name: His Office Door
+            name: Tom's Office Door
           - entity: input_boolean.automation_laundry_room_door_open_close
             name: Laundry Room Door
   - title: Helpers
