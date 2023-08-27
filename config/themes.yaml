@@ -7,6 +7,7 @@
 ################################################################################
 
 extra_module_url:
+  - /hacsfiles/lovelace-card-mod/card-mod.js
   - /hacsfiles/hass-bha-icons/hass-bha-icons.js
   - /hacsfiles/hass-hue-icons/hass-hue-icons.js
 
