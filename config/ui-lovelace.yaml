@@ -460,6 +460,12 @@ views:
                       type: custom:button-card
                       entity: light.bedroom_4_lights
                       name: Tom's Office
+                      double_tap_action:
+                        action: navigate
+                        navigation_path: /dashboard-home/office-his
+                      hold_action:
+                        action: navigate
+                        navigation_path: /dashboard-home/office-his
                       template:
                         - light
                   - type: conditional
@@ -540,11 +546,6 @@ views:
                     template:
                       - light
                   - type: custom:button-card
-                    entity: light.front_yard_accent_lights
-                    name: Front Yard
-                    template:
-                      - light
-                  - type: custom:button-card
                     entity: switch.backyard_string_lights
                     name: Backyard
                     template:
@@ -552,6 +553,11 @@ views:
                     variables:
                       circle_value: 'ON'
                       circle_value_unit: ''
+                  - type: custom:button-card
+                    entity: light.front_yard_accent_lights
+                    name: Front Yard
+                    template:
+                      - light
               - type: grid
                 title: Garage
                 columns: 3
@@ -628,6 +634,12 @@ views:
                     entity: input_boolean.status_dog_gouda
                     show_entity_picture: true
                     entity_picture: /local/uploads/avatar-gouda.png
+                    tap_action:
+                      action: navigate
+                      navigation_path: /dashboard-home/details-gouda
+                    hold_action:
+                      action: navigate
+                      navigation_path: /dashboard-home/details-gouda
                     template:
                       - person_boolean
               - type: grid
@@ -717,12 +729,12 @@ views:
               navigation_path: /dashboard-home/subview-systems
           - type: custom:button-card
             name: |
-              <ha-icon icon="mdi:cog"></ha-icon> Settings
+              <ha-icon icon="mdi:cog"></ha-icon> Configure
             template:
               - details
             tap_action:
               action: navigate
-              navigation_path: /dashboard-home/subview-settings
+              navigation_path: /dashboard-home/subview-config
             double_tap_action:
               action: navigate
               navigation_path: /dashboard-home/subview-helpers
@@ -731,8 +743,8 @@ views:
               navigation_path: /dashboard-home/subview-helpers
         view_layout:
           grid-area: subviews
-  - title: Floor Plan
-    path: subview-floor-plan
+  - title: Controls
+    path: subview-controls-overview
     type: custom:grid-layout
     subview: false
     view_layout:
@@ -752,7 +764,6 @@ views:
           grid-template-rows: auto
           grid-template-columns: 2.5% 95% 2.5%
     theme: tihiti
-    badges: []
     cards:
       - type: picture-elements
         view_layout:
@@ -770,6 +781,7 @@ views:
               --pei_color_light_bedroom_1: {% if( states( 'light.bedroom_1_bedside_lamps' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
               --pei_color_light_bedroom_2: {% if( states( 'light.bedroom_2_bedside_lamps' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
               --pei_color_light_bedroom_4: {% if( states( 'light.bedroom_4_lights' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_light_bedroom_4_tie_fighter_lamp: {% if( states( 'light.bedroom_4_tie_fighter_lamp' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
               --pei_color_light_kitchen_ceiling: {% if( states( 'light.kitchen_ceiling_lights' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
               --pei_color_light_kitchen_upper_coffee: {% if( states( 'light.kitchen_cabinet_upper_coffee_bar' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
               --pei_color_light_kitchen_upper_range: {% if( states( 'light.kitchen_cabinet_upper_range' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
@@ -785,6 +797,7 @@ views:
               --pei_color_light_foyer_exterior_entryway: {% if( states( 'light.foyer_exterior_entryway' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
               --pei_color_light_garage_exterior: {% if( states( 'light.garage_exterior' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
               --pei_color_light_garage_ceiling: {% if( states( 'light.garage_ceiling' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_light_garage_door_light: {% if( states( 'light.garage_door_light' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
               --pei_color_light_garage_fan: {% if( states( 'light.garage_fan' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
               --pei_color_light_closet_hallway_light: {% if( states( 'light.closet_hallway_ceiling_light' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
               --pei_color_light_closet_hallway_light_j: {% if( states( 'light.closet_hallway_light_j' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
@@ -797,552 +810,359 @@ views:
               --pei_color_media_player_sony_bravia_tv: {% if( states( 'media_player.sony_bravia_tv' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
 
               --pei_color_curtains_bedroom_1: {% if( states( 'cover.large_window_curtains_bedroom_1' ) in ['open', 'opening'] ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
-
-              --pei_color_door_front_primary: {% if( states( 'binary_sensor.door_front_primary' ) == 'on' ) %} var( --state-lock-unlocked-color ) {% else %} var( --secondary-text-color ) {% endif %};
-              --pei_color_door_front_secondary: {% if( states( 'binary_sensor.door_front_secondary' ) == 'on' ) %} var( --state-lock-unlocked-color ) {% else %} var( --secondary-text-color ) {% endif %};
-              --pei_color_door_garage: {% if( states( 'binary_sensor.door_garage' ) == 'on' ) %} var( --state-lock-unlocked-color ) {% else %} var( --secondary-text-color ) {% endif %};
-              --pei_color_door_bedroom_1: {% if( states( 'binary_sensor.door_bedroom_1' ) == 'on' ) %} var( --state-lock-unlocked-color ) {% else %} var( --secondary-text-color ) {% endif %};
-              --pei_color_door_bedroom_2: {% if( states( 'binary_sensor.door_bedroom_2' ) == 'on' ) %} var( --state-lock-unlocked-color ) {% else %} var( --secondary-text-color ) {% endif %};
-              --pei_color_door_bedroom_3: {% if( states( 'binary_sensor.door_bedroom_3' ) == 'on' ) %} var( --state-lock-unlocked-color ) {% else %} var( --secondary-text-color ) {% endif %};
-              --pei_color_door_bedroom_4: {% if( states( 'binary_sensor.door_bedroom_4' ) == 'on' ) %} var( --state-lock-unlocked-color ) {% else %} var( --secondary-text-color ) {% endif %};
-              --pei_color_door_living: {% if( states( 'binary_sensor.door_living' ) == 'on' ) %} var( --state-lock-unlocked-color ) {% else %} var( --secondary-text-color ) {% endif %};
-              --pei_color_door_laundry: {% if( states( 'binary_sensor.door_laundry' ) == 'on' ) %} var( --state-lock-unlocked-color ) {% else %} var( --secondary-text-color ) {% endif %};
-              --pei_color_door_closet_hallway_hers: {% if( states( 'binary_sensor.door_closet_hallway_hers' ) == 'on' ) %} var( --state-lock-unlocked-color ) {% else %} var( --secondary-text-color ) {% endif %};
-              --pei_color_door_closet_hallway_his: {% if( states( 'binary_sensor.door_closet_hallway_his' ) == 'on' ) %} var( --state-lock-unlocked-color ) {% else %} var( --secondary-text-color ) {% endif %};
-
-              --pei_color_presence_living_room: {% if( states( 'binary_sensor.presence_living_room' ) == 'on' ) %} var( --state-lock-locked-color ) {% else %} var( --secondary-text-color ) {% endif %};
-              --pei_color_presence_garage: {% if( states( 'binary_sensor.presence_garage' ) == 'on' ) %} var( --state-lock-locked-color ) {% else %} var( --secondary-text-color ) {% endif %};
-              --pei_color_motion_laundry: {% if( states( 'binary_sensor.motion_laundry' ) == 'on' ) %} var( --state-lock-locked-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_blinds_bedroom_4: {% if( states( 'cover.blinds_bedroom_4' ) in ['open', 'opening'] ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
             }
         elements:
           - type: state-icon
             entity: cover.garage_door
             state_color: false
+            tap_action:
+              action: toggle
             style:
               top: 30%
               left: 91.5%
               border-radius: 100%
               '--paper-item-icon-color': var( --pei_color_cover_garage )
-            tap_action:
-              action: toggle
           - type: state-icon
             entity: lock.front_door
             state_color: false
+            tap_action:
+              action: toggle
             style:
               top: 60%
               left: 76%
               border-radius: 100%
               '--paper-item-icon-color': var( --pei_color_lock_door_front )
-            tap_action:
-              action: toggle
           - type: state-icon
             entity: light.bedroom_1_bedside_lamps
             state_color: false
+            tap_action:
+              action: toggle
             style:
               top: 25%
               left: 22%
               border-radius: 100%
               '--paper-item-icon-color': var( --pei_color_light_bedroom_1 )
-            tap_action:
-              action: toggle
           - type: state-icon
             entity: cover.large_window_curtains_bedroom_1
             state_color: false
+            tap_action:
+              action: toggle
             style:
               top: 25%
               left: 15%
               border-radius: 100%
               '--paper-item-icon-color': var( --pei_color_curtains_bedroom_1 )
-            tap_action:
-              action: toggle
           - type: state-icon
             entity: light.bedroom_2_bedside_lamps
             state_color: false
+            tap_action:
+              action: toggle
             style:
               top: 79%
               left: 84.5%
               border-radius: 100%
               '--paper-item-icon-color': var( --pei_color_light_bedroom_2 )
-            tap_action:
-              action: toggle
           - type: state-icon
             entity: light.bedroom_4_lights
             state_color: false
+            tap_action:
+              action: toggle
             style:
               top: 79%
               left: 56%
               border-radius: 100%
               '--paper-item-icon-color': var( --pei_color_light_bedroom_4 )
+          - type: state-icon
+            entity: light.bedroom_4_tie_fighter_lamp
+            state_color: false
             tap_action:
               action: toggle
+            style:
+              top: 82%
+              left: 62%
+              border-radius: 100%
+              '--paper-item-icon-color': var( --pei_color_light_bedroom_4_tie_fighter_lamp )
+          - type: state-icon
+            entity: cover.blinds_bedroom_4
+            state_color: false
+            tap_action:
+              action: toggle
+            style:
+              top: 86.5%
+              left: 59.5%
+              border-radius: 100%
+              '--paper-item-icon-color': var( --pei_color_blinds_bedroom_4 )
           - type: state-icon
             entity: light.kitchen_ceiling_lights
             state_color: false
+            tap_action:
+              action: toggle
             style:
               top: 79%
               left: 39%
               border-radius: 100%
               '--paper-item-icon-color': var( --pei_color_light_kitchen_ceiling )
+          - type: state-icon
+            entity: light.cabinet_upper_lights
+            state_color: false
             tap_action:
               action: toggle
-          - type: state-icon
-            entity: light.kitchen_cabinet_upper_coffee_bar
-            state_color: false
             style:
               top: 83%
-              left: 46%
+              left: 47%
               border-radius: 100%
               '--paper-item-icon-color': var( --pei_color_light_kitchen_upper_coffee )
+          - type: state-icon
+            entity: light.cabinet_upper_lights
+            state_color: false
             tap_action:
               action: toggle
-          - type: state-icon
-            entity: light.kitchen_cabinet_upper_range
-            state_color: false
             style:
-              top: 68.5%
-              left: 32%
+              top: 66.25%
+              left: 34%
               border-radius: 100%
               '--paper-item-icon-color': var( --pei_color_light_kitchen_upper_range )
-            tap_action:
-              action: toggle
           - type: state-icon
             entity: light.living_room_corner_lamp
             state_color: false
+            tap_action:
+              action: toggle
             style:
               top: 42%
               left: 11%
               border-radius: 100%
               '--paper-item-icon-color': var( --pei_color_light_living_room_corner )
-            tap_action:
-              action: toggle
           - type: state-icon
             entity: light.dining_room_chandelier
             state_color: false
+            tap_action:
+              action: toggle
             style:
               top: 48%
               left: 36.5%
               border-radius: 100%
               '--paper-item-icon-color': var( --pei_color_light_dining_room_chandelier )
-            tap_action:
-              action: toggle
           - type: state-icon
             entity: light.guest_hallway_light
             state_color: false
+            tap_action:
+              action: toggle
             style:
               top: 72.5%
               left: 68%
               border-radius: 100%
               '--paper-item-icon-color': var( --pei_color_light_guest_hallway_light )
-            tap_action:
-              action: toggle
           - type: state-icon
             entity: light.laundry_ceiling_light
             state_color: false
+            tap_action:
+              action: toggle
             style:
               top: 44%
               left: 61%
               border-radius: 100%
               '--paper-item-icon-color': var( --pei_color_light_laundry_ceiling_light )
-            tap_action:
-              action: toggle
           - type: state-icon
             entity: light.laundry_hallway_light
             state_color: false
+            tap_action:
+              action: toggle
             style:
               top: 40%
               left: 53.5%
               border-radius: 100%
               '--paper-item-icon-color': var( --pei_color_light_laundry_hallway_light )
-            tap_action:
-              action: toggle
           - type: state-icon
             entity: light.foyer_hallway_ceiling
             state_color: false
+            tap_action:
+              action: toggle
             style:
               top: 58%
               left: 45%
               border-radius: 100%
               '--paper-item-icon-color': var( --pei_color_light_foyer_hallway_ceiling )
-            tap_action:
-              action: toggle
           - type: state-icon
             entity: light.foyer_under_table
             state_color: false
+            tap_action:
+              action: toggle
             style:
               top: 60%
               left: 53%
               border-radius: 100%
               '--paper-item-icon-color': var( --pei_color_light_foyer_under_table )
-            tap_action:
-              action: toggle
           - type: state-icon
             entity: light.foyer_ceiling_ledge
             state_color: false
+            tap_action:
+              action: toggle
             style:
               top: 56%
               left: 58%
               border-radius: 100%
               '--paper-item-icon-color': var( --pei_color_light_foyer_ceiling_ledge )
-            tap_action:
-              action: toggle
           - type: state-icon
             entity: light.foyer_entryway_ceiling
             state_color: false
+            tap_action:
+              action: toggle
             style:
               top: 60%
               left: 68%
               border-radius: 100%
               '--paper-item-icon-color': var( --pei_color_light_foyer_entryway_ceiling )
-            tap_action:
-              action: toggle
           - type: state-icon
             entity: light.foyer_exterior_entryway
             state_color: false
+            tap_action:
+              action: toggle
             style:
               top: 60%
               left: 82%
               border-radius: 100%
               '--paper-item-icon-color': var( --pei_color_light_foyer_exterior_entryway )
-            tap_action:
-              action: toggle
           - type: state-icon
             entity: light.garage_exterior
             state_color: false
+            tap_action:
+              action: toggle
             style:
               top: 13%
               left: 95%
               border-radius: 100%
               '--paper-item-icon-color': var( --pei_color_light_garage_exterior )
-            tap_action:
-              action: toggle
           - type: state-icon
             entity: light.garage_exterior
             state_color: false
+            tap_action:
+              action: toggle
             style:
               top: 49%
               left: 95%
               border-radius: 100%
               '--paper-item-icon-color': var( --pei_color_light_garage_exterior )
-            tap_action:
-              action: toggle
           - type: state-icon
             entity: light.garage_ceiling
             state_color: false
+            tap_action:
+              action: toggle
             style:
               top: 30%
               left: 75%
               border-radius: 100%
               '--paper-item-icon-color': var( --pei_color_light_garage_ceiling )
+          - type: state-icon
+            entity: light.garage_door_light
+            state_color: false
             tap_action:
               action: toggle
-          - type: state-icon
-            entity: light.garage_fan
-            state_color: false
             style:
               top: 30%
               left: 82%
               border-radius: 100%
-              '--paper-item-icon-color': var( --pei_color_light_garage_fan )
+              '--paper-item-icon-color': var( --pei_color_light_garage_door_light )
+          - type: state-icon
+            entity: light.garage_fan
+            state_color: false
             tap_action:
               action: toggle
+            style:
+              top: 18%
+              left: 78.5%
+              border-radius: 100%
+              '--paper-item-icon-color': var( --pei_color_light_garage_fan )
           - type: state-icon
             entity: light.closet_hallway_ceiling_light
             state_color: false
+            tap_action:
+              action: toggle
             style:
               top: 25%
               left: 29%
               border-radius: 100%
               '--paper-item-icon-color': var( --pei_color_light_closet_hallway_light )
-            tap_action:
-              action: toggle
           - type: state-icon
             entity: light.closet_hallway_light_j
             state_color: false
+            tap_action:
+              action: toggle
             style:
               top: 14%
               left: 34%
               border-radius: 100%
               '--paper-item-icon-color': var( --pei_color_light_closet_hallway_light_j )
-            tap_action:
-              action: toggle
           - type: state-icon
             entity: light.closet_hallway_light_t
             state_color: false
+            tap_action:
+              action: toggle
             style:
               top: 34%
               left: 34%
               border-radius: 100%
               '--paper-item-icon-color': var( --pei_color_light_closet_hallway_light_t )
-            tap_action:
-              action: toggle
           - type: state-icon
             entity: light.main_bathroom_lights_switch_a
             state_color: false
+            tap_action:
+              action: toggle
             style:
               top: 20%
               left: 42%
               border-radius: 100%
               '--paper-item-icon-color': var( --pei_color_light_main_bathroom_lights_switch_a )
-            tap_action:
-              action: toggle
           - type: state-icon
             entity: light.main_bathroom_lights_switch_b
             state_color: false
+            tap_action:
+              action: toggle
             style:
               top: 25%
               left: 47.75%
               border-radius: 100%
               '--paper-item-icon-color': var( --pei_color_light_main_bathroom_lights_switch_b )
-            tap_action:
-              action: toggle
           - type: state-icon
             entity: light.backyard_string_lights
             state_color: false
+            tap_action:
+              action: toggle
             style:
-              top: 54%
+              top: 50%
               left: 5%
               border-radius: 100%
               '--paper-item-icon-color': var( --pei_color_light_backyard_string_lights )
-            tap_action:
-              action: toggle
           - type: state-icon
             entity: light.front_yard_accent_lights
             state_color: false
+            tap_action:
+              action: toggle
             style:
               top: 79%
               left: 96.5%
               border-radius: 100%
               '--paper-item-icon-color': var( --pei_color_light_front_yard_accent_lights )
-            tap_action:
-              action: toggle
           - type: state-icon
             entity: media_player.sony_bravia_tv
             state_color: false
+            tap_action:
+              action: toggle
             style:
               top: 42%
               left: 17%
               border-radius: 100%
               '--paper-item-icon-color': var( --pei_color_media_player_sony_bravia_tv )
-            tap_action:
-              action: toggle
           - type: state-icon
             entity: light.tv_ambient_lights
             state_color: false
+            tap_action:
+              action: toggle
             style:
               top: 42%
               left: 22.5%
               border-radius: 100%
               '--paper-item-icon-color': var( --pei_color_light_tv_ambient_lights )
-            tap_action:
-              action: toggle
-          - type: state-icon
-            entity: binary_sensor.door_bedroom_1
-            state_color: false
-            style:
-              top: 37%
-              left: 27.5%
-              border-radius: 100%
-              '--paper-item-icon-color': var( --pei_color_door_bedroom_1 )
-          - type: state-icon
-            entity: binary_sensor.door_bedroom_2
-            state_color: false
-            style:
-              top: 72.5%
-              left: 74.5%
-              border-radius: 100%
-              '--paper-item-icon-color': var( --pei_color_door_bedroom_2 )
-          - type: state-icon
-            entity: binary_sensor.door_bedroom_3
-            state_color: false
-            style:
-              top: 35%
-              left: 53.5%
-              border-radius: 100%
-              '--paper-item-icon-color': var( --pei_color_door_bedroom_3 )
-          - type: state-icon
-            entity: binary_sensor.door_bedroom_4
-            state_color: false
-            style:
-              top: 68%
-              left: 60.5%
-              border-radius: 100%
-              '--paper-item-icon-color': var( --pei_color_door_bedroom_4 )
-          - type: state-icon
-            entity: binary_sensor.door_front_primary
-            state_color: false
-            style:
-              top: 58%
-              left: 73%
-              border-radius: 100%
-              '--paper-item-icon-color': var( --pei_color_door_front_primary )
-          - type: state-icon
-            entity: binary_sensor.door_front_secondary
-            state_color: false
-            style:
-              top: 63%
-              left: 73%
-              border-radius: 100%
-              '--paper-item-icon-color': var( --pei_color_door_front_secondary )
-          - type: state-icon
-            entity: binary_sensor.door_living
-            state_color: false
-            style:
-              top: 46%
-              left: 5%
-              border-radius: 100%
-              '--paper-item-icon-color': var( --pei_color_door_living )
-          - type: state-icon
-            entity: binary_sensor.door_laundry
-            state_color: false
-            style:
-              top: 44%
-              left: 56%
-              border-radius: 100%
-              '--paper-item-icon-color': var( --pei_color_door_laundry )
-          - type: state-icon
-            entity: binary_sensor.door_garage
-            state_color: false
-            style:
-              top: 44%
-              left: 65%
-              border-radius: 100%
-              '--paper-item-icon-color': var( --pei_color_door_garage )
-          - type: state-icon
-            entity: binary_sensor.door_closet_hallway_hers
-            state_color: false
-            style:
-              top: 20%
-              left: 34%
-              border-radius: 100%
-              '--paper-item-icon-color': var( --pei_color_door_closet_hallway_hers )
-          - type: state-icon
-            entity: binary_sensor.door_closet_hallway_his
-            state_color: false
-            style:
-              top: 27.5%
-              left: 34%
-              border-radius: 100%
-              '--paper-item-icon-color': var( --pei_color_door_closet_hallway_his )
-          - type: state-label
-            entity: sensor.bedroom_1_temperature
-            tap_action:
-              action: more-info
-            style:
-              top: 34.5%
-              left: 17%
-              color: var(--primary-color)
-          - type: state-label
-            entity: sensor.bedroom_2_temperature
-            tap_action:
-              action: more-info
-            style:
-              top: 87%
-              left: 85%
-              color: var(--primary-color)
-          - type: state-label
-            entity: sensor.bedroom_3_temperature
-            tap_action:
-              action: more-info
-            style:
-              top: 33%
-              left: 61%
-              color: var(--primary-color)
-          - type: state-label
-            entity: sensor.bedroom_4_temperature
-            tap_action:
-              action: more-info
-            style:
-              top: 87%
-              left: 56.5%
-              color: var(--primary-color)
-          - type: state-label
-            entity: sensor.living_room_temperature
-            tap_action:
-              action: more-info
-            style:
-              top: 64%
-              left: 11%
-              color: var(--primary-color)
-          - type: state-label
-            entity: sensor.temp_garage_temperature
-            tap_action:
-              action: more-info
-            style:
-              top: 48%
-              left: 77.5%
-              color: var(--primary-color)
-          - type: state-label
-            entity: sensor.temp_attic_temperature
-            tap_action:
-              action: more-info
-            style:
-              top: 30.5%
-              left: 95%
-              color: var(--primary-color)
-          - type: state-label
-            entity: sensor.foyer_temperature
-            tap_action:
-              action: more-info
-            style:
-              top: 55%
-              left: 65%
-              color: var(--primary-color)
-          - type: state-label
-            entity: sensor.temp_refrigerator_temperature
-            tap_action:
-              action: more-info
-            style:
-              top: 72%
-              left: 44%
-              color: var(--primary-color)
-          - type: state-label
-            entity: sensor.temp_freezer_temperature
-            tap_action:
-              action: more-info
-            style:
-              top: 75%
-              left: 44%
-              color: var(--primary-color)
-          - type: state-label
-            entity: sensor.temp_wine_cooler_top_temperature
-            tap_action:
-              action: more-info
-            style:
-              top: 84%
-              left: 12%
-              color: var(--primary-color)
-          - type: state-label
-            entity: sensor.temp_wine_cooler_bottom_temperature
-            tap_action:
-              action: more-info
-            style:
-              top: 87%
-              left: 12%
-              color: var(--primary-color)
-          - type: state-icon
-            entity: binary_sensor.presence_living_room
-            state_color: false
-            style:
-              top: 64%
-              left: 15%
-              border-radius: 100%
-              '--paper-item-icon-color': var( --pei_color_presence_living_room )
-          - type: state-icon
-            entity: binary_sensor.presence_garage
-            state_color: false
-            style:
-              top: 48%
-              left: 81.5%
-              border-radius: 100%
-              '--paper-item-icon-color': var( --pei_color_presence_garage )
-          - type: state-icon
-            entity: binary_sensor.motion_laundry
-            state_color: false
-            style:
-              top: 49%
-              left: 58%
-              border-radius: 100%
-              '--paper-item-icon-color': var( --pei_color_motion_laundry )
         image: /local/images/floor-plan/casa-maxson-floor-plan-horizontal.png
       - type: picture-elements
         view_layout:
@@ -1375,6 +1195,7 @@ views:
               --pei_color_light_foyer_exterior_entryway: {% if( states( 'light.foyer_exterior_entryway' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
               --pei_color_light_garage_exterior: {% if( states( 'light.garage_exterior' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
               --pei_color_light_garage_ceiling: {% if( states( 'light.garage_ceiling' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_light_garage_door_light: {% if( states( 'light.garage_door_light' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
               --pei_color_light_garage_fan: {% if( states( 'light.garage_fan' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
               --pei_color_light_closet_hallway_light: {% if( states( 'light.closet_hallway_ceiling_light' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
               --pei_color_light_closet_hallway_light_j: {% if( states( 'light.closet_hallway_light_j' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
@@ -1387,7 +1208,752 @@ views:
               --pei_color_media_player_sony_bravia_tv: {% if( states( 'media_player.sony_bravia_tv' ) == 'on' ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
 
               --pei_color_curtains_bedroom_1: {% if( states( 'cover.large_window_curtains_bedroom_1' ) in ['open', 'opening'] ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_blinds_bedroom_4: {% if( states( 'cover.blinds_bedroom_4' ) in ['open', 'opening'] ) %} var( --primary-color ) {% else %} var( --secondary-text-color ) {% endif %};
+            }
+        elements:
+          - type: state-icon
+            entity: cover.garage_door
+            state_color: false
+            tap_action:
+              action: toggle
+            style:
+              top: 92%
+              left: 69.5%
+              border-radius: 100%
+              '--paper-item-icon-color': var( --pei_color_cover_garage )
+          - type: state-icon
+            entity: lock.front_door
+            state_color: false
+            tap_action:
+              action: toggle
+            style:
+              top: 77%
+              left: 39.75%
+              border-radius: 100%
+              '--paper-item-icon-color': var( --pei_color_lock_door_front )
+          - type: state-icon
+            entity: light.bedroom_1_bedside_lamps
+            state_color: false
+            tap_action:
+              action: toggle
+            style:
+              top: 18%
+              left: 80%
+              border-radius: 100%
+              '--paper-item-icon-color': var( --pei_color_light_bedroom_1 )
+          - type: state-icon
+            entity: cover.large_window_curtains_bedroom_1
+            state_color: false
+            tap_action:
+              action: toggle
+            style:
+              top: 18%
+              left: 71%
+              border-radius: 100%
+              '--paper-item-icon-color': var( --pei_color_curtains_bedroom_1 )
+          - type: state-icon
+            entity: light.bedroom_2_bedside_lamps
+            state_color: false
+            tap_action:
+              action: toggle
+            style:
+              top: 83%
+              left: 20.5%
+              border-radius: 100%
+              '--paper-item-icon-color': var( --pei_color_light_bedroom_2 )
+          - type: state-icon
+            entity: light.bedroom_4_lights
+            state_color: false
+            tap_action:
+              action: toggle
+            style:
+              top: 55%
+              left: 21%
+              border-radius: 100%
+              '--paper-item-icon-color': var( --pei_color_light_bedroom_4 )
+          - type: state-icon
+            entity: cover.blinds_bedroom_4
+            state_color: false
+            tap_action:
+              action: toggle
+            style:
+              top: 59.5%
+              left: 14%
+              border-radius: 100%
+              '--paper-item-icon-color': var( --pei_color_blinds_bedroom_4 )
+          - type: state-icon
+            entity: light.kitchen_ceiling_lights
+            state_color: false
+            tap_action:
+              action: toggle
+            style:
+              top: 39%
+              left: 21%
+              border-radius: 100%
+              '--paper-item-icon-color': var( --pei_color_light_kitchen_ceiling )
+          - type: state-icon
+            entity: light.cabinet_upper_lights
+            state_color: false
+            tap_action:
+              action: toggle
+            style:
+              top: 46%
+              left: 16.5%
+              border-radius: 100%
+              '--paper-item-icon-color': var( --pei_color_light_kitchen_upper_coffee )
+          - type: state-icon
+            entity: light.cabinet_upper_lights
+            state_color: false
+            tap_action:
+              action: toggle
+            style:
+              top: 32%
+              left: 32%
+              border-radius: 100%
+              '--paper-item-icon-color': var( --pei_color_light_kitchen_upper_range )
+          - type: state-icon
+            entity: light.living_room_corner_lamp
+            state_color: false
+            tap_action:
+              action: toggle
+            style:
+              top: 11.5%
+              left: 59%
+              border-radius: 100%
+              '--paper-item-icon-color': var( --pei_color_light_living_room_corner )
+          - type: state-icon
+            entity: light.dining_room_chandelier
+            state_color: false
+            tap_action:
+              action: toggle
+            style:
+              top: 36%
+              left: 53%
+              border-radius: 100%
+              '--paper-item-icon-color': var( --pei_color_light_dining_room_chandelier )
+          - type: state-icon
+            entity: light.guest_hallway_light
+            state_color: false
+            tap_action:
+              action: toggle
+            style:
+              top: 69%
+              left: 27.5%
+              border-radius: 100%
+              '--paper-item-icon-color': var( --pei_color_light_guest_hallway_light )
+          - type: state-icon
+            entity: light.laundry_ceiling_light
+            state_color: false
+            tap_action:
+              action: toggle
+            style:
+              top: 60.5%
+              left: 56.26%
+              border-radius: 100%
+              '--paper-item-icon-color': var( --pei_color_light_laundry_ceiling_light )
+          - type: state-icon
+            entity: light.laundry_hallway_light
+            state_color: false
+            tap_action:
+              action: toggle
+            style:
+              top: 53.5%
+              left: 51%
+              border-radius: 100%
+              '--paper-item-icon-color': var( --pei_color_light_laundry_hallway_light )
+          - type: state-icon
+            entity: light.foyer_hallway_ceiling
+            state_color: false
+            tap_action:
+              action: toggle
+            style:
+              top: 46%
+              left: 42%
+              border-radius: 100%
+              '--paper-item-icon-color': var( --pei_color_light_foyer_hallway_ceiling )
+          - type: state-icon
+            entity: light.foyer_ceiling_ledge
+            state_color: false
+            tap_action:
+              action: toggle
+            style:
+              top: 60%
+              left: 45%
+              border-radius: 100%
+              '--paper-item-icon-color': var( --pei_color_light_foyer_ceiling_ledge )
+          - type: state-icon
+            entity: light.foyer_under_table
+            state_color: false
+            tap_action:
+              action: toggle
+            style:
+              top: 53%
+              left: 39%
+              border-radius: 100%
+              '--paper-item-icon-color': var( --pei_color_light_foyer_under_table )
+          - type: state-icon
+            entity: light.foyer_entryway_ceiling
+            state_color: false
+            tap_action:
+              action: toggle
+            style:
+              top: 67%
+              left: 39.75%
+              border-radius: 100%
+              '--paper-item-icon-color': var( --pei_color_light_foyer_entryway_ceiling )
+          - type: state-icon
+            entity: light.foyer_exterior_entryway
+            state_color: false
+            tap_action:
+              action: toggle
+            style:
+              top: 82%
+              left: 39.5%
+              border-radius: 100%
+              '--paper-item-icon-color': var( --pei_color_light_foyer_exterior_entryway )
+          - type: state-icon
+            entity: light.garage_exterior
+            state_color: false
+            tap_action:
+              action: toggle
+            style:
+              top: 95%
+              left: 87.5%
+              border-radius: 100%
+              '--paper-item-icon-color': var( --pei_color_light_garage_exterior )
+          - type: state-icon
+            entity: light.garage_exterior
+            state_color: false
+            tap_action:
+              action: toggle
+            style:
+              top: 95%
+              left: 52%
+              border-radius: 100%
+              '--paper-item-icon-color': var( --pei_color_light_garage_exterior )
+          - type: state-icon
+            entity: light.garage_ceiling
+            state_color: false
+            tap_action:
+              action: toggle
+            style:
+              top: 78%
+              left: 63%
+              border-radius: 100%
+              '--paper-item-icon-color': var( --pei_color_light_garage_ceiling )
+          - type: state-icon
+            entity: light.garage_door_light
+            state_color: false
+            tap_action:
+              action: toggle
+            style:
+              top: 78%
+              left: 73%
+              border-radius: 100%
+              '--paper-item-icon-color': var( --pei_color_light_garage_door_light )
+          - type: state-icon
+            entity: light.garage_fan
+            state_color: false
+            tap_action:
+              action: toggle
+            style:
+              top: 72%
+              left: 68%
+              border-radius: 100%
+              '--paper-item-icon-color': var( --pei_color_light_garage_fan )
+          - type: state-icon
+            entity: light.closet_hallway_ceiling_light
+            state_color: false
+            tap_action:
+              action: toggle
+            style:
+              top: 31%
+              left: 75%
+              border-radius: 100%
+              '--paper-item-icon-color': var( --pei_color_light_closet_hallway_light )
+          - type: state-icon
+            entity: light.closet_hallway_light_j
+            state_color: false
+            tap_action:
+              action: toggle
+            style:
+              top: 34%
+              left: 86%
+              border-radius: 100%
+              '--paper-item-icon-color': var( --pei_color_light_closet_hallway_light_j )
+          - type: state-icon
+            entity: light.closet_hallway_light_t
+            state_color: false
+            tap_action:
+              action: toggle
+            style:
+              top: 34%
+              left: 66%
+              border-radius: 100%
+              '--paper-item-icon-color': var( --pei_color_light_closet_hallway_light_t )
+          - type: state-icon
+            entity: light.main_bathroom_lights_switch_a
+            state_color: false
+            tap_action:
+              action: toggle
+            style:
+              top: 42%
+              left: 79%
+              border-radius: 100%
+              '--paper-item-icon-color': var( --pei_color_light_main_bathroom_lights_switch_a )
+          - type: state-icon
+            entity: light.main_bathroom_lights_switch_b
+            state_color: false
+            tap_action:
+              action: toggle
+            style:
+              top: 47%
+              left: 75%
+              border-radius: 100%
+              '--paper-item-icon-color': var( --pei_color_light_main_bathroom_lights_switch_b )
+          - type: state-icon
+            entity: light.backyard_string_lights
+            state_color: false
+            tap_action:
+              action: toggle
+            style:
+              top: 6%
+              left: 46%
+              border-radius: 100%
+              '--paper-item-icon-color': var( --pei_color_light_backyard_string_lights )
+          - type: state-icon
+            entity: light.front_yard_accent_lights
+            state_color: false
+            tap_action:
+              action: toggle
+            style:
+              top: 95%
+              left: 21.5%
+              border-radius: 100%
+              '--paper-item-icon-color': var( --pei_color_light_front_yard_accent_lights )
+          - type: state-icon
+            entity: media_player.sony_bravia_tv
+            state_color: false
+            tap_action:
+              action: toggle
+            style:
+              top: 17%
+              left: 59%
+              border-radius: 100%
+              '--paper-item-icon-color': var( --pei_color_media_player_sony_bravia_tv )
+          - type: state-icon
+            entity: light.tv_ambient_lights
+            state_color: false
+            tap_action:
+              action: toggle
+            style:
+              top: 22.5%
+              left: 59%
+              border-radius: 100%
+              '--paper-item-icon-color': var( --pei_color_light_tv_ambient_lights )
+        image: /local/images/floor-plan/casa-maxson-floor-plan-vertical.png
+  - title: Water
+    path: subview-water-overview
+    theme: tihiti
+    cards:
+      - type: picture-elements
+        view_layout:
+          grid-area: row1
+        card_mod:
+          style: |
+            /* Mobile */
+            @media screen and (max-width: 992px) { 
+              ha-card { display: none;}
+            }
+            ha-card {
+              --color_state_on: var( --error-color );
+              --color_state_off: var( --primary-color );
+              --color_state_unavail: var( --secondary-text-color );
 
+              --color_binary_sensor_state_on: var( --color_state_on );
+              --color_binary_sensor_state_off: var( --color_state_off );
+              --color_binary_sensor_state_unavail: var( --color_state_unavail );
+
+              --color_valve_state_open: var( --color_state_on );
+              --color_valve_state_closed: var( --color_state_off );
+              --color_valve_state_unavail: var( --color_state_unavail );
+
+              --color_leak_air_conditioner: {% if( states( 'binary_sensor.leak_air_conditioner' ) == 'unavailable' ) %} var( --color_binary_sensor_state_unavail ) {% elif( states( 'binary_sensor.leak_air_conditioner' ) == 'on' ) %} var( --color_binary_sensor_state_on ) {% else %} var( --color_binary_sensor_state_off ) {% endif %};
+              --color_leak_dish_washer: {% if( states( 'binary_sensor.leak_dish_washer' ) == 'unavailable' ) %} var( --color_binary_sensor_state_unavail ) {% elif( states( 'binary_sensor.leak_dish_washer' ) == 'on' ) %} var( --color_binary_sensor_state_on ) {% else %} var( --color_binary_sensor_state_off ) {% endif %};
+              --color_leak_sink_guest_bathroom: {% if( states( 'binary_sensor.leak_sink_guest_bathroom' ) == 'unavailable' ) %} var( --color_binary_sensor_state_unavail ) {% elif( states( 'binary_sensor.leak_sink_guest_bathroom' ) == 'on' ) %} var( --color_binary_sensor_state_on ) {% else %} var( --color_binary_sensor_state_off ) {% endif %};
+              --color_leak_sink_half_bathroom: {% if( states( 'binary_sensor.leak_sink_half_bathroom' ) == 'unavailable' ) %} var( --color_binary_sensor_state_unavail ) {% elif( states( 'binary_sensor.leak_sink_half_bathroom' ) == 'on' ) %} var( --color_binary_sensor_state_on ) {% else %} var( --color_binary_sensor_state_off ) {% endif %};
+              --color_leak_sink_main_bathroom_hers: {% if( states( 'binary_sensor.leak_sink_main_bathroom_hers' ) == 'unavailable' ) %} var( --color_binary_sensor_state_unavail ) {% elif( states( 'binary_sensor.leak_sink_main_bathroom_hers' ) == 'on' ) %} var( --color_binary_sensor_state_on ) {% else %} var( --color_binary_sensor_state_off ) {% endif %};
+              --color_leak_sink_main_bathroom_his: {% if( states( 'binary_sensor.leak_sink_main_bathroom_his' ) == 'unavailable' ) %} var( --color_binary_sensor_state_unavail ) {% elif( states( 'binary_sensor.leak_sink_main_bathroom_his' ) == 'on' ) %} var( --color_binary_sensor_state_on ) {% else %} var( --color_binary_sensor_state_off ) {% endif %};
+              --color_leak_sink_kitchen: {% if( states( 'binary_sensor.leak_sink_kitchen' ) == 'unavailable' ) %} var( --color_binary_sensor_state_unavail ) {% elif( states( 'binary_sensor.leak_sink_kitchen' ) == 'on' ) %} var( --color_binary_sensor_state_on ) {% else %} var( --color_binary_sensor_state_off ) {% endif %};
+              --color_leak_toilet_guest_bathroom: {% if( states( 'binary_sensor.leak_toilet_guest_bathroom_guest_bathroom' ) == 'unavailable' ) %} var( --color_binary_sensor_state_unavail ) {% elif( states( 'binary_sensor.leak_toilet_guest_bathroom_guest_bathroom' ) == 'on' ) %} var( --color_binary_sensor_state_on ) {% else %} var( --color_binary_sensor_state_off ) {% endif %};
+              --color_leak_toilet_half_bathroom: {% if( states( 'binary_sensor.leak_toilet_half_bathroom' ) == 'unavailable' ) %} var( --color_binary_sensor_state_unavail ) {% elif( states( 'binary_sensor.leak_toilet_half_bathroom' ) == 'on' ) %} var( --color_binary_sensor_state_on ) {% else %} var( --color_binary_sensor_state_off ) {% endif %};
+              --color_leak_toilet_main_bathroom: {% if( states( 'binary_sensor.leak_toilet_main_bathroom' ) == 'unavailable' ) %} var( --color_binary_sensor_state_unavail ) {% elif( states( 'binary_sensor.leak_toilet_main_bathroom' ) == 'on' ) %} var( --color_binary_sensor_state_on ) {% else %} var( --color_binary_sensor_state_off ) {% endif %};
+              --color_leak_washing_machine_laundry: {% if( states( 'binary_sensor.leak_washing_machine_laundry' ) == 'unavailable' ) %} var( --color_binary_sensor_state_unavail ) {% elif( states( 'binary_sensor.leak_washing_machine_laundry' ) == 'on' ) %} var( --color_binary_sensor_state_on ) {% else %} var( --color_binary_sensor_state_off ) {% endif %};
+              --color_leak_wine_cooler_bar: {% if( states( 'binary_sensor.leak_wine_cooler_bar' ) == 'unavailable' ) %} var( --color_binary_sensor_state_unavail ) {% elif( states( 'binary_sensor.leak_wine_cooler_bar' ) == 'on' ) %} var( --color_binary_sensor_state_on ) {% else %} var( --color_binary_sensor_state_off ) {% endif %};
+              --color_valve_front_yard_east: {% if( states( 'valve.front_yard_east' ) == 'unavailable' ) %} var( --color_valve_state_unavail ) {% elif( states( 'valve.front_yard_east' ) == 'closed' ) %} var( --color_valve_state_closed ) {% else %} var( --color_valve_state_open ) {% endif %};
+              --color_valve_side_yard_north: {% if( states( 'valve.side_yard_north' ) == 'unavailable' ) %} var( --color_valve_state_unavail ) {% elif( states( 'valve.side_yard_north' ) == 'closed' ) %} var( --color_valve_state_closed ) {% else %} var( --color_valve_state_open ) {% endif %};
+              --color_valve_side_yard_south: {% if( states( 'valve.side_yard_south' ) == 'unavailable' ) %} var( --color_valve_state_unavail ) {% elif( states( 'valve.side_yard_south' ) == 'closed' ) %} var( --color_valve_state_closed ) {% else %} var( --color_valve_state_open ) {% endif %};
+            }
+        elements:
+          - type: state-icon
+            entity: binary_sensor.leak_air_conditioner
+            state_color: false
+            tap_action:
+              action: more-info
+            style:
+              top: 55%
+              left: 67.5%
+              border-radius: 100%
+              '--icon-primary-color': var(--color_leak_air_conditioner)
+          - type: state-icon
+            entity: binary_sensor.leak_dish_washer
+            state_color: false
+            tap_action:
+              action: more-info
+            style:
+              top: 79.75%
+              left: 33.5%
+              border-radius: 100%
+              '--icon-primary-color': var(--color_leak_dish_washer)
+          - type: state-icon
+            entity: binary_sensor.leak_sink_guest_bathroom
+            state_color: false
+            tap_action:
+              action: more-info
+            style:
+              top: 80%
+              left: 70%
+              border-radius: 100%
+              '--icon-primary-color': var(--color_leak_sink_guest_bathroom)
+          - type: state-icon
+            entity: binary_sensor.leak_sink_half_bathroom
+            state_color: false
+            tap_action:
+              action: more-info
+            style:
+              top: 44.5%
+              left: 49%
+              border-radius: 100%
+              '--icon-primary-color': var(--color_leak_sink_half_bathroom)
+          - type: state-icon
+            entity: binary_sensor.leak_sink_main_bathroom_hers
+            state_color: false
+            tap_action:
+              action: more-info
+            style:
+              top: 21%
+              left: 46.25%
+              border-radius: 100%
+              '--icon-primary-color': var(--color_leak_sink_main_bathroom_hers)
+          - type: state-icon
+            entity: binary_sensor.leak_sink_main_bathroom_his
+            state_color: false
+            tap_action:
+              action: more-info
+            style:
+              top: 27.5%
+              left: 46.25%
+              border-radius: 100%
+              '--icon-primary-color': var(--color_leak_sink_main_bathroom_his)
+          - type: state-icon
+            entity: binary_sensor.leak_sink_kitchen
+            state_color: false
+            tap_action:
+              action: more-info
+            style:
+              top: 74.5%
+              left: 33.5%
+              border-radius: 100%
+              '--icon-primary-color': var(--color_leak_sink_kitchen)
+          - type: state-icon
+            entity: binary_sensor.leak_toilet_guest_bathroom
+            state_color: false
+            tap_action:
+              action: more-info
+            style:
+              top: 86.5%
+              left: 72.25%
+              border-radius: 100%
+              '--icon-primary-color': var(--color_leak_toilet_guest_bathroom)
+          - type: state-icon
+            entity: binary_sensor.leak_toilet_half_bathroom
+            state_color: false
+            tap_action:
+              action: more-info
+            style:
+              top: 48.5%
+              left: 45.75%
+              border-radius: 100%
+              '--icon-primary-color': var(--color_leak_toilet_half_bathroom)
+          - type: state-icon
+            entity: binary_sensor.leak_toilet_main_bathroom
+            state_color: false
+            tap_action:
+              action: more-info
+            style:
+              top: 37%
+              left: 46.325%
+              border-radius: 100%
+              '--icon-primary-color': var(--color_leak_toilet_main_bathroom)
+          - type: state-icon
+            entity: binary_sensor.leak_washing_machine_laundry
+            state_color: false
+            tap_action:
+              action: more-info
+            style:
+              top: 44%
+              left: 64%
+              border-radius: 100%
+              '--icon-primary-color': var(--color_leak_washing_machine_laundry)
+          - type: state-icon
+            entity: binary_sensor.leak_wine_cooler_bar
+            state_color: false
+            tap_action:
+              action: more-info
+            style:
+              top: 85%
+              left: 11.5%
+              border-radius: 100%
+              '--icon-primary-color': var(--color_leak_wine_cooler_bar)
+          - type: state-icon
+            entity: valve.front_yard_east
+            state_color: false
+            style:
+              top: 60%
+              left: 96%
+              border-radius: 100%
+              '--icon-primary-color': var(--color_valve_front_yard_east)
+          - type: state-icon
+            entity: valve.side_yard_north
+            state_color: false
+            style:
+              top: 5%
+              left: 84%
+              border-radius: 100%
+              '--icon-primary-color': var(--color_valve_side_yard_north)
+          - type: state-icon
+            entity: valve.side_yard_south
+            state_color: false
+            style:
+              top: 95%
+              left: 84%
+              border-radius: 100%
+              '--icon-primary-color': var(--color_valve_side_yard_south)
+        image: /local/images/floor-plan/casa-maxson-floor-plan-horizontal.png
+      - type: picture-elements
+        view_layout:
+          grid-area: row2
+        card_mod:
+          style: |
+            /* Desktop */
+            @media screen and (min-width: 992px) { 
+              ha-card { display: none;}
+            }
+            ha-card {
+              --color_state_on: var( --error-color );
+              --color_state_off: var( --primary-color );
+              --color_state_unavail: var( --secondary-text-color );
+
+              --color_binary_sensor_state_on: var( --color_state_on );
+              --color_binary_sensor_state_off: var( --color_state_off );
+              --color_binary_sensor_state_unavail: var( --color_state_unavail );
+
+              --color_valve_state_open: var( --color_state_on );
+              --color_valve_state_closed: var( --color_state_off );
+              --color_valve_state_unavail: var( --color_state_unavail );
+
+              --color_leak_air_conditioner: {% if( states( 'binary_sensor.leak_air_conditioner' ) == 'unavailable' ) %} var( --color_binary_sensor_state_unavail ) {% elif( states( 'binary_sensor.leak_air_conditioner' ) == 'on' ) %} var( --color_binary_sensor_state_on ) {% else %} var( --color_binary_sensor_state_off ) {% endif %};
+              --color_leak_dish_washer: {% if( states( 'binary_sensor.leak_dish_washer' ) == 'unavailable' ) %} var( --color_binary_sensor_state_unavail ) {% elif( states( 'binary_sensor.leak_dish_washer' ) == 'on' ) %} var( --color_binary_sensor_state_on ) {% else %} var( --color_binary_sensor_state_off ) {% endif %};
+              --color_leak_sink_guest_bathroom: {% if( states( 'binary_sensor.leak_sink_guest_bathroom' ) == 'unavailable' ) %} var( --color_binary_sensor_state_unavail ) {% elif( states( 'binary_sensor.leak_sink_guest_bathroom' ) == 'on' ) %} var( --color_binary_sensor_state_on ) {% else %} var( --color_binary_sensor_state_off ) {% endif %};
+              --color_leak_sink_half_bathroom: {% if( states( 'binary_sensor.leak_sink_half_bathroom' ) == 'unavailable' ) %} var( --color_binary_sensor_state_unavail ) {% elif( states( 'binary_sensor.leak_sink_half_bathroom' ) == 'on' ) %} var( --color_binary_sensor_state_on ) {% else %} var( --color_binary_sensor_state_off ) {% endif %};
+              --color_leak_sink_main_bathroom_hers: {% if( states( 'binary_sensor.leak_sink_main_bathroom_hers' ) == 'unavailable' ) %} var( --color_binary_sensor_state_unavail ) {% elif( states( 'binary_sensor.leak_sink_main_bathroom_hers' ) == 'on' ) %} var( --color_binary_sensor_state_on ) {% else %} var( --color_binary_sensor_state_off ) {% endif %};
+              --color_leak_sink_main_bathroom_his: {% if( states( 'binary_sensor.leak_sink_main_bathroom_his' ) == 'unavailable' ) %} var( --color_binary_sensor_state_unavail ) {% elif( states( 'binary_sensor.leak_sink_main_bathroom_his' ) == 'on' ) %} var( --color_binary_sensor_state_on ) {% else %} var( --color_binary_sensor_state_off ) {% endif %};
+              --color_leak_sink_kitchen: {% if( states( 'binary_sensor.leak_sink_kitchen' ) == 'unavailable' ) %} var( --color_binary_sensor_state_unavail ) {% elif( states( 'binary_sensor.leak_sink_kitchen' ) == 'on' ) %} var( --color_binary_sensor_state_on ) {% else %} var( --color_binary_sensor_state_off ) {% endif %};
+              --color_leak_toilet_guest_bathroom: {% if( states( 'binary_sensor.leak_toilet_guest_bathroom_guest_bathroom' ) == 'unavailable' ) %} var( --color_binary_sensor_state_unavail ) {% elif( states( 'binary_sensor.leak_toilet_guest_bathroom_guest_bathroom' ) == 'on' ) %} var( --color_binary_sensor_state_on ) {% else %} var( --color_binary_sensor_state_off ) {% endif %};
+              --color_leak_toilet_half_bathroom: {% if( states( 'binary_sensor.leak_toilet_half_bathroom' ) == 'unavailable' ) %} var( --color_binary_sensor_state_unavail ) {% elif( states( 'binary_sensor.leak_toilet_half_bathroom' ) == 'on' ) %} var( --color_binary_sensor_state_on ) {% else %} var( --color_binary_sensor_state_off ) {% endif %};
+              --color_leak_toilet_main_bathroom: {% if( states( 'binary_sensor.leak_toilet_main_bathroom' ) == 'unavailable' ) %} var( --color_binary_sensor_state_unavail ) {% elif( states( 'binary_sensor.leak_toilet_main_bathroom' ) == 'on' ) %} var( --color_binary_sensor_state_on ) {% else %} var( --color_binary_sensor_state_off ) {% endif %};
+              --color_leak_washing_machine_laundry: {% if( states( 'binary_sensor.leak_washing_machine_laundry' ) == 'unavailable' ) %} var( --color_binary_sensor_state_unavail ) {% elif( states( 'binary_sensor.leak_washing_machine_laundry' ) == 'on' ) %} var( --color_binary_sensor_state_on ) {% else %} var( --color_binary_sensor_state_off ) {% endif %};
+              --color_leak_wine_cooler_bar: {% if( states( 'binary_sensor.leak_wine_cooler_bar' ) == 'unavailable' ) %} var( --color_binary_sensor_state_unavail ) {% elif( states( 'binary_sensor.leak_wine_cooler_bar' ) == 'on' ) %} var( --color_binary_sensor_state_on ) {% else %} var( --color_binary_sensor_state_off ) {% endif %};
+              --color_valve_front_yard_east: {% if( states( 'valve.front_yard_east' ) == 'unavailable' ) %} var( --color_valve_state_unavail ) {% elif( states( 'valve.front_yard_east' ) == 'closed' ) %} var( --color_valve_state_closed ) {% else %} var( --color_valve_state_open ) {% endif %};
+              --color_valve_side_yard_north: {% if( states( 'valve.side_yard_north' ) == 'unavailable' ) %} var( --color_valve_state_unavail ) {% elif( states( 'valve.side_yard_north' ) == 'closed' ) %} var( --color_valve_state_closed ) {% else %} var( --color_valve_state_open ) {% endif %};
+              --color_valve_side_yard_south: {% if( states( 'valve.side_yard_south' ) == 'unavailable' ) %} var( --color_valve_state_unavail ) {% elif( states( 'valve.side_yard_south' ) == 'closed' ) %} var( --color_valve_state_closed ) {% else %} var( --color_valve_state_open ) {% endif %};
+            }
+        elements:
+          - type: state-icon
+            entity: binary_sensor.leak_air_conditioner
+            state_color: false
+            tap_action:
+              action: more-info
+            style:
+              top: 67%
+              left: 45%
+              border-radius: 100%
+              '--icon-primary-color': var(--color_leak_air_conditioner)
+          - type: state-icon
+            entity: binary_sensor.leak_dish_washer
+            state_color: false
+            tap_action:
+              action: more-info
+            style:
+              top: 33.5%
+              left: 20%
+              border-radius: 100%
+              '--icon-primary-color': var(--color_leak_dish_washer)
+          - type: state-icon
+            entity: binary_sensor.leak_sink_guest_bathroom
+            state_color: false
+            tap_action:
+              action: more-info
+            style:
+              top: 70%
+              left: 19.65%
+              border-radius: 100%
+              '--icon-primary-color': var(--color_leak_sink_guest_bathroom)
+          - type: state-icon
+            entity: binary_sensor.leak_sink_half_bathroom
+            state_color: false
+            tap_action:
+              action: more-info
+            style:
+              top: 49%
+              left: 55%
+              border-radius: 100%
+              '--icon-primary-color': var(--color_leak_sink_half_bathroom)
+          - type: state-icon
+            entity: binary_sensor.leak_sink_main_bathroom_hers
+            state_color: false
+            tap_action:
+              action: more-info
+            style:
+              top: 46.5%
+              left: 78.5%
+              border-radius: 100%
+              '--icon-primary-color': var(--color_leak_sink_main_bathroom_hers)
+          - type: state-icon
+            entity: binary_sensor.leak_sink_main_bathroom_his
+            state_color: false
+            tap_action:
+              action: more-info
+            style:
+              top: 46.5%
+              left: 72%
+              border-radius: 100%
+              '--icon-primary-color': var(--color_leak_sink_main_bathroom_his)
+          - type: state-icon
+            entity: binary_sensor.leak_sink_kitchen
+            state_color: false
+            tap_action:
+              action: more-info
+            style:
+              top: 33.5%
+              left: 25%
+              border-radius: 100%
+              '--icon-primary-color': var(--color_leak_sink_kitchen)
+          - type: state-icon
+            entity: binary_sensor.leak_toilet_guest_bathroom
+            state_color: false
+            tap_action:
+              action: more-info
+            style:
+              top: 72.25%
+              left: 13.325%
+              border-radius: 100%
+              '--icon-primary-color': var(--color_leak_toilet_guest_bathroom)
+          - type: state-icon
+            entity: binary_sensor.leak_toilet_half_bathroom
+            state_color: false
+            tap_action:
+              action: more-info
+            style:
+              top: 45.75%
+              left: 51.5%
+              border-radius: 100%
+              '--icon-primary-color': var(--color_leak_toilet_half_bathroom)
+          - type: state-icon
+            entity: binary_sensor.leak_toilet_main_bathroom
+            state_color: false
+            tap_action:
+              action: more-info
+            style:
+              top: 46.25%
+              left: 63%
+              border-radius: 100%
+              '--icon-primary-color': var(--color_leak_toilet_main_bathroom)
+          - type: state-icon
+            entity: binary_sensor.leak_washing_machine_laundry
+            state_color: false
+            tap_action:
+              action: more-info
+            style:
+              top: 64%
+              left: 56%
+              border-radius: 100%
+              '--icon-primary-color': var(--color_leak_washing_machine_laundry)
+          - type: state-icon
+            entity: binary_sensor.leak_wine_cooler_bar
+            state_color: false
+            tap_action:
+              action: more-info
+            style:
+              top: 11.5%
+              left: 14%
+              border-radius: 100%
+              '--icon-primary-color': var(--color_leak_wine_cooler_bar)
+          - type: state-icon
+            entity: valve.front_yard_east
+            state_color: false
+            style:
+              top: 96%
+              left: 39.5%
+              border-radius: 100%
+              '--icon-primary-color': var(--color_valve_front_yard_east)
+          - type: state-icon
+            entity: valve.side_yard_north
+            state_color: false
+            style:
+              top: 85%
+              left: 95%
+              border-radius: 100%
+              '--icon-primary-color': var(--color_valve_side_yard_north)
+          - type: state-icon
+            entity: valve.side_yard_south
+            state_color: false
+            style:
+              top: 85%
+              left: 5%
+              border-radius: 100%
+              '--icon-primary-color': var(--color_valve_side_yard_south)
+        image: /local/images/floor-plan/casa-maxson-floor-plan-vertical.png
+    layout:
+      grid-gap: >-
+        calc( var( --tihiti-dashboard-layout-padding ) / 1.2 ) calc( var(
+        --tihiti-dashboard-layout-padding ) * 1.25 )
+      grid-template-rows: auto
+      grid-template-columns: 1% 1fr 1%
+      grid-template-areas: |
+        ".  row1  ."
+        ".  row2  ."
+      mediaquery:
+        '(max-width: 992px)':
+          grid-gap: var( --tihiti-dashboard-layout-padding ) 0
+          grid-template-rows: auto
+          grid-template-columns: 2.5% 95% 2.5%
+    type: custom:grid-layout
+    subview: false
+  - title: Other
+    path: subview-other-overview
+    type: custom:grid-layout
+    cards:
+      - type: picture-elements
+        view_layout:
+          grid-area: row1
+        card_mod:
+          style: |
+            /* Mobile */
+            @media screen and (max-width: 992px) { 
+              ha-card { display: none;}
+            }
+            ha-card {
               --pei_color_door_front_primary: {% if( states( 'binary_sensor.door_front_primary' ) == 'on' ) %} var( --state-lock-unlocked-color ) {% else %} var( --secondary-text-color ) {% endif %};
               --pei_color_door_front_secondary: {% if( states( 'binary_sensor.door_front_secondary' ) == 'on' ) %} var( --state-lock-unlocked-color ) {% else %} var( --secondary-text-color ) {% endif %};
               --pei_color_door_garage: {% if( states( 'binary_sensor.door_garage' ) == 'on' ) %} var( --state-lock-unlocked-color ) {% else %} var( --secondary-text-color ) {% endif %};
@@ -1406,328 +1972,294 @@ views:
             }
         elements:
           - type: state-icon
-            entity: cover.garage_door
+            entity: binary_sensor.door_bedroom_1
             state_color: false
-            style:
-              top: 92%
-              left: 69.5%
-              border-radius: 100%
-              '--paper-item-icon-color': var( --pei_color_cover_garage )
             tap_action:
-              action: toggle
-          - type: state-icon
-            entity: lock.front_door
-            state_color: false
+              action: more-info
             style:
-              top: 77%
-              left: 39.75%
-              border-radius: 100%
-              '--paper-item-icon-color': var( --pei_color_lock_door_front )
-            tap_action:
-              action: toggle
-          - type: state-icon
-            entity: light.bedroom_1_bedside_lamps
-            state_color: false
-            style:
-              top: 18%
-              left: 80%
-              border-radius: 100%
-              '--paper-item-icon-color': var( --pei_color_light_bedroom_1 )
-            tap_action:
-              action: toggle
-          - type: state-icon
-            entity: cover.large_window_curtains_bedroom_1
-            state_color: false
-            style:
-              top: 18%
-              left: 71%
-              border-radius: 100%
-              '--paper-item-icon-color': var( --pei_color_curtains_bedroom_1 )
-            tap_action:
-              action: toggle
-          - type: state-icon
-            entity: light.bedroom_2_bedside_lamps
-            state_color: false
-            style:
-              top: 83%
-              left: 20.5%
-              border-radius: 100%
-              '--paper-item-icon-color': var( --pei_color_light_bedroom_2 )
-            tap_action:
-              action: toggle
-          - type: state-icon
-            entity: light.bedroom_4_lights
-            state_color: false
-            style:
-              top: 55%
-              left: 21%
-              border-radius: 100%
-              '--paper-item-icon-color': var( --pei_color_light_bedroom_4 )
-            tap_action:
-              action: toggle
-          - type: state-icon
-            entity: light.kitchen_ceiling_lights
-            state_color: false
-            style:
-              top: 39%
-              left: 21%
-              border-radius: 100%
-              '--paper-item-icon-color': var( --pei_color_light_kitchen_ceiling )
-            tap_action:
-              action: toggle
-          - type: state-icon
-            entity: light.kitchen_cabinet_upper_coffee_bar
-            state_color: false
-            style:
-              top: 46%
-              left: 16.5%
-              border-radius: 100%
-              '--paper-item-icon-color': var( --pei_color_light_kitchen_upper_coffee )
-            tap_action:
-              action: toggle
-          - type: state-icon
-            entity: light.kitchen_cabinet_upper_range
-            state_color: false
-            style:
-              top: 32%
-              left: 32%
-              border-radius: 100%
-              '--paper-item-icon-color': var( --pei_color_light_kitchen_upper_range )
-            tap_action:
-              action: toggle
-          - type: state-icon
-            entity: light.living_room_corner_lamp
-            state_color: false
-            style:
-              top: 11.5%
-              left: 59%
-              border-radius: 100%
-              '--paper-item-icon-color': var( --pei_color_light_living_room_corner )
-            tap_action:
-              action: toggle
-          - type: state-icon
-            entity: light.dining_room_chandelier
-            state_color: false
-            style:
-              top: 36%
-              left: 53%
-              border-radius: 100%
-              '--paper-item-icon-color': var( --pei_color_light_dining_room_chandelier )
-            tap_action:
-              action: toggle
-          - type: state-icon
-            entity: light.guest_hallway_light
-            state_color: false
-            style:
-              top: 69%
+              top: 37%
               left: 27.5%
               border-radius: 100%
-              '--paper-item-icon-color': var( --pei_color_light_guest_hallway_light )
-            tap_action:
-              action: toggle
+              '--paper-item-icon-color': var( --pei_color_door_bedroom_1 )
           - type: state-icon
-            entity: light.laundry_ceiling_light
+            entity: binary_sensor.door_bedroom_2
             state_color: false
+            tap_action:
+              action: more-info
             style:
-              top: 60.5%
-              left: 56.26%
+              top: 72.5%
+              left: 74.5%
               border-radius: 100%
-              '--paper-item-icon-color': var( --pei_color_light_laundry_ceiling_light )
-            tap_action:
-              action: toggle
+              '--paper-item-icon-color': var( --pei_color_door_bedroom_2 )
           - type: state-icon
-            entity: light.laundry_hallway_light
+            entity: binary_sensor.door_bedroom_3
             state_color: false
+            tap_action:
+              action: more-info
             style:
-              top: 53.5%
-              left: 51%
+              top: 35%
+              left: 53.5%
               border-radius: 100%
-              '--paper-item-icon-color': var( --pei_color_light_laundry_hallway_light )
-            tap_action:
-              action: toggle
+              '--paper-item-icon-color': var( --pei_color_door_bedroom_3 )
           - type: state-icon
-            entity: light.foyer_hallway_ceiling
+            entity: binary_sensor.door_bedroom_4
             state_color: false
+            tap_action:
+              action: more-info
             style:
-              top: 46%
-              left: 42%
+              top: 68%
+              left: 60.5%
               border-radius: 100%
-              '--paper-item-icon-color': var( --pei_color_light_foyer_hallway_ceiling )
-            tap_action:
-              action: toggle
+              '--paper-item-icon-color': var( --pei_color_door_bedroom_4 )
           - type: state-icon
-            entity: light.foyer_ceiling_ledge
+            entity: binary_sensor.door_front_primary
             state_color: false
-            style:
-              top: 60%
-              left: 45%
-              border-radius: 100%
-              '--paper-item-icon-color': var( --pei_color_light_foyer_ceiling_ledge )
             tap_action:
-              action: toggle
-          - type: state-icon
-            entity: light.foyer_under_table
-            state_color: false
+              action: more-info
             style:
-              top: 53%
-              left: 39%
-              border-radius: 100%
-              '--paper-item-icon-color': var( --pei_color_light_foyer_under_table )
-            tap_action:
-              action: toggle
-          - type: state-icon
-            entity: light.foyer_entryway_ceiling
-            state_color: false
-            style:
-              top: 67%
-              left: 39.75%
-              border-radius: 100%
-              '--paper-item-icon-color': var( --pei_color_light_foyer_entryway_ceiling )
-            tap_action:
-              action: toggle
-          - type: state-icon
-            entity: light.foyer_exterior_entryway
-            state_color: false
-            style:
-              top: 82%
-              left: 39.5%
-              border-radius: 100%
-              '--paper-item-icon-color': var( --pei_color_light_foyer_exterior_entryway )
-            tap_action:
-              action: toggle
-          - type: state-icon
-            entity: light.garage_exterior
-            state_color: false
-            style:
-              top: 95%
-              left: 87.5%
-              border-radius: 100%
-              '--paper-item-icon-color': var( --pei_color_light_garage_exterior )
-            tap_action:
-              action: toggle
-          - type: state-icon
-            entity: light.garage_exterior
-            state_color: false
-            style:
-              top: 95%
-              left: 52%
-              border-radius: 100%
-              '--paper-item-icon-color': var( --pei_color_light_garage_exterior )
-            tap_action:
-              action: toggle
-          - type: state-icon
-            entity: light.garage_ceiling
-            state_color: false
-            style:
-              top: 78%
-              left: 63%
-              border-radius: 100%
-              '--paper-item-icon-color': var( --pei_color_light_garage_ceiling )
-            tap_action:
-              action: toggle
-          - type: state-icon
-            entity: light.garage_fan
-            state_color: false
-            style:
-              top: 78%
+              top: 58%
               left: 73%
               border-radius: 100%
-              '--paper-item-icon-color': var( --pei_color_light_garage_fan )
-            tap_action:
-              action: toggle
+              '--paper-item-icon-color': var( --pei_color_door_front_primary )
           - type: state-icon
-            entity: light.closet_hallway_ceiling_light
+            entity: binary_sensor.door_front_secondary
             state_color: false
+            tap_action:
+              action: more-info
+            style:
+              top: 63%
+              left: 73%
+              border-radius: 100%
+              '--paper-item-icon-color': var( --pei_color_door_front_secondary )
+          - type: state-icon
+            entity: binary_sensor.door_living
+            state_color: false
+            tap_action:
+              action: more-info
+            style:
+              top: 50%
+              left: 5%
+              border-radius: 100%
+              '--paper-item-icon-color': var( --pei_color_door_living )
+          - type: state-icon
+            entity: binary_sensor.door_laundry
+            state_color: false
+            tap_action:
+              action: more-info
+            style:
+              top: 44%
+              left: 56%
+              border-radius: 100%
+              '--paper-item-icon-color': var( --pei_color_door_laundry )
+          - type: state-icon
+            entity: binary_sensor.door_garage
+            state_color: false
+            tap_action:
+              action: more-info
+            style:
+              top: 44%
+              left: 65%
+              border-radius: 100%
+              '--paper-item-icon-color': var( --pei_color_door_garage )
+          - type: state-icon
+            entity: binary_sensor.door_closet_hallway_hers
+            state_color: false
+            tap_action:
+              action: more-info
+            style:
+              top: 21%
+              left: 34%
+              border-radius: 100%
+              '--paper-item-icon-color': var( --pei_color_door_closet_hallway_hers )
+          - type: state-icon
+            entity: binary_sensor.door_closet_hallway_his
+            state_color: false
+            tap_action:
+              action: more-info
+            style:
+              top: 28.5%
+              left: 34%
+              border-radius: 100%
+              '--paper-item-icon-color': var( --pei_color_door_closet_hallway_his )
+          - type: state-label
+            entity: sensor.temp_attic_humidity
+            state_color: false
+            tap_action:
+              action: more-info
+            style:
+              top: 35%
+              left: 95%
+              color: var(--primary-color)
+          - type: state-label
+            entity: sensor.bedroom_1_temperature
+            tap_action:
+              action: more-info
+            style:
+              top: 25%
+              left: 20%
+              color: var(--primary-color)
+          - type: state-label
+            entity: sensor.bedroom_2_temperature
+            state_color: false
+            tap_action:
+              action: more-info
+            style:
+              top: 79.5%
+              left: 85%
+              color: var(--primary-color)
+          - type: state-label
+            entity: sensor.bedroom_3_temperature
+            state_color: false
+            tap_action:
+              action: more-info
+            style:
+              top: 23%
+              left: 59%
+              color: var(--primary-color)
+          - type: state-label
+            entity: sensor.bedroom_4_temperature
+            state_color: false
+            tap_action:
+              action: more-info
+            style:
+              top: 80%
+              left: 56.5%
+              color: var(--primary-color)
+          - type: state-label
+            entity: sensor.living_room_temperature
+            state_color: false
+            tap_action:
+              action: more-info
+            style:
+              top: 64%
+              left: 19%
+              color: var(--primary-color)
+          - type: state-label
+            entity: sensor.temp_garage_temperature
+            state_color: false
+            tap_action:
+              action: more-info
             style:
               top: 31%
-              left: 75%
-              border-radius: 100%
-              '--paper-item-icon-color': var( --pei_color_light_closet_hallway_light )
-            tap_action:
-              action: toggle
-          - type: state-icon
-            entity: light.closet_hallway_light_j
-            state_color: false
-            style:
-              top: 34%
-              left: 86%
-              border-radius: 100%
-              '--paper-item-icon-color': var( --pei_color_light_closet_hallway_light_j )
-            tap_action:
-              action: toggle
-          - type: state-icon
-            entity: light.closet_hallway_light_t
-            state_color: false
-            style:
-              top: 34%
-              left: 66%
-              border-radius: 100%
-              '--paper-item-icon-color': var( --pei_color_light_closet_hallway_light_t )
-            tap_action:
-              action: toggle
-          - type: state-icon
-            entity: light.main_bathroom_lights_switch_a
-            state_color: false
-            style:
-              top: 42%
               left: 79%
-              border-radius: 100%
-              '--paper-item-icon-color': var( --pei_color_light_main_bathroom_lights_switch_a )
+              color: var(--primary-color)
+          - type: state-label
+            entity: sensor.temp_attic_temperature
+            state_color: false
             tap_action:
-              action: toggle
+              action: more-info
+            style:
+              top: 27%
+              left: 95%
+              color: var(--primary-color)
+          - type: state-label
+            entity: sensor.foyer_temperature
+            state_color: false
+            tap_action:
+              action: more-info
+            style:
+              top: 60%
+              left: 65%
+              color: var(--primary-color)
+          - type: state-label
+            entity: sensor.temp_refrigerator_temperature
+            state_color: false
+            tap_action:
+              action: more-info
+            style:
+              top: 72%
+              left: 44%
+              color: var(--primary-color)
+          - type: state-label
+            entity: sensor.temp_freezer_temperature
+            state_color: false
+            tap_action:
+              action: more-info
+            style:
+              top: 75%
+              left: 44%
+              color: var(--primary-color)
+          - type: state-label
+            entity: sensor.temp_wine_cooler_top_temperature
+            state_color: false
+            tap_action:
+              action: more-info
+            style:
+              top: 84%
+              left: 12%
+              color: var(--primary-color)
+          - type: state-label
+            entity: sensor.temp_wine_cooler_bottom_temperature
+            state_color: false
+            tap_action:
+              action: more-info
+            style:
+              top: 87%
+              left: 12%
+              color: var(--primary-color)
           - type: state-icon
-            entity: light.main_bathroom_lights_switch_b
+            entity: binary_sensor.presence_living_room
+            state_color: false
+            tap_action:
+              action: more-info
+            style:
+              top: 50%
+              left: 20%
+              border-radius: 100%
+              '--paper-item-icon-color': var( --pei_color_presence_living_room )
+          - type: state-icon
+            entity: binary_sensor.presence_garage
+            tap_action:
+              action: more-info
             state_color: false
             style:
-              top: 47%
-              left: 75%
+              top: 48%
+              left: 81.5%
               border-radius: 100%
-              '--paper-item-icon-color': var( --pei_color_light_main_bathroom_lights_switch_b )
-            tap_action:
-              action: toggle
+              '--paper-item-icon-color': var( --pei_color_presence_garage )
           - type: state-icon
-            entity: light.backyard_string_lights
+            entity: binary_sensor.motion_laundry
+            tap_action:
+              action: more-info
             state_color: false
             style:
-              top: 6%
-              left: 46%
+              top: 49%
+              left: 58%
               border-radius: 100%
-              '--paper-item-icon-color': var( --pei_color_light_backyard_string_lights )
-            tap_action:
-              action: toggle
-          - type: state-icon
-            entity: light.front_yard_accent_lights
-            state_color: false
-            style:
-              top: 95%
-              left: 21.5%
-              border-radius: 100%
-              '--paper-item-icon-color': var( --pei_color_light_front_yard_accent_lights )
-            tap_action:
-              action: toggle
-          - type: state-icon
-            entity: media_player.sony_bravia_tv
-            state_color: false
-            style:
-              top: 17%
-              left: 59%
-              border-radius: 100%
-              '--paper-item-icon-color': var( --pei_color_media_player_sony_bravia_tv )
-            tap_action:
-              action: toggle
-          - type: state-icon
-            entity: light.tv_ambient_lights
-            state_color: false
-            style:
-              top: 22.5%
-              left: 59%
-              border-radius: 100%
-              '--paper-item-icon-color': var( --pei_color_light_tv_ambient_lights )
-            tap_action:
-              action: toggle
+              '--paper-item-icon-color': var( --pei_color_motion_laundry )
+        image: /local/images/floor-plan/casa-maxson-floor-plan-horizontal.png
+      - type: picture-elements
+        view_layout:
+          grid-area: row2
+        card_mod:
+          style: |
+            /* Desktop */
+            @media screen and (min-width: 992px) { 
+              ha-card { display: none;}
+            }
+            ha-card {
+              --pei_color_door_front_primary: {% if( states( 'binary_sensor.door_front_primary' ) == 'on' ) %} var( --state-lock-unlocked-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_door_front_secondary: {% if( states( 'binary_sensor.door_front_secondary' ) == 'on' ) %} var( --state-lock-unlocked-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_door_garage: {% if( states( 'binary_sensor.door_garage' ) == 'on' ) %} var( --state-lock-unlocked-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_door_bedroom_1: {% if( states( 'binary_sensor.door_bedroom_1' ) == 'on' ) %} var( --state-lock-unlocked-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_door_bedroom_2: {% if( states( 'binary_sensor.door_bedroom_2' ) == 'on' ) %} var( --state-lock-unlocked-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_door_bedroom_3: {% if( states( 'binary_sensor.door_bedroom_3' ) == 'on' ) %} var( --state-lock-unlocked-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_door_bedroom_4: {% if( states( 'binary_sensor.door_bedroom_4' ) == 'on' ) %} var( --state-lock-unlocked-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_door_living: {% if( states( 'binary_sensor.door_living' ) == 'on' ) %} var( --state-lock-unlocked-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_door_laundry: {% if( states( 'binary_sensor.door_laundry' ) == 'on' ) %} var( --state-lock-unlocked-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_door_closet_hallway_hers: {% if( states( 'binary_sensor.door_closet_hallway_hers' ) == 'on' ) %} var( --state-lock-unlocked-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_door_closet_hallway_his: {% if( states( 'binary_sensor.door_closet_hallway_his' ) == 'on' ) %} var( --state-lock-unlocked-color ) {% else %} var( --secondary-text-color ) {% endif %};
+
+              --pei_color_presence_living_room: {% if( states( 'binary_sensor.presence_living_room' ) == 'on' ) %} var( --state-lock-locked-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_presence_garage: {% if( states( 'binary_sensor.presence_garage' ) == 'on' ) %} var( --state-lock-locked-color ) {% else %} var( --secondary-text-color ) {% endif %};
+              --pei_color_motion_laundry: {% if( states( 'binary_sensor.motion_laundry' ) == 'on' ) %} var( --state-lock-locked-color ) {% else %} var( --secondary-text-color ) {% endif %};
+            }
+        elements:
           - type: state-icon
             entity: binary_sensor.door_bedroom_1
             state_color: false
+            tap_action:
+              action: more-info
             style:
               top: 27.5%
               left: 62.5%
@@ -1736,6 +2268,8 @@ views:
           - type: state-icon
             entity: binary_sensor.door_bedroom_2
             state_color: false
+            tap_action:
+              action: more-info
             style:
               top: 74.5%
               left: 27.5%
@@ -1744,6 +2278,8 @@ views:
           - type: state-icon
             entity: binary_sensor.door_bedroom_3
             state_color: false
+            tap_action:
+              action: more-info
             style:
               top: 53.5%
               left: 64%
@@ -1752,6 +2288,8 @@ views:
           - type: state-icon
             entity: binary_sensor.door_bedroom_4
             state_color: false
+            tap_action:
+              action: more-info
             style:
               top: 61%
               left: 33%
@@ -1760,6 +2298,8 @@ views:
           - type: state-icon
             entity: binary_sensor.door_front_primary
             state_color: false
+            tap_action:
+              action: more-info
             style:
               top: 72.5%
               left: 42%
@@ -1768,6 +2308,8 @@ views:
           - type: state-icon
             entity: binary_sensor.door_front_secondary
             state_color: false
+            tap_action:
+              action: more-info
             style:
               top: 72.5%
               left: 37%
@@ -1776,14 +2318,18 @@ views:
           - type: state-icon
             entity: binary_sensor.door_living
             state_color: false
+            tap_action:
+              action: more-info
             style:
               top: 6%
-              left: 54%
+              left: 49%
               border-radius: 100%
               '--paper-item-icon-color': var( --pei_color_door_living )
           - type: state-icon
             entity: binary_sensor.door_laundry
             state_color: false
+            tap_action:
+              action: more-info
             style:
               top: 55.5%
               left: 56%
@@ -1792,6 +2338,8 @@ views:
           - type: state-icon
             entity: binary_sensor.door_garage
             state_color: false
+            tap_action:
+              action: more-info
             style:
               top: 65.5%
               left: 56%
@@ -1800,44 +2348,175 @@ views:
           - type: state-icon
             entity: binary_sensor.door_closet_hallway_hers
             state_color: false
+            tap_action:
+              action: more-info
             style:
               top: 34%
               left: 79%
               border-radius: 100%
               '--paper-item-icon-color': var( --pei_color_door_closet_hallway_hers )
-          - type: state-icon
-            entity: binary_sensor.door_closet_hallway_his
+          - type: state-label
+            entity: sensor.temp_attic_humidity
             state_color: false
+            tap_action:
+              action: more-info
             style:
-              top: 34%
-              left: 71.5%
-              border-radius: 100%
-              '--paper-item-icon-color': var( --pei_color_door_closet_hallway_his )
+              top: 91.5%
+              left: 75%
+              color: var(--primary-color)
+          - type: state-label
+            entity: sensor.bedroom_1_temperature
+            state_color: false
+            tap_action:
+              action: more-info
+            style:
+              top: 19%
+              left: 76.5%
+              color: var(--primary-color)
+          - type: state-label
+            entity: sensor.bedroom_2_temperature
+            state_color: false
+            tap_action:
+              action: more-info
+            style:
+              top: 84%
+              left: 21%
+              color: var(--primary-color)
+          - type: state-label
+            entity: sensor.bedroom_3_temperature
+            state_color: false
+            tap_action:
+              action: more-info
+            style:
+              top: 59%
+              left: 77%
+              color: var(--primary-color)
+          - type: state-label
+            entity: sensor.bedroom_4_temperature
+            state_color: false
+            tap_action:
+              action: more-info
+            style:
+              top: 56%
+              left: 21%
+              color: var(--primary-color)
+          - type: state-label
+            entity: sensor.living_room_temperature
+            state_color: false
+            tap_action:
+              action: more-info
+            style:
+              top: 13%
+              left: 49%
+              color: var(--primary-color)
+          - type: state-label
+            entity: sensor.temp_garage_temperature
+            state_color: false
+            tap_action:
+              action: more-info
+            style:
+              top: 73%
+              left: 69%
+              color: var(--primary-color)
+          - type: state-label
+            entity: sensor.temp_attic_temperature
+            state_color: false
+            tap_action:
+              action: more-info
+            style:
+              top: 91.5%
+              left: 65%
+              color: var(--primary-color)
+          - type: state-label
+            entity: sensor.foyer_temperature
+            state_color: false
+            tap_action:
+              action: more-info
+            style:
+              top: 65%
+              left: 40%
+              color: var(--primary-color)
+          - type: state-label
+            entity: sensor.temp_refrigerator_temperature
+            state_color: false
+            tap_action:
+              action: more-info
+            style:
+              top: 44%
+              left: 21%
+              color: var(--primary-color)
+          - type: state-label
+            entity: sensor.temp_freezer_temperature
+            state_color: false
+            tap_action:
+              action: more-info
+            style:
+              top: 44%
+              left: 33%
+              color: var(--primary-color)
+          - type: state-label
+            entity: sensor.temp_wine_cooler_top_temperature
+            state_color: false
+            tap_action:
+              action: more-info
+            style:
+              top: 11%
+              left: 17%
+              color: var(--primary-color)
+          - type: state-label
+            entity: sensor.temp_wine_cooler_bottom_temperature
+            state_color: false
+            tap_action:
+              action: more-info
+            style:
+              top: 14%
+              left: 17%
+              color: var(--primary-color)
           - type: state-icon
             entity: binary_sensor.presence_living_room
             state_color: false
+            tap_action:
+              action: more-info
             style:
-              top: 14%
-              left: 37%
+              top: 21%
+              left: 49%
               border-radius: 100%
               '--paper-item-icon-color': var( --pei_color_presence_living_room )
           - type: state-icon
             entity: binary_sensor.presence_garage
             state_color: false
+            tap_action:
+              action: more-info
             style:
-              top: 83%
+              top: 78%
               left: 69%
               border-radius: 100%
               '--paper-item-icon-color': var( --pei_color_presence_garage )
           - type: state-icon
             entity: binary_sensor.motion_laundry
             state_color: false
+            tap_action:
+              action: more-info
             style:
               top: 58%
-              left: 51%
+              left: 53.5%
               border-radius: 100%
               '--paper-item-icon-color': var( --pei_color_motion_laundry )
         image: /local/images/floor-plan/casa-maxson-floor-plan-vertical.png
+    layout:
+      grid-gap: >-
+        calc( var( --tihiti-dashboard-layout-padding ) / 1.2 ) calc( var(
+        --tihiti-dashboard-layout-padding ) * 1.25 )
+      grid-template-rows: auto
+      grid-template-columns: 1% 1fr 1%
+      grid-template-areas: |
+        ".  row1  ."
+        ".  row2  ."
+      mediaquery:
+        '(max-width: 992px)':
+          grid-gap: var( --tihiti-dashboard-layout-padding ) 0
+          grid-template-rows: auto
+          grid-template-columns: 2.5% 95% 2.5%
   - title: Security
     path: page-security
     type: custom:vertical-layout
@@ -1852,34 +2531,50 @@ views:
       - type: entities
         entities:
           - entity: input_boolean.enable_exterior_camera_recording
-            name: Enable Exterior Recording
-          - entity: camera.camera_ext_northeast_high
-            secondary_info: none
-            name: Front Yard, Northeast
-          - entity: camera.camera_ext_southeast_high
-            name: Front Yard, Southeast
-            secondary_info: none
-          - entity: camera.camera_foyer_doorbell_high
+            name: Enable Recording
+          - entity: camera.ext_doorbell
             secondary_info: none
             name: Main Entry Doorbell
+          - entity: camera.ext_backyard_northeast
+            name: Backyard, Northeast
+          - entity: camera.ext_backyard_southeast
+            name: Backyard, Southeast
+          - entity: camera.ext_front_yard_northeast
+            secondary_info: none
+            name: Front Yard, Northeast
+          - entity: camera.ext_front_yard_southeast
+            name: Front Yard, Southeast
+            secondary_info: none
+          - entity: camera.ext_side_yard_northeast
+            name: Side Yard, North
+          - entity: camera.ext_side_yard_southeast
+            name: Side Yard, South
         title: Exterior Cameras
       - type: entities
         entities:
           - entity: input_boolean.enable_interior_camera_recording
-            name: Enable Interior Recording
-          - entity: camera.camera_kitchen_high
+            name: Enable Recording
+          - entity: camera.int_dining_room
+            name: Dining Room
+          - entity: camera.int_kitchen
             secondary_info: none
             name: Kitchen
-          - entity: camera.camera_dining_room_high
+          - entity: camera.int_foyer
             secondary_info: none
-            name: Dining Room
-          - entity: camera.camera_living_room_high
+            name: Foyer Entryway
+          - entity: camera.int_living_room
             secondary_info: none
             name: Living Room
-          - entity: camera.camera_foyer_hallway_high
-            secondary_info: none
-            name: Foyer Hallway
+          - entity: camera.int_bdr1
+            name: Main Bedroom
         title: Interior Cameras
+      - type: entities
+        entities:
+          - entity: input_boolean.enable_motion_camera_recording
+            name: Enable Recording
+          - entity: camera.ext_garage
+            name: Garage
+        title: Motion Only Cameras
   - title: Sidebar Item Visibility
     path: subview-sidebar
     back_path: /dashboard-home/home
@@ -1889,6 +2584,19 @@ views:
     theme: tihiti
     badges: []
     cards:
+      - type: vertical-stack
+        cards:
+          - type: entities
+            entities:
+              - entity: input_boolean.sidebar_display_recycle_reminder
+                secondary_info: none
+                name: Recycle Reminders
+              - entity: input_boolean.sidebar_display_waste_reminder
+                secondary_info: none
+                name: Waste Reminders
+            state_color: false
+            show_header_toggle: false
+            title: Display Reminders
       - type: vertical-stack
         cards:
           - type: entities
@@ -1914,12 +2622,50 @@ views:
               - entity: input_boolean.sidebar_display_exterior_door_status
                 name: Exterior Door Status
                 secondary_info: none
-              - type: divider
-              - entity: input_boolean.sidebar_display_waste_reminder
-                secondary_info: none
-                name: Waste Reminders
             state_color: false
             show_header_toggle: false
+            title: Sidebar Items
+  - title: His Office
+    path: office-his
+    icon: ''
+    layout:
+      max_cols: 2
+    type: custom:horizontal-layout
+    subview: true
+    badges: []
+    cards:
+      - type: entities
+        title: Lights
+        show_header_toggle: false
+        entities:
+          - entity: light.bedroom_4_desk_lamp
+            name: Desk Lamp
+          - entity: light.bedroom_4_lightstrip
+            name: Lightstrip
+          - entity: light.bedroom_4_tie_fighter_lamp
+            name: TIE Fighter Lamp
+      - type: entities
+        title: Desk Controls
+        show_header_toggle: false
+        entities:
+          - entity: sensor.desk_office_tom_desk_height
+            name: Current Height
+          - entity: button.desk_office_tom_preset_1
+            name: Lowest Height (30 in)
+          - entity: button.desk_office_tom_preset_2
+            name: Sitting Height (34.5 in)
+          - entity: button.desk_office_tom_preset_3
+            name: Standing Height (45.5 in)
+          - entity: button.desk_office_tom_preset_4
+            name: Full Height (49 in)
+      - type: entities
+        title: Other
+        show_header_toggle: false
+        entities:
+          - entity: cover.blinds_bedroom_4
+            name: Blinds
+          - entity: light.bedroom_4_media_plug
+            name: Media Plug
   - title: Overview
     path: subview-overview
     back_path: /dashboard-home/home
@@ -2208,6 +2954,11 @@ views:
           - type: custom:decluttering-card
             template: light
             variables:
+              - entity: light.garage_door_light
+              - name: Opener Light
+          - type: custom:decluttering-card
+            template: light
+            variables:
               - entity: light.garage_ceiling
               - name: Ceiling Light
           - type: custom:decluttering-card
@@ -2388,6 +3139,24 @@ views:
           - type: custom:decluttering-card
             template: leak
             variables:
+              - entity: binary_sensor.leak_toilet_guest_bathroom
+              - battery: sensor.leak_toilet_guest_bathroom_battery
+              - name: Toilet, Guest Bathroom
+          - type: custom:decluttering-card
+            template: leak
+            variables:
+              - entity: binary_sensor.leak_toilet_half_bathroom
+              - battery: sensor.leak_toilet_half_bathroom_battery
+              - name: Toilet, Half Bathroom
+          - type: custom:decluttering-card
+            template: leak
+            variables:
+              - entity: binary_sensor.leak_toilet_main_bathroom
+              - battery: sensor.leak_toilet_main_bathroom_battery
+              - name: Toilet, Main Bathroom
+          - type: custom:decluttering-card
+            template: leak
+            variables:
               - entity: binary_sensor.leak_wine_cooler_bar
               - battery: sensor.leak_wine_cooler_bar_battery
               - name: Wine Cooler
@@ -2414,6 +3183,11 @@ views:
             variables:
               - entity: switch.outlet_router_b
               - name: Kitchen, Above Coffee Bar
+          - type: custom:decluttering-card
+            template: outlet
+            variables:
+              - entity: light.camera_power_bdr1
+              - name: Main Bedroom Camera
           - type: custom:decluttering-card
             template: outlet
             variables:
@@ -2476,6 +3250,26 @@ views:
                 - entity: sensor.temp_wine_cooler_bottom_temperature
                 - battery: sensor.temp_wine_cooler_bottom_battery
                 - name: Wine Cooler (Bottom)
+          - type: section
+            label: Window Treatment Batteries
+          - type: custom:decluttering-card
+            template: battery
+            variables:
+              - entity: cover.large_window_curtains_bedroom_1
+              - battery: sensor.bedroom_1_large_window_left_battery
+              - name: Left Curtain, Main Bedroom
+          - type: custom:decluttering-card
+            template: battery
+            variables:
+              - entity: cover.large_window_curtains_bedroom_1
+              - battery: sensor.bedroom_1_large_window_right_battery
+              - name: Right Curtain, Main Bedroom
+          - type: custom:decluttering-card
+            template: battery
+            variables:
+              - entity: cover.blinds_bedroom_4_battery
+              - battery: sensor.blinds_bedroom_4_battery
+              - name: Blinds, Bedroom 4
           - type: section
             label: Motion Sensor Batteries
           - type: custom:decluttering-card
@@ -2550,6 +3344,9 @@ views:
             variables:
               - entity: media_player.echo_dot_dining_room
               - name: Amazon Echo
+      - type: entities
+        show_header_toggle: false
+        entities:
           - type: section
             label: Main Bedroom
           - type: custom:decluttering-card
@@ -2562,9 +3359,6 @@ views:
             variables:
               - entity: media_player.echo_dot_bedroom_1
               - name: Amazon Echo
-      - type: entities
-        show_header_toggle: false
-        entities:
           - type: section
             label: Guest Bedroom
           - type: custom:decluttering-card
@@ -2577,6 +3371,9 @@ views:
             variables:
               - entity: media_player.echo_dot_bedroom_2
               - name: Amazon Echo
+      - type: entities
+        show_header_toggle: false
+        entities:
           - type: section
             label: Jess' Office
           - type: custom:decluttering-card
@@ -2616,8 +3413,6 @@ views:
       - type: entities
         show_header_toggle: false
         entities:
-          - type: section
-            label: Rooms
           - type: custom:decluttering-card
             template: temperature
             variables:
@@ -2653,43 +3448,45 @@ views:
             variables:
               - entity: sensor.motion_laundry_temperature
               - name: Laundry Room
-      - type: entities
-        show_header_toggle: false
-        entities:
-          - type: section
-            label: Areas
-          - type: custom:decluttering-card
-            template: temperature
-            variables:
-              - entity: sensor.temp_attic_temperature
-              - name: Attic
-          - type: custom:decluttering-card
-            template: temperature
-            variables:
-              - entity: sensor.temp_garage_temperature
-              - name: Garage
-          - type: section
-            label: Appliances
-          - type: custom:decluttering-card
-            template: temperature
-            variables:
-              - entity: sensor.temp_refrigerator_temperature
-              - name: Refrigerator
-          - type: custom:decluttering-card
-            template: temperature
-            variables:
-              - entity: sensor.temp_freezer_temperature
-              - name: Freezer
-          - type: custom:decluttering-card
-            template: temperature
-            variables:
-              - entity: sensor.temp_wine_cooler_top_temperature
-              - name: Wine Cooler, Upper
-          - type: custom:decluttering-card
-            template: temperature
-            variables:
-              - entity: sensor.temp_wine_cooler_bottom_temperature
-              - name: Wine Cooler, Lower
+        title: Rooms
+      - type: vertical-stack
+        cards:
+          - type: entities
+            entities:
+              - type: custom:decluttering-card
+                template: temperature
+                variables:
+                  - entity: sensor.temp_attic_temperature
+                  - name: Attic
+              - type: custom:decluttering-card
+                template: temperature
+                variables:
+                  - entity: sensor.temp_garage_temperature
+                  - name: Garage
+            title: Areas
+          - type: entities
+            title: Appliances
+            entities:
+              - type: custom:decluttering-card
+                template: temperature
+                variables:
+                  - entity: sensor.temp_refrigerator_temperature
+                  - name: Refrigerator
+              - type: custom:decluttering-card
+                template: temperature
+                variables:
+                  - entity: sensor.temp_freezer_temperature
+                  - name: Freezer
+              - type: custom:decluttering-card
+                template: temperature
+                variables:
+                  - entity: sensor.temp_wine_cooler_top_temperature
+                  - name: Wine Cooler, Upper
+              - type: custom:decluttering-card
+                template: temperature
+                variables:
+                  - entity: sensor.temp_wine_cooler_bottom_temperature
+                  - name: Wine Cooler, Lower
   - title: Systems
     path: subview-systems
     back_path: /dashboard-home/home
@@ -2700,43 +3497,30 @@ views:
     theme: tihiti
     badges: []
     cards:
-      - type: entities
-        title: Router and Internet
-        show_header_toggle: false
-        entities:
-          - entity: sensor.speedtest_upload
-            name: Upload speed
-          - entity: sensor.speedtest_download
-            name: Download speed
-          - type: divider
-          - entity: sensor.casamaxson_udmp_cpu_temperature
-            name: CPU Temperature
-          - type: custom:bar-card
-            width: 55%
-            height: 2em
-            decimal: 0
-            unit_of_measurement: '%'
-            positions:
-              icon: outside
-              indicator: 'off'
-              name: outside
-            severity:
-              - color: '#6d2525'
-                from: 90
-                to: 999
-            entity_row: true
+      - type: vertical-stack
+        cards:
+          - type: entities
             entities:
-              - entity: sensor.casamaxson_udmp_cpu_utilization
-                name: CPU Utilization
-              - entity: sensor.casamaxson_udmp_memory_utilization
-                name: Memory Utilization
-          - entity: sensor.casamaxson_udmp_uptime
-            name: Last Restart
+              - entity: sensor.speedtest_upload
+                name: Upload speed
+              - entity: sensor.speedtest_download
+                name: Download speed
+            title: Internet Speeds
+          - type: entities
+            entities:
+              - entity: sensor.uptime
+                name: Home Assistant
+              - entity: sensor.casamaxson_udmp_uptime
+                name: UniFi Dream Machine Pro
+              - entity: sensor.casamaxson_unvr_uptime
+                name: UniFi Network Video Recorder
+            title: System Restarts
       - type: entities
         title: Home Assistant
         show_header_toggle: false
         entities:
           - entity: sensor.processor_temperature
+            name: CPU Temperature
           - type: custom:bar-card
             width: 55%
             height: 2em
@@ -2756,9 +3540,11 @@ views:
             entity_row: true
             entities:
               - entity: sensor.processor_use_percent
+                name: CPU Usage
           - type: divider
           - entity: sensor.home_assistant_log_size
           - entity: sensor.mariadb_database_size
+            name: Database Size
             icon: mdi:database
           - type: divider
           - entity: input_button.home_assistant_restart
@@ -2831,8 +3617,8 @@ views:
               - entity: sensor.fire_tablet_ram_used_memory
                 name: Memory
                 icon: hass:memory
-  - title: Settings
-    path: subview-settings
+  - title: Configure
+    path: subview-config
     back_path: /dashboard-home/home
     subview: true
     type: custom:horizontal-layout
@@ -2841,106 +3627,133 @@ views:
     theme: tihiti
     badges: []
     cards:
+      - type: vertical-stack
+        cards:
+          - type: entities
+            entities:
+              - entity: sensor.sunset_automations_status
+                name: Sunset Automations
+              - type: conditional
+                conditions:
+                  - entity: schedule.waste_take_out_solid
+                    state_not: unknown
+                  - entity: sensor.days_until_waste_day_solid
+                    state_not: unavailable
+                  - entity: sensor.days_until_waste_day_solid
+                    state_not: unknown
+                row:
+                  entity: sensor.days_until_waste_day_solid
+                  name: Trash Pickup
+              - type: conditional
+                conditions:
+                  - entity: schedule.waste_take_out_bulk
+                    state_not: unknown
+                  - entity: sensor.days_until_waste_day_bulk
+                    state_not: unavailable
+                  - entity: sensor.days_until_waste_day_bulk
+                    state_not: unknown
+                row:
+                  entity: sensor.days_until_waste_day_bulk
+                  name: Bulk Pickup
+              - type: conditional
+                conditions:
+                  - entity: schedule.waste_bring_in_recycle
+                    state_not: unknown
+                  - entity: sensor.days_until_recycle_drop_off
+                    state_not: unavailable
+                  - entity: sensor.days_until_recycle_drop_off
+                    state_not: unknown
+                row:
+                  entity: sensor.days_until_recycle_drop_off
+                  name: Recycling Drop Off
+              - type: conditional
+                conditions:
+                  - entity: schedule.house_cleaning
+                    state_not: unknown
+                  - entity: sensor.days_until_cleaning_day
+                    state_not: unavailable
+                  - entity: sensor.days_until_cleaning_day
+                    state_not: unknown
+                row:
+                  entity: sensor.days_until_cleaning_day
+                  name: House Cleaning
+            title: Schedule
+          - type: entities
+            entities:
+              - type: conditional
+                conditions:
+                  - entity: light.kitchen_cabinet_upper_coffee_bar
+                    state_not: unavailable
+                  - entity: light.kitchen_cabinet_upper_range
+                    state_not: unavailable
+                row:
+                  entity: input_boolean.sync_cabinet_above_lights
+                  name: Above Kitchen Cabinet Lights
+              - type: conditional
+                conditions:
+                  - entity: light.foyer_ceiling_lights
+                    state_not: unavailable
+                row:
+                  entity: input_boolean.sync_foyer_lights
+                  name: Foyer Ceiling Lights
+              - type: conditional
+                conditions:
+                  - entity: light.bedroom_1_lamp_j
+                    state_not: unavailable
+                  - entity: light.bedroom_1_lamp_t
+                    state_not: unavailable
+                row:
+                  entity: input_boolean.sync_bedroom_1_bedside_lamps
+                  name: Main Bedroom Bedside Lamps
+              - type: conditional
+                conditions:
+                  - entity: light.bedroom_4_lights
+                    state_not: unavailable
+                row:
+                  entity: input_boolean.sync_bedroom_4_lights
+                  name: Tom's Office Desk Lights
+            title: Sync Lights
       - type: entities
         show_header_toggle: false
+        title: Door Triggered Automations
+        card_mod:
+          style: >
+            #states > div:nth-child(5) { padding-left: 45px
+            !important;}          
         entities:
-          - type: section
-            label: Schedules
-          - entity: sensor.sunset_automations_status
-            name: Sunset Automations
-          - type: conditional
-            conditions:
-              - entity: schedule.waste_take_out_solid
-                state_not: unknown
-              - entity: sensor.days_until_waste_day_solid
-                state_not: unavailable
-              - entity: sensor.days_until_waste_day_solid
-                state_not: unknown
-            row:
-              entity: sensor.days_until_waste_day_solid
-              name: Trash Pickup
-          - type: conditional
-            conditions:
-              - entity: schedule.waste_take_out_bulk
-                state_not: unknown
-              - entity: sensor.days_until_waste_day_bulk
-                state_not: unavailable
-              - entity: sensor.days_until_waste_day_bulk
-                state_not: unknown
-            row:
-              entity: sensor.days_until_waste_day_bulk
-              name: Bulk Pickup
-          - type: conditional
-            conditions:
-              - entity: schedule.waste_bring_in_recycle
-                state_not: unknown
-              - entity: sensor.days_until_recycle_drop_off
-                state_not: unavailable
-              - entity: sensor.days_until_recycle_drop_off
-                state_not: unknown
-            row:
-              entity: sensor.days_until_recycle_drop_off
-              name: Recycling Drop Off
-          - type: conditional
-            conditions:
-              - entity: schedule.house_cleaning
-                state_not: unknown
-              - entity: sensor.days_until_cleaning_day
-                state_not: unavailable
-              - entity: sensor.days_until_cleaning_day
-                state_not: unknown
-            row:
-              entity: sensor.days_until_cleaning_day
-              name: House Cleaning
-          - type: section
-            label: Sync Lights
-          - type: conditional
-            conditions:
-              - entity: light.kitchen_cabinet_upper_coffee_bar
-                state_not: unavailable
-              - entity: light.kitchen_cabinet_upper_range
-                state_not: unavailable
-            row:
-              entity: input_boolean.sync_cabinet_above_lights
-              name: Above Kitchen Cabinet Lights
-          - type: conditional
-            conditions:
-              - entity: light.foyer_ceiling_lights
-                state_not: unavailable
-            row:
-              entity: input_boolean.sync_foyer_lights
-              name: Foyer Ceiling Lights
-          - type: conditional
-            conditions:
-              - entity: light.bedroom_1_lamp_j
-                state_not: unavailable
-              - entity: light.bedroom_1_lamp_t
-                state_not: unavailable
-            row:
-              entity: input_boolean.sync_bedroom_1_bedside_lamps
-              name: Main Bedroom Bedside Lamps
-          - type: conditional
-            conditions:
-              - entity: light.bedroom_4_lights
-                state_not: unavailable
-            row:
-              entity: input_boolean.sync_bedroom_4_lights
-              name: Tom's Office Desk Lights
+          - entity: input_boolean.automation_foyer_door_open_close
+            name: Main Entry (Primary and Secondary)
+          - entity: input_boolean.automation_garage_door_open_close
+            name: Garage (Interior)
+          - entity: input_boolean.automation_living_room_door_open_close
+            name: Sliding Glass Door
+          - entity: input_boolean.automation_bedroom_1_door_open_close
+            name: Main Bedroom
+          - entity: input_boolean.closet_automatic_turn_off
+            name: Auto-Shutoff Closet Lights
+          - entity: input_boolean.automation_bedroom_2_door_open_close
+            name: Guest Bedroom
+          - entity: input_boolean.automation_bedroom_3_door_open_close
+            name: Jess' Office
+          - entity: input_boolean.automation_bedroom_4_door_open_close
+            name: Tom's Office
+          - entity: input_boolean.automation_laundry_room_door_open_close
+            name: Laundry Room
       - type: entities
         show_header_toggle: false
-        style: |
-          #states > div:nth-child(3), 
-          #states > div:nth-child(4), 
-          #states > div:nth-child(6), 
-          #states > div:nth-child(7),
-          #states > div:nth-child(8),
-          #states > div:nth-child(9),
-          #states > div:nth-child(10),
-          #states > div:nth-child(11),
-          #states > div:nth-child(12) { padding-left: 45px !important;}
+        title: Allow Notifications On
+        card_mod:
+          style: |
+            #states > div:nth-child(2), 
+            #states > div:nth-child(3), 
+            #states > div:nth-child(5), 
+            #states > div:nth-child(6),
+            #states > div:nth-child(7),
+            #states > div:nth-child(8),
+            #states > div:nth-child(9),
+            #states > div:nth-child(10),
+            #states > div:nth-child(11) { padding-left: 45px !important;}
         entities:
-          - type: section
-            label: Allow Notifications On
           - entity: input_boolean.app_notify
             name: Mobile Devices
           - type: conditional
@@ -3008,31 +3821,6 @@ views:
             row:
               entity: input_boolean.household_notify_bedroom_4
               name: His Office Echo Dot
-      - type: entities
-        show_header_toggle: false
-        style: |
-          #states > div:nth-child(6) { padding-left: 45px !important;}          
-        entities:
-          - type: section
-            label: Door Triggered Automations
-          - entity: input_boolean.automation_foyer_door_open_close
-            name: Front Doors (primary and secondary)
-          - entity: input_boolean.automation_garage_door_open_close
-            name: Garage (Interior) Door
-          - entity: input_boolean.automation_living_room_door_open_close
-            name: Sliding Glass Door
-          - entity: input_boolean.automation_bedroom_1_door_open_close
-            name: Main Bedroom Door
-          - entity: input_boolean.closet_automatic_turn_off
-            name: Auto-Shutoff Closet Lights
-          - entity: input_boolean.automation_bedroom_2_door_open_close
-            name: Guest Bedroom Door
-          - entity: input_boolean.automation_bedroom_3_door_open_close
-            name: Jess' Office Door
-          - entity: input_boolean.automation_bedroom_4_door_open_close
-            name: Tom's Office Door
-          - entity: input_boolean.automation_laundry_room_door_open_close
-            name: Laundry Room Door
   - title: Helpers
     path: subview-helpers
     back_path: /dashboard-home/home
@@ -3043,85 +3831,28 @@ views:
     theme: tihiti
     badges: []
     cards:
+      - type: vertical-stack
+        cards:
+          - type: entities
+            entities:
+              - entity: input_boolean.reminder_laundry_complete_washer
+                name: Washer Complete
+              - entity: input_boolean.reminder_laundry_complete_dryer
+                name: Dryer Complete
+            title: Laundry Reminders
+            show_header_toggle: false
+          - type: entities
+            entities:
+              - entity: input_boolean.enable_exterior_camera_recording
+                name: Record House, Exterior
+              - entity: input_boolean.enable_interior_camera_recording
+                name: Record House, Interior
+              - entity: input_boolean.camera_int_privacy_mode
+                name: Privacy Mode, Interior
+            title: Cameras
+            show_header_toggle: false
       - type: entities
-        show_header_toggle: false
         entities:
-          - type: section
-            label: Sunrise Automations
-          - entity: input_boolean.sunrise_automations_run
-            name: Allow Automations
-          - type: conditional
-            conditions:
-              - entity: input_boolean.sunrise_automations_run
-                state: 'on'
-            row:
-              entity: input_button.trigger_sunrise_automations_run
-              name: Trigger Automations
-          - type: section
-            label: Noon Automations
-          - entity: input_boolean.noon_automations_run
-            name: Allow Automations
-          - type: conditional
-            conditions:
-              - entity: input_boolean.noon_automations_run
-                state: 'on'
-            row:
-              entity: input_button.trigger_noon_automations_run
-              name: Trigger Automations
-          - type: section
-            label: Sunset Automations
-          - entity: input_boolean.sunset_automations_run
-            name: Allow Automations
-          - type: conditional
-            conditions:
-              - entity: input_boolean.sunset_automations_run
-                state: 'on'
-            row:
-              entity: input_button.trigger_sunset_automations_run
-              name: Trigger Automations
-          - entity: sensor.sunset_automations_status
-            name: Sunset Automations
-          - entity: input_boolean.sunset_automations_active
-            name: Automations Currently Active
-          - type: section
-            label: Bedtime Automations
-          - entity: input_boolean.bedtime_automations_run
-            name: Allow Automations
-          - type: conditional
-            conditions:
-              - entity: input_boolean.bedtime_automations_run
-                state: 'on'
-            row:
-              entity: input_button.trigger_bedtime_automations_run
-              name: Trigger Automations
-          - type: section
-            label: Midnight Automations
-          - entity: input_boolean.midnight_automations_run
-            name: Allow Automations
-          - type: conditional
-            conditions:
-              - entity: input_boolean.midnight_automations_run
-                state: 'on'
-            row:
-              entity: input_button.trigger_midnight_automations_run
-              name: Trigger Automations
-      - type: entities
-        show_header_toggle: false
-        entities:
-          - type: section
-            label: Laundry Reminders
-          - entity: input_boolean.reminder_laundry_complete_washer
-            name: Washer Complete
-          - entity: input_boolean.reminder_laundry_complete_dryer
-            name: Dryer Complete
-          - type: section
-            label: Cameras
-          - entity: input_boolean.enable_exterior_camera_recording
-            name: Record House, Exterior
-          - entity: input_boolean.enable_interior_camera_recording
-            name: Record House, Interior
-          - type: section
-            label: Snoozed Notifications
           - entity: input_boolean.snooze_notify_household_activity
             name: Household Activities
           - entity: input_boolean.snooze_notify_garage_open
@@ -3134,6 +3865,74 @@ views:
             name: Waste, Bring In
           - entity: input_boolean.snooze_waste_reminder_take_out
             name: Waste, Take Out
+        title: Snoozed Notifications
+        show_header_toggle: false
+      - type: vertical-stack
+        cards:
+          - type: entities
+            title: Sunrise Automations
+            entities:
+              - entity: input_boolean.sunrise_automations_run
+                name: Enable
+              - type: conditional
+                conditions:
+                  - entity: input_boolean.sunrise_automations_run
+                    state: 'on'
+                row:
+                  entity: input_button.trigger_sunrise_automations_run
+                  name: Trigger
+          - type: entities
+            title: Noon Automations
+            entities:
+              - entity: input_boolean.noon_automations_run
+                name: Enable
+              - type: conditional
+                conditions:
+                  - entity: input_boolean.noon_automations_run
+                    state: 'on'
+                row:
+                  entity: input_button.trigger_noon_automations_run
+                  name: Trigger
+          - type: entities
+            title: Sunset Automations
+            entities:
+              - entity: input_boolean.sunset_automations_run
+                name: Enable
+              - type: conditional
+                conditions:
+                  - entity: input_boolean.sunset_automations_run
+                    state: 'on'
+                row:
+                  entity: input_button.trigger_sunset_automations_run
+                  name: Trigger
+              - entity: sensor.sunset_automations_status
+                name: Sunset Automations
+              - entity: input_boolean.sunset_automations_active
+                name: Active
+          - type: entities
+            title: Bedtime Automations
+            entities:
+              - entity: input_boolean.bedtime_automations_run
+                name: Enable
+              - type: conditional
+                conditions:
+                  - entity: input_boolean.bedtime_automations_run
+                    state: 'on'
+                row:
+                  entity: input_button.trigger_bedtime_automations_run
+                  name: Trigger
+          - type: entities
+            title: Midnight Automations
+            entities:
+              - entity: input_boolean.midnight_automations_run
+                name: Enable
+              - type: conditional
+                conditions:
+                  - entity: input_boolean.midnight_automations_run
+                    state: 'on'
+                row:
+                  entity: input_button.trigger_midnight_automations_run
+                  name: Trigger
   - title: Laundry
     path: subview-laundry
     back_path: /dashboard-home/home
@@ -3199,30 +3998,38 @@ views:
             entities:
               - type: section
                 label: Daily Reminders
-              - entity: input_boolean.reminder_medicine_am_complete_thomas
-                name: Medication Taken
+              - entity: input_boolean.reminder_medicine_morning_complete_thomas
+                name: Morning Medication Taken
+              - entity: input_boolean.reminder_medicine_afternoon_complete_thomas
+                name: Afternoon Medication Taken
+              - entity: input_boolean.reminder_medicine_evening_complete_thomas
+                name: Evening Medication Taken
           Thomas:
             type: entities
             entities:
               - type: section
                 label: Daily Reminders
-              - entity: input_boolean.reminder_medicine_am_complete_thomas
-                name: Medication Taken
+              - entity: input_boolean.reminder_medicine_morning_complete_thomas
+                name: Morning Medication Taken
+              - entity: input_boolean.reminder_medicine_afternoon_complete_thomas
+                name: Afternoon Medication Taken
+              - entity: input_boolean.reminder_medicine_evening_complete_thomas
+                name: Evening Medication Taken
       - type: entities
         show_header_toggle: false
-        card_mod: null
         class: header
-        style: |
-          .name { margin: 0 0 1em !important;}
+        card_mod:
+          style: |
+            .name { margin: 0 0 1em !important;}
 
-          #states > div:nth-child(3), 
-          #states > div:nth-child(4), 
-          #states > div:nth-child(5), 
-          #states > div:nth-child(8), 
-          #states > div:nth-child(9) { padding-left: 45px !important;}
+            #states > div:nth-child(3), 
+            #states > div:nth-child(4), 
+            #states > div:nth-child(5), 
+            #states > div:nth-child(8), 
+            #states > div:nth-child(9) { padding-left: 45px !important;}
 
-          #states > div:nth-child(6), 
-          #states > div:nth-child(7) { padding-left: 90px !important;}
+            #states > div:nth-child(6), 
+            #states > div:nth-child(7) { padding-left: 90px !important;}
         entities:
           - type: section
           - entity: input_boolean.app_notify_tom
@@ -3384,43 +4191,49 @@ views:
             entities:
               - type: section
                 label: Daily Reminders
-              - entity: input_boolean.reminder_medicine_am_complete_jessica
+              - entity: input_boolean.reminder_medicine_morning_complete_jessica
                 name: Morning Medication Taken
-              - entity: input_boolean.reminder_medicine_pm_complete_jessica
+              - entity: input_boolean.reminder_medicine_afternoon_complete_jessica
+                name: Afternoon Medication Taken
+              - entity: input_boolean.reminder_medicine_evening_complete_jessica
                 name: Evening Medication Taken
           Thomas:
             type: entities
             entities:
               - type: section
                 label: Daily Reminders
-              - entity: input_boolean.reminder_medicine_am_complete_jessica
+              - entity: input_boolean.reminder_medicine_morning_complete_jessica
                 name: Morning Medication Taken
-              - entity: input_boolean.reminder_medicine_pm_complete_jessica
+              - entity: input_boolean.reminder_medicine_afternoon_complete_jessica
+                name: Afternoon Medication Taken
+              - entity: input_boolean.reminder_medicine_evening_complete_jessica
                 name: Evening Medication Taken
           Jessica:
             type: entities
             entities:
               - type: section
                 label: Daily Reminders
-              - entity: input_boolean.reminder_medicine_am_complete_jessica
+              - entity: input_boolean.reminder_medicine_morning_complete_jessica
                 name: Morning Medication Taken
-              - entity: input_boolean.reminder_medicine_pm_complete_jessica
+              - entity: input_boolean.reminder_medicine_afternoon_complete_jessica
+                name: Afternoon Medication Taken
+              - entity: input_boolean.reminder_medicine_evening_complete_jessica
                 name: Evening Medication Taken
       - type: entities
         show_header_toggle: false
-        card_mod: null
         class: header
-        style: |
-          .name { margin: 0 0 1em !important;}
+        card_mod:
+          style: |
+            .name { margin: 0 0 1em !important;}
 
-          #states > div:nth-child(3), 
-          #states > div:nth-child(4), 
-          #states > div:nth-child(5), 
-          #states > div:nth-child(8), 
-          #states > div:nth-child(9) { padding-left: 45px !important;}
+            #states > div:nth-child(3), 
+            #states > div:nth-child(4), 
+            #states > div:nth-child(5), 
+            #states > div:nth-child(8), 
+            #states > div:nth-child(9) { padding-left: 45px !important;}
 
-          #states > div:nth-child(6), 
-          #states > div:nth-child(7) { padding-left: 90px !important;}
+            #states > div:nth-child(6), 
+            #states > div:nth-child(7) { padding-left: 90px !important;}
         entities:
           - type: section
           - entity: input_boolean.app_notify_jess
@@ -3565,6 +4378,18 @@ views:
               .leaflet-pane.leaflet-tile-pane {
                 filter: invert(0.95) grayscale(0.95) contrast(95%);
               }
+  - title: Gouda Details
+    path: details-gouda
+    type: custom:vertical-layout
+    subview: true
+    badges: []
+    cards:
+      - type: entities
+        entities:
+          - entity: input_boolean.status_dog_gouda
+            name: Is Home
+          - entity: input_boolean.reminder_medicine_complete_gouda
+            name: Medication Given
 button_card_templates:
   base:
     variables:
@@ -4357,10 +5182,10 @@ decluttering_templates:
       type: custom:mushroom-template-card
       primary: '[[name]]'
       secondary: >-
-        {% set ignore = [ 'none', 'unknown', 'unavilable' ] %} {% set
-        state_entity = states( '[[entity]]' ) | lower %} {% set state_battery =
-        states( '[[battery]]' ) %} {% if state_entity not in ignore and
-        state_battery not in ignore %}
+        {% set ignore = [ 'none', 'unknown', 'Unknown', 'unavailable',
+        'Unavailable' ] %} {% set state_entity = states( '[[entity]]' ) | lower
+        %} {% set state_battery = states( '[[battery]]' | lower ) %} {% if
+        state_entity not in ignore and state_battery not in ignore %}
           Battery: {{ state_battery }}%
         {% else %}
           {% if state_entity == 'on' %}
@@ -4382,12 +5207,10 @@ decluttering_templates:
         {% endif %}
       icon_color: >-
         {% set state_entity = states( '[[entity]]' ) | lower %} {% if
-        state_entity == 'on' %}
-          red
-        {% elif state_entity == 'off' %}
+        state_entity == 'off' %}
           disabled
         {% else %}
-          disabled
+          red
         {% endif %}
   light:
     card:
