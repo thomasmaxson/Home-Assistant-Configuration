@@ -447,68 +447,37 @@ views:
                 depth: 300
             cards:
               - type: grid
-                title: Other
+                title: Rooms
                 columns: 3
                 cards:
-                  - type: conditional
-                    conditions:
-                      - entity: light.bedroom_4_lights
-                        state_not: unavailable
-                      - entity: input_boolean.sync_bedroom_4_lights
-                        state: 'on'
-                    card:
-                      type: custom:button-card
-                      entity: light.bedroom_4_lights
-                      name: Tom's Office
-                      double_tap_action:
-                        action: navigate
-                        navigation_path: /dashboard-home/office-his
-                      hold_action:
-                        action: navigate
-                        navigation_path: /dashboard-home/office-his
-                      template:
-                        - light
-                  - type: conditional
-                    conditions:
-                      - entity: light.bedroom_4_desk_lamp
-                        state_not: unavailable
-                      - entity: input_boolean.sync_bedroom_4_lights
-                        state: 'off'
-                    card:
-                      type: custom:button-card
-                      entity: light.bedroom_4_desk_lamp
-                      name: Office Lamp
-                      template:
-                        - light
-                  - type: conditional
-                    conditions:
-                      - entity: light.bedroom_4_lightstrip
-                        state_not: unavailable
-                      - entity: input_boolean.sync_bedroom_4_lights
-                        state: 'off'
-                    card:
-                      type: custom:button-card
-                      entity: light.bedroom_4_lightstrip
-                      name: Office Lightstrip
-                      template:
-                        - light
+                  - type: custom:button-card
+                    entity: light.bedroom_4_lights
+                    name: Tom's Office
+                    double_tap_action:
+                      action: navigate
+                      navigation_path: /dashboard-home/office-his
+                    hold_action:
+                      action: navigate
+                      navigation_path: /dashboard-home/office-his
+                    template:
+                      - light
+                  - type: custom:button-card
+                    entity: light.bedroom_2_bedside_lamps
+                    name: Guest Bedroom
+                    template:
+                      - light
                   - type: custom:button-card
                     entity: light.laundry_ceiling_light
                     name: Laundry Room
                     template:
                       - light
               - type: grid
-                title: Other
+                title: Hallways
                 columns: 3
                 cards:
                   - type: custom:button-card
                     entity: light.laundry_hallway_light
                     name: Laundry Hallway
-                    template:
-                      - light
-                  - type: custom:button-card
-                    entity: light.bedroom_2_bedside_lamps
-                    name: Guest Bedside Lamps
                     template:
                       - light
                   - type: custom:button-card
@@ -546,6 +515,20 @@ views:
                     template:
                       - light
                   - type: custom:button-card
+                    entity: light.garage_exterior
+                    name: Exterior
+                    template:
+                      - light
+                  - type: custom:button-card
+                    entity: light.front_yard_accent_lights
+                    name: Front Yard
+                    template:
+                      - light
+              - type: grid
+                title: Other
+                columns: 3
+                cards:
+                  - type: custom:button-card
                     entity: switch.backyard_string_lights
                     name: Backyard
                     template:
@@ -553,15 +536,6 @@ views:
                     variables:
                       circle_value: 'ON'
                       circle_value_unit: ''
-                  - type: custom:button-card
-                    entity: light.front_yard_accent_lights
-                    name: Front Yard
-                    template:
-                      - light
-              - type: grid
-                title: Garage
-                columns: 3
-                cards:
                   - type: custom:button-card
                     entity: switch.garage_ceiling
                     name: Ceiling
@@ -578,11 +552,6 @@ views:
                     variables:
                       circle_value: 'ON'
                       circle_value_unit: ''
-                  - type: custom:button-card
-                    entity: light.garage_exterior
-                    name: Exterior
-                    template:
-                      - light
         view_layout:
           grid-area: content5
       - type: grid
@@ -1585,7 +1554,7 @@ views:
               --color_leak_sink_main_bathroom_hers: {% if( states( 'binary_sensor.leak_sink_main_bathroom_hers' ) == 'unavailable' ) %} var( --color_binary_sensor_state_unavail ) {% elif( states( 'binary_sensor.leak_sink_main_bathroom_hers' ) == 'on' ) %} var( --color_binary_sensor_state_on ) {% else %} var( --color_binary_sensor_state_off ) {% endif %};
               --color_leak_sink_main_bathroom_his: {% if( states( 'binary_sensor.leak_sink_main_bathroom_his' ) == 'unavailable' ) %} var( --color_binary_sensor_state_unavail ) {% elif( states( 'binary_sensor.leak_sink_main_bathroom_his' ) == 'on' ) %} var( --color_binary_sensor_state_on ) {% else %} var( --color_binary_sensor_state_off ) {% endif %};
               --color_leak_sink_kitchen: {% if( states( 'binary_sensor.leak_sink_kitchen' ) == 'unavailable' ) %} var( --color_binary_sensor_state_unavail ) {% elif( states( 'binary_sensor.leak_sink_kitchen' ) == 'on' ) %} var( --color_binary_sensor_state_on ) {% else %} var( --color_binary_sensor_state_off ) {% endif %};
-              --color_leak_toilet_guest_bathroom: {% if( states( 'binary_sensor.leak_toilet_guest_bathroom_guest_bathroom' ) == 'unavailable' ) %} var( --color_binary_sensor_state_unavail ) {% elif( states( 'binary_sensor.leak_toilet_guest_bathroom_guest_bathroom' ) == 'on' ) %} var( --color_binary_sensor_state_on ) {% else %} var( --color_binary_sensor_state_off ) {% endif %};
+              --color_leak_toilet_guest_bathroom: {% if( states( 'binary_sensor.leak_toilet_guest_bathroom' ) == 'unavailable' ) %} var( --color_binary_sensor_state_unavail ) {% elif( states( 'binary_sensor.leak_toilet_guest_bathroom' ) == 'on' ) %} var( --color_binary_sensor_state_on ) {% else %} var( --color_binary_sensor_state_off ) {% endif %};
               --color_leak_toilet_half_bathroom: {% if( states( 'binary_sensor.leak_toilet_half_bathroom' ) == 'unavailable' ) %} var( --color_binary_sensor_state_unavail ) {% elif( states( 'binary_sensor.leak_toilet_half_bathroom' ) == 'on' ) %} var( --color_binary_sensor_state_on ) {% else %} var( --color_binary_sensor_state_off ) {% endif %};
               --color_leak_toilet_main_bathroom: {% if( states( 'binary_sensor.leak_toilet_main_bathroom' ) == 'unavailable' ) %} var( --color_binary_sensor_state_unavail ) {% elif( states( 'binary_sensor.leak_toilet_main_bathroom' ) == 'on' ) %} var( --color_binary_sensor_state_on ) {% else %} var( --color_binary_sensor_state_off ) {% endif %};
               --color_leak_washing_machine_laundry: {% if( states( 'binary_sensor.leak_washing_machine_laundry' ) == 'unavailable' ) %} var( --color_binary_sensor_state_unavail ) {% elif( states( 'binary_sensor.leak_washing_machine_laundry' ) == 'on' ) %} var( --color_binary_sensor_state_on ) {% else %} var( --color_binary_sensor_state_off ) {% endif %};
@@ -1769,7 +1738,7 @@ views:
               --color_leak_sink_main_bathroom_hers: {% if( states( 'binary_sensor.leak_sink_main_bathroom_hers' ) == 'unavailable' ) %} var( --color_binary_sensor_state_unavail ) {% elif( states( 'binary_sensor.leak_sink_main_bathroom_hers' ) == 'on' ) %} var( --color_binary_sensor_state_on ) {% else %} var( --color_binary_sensor_state_off ) {% endif %};
               --color_leak_sink_main_bathroom_his: {% if( states( 'binary_sensor.leak_sink_main_bathroom_his' ) == 'unavailable' ) %} var( --color_binary_sensor_state_unavail ) {% elif( states( 'binary_sensor.leak_sink_main_bathroom_his' ) == 'on' ) %} var( --color_binary_sensor_state_on ) {% else %} var( --color_binary_sensor_state_off ) {% endif %};
               --color_leak_sink_kitchen: {% if( states( 'binary_sensor.leak_sink_kitchen' ) == 'unavailable' ) %} var( --color_binary_sensor_state_unavail ) {% elif( states( 'binary_sensor.leak_sink_kitchen' ) == 'on' ) %} var( --color_binary_sensor_state_on ) {% else %} var( --color_binary_sensor_state_off ) {% endif %};
-              --color_leak_toilet_guest_bathroom: {% if( states( 'binary_sensor.leak_toilet_guest_bathroom_guest_bathroom' ) == 'unavailable' ) %} var( --color_binary_sensor_state_unavail ) {% elif( states( 'binary_sensor.leak_toilet_guest_bathroom_guest_bathroom' ) == 'on' ) %} var( --color_binary_sensor_state_on ) {% else %} var( --color_binary_sensor_state_off ) {% endif %};
+              --color_leak_toilet_guest_bathroom: {% if( states( 'binary_sensor.leak_toilet_guest_bathroom' ) == 'unavailable' ) %} var( --color_binary_sensor_state_unavail ) {% elif( states( 'binary_sensor.leak_toilet_guest_bathroom' ) == 'on' ) %} var( --color_binary_sensor_state_on ) {% else %} var( --color_binary_sensor_state_off ) {% endif %};
               --color_leak_toilet_half_bathroom: {% if( states( 'binary_sensor.leak_toilet_half_bathroom' ) == 'unavailable' ) %} var( --color_binary_sensor_state_unavail ) {% elif( states( 'binary_sensor.leak_toilet_half_bathroom' ) == 'on' ) %} var( --color_binary_sensor_state_on ) {% else %} var( --color_binary_sensor_state_off ) {% endif %};
               --color_leak_toilet_main_bathroom: {% if( states( 'binary_sensor.leak_toilet_main_bathroom' ) == 'unavailable' ) %} var( --color_binary_sensor_state_unavail ) {% elif( states( 'binary_sensor.leak_toilet_main_bathroom' ) == 'on' ) %} var( --color_binary_sensor_state_on ) {% else %} var( --color_binary_sensor_state_off ) {% endif %};
               --color_leak_washing_machine_laundry: {% if( states( 'binary_sensor.leak_washing_machine_laundry' ) == 'unavailable' ) %} var( --color_binary_sensor_state_unavail ) {% elif( states( 'binary_sensor.leak_washing_machine_laundry' ) == 'on' ) %} var( --color_binary_sensor_state_on ) {% else %} var( --color_binary_sensor_state_off ) {% endif %};
@@ -2629,10 +2598,9 @@ views:
     path: office-his
     icon: ''
     layout:
-      max_cols: 2
+      max_cols: 3
     type: custom:horizontal-layout
     subview: true
-    badges: []
     cards:
       - type: entities
         title: Lights
@@ -2645,25 +2613,40 @@ views:
           - entity: light.bedroom_4_tie_fighter_lamp
             name: TIE Fighter Lamp
       - type: entities
+        entities:
+          - entity: input_button.blinds_bedroom_4_open
+            name: Open
+            secondary_info: none
+          - entity: input_button.blinds_bedroom_4_close_up
+            name: Close Up
+            secondary_info: none
+          - entity: input_button.blinds_bedroom_4_close_down
+            name: Close Down
+            secondary_info: none
+          - entity: cover.blinds_bedroom_4
+            name: Manual Controls
+            icon: mdi:cursor-pointer
+        title: Blinds
+      - type: entities
         title: Desk Controls
         show_header_toggle: false
         entities:
-          - entity: sensor.desk_office_tom_desk_height
+          - entity: sensor.desk_bedroom_4_desk_height
             name: Current Height
-          - entity: button.desk_office_tom_preset_1
+          - entity: button.desk_bedroom_4_preset_1
             name: Lowest Height (30 in)
-          - entity: button.desk_office_tom_preset_2
+          - entity: button.desk_bedroom_4_preset_2
             name: Sitting Height (34.5 in)
-          - entity: button.desk_office_tom_preset_3
+          - entity: button.desk_bedroom_4_preset_3
             name: Standing Height (45.5 in)
-          - entity: button.desk_office_tom_preset_4
+          - entity: button.desk_bedroom_4_preset_4
             name: Full Height (49 in)
       - type: entities
         title: Other
         show_header_toggle: false
         entities:
-          - entity: cover.blinds_bedroom_4
-            name: Blinds
+          - entity: binary_sensor.door_bedroom_4
+            name: Door
           - entity: light.bedroom_4_media_plug
             name: Media Plug
   - title: Overview
@@ -2925,6 +2908,11 @@ views:
             variables:
               - entity: light.bedroom_4_tie_fighter_lamp
               - name: TIE Fighter Lamp
+          - type: custom:mushroom-cover-card
+            entity: cover.blinds_bedroom_4
+            name: Window
+            show_buttons_control: true
+            show_position_control: true
           - type: section
             label: Guest Bedroom
           - type: custom:decluttering-card
@@ -3410,45 +3398,54 @@ views:
     cards:
       - type: thermostat
         entity: climate.ecobee
-      - type: entities
-        show_header_toggle: false
-        entities:
-          - type: custom:decluttering-card
-            template: temperature
-            variables:
-              - entity: sensor.foyer_temperature
-              - name: Foyer
-          - type: custom:decluttering-card
-            template: temperature
-            variables:
-              - entity: sensor.living_room_temperature
-              - name: Living Room
-          - type: custom:decluttering-card
-            template: temperature
-            variables:
-              - entity: sensor.bedroom_1_temperature
-              - name: Main Bedroom
-          - type: custom:decluttering-card
-            template: temperature
-            variables:
-              - entity: sensor.bedroom_2_temperature
-              - name: Guest Bedroom
-          - type: custom:decluttering-card
-            template: temperature
-            variables:
-              - entity: sensor.bedroom_3_temperature
-              - name: Her Office
-          - type: custom:decluttering-card
-            template: temperature
-            variables:
-              - entity: sensor.bedroom_4_temperature
-              - name: His Office
-          - type: custom:decluttering-card
-            template: temperature
-            variables:
-              - entity: sensor.motion_laundry_temperature
-              - name: Laundry Room
-        title: Rooms
+      - type: vertical-stack
+        cards:
+          - type: entities
+            title: Exterior
+            entities:
+              - type: custom:decluttering-card
+                template: temperature
+                variables:
+                  - entity: sensor.pirateweather_temperature
+                  - name: Outside
+          - type: entities
+            title: Rooms
+            entities:
+              - type: custom:decluttering-card
+                template: temperature
+                variables:
+                  - entity: sensor.foyer_temperature
+                  - name: Foyer
+              - type: custom:decluttering-card
+                template: temperature
+                variables:
+                  - entity: sensor.living_room_temperature
+                  - name: Living Room
+              - type: custom:decluttering-card
+                template: temperature
+                variables:
+                  - entity: sensor.bedroom_1_temperature
+                  - name: Main Bedroom
+              - type: custom:decluttering-card
+                template: temperature
+                variables:
+                  - entity: sensor.bedroom_2_temperature
+                  - name: Guest Bedroom
+              - type: custom:decluttering-card
+                template: temperature
+                variables:
+                  - entity: sensor.bedroom_3_temperature
+                  - name: Her Office
+              - type: custom:decluttering-card
+                template: temperature
+                variables:
+                  - entity: sensor.bedroom_4_temperature
+                  - name: His Office
+              - type: custom:decluttering-card
+                template: temperature
+                variables:
+                  - entity: sensor.motion_laundry_temperature
+                  - name: Laundry Room
       - type: vertical-stack
         cards:
           - type: entities
