@@ -44,26 +44,24 @@ template:
           weather: |
             {%- if is_state( 'input_boolean.sidebar_display_weather_forecast', 'on' ) %}
               {%- set ignore = [ 'null', 'unknown', 'unavailable' ] -%}
-              {%- set temperature = states( 'sensor.openweathermap_temperature' ) %}
-              {%- set forecast = states( 'sensor.openweathermap_forecast_condition' ) %}
+              {%- set temperature = states( 'sensor.pirateweather_temperature' ) %}
 
               {%- if temperature not in ignore %}
                 It is currently {{ temperature | round }}°
 
-                {%- if is_state( 'sensor.openweathermap_forecast_condition', 'rainy' ) %}
-                  {%- set precip = states( 'sensor.openweathermap_forecast_precipitation_probability' ) | round %}
+                {%- if is_state( 'weather.pirateweather', 'rainy' ) %}
                   {{ [
                     'with expected rain', 
                     'with expected showers'
                   ] | random }}
 
-                {%- elif is_state( 'sensor.openweathermap_forecast_condition', 'cloudy' ) %}
+                {%- elif is_state( 'weather.pirateweather', 'cloudy' ) %}
                   {{ [
                     'with clouds', 
                     'with cloudy skies'
                   ] | random }}
 
-                {%- elif is_state( 'sensor.openweathermap_forecast_condition', 'partlycloudy' ) %}
+                {%- elif is_state( 'weather.pirateweather', 'partlycloudy' ) %}
                   {{ [
                     'with some clouds', 
                     'with partly cloudy skies',
