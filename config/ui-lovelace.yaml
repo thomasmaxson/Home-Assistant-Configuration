@@ -533,16 +533,14 @@ views:
                     name: Exterior
                     template:
                       - light
-                  - type: conditional
-                    conditions:
-                      - entity: light.front_yard_accent_lights
-                        state_not: unavailable
-                    card:
-                      type: custom:button-card
-                      entity: light.front_yard_accent_lights
-                      name: Front Yard
-                      template:
-                        - light
+                  - type: custom:button-card
+                    entity: light.front_yard_accent_lights
+                    name: Front Yard
+                    template:
+                      - light
+                    variables:
+                      circle_value: 'ON'
+                      circle_value_unit: ''
               - type: grid
                 title: Other
                 columns: 3
@@ -991,7 +989,7 @@ views:
               action: toggle
             style:
               top: 79%
-              left: 15%
+              left: 16.5%
               border-radius: 100%
               '--paper-item-icon-color': var( --tihiti-pei-color-light-bar-ceiling )
           - type: state-icon
@@ -1001,7 +999,7 @@ views:
               action: toggle
             style:
               top: 79%
-              left: 22%
+              left: 20.5%
               border-radius: 100%
               '--paper-item-icon-color': var( --tihiti-pei-color-fan-bar-ceiling )
           - type: state-icon
@@ -1278,11 +1276,11 @@ views:
 
               {% set the_entity = 'light.kitchen_cabinet_upper_coffee_bar' %}
               {% set the_color = states.light.kitchen_cabinet_upper_coffee_bar.attributes.rgb_color %}
-              --tihiti-light-kitchen-upper-coffee: {% if( states( the_entity ) == 'unavailable' ) %} var( --state-light--unavailable ) {% elif( states( the_entity ) == 'on' ) %} rgb( {{ the_color[0] }}, {{ the_color[1] }}, {{ the_color[2] }} ) {% else %} var( --state-light--default ) {% endif %};
+              --tihiti-pei-color-light-kitchen-upper-coffee: {% if( states( the_entity ) == 'unavailable' ) %} var( --state-light--unavailable ) {% elif( states( the_entity ) == 'on' ) %} rgb( {{ the_color[0] }}, {{ the_color[1] }}, {{ the_color[2] }} ) {% else %} var( --state-light--default ) {% endif %};
 
               {% set the_entity = 'light.kitchen_cabinet_upper_range' %}
               {% set the_color = states.light.kitchen_cabinet_upper_range.attributes.rgb_color %}
-              --tihiti-light-kitchen-upper-range: {% if( states( the_entity ) == 'unavailable' ) %} var( --state-light--unavailable ) {% elif( states( the_entity ) == 'on' ) %} rgb( {{ the_color[0] }}, {{ the_color[1] }}, {{ the_color[2] }} ) {% else %} var( --state-light--default ) {% endif %};
+              --tihiti-pei-color-light-kitchen-upper-range: {% if( states( the_entity ) == 'unavailable' ) %} var( --state-light--unavailable ) {% elif( states( the_entity ) == 'on' ) %} rgb( {{ the_color[0] }}, {{ the_color[1] }}, {{ the_color[2] }} ) {% else %} var( --state-light--default ) {% endif %};
 
               {% set the_entity = 'light.bar_ceiling_light' %}
               --tihiti-pei-color-light-bar-ceiling: {% if( states( the_entity ) == 'unavailable' ) %} var( --state-light--unavailable ) {% elif( states( the_entity ) == 'on' ) %} var( --state-light--active ) {% else %} var( --state-light--default ) {% endif %};
@@ -1382,10 +1380,10 @@ views:
             tap_action:
               action: toggle
             style:
-              top: 77%
+              top: 72.5%
               left: 39.75%
               border-radius: 100%
-              '--paper-item-icon-color': var( --tihiti-pei-color-lock-door-front )
+              '--paper-item-icon-color': var( --tihiti-pei-color-lock-front-door )
           - type: state-icon
             entity: light.bedroom_1_bedside_lamps
             state_color: false
@@ -1582,8 +1580,8 @@ views:
             tap_action:
               action: toggle
             style:
-              top: 82%
-              left: 39.5%
+              top: 78%
+              left: 39.75%
               border-radius: 100%
               '--paper-item-icon-color': var( --tihiti-pei-color-light-foyer-exterior-entryway )
           - type: state-icon
