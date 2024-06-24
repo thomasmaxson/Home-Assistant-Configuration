@@ -23,3 +23,26 @@
       folder: /config/www/snapshots/
       time: 604800
   mode: single
+- id: '1718905474959'
+  alias: Reload Bluetooth Integration
+  description: Reload Bluetooth integration when devices become unavailable.
+  trigger:
+  - platform: state
+    entity_id:
+    - cover.blinds_bedroom_4
+    - cover.bedroom_1_large_window_left
+    - cover.bedroom_1_large_window_right
+    to: unavailable
+    for:
+      hours: 0
+      minutes: 5
+      seconds: 0
+  condition: []
+  action:
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 30
+      milliseconds: 0
+  - service: bluetooth.reload
+  mode: single
