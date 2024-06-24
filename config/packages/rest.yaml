@@ -1,28 +1,56 @@
 ################################################################################
 #
 # @author      : Thomas Maxson
-# @package     : Sensors
+# @package     : Rest Commands
 # @description :
 #
 ################################################################################
 
+rest_command:
+  kiosk_command:
+    url: !secret rest_url_kiosk_command
+
 sensor:
-  - platform: systemmonitor
-    resources:
-      - type: last_boot
-      - type: ipv4_address
-        arg: eth0
-      - type: ipv6_address
-        arg: eth0
-      - type: processor_use
-      - type: processor_temperature
-      - type: memory_free
-      - type: memory_use_percent
-      - type: disk_use_percent
-        arg: /
-      - type: disk_use
-      - type: disk_free
-      - type: throughput_network_in
-        arg: eth0
-      - type: throughput_network_out
-        arg: eth0
+  # https://www.egglec.com.au/post/fully-kiosk-browser-and-home-assistant
+  - platform: rest
+    name: Kitchen Tablet
+    resource: !secret rest_url_kiosk_device_info
+    json_attributes:
+      - ip4
+      - batteryLevel
+      - isPlugged
+      - plugged
+      - kioskMode
+      - screenBrightness
+      - motionDetectorState
+      - maintenanceMode
+      - appFreeMemory
+      - appUsedMemory
+      - totalFreeMemory
+      - totalUsedMemory
+      - mac
+      - startUrl
+      - currentPage
+      - screenOrientation
+      - screenBrightness
+      - screenLocked
+      - screenOn
+      - batteryTemperature
+    value_template: "{{ value_json.screenOn }}"
+    scan_interval: 10
+
+  - platform: rest
+    name: Kitchen Tablet Settings
+    json_attributes:
+      - timeToScreenOffV2
+      - screenBrightness
+      - microphoneAccess
+      - motionSensitivity
+      - motionDection
+      - motionDetectionAcoustic
+      - motionSensitivityAcoustic
+      - screenOffInDarkness
+      - darknessLevel
+    resource: !secret rest_url_kiosk_device_settings
+    value_template: "{{ value_json.startURL }}"
+    scan_interval: 10
