@@ -99,44 +99,6 @@ sensor:
             mdi:washing-machine-off
           {%- endif -%}
 
-      custom_door_closet_hallway_j:
-        friendly_name: "Jess' Closet Door"
-        value_template: >-
-          {%- if is_state( 'binary_sensor.door_closet_hallway_hers', 'on' ) -%}
-            Open
-          {%- elif is_state( 'binary_sensor.door_closet_hallway_hers', 'off' ) -%}
-            Closed
-          {%- else -%}
-            Unknown
-          {%- endif -%}
-        icon_template: >-
-          {%- if is_state( 'binary_sensor.door_closet_hallway_hers', 'on' ) -%}
-          mdi:door-sliding-open
-          {%- elif is_state( 'binary_sensor.door_closet_hallway_hers', 'off' ) -%}
-          mdi:door-sliding
-          {%- else -%}
-          mdi:cloud-question
-          {%- endif -%}
-
-      custom_door_closet_hallway_t:
-        friendly_name: "Tom's Closet Door"
-        value_template: >-
-          {%- if is_state( 'binary_sensor.door_closet_hallway_his', 'on' ) -%}
-            Open
-          {%- elif is_state( 'binary_sensor.door_closet_hallway_his', 'off' ) -%}
-            Closed
-          {%- else -%}
-            Unknown
-          {%- endif -%}
-        icon_template: >-
-          {%- if is_state( 'binary_sensor.door_closet_hallway_his', 'on' ) -%}
-          mdi:door-sliding-open
-          {%- elif is_state( 'binary_sensor.door_closet_hallway_his', 'off' ) -%}
-          mdi:door-sliding
-          {%- else -%}
-          mdi:cloud-question
-          {%- endif -%}
-
       custom_fire_tablet_battery:
         #device_class: battery
         friendly_name: Battery Level
@@ -504,7 +466,7 @@ template:
     sensor:
       - name: "Sunset Automations Status"
         state: >-
-          {%- set offset = ( 45 * 60 ) %}
+          {%- set offset = ( 30 * 60 ) %}
           {%- set next_sunset     = as_timestamp( states.sun.sun.attributes.next_setting ) %}
           {%- set modified_sunset = ( next_sunset - offset ) | int %}
           {%- set ts_next_sunset  = modified_sunset | timestamp_custom( '%H%M%S' ) | int %}
@@ -518,7 +480,7 @@ template:
             Run at {{ modified_sunset | timestamp_custom( '%I:%M %p' ) }}
           {%- endif %}
         icon: >-
-          {%- set offset = ( 45 * 60 ) %}
+          {%- set offset = ( 30 * 60 ) %}
           {%- set next_sunset     = as_timestamp( states.sun.sun.attributes.next_setting ) %}
           {%- set modified_sunset = ( next_sunset - offset ) | int %}
           {%- set ts_next_sunset  = modified_sunset | timestamp_custom( '%H%M%S' ) | int %}
