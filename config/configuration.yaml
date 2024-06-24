@@ -40,8 +40,6 @@ default_config:
 lovelace:
   mode: yaml
   resources:
-    - url: /hacsfiles/browser_mod.js
-      type: module
     - url: /hacsfiles/bar-card/bar-card.js
       type: module
     - url: /hacsfiles/button-card/button-card.js
@@ -49,6 +47,8 @@ lovelace:
     - url: /hacsfiles/decluttering-card/decluttering-card.js
       type: module
     - url: /hacsfiles/lovelace-layout-card/layout-card.js
+      type: module
+    - url: /hacsfiles/lovelace-more-info-card/more-info-card.js
       type: module
     - url: /hacsfiles/lovelace-mushroom/mushroom.js
       type: module
@@ -65,19 +65,6 @@ automation: !include automations.yaml
 scene: !include scenes.yaml
 script: !include scripts.yaml
 frontend: !include themes.yaml
-
-#
-# Third-Party Add Ons
-# --------------------------------------------------
-#
-# CUSTOM: Watchman
-# ----------------------------------------
-
-watchman:
-  ignored_files:
-    - ".storage/*"
-    - "custom_components/*"
-    - "blueprints/*"
 
 #
 # CUSTOM: Delete integration
