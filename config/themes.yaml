@@ -97,6 +97,61 @@ themes:
     tihiti-footer-card-padding-h: 1.25vw
     tihiti-footer-card-border-radius: 10px
 
+    state-theme--default: "#03a9f4" # Blue
+    state-theme--muted: "#727272" # Gray
+    state-theme--success: "#4caf50" # Green
+    state-theme--danger: "#FF0000" # Red
+    state-theme--warning: "#FF9900" # Orange/Yellow
+    state-theme--unavail: var(--state-theme--muted) # Dark Gray
+
+    state-cover--default: var(--state-theme--muted)
+    state-cover--active: var(--state-theme--success)
+    state-cover--unavail: var(--state-theme--unavail)
+
+    state-door--default: var(--state-theme--muted)
+    state-door--active: var(--state-theme--danger)
+    state-door--unavail: var(--state-theme--unavail)
+
+    state-fan--default: var(--state-theme--muted)
+    state-fan--active: var(--state-theme--success)
+    state-fan--unavail: var(--state-theme--unavail)
+
+    state-leak--active: var(--state-theme--danger)
+    state-leak--default: var(--state-theme--default)
+    state-leak--unavail: var(--state-theme--unavail)
+
+    state-light--active: var(--state-theme--warning)
+    state-light--default: var(--state-theme--muted)
+    state-light--unavail: var(--state-theme--unavail)
+
+    state-lock--default: var(--state-theme--muted)
+    state-lock--active: var(--state-theme--danger)
+    state-lock--unavail: var(--state-theme--unavail)
+
+    state-media--default: var(--state-theme--muted)
+    state-media--active: var(--state-theme--success)
+    state-media--unavail: var(--state-theme--unavail)
+
+    state-presence--default: var(--state-theme--muted)
+    state-presence--active: var(--state-theme--success)
+    state-presence--unavail: var(--state-theme--unavail)
+
+    state-valve--active: var(--state-leak--primary)
+    state-valve--default: var(--state-leak--muted)
+    state-valve--unavail: var(--state-leak--unavail)
+
+    state-battery-level--0: "#FF0000"
+    state-battery-level--10: "#FF3200"
+    state-battery-level--20: "#FF6600"
+    state-battery-level--30: "#FF9900"
+    state-battery-level--40: "#FFCC01"
+    state-battery-level--50: "#FFFF00"
+    state-battery-level--60: "#CBFF00"
+    state-battery-level--70: "#99FE01"
+    state-battery-level--80: "#64FF00"
+    state-battery-level--90: "#33FE00"
+    state-battery-level--100: "#01FF00"
+
     ####################################################
     #                                                  #
     #                     CARD-MOD                     #
