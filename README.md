@@ -3,6 +3,14 @@
   <br>Home Assistant Configuration
 </h1>
 
+---
+
+## ⚠️ **Important Notice**
+
+As of July 2024, this repository is **no longer maintained**. Be sure the checkout v2 of them CasaMaxson **[Home Assistant dashboard](https://github.com/thomasmaxson/Home-Assistant-Configuration-v2)**.
+
+---
+
 This repo contains the constantly-in-progress [Home Assistant](https://home-assistant.io/) configuration for **Casa Maxson**. Below are links to various devices currently being used, and other HA enthusists that provided inspiration and configs to help build this config. All of the code is free for you to borrow, manipulate and tinker with.
 
 Make sure that you :star: this repo, so that you can get updates right in your notification feed.
